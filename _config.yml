@@ -1,5 +1,6 @@
 # in _config.yml
 title: "Introduction to Data Science for Engineers"
+author: John M. Shea
 #logo: images/logo.png
 execute:
   execute_notebooks: "off"
