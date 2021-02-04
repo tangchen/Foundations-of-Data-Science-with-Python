@@ -1,0 +1,997 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Statistical Test, Simulation, and Visualization &#8212; Introduction to Data Science for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Data Science for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01/intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01/intro-jupyter-and-python.html">
+   Extremely Brief Intro to Jupyter and Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01/intro-jupyter-and-python.html#how-to-get-started-with-juypter-and-python">
+   How to get started with Juypter and Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01/jupyter-start.html">
+   Getting Started in Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01/jupyter-start.html#learn-the-basics-of-jupyterlab">
+   Learn the basics of JupyterLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01/jupyter-start.html#more-on-cells">
+   More on cells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01/jupyter-start.html#intro-to-markdown-in-jupyter">
+   Intro to Markdown in Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01/python-start.html">
+   Getting Started in Python
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02/first-stats-sims.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02/first-stats-sims.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivating-problem-is-this-coin-fair">
+   Motivating Problem: Is This Coin Fair?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-computer-simulations">
+     First Computer Simulations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-visualizations-scatter-plots-and-histograms">
+   First Visualizations: Scatter Plots and Histograms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-of-basic-simulation-to-estimate-a-probability">
+     Summary of Basic Simulation to Estimate a Probability
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-aside-accelerating-simulations-using-numpy">
+   An Aside: Accelerating Simulations using NumPy
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="first-statistical-test-simulation-and-visualization">
+<h1>First Statistical Test, Simulation, and Visualization<a class="headerlink" href="#first-statistical-test-simulation-and-visualization" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivating-problem-is-this-coin-fair">
+<span id="random-experiments-motivating-problem"></span><h2>Motivating Problem: Is This Coin Fair?<a class="headerlink" href="#motivating-problem-is-this-coin-fair" title="Permalink to this headline">¶</a></h2>
+<p>You find an odd coin. You assume it is equally likely to come up heads and tails – we say the coin is <em>fair</em>. You would like to conduct a stastical test to determine if it is fair. So, you flip the coin 20 times and count how many times it comes up heads. Since heads and tails are equally likely, you should expect to get somewhere around 10 heads.</p>
+<p><em>If you only observe 6 heads on the 20 flips, should you reject the idea that the coin is fair?</em></p>
+<p><em>What if you only observe 4 heads?</em></p>
+<p>To answer this question, we first need to understand some basics of what a probability is.</p>
+<p>The following is a very general definition that should match most people’s intuition for the meaning:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>probability</dt><dd><p class="card-text">a number between 0 and 1 that we assign to an event that is proportional to how likely that event is to occur</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If a probability of something occuring is very close to 0, then that thing is very unlikely to occur. If the probability is very close to 1, then that thing is very likely to occur.</p>
+<p>To determine whether the coin could be fair, we can try to find the probability that a fair coin would produce a result that is as extreme (or more extreme) then what we observed. In other words, if we observe 6 heads, we can determine the probability that a fair coin would produce 6 or fewer heads. If the probability is small, then we can reject the possibility that the coin is fair. How we define “small” is up to the experimenter and anyone who reviews their result. For our work, let’s say that we will reject the possibility that the coin is fair if the probability that we would see 6 or fewer heads on 20 flips of a fair coin is less than 0.01 (i.e., 1%).</p>
+<p>So, now we just need some way to calculate the required probability for 20 flips of a fair coin. There are two common ways to do this:</p>
+<ol class="simple">
+<li><p>Analyze the probability mathematically.</p></li>
+<li><p>Estimate the probability experimentally.</p></li>
+</ol>
+<p>We are not ready to explain the mathematical analysis yet, so we will estimate the probability experimentally. So get ready to start flipping coins!</p>
+<p>Not really – to estimate the probability we are interested in will require flipping a coin 20 times, recording the outcome, and then repeating those steps thousands of times!</p>
+<p>Rather than actually flip the coin, we will <strong>simulate</strong> flipping the coin.</p>
+<div class="section" id="first-computer-simulations">
+<h3>First Computer Simulations<a class="headerlink" href="#first-computer-simulations" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>computer simulation</strong> is a computer program that models reality and allows us to conduct experiments that:</p>
+<ul class="simple">
+<li><p>would require a lot of time to carry out in real life</p></li>
+<li><p>would require a lot of resources to carry out in real life</p></li>
+<li><p>would not be possible to repeat in real life (for instance, simulation of the next day’s weather or stock market performance)</p></li>
+</ul>
+<p>We will simulate the fair coin experiment using Python. We can simulate a fair coin by random choosing a result from a list that represent heads and tails, where each element in the list is equally likely to be chosen. Let’s use the string ‘H’ to denote heads and the string ‘T’ to denote tails:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To randomly choose one of the faces, we will utilize the <em>random</em> module, which is one of the standard modules included with Python. We will import it in the usual way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To choose one face at random, we can use the <code class="docutils literal notranslate"><span class="pre">choice</span></code> function. Note that if you are running this instruction, the result shown may be different than what is shown below because it is random <strong>Add footnote about pseudorandom</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;T&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s simulate the scenario described in <a class="reference internal" href="#random-experiments-motivating-problem"><span class="std std-ref">Motivating Problem: Is This Coin Fair?</span></a>. We could repeatedly choose random faces using a loop, but the <code class="docutils literal notranslate"><span class="pre">random</span></code> module offers a more efficient way to choose all 20 faces at the same time, using the <code class="docutils literal notranslate"><span class="pre">choices</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;T&#39;, &#39;T&#39;, &#39;T&#39;, &#39;H&#39;, &#39;T&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;T&#39;, &#39;T&#39;, &#39;T&#39;, &#39;H&#39;, &#39;H&#39;, &#39;T&#39;, &#39;T&#39;, &#39;T&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>To count the number of ‘H’ results in the list, we can use the <code class="docutils literal notranslate"><span class="pre">count</span></code> method of the list object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every time a new set of coin faces is generated, the result will be different. To estimate the probability, we will have to run this statement many times, but running this repeatedly is a pain. Fortunately, the computer can automatically run it for us. In the simulation below, I start introducing some <em>best practices</em>:</p>
+<ul class="simple">
+<li><p>The number of times to simulate the experiment is defined at the very top of the simulation as <code class="docutils literal notranslate"><span class="pre">num_sim</span></code></p></li>
+<li><p>Any parameters of the experiment are defined near the top of the simulation. In this simulation, we only need to define the number of times to flip the coin, <code class="docutils literal notranslate"><span class="pre">flips</span></code></p></li>
+</ul>
+<p><em>In the code below, I use the <code class="docutils literal notranslate"><span class="pre">end</span></code> keyword parameter of the <code class="docutils literal notranslate"><span class="pre">print</span></code> function to cause each print statement to output a space at the end instead of a new line. This is only done to make the output more concise.</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>              <span class="c1"># The simulation loop</span>
+    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span> <span class="c1"># Simulate all coin flips for one experiment</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13 9 7 9 9 9 5 13 11 11 10 12 13 14 10 9 12 8 11 9 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="first-visualizations-scatter-plots-and-histograms">
+<h2>First Visualizations: Scatter Plots and Histograms<a class="headerlink" href="#first-visualizations-scatter-plots-and-histograms" title="Permalink to this headline">¶</a></h2>
+<p>Before we try to answer the question about whether the coin is fair, we take a minute to consider how we visualize the experimental results generated in the simulation. The most straight-forward plot to create from a sequence of numerical data is a <em>scatter plot</em>. A (two-dimensional) scatter plot takes two sequences <span class="math notranslate nohighlight">\(\mathbf{x}= (x_0, x_1, \ldots)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}=(y_0, y_1, \ldots)\)</span> and plots the points <span class="math notranslate nohighlight">\((x_0, y_0), (x_1, y_1), \ldots\)</span> in two dimensions. For our purposes, we will plot the observed data versus the experiment number.</p>
+<p>Our first step in creating a scatter plot is to store all the data generated during the simulation. A list is a good container for this purpose:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
+
+<span class="n">results</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>              <span class="c1"># The simulation loop</span>
+    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span> <span class="c1"># Simulate all coin flips for one experiment</span>
+    <span class="n">results</span><span class="o">+=</span><span class="p">[</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)]</span>          <span class="c1"># Add the number of &#39;H&#39;s in this experiment to our results list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are many different libraries for generating plots in Python. The most common and popular is <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, which is based on MATLAB’s plotting commands. We usually import the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to the <code class="docutils literal notranslate"><span class="pre">plt</span></code> namespace:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You may also want to use a Jupyter magic to make sure plots show up inline with your code and writing in your Jupyter notebook. We will typically use <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code>, but an alternative is <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">notebook</span></code>, which will make plots interactive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">),</span> <span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f99d94e7690&gt;
+</pre></div>
+</div>
+<img alt="../_images/first-stats-sims_27_1.png" src="../_images/first-stats-sims_27_1.png" />
+</div>
+</div>
+<p>It is helpful to label the axes and provide a title for future reference:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">),</span> <span class="n">results</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Experiment Number&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Heads Observed&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Experimental Numbers of Heads Observed when a Coin is Flipped 20 Times&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Experimental Numbers of Heads Observed when a Coin is Flipped 20 Times&#39;)
+</pre></div>
+</div>
+<img alt="../_images/first-stats-sims_29_1.png" src="../_images/first-stats-sims_29_1.png" />
+</div>
+</div>
+<p>It should be clear that most of the results are around 8-12.  It might be easier to visualize this if we plot the number of experiments in which value for the number of heads is observed. We can understand how to create this from a physical perspective: Imagine if we took the graph above and rotated it <span class="math notranslate nohighlight">\(90^\circ\)</span> to the left and that the circular markers were turned into balls that were allowed to drop down until they fell onto the axis or another ball. Let’s build exactly this type of visualization one ball at a time:</p>
+<p>Now let’s focus on finding how often 6 or fewer heads occurs. Let’s print information about those extreme results. To do this, we will use and <code class="docutils literal notranslate"><span class="pre">if</span></code> statement inside our simulation loop to check if the number of heads observed is less than or equal to 6 and call a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement if that condition is satisfied.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
+
+<span class="n">threshold</span><span class="o">=</span><span class="mi">6</span> <span class="c1"># best practice is to put any thresholds outside the simulation loop</span>
+
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+    <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num_heads</span><span class="o">&lt;=</span><span class="n">threshold</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span><span class="s1">&#39;: &#39;</span><span class="p">,</span><span class="n">num_heads</span><span class="p">,</span><span class="s1">&#39;Heads&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33 :  6 Heads
+44 :  6 Heads
+51 :  5 Heads
+59 :  5 Heads
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are going to be using variations on this basic function with different parameters later. Whenever you anticipate doing this, it is a good idea to turn the code block into a function. This is very easy in Jupyter:</p>
+<ol class="simple">
+<li><p>Copy the last version of the simulation and paste it into a new code cell</p></li>
+<li><p>Selecting the entire code block in the new Input cell, using the mouse or Command-A (Mac) or Control-A (Windows/Linux)</p></li>
+<li><p>Indent the selected block by pressing Command-] (Mac) or Control-] (Windows/Linux)</p></li>
+<li><p>Click at the very left edge of the first line of the cell and type <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">coinsim_print():</span></code> and press Enter</p></li>
+<li><p>Now finish populating the function by cutting the parameters from the code block and pasting them into the function signature as parameters with default values. Put the parameters in the order shown</p></li>
+<li><p>Finally, add a docstring that explains what the function does</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coinsim_print</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">flips</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Simulate multiple experiments, where each experiment involves flipping a coin</span>
+<span class="sd">    a specified number of times and printing the results of the experiment if the</span>
+<span class="sd">    number of heads observed is &lt;= a threshold</span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">    threshold: will print if the number of heads observed is &lt;= this value</span>
+<span class="sd">    num_sims: the total number of experiments to simulate</span>
+<span class="sd">    flips: the number of coin flips in one experiment</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+        <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_heads</span><span class="o">&lt;=</span><span class="n">threshold</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span><span class="s1">&#39;: &#39;</span><span class="p">,</span><span class="n">num_heads</span><span class="p">,</span><span class="s1">&#39;Heads&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coinsim_print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 :  6 Heads
+20 :  6 Heads
+36 :  6 Heads
+37 :  4 Heads
+39 :  6 Heads
+49 :  6 Heads
+70 :  3 Heads
+73 :  5 Heads
+</pre></div>
+</div>
+</div>
+</div>
+<p>We really don’t care about the particular experiment on which those extreme results occur. Instead, our goal is to estimate the probability of seeing a result that satisfies our threshold condition, and this probabilty can be estimated using the relative frequency of those results:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>relative frequency</dt><dd><p class="card-text">the proportion of times that we observe a result matching our criteria during repeated experiments (including simulation); i.e., the number of times that an event occurs divided by the number of times the experiment is conducted.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Let’s create a new function that calculates the relative frequency of getting 6 or fewer heads on 20 flips of a fair coin. The primary changes are to:</p>
+<ol class="simple">
+<li><p>Add an “event counter” to count how many times we see an experimental result that matches our criterion</p></li>
+<li><p>Instead of printing information about the experiments that meet the criterion, increment the event counter</p></li>
+<li><p>After the simulation loop is completed, calculate and print the relative frequency</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that we give the new function a different name. It is possible to reuse the same function name, but this will produce ambiguities in Jupyter. When you call the function, the function definition that is used is the last one to be run. You can go back and rerun cells in Jupyter, which can then result in you not knowing which version of a function you are running.</p>
+<p><strong>Best practice:</strong> Do not reuse function names unless you are completely deleting the previous function definition.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span>
+<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
+
+<span class="n">threshold</span><span class="o">=</span><span class="mi">6</span>
+
+<span class="n">event_count</span><span class="o">=</span><span class="mi">0</span>    <span class="c1"># count how many experiments satisfy the given criteria</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+    <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num_heads</span><span class="o">&lt;=</span><span class="n">threshold</span><span class="p">:</span>
+        <span class="n">event_count</span><span class="o">+=</span><span class="mi">1</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relative frequency of&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span><span class="s2">&quot;or fewer heads is&quot;</span><span class="p">,</span><span class="n">event_count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.057715
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coinsim</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">flips</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Simulate multiple experiments, where each experiment involves flipping a coin</span>
+<span class="sd">    a specified number of times and printing the results of the experiment if the</span>
+<span class="sd">    number of heads observed is &lt;= a threshold</span>
+<span class="sd">    </span>
+<span class="sd">    Inputs:</span>
+<span class="sd">    threshold: will print if the number of heads observed is &lt;= this value</span>
+<span class="sd">    num_sims: the total number of experiments to simulate</span>
+<span class="sd">    flips: the number of coin flips in one experiment</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">event_count</span><span class="o">=</span><span class="mi">0</span>    <span class="c1"># count how many experiments satisfy the given criteria</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+        <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_heads</span><span class="o">&lt;=</span><span class="n">threshold</span><span class="p">:</span>
+            <span class="n">event_count</span><span class="o">+=</span><span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relative frequency of&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span><span class="s2">&quot;or fewer heads is&quot;</span><span class="p">,</span><span class="n">event_count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>       
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coinsim</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.061
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the relative frequency can change when the simulation is rerun. How much it changes depends on the experiment, the criterion that defines the result we are looking for, and the number of experiments simulated. To provide an accurate estimate of the probability, the number of experiments simulated should be sufficiently large that the relative frequency does not change significantly when the simulation is re-run. (For this experiment with a threshold of 6 heads, one million simulation experiments is sufficient.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coinsim</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.058028
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>So could the 6 heads be reasonable with a fair coin?</strong></p>
+<p>With 1,000,000 experiments in the simulation, the relative frequency is approximately 0.058. That means that with a fair coin, we will see 6 or fewer heads about 6% of the time. Since we previously decided to use a criteria that the probabilty must be less than 0.01, we cannot reject the possibility that the coin is fair.</p>
+<p><strong>If we got 4 heads, could that be reasonable with a fair coin?</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coinsim</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 4 or fewer heads is 0.005843
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this case, the estimate of the probability is about <span class="math notranslate nohighlight">\(6 \times 10^{-3}\)</span>, which falls below the 0.01 threshold we selected. So, we would reject the possibility that the coin is fair.</p>
+<p>We would believe that the coin is biased towards heads but at this point have no estimate of the size of that bias.</p>
+<div class="section" id="summary-of-basic-simulation-to-estimate-a-probability">
+<h3>Summary of Basic Simulation to Estimate a Probability<a class="headerlink" href="#summary-of-basic-simulation-to-estimate-a-probability" title="Permalink to this headline">¶</a></h3>
+<p>Let’s use <span class="math notranslate nohighlight">\(R\)</span> to denote some result for which we are trying to estimate the probability via computer simulation. Then the basic simulation structure is as follows:</p>
+<ol class="simple">
+<li><p>Initialize two counters to zero:</p>
+<ul class="simple">
+<li><p>an event counter, <span class="math notranslate nohighlight">\(N_R=0\)</span>, and</p></li>
+<li><p>a loop counter, <span class="math notranslate nohighlight">\(i=0\)</span>; in Python, the loop counter can be implicitly initialized and tracked using a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">...</span> <span class="pre">in</span> <span class="pre">range()</span></code> statement</p></li>
+</ul>
+</li>
+<li><p>simulate the outcome of the experiment</p></li>
+<li><p>if <span class="math notranslate nohighlight">\(R\)</span> occurred, increment the event counter: <span class="math notranslate nohighlight">\(N_R=N_R+1\)</span></p></li>
+<li><p>increment the loop counter: <span class="math notranslate nohighlight">\(i=i+1\)</span></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(i\)</span> matches the target number of iterations, then calculate and print the relative frequency; otherwise go to step 2.</p></li>
+</ol>
+<p><strong>We will be using variations on this basic computer simulation structure throughout this course!</strong></p>
+</div>
+</div>
+<div class="section" id="an-aside-accelerating-simulations-using-numpy">
+<h2>An Aside: Accelerating Simulations using NumPy<a class="headerlink" href="#an-aside-accelerating-simulations-using-numpy" title="Permalink to this headline">¶</a></h2>
+<p>The simulation above is a perfectly valid way to roll a die and tabulate the counts of each outcome. However, we are going to demonstrate that it is also relatively slow, in the sense that the same simulation can be implemented much faster. We begin by determining the execution time of the current simulation (excluding the counting and printing).</p>
+<p>To do this, let’s make the actualy die roll simulation into a function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diesim1</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+    <span class="n">rolls</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">die</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+        <span class="n">rolls</span><span class="o">+=</span><span class="p">[</span><span class="n">die</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> diesim1()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.07 s ± 41.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>When I wrote this, my computer took an average of about 1.05 to 1.1 seconds to roll the dice one million times. This is certainly fast enough for the simple cases like this, but as we build more complex simulations, the time to get accurate results will greatly increase.</p>
+<p>A general rule of thumb is that <code class="docutils literal notranslate"><span class="pre">for</span></code> loops make simulations slower. It is much better to call a function that can return all the simulated values at once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dieroll2</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+    <span class="n">rolls</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">num_sims</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> dieroll2()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>241 ms ± 5.33 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>By eliminating the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we have reduced the execution time to 1/4 of what it was previously. Another source of inefficiency for this simulation is <code class="docutils literal notranslate"><span class="pre">random.choices()</span></code>. Because <code class="docutils literal notranslate"><span class="pre">random.choices()</span></code> must be able to handle general lists of items, it will not be as fast as if we choose a method that is tuned for providing a list of integers.</p>
+<p>NumPy is the Numerical Python library, and it provides a broad range of functions for working with numbers. The <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> module contains those functions that generate different types of random numbers. Because we use numpy.random a lot, we will use npr for the namespace of its functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dieroll3</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+    <span class="n">rolls</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_sims</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> dieroll3()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.5 ms ± 148 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The new version runs over 20 times faster than the previous and is around 100 times faster than the original version of the simulation.</p>
+<p>NumPy also provides efficient ways to do the counting of the results, as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dieroll4</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
+    <span class="n">rolls</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_sims</span><span class="p">)</span>
+    <span class="n">vals</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">rolls</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dieroll4</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 : 166559
+2 : 166615
+3 : 166778
+4 : 166637
+5 : 167129
+6 : 166282
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s try that for our experiment where we flip a coin 20 times:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1000000</span>
+<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">counts</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+    <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+    <span class="n">counts</span><span class="o">+=</span><span class="p">[</span><span class="n">num_heads</span><span class="p">]</span>
+    
+<span class="n">vals</span><span class="p">,</span><span class="n">counts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span><span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 2e-06
+1 1.7e-05
+2 0.000167
+3 0.001085
+4 0.004523
+5 0.014491
+6 0.037441
+7 0.073512
+8 0.120138
+9 0.160694
+10 0.176116
+11 0.160717
+12 0.120483
+13 0.07331
+14 0.036751
+15 0.014698
+16 0.004595
+17 0.001062
+18 0.000178
+19 1.9e-05
+20 1e-06
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is an example of <strong>binary hypothesis testing</strong>. In this case, we set up two hypothesis:</p>
+<p><span class="math notranslate nohighlight">\(H_0\)</span>: (the <em>null hypothesis</em>) is that the observed effect is just caused by randomness in the sampling. It is not real in the underlying system or data. For this exampe, our null hypothesis is that the coin is actually fair</p>
+<p><span class="math notranslate nohighlight">\(H_1\)</span>: (the <em>alternative hypothesis</em>) is that the observed effect is not just caused by random sampling. In this example, the coin is biased toward Tails.</p>
+<p>In classical statistics/hypothesis testing, we say that an effect is statistically significant if the probability of observing an effect of that size under the null hypothesis is smaller than some small value <span class="math notranslate nohighlight">\(p\)</span>. Typical values of <span class="math notranslate nohighlight">\(p\)</span> are 0.05 or 0.01, but many argue for even smaller values now. <strong>The threshold to determine statistical significance must always be determined before the experiment is conducted – otherwise, there is too much temptation to adjust the threshold based on the observed <span class="math notranslate nohighlight">\(p\)</span>-value.</strong></p>
+<p>In classical hypothesis testing, we do <em>not</em> test the alternative hypothesis directly, nor can we utilize side information that we may already have about the two hypotheses</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>np.unique
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
+np<span class=" -Color -Color-Blue">.</span>unique<span class=" -Color -Color-Blue">(</span>
+    ar<span class=" -Color -Color-Blue">,</span>
+    return_index<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    return_inverse<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    return_counts<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    axis<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Find the unique elements of an array.
+
+Returns the sorted unique elements of an array. There are three optional
+outputs in addition to the unique elements:
+
+* the indices of the input array that give the unique values
+* the indices of the unique array that reconstruct the input array
+* the number of times each unique value comes up in the input array
+
+Parameters
+----------
+ar : array_like
+    Input array. Unless `axis` is specified, this will be flattened if it
+    is not already 1-D.
+return_index : bool, optional
+    If True, also return the indices of `ar` (along the specified axis,
+    if provided, or in the flattened array) that result in the unique array.
+return_inverse : bool, optional
+    If True, also return the indices of the unique array (for the specified
+    axis, if provided) that can be used to reconstruct `ar`.
+return_counts : bool, optional
+    If True, also return the number of times each unique item appears
+    in `ar`.
+
+    .. versionadded:: 1.9.0
+
+axis : int or None, optional
+    The axis to operate on. If None, `ar` will be flattened. If an integer,
+    the subarrays indexed by the given axis will be flattened and treated
+    as the elements of a 1-D array with the dimension of the given axis,
+    see the notes for more details.  Object arrays or structured arrays
+    that contain objects are not supported if the `axis` kwarg is used. The
+    default is None.
+
+    .. versionadded:: 1.13.0
+
+Returns
+-------
+unique : ndarray
+    The sorted unique values.
+unique_indices : ndarray, optional
+    The indices of the first occurrences of the unique values in the
+    original array. Only provided if `return_index` is True.
+unique_inverse : ndarray, optional
+    The indices to reconstruct the original array from the
+    unique array. Only provided if `return_inverse` is True.
+unique_counts : ndarray, optional
+    The number of times each of the unique values comes up in the
+    original array. Only provided if `return_counts` is True.
+
+    .. versionadded:: 1.9.0
+
+See Also
+--------
+numpy.lib.arraysetops : Module with a number of other functions for
+                        performing set operations on arrays.
+
+Notes
+-----
+When an axis is specified the subarrays indexed by the axis are sorted.
+This is done by making the specified axis the first dimension of the array
+(move the axis to the first dimension to keep the order of the other axes)
+and then flattening the subarrays in C order. The flattened subarrays are
+then viewed as a structured type with each element given a label, with the
+effect that we end up with a 1-D array of structured types that can be
+treated in the same way as any other 1-D array. The result is that the
+flattened subarrays are sorted in lexicographic order starting with the
+first element.
+
+Examples
+--------
+&gt;&gt;&gt; np.unique([1, 1, 2, 2, 3, 3])
+array([1, 2, 3])
+&gt;&gt;&gt; a = np.array([[1, 1], [2, 3]])
+&gt;&gt;&gt; np.unique(a)
+array([1, 2, 3])
+
+Return the unique rows of a 2D array
+
+&gt;&gt;&gt; a = np.array([[1, 0, 0], [1, 0, 0], [2, 3, 4]])
+&gt;&gt;&gt; np.unique(a, axis=0)
+array([[1, 0, 0], [2, 3, 4]])
+
+Return the indices of the original array that give the unique values:
+
+&gt;&gt;&gt; a = np.array([&#39;a&#39;, &#39;b&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;])
+&gt;&gt;&gt; u, indices = np.unique(a, return_index=True)
+&gt;&gt;&gt; u
+array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=&#39;&lt;U1&#39;)
+&gt;&gt;&gt; indices
+array([0, 1, 3])
+&gt;&gt;&gt; a[indices]
+array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=&#39;&lt;U1&#39;)
+
+Reconstruct the input array from the unique values:
+
+&gt;&gt;&gt; a = np.array([1, 2, 6, 4, 2, 3, 2])
+&gt;&gt;&gt; u, indices = np.unique(a, return_inverse=True)
+&gt;&gt;&gt; u
+array([1, 2, 3, 4, 6])
+&gt;&gt;&gt; indices
+array([0, 1, 4, 3, 1, 2, 1])
+&gt;&gt;&gt; u[indices]
+array([1, 2, 6, 4, 2, 3, 2])
+<span class=" -Color -Color-Red">File:</span>      /Applications/anaconda3/lib/python3.7/site-packages/numpy/lib/arraysetops.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By John M. Shea<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
