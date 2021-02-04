@@ -1,0 +1,8 @@
+# in _config.yml
+title: "Introduction to Data Science for Engineers"
+#logo: images/logo.png
+execute:
+  execute_notebooks: "off"
+parse:
+  myst_extended_syntax: true
+

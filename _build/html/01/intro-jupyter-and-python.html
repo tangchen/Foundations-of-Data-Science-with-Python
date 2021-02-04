@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extremely Brief Intro to Jupyter and Python &#8212; Introduction to Data Science for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting Started in Jupyter" href="jupyter-start.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Data Science for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Extremely Brief Intro to Jupyter and Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#how-to-get-started-with-juypter-and-python">
+   How to get started with Juypter and Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter-start.html">
+   Getting Started in Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter-start.html#learn-the-basics-of-jupyterlab">
+   Learn the basics of JupyterLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter-start.html#more-on-cells">
+   More on cells
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jupyter-start.html#intro-to-markdown-in-jupyter">
+   Intro to Markdown in Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-start.html">
+   Getting Started in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02/fair-experiments1.html">
+   Random Experiments, Simulation, and Binary Hypothesis Testing
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01/intro-jupyter-and-python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01/intro-jupyter-and-python.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Extremely Brief Intro to Jupyter and Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-jupyter-notebooks">
+     Why Jupyter notebooks?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-python">
+     Why Python?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-get-started-with-juypter-and-python">
+   How to get started with Juypter and Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-organized">
+     Getting organized
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="extremely-brief-intro-to-jupyter-and-python">
+<h1>Extremely Brief Intro to Jupyter and Python<a class="headerlink" href="#extremely-brief-intro-to-jupyter-and-python" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this section is to briefly introduce users to Jupyter and Python. The content here should be treated as an introduction to explore further and is not meant to be comprehensive. There is a broad variety of tutorials on the web for both of these topics, and links are provided for users that need additional instruction.</p>
+<p>If you are already familiar with Jupyter and/or Python 3, feel free to skip ahead.</p>
+<div class="section" id="why-jupyter-notebooks">
+<h2>Why Jupyter notebooks?<a class="headerlink" href="#why-jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
+<img alt="Project Jupyter logo" src="../_images/jupyter-logo.svg" /><p>According to the <a class="reference external" href="https://jupyter.org">Project Jupyter web page (https://jupyter.org)</a>, “The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.”</p>
+<p>The reason that Jupyter notebook was chosen for this book:</p>
+<ul class="simple">
+<li><p>Jupyter notebooks can integrate text, mathematics, code, and visualization in a single document, which is very helpful when conveying information about data. In fact, this book was written in a series of Juypter notebooks.</p></li>
+<li><p>Jupyter notebooks allow for an <em>evolutionary approach</em> to code development. Programs can start as small blocks of code that then can be modified and evolved to create more complex functions.</p></li>
+<li><p><strong>Think of more reasons</strong></p></li>
+</ul>
+</div>
+<div class="section" id="why-python">
+<h2>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this headline">¶</a></h2>
+<p>Python is a general purpose programming language that was originally created by Guido van Rossum. Python was chosen for this book for many reasons:</p>
+<ul class="simple">
+<li><p><strong>Python is very easy to learn.</strong> Python has simple syntax that is very similar to C, which many engineers will be familiar with. It is also easy to transition to Python from MATLAB scripting, which most electrical engineers will know.</p></li>
+<li><p><strong>Python is an interpreted language,</strong> which means that programmers can run the code directly without having to go through extra steps of compiling their programs.</p></li>
+<li><p><strong>Python interpreters are freely available and easy to install.</strong> In addition, Python and Jupyter are available on all major operating systems, including Windows, MacOS, and Linux.</p></li>
+<li><p><strong>Python is popular for data science and machine learning.</strong> Python is widely used for data science and machine learning in both industry and universities.</p></li>
+<li><p><strong>Python has rich libraries for data science.</strong> Python has many powerful libraries for data science and machine learning. In addition, Python has powerful libraries for a broad array of tasks that making learning Python have additional benefits for other uses.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-to-get-started-with-juypter-and-python">
+<h1>How to get started with Juypter and Python<a class="headerlink" href="#how-to-get-started-with-juypter-and-python" title="Permalink to this headline">¶</a></h1>
+<p>Python and Jupyter are often packaged together in a <em>software distribution</em>, and the creators of several distributions include additional Python software libraries, such as for scientific computing. This book assumes the use of the Anaconda distribution, which its creators bill as “The World’s Most Popular Data Science Platform” <strong>Add footnote with reference to web page here</strong>. Anaconda’s <em>Individual Edition</em> is freely available for download from the Anaconda web site:</p>
+<p><a class="reference external" href="https://www.anaconda.com/products/individual"><img alt="Anaconda Logo" src="../_images/anaconda.png" /></a></p>
+<p><a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda Individual Edition (https://www.anaconda.com/products/individual)</a></p>
+<p>Choose the proper download based on your computer’s operating system. You may also have to select a version of Python. This book is based on <strong>Python 3</strong>, which means that any version of Python that starts with the number 3 should work with the code included in this book. For instance, as of January 2021, the Anaconda distribution included Python version 3.8.</p>
+<p><strong>MAKE THIS A WARNING</strong>
+Python version 2 or Python versions after 3 may have syntax changes that cause the programs in this book to not run without modification.</p>
+<p>After downloading, install Python in the usual way (for instance, by double-clicking on the downloaded file). Anaconda will install Python and many useful modules for data science, as well as Jupyter notebook and JupyterLab.</p>
+<p><strong>Add Insert explaining Jupyter notebook vs JupyterLab</strong></p>
+<p><strong>Special notation for a notice</strong>
+Note that the term “Jupyter notebook” can refer both to a file format (with <em>.ipynb</em> extension) and to an application with a web interface to work with those files. To help avoid confusion, I will write <em>Jupyter notebook file</em> whenever referring to such a file, and we will use JuypterLab as the web application for opening and working with such files. As of January 2001, JupyterLab is the “is the next-generation web-based user interface for Project Jupyter.” (ref https://jupyterlab.readthedocs.io/en/stable/). Jupyter notebook has a very similar interface, and most users will be able to use either one interchangeably.</p>
+<div class="section" id="getting-organized">
+<h2>Getting organized<a class="headerlink" href="#getting-organized" title="Permalink to this headline">¶</a></h2>
+<p>We are almost ready to start using Jupyter and Python. Before you begin to do that, I recommend to take a minute to think about how you will organize your files. To learn data science requires actually working with data and performing analyses. This will result in you generating a lot of Jupyter notebook files, as well as a lot of data files. I suggest that you create a folder for this data-science book (or for the course, if you are using this as a course textbook). This folder should be easily accessible from your home directory because that is the location where JupyterLab will open by default. You may wish to add additional structure underneath that folder. If you create a separate folder for data, I would suggest to make it a subfolder of the one containing your notebooks to make it easiest to access that data.</p>
+<p><strong>Note</strong> that your user directory will be referred to by a tilde (~). Thus one possible organization of your files is shown below:</p>
+<p><strong>Turn this into a prettier image</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;\mbox{~} \\
+&amp; |\\
+&amp;\longrightarrow &amp;&amp; \mbox{data-science} \\
+&amp;&amp;&amp; | \\
+&amp;&amp;&amp; \longrightarrow  &amp;&amp;\mbox{notebooks} \\
+&amp;&amp;&amp;&amp;&amp; | \\
+&amp;&amp;&amp;&amp;&amp; \longrightarrow  &amp;&amp;\mbox{data} \\
+\end{align*}\]</div>
+<p>Within the <em>notebooks</em> directory, you may wish to add subfolders, for instance by chapter, topic, or lecture.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Introduction</a>
+    <a class='right-next' id="next-link" href="jupyter-start.html" title="next page">Getting Started in Jupyter</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
