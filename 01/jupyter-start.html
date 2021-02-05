@@ -88,7 +88,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Introduction
+   Chapter 1: Introduction
   </a>
  </li>
 </ul>
@@ -114,18 +114,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#more-on-cells">
-   More on cells
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#intro-to-markdown-in-jupyter">
-   Intro to Markdown in Jupyter
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="python-start.html">
    Getting Started in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-start.html#jms-working-here">
+   JMS WORKING HERE
   </a>
  </li>
  <li class="toctree-l1">
@@ -240,24 +235,17 @@
      JupyterLab interface modes
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#more-on-cells">
-   More on cells
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#evaluating-cells">
-     Evaluating cells
+    <a class="reference internal nav-link" href="#more-on-cells">
+     More on cells
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intro-to-markdown-in-jupyter">
+     Intro to Markdown in Jupyter
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intro-to-markdown-in-jupyter">
-   Intro to Markdown in Jupyter
-  </a>
  </li>
 </ul>
 
@@ -340,11 +328,8 @@
 <li><p>If editing a cell that is <em>not</em> the last cell in the notebook, press Shift-Enter to <em>evaluate</em> the current cell and return to <strong>Command Mode</strong>. (If you are in the last cell of the notebook, Shift-Enter will evaluate the current cell, create a new cell below it, and will remain in <strong>EDIT MODE</strong> in the newly created cell.</p></li>
 </ul>
 </div>
-</div>
 <div class="section" id="more-on-cells">
-<h1>More on cells<a class="headerlink" href="#more-on-cells" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="evaluating-cells">
-<h2>Evaluating cells<a class="headerlink" href="#evaluating-cells" title="Permalink to this headline">¶</a></h2>
+<h2>More on cells<a class="headerlink" href="#more-on-cells" title="Permalink to this headline">¶</a></h2>
 <p>In <strong>EDIT MODE</strong>, code or Markdown can be typed into a cell. Remember that each cell has a <em>cell type</em> associated with it. The cell type does not limit what can be entered into a cell.  The cell type <strong>determines how a cell is evaluated</strong>.  When a cell is evaluated, the contents are parsed by either a Markdown render (for a Markdown cell) or the Python kernel (for a Code cell). Cells may be evaluated in many different ways. Here are a few of the typical ways that we will use:</p>
 <ul class="simple">
 <li><p>Most commonly, we will evaluate the current cell by pressing <code class="docutils literal notranslate"><span class="pre">shift-Enter</span></code> on the keyboard. This will always evaluate the current cell. If this is the last cell in the notebook, it will also insert a new cell below the current cell, so that it is easy to continue building the notebook.</p></li>
@@ -366,9 +351,8 @@
 <li><p>If you are not in command mode, you can still use a keyboard shortcut, but you will need to press <code class="docutils literal notranslate"><span class="pre">ctrl-m</span></code> first, and then press either <code class="docutils literal notranslate"><span class="pre">m</span></code> for <em>Markdown</em> or <code class="docutils literal notranslate"><span class="pre">y</span></code> for <em>Code</em>.</p></li>
 </ul>
 </div>
-</div>
 <div class="section" id="intro-to-markdown-in-jupyter">
-<h1>Intro to Markdown in Jupyter<a class="headerlink" href="#intro-to-markdown-in-jupyter" title="Permalink to this headline">¶</a></h1>
+<h2>Intro to Markdown in Jupyter<a class="headerlink" href="#intro-to-markdown-in-jupyter" title="Permalink to this headline">¶</a></h2>
 <p>You will use Jupyter to create documents that inform the reader about data. Although we will use code to process the data and generate graphs, that is usually not enough to tell the story to the reader. Markdown is used to add text, heading, mathematics, and other graphics.</p>
 <p>The example notebook <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> demonstrates the main features of Markdown that we will need in this book. Recall that you can double click on any cell in the notebook to see the Markdown source. Below is a d the title “Intro to Jupyter and Python” cell to see the Markdown tex. This cell illustrates several features of Markdown:</p>
 <p><strong>1. Headings</strong></p>
@@ -451,6 +435,7 @@ $<span class="math notranslate nohighlight">\(
 <p>Markdown has many other features that we will not cover, such as horizontal rules, block quotes, syntax highlighting, and tables.
 A good reference for Markdown syntax is
 <a class="reference external" href="https://www.markdownguide.org/extended-syntax/">Markdown Guide(https://www.markdownguide.org/extended-syntax/)</a></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

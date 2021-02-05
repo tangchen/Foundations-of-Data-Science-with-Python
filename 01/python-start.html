@@ -88,7 +88,7 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Introduction
+   Chapter 1: Introduction
   </a>
  </li>
 </ul>
@@ -113,19 +113,14 @@
    Learn the basics of JupyterLab
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="jupyter-start.html#more-on-cells">
-   More on cells
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="jupyter-start.html#intro-to-markdown-in-jupyter">
-   Intro to Markdown in Jupyter
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Getting Started in Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#jms-working-here">
+   JMS WORKING HERE
   </a>
  </li>
  <li class="toctree-l1">
@@ -220,64 +215,83 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hello-world">
-   Hello World!
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comments">
-   Comments
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-variables-and-types">
-   Python Variables and Types
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Getting Started in Python
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basic-data-types">
-     Basic Data Types
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hello-world">
+     Hello World!
     </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comments">
+     Comments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-variables-and-types">
+     Python Variables and Types
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#basic-data-types">
+       Basic Data Types
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indentation-in-python">
+     Indentation in Python
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loops-in-python">
+     Loops in Python
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#functions">
+       Functions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#getting-help-and-completion">
+       Getting Help and Completion
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-modules-and-namespaces">
+       Python Modules and Namespaces
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#indentation-in-python">
-   Indentation in Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loops-in-python">
-   Loops in Python
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jms-working-here">
+   JMS WORKING HERE
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions">
-     Functions
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numpy-arrays">
+     NumPy Arrays
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#getting-help-and-completion">
-     Getting Help and Completion
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python-modules-and-namespaces">
-     Python Modules and Namespaces
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#writing-big-numbers-in-python">
      Writing Big Numbers in Python
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary-and-other-resources">
      Summary and Other Resources
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
+   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyter-magics">
      Jupyter Magics
     </a>
@@ -1503,14 +1517,40 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">35</span><span class="n">c34a2abbae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;factorial&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="jms-working-here">
+<h1>JMS WORKING HERE<a class="headerlink" href="#jms-working-here" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="numpy-arrays">
+<h2>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<p>NumPy provides an <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> container for holding one-dimensional or multi-dimensional collections of numbers. Most engineers will have some familiarity with vectors or matrices, and one-dimensional arrays are equivalent to vectors, while two-dimensional arrays are equivalent to matrices. The majority of our work on arrays and their mathematics (linear algebra) will be deferred to <strong>CHAPTER ON LINEAR ALGEBRA</strong>. However, arrays are very helpful for doing basic data manipulation and storing numerical values for simulations, so we review some basics here.</p>
+<p>A one-dimensional numpy array can be created by</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="writing-big-numbers-in-python">
-<h3>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h3>
+<h2>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h2>
 <p>We will be building simulations in Python that require looping thousands or millions of times. Thus, we will often be writing a <code class="docutils literal notranslate"><span class="pre">range</span></code> that has an argument with many zeros. The <code class="docutils literal notranslate"><span class="pre">range</span></code> function will not take a <code class="docutils literal notranslate"><span class="pre">float</span></code> value, and numbers written in scientific notation (like <code class="docutils literal notranslate"><span class="pre">1e6</span></code>) will be treated as floats. This results in using integers that are very hard to read, like 10000000. We can’t use commas in the numbers because that would create a tuple:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1539,7 +1579,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="summary-and-other-resources">
-<h3>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h3>
+<h2>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h2>
 <p>Do not worry too much about absorbing all these details about Python now. This book contains many examples to get you started, and you can refer back to this section for reference. Some additional features of the Python programming language will be introduced as needed.</p>
 <p>For users who want to learn more about Python, the following resources are recommended:</p>
 <ul class="simple">
@@ -1549,7 +1589,7 @@ array([  6,  24, 120])
 </ul>
 </div>
 <div class="section" id="jupyter-magics">
-<h3>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h3>
+<h2>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h2>
 <p>Code cells can also contain special instructions intended for JupyterLab itself, rather than the
 Python kernel. These are called <em>magics</em>. For instance, to output your current directory, you can use the
 <code class="docutils literal notranslate"><span class="pre">%pwd</span></code> magic</p>
@@ -1580,7 +1620,6 @@ Python kernel. These are called <em>magics</em>. For instance, to output your cu
 </div>
 <p>Changing directories is often useful to switch to a directory where data is stored.</p>
 <p>You can get a list of magics and other information about Jupyter using the <code class="docutils literal notranslate"><span class="pre">%quickref</span></code> magic.</p>
-</div>
 </div>
 </div>
 
