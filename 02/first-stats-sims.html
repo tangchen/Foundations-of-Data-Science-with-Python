@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>First Statistical Test, Simulation, and Visualization &#8212; Introduction to Data Science for Engineers</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -248,11 +248,6 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#an-aside-accelerating-simulations-using-numpy">
-   An Aside: Accelerating Simulations using NumPy
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -281,10 +276,8 @@
 <p class="card-text">DEFINTION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>probability</dt><dd><p class="card-text">a number between 0 and 1 that we assign to an event that is proportional to how likely that event is to occur</p>
-</dd>
-</dl>
+<p class="card-text">probability
+: a number between 0 and 1 that we assign to an event that is proportional to how likely that event is to occur</p>
 </div>
 </div>
 </div>
@@ -337,7 +330,7 @@
 </div>
 </div>
 </div>
-<p>Now let’s simulate the scenario described in <a class="reference internal" href="#random-experiments-motivating-problem"><span class="std std-ref">Motivating Problem: Is This Coin Fair?</span></a>. We could repeatedly choose random faces using a loop, but the <code class="docutils literal notranslate"><span class="pre">random</span></code> module offers a more efficient way to choose all 20 faces at the same time, using the <code class="docutils literal notranslate"><span class="pre">choices</span></code> function:</p>
+<p>Now let’s simulate the scenario described in <a class="reference external" href="random-experiments:motivating-problem"></a>. We could repeatedly choose random faces using a loop, but the <code class="docutils literal notranslate"><span class="pre">random</span></code> module offers a more efficient way to choose all 20 faces at the same time, using the <code class="docutils literal notranslate"><span class="pre">choices</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -346,7 +339,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;T&#39;, &#39;T&#39;, &#39;T&#39;, &#39;H&#39;, &#39;T&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;T&#39;, &#39;T&#39;, &#39;T&#39;, &#39;H&#39;, &#39;H&#39;, &#39;T&#39;, &#39;T&#39;, &#39;T&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;H&#39;, &#39;T&#39;, &#39;T&#39;, &#39;H&#39;, &#39;T&#39;, &#39;T&#39;, &#39;T&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;T&#39;, &#39;T&#39;, &#39;T&#39;, &#39;T&#39;, &#39;H&#39;, &#39;H&#39;, &#39;H&#39;, &#39;T&#39;]
 </pre></div>
 </div>
 </div>
@@ -381,7 +374,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13 9 7 9 9 9 5 13 11 11 10 12 13 14 10 9 12 8 11 9 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 9 7 6 11 6 12 10 8 9 8 7 10 10 6 14 8 8 11 13 
 </pre></div>
 </div>
 </div>
@@ -399,10 +392,8 @@
 <p class="card-text">DEFINTION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>scatter plot</dt><dd><p class="card-text">A (two-dimensional) scatter plot takes two sequences <span class="math notranslate nohighlight">\(\mathbf{x}= (x_0, x_1, \ldots)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}=(y_0, y_1, \ldots)\)</span> and plots the points <span class="math notranslate nohighlight">\((x_0, y_0), (x_1, y_1), \ldots\)</span> in two dimensions.</p>
-</dd>
-</dl>
+<p class="card-text">scatter plot
+: A (two-dimensional) scatter plot takes two sequences <span class="math notranslate nohighlight">\(\mathbf{x}= (x_0, x_1, \ldots)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}=(y_0, y_1, \ldots)\)</span> and plots the points <span class="math notranslate nohighlight">\((x_0, y_0), (x_1, y_1), \ldots\)</span> in two dimensions.</p>
 </div>
 </div>
 </div>
@@ -446,7 +437,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f99d94e7690&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbdffc2dc10&gt;
 </pre></div>
 </div>
 <img alt="../_images/first-stats-sims_27_1.png" src="../_images/first-stats-sims_27_1.png" />
@@ -483,10 +474,8 @@
 <p class="card-text">DEFINTION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>histogram</dt><dd><p class="card-text">a type of bar graph in which the heights of the bars is proportional to the number of occurrences of the outcomes spanned by the width of the bars</p>
-</dd>
-</dl>
+<p class="card-text">histogram
+: a type of bar graph in which the heights of the bars is proportional to the number of occurrences of the outcomes spanned by the width of the bars</p>
 </div>
 </div>
 </div>
@@ -606,15 +595,14 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>relative frequency</dt><dd><p class="card-text">the proportion of times that we observe a result matching our criteria during repeated experiments (including simulation); i.e., the number of times that an event occurs divided by the number of times the experiment is conducted.</p>
-</dd>
-</dl>
+<p class="card-text">relative frequency
+:  the proportion of times that we observe a result matching our criteria during repeated experiments (including simulation); i.e., the number of times that an event occurs divided by the number of times the experiment is conducted.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
+<p>For many experiments, the relative frequencies (results measured from experimentation) will converge to the true probabilities (mathematical descriptions fundamental to the experiments) when the number of experiments is large. (At this point in the book, we have any formal framework for calculating probabilities, but we will refine these statements in later chapters.</p>
 <p>Let’s consider two different approaches to getting the relative frequencies. The first is via <code class="docutils literal notranslate"><span class="pre">plt.hist</span></code>. <strong>IF</strong> the bin widths are equal to 1, then the relative frequencies can be found by setting the keyword parameter <code class="docutils literal notranslate"><span class="pre">density=True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -630,7 +618,7 @@
  &lt;BarContainer object of 13 artists&gt;)
 </pre></div>
 </div>
-<img alt="../_images/first-stats-sims_47_1.png" src="../_images/first-stats-sims_47_1.png" />
+<img alt="../_images/first-stats-sims_48_1.png" src="../_images/first-stats-sims_48_1.png" />
 </div>
 </div>
 <p>Note that when <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> is called with <code class="docutils literal notranslate"><span class="pre">density=True</span></code> and bins that are 1 unit wide, the first output will be the relative frequencies. We can verify this by performing the counting. We could do this with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, but NumPy makes this much easier using the <code class="docutils literal notranslate"><span class="pre">np.unique()</span></code> function, which will return a list of the unique values in a list or array. If <code class="docutils literal notranslate"><span class="pre">return_counts=True</span></code> is also passed to that function, it will also return an array that contains a count of each unique item:</p>
@@ -666,7 +654,7 @@ sum of the counts:</p>
 </div>
 <div class="section" id="first-statistical-tests">
 <h2>First Statistical Tests<a class="headerlink" href="#first-statistical-tests" title="Permalink to this headline">¶</a></h2>
-<p>Now let’s focus on finding how often 6 or fewer heads occurs. Let’s print information about those extreme results. To do this, we will use and <code class="docutils literal notranslate"><span class="pre">if</span></code> statement inside our simulation loop to check if the number of heads observed is less than or equal to 6 and call a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement if that condition is satisfied.</p>
+<p>Now let’s focus on finding how often 6 or fewer heads occurs. Let’s print information about those extreme results. To do this, we will use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement inside our simulation loop to check if the number of heads observed is less than or equal to 6 and call a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement if that condition is satisfied.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100</span>
@@ -683,10 +671,13 @@ sum of the counts:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33 :  6 Heads
-44 :  6 Heads
-51 :  5 Heads
-59 :  5 Heads
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13 :  5 Heads
+37 :  5 Heads
+57 :  5 Heads
+75 :  5 Heads
+79 :  6 Heads
+80 :  6 Heads
+88 :  4 Heads
 </pre></div>
 </div>
 </div>
@@ -730,14 +721,12 @@ sum of the counts:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 :  6 Heads
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12 :  6 Heads
 20 :  6 Heads
-36 :  6 Heads
-37 :  4 Heads
-39 :  6 Heads
-49 :  6 Heads
-70 :  3 Heads
-73 :  5 Heads
+22 :  6 Heads
+28 :  6 Heads
+35 :  6 Heads
+53 :  5 Heads
 </pre></div>
 </div>
 </div>
@@ -773,7 +762,7 @@ sum of the counts:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.057715
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.061
 </pre></div>
 </div>
 </div>
@@ -811,7 +800,7 @@ sum of the counts:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.061
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.053
 </pre></div>
 </div>
 </div>
@@ -824,7 +813,7 @@ sum of the counts:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.058028
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.05778
 </pre></div>
 </div>
 </div>
@@ -839,7 +828,7 @@ sum of the counts:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 4 or fewer heads is 0.005843
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 4 or fewer heads is 0.005969
 </pre></div>
 </div>
 </div>
@@ -863,164 +852,6 @@ sum of the counts:</p>
 </ol>
 <p><strong>We will be using variations on this basic computer simulation structure throughout this course!</strong></p>
 </div>
-</div>
-<div class="section" id="an-aside-accelerating-simulations-using-numpy">
-<h2>An Aside: Accelerating Simulations using NumPy<a class="headerlink" href="#an-aside-accelerating-simulations-using-numpy" title="Permalink to this headline">¶</a></h2>
-<p>The simulation above is a perfectly valid way to roll a die and tabulate the counts of each outcome. However, we are going to demonstrate that it is also relatively slow, in the sense that the same simulation can be implemented much faster. We begin by determining the execution time of the current simulation (excluding the counting and printing).</p>
-<p>To do this, let’s make the actualy die roll simulation into a function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">diesim1</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
-    <span class="n">rolls</span><span class="o">=</span><span class="p">[]</span>
-    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="n">die</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-        <span class="n">rolls</span><span class="o">+=</span><span class="p">[</span><span class="n">die</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> diesim1()
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.07 s ± 41.2 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-</pre></div>
-</div>
-</div>
-</div>
-<p>When I wrote this, my computer took an average of about 1.05 to 1.1 seconds to roll the dice one million times. This is certainly fast enough for the simple cases like this, but as we build more complex simulations, the time to get accurate results will greatly increase.</p>
-<p>A general rule of thumb is that <code class="docutils literal notranslate"><span class="pre">for</span></code> loops make simulations slower. It is much better to call a function that can return all the simulated values at once:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dieroll2</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
-    <span class="n">rolls</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">num_sims</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> dieroll2()
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>241 ms ± 5.33 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
-</pre></div>
-</div>
-</div>
-</div>
-<p>By eliminating the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, we have reduced the execution time to 1/4 of what it was previously. Another source of inefficiency for this simulation is <code class="docutils literal notranslate"><span class="pre">random.choices()</span></code>. Because <code class="docutils literal notranslate"><span class="pre">random.choices()</span></code> must be able to handle general lists of items, it will not be as fast as if we choose a method that is tuned for providing a list of integers.</p>
-<p>NumPy is the Numerical Python library, and it provides a broad range of functions for working with numbers. The <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> module contains those functions that generate different types of random numbers. Because we use numpy.random a lot, we will use npr for the namespace of its functions:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dieroll3</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
-    <span class="n">rolls</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_sims</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> dieroll3()
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.5 ms ± 148 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-</pre></div>
-</div>
-</div>
-</div>
-<p>The new version runs over 20 times faster than the previous and is around 100 times faster than the original version of the simulation.</p>
-<p>NumPy also provides efficient ways to do the counting of the results, as shown below:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dieroll4</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">):</span>
-    <span class="n">rolls</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_sims</span><span class="p">)</span>
-    <span class="n">vals</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">rolls</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dieroll4</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 : 166559
-2 : 166615
-3 : 166778
-4 : 166637
-5 : 167129
-6 : 166282
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s try that for our experiment where we flip a coin 20 times:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1000000</span>
-<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
-<span class="n">counts</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
-    <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-    <span class="n">counts</span><span class="o">+=</span><span class="p">[</span><span class="n">num_heads</span><span class="p">]</span>
-    
-<span class="n">vals</span><span class="p">,</span><span class="n">counts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span><span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 2e-06
-1 1.7e-05
-2 0.000167
-3 0.001085
-4 0.004523
-5 0.014491
-6 0.037441
-7 0.073512
-8 0.120138
-9 0.160694
-10 0.176116
-11 0.160717
-12 0.120483
-13 0.07331
-14 0.036751
-15 0.014698
-16 0.004595
-17 0.001062
-18 0.000178
-19 1.9e-05
-20 1e-06
-</pre></div>
-</div>
-</div>
-</div>
-<p>This is an example of <strong>binary hypothesis testing</strong>. In this case, we set up two hypothesis:</p>
-<p><span class="math notranslate nohighlight">\(H_0\)</span>: (the <em>null hypothesis</em>) is that the observed effect is just caused by randomness in the sampling. It is not real in the underlying system or data. For this exampe, our null hypothesis is that the coin is actually fair</p>
-<p><span class="math notranslate nohighlight">\(H_1\)</span>: (the <em>alternative hypothesis</em>) is that the observed effect is not just caused by random sampling. In this example, the coin is biased toward Tails.</p>
-<p>In classical statistics/hypothesis testing, we say that an effect is statistically significant if the probability of observing an effect of that size under the null hypothesis is smaller than some small value <span class="math notranslate nohighlight">\(p\)</span>. Typical values of <span class="math notranslate nohighlight">\(p\)</span> are 0.05 or 0.01, but many argue for even smaller values now. <strong>The threshold to determine statistical significance must always be determined before the experiment is conducted – otherwise, there is too much temptation to adjust the threshold based on the observed <span class="math notranslate nohighlight">\(p\)</span>-value.</strong></p>
-<p>In classical hypothesis testing, we do <em>not</em> test the alternative hypothesis directly, nor can we utilize side information that we may already have about the two hypotheses</p>
 </div>
 </div>
 
@@ -1072,7 +903,7 @@ sum of the counts:</p>
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Random Experiments &#8212; Introduction to Data Science for Engineers</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -257,10 +257,8 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>random experiments</dt><dd><p class="card-text">an experiment in which the result is not completely predictable to an observer based on the observer’s knowledge of the system and its inputs.</p>
-</dd>
-</dl>
+<p class="card-text">random experiments
+: an experiment in which the result is not completely predictable to an observer based on the observer’s knowledge of the system and its inputs.</p>
 </div>
 </div>
 </div>
@@ -282,10 +280,8 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>outcome</dt><dd><p class="card-text">An outcome is a non-decomposable result (or output) of a random experiment.</p>
-</dd>
-</dl>
+<p class="card-text">outcome
+: An outcome is a non-decomposable result (or output) of a random experiment.</p>
 </div>
 </div>
 </div>
@@ -300,12 +296,10 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>set</dt><dd><p class="card-text">an unordered collection of <em>unique</em> items</p>
-</dd>
-<dt>sample space (or universal set)</dt><dd><p class="card-text">the set of all possible outcomes of a random experiment</p>
-</dd>
-</dl>
+<p class="card-text">set
+: an unordered collection of <em>unique</em> items</p>
+<p class="card-text">sample space (or universal set)
+: the set of all possible outcomes of a random experiment</p>
 </div>
 </div>
 </div>
@@ -332,10 +326,8 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>event</dt><dd><p class="card-text">any possible set of outcomes of an experiment to which we will assign probability</p>
-</dd>
-</dl>
+<p class="card-text">event
+: any possible set of outcomes of an experiment to which we will assign probability</p>
 </div>
 </div>
 </div>
@@ -351,25 +343,23 @@ S_a= \{H,T\}
 \)</span>$</p>
 <p><strong>(b)</strong> What if the coin is flipped four times, and the ordered sequence of heads and tails is recorded?</p>
 <p>As before, we will use <span class="math notranslate nohighlight">\(H\)</span> and <span class="math notranslate nohighlight">\(T\)</span> to denote the outcomes from one flip. The result of multiple flips can be recorded using a <em>tuple</em>: the mathematical object – not the Python data type. Mathematical tuples are very similar to Python tuples: both represent ordered sequences, enclosed by parentheses, with the individual elements separated by commas.</p>
-<p>The resulting sample space is</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-S_b= \{&amp;(T,T,T,T),~~ (T,T,T,H),~~ (T,T,H,T),~~ (T,T,H,H) \\
-&amp;(T,H,T,T),~~ (T,H,T,H),~~ (T,H,H,T),~~ (T,H,H,H) \\
-&amp;(H,T,T,T),~~ (H,T,T,H),~~ (H,T,H,T),~~ (H,T,H,H) \\
-&amp;(H,H,T,T),~~ (H,H,T,H),~~ (H,H,H,T),~~ (H,H,H,H) 
-\}
-\end{align*}\]</div>
+<p>The resulting sample space is
+\begin{align*}
+S_b= {&amp;(T,T,T,T),~~ (T,T,T,H),~~ (T,T,H,T),~~ (T,T,H,H) \
+&amp;(T,H,T,T),~~ (T,H,T,H),~~ (T,H,H,T),~~ (T,H,H,H) \
+&amp;(H,T,T,T),~~ (H,T,T,H),~~ (H,T,H,T),~~ (H,T,H,H) \
+&amp;(H,H,T,T),~~ (H,H,T,H),~~ (H,H,H,T),~~ (H,H,H,H)
+}
+\end{align*}</p>
 <p><strong>(c)</strong> For the experiment of part (b), give a description in words of an event that is not an outcome.</p>
 <p>There is an even number of heads on the four flips.</p>
 <p>When defining events, it is again helpful to introduce mathematical notation. Thus, we can define <span class="math notranslate nohighlight">\(E\)</span> to be the event that an even number of heads occurs.</p>
-<p>Then <span class="math notranslate nohighlight">\(E\)</span> can be written as a set of outcomes as</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-E= \{&amp;(T,T,T,T),~~ (T,T,H,H),~~  (T,H,T,H),~~ (T,H,H,T) \\
-&amp;(H,T,T,H),~~ (H,T,H,T),~~ (H,H,T,T),~~ (H,H,H,H) 
-\}
-\end{align*}\]</div>
+<p>Then <span class="math notranslate nohighlight">\(E\)</span> can be written as a set of outcomes as
+\begin{align*}
+E= {&amp;(T,T,T,T),~~ (T,T,H,H),~~  (T,H,T,H),~~ (T,H,H,T) \
+&amp;(H,T,T,H),~~ (H,T,H,T),~~ (H,H,T,T),~~ (H,H,H,H)
+}
+\end{align*}</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -378,10 +368,8 @@ E= \{&amp;(T,T,T,T),~~ (T,T,H,H),~~  (T,H,T,H),~~ (T,H,H,T) \\
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>event class</dt><dd><p class="card-text">A collection of all events to which we assign probability. For our purposes, it is a set of subsets of <span class="math notranslate nohighlight">\(S\)</span>.</p>
-</dd>
-</dl>
+<p class="card-text">event class
+: A collection of all events to which we assign probability. For our purposes, it is a set of subsets of <span class="math notranslate nohighlight">\(S\)</span>.</p>
 </div>
 </div>
 </div>
@@ -449,10 +437,8 @@ $<span class="math notranslate nohighlight">\(
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<dl class="simple myst">
-<dt>fair experiment</dt><dd><p class="card-text">an experiment is <em>fair</em> if every outcome has the same probability of occurring.</p>
-</dd>
-</dl>
+<p class="card-text">fair experiment
+: an experiment is <em>fair</em> if every outcome has the same probability of occurring.</p>
 </div>
 </div>
 </div>
@@ -835,7 +821,7 @@ array([1, 2, 6, 4, 2, 3, 2])
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
