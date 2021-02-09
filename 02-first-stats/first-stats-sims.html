@@ -56,7 +56,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Getting Started in Python" href="../01/python-start.html" />
+    <link rel="prev" title="Getting Started in Python" href="../01-intro/python-start.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -86,39 +86,39 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../01/intro.html">
+  <a class="reference internal" href="../01-intro/intro.html">
    Chapter 1: Introduction
   </a>
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../01/intro-jupyter-and-python.html">
+  <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
    Extremely Brief Intro to Jupyter and Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01/intro-jupyter-and-python.html#how-to-get-started-with-juypter-and-python">
+  <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html#how-to-get-started-with-juypter-and-python">
    How to get started with Juypter and Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01/jupyter-start.html">
+  <a class="reference internal" href="../01-intro/jupyter-start.html">
    Getting Started in Jupyter
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01/jupyter-start.html#learn-the-basics-of-jupyterlab">
+  <a class="reference internal" href="../01-intro/jupyter-start.html#learn-the-basics-of-jupyterlab">
    Learn the basics of JupyterLab
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01/python-start.html">
+  <a class="reference internal" href="../01-intro/python-start.html">
    Getting Started in Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01/python-start.html#jms-working-here">
+  <a class="reference internal" href="../01-intro/python-start.html#jms-working-here">
    JMS WORKING HERE
   </a>
  </li>
@@ -167,7 +167,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/02/first-stats-sims.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/02-first-stats/first-stats-sims.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -192,7 +192,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02/first-stats-sims.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02-first-stats/first-stats-sims.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -237,11 +237,16 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-of-basic-simulation-to-estimate-a-probability">
-     Summary of Basic Simulation to Estimate a Probability
+    <a class="reference internal nav-link" href="#basic-simulation-to-estimate-a-probability">
+     Basic Simulation to Estimate a Probability
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-summary">
+   Chapter Summary
+  </a>
  </li>
 </ul>
 
@@ -352,7 +357,7 @@
 </div>
 </div>
 </div>
-<p>Every time a new set of coin faces is generated, the result will be different. To estimate the probability, we will have to run this statement many times, but running this repeatedly is a pain. Fortunately, the computer can automatically run it for us. In the simulation below, I start introducing some <em>best practices</em>:</p>
+<p>Every time a new list of coin faces is generated, the result will be different. To estimate the probability, we will have to run this statement many times, but running this repeatedly is a pain. Fortunately, the computer can automatically run it for us. In the simulation below, I start introducing some <em>best practices</em>:</p>
 <ul class="simple">
 <li><p>The number of times to simulate the experiment is defined at the very top of the simulation as <code class="docutils literal notranslate"><span class="pre">num_sim</span></code></p></li>
 <li><p>Any parameters of the experiment are defined near the top of the simulation. In this simulation, we only need to define the number of times to flip the coin, <code class="docutils literal notranslate"><span class="pre">flips</span></code></p></li>
@@ -523,8 +528,8 @@
 <img alt="../_images/first-stats-sims_37_1.png" src="../_images/first-stats-sims_37_1.png" />
 </div>
 </div>
-<p>We can make a much better histogram by specifying the bins.  We will do so by specifying a list of bin edges. When working with integer data, it is typically best to make bins that are one unit wide with bin edges that are 0.5 to each side of the bin centers. To span the observed values in this data set, we would need bin edges at <span class="math notranslate nohighlight">\(1.5, 2.5, \dots, 14.5\)</span></p>
-<p>We could make a list of these bin edges by typing them individually or by writing a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to add them to a list. However, let’s take the opportunity to introduce the numpy function <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> that can create a uniformly spaced set of points between (and including) two edges.  We need 15 points between 1.5 and 14.5, but a general approach to creating bin edges with <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> as shown below. (The +2 in the number of bins is because 1) the number of points between two integers, inclusive of both, is one more than the difference of the integres, and 2) there is one more bin edge than there are bin centers.)</p>
+<p>We can make a much better histogram by specifying the bins.  We will do so by specifying a list of bin edges. When working with integer data, it is typically best to make bins that are one unit wide with bin edges that are 0.5 to each side of the bin centers. To span the observed values in this dataset, we would need bin edges at <span class="math notranslate nohighlight">\(1.5, 2.5, \dots, 14.5\)</span></p>
+<p>We could make a list of these bin edges by typing them individually or by writing a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to add them to a list. However, let’s take the opportunity to introduce the numpy function <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> that can create a uniformly spaced array of points between (and including) two edges.  We need 15 points between 1.5 and 14.5, but a general approach to creating bin edges with <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code> as shown below. (The +2 in the number of bins is because 1) the number of points between two integers, inclusive of both, is one more than the difference of the integres, and 2) there is one more bin edge than there are bin centers.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -830,8 +835,8 @@ sum of the counts:</p>
 </div>
 <p>In this case, the estimate of the probability is about <span class="math notranslate nohighlight">\(6 \times 10^{-3}\)</span>, which falls below the 0.01 threshold we selected. So, we would reject the possibility that the coin is fair.</p>
 <p>We would believe that the coin is biased towards heads but at this point have no estimate of the size of that bias.</p>
-<div class="section" id="summary-of-basic-simulation-to-estimate-a-probability">
-<h3>Summary of Basic Simulation to Estimate a Probability<a class="headerlink" href="#summary-of-basic-simulation-to-estimate-a-probability" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="basic-simulation-to-estimate-a-probability">
+<h3>Basic Simulation to Estimate a Probability<a class="headerlink" href="#basic-simulation-to-estimate-a-probability" title="Permalink to this headline">¶</a></h3>
 <p>Let’s use <span class="math notranslate nohighlight">\(R\)</span> to denote some result for which we are trying to estimate the probability via computer simulation. Then the basic simulation structure is as follows:</p>
 <ol class="simple">
 <li><p>Initialize two counters to zero:</p>
@@ -848,6 +853,15 @@ sum of the counts:</p>
 <p><strong>We will be using variations on this basic computer simulation structure throughout this course!</strong></p>
 </div>
 </div>
+<div class="section" id="chapter-summary">
+<h2>Chapter Summary<a class="headerlink" href="#chapter-summary" title="Permalink to this headline">¶</a></h2>
+<p>This chapter provides a preview of several fundamental ideas that we will use throughout this book in analyzing data:</p>
+<ol class="simple">
+<li><p>Visualizations can be used to explore numerical data</p></li>
+<li><p>Questions regarding random phenomena can be answered via experimentation</p></li>
+<li><p>Simulations are a way to conduct experiments rapidly and efficiently</p></li>
+</ol>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -863,7 +877,7 @@ sum of the counts:</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./02"
+            path: "./02-first-stats"
         },
         predefinedOutput: true
     }
@@ -878,7 +892,7 @@ sum of the counts:</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../01/python-start.html" title="previous page">Getting Started in Python</a>
+    <a class='left-prev' id="prev-link" href="../01-intro/python-start.html" title="previous page">Getting Started in Python</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
