@@ -1,9 +1,9 @@
-- file: 01/intro
-- file: 01/intro-jupyter-and-python
-- file: 01/jupyter-start
-- file: 01/python-start
-- file: 02/fair-experiments1
-- file: 02/first-stats-sims.ipynb
+- file: 01-intro/intro
+- file: 01-intro/intro-jupyter-and-python
+- file: 01-intro/jupyter-start
+- file: 01-intro/python-start
+#- file: 02-first-stats/fair-experiments1
+- file: 02-first-stats/first-stats-sims.ipynb
 #- file: 03/Lecture 3-Prep.ipynb
 #- file: 03/Lecture 3 Assignment.ipynb
 #- file: 03/lecture3-1 prep-old.ipynb
