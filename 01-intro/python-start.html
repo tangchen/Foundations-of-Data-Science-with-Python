@@ -119,11 +119,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#jms-working-here">
-   JMS WORKING HERE
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../02-first-stats/first-stats-sims.html">
    First Statistical Test, Simulation, and Visualization
   </a>
@@ -215,83 +210,69 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Getting Started in Python
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hello-world">
+   Hello World!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comments">
+   Comments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-variables-and-types">
+   Python Variables and Types
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hello-world">
-     Hello World!
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-data-types">
+     Basic Data Types
     </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#comments">
-     Comments
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python-variables-and-types">
-     Python Variables and Types
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#basic-data-types">
-       Basic Data Types
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#indentation-in-python">
-     Indentation in Python
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loops-in-python">
-     Loops in Python
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#functions">
-       Functions
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#getting-help-and-completion">
-       Getting Help and Completion
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#python-modules-and-namespaces">
-       Python Modules and Namespaces
-      </a>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jms-working-here">
-   JMS WORKING HERE
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indentation-and-line-breaks-in-python">
+   Indentation and Line Breaks in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loops-in-python">
+   Loops in Python
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-help-and-completion">
+     Getting Help and Completion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python-modules-and-namespaces">
+     Python Modules and Namespaces
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#numpy-arrays">
      NumPy Arrays
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#writing-big-numbers-in-python">
      Writing Big Numbers in Python
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary-and-other-resources">
      Summary and Other Resources
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyter-magics">
      Jupyter Magics
     </a>
@@ -665,8 +646,8 @@ may not remember what you meant for a block of code to do.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-10
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33333
+15
 </pre></div>
 </div>
 </div>
@@ -753,7 +734,7 @@ Like C, C++, and JavaScript, indexing in Python starts at 0. This means that in 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;puppies&#39;, &#39;kitties&#39;, 3, 7.0]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;puppies&#39;, &#39;cats&#39;, 3, 7.0]
 </pre></div>
 </div>
 </div>
@@ -790,7 +771,7 @@ Like C, C++, and JavaScript, indexing in Python starts at 0. This means that in 
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">86</span><span class="o">-</span><span class="mi">8781</span><span class="n">bcd2667d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">35</span><span class="o">-</span><span class="mi">8781</span><span class="n">bcd2667d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tuple1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;one&#39;</span>
 
 <span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
@@ -934,8 +915,8 @@ test
 <p>The <code class="docutils literal notranslate"><span class="pre">keys</span></code> and <code class="docutils literal notranslate"><span class="pre">values</span></code> methods return special objects of type <code class="docutils literal notranslate"><span class="pre">dict_keys</span></code> and <code class="docutils literal notranslate"><span class="pre">dict_values</span></code>, respectively, but for our purposes, we can treat these like lists. An example is shown in the Section <a class="reference internal" href="#python-intro-loops"><span class="std std-ref">Loops in Python</span></a>.</p>
 </div>
 </div>
-<div class="section" id="indentation-in-python">
-<span id="python-intro-indentation"></span><h2>Indentation in Python<a class="headerlink" href="#indentation-in-python" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="indentation-and-line-breaks-in-python">
+<span id="python-intro-indentation"></span><h2>Indentation and Line Breaks in Python<a class="headerlink" href="#indentation-and-line-breaks-in-python" title="Permalink to this headline">¶</a></h2>
 <p>Programming languages usually have some convention to indicate which statements belong together. For instance, if a statement starts a loop (such as <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code>), there must be a way to indicate which of the following statements should be executed in each iteration of the loop and which should be executed after loop iteration. In many languages, such as C, C++, Java, and Javascript, code blocks are surrounded by curly braces: { }.</p>
 <p>In Python, indentation is used to deliminate code blocks. The languages mentioned above used indentation as a <em>convention</em> that indicates meaning to humans working on code. Python uses indentation to <em>define</em> code blocks and convey meaning to the Python interpreter.</p>
 <p>Either tabs or spaces can be used to denote code blocks, but the PEP-8 standard is to use 4 spaces per indent level. Jupyter inserts 4 spaces when <code class="docutils literal notranslate"><span class="pre">Tab</span></code> is pressed in a code block. <strong>Change to footnote: Some editors can be set up to insert a prescribed number of spaces when tab is used or convert tabs to spaces upon saving.</strong></p>
@@ -973,6 +954,39 @@ test
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a=2
 2 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>In Python, line breaks are usually used to separate different commands. However, you can also use line breaks within a single command in two cases:</p>
+<ol class="simple">
+<li><p>if the line break occurs within parentheses, brackets, or braces</p></li>
+<li><p>if the line before the line break ends in a backslash ()</p></li>
+</ol>
+<p>In both of these cases, the line break and any spaces or tabs in the line after the break will be ignored, and the two lines will be treated as part of the same statement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;Amelia!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Amelia!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="mi">2</span> \
+    <span class="ow">and</span> <span class="n">b</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 3
 </pre></div>
 </div>
 </div>
@@ -1052,6 +1066,23 @@ cats
 2 ^2 =  4
 3 ^2 =  9
 4 ^2 =  16
+</pre></div>
+</div>
+</div>
+</div>
+<p>In many cases, we need to iterate over a sequence and keep track of the sequence number we are currently on. In this case, we can use the <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function to return a tuple of the item’s index and the item. It is typically used as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 : dogs
+1 : cats
+2 : 3
+3 : 7.0
 </pre></div>
 </div>
 </div>
@@ -1269,10 +1300,7 @@ reject non-numeric types.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span> squared_errors<span class=" -Color -Color-Blue">(</span>x<span class=" -Color -Color-Blue">,</span> y<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Red">Docstring:</span> Returns the magnitude of the squared error between the two arguments
-<span class=" -Color -Color-Red">File:</span>      ~/&lt;ipython-input-189-0013d4e1807e&gt;
-<span class=" -Color -Color-Red">Type:</span>      function
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object `squared_errors` not found.
 </pre></div>
 </div>
 </div>
@@ -1285,16 +1313,7 @@ reject non-numeric types.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span> squared_errors<span class=" -Color -Color-Blue">(</span>x<span class=" -Color -Color-Blue">,</span> y<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Red">Source:</span>   
-<span class=" -Color -Color-Green">def</span> squared_errors<span class=" -Color -Color-Blue">(</span>x<span class=" -Color -Color-Blue">,</span>y<span class=" -Color -Color-Blue">):</span>
-    <span class=" -Color -Color-Blue">&#39;&#39;&#39;</span>
-<span class=" -Color -Color-Blue">    Returns the magnitude of the squared error between the two arguments</span>
-<span class=" -Color -Color-Blue">    &#39;&#39;&#39;</span>
-    
-    <span class=" -Color -Color-Green">return</span> abs<span class=" -Color -Color-Blue">(</span> x<span class=" -Color -Color-Blue">**</span><span class=" -Color -Color-Cyan">2</span> <span class=" -Color -Color-Blue">-</span> y<span class=" -Color -Color-Blue">**</span><span class=" -Color -Color-Cyan">2</span> <span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Red">File:</span>      ~/&lt;ipython-input-189-0013d4e1807e&gt;
-<span class=" -Color -Color-Red">Type:</span>      function
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Object `squared_errors` not found.
 </pre></div>
 </div>
 </div>
@@ -1517,40 +1536,135 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">35</span><span class="n">c34a2abbae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;factorial&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3628800
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="jms-working-here">
-<h1>JMS WORKING HERE<a class="headerlink" href="#jms-working-here" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="numpy-arrays">
-<h2>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h2>
+<h3>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <p>NumPy provides an <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> container for holding one-dimensional or multi-dimensional collections of numbers. Most engineers will have some familiarity with vectors or matrices, and one-dimensional arrays are equivalent to vectors, while two-dimensional arrays are equivalent to matrices. The majority of our work on arrays and their mathematics (linear algebra) will be deferred to <strong>CHAPTER ON LINEAR ALGEBRA</strong>. However, arrays are very helpful for doing basic data manipulation and storing numerical values for simulations, so we review some basics here.</p>
-<p>A one-dimensional numpy array can be created by</p>
+<p>Arrays can be created using NumPy’s <code class="docutils literal notranslate"><span class="pre">array</span></code> function. For instance, to create a one-dimensional array (i.e., a vector), pass a list of numbers to <code class="docutils literal notranslate"><span class="pre">np.array</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">A</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4])
 </pre></div>
 </div>
 </div>
 </div>
+<p>Two-dimesional arrays can be created by passing a list of lists of numbers. Each of the lists of numbers must have the same length. This will be most clear with an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span> <span class="p">(</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3, 4],
+       [8, 7, 6, 5]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will also be using methods that return NumPy arrays of random values.</p>
+<p>NumPy arrays offer many advantages over lists. Two primary ones are:</p>
+<ol class="simple">
+<li><p>It is easy to perform numerical operations on the elements of NumPy arrays.</p></li>
+<li><p>NumPy arrays offer a variety of built-in methods that we will find useful.</p></li>
+</ol>
+<p>To illustrate these, consider the array <span class="math notranslate nohighlight">\(A\)</span> defined above and a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> <span class="math notranslate nohighlight">\(L\)</span> containing the same numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The NumPy array makes it easy to multiply all the elements in the array by a value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">*</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5, 10, 15, 20])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compare the result with the effect of the multiplication operator on a list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">*</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4]
+</pre></div>
+</div>
+</div>
+</div>
+<p>An example of a built-in method is <code class="docutils literal notranslate"><span class="pre">sum()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>List does not have a built-in method, but Python does offer a general <code class="docutils literal notranslate"><span class="pre">sum</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">89</span><span class="o">-</span><span class="mi">99</span><span class="n">d8666d6ce2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">L</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;sum&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will introduce other methods of the <code class="docutils literal notranslate"><span class="pre">array</span></code> type and other NumPy functions that work on and/or return arrays as we introduce more data science techniques.</p>
 </div>
 <div class="section" id="writing-big-numbers-in-python">
-<h2>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h2>
+<h3>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h3>
 <p>We will be building simulations in Python that require looping thousands or millions of times. Thus, we will often be writing a <code class="docutils literal notranslate"><span class="pre">range</span></code> that has an argument with many zeros. The <code class="docutils literal notranslate"><span class="pre">range</span></code> function will not take a <code class="docutils literal notranslate"><span class="pre">float</span></code> value, and numbers written in scientific notation (like <code class="docutils literal notranslate"><span class="pre">1e6</span></code>) will be treated as floats. This results in using integers that are very hard to read, like 10000000. We can’t use commas in the numbers because that would create a tuple:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1579,7 +1693,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="summary-and-other-resources">
-<h2>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h2>
+<h3>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h3>
 <p>Do not worry too much about absorbing all these details about Python now. This book contains many examples to get you started, and you can refer back to this section for reference. Some additional features of the Python programming language will be introduced as needed.</p>
 <p>For users who want to learn more about Python, the following resources are recommended:</p>
 <ul class="simple">
@@ -1589,7 +1703,7 @@ array([  6,  24, 120])
 </ul>
 </div>
 <div class="section" id="jupyter-magics">
-<h2>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h2>
+<h3>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h3>
 <p>Code cells can also contain special instructions intended for JupyterLab itself, rather than the
 Python kernel. These are called <em>magics</em>. For instance, to output your current directory, you can use the
 <code class="docutils literal notranslate"><span class="pre">%pwd</span></code> magic</p>
@@ -1600,7 +1714,7 @@ Python kernel. These are called <em>magics</em>. For instance, to output your cu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/jshea/Dropbox (UFL)/teaching/stats/book/idse/01&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/jshea/Dropbox (UFL)/teaching/stats/book/idse/01-intro&#39;
 </pre></div>
 </div>
 </div>
@@ -1620,6 +1734,7 @@ Python kernel. These are called <em>magics</em>. For instance, to output your cu
 </div>
 <p>Changing directories is often useful to switch to a directory where data is stored.</p>
 <p>You can get a list of magics and other information about Jupyter using the <code class="docutils literal notranslate"><span class="pre">%quickref</span></code> magic.</p>
+</div>
 </div>
 </div>
 
