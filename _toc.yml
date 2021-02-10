@@ -9,9 +9,9 @@
     - file: 01-intro/jupyter-start
     - file: 01-intro/python-start
 
-  - file: 02-first-stats/first-stats-sims.ipynb
+  - file: 02-first-stats/first-stats-sims
 
-  - file: 03-first-data/first-real-data-statistics.ipynb
+  - file: 03-first-data/first-real-data-statistics
 
 #- file: 03/Lecture 3-Prep.ipynb
 #- file: 03/Lecture 3 Assignment.ipynb
