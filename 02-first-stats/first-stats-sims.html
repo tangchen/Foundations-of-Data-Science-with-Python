@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>First Statistical Test, Simulation, and Visualization &#8212; Introduction to Data Science for Engineers</title>
+    <title>Chapter 2: First Simulations, and Visualizations, and Statistical Tests &#8212; Introduction to Data Science for Engineers</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -86,40 +86,49 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../01-intro/intro.html">
-   Chapter 1: Introduction
+  <a class="reference internal" href="../intro/intro.html">
+   Overview
   </a>
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
-   Extremely Brief Intro to Jupyter and Python
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01-intro/intro.html">
+   Chapter 1: Introduction
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html#how-to-get-started-with-juypter-and-python">
-   How to get started with Juypter and Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-intro/jupyter-start.html">
-   Getting Started in Jupyter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-intro/jupyter-start.html#learn-the-basics-of-jupyterlab">
-   Learn the basics of JupyterLab
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../01-intro/python-start.html">
-   Getting Started in Python
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
+     Extremely Brief Intro to Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html#how-to-get-started-with-juypter-and-python">
+     How to get started with Juypter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/jupyter-start.html">
+     Getting Started in Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/jupyter-start.html#learn-the-basics-of-jupyterlab">
+     Learn the basics of JupyterLab
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/python-start.html">
+     Getting Started in Python
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   First Statistical Test, Simulation, and Visualization
+   Chapter 2: First Simulations, and Visualizations, and Statistical Tests
   </a>
  </li>
 </ul>
@@ -254,8 +263,9 @@
         
               <div>
                 
-  <div class="section" id="first-statistical-test-simulation-and-visualization">
-<h1>First Statistical Test, Simulation, and Visualization<a class="headerlink" href="#first-statistical-test-simulation-and-visualization" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="chapter-2-first-simulations-and-visualizations-and-statistical-tests">
+<h1>Chapter 2: First Simulations, and Visualizations, and Statistical Tests<a class="headerlink" href="#chapter-2-first-simulations-and-visualizations-and-statistical-tests" title="Permalink to this headline">¶</a></h1>
+<p>We want to start working with real data as quickly as possible, but using real data introduces a lot of complexity. In this Chapter, we start with a simple example that does not use real data but allow us to quickly get started doing computer simulation, visualizing data, and performing statistical tests. In <strong>ADD CHAPTER LINK</strong>, we will use these skills to analyze a real data set on the effects of gun laws on firearms mortality.</p>
 <div class="section" id="motivating-problem-is-this-coin-fair">
 <span id="random-experiments-motivating-problem"></span><h2>Motivating Problem: Is This Coin Fair?<a class="headerlink" href="#motivating-problem-is-this-coin-fair" title="Permalink to this headline">¶</a></h2>
 <p>You find an odd coin. You assume it is equally likely to come up heads and tails – we say the coin is <em>fair</em>. You would like to conduct a stastical test to determine if it is fair. So, you flip the coin 20 times and count how many times it comes up heads. Since heads and tails are equally likely, you should expect to get somewhere around 10 heads.</p>
@@ -832,7 +842,8 @@ sum of the counts:</p>
 <p>We would believe that the coin is biased towards heads but at this point have no estimate of the size of that bias.</p>
 <div class="section" id="basic-simulation-to-estimate-a-probability">
 <h3>Basic Simulation to Estimate a Probability<a class="headerlink" href="#basic-simulation-to-estimate-a-probability" title="Permalink to this headline">¶</a></h3>
-<p>Let’s use <span class="math notranslate nohighlight">\(R\)</span> to denote some result for which we are trying to estimate the probability via computer simulation. Then the basic simulation structure is as follows:</p>
+<p>Let’s use <span class="math notranslate nohighlight">\(R\)</span> to denote some result for which we are trying to estimate the probability via computer simulation. As before, we will actually calculate the relative frequency of <span class="math notranslate nohighlight">\(R\)</span> and use that as an estimate of the probability of <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p>Then the basic simulation structure is as follows:</p>
 <ol class="simple">
 <li><p>Initialize two counters to zero:</p>
 <ul class="simple">
