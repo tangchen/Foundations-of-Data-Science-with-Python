@@ -92,6 +92,11 @@
   </a>
  </li>
 </ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="intro.html">
@@ -103,19 +108,9 @@
      Extremely Brief Intro to Jupyter and Python
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="intro-jupyter-and-python.html#how-to-get-started-with-juypter-and-python">
-     How to get started with Juypter and Python
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Getting Started in Jupyter
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#learn-the-basics-of-jupyterlab">
-     Learn the basics of JupyterLab
     </a>
    </li>
    <li class="toctree-l2">
@@ -224,37 +219,32 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Getting Started in Jupyter
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#learn-the-basics-of-jupyterlab">
    Learn the basics of JupyterLab
   </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#notebook-structure">
      Notebook structure
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#jupyterlab-interface-modes">
      JupyterLab interface modes
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#more-on-cells">
-     More on cells
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#intro-to-markdown-in-jupyter">
-     Intro to Markdown in Jupyter
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-on-cells">
+   More on cells
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#intro-to-markdown-in-jupyter">
+   Intro to Markdown in Jupyter
+  </a>
  </li>
 </ul>
 
@@ -310,16 +300,15 @@
 <li><p>Double click on the file <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code></p></li>
 </ul>
 <p>The file <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> should open in the main work area.</p>
-</div>
 <div class="section" id="learn-the-basics-of-jupyterlab">
-<h1>Learn the basics of JupyterLab<a class="headerlink" href="#learn-the-basics-of-jupyterlab" title="Permalink to this headline">¶</a></h1>
+<h2>Learn the basics of JupyterLab<a class="headerlink" href="#learn-the-basics-of-jupyterlab" title="Permalink to this headline">¶</a></h2>
 <p>After opening the <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> notebook, take a minute to scroll through the <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> notebook before interacting with it. Note that the notebook includes formatted text, graphics, mathematics, and Python programming code. You will learn to use all of these features in working with data and presenting your analyses.</p>
 <div class="section" id="notebook-structure">
-<h2>Notebook structure<a class="headerlink" href="#notebook-structure" title="Permalink to this headline">¶</a></h2>
+<h3>Notebook structure<a class="headerlink" href="#notebook-structure" title="Permalink to this headline">¶</a></h3>
 <p>Jupyter notebooks are subdivided into parts called <strong>cells</strong>. Each cell can be used for different purposes; we will use them for either Python code or for Markdown, which is a simple markup language that allows the creation of formatted text with math and graphics. Code cells are subdivided into Input and Output parts. Single click on any part of the <code class="docutils literal notranslate"><span class="pre">intro.ipynb</span></code> notebook to select a cell. The selected cell will be indicated by a color bar along the entire left side of the cell.</p>
 </div>
 <div class="section" id="jupyterlab-interface-modes">
-<h2>JupyterLab interface modes<a class="headerlink" href="#jupyterlab-interface-modes" title="Permalink to this headline">¶</a></h2>
+<h3>JupyterLab interface modes<a class="headerlink" href="#jupyterlab-interface-modes" title="Permalink to this headline">¶</a></h3>
 <p>The JupyterLab user interface can be in one of two modes, and these modes affect what you can do with a cell:</p>
 <ul class="simple">
 <li><p>In <strong>Edit Mode</strong>, the focus is on one cell, which will be outlined in color (blue on my computer with the default theme), and the cursor will contain a blinking cursor indicating where typed text will appear.</p></li>
@@ -336,6 +325,7 @@
 <li><p>Press the ESC key. The current cell is <em>not evaluated</em>, but it will be selected in <strong>Command Mode</strong>.</p></li>
 <li><p>If editing a cell that is <em>not</em> the last cell in the notebook, press Shift-Enter to <em>evaluate</em> the current cell and return to <strong>Command Mode</strong>. (If you are in the last cell of the notebook, Shift-Enter will evaluate the current cell, create a new cell below it, and will remain in <strong>EDIT MODE</strong> in the newly created cell.</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="more-on-cells">
 <h2>More on cells<a class="headerlink" href="#more-on-cells" title="Permalink to this headline">¶</a></h2>

@@ -92,6 +92,11 @@
   </a>
  </li>
 </ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="intro.html">
@@ -104,18 +109,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="#how-to-get-started-with-juypter-and-python">
-     How to get started with Juypter and Python
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="jupyter-start.html">
      Getting Started in Jupyter
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="jupyter-start.html#learn-the-basics-of-jupyterlab">
-     Learn the basics of JupyterLab
     </a>
    </li>
    <li class="toctree-l2">
@@ -224,34 +219,25 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Extremely Brief Intro to Jupyter and Python
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-jupyter-notebooks">
+   Why Jupyter notebooks?
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-jupyter-notebooks">
-     Why Jupyter notebooks?
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-python">
-     Why Python?
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-python">
+   Why Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-get-started-with-juypter-and-python">
    How to get started with Juypter and Python
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#getting-organized">
-     Getting organized
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-organized">
+   Getting organized
+  </a>
  </li>
 </ul>
 
@@ -290,9 +276,8 @@
 <li><p><strong>Python has rich libraries for data science.</strong> Python has many powerful libraries for data science and machine learning. In addition, Python has powerful libraries for a broad array of tasks that making learning Python have additional benefits for other uses.</p></li>
 </ul>
 </div>
-</div>
 <div class="section" id="how-to-get-started-with-juypter-and-python">
-<h1>How to get started with Juypter and Python<a class="headerlink" href="#how-to-get-started-with-juypter-and-python" title="Permalink to this headline">¶</a></h1>
+<h2>How to get started with Juypter and Python<a class="headerlink" href="#how-to-get-started-with-juypter-and-python" title="Permalink to this headline">¶</a></h2>
 <p>Python and Jupyter are often packaged together in a <em>software distribution</em>, and the creators of several distributions include additional Python software libraries, such as for scientific computing. This book assumes the use of the Anaconda distribution, which its creators bill as “The World’s Most Popular Data Science Platform” <strong>Add footnote with reference to web page here</strong>. Anaconda’s <em>Individual Edition</em> is freely available for download from the Anaconda web site:</p>
 <p><a class="reference external" href="https://www.anaconda.com/products/individual"><img alt="Anaconda Logo" src="../_images/anaconda.png" /></a></p>
 <p><a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda Individual Edition (https://www.anaconda.com/products/individual)</a></p>
@@ -303,6 +288,7 @@ Python version 2 or Python versions after 3 may have syntax changes that cause t
 <p><strong>Add Insert explaining Jupyter notebook vs JupyterLab</strong></p>
 <p><strong>Special notation for a notice</strong>
 Note that the term “Jupyter notebook” can refer both to a file format (with <em>.ipynb</em> extension) and to an application with a web interface to work with those files. To help avoid confusion, I will write <em>Jupyter notebook file</em> whenever referring to such a file, and we will use JuypterLab as the web application for opening and working with such files. As of January 2001, JupyterLab is the “is the next-generation web-based user interface for Project Jupyter.” (ref https://jupyterlab.readthedocs.io/en/stable/). Jupyter notebook has a very similar interface, and most users will be able to use either one interchangeably.</p>
+</div>
 <div class="section" id="getting-organized">
 <h2>Getting organized<a class="headerlink" href="#getting-organized" title="Permalink to this headline">¶</a></h2>
 <p>We are almost ready to start using Jupyter and Python. Before you begin to do that, I recommend to take a minute to think about how you will organize your files. To learn data science requires actually working with data and performing analyses. This will result in you generating a lot of Jupyter notebook files, as well as a lot of data files. I suggest that you create a folder for this data-science book (or for the course, if you are using this as a course textbook). This folder should be easily accessible from your home directory because that is the location where JupyterLab will open by default. You may wish to add additional structure underneath that folder. If you create a separate folder for data, I would suggest to make it a subfolder of the one containing your notebooks to make it easiest to access that data.</p>

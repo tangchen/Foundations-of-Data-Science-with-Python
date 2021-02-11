@@ -92,6 +92,11 @@
   </a>
  </li>
 </ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="intro.html">
@@ -104,18 +109,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="intro-jupyter-and-python.html#how-to-get-started-with-juypter-and-python">
-     How to get started with Juypter and Python
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="jupyter-start.html">
      Getting Started in Jupyter
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="jupyter-start.html#learn-the-basics-of-jupyterlab">
-     Learn the basics of JupyterLab
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -255,43 +250,43 @@
   <a class="reference internal nav-link" href="#loops-in-python">
    Loops in Python
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#functions">
+   Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-help-and-completion">
+   Getting Help and Completion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-modules-and-namespaces">
+   Python Modules and Namespaces
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#functions">
-     Functions
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#getting-help-and-completion">
-     Getting Help and Completion
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#python-modules-and-namespaces">
-     Python Modules and Namespaces
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#numpy-arrays">
      NumPy Arrays
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#writing-big-numbers-in-python">
-     Writing Big Numbers in Python
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-and-other-resources">
-     Summary and Other Resources
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jupyter-magics">
-     Jupyter Magics
-    </a>
-   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-big-numbers-in-python">
+   Writing Big Numbers in Python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-and-other-resources">
+   Summary and Other Resources
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupyter-magics">
+   Jupyter Magics
+  </a>
  </li>
 </ul>
 
@@ -1101,8 +1096,9 @@ cats
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="functions">
-<span id="python-intro-functions"></span><h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<span id="python-intro-functions"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>We have already used built-in functions, like <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">type()</span></code>.
 In this book, we will also often create new functions. As with the built-in functions,
 user-defined functions can take arguments and can return values. Functions are declared
@@ -1266,7 +1262,7 @@ that returns the squared error between its inputs:</p>
 <p>We will see in the next section how to get help on a function.</p>
 </div>
 <div class="section" id="getting-help-and-completion">
-<h3>Getting Help and Completion<a class="headerlink" href="#getting-help-and-completion" title="Permalink to this headline">¶</a></h3>
+<h2>Getting Help and Completion<a class="headerlink" href="#getting-help-and-completion" title="Permalink to this headline">¶</a></h2>
 <p>Python has built-in help for almost every function and object. This help can be retrieved in several ways. For instance, consider the built-in <code class="docutils literal notranslate"><span class="pre">sum</span></code> command. Here are several ways to get help in Jupyter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1389,7 +1385,7 @@ dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
 </div>
 </div>
 <div class="section" id="python-modules-and-namespaces">
-<h3>Python Modules and Namespaces<a class="headerlink" href="#python-modules-and-namespaces" title="Permalink to this headline">¶</a></h3>
+<h2>Python Modules and Namespaces<a class="headerlink" href="#python-modules-and-namespaces" title="Permalink to this headline">¶</a></h2>
 <p>Python has many useful modules that extend Python’s basic functionality. Some of these are included with the base Python distributin and many others are included in the Anaconda distribution. Many more can be installed over the Internet.</p>
 <p>To use a module, you must import it into your Python working environment. The most basic way to do this is to type <code class="docutils literal notranslate"><span class="pre">import</span></code> followed by the name of the module to be imported:</p>
 <div class="cell docutils container">
@@ -1555,7 +1551,6 @@ array([  6,  24, 120])
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="numpy-arrays">
 <h3>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <p>NumPy provides an <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> container for holding one-dimensional or multi-dimensional collections of numbers. Most engineers will have some familiarity with vectors or matrices, and one-dimensional arrays are equivalent to vectors, while two-dimensional arrays are equivalent to matrices. The majority of our work on arrays and their mathematics (linear algebra) will be deferred to <strong>CHAPTER ON LINEAR ALGEBRA</strong>. However, arrays are very helpful for doing basic data manipulation and storing numerical values for simulations, so we review some basics here.</p>
@@ -1677,8 +1672,9 @@ array([  6,  24, 120])
 </div>
 <p>We will introduce other methods of the <code class="docutils literal notranslate"><span class="pre">array</span></code> type and other NumPy functions that work on and/or return arrays as we introduce more data science techniques.</p>
 </div>
+</div>
 <div class="section" id="writing-big-numbers-in-python">
-<h3>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h3>
+<h2>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h2>
 <p>We will be building simulations in Python that require looping thousands or millions of times. Thus, we will often be writing a <code class="docutils literal notranslate"><span class="pre">range</span></code> that has an argument with many zeros. The <code class="docutils literal notranslate"><span class="pre">range</span></code> function will not take a <code class="docutils literal notranslate"><span class="pre">float</span></code> value, and numbers written in scientific notation (like <code class="docutils literal notranslate"><span class="pre">1e6</span></code>) will be treated as floats. This results in using integers that are very hard to read, like 10000000. We can’t use commas in the numbers because that would create a tuple:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1707,7 +1703,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="summary-and-other-resources">
-<h3>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h3>
+<h2>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h2>
 <p>Do not worry too much about absorbing all these details about Python now. This book contains many examples to get you started, and you can refer back to this section for reference. Some additional features of the Python programming language will be introduced as needed.</p>
 <p>For users who want to learn more about Python, the following resources are recommended:</p>
 <ul class="simple">
@@ -1717,7 +1713,7 @@ array([  6,  24, 120])
 </ul>
 </div>
 <div class="section" id="jupyter-magics">
-<h3>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h3>
+<h2>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h2>
 <p>Code cells can also contain special instructions intended for JupyterLab itself, rather than the
 Python kernel. These are called <em>magics</em>. For instance, to output your current directory, you can use the
 <code class="docutils literal notranslate"><span class="pre">%pwd</span></code> magic</p>
@@ -1748,7 +1744,6 @@ Python kernel. These are called <em>magics</em>. For instance, to output your cu
 </div>
 <p>Changing directories is often useful to switch to a directory where data is stored.</p>
 <p>You can get a list of magics and other information about Jupyter using the <code class="docutils literal notranslate"><span class="pre">%quickref</span></code> magic.</p>
-</div>
 </div>
 </div>
 
