@@ -1,7 +1,6 @@
-
 - file: intro/intro
 
-- part:
+- part: Quick Start
   chapters:
   - file: 01-intro/intro
     sections:
