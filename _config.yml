@@ -1,6 +1,8 @@
 # in _config.yml
 title: "Introduction to Data Science for Engineers"
 author: John M. Shea
+copyright: "2021"
+only_build_toc_files: true
 #logo: images/logo.png
 execute:
   execute_notebooks: "off"
