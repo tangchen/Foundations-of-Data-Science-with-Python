@@ -11,6 +11,8 @@
   - file: 02-first-stats/first-stats-sims
 
   - file: 03-first-data/first-real-data-statistics
+    sections:
+    - file: 03-first-data/pandas-start
 
 #- file: 03/Lecture 3-Prep.ipynb
 #- file: 03/Lecture 3 Assignment.ipynb
