@@ -10,7 +10,7 @@
 
   - file: 02-first-stats/first-stats-sims
 
-  - file: 03-first-data/first-real-data-statistics
+  - file: 03-first-data/intro
     sections:
     - file: 03-first-data/pandas-start
 
