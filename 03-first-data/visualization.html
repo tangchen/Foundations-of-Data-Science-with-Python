@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizing Multiple Data Sets &#8212; Introduction to Data Science for Engineers</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Summary Statistics" href="summary-stats.html" />
+    <link rel="prev" title="Intro to Pandas" href="pandas-start.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Data Science for Engineers</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01-intro/intro.html">
+   Chapter 1: Introduction
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
+     Extremely Brief Intro to Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/jupyter-start.html">
+     Getting Started in Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/python-start.html">
+     Getting Started in Python
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-first-stats/first-stats-sims.html">
+   Chapter 2: First Simulations, and Visualizations, and Statistical Tests
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="intro.html">
+   Chapter 3: First Visualizations and Statistical Tests with Real Data
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas-start.html">
+     Intro to Pandas
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Visualizing Multiple Data Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary-stats.html">
+     Summary Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary-stats.html#effect-of-state-laws">
+     Effect of State Laws
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary-stats.html#reading-assignment">
+     Reading Assignment
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/03-first-data/visualization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03-first-data/visualization.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scatter-plots-for-multiple-datasets">
+   Scatter Plots for Multiple Datasets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histograms-for-multiple-datasets">
+   Histograms for Multiple Datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-the-number-size-of-histogram-bins">
+     Choosing the number/size of histogram bins
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bin-alignment-for-multiple-histograms-in-one-figure">
+     Bin alignment for multiple histograms in one figure
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="visualizing-multiple-data-sets">
+<h1>Visualizing Multiple Data Sets<a class="headerlink" href="#visualizing-multiple-data-sets" title="Permalink to this headline">¶</a></h1>
+<p>We wish to compare the firearms mortality rates in 2005 to those in 2014. These are stored in the dataframe in the <code class="docutils literal notranslate"><span class="pre">RATE-2005</span></code> and <code class="docutils literal notranslate"><span class="pre">RATE-2014</span></code> columns. (There is also a <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Laws</span> <span class="pre">2014</span></code> column that we will not be using yet.)</p>
+<p>Since we will be creating several plots of these data sets, it is convenient to store the values in the appropriate columns of the dataframe as lists or numpy arrays. Here we store the values as numpy arrays to allow us to use some of numpy’s built-in methods later in this chapter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+ <span class="s2">&quot;http://wireless.ece.ufl.edu/jshea/idse/data/firearms-combined.csv&quot;</span><span class="p">)</span>
+<span class="n">rate2005</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2005&quot;</span><span class="p">])</span>
+<span class="n">rate2014</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, we will start with scatter plots and then create histograms of the data:</p>
+<div class="section" id="scatter-plots-for-multiple-datasets">
+<h2>Scatter Plots for Multiple Datasets<a class="headerlink" href="#scatter-plots-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to create most plots with multiple datasets is to simply call Matplotlib’s multiple times from within a single cell:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">rate2014</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2005</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2014</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_6_0.png" src="../_images/visualization_6_0.png" />
+</div>
+</div>
+<p>Note that Matplotlib automatically chooses different colors for the points plotted from the second call to <code class="docutils literal notranslate"><span class="pre">scatter()</span></code>, allowing us to see that there are two distinct data sets being plotted (although with no indication of which is which – we will fix this soon).</p>
+<p>Although this graph does not provide much insight into whether there is a difference between these two datasets, it is worth exploring how to make this graph more presentable. When working with different datasets, it is a good practice to use a unique marker style for reach dataset. This is especially important when data may be printed because many people still print to a black and white printer and because some people cannot distinguish certain types of colors (colorblindness).</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> the easiest way to set the marker type is to pass a string indicating the desired marker type using the <code class="docutils literal notranslate"><span class="pre">marker</span></code> keyword parameter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2005</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2014</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_8_0.png" src="../_images/visualization_8_0.png" />
+</div>
+</div>
+<p>Some commonly used marker types include:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;.&quot;</span>		<span class="n">point</span>
+<span class="s2">&quot;o&quot;</span>		<span class="n">circle</span>
+<span class="s2">&quot;s&quot;</span>		<span class="n">square</span>
+<span class="s2">&quot;+&quot;</span>		<span class="n">plus</span>
+<span class="s2">&quot;x&quot;</span>		<span class="n">x</span>
+</pre></div>
+</div>
+<p>For a complete list of marker types, consult the Matplotlib documentation:</p>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html">matplotlib.markers</a></p>
+<p>It is also important to provide a legend to indicate what the different markers mean. This is most easily done in two steps:</p>
+<ol class="simple">
+<li><p>When calling <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> for each data set, pass the text that you would like to appear in the legend for that data set using the <code class="docutils literal notranslate"><span class="pre">label</span></code> keyword argument.</p></li>
+<li><p>After all <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> calls are complete, call <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> to draw the legend.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2005</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2005&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2014</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_11_0.png" src="../_images/visualization_11_0.png" />
+</div>
+</div>
+<p>Finally, add axis labels and a title to finish the graph:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2005</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2005&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2014</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Firearms Mortality Rates in 2005 and 2014&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;State Index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Deaths per 100,000&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_13_0.png" src="../_images/visualization_13_0.png" />
+</div>
+</div>
+<p>One good reason to always start with a scatter plot is that we can identify <em>outliers</em>:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">outlier
+: A value in a dataset that takes on a value that is not reasonable, based on the other values in the dataset or other domain knowledge. Outliers are often due to data entry, measurement, or unit conversion errors.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>To see how scatter plots can identify outliers, let’s create modified versions of our data sets with known errors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier2005</span><span class="o">=</span><span class="n">rate2005</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">outlier2014</span><span class="o">=</span><span class="n">rate2014</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">outlier2005</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="mi">30</span>
+<span class="n">outlier2014</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="o">=-</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">outlier2005</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2005&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">outlier2014</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2014&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_18_0.png" src="../_images/visualization_18_0.png" />
+</div>
+</div>
+<p>The values for states 10 and 20 literally “stick out” from the rest of the values. This does not necessarily mean that those values are not valid, but it definitely indicates that they should be checked carefully. For instance, a negative value is not possible for a mortality rate, so that value can immediately be identified as an error. On the other hand, the exceptionally high value (30) could actually be a valid result. In this case, additional  research may be needed to try to confirm whether it is a valid data point.</p>
+<p>Values identified as outliers may be dealt with in several ways. Two typical ways are to remove them from the data sets or to replace them with the averages of the other values. How to make such choices is usually up to the data scientist, and the implications of these choices is beyond the scope of this  book.</p>
+<p>An advantage of scatter plots is that sometimes these values do not stick out as much in other plots, such as a histogram – which leads us to our next visualization.</p>
+</div>
+<div class="section" id="histograms-for-multiple-datasets">
+<h2>Histograms for Multiple Datasets<a class="headerlink" href="#histograms-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
+<p>As with the data in Chapter XX, we next want to study the rates of occurrence of the values of the data. However, unlike the histograms we previously generated, this data takes on <strong>real values</strong>, not just integers. One implication of this is that we cannot meaningfully count the data (for instance to compute the relative frequencies):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 3.4,  3.6,  5.2,  5.3,  6.6,  6.7,  6.8,  7. ,  7.7,  7.8,  8. ,
+         8.5,  8.8,  9.3,  9.5,  9.6, 10. , 10.1, 10.2, 10.7, 10.8, 11.1,
+        11.2, 11.5, 11.6, 11.9, 12.1, 12.8, 12.9, 13. , 13.2, 13.4, 13.8,
+        13.9, 14.1, 15.7, 16. , 16.1, 16.9, 17.5, 18.5, 30. ]),
+ array([1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 2, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 3, 2, 1, 1, 1, 1]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is exactly one occurrence of most (36) of the values. If the mortality rates were calculated to more than one decimal place, it is likely that all of the values would be distinct. Yet we can see that the values are not evenly distributed: there are only two values in the range <span class="math notranslate nohighlight">\([3,5)\)</span>, but there are ten values in the range <span class="math notranslate nohighlight">\([10,12)\)</span>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function is designed to generate meaningful histograms for continuous data by counting the number of occurrences per bin:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_24_0.png" src="../_images/visualization_24_0.png" />
+</div>
+</div>
+<p>Each bar of the histgram represents a “bin” of data values. In fact, the counts and bin edges are returned by the hist function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_26_0.png" src="../_images/visualization_26_0.png" />
+</div>
+</div>
+<p>Note that here I used a Python convention of storing the matplotlib patches information, which is the third returned value, in the variable “_” (underscore) to indicate that it is a value that we do not care about.</p>
+<p>We can inspect the bins and counts by evaluating those variables or printing them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bins:&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Counts:&quot;</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bins: [ 3.4   6.06  8.72 11.38 14.04 16.7  19.36 22.02 24.68 27.34 30.  ]
+Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some styling will help make this more legible. The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> keyword parameter in matplotlib sets the transparency (from totally transparent (<code class="docutils literal notranslate"><span class="pre">alpha=0</span></code>) to totally opaque (<code class="docutils literal notranslate"><span class="pre">alpha=1</span></code>). Adding transparency makes it much easier to see the data in both histograms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_30_0.png" src="../_images/visualization_30_0.png" />
+</div>
+</div>
+<p>The choice of <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">0.5</span></code> is usually a good starting point, but the best value to use is up to the graph’s creator.</p>
+<div class="section" id="choosing-the-number-size-of-histogram-bins">
+<h3>Choosing the number/size of histogram bins<a class="headerlink" href="#choosing-the-number-size-of-histogram-bins" title="Permalink to this headline">¶</a></h3>
+<p>Unlike integer data, when the data comes from the continuous real line, there is no right way to choose the size or number of the histogram bins.</p>
+<p>We can easily change the number of bins to provide more resolution into the data; however if we increase the number of bins, the number of data points per bin will be lower.</p>
+<p>If we just want to specify a number of bins (instead of a list of bin edges, like in the previous chapter), then we can just pass number of bins to the <code class="docutils literal notranslate"><span class="pre">bins</span></code> keyword argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_33_0.png" src="../_images/visualization_33_0.png" />
+</div>
+</div>
+<p>If we increase the number of bins too much, we will run into a similar problem we had in counting using <code class="docutils literal notranslate"><span class="pre">np.unique()</span></code>: most of the bins will have either 1 or 0 values in them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_35_0.png" src="../_images/visualization_35_0.png" />
+</div>
+</div>
+<p>Thus the number of bins should be chosen to balance between providing more resolution versus having sufficiently high counts in the bins to see how the values are distributed. Selecting the number of bins to achieve an appropriate balance is up to the graph creator. There are some research papers that provide techniques to select the number of bins; however, they are beyond the scope of this book.</p>
+<p>If you need a guidline for selecting the number of histogram bins, you can try:</p>
+<p><strong>Make the number of bins as large as possible while ensuring that  at least 50% of the bins contain at least 2 data points.</strong></p>
+</div>
+<div class="section" id="bin-alignment-for-multiple-histograms-in-one-figure">
+<h3>Bin alignment for multiple histograms in one figure<a class="headerlink" href="#bin-alignment-for-multiple-histograms-in-one-figure" title="Permalink to this headline">¶</a></h3>
+<p>One issue that arises when plotting multiple histograms in one figure is that the bins created by each call to <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> are not aligned. This can be helpful in that the bins are typically offset from each other, which makes it easier to see the separate bar heights. However, the bar heights cannot be directly compared because they correspond to different ranges of data. There are various solutions, but let’s use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to create our own set of bin edges. Start by finding the min and max of each data set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">rate2005</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">rate2014</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rate2005</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rate2014</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1 2.6
+18.5 19.2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can make a linearly spaced set of bin edges from the minimum to the maximum values using NumPy’s <code class="docutils literal notranslate"><span class="pre">linspace()</span></code> function. It is usually called with three arguments: start, stop, number of points:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_edges</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">19.2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 2.1  3.   3.9  4.8  5.7  6.6  7.5  8.4  9.3 10.2 11.1 12.  12.9 13.8
+ 14.7 15.6 16.5 17.4 18.3 19.2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2005&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2014&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_41_0.png" src="../_images/visualization_41_0.png" />
+</div>
+</div>
+<p>Now we can finish the graph by providing data labels and adding a legend and axis labels. In this case, we might omit a title because the title would probably be something like “Mortality Rate Histograms for 2005 and 2014”, which can already be determined from inspecting the graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2005&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2014&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Mortality rate (deaths per 100k people)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_43_0.png" src="../_images/visualization_43_0.png" />
+</div>
+</div>
+<p>What inferences might you make from this plot?</p>
+<p>A quick visual inspect should indicate that the two data sets are quite similar. However, we can see that the in from 5 to 10, the 2005 data set has higher counts, while in the bins from 10 to 19.2, the 2014 data set has more bins with a higher count.</p>
+<p>The histogram gives us some insight into how these data sets might be similar or different, but they do not give us a way to perform a quantitative comparison or to determine if any observed difference is likely to have come from real differences in the underlying data sets or could just be attributed to randomness. To resolve both these issues, we can compute values that capture some summary information about the data set. We call these values <strong>summary statistics</strong>:</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./03-first-data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="pandas-start.html" title="previous page">Intro to Pandas</a>
+    <a class='right-next' id="next-link" href="summary-stats.html" title="next page">Summary Statistics</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By John M. Shea<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
