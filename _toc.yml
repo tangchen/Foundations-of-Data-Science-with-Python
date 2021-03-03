@@ -13,6 +13,8 @@
   - file: 03-first-data/intro
     sections:
     - file: 03-first-data/pandas-start
+    - file: 03-first-data/visualization
+    - file: 03-first-data/summary-stats
 
 #- file: 03/Lecture 3-Prep.ipynb
 #- file: 03/Lecture 3 Assignment.ipynb
