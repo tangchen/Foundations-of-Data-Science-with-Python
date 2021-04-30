@@ -270,7 +270,7 @@
 <img alt="Pandas logo" src="https://pandas.pydata.org/_static/pandas_logo.png" /></p>
 <p><em>“pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language”</em></p>
 <p>https://pandas.pydata.org</p>
-<p>We will start working with the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library by importing it into the <code class="docutils literal notranslate"><span class="pre">pd</span></code> namespace:</p>
+<p>Rather than spending time explaining what Pandas does, let’s just import it and start working with it. We will import it into the <code class="docutils literal notranslate"><span class="pre">pd</span></code> namespace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -278,19 +278,30 @@
 </div>
 </div>
 </div>
-<p>Pandas works with data in <em>dataframes</em>. A dataframe is similar to a spreadsheet or a database table. It is a two-dimensional structure in which each row corresponds to a single data entry: a set of information about a particulr entity or observation. Each column stores one particular piece of information about these entries. Like tables in spreadsheets or databases, the columns can be labeled, and the rows can be indexed by consecutive integers or by the data in one of the columns.</p>
-<p>We can use Pandas to directly download the CSV data into a dataframe using Pandas’ <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function:</p>
+<p>Pandas works with data in <em>dataframes</em>. A dataframe is similar to a spreadsheet or a database table. It is a two-dimensional structure in which each row corresponds to a single data entry: a set of information about a particular entity or observation. Each column stores one particular piece of information about these entries. Like tables in spreadsheets or databases, the columns can be labeled, and the rows can be indexed by consecutive integers or by the data in one of the columns.</p>
+<p>We will work with the following data:</p>
+<ul class="simple">
+<li><p><strong>Cases</strong> and <strong>deaths</strong> from COVID-19 were retrieved from The New York Times “Coronavirus (Covid-19) Data in the United States github repository at https://github.com/nytimes/covid-19-data/blob/master/us-states.csv . Retrieved April 26, 2021.</p></li>
+<li><p><strong>Population</strong> data is from “Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2019” 2010-2019 Population Estimates. United States Census Bureau, Population Division. December 30, 2019. Link: https://www2.census.gov/programs-surveys/popest/tables/2010-2019/state/totals/nst-est2019-01.xlsx Retrieved April 26, 2021.</p></li>
+<li><p><strong>GDP</strong> data is from the US Department of Commerce Bureau of Economic Analysis, Regional Data: GDP and Personal Income, Current-dollar Gross Domestic Product (GDP) (Millions of current dollars) 2019:Q4. Link: https://apps.bea.gov/itable/iTable.cfm?ReqID=70&amp;step=1&amp;acrdn=1. Retrieved April 27, 2021.</p></li>
+<li><p>Data on <strong>percentage of population living in urban areas</strong> is from the United States Census Bureau, List of Population, Land Area, and Percent Urban and Rural in 2010 and Changes from 2000 to 2010, “Percent Urban and Rural in 2010 by State”. Link: https://www2.census.gov/geo/docs/reference/ua/PctUrbanRural_State.xls. Retrieved April 27, 2021.</p></li>
+</ul>
+<p>To make it easier to start working with these data sets, I have merged the data into a single CSV file that is available at https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv.</p>
+<p>Pandas provides a method to read CSV files, and it can read them directly from a URL:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
- <span class="s2">&quot;http://wireless.ece.ufl.edu/jshea/idse/data/firearms-combined.csv&quot;</span><span class="p">)</span>
+ <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/&quot;</span>
+    <span class="o">+</span> <span class="s2">&quot;intro-data-science-for-engineers/main/&quot;</span>
+    <span class="o">+</span> <span class="s2">&quot;03-first-data/covid-merged.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Note that this CSV file can be reconstructed from the raw data by running the commands in the notebook “Download Covid Data.ipynb”, which is in the Chapter 3 folder on the book’s github site. <span style="color:red"> LINK TO BE PROVIDED</span></p>
 <div class="section" id="working-with-dataframes">
 <h2>Working with Dataframes<a class="headerlink" href="#working-with-dataframes" title="Permalink to this headline">¶</a></h2>
-<p>Let’s start by looking at the dataframe. When run inside of Jupyter, Pandas will pretty-print a dataframe. Note that the column labels are imported from the first line of the CSV, and the unlabeled column on the left-hand side is the index, which acts like labels for the rows and which defaults to consecutive integers, starting at row 0.</p>
+<p>Let’s start by looking at the dataframe. When run inside of Jupyter, Pandas will pretty-print a dataframe if the dataframe variable is evaluated as the last line of a code cell. Note that the column labels are imported from the first line of the CSV, and the unlabeled column on the left-hand side is the index, which acts like labels for the rows and which defaults to consecutive integers, starting at row 0.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
@@ -316,426 +327,477 @@
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>STATE</th>
-      <th>RATE-2005</th>
-      <th>RATE-2014</th>
-      <th>Total Laws 2014</th>
+      <th>state</th>
+      <th>cases</th>
+      <th>population</th>
+      <th>gdp</th>
+      <th>urban</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>AL</td>
-      <td>16.0</td>
-      <td>16.9</td>
-      <td>10</td>
+      <td>Alabama</td>
+      <td>7068</td>
+      <td>4903185</td>
+      <td>230750.1</td>
+      <td>59.04</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>AK</td>
-      <td>17.5</td>
-      <td>19.2</td>
-      <td>3</td>
+      <td>Alaska</td>
+      <td>353</td>
+      <td>731545</td>
+      <td>54674.7</td>
+      <td>66.02</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>AZ</td>
-      <td>16.1</td>
-      <td>13.5</td>
-      <td>8</td>
+      <td>Arizona</td>
+      <td>7648</td>
+      <td>7278717</td>
+      <td>379018.8</td>
+      <td>89.81</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>AR</td>
-      <td>15.7</td>
-      <td>16.6</td>
-      <td>11</td>
+      <td>Arkansas</td>
+      <td>3281</td>
+      <td>3017804</td>
+      <td>132596.4</td>
+      <td>56.16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>CA</td>
-      <td>9.5</td>
-      <td>7.4</td>
-      <td>100</td>
+      <td>California</td>
+      <td>50470</td>
+      <td>39512223</td>
+      <td>3205000.1</td>
+      <td>94.95</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>CO</td>
-      <td>11.6</td>
-      <td>12.2</td>
-      <td>30</td>
+      <td>Colorado</td>
+      <td>15207</td>
+      <td>5758736</td>
+      <td>400863.4</td>
+      <td>86.15</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>CT</td>
-      <td>5.3</td>
-      <td>5.0</td>
-      <td>85</td>
+      <td>Connecticut</td>
+      <td>27700</td>
+      <td>3565287</td>
+      <td>290703.0</td>
+      <td>87.99</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>DE</td>
-      <td>8.8</td>
-      <td>11.1</td>
-      <td>38</td>
+      <td>Delaware</td>
+      <td>4734</td>
+      <td>973764</td>
+      <td>77879.4</td>
+      <td>83.30</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>FL</td>
-      <td>10.0</td>
-      <td>11.5</td>
-      <td>21</td>
+      <td>Florida</td>
+      <td>33683</td>
+      <td>21477737</td>
+      <td>1126510.3</td>
+      <td>91.16</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>GA</td>
-      <td>12.1</td>
-      <td>13.7</td>
-      <td>6</td>
+      <td>Georgia</td>
+      <td>25431</td>
+      <td>10617423</td>
+      <td>634137.5</td>
+      <td>75.07</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>HI</td>
-      <td>2.1</td>
-      <td>2.6</td>
-      <td>78</td>
+      <td>Hawaii</td>
+      <td>609</td>
+      <td>1415872</td>
+      <td>97001.1</td>
+      <td>91.93</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>ID</td>
-      <td>14.1</td>
-      <td>13.2</td>
-      <td>5</td>
+      <td>Idaho</td>
+      <td>2016</td>
+      <td>1787065</td>
+      <td>85791.1</td>
+      <td>70.58</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>IL</td>
-      <td>8.0</td>
-      <td>9.0</td>
-      <td>65</td>
+      <td>Illinois</td>
+      <td>52918</td>
+      <td>12671821</td>
+      <td>893355.5</td>
+      <td>88.49</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>IN</td>
-      <td>11.2</td>
-      <td>12.4</td>
-      <td>11</td>
+      <td>Indiana</td>
+      <td>18099</td>
+      <td>6732219</td>
+      <td>384871.7</td>
+      <td>72.44</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>IA</td>
-      <td>6.7</td>
-      <td>7.5</td>
-      <td>25</td>
+      <td>Iowa</td>
+      <td>7145</td>
+      <td>3155070</td>
+      <td>196247.4</td>
+      <td>64.02</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>KS</td>
-      <td>9.3</td>
-      <td>11.3</td>
-      <td>8</td>
+      <td>Kansas</td>
+      <td>4305</td>
+      <td>2913314</td>
+      <td>178605.1</td>
+      <td>74.20</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>KY</td>
-      <td>13.0</td>
-      <td>13.9</td>
-      <td>7</td>
+      <td>Kentucky</td>
+      <td>4708</td>
+      <td>4467673</td>
+      <td>218426.1</td>
+      <td>58.38</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>LA</td>
-      <td>18.5</td>
-      <td>19.0</td>
-      <td>12</td>
+      <td>Louisiana</td>
+      <td>28044</td>
+      <td>4648794</td>
+      <td>259079.3</td>
+      <td>73.19</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>ME</td>
-      <td>7.8</td>
-      <td>9.4</td>
-      <td>11</td>
+      <td>Maine</td>
+      <td>1095</td>
+      <td>1344212</td>
+      <td>68984.9</td>
+      <td>38.66</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>MD</td>
-      <td>11.9</td>
-      <td>9.0</td>
-      <td>63</td>
+      <td>Maryland</td>
+      <td>21825</td>
+      <td>6045680</td>
+      <td>432997.8</td>
+      <td>87.20</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>MA</td>
-      <td>3.4</td>
-      <td>3.2</td>
-      <td>101</td>
+      <td>Massachusetts</td>
+      <td>62205</td>
+      <td>6892503</td>
+      <td>603209.6</td>
+      <td>91.97</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>MI</td>
-      <td>10.8</td>
-      <td>11.1</td>
-      <td>20</td>
+      <td>Michigan</td>
+      <td>41348</td>
+      <td>9986857</td>
+      <td>543489.4</td>
+      <td>74.57</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>MN</td>
-      <td>7.0</td>
-      <td>6.6</td>
-      <td>39</td>
+      <td>Minnesota</td>
+      <td>5136</td>
+      <td>5639632</td>
+      <td>389503.7</td>
+      <td>73.27</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>MS</td>
-      <td>16.0</td>
-      <td>18.3</td>
-      <td>5</td>
+      <td>Mississippi</td>
+      <td>6815</td>
+      <td>2976149</td>
+      <td>117642.3</td>
+      <td>49.35</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>MO</td>
-      <td>12.9</td>
-      <td>15.3</td>
-      <td>8</td>
+      <td>Missouri</td>
+      <td>7563</td>
+      <td>6137428</td>
+      <td>332659.7</td>
+      <td>70.44</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>MT</td>
-      <td>16.9</td>
-      <td>16.1</td>
-      <td>4</td>
+      <td>Montana</td>
+      <td>452</td>
+      <td>1068778</td>
+      <td>54034.7</td>
+      <td>55.89</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>NE</td>
-      <td>7.7</td>
-      <td>9.5</td>
-      <td>22</td>
+      <td>Nebraska</td>
+      <td>4332</td>
+      <td>1934408</td>
+      <td>133201.0</td>
+      <td>73.13</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>NV</td>
-      <td>16.1</td>
-      <td>14.8</td>
-      <td>11</td>
+      <td>Nevada</td>
+      <td>5053</td>
+      <td>3080156</td>
+      <td>181751.6</td>
+      <td>94.20</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>NH</td>
-      <td>6.6</td>
-      <td>8.7</td>
-      <td>10</td>
+      <td>New Hampshire</td>
+      <td>2146</td>
+      <td>1359711</td>
+      <td>88014.8</td>
+      <td>60.30</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>NJ</td>
-      <td>5.2</td>
-      <td>5.3</td>
-      <td>67</td>
+      <td>New Jersey</td>
+      <td>118652</td>
+      <td>8882190</td>
+      <td>642967.7</td>
+      <td>94.68</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>NM</td>
-      <td>13.9</td>
-      <td>16.0</td>
-      <td>10</td>
+      <td>New Mexico</td>
+      <td>3411</td>
+      <td>2096829</td>
+      <td>106914.4</td>
+      <td>77.43</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>NY</td>
-      <td>5.3</td>
-      <td>4.2</td>
-      <td>76</td>
+      <td>New York</td>
+      <td>309696</td>
+      <td>19453561</td>
+      <td>1791566.8</td>
+      <td>87.87</td>
     </tr>
     <tr>
       <th>32</th>
-      <td>NC</td>
-      <td>12.8</td>
-      <td>11.8</td>
-      <td>30</td>
+      <td>North Carolina</td>
+      <td>10507</td>
+      <td>10488084</td>
+      <td>601787.9</td>
+      <td>66.09</td>
     </tr>
     <tr>
       <th>33</th>
-      <td>ND</td>
-      <td>8.8</td>
-      <td>12.3</td>
-      <td>14</td>
+      <td>North Dakota</td>
+      <td>1067</td>
+      <td>762062</td>
+      <td>57471.9</td>
+      <td>59.90</td>
     </tr>
     <tr>
       <th>34</th>
-      <td>OH</td>
-      <td>9.6</td>
-      <td>10.3</td>
-      <td>15</td>
+      <td>Ohio</td>
+      <td>18027</td>
+      <td>11689100</td>
+      <td>703368.9</td>
+      <td>77.92</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>OK</td>
-      <td>13.2</td>
-      <td>15.7</td>
-      <td>9</td>
+      <td>Oklahoma</td>
+      <td>3618</td>
+      <td>3956971</td>
+      <td>201604.3</td>
+      <td>66.24</td>
     </tr>
     <tr>
       <th>36</th>
-      <td>OR</td>
-      <td>10.7</td>
-      <td>11.7</td>
-      <td>24</td>
+      <td>Oregon</td>
+      <td>2510</td>
+      <td>4217737</td>
+      <td>258692.6</td>
+      <td>81.03</td>
     </tr>
     <tr>
       <th>37</th>
-      <td>PA</td>
-      <td>10.8</td>
-      <td>10.5</td>
-      <td>37</td>
+      <td>Pennsylvania</td>
+      <td>48224</td>
+      <td>12801989</td>
+      <td>818448.6</td>
+      <td>78.66</td>
     </tr>
     <tr>
       <th>38</th>
-      <td>RI</td>
-      <td>3.6</td>
-      <td>3.0</td>
-      <td>43</td>
+      <td>Rhode Island</td>
+      <td>8621</td>
+      <td>1059361</td>
+      <td>62335.4</td>
+      <td>90.73</td>
     </tr>
     <tr>
       <th>39</th>
-      <td>SC</td>
-      <td>13.8</td>
-      <td>15.5</td>
-      <td>12</td>
+      <td>South Carolina</td>
+      <td>6095</td>
+      <td>5148714</td>
+      <td>251664.5</td>
+      <td>66.33</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>SD</td>
-      <td>10.2</td>
-      <td>10.3</td>
-      <td>5</td>
+      <td>South Dakota</td>
+      <td>2450</td>
+      <td>884659</td>
+      <td>56051.9</td>
+      <td>56.65</td>
     </tr>
     <tr>
       <th>41</th>
-      <td>TN</td>
-      <td>16.0</td>
-      <td>15.1</td>
-      <td>24</td>
+      <td>Tennessee</td>
+      <td>10506</td>
+      <td>6829174</td>
+      <td>380823.0</td>
+      <td>66.39</td>
     </tr>
     <tr>
       <th>42</th>
-      <td>TX</td>
-      <td>11.1</td>
-      <td>10.7</td>
-      <td>20</td>
+      <td>Texas</td>
+      <td>29072</td>
+      <td>28995881</td>
+      <td>1861581.9</td>
+      <td>84.70</td>
     </tr>
     <tr>
       <th>43</th>
-      <td>UT</td>
-      <td>10.1</td>
-      <td>12.3</td>
-      <td>11</td>
+      <td>Utah</td>
+      <td>4672</td>
+      <td>3205958</td>
+      <td>196639.4</td>
+      <td>90.58</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>VT</td>
-      <td>6.8</td>
-      <td>10.3</td>
-      <td>3</td>
+      <td>Vermont</td>
+      <td>866</td>
+      <td>623989</td>
+      <td>34320.2</td>
+      <td>38.90</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>VA</td>
-      <td>11.5</td>
-      <td>10.3</td>
-      <td>12</td>
+      <td>Virginia</td>
+      <td>15846</td>
+      <td>8535519</td>
+      <td>566529.4</td>
+      <td>75.45</td>
     </tr>
     <tr>
       <th>46</th>
-      <td>WA</td>
-      <td>8.8</td>
-      <td>9.7</td>
-      <td>41</td>
+      <td>Washington</td>
+      <td>14814</td>
+      <td>7614893</td>
+      <td>624861.4</td>
+      <td>84.05</td>
     </tr>
     <tr>
       <th>47</th>
-      <td>WV</td>
-      <td>13.8</td>
-      <td>14.6</td>
-      <td>24</td>
+      <td>West Virginia</td>
+      <td>1126</td>
+      <td>1792147</td>
+      <td>78480.5</td>
+      <td>48.72</td>
     </tr>
     <tr>
       <th>48</th>
-      <td>WI</td>
-      <td>8.5</td>
-      <td>8.2</td>
-      <td>24</td>
+      <td>Wisconsin</td>
+      <td>6973</td>
+      <td>5822434</td>
+      <td>353935.5</td>
+      <td>70.15</td>
     </tr>
     <tr>
       <th>49</th>
-      <td>WY</td>
-      <td>13.4</td>
-      <td>16.2</td>
-      <td>6</td>
+      <td>Wyoming</td>
+      <td>559</td>
+      <td>578759</td>
+      <td>40764.3</td>
+      <td>64.76</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>In Pandas, particular columns can be retrieved by putting the name of the column in square brackets after the name of the dataframe. For instance, here is how to retrieve the content of the ‘STATE’ column:</p>
+<p>In Pandas, particular columns can be retrieved by putting the name of the column in square brackets after the name of the dataframe. For instance, here is how to retrieve the content of the ‘state’ column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;STATE&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     AL
-1     AK
-2     AZ
-3     AR
-4     CA
-5     CO
-6     CT
-7     DE
-8     FL
-9     GA
-10    HI
-11    ID
-12    IL
-13    IN
-14    IA
-15    KS
-16    KY
-17    LA
-18    ME
-19    MD
-20    MA
-21    MI
-22    MN
-23    MS
-24    MO
-25    MT
-26    NE
-27    NV
-28    NH
-29    NJ
-30    NM
-31    NY
-32    NC
-33    ND
-34    OH
-35    OK
-36    OR
-37    PA
-38    RI
-39    SC
-40    SD
-41    TN
-42    TX
-43    UT
-44    VT
-45    VA
-46    WA
-47    WV
-48    WI
-49    WY
-Name: STATE, dtype: object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0            Alabama
+1             Alaska
+2            Arizona
+3           Arkansas
+4         California
+5           Colorado
+6        Connecticut
+7           Delaware
+8            Florida
+9            Georgia
+10            Hawaii
+11             Idaho
+12          Illinois
+13           Indiana
+14              Iowa
+15            Kansas
+16          Kentucky
+17         Louisiana
+18             Maine
+19          Maryland
+20     Massachusetts
+21          Michigan
+22         Minnesota
+23       Mississippi
+24          Missouri
+25           Montana
+26          Nebraska
+27            Nevada
+28     New Hampshire
+29        New Jersey
+30        New Mexico
+31          New York
+32    North Carolina
+33      North Dakota
+34              Ohio
+35          Oklahoma
+36            Oregon
+37      Pennsylvania
+38      Rhode Island
+39    South Carolina
+40      South Dakota
+41         Tennessee
+42             Texas
+43              Utah
+44           Vermont
+45          Virginia
+46        Washington
+47     West Virginia
+48         Wisconsin
+49           Wyoming
+Name: state, dtype: object
 </pre></div>
 </div>
 </div>
@@ -743,7 +805,7 @@ Name: STATE, dtype: object
 <p>A columns of a dataframe is returned as a Pandas series object, which is a one-dimensional object with a row index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;STATE&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -756,7 +818,7 @@ Name: STATE, dtype: object
 <p>We can retrieve multiple columns simultaneously by including them in a list within the square bracks (meaning that there will be double square brackes – one set to tell Pandas we are selecting columns and one to form the list of columns to be selected:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span> <span class="p">[</span><span class="s2">&quot;STATE&quot;</span><span class="p">,</span> <span class="s2">&quot;RATE-2014&quot;</span><span class="p">]</span> <span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;cases&quot;</span><span class="p">]</span> <span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -779,260 +841,260 @@ Name: STATE, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>STATE</th>
-      <th>RATE-2014</th>
+      <th>state</th>
+      <th>cases</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>AL</td>
-      <td>16.9</td>
+      <td>Alabama</td>
+      <td>7068</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>AK</td>
-      <td>19.2</td>
+      <td>Alaska</td>
+      <td>353</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>AZ</td>
-      <td>13.5</td>
+      <td>Arizona</td>
+      <td>7648</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>AR</td>
-      <td>16.6</td>
+      <td>Arkansas</td>
+      <td>3281</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>CA</td>
-      <td>7.4</td>
+      <td>California</td>
+      <td>50470</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>CO</td>
-      <td>12.2</td>
+      <td>Colorado</td>
+      <td>15207</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>CT</td>
-      <td>5.0</td>
+      <td>Connecticut</td>
+      <td>27700</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>DE</td>
-      <td>11.1</td>
+      <td>Delaware</td>
+      <td>4734</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>FL</td>
-      <td>11.5</td>
+      <td>Florida</td>
+      <td>33683</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>GA</td>
-      <td>13.7</td>
+      <td>Georgia</td>
+      <td>25431</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>HI</td>
-      <td>2.6</td>
+      <td>Hawaii</td>
+      <td>609</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>ID</td>
-      <td>13.2</td>
+      <td>Idaho</td>
+      <td>2016</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>IL</td>
-      <td>9.0</td>
+      <td>Illinois</td>
+      <td>52918</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>IN</td>
-      <td>12.4</td>
+      <td>Indiana</td>
+      <td>18099</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>IA</td>
-      <td>7.5</td>
+      <td>Iowa</td>
+      <td>7145</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>KS</td>
-      <td>11.3</td>
+      <td>Kansas</td>
+      <td>4305</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>KY</td>
-      <td>13.9</td>
+      <td>Kentucky</td>
+      <td>4708</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>LA</td>
-      <td>19.0</td>
+      <td>Louisiana</td>
+      <td>28044</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>ME</td>
-      <td>9.4</td>
+      <td>Maine</td>
+      <td>1095</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>MD</td>
-      <td>9.0</td>
+      <td>Maryland</td>
+      <td>21825</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>MA</td>
-      <td>3.2</td>
+      <td>Massachusetts</td>
+      <td>62205</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>MI</td>
-      <td>11.1</td>
+      <td>Michigan</td>
+      <td>41348</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>MN</td>
-      <td>6.6</td>
+      <td>Minnesota</td>
+      <td>5136</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>MS</td>
-      <td>18.3</td>
+      <td>Mississippi</td>
+      <td>6815</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>MO</td>
-      <td>15.3</td>
+      <td>Missouri</td>
+      <td>7563</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>MT</td>
-      <td>16.1</td>
+      <td>Montana</td>
+      <td>452</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>NE</td>
-      <td>9.5</td>
+      <td>Nebraska</td>
+      <td>4332</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>NV</td>
-      <td>14.8</td>
+      <td>Nevada</td>
+      <td>5053</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>NH</td>
-      <td>8.7</td>
+      <td>New Hampshire</td>
+      <td>2146</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>NJ</td>
-      <td>5.3</td>
+      <td>New Jersey</td>
+      <td>118652</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>NM</td>
-      <td>16.0</td>
+      <td>New Mexico</td>
+      <td>3411</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>NY</td>
-      <td>4.2</td>
+      <td>New York</td>
+      <td>309696</td>
     </tr>
     <tr>
       <th>32</th>
-      <td>NC</td>
-      <td>11.8</td>
+      <td>North Carolina</td>
+      <td>10507</td>
     </tr>
     <tr>
       <th>33</th>
-      <td>ND</td>
-      <td>12.3</td>
+      <td>North Dakota</td>
+      <td>1067</td>
     </tr>
     <tr>
       <th>34</th>
-      <td>OH</td>
-      <td>10.3</td>
+      <td>Ohio</td>
+      <td>18027</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>OK</td>
-      <td>15.7</td>
+      <td>Oklahoma</td>
+      <td>3618</td>
     </tr>
     <tr>
       <th>36</th>
-      <td>OR</td>
-      <td>11.7</td>
+      <td>Oregon</td>
+      <td>2510</td>
     </tr>
     <tr>
       <th>37</th>
-      <td>PA</td>
-      <td>10.5</td>
+      <td>Pennsylvania</td>
+      <td>48224</td>
     </tr>
     <tr>
       <th>38</th>
-      <td>RI</td>
-      <td>3.0</td>
+      <td>Rhode Island</td>
+      <td>8621</td>
     </tr>
     <tr>
       <th>39</th>
-      <td>SC</td>
-      <td>15.5</td>
+      <td>South Carolina</td>
+      <td>6095</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>SD</td>
-      <td>10.3</td>
+      <td>South Dakota</td>
+      <td>2450</td>
     </tr>
     <tr>
       <th>41</th>
-      <td>TN</td>
-      <td>15.1</td>
+      <td>Tennessee</td>
+      <td>10506</td>
     </tr>
     <tr>
       <th>42</th>
-      <td>TX</td>
-      <td>10.7</td>
+      <td>Texas</td>
+      <td>29072</td>
     </tr>
     <tr>
       <th>43</th>
-      <td>UT</td>
-      <td>12.3</td>
+      <td>Utah</td>
+      <td>4672</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>VT</td>
-      <td>10.3</td>
+      <td>Vermont</td>
+      <td>866</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>VA</td>
-      <td>10.3</td>
+      <td>Virginia</td>
+      <td>15846</td>
     </tr>
     <tr>
       <th>46</th>
-      <td>WA</td>
-      <td>9.7</td>
+      <td>Washington</td>
+      <td>14814</td>
     </tr>
     <tr>
       <th>47</th>
-      <td>WV</td>
-      <td>14.6</td>
+      <td>West Virginia</td>
+      <td>1126</td>
     </tr>
     <tr>
       <th>48</th>
-      <td>WI</td>
-      <td>8.2</td>
+      <td>Wisconsin</td>
+      <td>6973</td>
     </tr>
     <tr>
       <th>49</th>
-      <td>WY</td>
-      <td>16.2</td>
+      <td>Wyoming</td>
+      <td>559</td>
     </tr>
   </tbody>
 </table>
@@ -1041,7 +1103,7 @@ Name: STATE, dtype: object
 <p>When we select multiple columns, the data is no longer one dimensional, and thus the returned data is a new dataframe, not a series:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;STATE&quot;</span><span class="p">,</span> <span class="s2">&quot;RATE-2014&quot;</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;cases&quot;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
@@ -1059,10 +1121,11 @@ Name: STATE, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>STATE                AK
-RATE-2005          17.5
-RATE-2014          19.2
-Total Laws 2014       3
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state          Alaska
+cases             353
+population     731545
+gdp           54674.7
+urban           66.02
 Name: 1, dtype: object
 </pre></div>
 </div>
@@ -1094,47 +1157,53 @@ Name: 1, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>STATE</th>
-      <th>RATE-2005</th>
-      <th>RATE-2014</th>
-      <th>Total Laws 2014</th>
+      <th>state</th>
+      <th>cases</th>
+      <th>population</th>
+      <th>gdp</th>
+      <th>urban</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
-      <td>AK</td>
-      <td>17.5</td>
-      <td>19.2</td>
-      <td>3</td>
+      <td>Alaska</td>
+      <td>353</td>
+      <td>731545</td>
+      <td>54674.7</td>
+      <td>66.02</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>AZ</td>
-      <td>16.1</td>
-      <td>13.5</td>
-      <td>8</td>
+      <td>Arizona</td>
+      <td>7648</td>
+      <td>7278717</td>
+      <td>379018.8</td>
+      <td>89.81</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>AR</td>
-      <td>15.7</td>
-      <td>16.6</td>
-      <td>11</td>
+      <td>Arkansas</td>
+      <td>3281</td>
+      <td>3017804</td>
+      <td>132596.4</td>
+      <td>56.16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>CA</td>
-      <td>9.5</td>
-      <td>7.4</td>
-      <td>100</td>
+      <td>California</td>
+      <td>50470</td>
+      <td>39512223</td>
+      <td>3205000.1</td>
+      <td>94.95</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>CO</td>
-      <td>11.6</td>
-      <td>12.2</td>
-      <td>30</td>
+      <td>Colorado</td>
+      <td>15207</td>
+      <td>5758736</td>
+      <td>400863.4</td>
+      <td>86.15</td>
     </tr>
   </tbody>
 </table>
@@ -1143,7 +1212,7 @@ Name: 1, dtype: object
 <p>We can combine both row and column selection by using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> and specifying the desired columns after a comma inside the square brackets:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;STATE&quot;</span><span class="p">,</span> <span class="s2">&quot;RATE-2005&quot;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;cases&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1166,35 +1235,35 @@ Name: 1, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>STATE</th>
-      <th>RATE-2005</th>
+      <th>state</th>
+      <th>cases</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
-      <td>AK</td>
-      <td>17.5</td>
+      <td>Alaska</td>
+      <td>353</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>AZ</td>
-      <td>16.1</td>
+      <td>Arizona</td>
+      <td>7648</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>AR</td>
-      <td>15.7</td>
+      <td>Arkansas</td>
+      <td>3281</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>CA</td>
-      <td>9.5</td>
+      <td>California</td>
+      <td>50470</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>CO</td>
-      <td>11.6</td>
+      <td>Colorado</td>
+      <td>15207</td>
     </tr>
   </tbody>
 </table>
@@ -1203,7 +1272,7 @@ Name: 1, dtype: object
 <p>It is often convenient to use the values in one of the columns to provide a more meaningful index for the the rows. Pandas does not require that the entries in the index be unique, but using non-unique entries can significantly impact performance and limit the ability to retrieve data by the index values.  To set the index, use Panda’s <code class="docutils literal notranslate"><span class="pre">set_index</span></code> method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;STATE&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1226,12 +1295,14 @@ Name: 1, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>RATE-2005</th>
-      <th>RATE-2014</th>
-      <th>Total Laws 2014</th>
+      <th>cases</th>
+      <th>population</th>
+      <th>gdp</th>
+      <th>urban</th>
     </tr>
     <tr>
-      <th>STATE</th>
+      <th>state</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -1239,304 +1310,354 @@ Name: 1, dtype: object
   </thead>
   <tbody>
     <tr>
-      <th>AL</th>
-      <td>16.0</td>
-      <td>16.9</td>
-      <td>10</td>
+      <th>Alabama</th>
+      <td>7068</td>
+      <td>4903185</td>
+      <td>230750.1</td>
+      <td>59.04</td>
     </tr>
     <tr>
-      <th>AK</th>
-      <td>17.5</td>
-      <td>19.2</td>
-      <td>3</td>
+      <th>Alaska</th>
+      <td>353</td>
+      <td>731545</td>
+      <td>54674.7</td>
+      <td>66.02</td>
     </tr>
     <tr>
-      <th>AZ</th>
-      <td>16.1</td>
-      <td>13.5</td>
-      <td>8</td>
+      <th>Arizona</th>
+      <td>7648</td>
+      <td>7278717</td>
+      <td>379018.8</td>
+      <td>89.81</td>
     </tr>
     <tr>
-      <th>AR</th>
-      <td>15.7</td>
-      <td>16.6</td>
-      <td>11</td>
+      <th>Arkansas</th>
+      <td>3281</td>
+      <td>3017804</td>
+      <td>132596.4</td>
+      <td>56.16</td>
     </tr>
     <tr>
-      <th>CA</th>
-      <td>9.5</td>
-      <td>7.4</td>
-      <td>100</td>
+      <th>California</th>
+      <td>50470</td>
+      <td>39512223</td>
+      <td>3205000.1</td>
+      <td>94.95</td>
     </tr>
     <tr>
-      <th>CO</th>
-      <td>11.6</td>
-      <td>12.2</td>
-      <td>30</td>
+      <th>Colorado</th>
+      <td>15207</td>
+      <td>5758736</td>
+      <td>400863.4</td>
+      <td>86.15</td>
     </tr>
     <tr>
-      <th>CT</th>
-      <td>5.3</td>
-      <td>5.0</td>
-      <td>85</td>
+      <th>Connecticut</th>
+      <td>27700</td>
+      <td>3565287</td>
+      <td>290703.0</td>
+      <td>87.99</td>
     </tr>
     <tr>
-      <th>DE</th>
-      <td>8.8</td>
-      <td>11.1</td>
-      <td>38</td>
+      <th>Delaware</th>
+      <td>4734</td>
+      <td>973764</td>
+      <td>77879.4</td>
+      <td>83.30</td>
     </tr>
     <tr>
-      <th>FL</th>
-      <td>10.0</td>
-      <td>11.5</td>
-      <td>21</td>
+      <th>Florida</th>
+      <td>33683</td>
+      <td>21477737</td>
+      <td>1126510.3</td>
+      <td>91.16</td>
     </tr>
     <tr>
-      <th>GA</th>
-      <td>12.1</td>
-      <td>13.7</td>
-      <td>6</td>
+      <th>Georgia</th>
+      <td>25431</td>
+      <td>10617423</td>
+      <td>634137.5</td>
+      <td>75.07</td>
     </tr>
     <tr>
-      <th>HI</th>
-      <td>2.1</td>
-      <td>2.6</td>
-      <td>78</td>
+      <th>Hawaii</th>
+      <td>609</td>
+      <td>1415872</td>
+      <td>97001.1</td>
+      <td>91.93</td>
     </tr>
     <tr>
-      <th>ID</th>
-      <td>14.1</td>
-      <td>13.2</td>
-      <td>5</td>
+      <th>Idaho</th>
+      <td>2016</td>
+      <td>1787065</td>
+      <td>85791.1</td>
+      <td>70.58</td>
     </tr>
     <tr>
-      <th>IL</th>
-      <td>8.0</td>
-      <td>9.0</td>
-      <td>65</td>
+      <th>Illinois</th>
+      <td>52918</td>
+      <td>12671821</td>
+      <td>893355.5</td>
+      <td>88.49</td>
     </tr>
     <tr>
-      <th>IN</th>
-      <td>11.2</td>
-      <td>12.4</td>
-      <td>11</td>
+      <th>Indiana</th>
+      <td>18099</td>
+      <td>6732219</td>
+      <td>384871.7</td>
+      <td>72.44</td>
     </tr>
     <tr>
-      <th>IA</th>
-      <td>6.7</td>
-      <td>7.5</td>
-      <td>25</td>
+      <th>Iowa</th>
+      <td>7145</td>
+      <td>3155070</td>
+      <td>196247.4</td>
+      <td>64.02</td>
     </tr>
     <tr>
-      <th>KS</th>
-      <td>9.3</td>
-      <td>11.3</td>
-      <td>8</td>
+      <th>Kansas</th>
+      <td>4305</td>
+      <td>2913314</td>
+      <td>178605.1</td>
+      <td>74.20</td>
     </tr>
     <tr>
-      <th>KY</th>
-      <td>13.0</td>
-      <td>13.9</td>
-      <td>7</td>
+      <th>Kentucky</th>
+      <td>4708</td>
+      <td>4467673</td>
+      <td>218426.1</td>
+      <td>58.38</td>
     </tr>
     <tr>
-      <th>LA</th>
-      <td>18.5</td>
-      <td>19.0</td>
-      <td>12</td>
+      <th>Louisiana</th>
+      <td>28044</td>
+      <td>4648794</td>
+      <td>259079.3</td>
+      <td>73.19</td>
     </tr>
     <tr>
-      <th>ME</th>
-      <td>7.8</td>
-      <td>9.4</td>
-      <td>11</td>
+      <th>Maine</th>
+      <td>1095</td>
+      <td>1344212</td>
+      <td>68984.9</td>
+      <td>38.66</td>
     </tr>
     <tr>
-      <th>MD</th>
-      <td>11.9</td>
-      <td>9.0</td>
-      <td>63</td>
+      <th>Maryland</th>
+      <td>21825</td>
+      <td>6045680</td>
+      <td>432997.8</td>
+      <td>87.20</td>
     </tr>
     <tr>
-      <th>MA</th>
-      <td>3.4</td>
-      <td>3.2</td>
-      <td>101</td>
+      <th>Massachusetts</th>
+      <td>62205</td>
+      <td>6892503</td>
+      <td>603209.6</td>
+      <td>91.97</td>
     </tr>
     <tr>
-      <th>MI</th>
-      <td>10.8</td>
-      <td>11.1</td>
-      <td>20</td>
+      <th>Michigan</th>
+      <td>41348</td>
+      <td>9986857</td>
+      <td>543489.4</td>
+      <td>74.57</td>
     </tr>
     <tr>
-      <th>MN</th>
-      <td>7.0</td>
-      <td>6.6</td>
-      <td>39</td>
+      <th>Minnesota</th>
+      <td>5136</td>
+      <td>5639632</td>
+      <td>389503.7</td>
+      <td>73.27</td>
     </tr>
     <tr>
-      <th>MS</th>
-      <td>16.0</td>
-      <td>18.3</td>
-      <td>5</td>
+      <th>Mississippi</th>
+      <td>6815</td>
+      <td>2976149</td>
+      <td>117642.3</td>
+      <td>49.35</td>
     </tr>
     <tr>
-      <th>MO</th>
-      <td>12.9</td>
-      <td>15.3</td>
-      <td>8</td>
+      <th>Missouri</th>
+      <td>7563</td>
+      <td>6137428</td>
+      <td>332659.7</td>
+      <td>70.44</td>
     </tr>
     <tr>
-      <th>MT</th>
-      <td>16.9</td>
-      <td>16.1</td>
-      <td>4</td>
+      <th>Montana</th>
+      <td>452</td>
+      <td>1068778</td>
+      <td>54034.7</td>
+      <td>55.89</td>
     </tr>
     <tr>
-      <th>NE</th>
-      <td>7.7</td>
-      <td>9.5</td>
-      <td>22</td>
+      <th>Nebraska</th>
+      <td>4332</td>
+      <td>1934408</td>
+      <td>133201.0</td>
+      <td>73.13</td>
     </tr>
     <tr>
-      <th>NV</th>
-      <td>16.1</td>
-      <td>14.8</td>
-      <td>11</td>
+      <th>Nevada</th>
+      <td>5053</td>
+      <td>3080156</td>
+      <td>181751.6</td>
+      <td>94.20</td>
     </tr>
     <tr>
-      <th>NH</th>
-      <td>6.6</td>
-      <td>8.7</td>
-      <td>10</td>
+      <th>New Hampshire</th>
+      <td>2146</td>
+      <td>1359711</td>
+      <td>88014.8</td>
+      <td>60.30</td>
     </tr>
     <tr>
-      <th>NJ</th>
-      <td>5.2</td>
-      <td>5.3</td>
-      <td>67</td>
+      <th>New Jersey</th>
+      <td>118652</td>
+      <td>8882190</td>
+      <td>642967.7</td>
+      <td>94.68</td>
     </tr>
     <tr>
-      <th>NM</th>
-      <td>13.9</td>
-      <td>16.0</td>
-      <td>10</td>
+      <th>New Mexico</th>
+      <td>3411</td>
+      <td>2096829</td>
+      <td>106914.4</td>
+      <td>77.43</td>
     </tr>
     <tr>
-      <th>NY</th>
-      <td>5.3</td>
-      <td>4.2</td>
-      <td>76</td>
+      <th>New York</th>
+      <td>309696</td>
+      <td>19453561</td>
+      <td>1791566.8</td>
+      <td>87.87</td>
     </tr>
     <tr>
-      <th>NC</th>
-      <td>12.8</td>
-      <td>11.8</td>
-      <td>30</td>
+      <th>North Carolina</th>
+      <td>10507</td>
+      <td>10488084</td>
+      <td>601787.9</td>
+      <td>66.09</td>
     </tr>
     <tr>
-      <th>ND</th>
-      <td>8.8</td>
-      <td>12.3</td>
-      <td>14</td>
+      <th>North Dakota</th>
+      <td>1067</td>
+      <td>762062</td>
+      <td>57471.9</td>
+      <td>59.90</td>
     </tr>
     <tr>
-      <th>OH</th>
-      <td>9.6</td>
-      <td>10.3</td>
-      <td>15</td>
+      <th>Ohio</th>
+      <td>18027</td>
+      <td>11689100</td>
+      <td>703368.9</td>
+      <td>77.92</td>
     </tr>
     <tr>
-      <th>OK</th>
-      <td>13.2</td>
-      <td>15.7</td>
-      <td>9</td>
+      <th>Oklahoma</th>
+      <td>3618</td>
+      <td>3956971</td>
+      <td>201604.3</td>
+      <td>66.24</td>
     </tr>
     <tr>
-      <th>OR</th>
-      <td>10.7</td>
-      <td>11.7</td>
-      <td>24</td>
+      <th>Oregon</th>
+      <td>2510</td>
+      <td>4217737</td>
+      <td>258692.6</td>
+      <td>81.03</td>
     </tr>
     <tr>
-      <th>PA</th>
-      <td>10.8</td>
-      <td>10.5</td>
-      <td>37</td>
+      <th>Pennsylvania</th>
+      <td>48224</td>
+      <td>12801989</td>
+      <td>818448.6</td>
+      <td>78.66</td>
     </tr>
     <tr>
-      <th>RI</th>
-      <td>3.6</td>
-      <td>3.0</td>
-      <td>43</td>
+      <th>Rhode Island</th>
+      <td>8621</td>
+      <td>1059361</td>
+      <td>62335.4</td>
+      <td>90.73</td>
     </tr>
     <tr>
-      <th>SC</th>
-      <td>13.8</td>
-      <td>15.5</td>
-      <td>12</td>
+      <th>South Carolina</th>
+      <td>6095</td>
+      <td>5148714</td>
+      <td>251664.5</td>
+      <td>66.33</td>
     </tr>
     <tr>
-      <th>SD</th>
-      <td>10.2</td>
-      <td>10.3</td>
-      <td>5</td>
+      <th>South Dakota</th>
+      <td>2450</td>
+      <td>884659</td>
+      <td>56051.9</td>
+      <td>56.65</td>
     </tr>
     <tr>
-      <th>TN</th>
-      <td>16.0</td>
-      <td>15.1</td>
-      <td>24</td>
+      <th>Tennessee</th>
+      <td>10506</td>
+      <td>6829174</td>
+      <td>380823.0</td>
+      <td>66.39</td>
     </tr>
     <tr>
-      <th>TX</th>
-      <td>11.1</td>
-      <td>10.7</td>
-      <td>20</td>
+      <th>Texas</th>
+      <td>29072</td>
+      <td>28995881</td>
+      <td>1861581.9</td>
+      <td>84.70</td>
     </tr>
     <tr>
-      <th>UT</th>
-      <td>10.1</td>
-      <td>12.3</td>
-      <td>11</td>
+      <th>Utah</th>
+      <td>4672</td>
+      <td>3205958</td>
+      <td>196639.4</td>
+      <td>90.58</td>
     </tr>
     <tr>
-      <th>VT</th>
-      <td>6.8</td>
-      <td>10.3</td>
-      <td>3</td>
+      <th>Vermont</th>
+      <td>866</td>
+      <td>623989</td>
+      <td>34320.2</td>
+      <td>38.90</td>
     </tr>
     <tr>
-      <th>VA</th>
-      <td>11.5</td>
-      <td>10.3</td>
-      <td>12</td>
+      <th>Virginia</th>
+      <td>15846</td>
+      <td>8535519</td>
+      <td>566529.4</td>
+      <td>75.45</td>
     </tr>
     <tr>
-      <th>WA</th>
-      <td>8.8</td>
-      <td>9.7</td>
-      <td>41</td>
+      <th>Washington</th>
+      <td>14814</td>
+      <td>7614893</td>
+      <td>624861.4</td>
+      <td>84.05</td>
     </tr>
     <tr>
-      <th>WV</th>
-      <td>13.8</td>
-      <td>14.6</td>
-      <td>24</td>
+      <th>West Virginia</th>
+      <td>1126</td>
+      <td>1792147</td>
+      <td>78480.5</td>
+      <td>48.72</td>
     </tr>
     <tr>
-      <th>WI</th>
-      <td>8.5</td>
-      <td>8.2</td>
-      <td>24</td>
+      <th>Wisconsin</th>
+      <td>6973</td>
+      <td>5822434</td>
+      <td>353935.5</td>
+      <td>70.15</td>
     </tr>
     <tr>
-      <th>WY</th>
-      <td>13.4</td>
-      <td>16.2</td>
-      <td>6</td>
+      <th>Wyoming</th>
+      <td>559</td>
+      <td>578759</td>
+      <td>40764.3</td>
+      <td>64.76</td>
     </tr>
   </tbody>
 </table>
@@ -1568,371 +1689,422 @@ Name: 1, dtype: object
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>STATE</th>
-      <th>RATE-2005</th>
-      <th>RATE-2014</th>
-      <th>Total Laws 2014</th>
+      <th>state</th>
+      <th>cases</th>
+      <th>population</th>
+      <th>gdp</th>
+      <th>urban</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>AL</td>
-      <td>16.0</td>
-      <td>16.9</td>
-      <td>10</td>
+      <td>Alabama</td>
+      <td>7068</td>
+      <td>4903185</td>
+      <td>230750.1</td>
+      <td>59.04</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>AK</td>
-      <td>17.5</td>
-      <td>19.2</td>
-      <td>3</td>
+      <td>Alaska</td>
+      <td>353</td>
+      <td>731545</td>
+      <td>54674.7</td>
+      <td>66.02</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>AZ</td>
-      <td>16.1</td>
-      <td>13.5</td>
-      <td>8</td>
+      <td>Arizona</td>
+      <td>7648</td>
+      <td>7278717</td>
+      <td>379018.8</td>
+      <td>89.81</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>AR</td>
-      <td>15.7</td>
-      <td>16.6</td>
-      <td>11</td>
+      <td>Arkansas</td>
+      <td>3281</td>
+      <td>3017804</td>
+      <td>132596.4</td>
+      <td>56.16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>CA</td>
-      <td>9.5</td>
-      <td>7.4</td>
-      <td>100</td>
+      <td>California</td>
+      <td>50470</td>
+      <td>39512223</td>
+      <td>3205000.1</td>
+      <td>94.95</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>CO</td>
-      <td>11.6</td>
-      <td>12.2</td>
-      <td>30</td>
+      <td>Colorado</td>
+      <td>15207</td>
+      <td>5758736</td>
+      <td>400863.4</td>
+      <td>86.15</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>CT</td>
-      <td>5.3</td>
-      <td>5.0</td>
-      <td>85</td>
+      <td>Connecticut</td>
+      <td>27700</td>
+      <td>3565287</td>
+      <td>290703.0</td>
+      <td>87.99</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>DE</td>
-      <td>8.8</td>
-      <td>11.1</td>
-      <td>38</td>
+      <td>Delaware</td>
+      <td>4734</td>
+      <td>973764</td>
+      <td>77879.4</td>
+      <td>83.30</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>FL</td>
-      <td>10.0</td>
-      <td>11.5</td>
-      <td>21</td>
+      <td>Florida</td>
+      <td>33683</td>
+      <td>21477737</td>
+      <td>1126510.3</td>
+      <td>91.16</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>GA</td>
-      <td>12.1</td>
-      <td>13.7</td>
-      <td>6</td>
+      <td>Georgia</td>
+      <td>25431</td>
+      <td>10617423</td>
+      <td>634137.5</td>
+      <td>75.07</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>HI</td>
-      <td>2.1</td>
-      <td>2.6</td>
-      <td>78</td>
+      <td>Hawaii</td>
+      <td>609</td>
+      <td>1415872</td>
+      <td>97001.1</td>
+      <td>91.93</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>ID</td>
-      <td>14.1</td>
-      <td>13.2</td>
-      <td>5</td>
+      <td>Idaho</td>
+      <td>2016</td>
+      <td>1787065</td>
+      <td>85791.1</td>
+      <td>70.58</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>IL</td>
-      <td>8.0</td>
-      <td>9.0</td>
-      <td>65</td>
+      <td>Illinois</td>
+      <td>52918</td>
+      <td>12671821</td>
+      <td>893355.5</td>
+      <td>88.49</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>IN</td>
-      <td>11.2</td>
-      <td>12.4</td>
-      <td>11</td>
+      <td>Indiana</td>
+      <td>18099</td>
+      <td>6732219</td>
+      <td>384871.7</td>
+      <td>72.44</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>IA</td>
-      <td>6.7</td>
-      <td>7.5</td>
-      <td>25</td>
+      <td>Iowa</td>
+      <td>7145</td>
+      <td>3155070</td>
+      <td>196247.4</td>
+      <td>64.02</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>KS</td>
-      <td>9.3</td>
-      <td>11.3</td>
-      <td>8</td>
+      <td>Kansas</td>
+      <td>4305</td>
+      <td>2913314</td>
+      <td>178605.1</td>
+      <td>74.20</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>KY</td>
-      <td>13.0</td>
-      <td>13.9</td>
-      <td>7</td>
+      <td>Kentucky</td>
+      <td>4708</td>
+      <td>4467673</td>
+      <td>218426.1</td>
+      <td>58.38</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>LA</td>
-      <td>18.5</td>
-      <td>19.0</td>
-      <td>12</td>
+      <td>Louisiana</td>
+      <td>28044</td>
+      <td>4648794</td>
+      <td>259079.3</td>
+      <td>73.19</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>ME</td>
-      <td>7.8</td>
-      <td>9.4</td>
-      <td>11</td>
+      <td>Maine</td>
+      <td>1095</td>
+      <td>1344212</td>
+      <td>68984.9</td>
+      <td>38.66</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>MD</td>
-      <td>11.9</td>
-      <td>9.0</td>
-      <td>63</td>
+      <td>Maryland</td>
+      <td>21825</td>
+      <td>6045680</td>
+      <td>432997.8</td>
+      <td>87.20</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>MA</td>
-      <td>3.4</td>
-      <td>3.2</td>
-      <td>101</td>
+      <td>Massachusetts</td>
+      <td>62205</td>
+      <td>6892503</td>
+      <td>603209.6</td>
+      <td>91.97</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>MI</td>
-      <td>10.8</td>
-      <td>11.1</td>
-      <td>20</td>
+      <td>Michigan</td>
+      <td>41348</td>
+      <td>9986857</td>
+      <td>543489.4</td>
+      <td>74.57</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>MN</td>
-      <td>7.0</td>
-      <td>6.6</td>
-      <td>39</td>
+      <td>Minnesota</td>
+      <td>5136</td>
+      <td>5639632</td>
+      <td>389503.7</td>
+      <td>73.27</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>MS</td>
-      <td>16.0</td>
-      <td>18.3</td>
-      <td>5</td>
+      <td>Mississippi</td>
+      <td>6815</td>
+      <td>2976149</td>
+      <td>117642.3</td>
+      <td>49.35</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>MO</td>
-      <td>12.9</td>
-      <td>15.3</td>
-      <td>8</td>
+      <td>Missouri</td>
+      <td>7563</td>
+      <td>6137428</td>
+      <td>332659.7</td>
+      <td>70.44</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>MT</td>
-      <td>16.9</td>
-      <td>16.1</td>
-      <td>4</td>
+      <td>Montana</td>
+      <td>452</td>
+      <td>1068778</td>
+      <td>54034.7</td>
+      <td>55.89</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>NE</td>
-      <td>7.7</td>
-      <td>9.5</td>
-      <td>22</td>
+      <td>Nebraska</td>
+      <td>4332</td>
+      <td>1934408</td>
+      <td>133201.0</td>
+      <td>73.13</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>NV</td>
-      <td>16.1</td>
-      <td>14.8</td>
-      <td>11</td>
+      <td>Nevada</td>
+      <td>5053</td>
+      <td>3080156</td>
+      <td>181751.6</td>
+      <td>94.20</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>NH</td>
-      <td>6.6</td>
-      <td>8.7</td>
-      <td>10</td>
+      <td>New Hampshire</td>
+      <td>2146</td>
+      <td>1359711</td>
+      <td>88014.8</td>
+      <td>60.30</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>NJ</td>
-      <td>5.2</td>
-      <td>5.3</td>
-      <td>67</td>
+      <td>New Jersey</td>
+      <td>118652</td>
+      <td>8882190</td>
+      <td>642967.7</td>
+      <td>94.68</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>NM</td>
-      <td>13.9</td>
-      <td>16.0</td>
-      <td>10</td>
+      <td>New Mexico</td>
+      <td>3411</td>
+      <td>2096829</td>
+      <td>106914.4</td>
+      <td>77.43</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>NY</td>
-      <td>5.3</td>
-      <td>4.2</td>
-      <td>76</td>
+      <td>New York</td>
+      <td>309696</td>
+      <td>19453561</td>
+      <td>1791566.8</td>
+      <td>87.87</td>
     </tr>
     <tr>
       <th>32</th>
-      <td>NC</td>
-      <td>12.8</td>
-      <td>11.8</td>
-      <td>30</td>
+      <td>North Carolina</td>
+      <td>10507</td>
+      <td>10488084</td>
+      <td>601787.9</td>
+      <td>66.09</td>
     </tr>
     <tr>
       <th>33</th>
-      <td>ND</td>
-      <td>8.8</td>
-      <td>12.3</td>
-      <td>14</td>
+      <td>North Dakota</td>
+      <td>1067</td>
+      <td>762062</td>
+      <td>57471.9</td>
+      <td>59.90</td>
     </tr>
     <tr>
       <th>34</th>
-      <td>OH</td>
-      <td>9.6</td>
-      <td>10.3</td>
-      <td>15</td>
+      <td>Ohio</td>
+      <td>18027</td>
+      <td>11689100</td>
+      <td>703368.9</td>
+      <td>77.92</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>OK</td>
-      <td>13.2</td>
-      <td>15.7</td>
-      <td>9</td>
+      <td>Oklahoma</td>
+      <td>3618</td>
+      <td>3956971</td>
+      <td>201604.3</td>
+      <td>66.24</td>
     </tr>
     <tr>
       <th>36</th>
-      <td>OR</td>
-      <td>10.7</td>
-      <td>11.7</td>
-      <td>24</td>
+      <td>Oregon</td>
+      <td>2510</td>
+      <td>4217737</td>
+      <td>258692.6</td>
+      <td>81.03</td>
     </tr>
     <tr>
       <th>37</th>
-      <td>PA</td>
-      <td>10.8</td>
-      <td>10.5</td>
-      <td>37</td>
+      <td>Pennsylvania</td>
+      <td>48224</td>
+      <td>12801989</td>
+      <td>818448.6</td>
+      <td>78.66</td>
     </tr>
     <tr>
       <th>38</th>
-      <td>RI</td>
-      <td>3.6</td>
-      <td>3.0</td>
-      <td>43</td>
+      <td>Rhode Island</td>
+      <td>8621</td>
+      <td>1059361</td>
+      <td>62335.4</td>
+      <td>90.73</td>
     </tr>
     <tr>
       <th>39</th>
-      <td>SC</td>
-      <td>13.8</td>
-      <td>15.5</td>
-      <td>12</td>
+      <td>South Carolina</td>
+      <td>6095</td>
+      <td>5148714</td>
+      <td>251664.5</td>
+      <td>66.33</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>SD</td>
-      <td>10.2</td>
-      <td>10.3</td>
-      <td>5</td>
+      <td>South Dakota</td>
+      <td>2450</td>
+      <td>884659</td>
+      <td>56051.9</td>
+      <td>56.65</td>
     </tr>
     <tr>
       <th>41</th>
-      <td>TN</td>
-      <td>16.0</td>
-      <td>15.1</td>
-      <td>24</td>
+      <td>Tennessee</td>
+      <td>10506</td>
+      <td>6829174</td>
+      <td>380823.0</td>
+      <td>66.39</td>
     </tr>
     <tr>
       <th>42</th>
-      <td>TX</td>
-      <td>11.1</td>
-      <td>10.7</td>
-      <td>20</td>
+      <td>Texas</td>
+      <td>29072</td>
+      <td>28995881</td>
+      <td>1861581.9</td>
+      <td>84.70</td>
     </tr>
     <tr>
       <th>43</th>
-      <td>UT</td>
-      <td>10.1</td>
-      <td>12.3</td>
-      <td>11</td>
+      <td>Utah</td>
+      <td>4672</td>
+      <td>3205958</td>
+      <td>196639.4</td>
+      <td>90.58</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>VT</td>
-      <td>6.8</td>
-      <td>10.3</td>
-      <td>3</td>
+      <td>Vermont</td>
+      <td>866</td>
+      <td>623989</td>
+      <td>34320.2</td>
+      <td>38.90</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>VA</td>
-      <td>11.5</td>
-      <td>10.3</td>
-      <td>12</td>
+      <td>Virginia</td>
+      <td>15846</td>
+      <td>8535519</td>
+      <td>566529.4</td>
+      <td>75.45</td>
     </tr>
     <tr>
       <th>46</th>
-      <td>WA</td>
-      <td>8.8</td>
-      <td>9.7</td>
-      <td>41</td>
+      <td>Washington</td>
+      <td>14814</td>
+      <td>7614893</td>
+      <td>624861.4</td>
+      <td>84.05</td>
     </tr>
     <tr>
       <th>47</th>
-      <td>WV</td>
-      <td>13.8</td>
-      <td>14.6</td>
-      <td>24</td>
+      <td>West Virginia</td>
+      <td>1126</td>
+      <td>1792147</td>
+      <td>78480.5</td>
+      <td>48.72</td>
     </tr>
     <tr>
       <th>48</th>
-      <td>WI</td>
-      <td>8.5</td>
-      <td>8.2</td>
-      <td>24</td>
+      <td>Wisconsin</td>
+      <td>6973</td>
+      <td>5822434</td>
+      <td>353935.5</td>
+      <td>70.15</td>
     </tr>
     <tr>
       <th>49</th>
-      <td>WY</td>
-      <td>13.4</td>
-      <td>16.2</td>
-      <td>6</td>
+      <td>Wyoming</td>
+      <td>559</td>
+      <td>578759</td>
+      <td>40764.3</td>
+      <td>64.76</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>If we wish to work with the original one, we have to replace it</p>
+<p>If we wish to work with the original one, we can tell <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to change the index <em>in place</em>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;STATE&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1940,79 +2112,80 @@ Name: 1, dtype: object
 <p>This makes finding the data by state much easier:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;FL&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Florida&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RATE-2005          10.0
-RATE-2014          11.5
-Total Laws 2014    21.0
-Name: FL, dtype: float64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cases            33683.00
+population    21477737.00
+gdp            1126510.30
+urban               91.16
+Name: Florida, dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
-<p>Note that the row labels carry over to the Pandas series that is returned by indexing a particular column of the dataframe:</p>
+<p>Note that the index (i.e., these row labels) carry over to the Pandas series that is returned by indexing a particular column of the dataframe:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2005&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>STATE
-AL    16.0
-AK    17.5
-AZ    16.1
-AR    15.7
-CA     9.5
-CO    11.6
-CT     5.3
-DE     8.8
-FL    10.0
-GA    12.1
-HI     2.1
-ID    14.1
-IL     8.0
-IN    11.2
-IA     6.7
-KS     9.3
-KY    13.0
-LA    18.5
-ME     7.8
-MD    11.9
-MA     3.4
-MI    10.8
-MN     7.0
-MS    16.0
-MO    12.9
-MT    16.9
-NE     7.7
-NV    16.1
-NH     6.6
-NJ     5.2
-NM    13.9
-NY     5.3
-NC    12.8
-ND     8.8
-OH     9.6
-OK    13.2
-OR    10.7
-PA    10.8
-RI     3.6
-SC    13.8
-SD    10.2
-TN    16.0
-TX    11.1
-UT    10.1
-VT     6.8
-VA    11.5
-WA     8.8
-WV    13.8
-WI     8.5
-WY    13.4
-Name: RATE-2005, dtype: float64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state
+Alabama             7068
+Alaska               353
+Arizona             7648
+Arkansas            3281
+California         50470
+Colorado           15207
+Connecticut        27700
+Delaware            4734
+Florida            33683
+Georgia            25431
+Hawaii               609
+Idaho               2016
+Illinois           52918
+Indiana            18099
+Iowa                7145
+Kansas              4305
+Kentucky            4708
+Louisiana          28044
+Maine               1095
+Maryland           21825
+Massachusetts      62205
+Michigan           41348
+Minnesota           5136
+Mississippi         6815
+Missouri            7563
+Montana              452
+Nebraska            4332
+Nevada              5053
+New Hampshire       2146
+New Jersey        118652
+New Mexico          3411
+New York          309696
+North Carolina     10507
+North Dakota        1067
+Ohio               18027
+Oklahoma            3618
+Oregon              2510
+Pennsylvania       48224
+Rhode Island        8621
+South Carolina      6095
+South Dakota        2450
+Tennessee          10506
+Texas              29072
+Utah                4672
+Vermont              866
+Virginia           15846
+Washington         14814
+West Virginia       1126
+Wisconsin           6973
+Wyoming              559
+Name: cases, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -2020,61 +2193,61 @@ Name: RATE-2005, dtype: float64
 <p>If all we want is the numerical values in the data series, we can convert it to a list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2005&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[16.0,
- 17.5,
- 16.1,
- 15.7,
- 9.5,
- 11.6,
- 5.3,
- 8.8,
- 10.0,
- 12.1,
- 2.1,
- 14.1,
- 8.0,
- 11.2,
- 6.7,
- 9.3,
- 13.0,
- 18.5,
- 7.8,
- 11.9,
- 3.4,
- 10.8,
- 7.0,
- 16.0,
- 12.9,
- 16.9,
- 7.7,
- 16.1,
- 6.6,
- 5.2,
- 13.9,
- 5.3,
- 12.8,
- 8.8,
- 9.6,
- 13.2,
- 10.7,
- 10.8,
- 3.6,
- 13.8,
- 10.2,
- 16.0,
- 11.1,
- 10.1,
- 6.8,
- 11.5,
- 8.8,
- 13.8,
- 8.5,
- 13.4]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7068,
+ 353,
+ 7648,
+ 3281,
+ 50470,
+ 15207,
+ 27700,
+ 4734,
+ 33683,
+ 25431,
+ 609,
+ 2016,
+ 52918,
+ 18099,
+ 7145,
+ 4305,
+ 4708,
+ 28044,
+ 1095,
+ 21825,
+ 62205,
+ 41348,
+ 5136,
+ 6815,
+ 7563,
+ 452,
+ 4332,
+ 5053,
+ 2146,
+ 118652,
+ 3411,
+ 309696,
+ 10507,
+ 1067,
+ 18027,
+ 3618,
+ 2510,
+ 48224,
+ 8621,
+ 6095,
+ 2450,
+ 10506,
+ 29072,
+ 4672,
+ 866,
+ 15846,
+ 14814,
+ 1126,
+ 6973,
+ 559]
 </pre></div>
 </div>
 </div>

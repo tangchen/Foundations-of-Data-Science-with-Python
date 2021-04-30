@@ -241,8 +241,8 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-effect-of-1994-assault-weapons-ban">
-   Example: Effect of 1994 Assault Weapons Ban
+  <a class="reference internal nav-link" href="#example-early-numbers-of-covid-19-cases-across-states">
+   Example: Early Numbers of Covid-19 Cases Across States
   </a>
  </li>
 </ul>
@@ -269,23 +269,17 @@
 <h1>Chapter 3: First Visualizations and Statistical Tests with Real Data<a class="headerlink" href="#chapter-3-first-visualizations-and-statistical-tests-with-real-data" title="Permalink to this headline">¶</a></h1>
 <p>In <strong>LINK TO CHAPTER 2</strong>, we considered a simple statistical question that we could study through simulation, data visualization, and estimating probabilities. However, the type of problem considered in Chapter 2 is different than many that we encounter in data science because we had an exact model for the random experiment that we ended up simulating (repeated flips of a fair coin).</p>
 <p>In this chapter, we consider how to apply the ideas from Chapter 2 to a real data set, where we do not know the underlying model for the experiment.</p>
-<div class="section" id="example-effect-of-1994-assault-weapons-ban">
-<h2>Example: Effect of 1994 Assault Weapons Ban<a class="headerlink" href="#example-effect-of-1994-assault-weapons-ban" title="Permalink to this headline">¶</a></h2>
-<p>In 1994, the United States Congress passed a ban on a variety of semiautomatic rifles that are sometimes referred to as “assault weapons”. The ban was in effect for 10 years, from 1994-2004. (<a class="reference external" href="https://en.wikipedia.org/wiki/Federal_Assault_Weapons_Ban">Wikipedia:Federal Assault Weapons Ban</a>)</p>
-<p>It might be inferred that the goal of any gun ban is to reduced gun violence. Thus it is natural to assess whether the “assault weapon” ban had any effect on gun violence.</p>
-<p>To answer this question, we will need to find data sets that provide information about the effects of the bin. A search for “firearms mortality by state” on Google yielded the following (as of February 9, 2021):</p>
-<p><img alt="" src="../_images/firearms-mortality-search.png" /></p>
-<p>The top result is from the Center for Disease Control (CDC), an agency of the United States federal government. The CDC’s National Center for Health Statistics provides many such data sets. This data set is helpful because it offers data for firearms mortality across multiple years, with per-state results. The direct link to the page, which offers visualizations of firearm mortality by state, along with links to download the data is below:</p>
-<p>https://www.cdc.gov/nchs/pressroom/sosmap/firearm_mortality/firearm.htm</p>
-<p>Although this page does not have data prior to 2005, the data for 2005 should be similar to achieved during the last years of the assault weapons ban because the ban was only on the <strong>sale</strong> of certain firearms. It is reasonable to assume that the effects of the ban and its expiration would take many years after those events.</p>
-<p>Thus, we can use two sets of data on that page to measure the effect of the “assault weapons” ban:</p>
+<div class="section" id="example-early-numbers-of-covid-19-cases-across-states">
+<h2>Example: Early Numbers of Covid-19 Cases Across States<a class="headerlink" href="#example-early-numbers-of-covid-19-cases-across-states" title="Permalink to this headline">¶</a></h2>
+<p>The novel coronavirus called Covid-19 spread quickly in the United States (US) during the spring of 2020 and soon became a pandemic, affecting countries throughout the world. However, the spread of Covid-19 was very different in different areas, and we would like to investigate that to see what types of socioeconomic factors might be related to the spread of Covid-19 in the US.</p>
+<p>By early summer, states were implementing a variety of different of mitigation measures, from masking to stay-at-home orders. So here we will focus on the spread of Covid-19 prior to most of these measures being put in place. We have chosen to evaluate the cumulative number of Covid-19 cases through the end of April 2020.</p>
+<p>We analyze data on the number of Covid-19 cases for each state (from a dataset maintained by the New York Times) with data about the states and their populations that comes from the US Census Bureau and the US Department of Commerce’s Bureau of Economic Analysis. The goal is to investigate whether factors such as economic productivity and how urban a state is were statistically significant indicators of the number of Covid-19.</p>
+<p>All of this data is available in two common data formats:</p>
 <ul class="simple">
-<li><p>The 2005 data set represents firearm mortality with effects from the recently-expired ban.</p></li>
-<li><p>The 2014 data set, which is ten years after the ban expired, represents firearm mortality without the effects of the ban.</p></li>
+<li><p><strong>Comma Separated Values (CSV)</strong> files have data points separated by commas. The CSV format has the benefit that it is a pure text file and is not tied to any particular company’s software. On the other hand, CSV files are not ideal if any of the entries contain commas. In this case, the entry can be enclosed in quotation marks, but then special treatment can be needed to deal with entries that contain quotation marks. There is no single standard for dealing with all these cases.</p></li>
+<li><p><strong>Excel File (.xls or .xlsx)</strong> files are spreadsheet files for Microsoft Excel. These have become so common that many non-Microsoft products and tools can read and import data from these files.</p></li>
 </ul>
-<p>Because the CDC page does not offer direct links to download the data (but instead relies on a button whose action triggers Javascript), I have downloaded the 2005 and 2014 data sets and merged them into a single file, which is retrievable at http://wireless.ece.ufl.edu/jshea/idse/data/firearms-combined.csv .</p>
-<p>Both the file that I have provided and the files that are downloadable from the CDC are CSV files; CSV is an abbreviation for “comma-separated values”. It is one of the most common formats for storing data because it does not rely on proprietary software (such as Microsoft Excel) and can be read by a broad range of software packages.</p>
-<p>We will use a Python library called Pandas to both open the CSV and store it in a format that is easy to use for data science.</p>
+<p>In the next section, we begin by introducing the Pandas  library, which is one of the most common Python libraries for importing and working with tabular data.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
