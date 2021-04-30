@@ -243,6 +243,11 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scatter-plots">
+   Scatter Plots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#scatter-plots-for-multiple-datasets">
    Scatter Plots for Multiple Datasets
   </a>
@@ -277,21 +282,67 @@
                 
   <div class="section" id="visualizing-multiple-data-sets">
 <h1>Visualizing Multiple Data Sets<a class="headerlink" href="#visualizing-multiple-data-sets" title="Permalink to this headline">¶</a></h1>
-<p>We wish to compare the firearms mortality rates in 2005 to those in 2014. These are stored in the dataframe in the <code class="docutils literal notranslate"><span class="pre">RATE-2005</span></code> and <code class="docutils literal notranslate"><span class="pre">RATE-2014</span></code> columns. (There is also a <code class="docutils literal notranslate"><span class="pre">Total</span> <span class="pre">Laws</span> <span class="pre">2014</span></code> column that we will not be using yet.)</p>
+<p>As previously mentioned, our first step in working with data sets is typically to gain some basic understanding of the data and relationships among the different data sets using visualizations.</p>
 <p>Since we will be creating several plots of these data sets, it is convenient to store the values in the appropriate columns of the dataframe as lists or numpy arrays. Here we store the values as numpy arrays to allow us to use some of numpy’s built-in methods later in this chapter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
- <span class="s2">&quot;http://wireless.ece.ufl.edu/jshea/idse/data/firearms-combined.csv&quot;</span><span class="p">)</span>
-<span class="n">rate2005</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2005&quot;</span><span class="p">])</span>
-<span class="n">rate2014</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">])</span>
+ <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv&quot;</span><span class="p">)</span>
+<span class="n">cases</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">])</span>
+<span class="n">pop</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">])</span>
+<span class="n">gdp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">])</span>
+<span class="n">urban</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>As before, we will start with scatter plots and then create histograms of the data:</p>
+<div class="section" id="scatter-plots">
+<h2>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h2>
+<p>As previously mentioned, we are interested in how socioeconomic factors may be have impacted the spread of Covid-19, which we measure through the number of cases. Thus, every statistical test we will do will be based on the number of cases.</p>
+<p>Let’s begin with a scatter plot of the number of cases by state (indexed from 0 to 49):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">N</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f852df21ad0&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_5_1.png" src="../_images/visualization_5_1.png" />
+</div>
+</div>
+<p>There are one or two outliers, but this could be caused by the fact that states have different populations, and we would expect that the number of Covid cases in a state will likely increase with the population of the state.</p>
+<p>Let’s create a new variable that determines the proportion of covid cases per person:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases_pp</span><span class="o">=</span><span class="n">cases</span><span class="o">/</span><span class="n">pop</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases_pp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f852e178810&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_8_1.png" src="../_images/visualization_8_1.png" />
+</div>
+</div>
+<p><span style="color:red">WORK IN PROGRESS. STOPPED HERE</span></p>
+</div>
 <div class="section" id="scatter-plots-for-multiple-datasets">
 <h2>Scatter Plots for Multiple Datasets<a class="headerlink" href="#scatter-plots-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to create most plots with multiple datasets is to simply call Matplotlib’s multiple times from within a single cell:</p>
@@ -306,7 +357,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_6_0.png" src="../_images/visualization_6_0.png" />
+<img alt="../_images/visualization_12_0.png" src="../_images/visualization_12_0.png" />
 </div>
 </div>
 <p>Note that Matplotlib automatically chooses different colors for the points plotted from the second call to <code class="docutils literal notranslate"><span class="pre">scatter()</span></code>, allowing us to see that there are two distinct data sets being plotted (although with no indication of which is which – we will fix this soon).</p>
@@ -320,7 +371,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_8_0.png" src="../_images/visualization_8_0.png" />
+<img alt="../_images/visualization_14_0.png" src="../_images/visualization_14_0.png" />
 </div>
 </div>
 <p>Some commonly used marker types include:</p>
@@ -350,7 +401,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_11_0.png" src="../_images/visualization_11_0.png" />
+<img alt="../_images/visualization_17_0.png" src="../_images/visualization_17_0.png" />
 </div>
 </div>
 <p>Finally, add axis labels and a title to finish the graph:</p>
@@ -369,7 +420,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_13_0.png" src="../_images/visualization_13_0.png" />
+<img alt="../_images/visualization_19_0.png" src="../_images/visualization_19_0.png" />
 </div>
 </div>
 <p>One good reason to always start with a scatter plot is that we can identify <em>outliers</em>:</p>
@@ -410,7 +461,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_18_0.png" src="../_images/visualization_18_0.png" />
+<img alt="../_images/visualization_24_0.png" src="../_images/visualization_24_0.png" />
 </div>
 </div>
 <p>The values for states 10 and 20 literally “stick out” from the rest of the values. This does not necessarily mean that those values are not valid, but it definitely indicates that they should be checked carefully. For instance, a negative value is not possible for a mortality rate, so that value can immediately be identified as an error. On the other hand, the exceptionally high value (30) could actually be a valid result. In this case, additional  research may be needed to try to confirm whether it is a valid data point.</p>
@@ -447,7 +498,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_24_0.png" src="../_images/visualization_24_0.png" />
+<img alt="../_images/visualization_30_0.png" src="../_images/visualization_30_0.png" />
 </div>
 </div>
 <p>Each bar of the histgram represents a “bin” of data values. In fact, the counts and bin edges are returned by the hist function:</p>
@@ -458,7 +509,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_26_0.png" src="../_images/visualization_26_0.png" />
+<img alt="../_images/visualization_32_0.png" src="../_images/visualization_32_0.png" />
 </div>
 </div>
 <p>Note that here I used a Python convention of storing the matplotlib patches information, which is the third returned value, in the variable “_” (underscore) to indicate that it is a value that we do not care about.</p>
@@ -486,7 +537,7 @@ Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_30_0.png" src="../_images/visualization_30_0.png" />
+<img alt="../_images/visualization_36_0.png" src="../_images/visualization_36_0.png" />
 </div>
 </div>
 <p>The choice of <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">0.5</span></code> is usually a good starting point, but the best value to use is up to the graph’s creator.</p>
@@ -503,7 +554,7 @@ Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_33_0.png" src="../_images/visualization_33_0.png" />
+<img alt="../_images/visualization_39_0.png" src="../_images/visualization_39_0.png" />
 </div>
 </div>
 <p>If we increase the number of bins too much, we will run into a similar problem we had in counting using <code class="docutils literal notranslate"><span class="pre">np.unique()</span></code>: most of the bins will have either 1 or 0 values in them:</p>
@@ -515,7 +566,7 @@ Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_35_0.png" src="../_images/visualization_35_0.png" />
+<img alt="../_images/visualization_41_0.png" src="../_images/visualization_41_0.png" />
 </div>
 </div>
 <p>Thus the number of bins should be chosen to balance between providing more resolution versus having sufficiently high counts in the bins to see how the values are distributed. Selecting the number of bins to achieve an appropriate balance is up to the graph creator. There are some research papers that provide techniques to select the number of bins; however, they are beyond the scope of this book.</p>
@@ -562,7 +613,7 @@ Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_41_0.png" src="../_images/visualization_41_0.png" />
+<img alt="../_images/visualization_47_0.png" src="../_images/visualization_47_0.png" />
 </div>
 </div>
 <p>Now we can finish the graph by providing data labels and adding a legend and axis labels. In this case, we might omit a title because the title would probably be something like “Mortality Rate Histograms for 2005 and 2014”, which can already be determined from inspecting the graph.</p>
@@ -577,7 +628,7 @@ Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/visualization_43_0.png" src="../_images/visualization_43_0.png" />
+<img alt="../_images/visualization_49_0.png" src="../_images/visualization_49_0.png" />
 </div>
 </div>
 <p>What inferences might you make from this plot?</p>
