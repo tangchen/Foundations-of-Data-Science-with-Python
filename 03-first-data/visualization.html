@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visualizing Multiple Data Sets &#8212; Introduction to Data Science for Engineers</title>
+    <title>Visualizing Multiple Data Sets - Part 1: Scatter Plots &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -144,7 +144,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Visualizing Multiple Data Sets
+     Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
    <li class="toctree-l2">
@@ -243,31 +243,9 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatter-plots">
-   Scatter Plots
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#scatter-plots-for-multiple-datasets">
    Scatter Plots for Multiple Datasets
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#histograms-for-multiple-datasets">
-   Histograms for Multiple Datasets
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#choosing-the-number-size-of-histogram-bins">
-     Choosing the number/size of histogram bins
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bin-alignment-for-multiple-histograms-in-one-figure">
-     Bin alignment for multiple histograms in one figure
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -280,9 +258,9 @@
         
               <div>
                 
-  <div class="section" id="visualizing-multiple-data-sets">
-<h1>Visualizing Multiple Data Sets<a class="headerlink" href="#visualizing-multiple-data-sets" title="Permalink to this headline">¶</a></h1>
-<p>As previously mentioned, our first step in working with data sets is typically to gain some basic understanding of the data and relationships among the different data sets using visualizations.</p>
+  <div class="section" id="visualizing-multiple-data-sets-part-1-scatter-plots">
+<h1>Visualizing Multiple Data Sets - Part 1: Scatter Plots<a class="headerlink" href="#visualizing-multiple-data-sets-part-1-scatter-plots" title="Permalink to this headline">¶</a></h1>
+<p>As previously mentioned, our first step in working with data sets is typically to gain some basic understanding of the data and relationships among the different data sets using visualizations. In this section, we will start with scatter plots of the data. Then after introducing Summary Statistics in Section XX, we will use these to pool our data before plotting histograms in Section YY.</p>
 <p>Since we will be creating several plots of these data sets, it is convenient to store the values in the appropriate columns of the dataframe as lists or numpy arrays. Here we store the values as numpy arrays to allow us to use some of numpy’s built-in methods later in this chapter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -298,9 +276,6 @@
 </div>
 </div>
 </div>
-<p>As before, we will start with scatter plots and then create histograms of the data:</p>
-<div class="section" id="scatter-plots">
-<h2>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this headline">¶</a></h2>
 <p>As previously mentioned, we are interested in how socioeconomic factors may be have impacted the spread of Covid-19, which we measure through the number of cases. Thus, every statistical test we will do will be based on the number of cases.</p>
 <p>Let’s begin with a scatter plot of the number of cases by state (indexed from 0 to 49):</p>
 <div class="cell docutils container">
@@ -313,17 +288,845 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f852df21ad0&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The text.latex.preview rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The mathtext.fallback_to_cm rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: Support for setting the &#39;mathtext.fallback_to_cm&#39; rcParam is deprecated since 3.3 and will be removed two minor releases later; use &#39;mathtext.fallback : &#39;cm&#39; instead.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The validate_bool_maybe_none function was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The savefig.jpeg_quality rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The keymap.all_axes rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_path rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
 </pre></div>
 </div>
-<img alt="../_images/visualization_5_1.png" src="../_images/visualization_5_1.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fee0e90e410&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_4_2.png" src="../_images/visualization_4_2.png" />
 </div>
 </div>
-<p>There are one or two outliers, but this could be caused by the fact that states have different populations, and we would expect that the number of Covid cases in a state will likely increase with the population of the state.</p>
-<p>Let’s create a new variable that determines the proportion of covid cases per person:</p>
+<p>There are one or two outliers, but this could be caused by the fact that states have different populations.  Let’s try to get some understanding of how these two factors seem to interact:</p>
+<div class="section" id="scatter-plots-for-multiple-datasets">
+<h2>Scatter Plots for Multiple Datasets<a class="headerlink" href="#scatter-plots-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to create a with multiple datasets is to simply call Matplotlib’s multiple times from within a single cell. Let’s try that with our cases and population data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases_pp</span><span class="o">=</span><span class="n">cases</span><span class="o">/</span><span class="n">pop</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fee13956f10&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_8_1.png" src="../_images/visualization_8_1.png" />
+</div>
+</div>
+<p>The good news is that Matplotlib knows how to plot multiple data sets on the same plot and automatically picks different colors for the scatter plot markers. We can improve the plot in several ways. First, we can choose a different marker for the population data. Markers can be specified using the <code class="docutils literal notranslate"><span class="pre">marker</span></code> keyword of the scatter function. The value passed is a string that indicates which marker to use.</p>
+<p>Some commonly used marker types include:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;.&quot;</span>		<span class="n">point</span>
+<span class="s2">&quot;o&quot;</span>		<span class="n">circle</span>
+<span class="s2">&quot;s&quot;</span>		<span class="n">square</span>
+<span class="s2">&quot;+&quot;</span>		<span class="n">plus</span>
+<span class="s2">&quot;x&quot;</span>		<span class="n">x</span>
+</pre></div>
+</div>
+<p>For a complete list of marker types, consult the Matplotlib documentation:</p>
+<p><a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html">matplotlib.markers</a></p>
+<p>Let’s test this on our plot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fee158b1a10&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_10_1.png" src="../_images/visualization_10_1.png" />
+</div>
+</div>
+<p>Now we can be sure that the orange markers are for the population data – but someone coming across the graph will not! We can add a legend to convey this information to the viewer. This is most easily done in two steps:</p>
+<ol class="simple">
+<li><p>When calling <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> for each data set, pass the text that you would like to appear in the legend for that data set using the <code class="docutils literal notranslate"><span class="pre">label</span></code> keyword argument.</p></li>
+<li><p>After all <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> calls are complete, call <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> to draw the legend.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;# of Covid cases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Population&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fee11ec8b50&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_12_1.png" src="../_images/visualization_12_1.png" />
+</div>
+</div>
+<p>Adding some axis labels finishes the graph:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;# of Covid cases&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Population&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;State Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of People/Cases&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Number of People/Cases&#39;)
+</pre></div>
+</div>
+<img alt="../_images/visualization_14_1.png" src="../_images/visualization_14_1.png" />
+</div>
+</div>
+<p>The bad news is that this graph is not very useful because the variations in the number of cases cannot be discriminated because the range of the number cases is so much smaller than the range of the populations. The NumPy array variables (technically type <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code>) have a max method that we can use to check this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">pop</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(309696, 39512223)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can better plot these data on the same plot if we use a different <span class="math notranslate nohighlight">\(y\)</span>-axis for each data set. To do this, we can use Matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function to create a figure and a first axis, and then the <code class="docutils literal notranslate"><span class="pre">twinx</span></code> function to share the <strong>same</strong> <span class="math notranslate nohighlight">\(x\)</span>-axis but allow a new <span class="math notranslate nohighlight">\(y\)</span>-axis to be created for the second data set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fee15d74c10&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_18_1.png" src="../_images/visualization_18_1.png" />
+</div>
+</div>
+<p>However, when we create the second set of axes, we lose the differentiation of markers. We can specify the marker color and type of marker symbol used using the <code class="docutils literal notranslate"><span class="pre">color</span></code> and <code class="docutils literal notranslate"><span class="pre">marker</span></code> keywords respectively.</p>
+<p>For example,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fee16095a90&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_20_1.png" src="../_images/visualization_20_1.png" />
+</div>
+</div>
+<p>We can add axis labels to each <span class="math notranslate nohighlight">\(y\)</span>-axis separately. However, because we are using different axes, we need to use the <code class="docutils literal notranslate"><span class="pre">set_xlabel</span></code> and <code class="docutils literal notranslate"><span class="pre">set_ylabel</span></code> methods of the Matplotlib <code class="docutils literal notranslate"><span class="pre">axis</span></code> object to set these labels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of cases&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;State index&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_22_0.png" src="../_images/visualization_22_0.png" />
+</div>
+</div>
+<p>It is easiest to add separate legends for the different data sets, but we need to specify different locations for the legends so that they do not overlap:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;No. of Cases&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of cases&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;State index&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_24_0.png" src="../_images/visualization_24_0.png" />
+</div>
+</div>
+<p>We can make a couple of quick fixes to this. First, let’s swap the two legends, so that the legend is close to its corresponding <span class="math notranslate nohighlight">\(y\)</span>-axis. Second, We note that one of the Population points is behind the left legend, and one of the cases points is above the legend. Let’s adjust the <span class="math notranslate nohighlight">\(y\)</span>-limits of these axes so that those points will be lower in the graph:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;No. of Cases&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of cases&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;State index&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Population&quot;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">4e5</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">4.8e7</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_26_0.png" src="../_images/visualization_26_0.png" />
+</div>
+</div>
+<p>Another common convention is to plot the values in thousands or millions to clean up the axes labels, as shown here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">cases</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;No. of Cases&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of cases (Thousands)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;State index&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">pop</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Population&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Population (Millions)&quot;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">4e2</span><span class="p">);</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">48</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_28_0.png" src="../_images/visualization_28_0.png" />
+</div>
+</div>
+<p>The relation among these data might be more clear if the data were sorted by population. We can sort the rows of the dataframe by population as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;population&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">popS</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">])</span>
+<span class="n">casesS</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">casesS</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">popS</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fedf9d91590&gt;
+</pre></div>
+</div>
+<img alt="../_images/visualization_32_1.png" src="../_images/visualization_32_1.png" />
+</div>
+</div>
+<p>The number of cases (shown in blue) generally increases with the population of the states. We might make some guesses about how these two variables might be related. Statisticians call such guesses <em>hypotheses</em> if they can be formulated as something that can be tested from the data. Two possible hypotheses about how population of a state might affect the number of cases are:</p>
+<ul class="simple">
+<li><p>Each person in the United States has the same probability of getting Covid. Thus, the number of cases per state should increase in proportion to the state’s population.</p></li>
+<li><p>The probability of getting Covid increases with the population of a state because there is an increase amoung of mixing among the people within the state. Then the number of cases per state should increase with population even faster than under the previous assumption.</p></li>
+</ul>
+<p>Of course, there may be many other hypotheses that explain this relationship. In this chapter, we will try to remove some of the underlying effects of different state populations by normalizing the cases and GDP on a per population basis.</p>
+<p>Let’s look at how we would do this within our Pandas dataframe. We can create a new column of our dataframe by simply assigning to it. Here, we just use functions of our other dataframe columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_pp&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>cases</th>
+      <th>population</th>
+      <th>gdp</th>
+      <th>urban</th>
+      <th>cases_pp</th>
+      <th>gdp_pp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>49</th>
+      <td>Wyoming</td>
+      <td>559</td>
+      <td>578759</td>
+      <td>40764.3</td>
+      <td>64.76</td>
+      <td>0.000966</td>
+      <td>0.070434</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Vermont</td>
+      <td>866</td>
+      <td>623989</td>
+      <td>34320.2</td>
+      <td>38.90</td>
+      <td>0.001388</td>
+      <td>0.055001</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alaska</td>
+      <td>353</td>
+      <td>731545</td>
+      <td>54674.7</td>
+      <td>66.02</td>
+      <td>0.000483</td>
+      <td>0.074739</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>North Dakota</td>
+      <td>1067</td>
+      <td>762062</td>
+      <td>57471.9</td>
+      <td>59.90</td>
+      <td>0.001400</td>
+      <td>0.075416</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>South Dakota</td>
+      <td>2450</td>
+      <td>884659</td>
+      <td>56051.9</td>
+      <td>56.65</td>
+      <td>0.002769</td>
+      <td>0.063360</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Delaware</td>
+      <td>4734</td>
+      <td>973764</td>
+      <td>77879.4</td>
+      <td>83.30</td>
+      <td>0.004862</td>
+      <td>0.079978</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Rhode Island</td>
+      <td>8621</td>
+      <td>1059361</td>
+      <td>62335.4</td>
+      <td>90.73</td>
+      <td>0.008138</td>
+      <td>0.058842</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Montana</td>
+      <td>452</td>
+      <td>1068778</td>
+      <td>54034.7</td>
+      <td>55.89</td>
+      <td>0.000423</td>
+      <td>0.050557</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Maine</td>
+      <td>1095</td>
+      <td>1344212</td>
+      <td>68984.9</td>
+      <td>38.66</td>
+      <td>0.000815</td>
+      <td>0.051320</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>New Hampshire</td>
+      <td>2146</td>
+      <td>1359711</td>
+      <td>88014.8</td>
+      <td>60.30</td>
+      <td>0.001578</td>
+      <td>0.064731</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Hawaii</td>
+      <td>609</td>
+      <td>1415872</td>
+      <td>97001.1</td>
+      <td>91.93</td>
+      <td>0.000430</td>
+      <td>0.068510</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Idaho</td>
+      <td>2016</td>
+      <td>1787065</td>
+      <td>85791.1</td>
+      <td>70.58</td>
+      <td>0.001128</td>
+      <td>0.048007</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>West Virginia</td>
+      <td>1126</td>
+      <td>1792147</td>
+      <td>78480.5</td>
+      <td>48.72</td>
+      <td>0.000628</td>
+      <td>0.043791</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Nebraska</td>
+      <td>4332</td>
+      <td>1934408</td>
+      <td>133201.0</td>
+      <td>73.13</td>
+      <td>0.002239</td>
+      <td>0.068859</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>New Mexico</td>
+      <td>3411</td>
+      <td>2096829</td>
+      <td>106914.4</td>
+      <td>77.43</td>
+      <td>0.001627</td>
+      <td>0.050989</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Kansas</td>
+      <td>4305</td>
+      <td>2913314</td>
+      <td>178605.1</td>
+      <td>74.20</td>
+      <td>0.001478</td>
+      <td>0.061307</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Mississippi</td>
+      <td>6815</td>
+      <td>2976149</td>
+      <td>117642.3</td>
+      <td>49.35</td>
+      <td>0.002290</td>
+      <td>0.039528</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arkansas</td>
+      <td>3281</td>
+      <td>3017804</td>
+      <td>132596.4</td>
+      <td>56.16</td>
+      <td>0.001087</td>
+      <td>0.043938</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Nevada</td>
+      <td>5053</td>
+      <td>3080156</td>
+      <td>181751.6</td>
+      <td>94.20</td>
+      <td>0.001641</td>
+      <td>0.059007</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Iowa</td>
+      <td>7145</td>
+      <td>3155070</td>
+      <td>196247.4</td>
+      <td>64.02</td>
+      <td>0.002265</td>
+      <td>0.062201</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Utah</td>
+      <td>4672</td>
+      <td>3205958</td>
+      <td>196639.4</td>
+      <td>90.58</td>
+      <td>0.001457</td>
+      <td>0.061336</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Connecticut</td>
+      <td>27700</td>
+      <td>3565287</td>
+      <td>290703.0</td>
+      <td>87.99</td>
+      <td>0.007769</td>
+      <td>0.081537</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Oklahoma</td>
+      <td>3618</td>
+      <td>3956971</td>
+      <td>201604.3</td>
+      <td>66.24</td>
+      <td>0.000914</td>
+      <td>0.050949</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Oregon</td>
+      <td>2510</td>
+      <td>4217737</td>
+      <td>258692.6</td>
+      <td>81.03</td>
+      <td>0.000595</td>
+      <td>0.061334</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Kentucky</td>
+      <td>4708</td>
+      <td>4467673</td>
+      <td>218426.1</td>
+      <td>58.38</td>
+      <td>0.001054</td>
+      <td>0.048890</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Louisiana</td>
+      <td>28044</td>
+      <td>4648794</td>
+      <td>259079.3</td>
+      <td>73.19</td>
+      <td>0.006033</td>
+      <td>0.055730</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>7068</td>
+      <td>4903185</td>
+      <td>230750.1</td>
+      <td>59.04</td>
+      <td>0.001442</td>
+      <td>0.047061</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>South Carolina</td>
+      <td>6095</td>
+      <td>5148714</td>
+      <td>251664.5</td>
+      <td>66.33</td>
+      <td>0.001184</td>
+      <td>0.048879</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Minnesota</td>
+      <td>5136</td>
+      <td>5639632</td>
+      <td>389503.7</td>
+      <td>73.27</td>
+      <td>0.000911</td>
+      <td>0.069065</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Colorado</td>
+      <td>15207</td>
+      <td>5758736</td>
+      <td>400863.4</td>
+      <td>86.15</td>
+      <td>0.002641</td>
+      <td>0.069610</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Wisconsin</td>
+      <td>6973</td>
+      <td>5822434</td>
+      <td>353935.5</td>
+      <td>70.15</td>
+      <td>0.001198</td>
+      <td>0.060788</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Maryland</td>
+      <td>21825</td>
+      <td>6045680</td>
+      <td>432997.8</td>
+      <td>87.20</td>
+      <td>0.003610</td>
+      <td>0.071621</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Missouri</td>
+      <td>7563</td>
+      <td>6137428</td>
+      <td>332659.7</td>
+      <td>70.44</td>
+      <td>0.001232</td>
+      <td>0.054202</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Indiana</td>
+      <td>18099</td>
+      <td>6732219</td>
+      <td>384871.7</td>
+      <td>72.44</td>
+      <td>0.002688</td>
+      <td>0.057169</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Tennessee</td>
+      <td>10506</td>
+      <td>6829174</td>
+      <td>380823.0</td>
+      <td>66.39</td>
+      <td>0.001538</td>
+      <td>0.055764</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Massachusetts</td>
+      <td>62205</td>
+      <td>6892503</td>
+      <td>603209.6</td>
+      <td>91.97</td>
+      <td>0.009025</td>
+      <td>0.087517</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arizona</td>
+      <td>7648</td>
+      <td>7278717</td>
+      <td>379018.8</td>
+      <td>89.81</td>
+      <td>0.001051</td>
+      <td>0.052072</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Washington</td>
+      <td>14814</td>
+      <td>7614893</td>
+      <td>624861.4</td>
+      <td>84.05</td>
+      <td>0.001945</td>
+      <td>0.082058</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Virginia</td>
+      <td>15846</td>
+      <td>8535519</td>
+      <td>566529.4</td>
+      <td>75.45</td>
+      <td>0.001856</td>
+      <td>0.066373</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>New Jersey</td>
+      <td>118652</td>
+      <td>8882190</td>
+      <td>642967.7</td>
+      <td>94.68</td>
+      <td>0.013358</td>
+      <td>0.072388</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Michigan</td>
+      <td>41348</td>
+      <td>9986857</td>
+      <td>543489.4</td>
+      <td>74.57</td>
+      <td>0.004140</td>
+      <td>0.054420</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>North Carolina</td>
+      <td>10507</td>
+      <td>10488084</td>
+      <td>601787.9</td>
+      <td>66.09</td>
+      <td>0.001002</td>
+      <td>0.057378</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Georgia</td>
+      <td>25431</td>
+      <td>10617423</td>
+      <td>634137.5</td>
+      <td>75.07</td>
+      <td>0.002395</td>
+      <td>0.059726</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Ohio</td>
+      <td>18027</td>
+      <td>11689100</td>
+      <td>703368.9</td>
+      <td>77.92</td>
+      <td>0.001542</td>
+      <td>0.060173</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Illinois</td>
+      <td>52918</td>
+      <td>12671821</td>
+      <td>893355.5</td>
+      <td>88.49</td>
+      <td>0.004176</td>
+      <td>0.070499</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Pennsylvania</td>
+      <td>48224</td>
+      <td>12801989</td>
+      <td>818448.6</td>
+      <td>78.66</td>
+      <td>0.003767</td>
+      <td>0.063931</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>New York</td>
+      <td>309696</td>
+      <td>19453561</td>
+      <td>1791566.8</td>
+      <td>87.87</td>
+      <td>0.015920</td>
+      <td>0.092095</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Florida</td>
+      <td>33683</td>
+      <td>21477737</td>
+      <td>1126510.3</td>
+      <td>91.16</td>
+      <td>0.001568</td>
+      <td>0.052450</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Texas</td>
+      <td>29072</td>
+      <td>28995881</td>
+      <td>1861581.9</td>
+      <td>84.70</td>
+      <td>0.001003</td>
+      <td>0.064202</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>California</td>
+      <td>50470</td>
+      <td>39512223</td>
+      <td>3205000.1</td>
+      <td>94.95</td>
+      <td>0.001277</td>
+      <td>0.081114</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_pp&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, we create Numpy arrays of these variables for convenience:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cases_pp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_pp&quot;</span><span class="p">])</span>
+<span class="n">gdp_pp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_pp&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -335,95 +1138,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f852e178810&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fedf9ff1c10&gt;
 </pre></div>
 </div>
-<img alt="../_images/visualization_8_1.png" src="../_images/visualization_8_1.png" />
+<img alt="../_images/visualization_38_1.png" src="../_images/visualization_38_1.png" />
 </div>
 </div>
-<p><span style="color:red">WORK IN PROGRESS. STOPPED HERE</span></p>
-</div>
-<div class="section" id="scatter-plots-for-multiple-datasets">
-<h2>Scatter Plots for Multiple Datasets<a class="headerlink" href="#scatter-plots-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
-<p>The easiest way to create most plots with multiple datasets is to simply call Matplotlib’s multiple times from within a single cell:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">rate2014</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2005</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2014</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_12_0.png" src="../_images/visualization_12_0.png" />
-</div>
-</div>
-<p>Note that Matplotlib automatically chooses different colors for the points plotted from the second call to <code class="docutils literal notranslate"><span class="pre">scatter()</span></code>, allowing us to see that there are two distinct data sets being plotted (although with no indication of which is which – we will fix this soon).</p>
-<p>Although this graph does not provide much insight into whether there is a difference between these two datasets, it is worth exploring how to make this graph more presentable. When working with different datasets, it is a good practice to use a unique marker style for reach dataset. This is especially important when data may be printed because many people still print to a black and white printer and because some people cannot distinguish certain types of colors (colorblindness).</p>
-<p>When using <code class="docutils literal notranslate"><span class="pre">plt.scatter</span></code> the easiest way to set the marker type is to pass a string indicating the desired marker type using the <code class="docutils literal notranslate"><span class="pre">marker</span></code> keyword parameter:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2005</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2014</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_14_0.png" src="../_images/visualization_14_0.png" />
-</div>
-</div>
-<p>Some commonly used marker types include:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;.&quot;</span>		<span class="n">point</span>
-<span class="s2">&quot;o&quot;</span>		<span class="n">circle</span>
-<span class="s2">&quot;s&quot;</span>		<span class="n">square</span>
-<span class="s2">&quot;+&quot;</span>		<span class="n">plus</span>
-<span class="s2">&quot;x&quot;</span>		<span class="n">x</span>
-</pre></div>
-</div>
-<p>For a complete list of marker types, consult the Matplotlib documentation:</p>
-<p><a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html">matplotlib.markers</a></p>
-<p>It is also important to provide a legend to indicate what the different markers mean. This is most easily done in two steps:</p>
-<ol class="simple">
-<li><p>When calling <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> for each data set, pass the text that you would like to appear in the legend for that data set using the <code class="docutils literal notranslate"><span class="pre">label</span></code> keyword argument.</p></li>
-<li><p>After all <code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code> calls are complete, call <code class="docutils literal notranslate"><span class="pre">plt.legend()</span></code> to draw the legend.</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2005</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
-           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2005&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2014</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
-           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_17_0.png" src="../_images/visualization_17_0.png" />
-</div>
-</div>
-<p>Finally, add axis labels and a title to finish the graph:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2005</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
-           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2005&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">rate2014</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
-           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2014&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Firearms Mortality Rates in 2005 and 2014&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;State Index&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Deaths per 100,000&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_19_0.png" src="../_images/visualization_19_0.png" />
-</div>
-</div>
-<p>One good reason to always start with a scatter plot is that we can identify <em>outliers</em>:</p>
+<p>Even with this adjustment, we see that there are some states that have Covid cases/population that are very different than most of the other states. These may be considered <em>outliers</em>:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -439,203 +1160,557 @@
 </div>
 </div>
 </div>
-<p>To see how scatter plots can identify outliers, let’s create modified versions of our data sets with known errors:</p>
+<p>One of the reasons to start data visualization with scatter plots is that unlike histograms, they show the whole data and are helpful in spotting outliers.</p>
+<p>If you followed the spread of Covid in the United States in spring 2020, you can probably guess which states have these extreme values.</p>
+<p>Let’s re-sort the data frame based on our new Covid-cases per population column, and we will pass it the keyword argument <code class="docutils literal notranslate"><span class="pre">ascending=False</span></code> to put the highest cases per population first:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier2005</span><span class="o">=</span><span class="n">rate2005</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">outlier2014</span><span class="o">=</span><span class="n">rate2014</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;cases_pp&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="n">outlier2005</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="mi">30</span>
-<span class="n">outlier2014</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="o">=-</span><span class="mi">5</span>
-</pre></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>state</th>
+      <th>cases</th>
+      <th>population</th>
+      <th>gdp</th>
+      <th>urban</th>
+      <th>cases_pp</th>
+      <th>gdp_pp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>31</th>
+      <td>New York</td>
+      <td>309696</td>
+      <td>19453561</td>
+      <td>1791566.8</td>
+      <td>87.87</td>
+      <td>0.015920</td>
+      <td>0.092095</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>New Jersey</td>
+      <td>118652</td>
+      <td>8882190</td>
+      <td>642967.7</td>
+      <td>94.68</td>
+      <td>0.013358</td>
+      <td>0.072388</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Massachusetts</td>
+      <td>62205</td>
+      <td>6892503</td>
+      <td>603209.6</td>
+      <td>91.97</td>
+      <td>0.009025</td>
+      <td>0.087517</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Rhode Island</td>
+      <td>8621</td>
+      <td>1059361</td>
+      <td>62335.4</td>
+      <td>90.73</td>
+      <td>0.008138</td>
+      <td>0.058842</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Connecticut</td>
+      <td>27700</td>
+      <td>3565287</td>
+      <td>290703.0</td>
+      <td>87.99</td>
+      <td>0.007769</td>
+      <td>0.081537</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Louisiana</td>
+      <td>28044</td>
+      <td>4648794</td>
+      <td>259079.3</td>
+      <td>73.19</td>
+      <td>0.006033</td>
+      <td>0.055730</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Delaware</td>
+      <td>4734</td>
+      <td>973764</td>
+      <td>77879.4</td>
+      <td>83.30</td>
+      <td>0.004862</td>
+      <td>0.079978</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Illinois</td>
+      <td>52918</td>
+      <td>12671821</td>
+      <td>893355.5</td>
+      <td>88.49</td>
+      <td>0.004176</td>
+      <td>0.070499</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Michigan</td>
+      <td>41348</td>
+      <td>9986857</td>
+      <td>543489.4</td>
+      <td>74.57</td>
+      <td>0.004140</td>
+      <td>0.054420</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Pennsylvania</td>
+      <td>48224</td>
+      <td>12801989</td>
+      <td>818448.6</td>
+      <td>78.66</td>
+      <td>0.003767</td>
+      <td>0.063931</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Maryland</td>
+      <td>21825</td>
+      <td>6045680</td>
+      <td>432997.8</td>
+      <td>87.20</td>
+      <td>0.003610</td>
+      <td>0.071621</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>South Dakota</td>
+      <td>2450</td>
+      <td>884659</td>
+      <td>56051.9</td>
+      <td>56.65</td>
+      <td>0.002769</td>
+      <td>0.063360</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Indiana</td>
+      <td>18099</td>
+      <td>6732219</td>
+      <td>384871.7</td>
+      <td>72.44</td>
+      <td>0.002688</td>
+      <td>0.057169</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Colorado</td>
+      <td>15207</td>
+      <td>5758736</td>
+      <td>400863.4</td>
+      <td>86.15</td>
+      <td>0.002641</td>
+      <td>0.069610</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Georgia</td>
+      <td>25431</td>
+      <td>10617423</td>
+      <td>634137.5</td>
+      <td>75.07</td>
+      <td>0.002395</td>
+      <td>0.059726</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Mississippi</td>
+      <td>6815</td>
+      <td>2976149</td>
+      <td>117642.3</td>
+      <td>49.35</td>
+      <td>0.002290</td>
+      <td>0.039528</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Iowa</td>
+      <td>7145</td>
+      <td>3155070</td>
+      <td>196247.4</td>
+      <td>64.02</td>
+      <td>0.002265</td>
+      <td>0.062201</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Nebraska</td>
+      <td>4332</td>
+      <td>1934408</td>
+      <td>133201.0</td>
+      <td>73.13</td>
+      <td>0.002239</td>
+      <td>0.068859</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Washington</td>
+      <td>14814</td>
+      <td>7614893</td>
+      <td>624861.4</td>
+      <td>84.05</td>
+      <td>0.001945</td>
+      <td>0.082058</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Virginia</td>
+      <td>15846</td>
+      <td>8535519</td>
+      <td>566529.4</td>
+      <td>75.45</td>
+      <td>0.001856</td>
+      <td>0.066373</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Nevada</td>
+      <td>5053</td>
+      <td>3080156</td>
+      <td>181751.6</td>
+      <td>94.20</td>
+      <td>0.001641</td>
+      <td>0.059007</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>New Mexico</td>
+      <td>3411</td>
+      <td>2096829</td>
+      <td>106914.4</td>
+      <td>77.43</td>
+      <td>0.001627</td>
+      <td>0.050989</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>New Hampshire</td>
+      <td>2146</td>
+      <td>1359711</td>
+      <td>88014.8</td>
+      <td>60.30</td>
+      <td>0.001578</td>
+      <td>0.064731</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Florida</td>
+      <td>33683</td>
+      <td>21477737</td>
+      <td>1126510.3</td>
+      <td>91.16</td>
+      <td>0.001568</td>
+      <td>0.052450</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Ohio</td>
+      <td>18027</td>
+      <td>11689100</td>
+      <td>703368.9</td>
+      <td>77.92</td>
+      <td>0.001542</td>
+      <td>0.060173</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Tennessee</td>
+      <td>10506</td>
+      <td>6829174</td>
+      <td>380823.0</td>
+      <td>66.39</td>
+      <td>0.001538</td>
+      <td>0.055764</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Kansas</td>
+      <td>4305</td>
+      <td>2913314</td>
+      <td>178605.1</td>
+      <td>74.20</td>
+      <td>0.001478</td>
+      <td>0.061307</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Utah</td>
+      <td>4672</td>
+      <td>3205958</td>
+      <td>196639.4</td>
+      <td>90.58</td>
+      <td>0.001457</td>
+      <td>0.061336</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>7068</td>
+      <td>4903185</td>
+      <td>230750.1</td>
+      <td>59.04</td>
+      <td>0.001442</td>
+      <td>0.047061</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>North Dakota</td>
+      <td>1067</td>
+      <td>762062</td>
+      <td>57471.9</td>
+      <td>59.90</td>
+      <td>0.001400</td>
+      <td>0.075416</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Vermont</td>
+      <td>866</td>
+      <td>623989</td>
+      <td>34320.2</td>
+      <td>38.90</td>
+      <td>0.001388</td>
+      <td>0.055001</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>California</td>
+      <td>50470</td>
+      <td>39512223</td>
+      <td>3205000.1</td>
+      <td>94.95</td>
+      <td>0.001277</td>
+      <td>0.081114</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Missouri</td>
+      <td>7563</td>
+      <td>6137428</td>
+      <td>332659.7</td>
+      <td>70.44</td>
+      <td>0.001232</td>
+      <td>0.054202</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Wisconsin</td>
+      <td>6973</td>
+      <td>5822434</td>
+      <td>353935.5</td>
+      <td>70.15</td>
+      <td>0.001198</td>
+      <td>0.060788</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>South Carolina</td>
+      <td>6095</td>
+      <td>5148714</td>
+      <td>251664.5</td>
+      <td>66.33</td>
+      <td>0.001184</td>
+      <td>0.048879</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Idaho</td>
+      <td>2016</td>
+      <td>1787065</td>
+      <td>85791.1</td>
+      <td>70.58</td>
+      <td>0.001128</td>
+      <td>0.048007</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arkansas</td>
+      <td>3281</td>
+      <td>3017804</td>
+      <td>132596.4</td>
+      <td>56.16</td>
+      <td>0.001087</td>
+      <td>0.043938</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Kentucky</td>
+      <td>4708</td>
+      <td>4467673</td>
+      <td>218426.1</td>
+      <td>58.38</td>
+      <td>0.001054</td>
+      <td>0.048890</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arizona</td>
+      <td>7648</td>
+      <td>7278717</td>
+      <td>379018.8</td>
+      <td>89.81</td>
+      <td>0.001051</td>
+      <td>0.052072</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Texas</td>
+      <td>29072</td>
+      <td>28995881</td>
+      <td>1861581.9</td>
+      <td>84.70</td>
+      <td>0.001003</td>
+      <td>0.064202</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>North Carolina</td>
+      <td>10507</td>
+      <td>10488084</td>
+      <td>601787.9</td>
+      <td>66.09</td>
+      <td>0.001002</td>
+      <td>0.057378</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Wyoming</td>
+      <td>559</td>
+      <td>578759</td>
+      <td>40764.3</td>
+      <td>64.76</td>
+      <td>0.000966</td>
+      <td>0.070434</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Oklahoma</td>
+      <td>3618</td>
+      <td>3956971</td>
+      <td>201604.3</td>
+      <td>66.24</td>
+      <td>0.000914</td>
+      <td>0.050949</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Minnesota</td>
+      <td>5136</td>
+      <td>5639632</td>
+      <td>389503.7</td>
+      <td>73.27</td>
+      <td>0.000911</td>
+      <td>0.069065</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Maine</td>
+      <td>1095</td>
+      <td>1344212</td>
+      <td>68984.9</td>
+      <td>38.66</td>
+      <td>0.000815</td>
+      <td>0.051320</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>West Virginia</td>
+      <td>1126</td>
+      <td>1792147</td>
+      <td>78480.5</td>
+      <td>48.72</td>
+      <td>0.000628</td>
+      <td>0.043791</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Oregon</td>
+      <td>2510</td>
+      <td>4217737</td>
+      <td>258692.6</td>
+      <td>81.03</td>
+      <td>0.000595</td>
+      <td>0.061334</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alaska</td>
+      <td>353</td>
+      <td>731545</td>
+      <td>54674.7</td>
+      <td>66.02</td>
+      <td>0.000483</td>
+      <td>0.074739</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Hawaii</td>
+      <td>609</td>
+      <td>1415872</td>
+      <td>97001.1</td>
+      <td>91.93</td>
+      <td>0.000430</td>
+      <td>0.068510</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Montana</td>
+      <td>452</td>
+      <td>1068778</td>
+      <td>54034.7</td>
+      <td>55.89</td>
+      <td>0.000423</td>
+      <td>0.050557</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">outlier2005</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
-           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2005&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">),</span> <span class="n">outlier2014</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
-           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2014&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_24_0.png" src="../_images/visualization_24_0.png" />
-</div>
-</div>
-<p>The values for states 10 and 20 literally “stick out” from the rest of the values. This does not necessarily mean that those values are not valid, but it definitely indicates that they should be checked carefully. For instance, a negative value is not possible for a mortality rate, so that value can immediately be identified as an error. On the other hand, the exceptionally high value (30) could actually be a valid result. In this case, additional  research may be needed to try to confirm whether it is a valid data point.</p>
-<p>Values identified as outliers may be dealt with in several ways. Two typical ways are to remove them from the data sets or to replace them with the averages of the other values. How to make such choices is usually up to the data scientist, and the implications of these choices is beyond the scope of this  book.</p>
-<p>An advantage of scatter plots is that sometimes these values do not stick out as much in other plots, such as a histogram – which leads us to our next visualization.</p>
-</div>
-<div class="section" id="histograms-for-multiple-datasets">
-<h2>Histograms for Multiple Datasets<a class="headerlink" href="#histograms-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
-<p>As with the data in Chapter XX, we next want to study the rates of occurrence of the values of the data. However, unlike the histograms we previously generated, this data takes on <strong>real values</strong>, not just integers. One implication of this is that we cannot meaningfully count the data (for instance to compute the relative frequencies):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 3.4,  3.6,  5.2,  5.3,  6.6,  6.7,  6.8,  7. ,  7.7,  7.8,  8. ,
-         8.5,  8.8,  9.3,  9.5,  9.6, 10. , 10.1, 10.2, 10.7, 10.8, 11.1,
-        11.2, 11.5, 11.6, 11.9, 12.1, 12.8, 12.9, 13. , 13.2, 13.4, 13.8,
-        13.9, 14.1, 15.7, 16. , 16.1, 16.9, 17.5, 18.5, 30. ]),
- array([1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 2, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 3, 2, 1, 1, 1, 1]))
-</pre></div>
-</div>
-</div>
-</div>
-<p>There is exactly one occurrence of most (36) of the values. If the mortality rates were calculated to more than one decimal place, it is likely that all of the values would be distinct. Yet we can see that the values are not evenly distributed: there are only two values in the range <span class="math notranslate nohighlight">\([3,5)\)</span>, but there are ten values in the range <span class="math notranslate nohighlight">\([10,12)\)</span>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function is designed to generate meaningful histograms for continuous data by counting the number of occurrences per bin:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_30_0.png" src="../_images/visualization_30_0.png" />
-</div>
-</div>
-<p>Each bar of the histgram represents a “bin” of data values. In fact, the counts and bin edges are returned by the hist function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_32_0.png" src="../_images/visualization_32_0.png" />
-</div>
-</div>
-<p>Note that here I used a Python convention of storing the matplotlib patches information, which is the third returned value, in the variable “_” (underscore) to indicate that it is a value that we do not care about.</p>
-<p>We can inspect the bins and counts by evaluating those variables or printing them:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bins:&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Counts:&quot;</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bins: [ 3.4   6.06  8.72 11.38 14.04 16.7  19.36 22.02 24.68 27.34 30.  ]
-Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Some styling will help make this more legible. The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> keyword parameter in matplotlib sets the transparency (from totally transparent (<code class="docutils literal notranslate"><span class="pre">alpha=0</span></code>) to totally opaque (<code class="docutils literal notranslate"><span class="pre">alpha=1</span></code>). Adding transparency makes it much easier to see the data in both histograms:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_36_0.png" src="../_images/visualization_36_0.png" />
-</div>
-</div>
-<p>The choice of <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">0.5</span></code> is usually a good starting point, but the best value to use is up to the graph’s creator.</p>
-<div class="section" id="choosing-the-number-size-of-histogram-bins">
-<h3>Choosing the number/size of histogram bins<a class="headerlink" href="#choosing-the-number-size-of-histogram-bins" title="Permalink to this headline">¶</a></h3>
-<p>Unlike integer data, when the data comes from the continuous real line, there is no right way to choose the size or number of the histogram bins.</p>
-<p>We can easily change the number of bins to provide more resolution into the data; however if we increase the number of bins, the number of data points per bin will be lower.</p>
-<p>If we just want to specify a number of bins (instead of a list of bin edges, like in the previous chapter), then we can just pass number of bins to the <code class="docutils literal notranslate"><span class="pre">bins</span></code> keyword argument:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_39_0.png" src="../_images/visualization_39_0.png" />
-</div>
-</div>
-<p>If we increase the number of bins too much, we will run into a similar problem we had in counting using <code class="docutils literal notranslate"><span class="pre">np.unique()</span></code>: most of the bins will have either 1 or 0 values in them:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_41_0.png" src="../_images/visualization_41_0.png" />
-</div>
-</div>
-<p>Thus the number of bins should be chosen to balance between providing more resolution versus having sufficiently high counts in the bins to see how the values are distributed. Selecting the number of bins to achieve an appropriate balance is up to the graph creator. There are some research papers that provide techniques to select the number of bins; however, they are beyond the scope of this book.</p>
-<p>If you need a guidline for selecting the number of histogram bins, you can try:</p>
-<p><strong>Make the number of bins as large as possible while ensuring that  at least 50% of the bins contain at least 2 data points.</strong></p>
-</div>
-<div class="section" id="bin-alignment-for-multiple-histograms-in-one-figure">
-<h3>Bin alignment for multiple histograms in one figure<a class="headerlink" href="#bin-alignment-for-multiple-histograms-in-one-figure" title="Permalink to this headline">¶</a></h3>
-<p>One issue that arises when plotting multiple histograms in one figure is that the bins created by each call to <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> are not aligned. This can be helpful in that the bins are typically offset from each other, which makes it easier to see the separate bar heights. However, the bar heights cannot be directly compared because they correspond to different ranges of data. There are various solutions, but let’s use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to create our own set of bin edges. Start by finding the min and max of each data set:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">rate2005</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">rate2014</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rate2005</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rate2014</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1 2.6
-18.5 19.2
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we can make a linearly spaced set of bin edges from the minimum to the maximum values using NumPy’s <code class="docutils literal notranslate"><span class="pre">linspace()</span></code> function. It is usually called with three arguments: start, stop, number of points:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_edges</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">19.2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 2.1  3.   3.9  4.8  5.7  6.6  7.5  8.4  9.3 10.2 11.1 12.  12.9 13.8
- 14.7 15.6 16.5 17.4 18.3 19.2]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2005&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2014&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_47_0.png" src="../_images/visualization_47_0.png" />
-</div>
-</div>
-<p>Now we can finish the graph by providing data labels and adding a legend and axis labels. In this case, we might omit a title because the title would probably be something like “Mortality Rate Histograms for 2005 and 2014”, which can already be determined from inspecting the graph.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2005&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2014&quot;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Mortality rate (deaths per 100k people)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/visualization_49_0.png" src="../_images/visualization_49_0.png" />
-</div>
-</div>
-<p>What inferences might you make from this plot?</p>
-<p>A quick visual inspect should indicate that the two data sets are quite similar. However, we can see that the in from 5 to 10, the 2005 data set has higher counts, while in the bins from 10 to 19.2, the 2014 data set has more bins with a higher count.</p>
-<p>The histogram gives us some insight into how these data sets might be similar or different, but they do not give us a way to perform a quantitative comparison or to determine if any observed difference is likely to have come from real differences in the underlying data sets or could just be attributed to randomness. To resolve both these issues, we can compute values that capture some summary information about the data set. We call these values <strong>summary statistics</strong>:</p>
-</div>
-</div>
+<p>The top to states in terms of both raw cases and cases per person are New York and New Jersey, with Covid rates per population over 0.013, whereas other states rates were all below 0.01.</p>
+<p>In this case, we know that these states had a very rapid early spread of Covid in comparison to other states, so these data points are probably the true values and would <em>not</em> be considered outliers.</p>
+<!-- ## Pooling Data to Create Binary Comparisons --><!-- In this chapter, we will conduct our first binary hypothesis tests. Here, binary does not refer to 0 and 1, but to the fact that we will consider data from two different *classes*, or groups. We will evaluate a single variable and determine whether the data in different classes is different in some characteristic. 
+
+To be specific, we are going to look at the Covid cases per population variable and determine whether the following classes affect this variable:
+* *High population vs Low population*: We will split the states into two classes based on population.
+* *Higher GDP vs Lower GDP*: We will split the states into two classes based on GDP per population.
+* *Urban vs Rural*: We will split the states into two classes based on what percentage of the state lives in a rural area. --></div>
 </div>
 
     <script type="text/x-thebe-config">

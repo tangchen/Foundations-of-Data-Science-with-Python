@@ -53,7 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Visualizing Multiple Data Sets" href="visualization.html" />
+    <link rel="prev" title="Visualizing Multiple Data Sets - Part 1: Scatter Plots" href="visualization.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -143,7 +143,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="visualization.html">
-     Visualizing Multiple Data Sets
+     Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -236,53 +236,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Summary Statistics
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bootstrap-model-1">
-     Bootstrap Model 1
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bootstrap-model-2">
-     Bootstrap Model 2
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribution-of-the-bootstrap-mean-difference">
-     Distribution of the bootstrap mean-difference
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#effect-of-state-laws">
-   Effect of State Laws
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#k-means-clustering">
-     K-means Clustering
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reading-assignment">
-   Reading Assignment
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -293,20 +246,22 @@
                 
   <div class="section" id="summary-statistics">
 <h1>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h1>
-<p>Summary statistics are values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as a the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists; however most statisticians use the term <strong>sample mean</strong> for this statistic.</p>
-<p>The <strong>average</strong> of the data is t</p>
-<p>or <strong>sample mean</strong>. I <strong>strongly</strong> prefer the word average for the statistic computed from a set of data.</p>
-<p>We will use the word <strong>mean</strong> to refer to a type of average for random phenomena, when we do not have specific samples for those values.</p>
-<ul class="simple">
-<li><p>What does the <strong>average</strong> or <strong>sample mean</strong> mean?</p>
+<p>Summary statistics are values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as a the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists. Most statisticians use the term <strong>sample mean</strong> for this statistic, and often refer to it as simply the <strong>mean</strong>, but this can create confusion with another type of mean for random data: the <strong>ensemble mean</strong>, which is also usually just called the <strong>mean</strong>, and which is introduced in Chapter ZZ.</p>
+<p>Because of this ambiguity in the <strong>mean</strong>ing of the word <strong>mean</strong>, I will use the term <em>average</em> to refer to the value that is computed from data.</p>
+<p>When teaching a class on this subject, I usually ask the class: “What does the <strong>average</strong> or <strong>sample mean</strong> mean?”. Here are some of the common answers:</p>
 <ol class="simple">
 <li><p>The value where most of the data “sits” is centered around</p></li>
 <li><p>The value that has minimum distance from every value</p></li>
 <li><p>Value most likely to occur</p></li>
 <li><p>Value that divides group into 2 sets of equal size</p></li>
 </ol>
-</li>
-</ul>
+<p>It turns out that none of these are very accurate descriptions of the average. To understand average, we first have to understand that representing data by a summary statistic results in errors, and we can use these errors to help choose a “good” summary statistic.</p>
+<p>Let <span class="math notranslate nohighlight">\(d_0, d_1, \ldots, d_{N-1}\)</span> be our data points, and let <span class="math notranslate nohighlight">\(\nu\)</span> be a summary decision statistic.</p>
+<p>The <em>error</em> <span class="math notranslate nohighlight">\(e_i\)</span> between data point <span class="math notranslate nohighlight">\(d_i\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span> is simply <span class="math notranslate nohighlight">\(e_i= d_i-\nu\)</span>. Note that the error may be positive or negative.</p>
+<p>Intuitively, we should try to choose <span class="math notranslate nohighlight">\(\nu\)</span> to minimize the errors to the data. However, how to do this is not entirely clear because we</p>
+<p><span style="color:red">JMS: Working here</span></p>
+<p><strong>Put this in a definition block</strong>
+The average is the value that minimizes the total squared error to the data.**</p>
 <p>Both Pandas and Numpy provide methods to calculate the average:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -383,461 +338,6 @@
 </div>
 </div>
 </div>
-<p><strong>How could we conduct an experiment to determine if this difference might be caused by sampling?</strong></p>
-<ul class="simple">
-<li><p>The <em>null hypothesis</em> is that there is no real difference between the two data sets, and any differences are just based on random sampling from the underlying population.</p></li>
-</ul>
-<p>So, let’s assume that the two samples are from the same population.</p>
-<ul class="simple">
-<li><p>By combining (called <strong>pooling</strong>) the samples, we get a new subset of the original population, if the null hypothesis is true. Morever, any sample from this better represents the original population than either of the samples.</p></li>
-<li><p>We can check whether the null hypothesis is true by checking how often samples from the pooled data set have a difference in means as large as the one observed.</p></li>
-</ul>
-<p><strong>The big question:</strong> To sample <strong>with replacement</strong> or <strong>without replacement</strong>?</p>
-<ol class="simple">
-<li><p><em>Sampling with replacement</em> is called <strong>bootstrapping</strong> and is the most popular resampling technique. It is meant to better emulate independent sampling from the original population.</p></li>
-<li><p><em>Sampling without replacement</em> better emulates <strong>permutation</strong> tests, where we check every possible reordering of the data into samples. This will be discussed more later.</p>
-<ul class="simple">
-<li><p>Generally, <em>sampling without replacement</em> is more conservative (produces a higher <span class="math notranslate nohighlight">\(p\)</span>-value) than bootstrapping.</p></li>
-<li><p>Bootstraping is <strong>easy</strong> and <strong>most popular</strong>, and we apply it here:</p></li>
-</ul>
-</li>
-</ol>
-<p><strong>The Bootstrap Idea:</strong> The original sample approximates the population from which it was drawn. So resamples from this sample approximate what we would get if we took many samples from the population. The bootstrap distribution of a statistic, based on many resamples, approximates the sampling distribution of the statistic, based on many samples.</p>
-<div class="section" id="bootstrap-model-1">
-<h2>Bootstrap Model 1<a class="headerlink" href="#bootstrap-model-1" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">rate2005</span><span class="p">,</span><span class="n">rate2014</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span><span class="n">pooled</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[16.  17.5 16.1 15.7  9.5 11.6  5.3  8.8 10.  12.1  2.1 14.1  8.  11.2
-  6.7  9.3 13.  18.5  7.8 11.9  3.4 10.8  7.  16.  12.9 16.9  7.7 16.1
-  6.6  5.2 13.9  5.3 12.8  8.8  9.6 13.2 10.7 10.8  3.6 13.8 10.2 16.
- 11.1 10.1  6.8 11.5  8.8 13.8  8.5 13.4 16.9 19.2 13.5 16.6  7.4 12.2
-  5.  11.1 11.5 13.7  2.6 13.2  9.  12.4  7.5 11.3 13.9 19.   9.4  9.
-  3.2 11.1  6.6 18.3 15.3 16.1  9.5 14.8  8.7  5.3 16.   4.2 11.8 12.3
- 10.3 15.7 11.7 10.5  3.  15.5 10.3 15.1 10.7 12.3 10.3 10.3  9.7 14.6
-  8.2 16.2] 100
-</pre></div>
-</div>
-</div>
-</div>
-<p>How would we randomly choose from this data <strong>with replacement</strong>?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9.3, 8.8, 7.0, 2.1, 11.3, 9.4, 3.0, 13.2, 13.8, 16.1, 9.4, 15.5, 8.7, 10.3, 11.1, 13.9, 9.5, 7.0, 12.2, 8.5, 15.7, 11.7, 11.1, 12.9, 11.9, 16.2, 13.9, 10.8, 8.2, 9.6, 9.4, 12.8, 13.2, 15.7, 12.4, 6.8, 9.5, 9.5, 10.5, 9.0, 15.5, 12.1, 10.3, 8.8, 16.0, 16.9, 18.3, 12.4, 12.3, 11.2]
-</pre></div>
-</div>
-</div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> has a similar method:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 7.8,  3.2,  5.3, 10.1, 10.3, 10.8,  3.2, 11.7,  9. , 11.1,  2.6,
-       11.6,  9.7,  5.3,  4.2, 15.3, 16.1,  5. , 11.3, 13. , 10.1, 12.8,
-       11.1, 11.8,  3.6, 16. , 11.8,  4.2, 13.9, 12.4, 18.5,  6.6, 16.1,
-       14.8, 16.9, 16.9, 12.9, 14.6, 12.4,  8.5, 13.4, 10.2,  6.6, 13.9,
-       10.5,  7.4, 11.1,  7.8, 16. , 17.5])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span>
-<span class="n">event_count</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="n">sample05</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-    <span class="n">sample14</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-    <span class="n">mean05</span><span class="o">=</span><span class="n">sample05</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">mean14</span><span class="o">=</span><span class="n">sample14</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">sample_diff</span><span class="o">=</span><span class="n">mean14</span><span class="o">-</span><span class="n">mean05</span>
-    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">sample_diff</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">diff</span><span class="p">:</span>
-        <span class="n">event_count</span><span class="o">+=</span><span class="mi">1</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Under null hypothesis, observe effect this large with prob. &quot;</span><span class="p">,</span><span class="n">event_count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Under null hypothesis, observe effect this large with prob.  0.457
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>What is the conclusion?</p></li>
-</ul>
-<!-- The data does not support that the observed effect is statistically significant, so we can't reject the null hypothesis. --><ul class="simple">
-<li><p>What are some problems with this approach?</p></li>
-</ul>
-<!-- We treated all the states in the two samples as if they were independent -- but they are measurements on the same states! That violates our assumptions. 
-
-The states have their own firearms mortality behavior based on other factors (rural/urban, education level, laws, etc.) --></div>
-<div class="section" id="bootstrap-model-2">
-<h2>Bootstrap Model 2<a class="headerlink" href="#bootstrap-model-2" title="Permalink to this headline">¶</a></h2>
-<p>A more reasonable bootstrap approach would be to randomly assign values from 2005 or 2014 for each state and then assess the difference:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stacked_data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">rate2005</span><span class="p">,</span><span class="n">rate2014</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">stacked_data</span><span class="p">,</span><span class="n">stacked_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[16.  17.5 16.1 15.7  9.5 11.6  5.3  8.8 10.  12.1  2.1 14.1  8.  11.2
-   6.7  9.3 13.  18.5  7.8 11.9  3.4 10.8  7.  16.  12.9 16.9  7.7 16.1
-   6.6  5.2 13.9  5.3 12.8  8.8  9.6 13.2 10.7 10.8  3.6 13.8 10.2 16.
-  11.1 10.1  6.8 11.5  8.8 13.8  8.5 13.4]
- [16.9 19.2 13.5 16.6  7.4 12.2  5.  11.1 11.5 13.7  2.6 13.2  9.  12.4
-   7.5 11.3 13.9 19.   9.4  9.   3.2 11.1  6.6 18.3 15.3 16.1  9.5 14.8
-   8.7  5.3 16.   4.2 11.8 12.3 10.3 15.7 11.7 10.5  3.  15.5 10.3 15.1
-  10.7 12.3 10.3 10.3  9.7 14.6  8.2 16.2]] (2, 50)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10000</span>
-<span class="n">event_count</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="n">sample05</span><span class="o">=</span><span class="n">stacked_data</span><span class="p">[</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)]</span> <span class="c1">#2-D fancy indexing!</span>
-    <span class="n">sample14</span><span class="o">=</span><span class="n">stacked_data</span><span class="p">[</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)]</span>
-    <span class="n">mean05</span><span class="o">=</span><span class="n">sample05</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">mean14</span><span class="o">=</span><span class="n">sample14</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="c1">#print(mean05,mean14)</span>
-    <span class="n">sample_diff</span><span class="o">=</span><span class="n">mean14</span><span class="o">-</span><span class="n">mean05</span>
-    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">sample_diff</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">diff</span><span class="p">:</span>
-        <span class="n">event_count</span><span class="o">+=</span><span class="mi">1</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Under null hypothesis, observe effect this large with prob. &quot;</span><span class="p">,</span><span class="n">event_count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Under null hypothesis, observe effect this large with prob.  0.0001
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p><strong>What is the conclusion?</strong></p></li>
-</ul>
-<!-- It depends on how you interpret the data!
-
-This simulation supports rejecting the null hypothesis. Under this interpretation, the restriction on assault weapons is associated with an increase in mean firearms morality. --></div>
-<div class="section" id="distribution-of-the-bootstrap-mean-difference">
-<h2>Distribution of the bootstrap mean-difference<a class="headerlink" href="#distribution-of-the-bootstrap-mean-difference" title="Permalink to this headline">¶</a></h2>
-<p>Every time we create a bootstrap value for the difference of means, we create a new random value. Let’s see how the bootstrap means are distributed by looking at a histogram of those values:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10000</span>
-<span class="n">event_count</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">bs_stats</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="n">sample05</span><span class="o">=</span><span class="n">stacked_data</span><span class="p">[</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)]</span> <span class="c1">#2-D fancy indexing!</span>
-    <span class="n">sample14</span><span class="o">=</span><span class="n">stacked_data</span><span class="p">[</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)]</span>
-    <span class="n">mean05</span><span class="o">=</span><span class="n">sample05</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">mean14</span><span class="o">=</span><span class="n">sample14</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="c1">#print(mean05,mean14)</span>
-    <span class="n">sample_diff</span><span class="o">=</span><span class="n">mean14</span><span class="o">-</span><span class="n">mean05</span>
-    <span class="n">bs_stats</span><span class="o">+=</span><span class="p">[</span><span class="n">sample_diff</span><span class="p">]</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bs_stats</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/summary-stats_34_0.png" src="../_images/summary-stats_34_0.png" />
-</div>
-</div>
-<p>A few obervations:</p>
-<ol class="simple">
-<li><p>The difference of means has a bell shape – we saw that before. Why do you think that is?</p></li>
-<li><p>Almost all of the values fall between -0.5 and +0.5. Thus, it is not surprising that getting a mean-difference as large as 0.6 is very rare.</p></li>
-</ol>
-</div>
-</div>
-<div class="section" id="effect-of-state-laws">
-<h1>Effect of State Laws<a class="headerlink" href="#effect-of-state-laws" title="Permalink to this headline">¶</a></h1>
-<p>The column “Total Laws 2014” shows the total number of gun laws in each state as of 2014. The data is from</p>
-<p>https://www.statefirearmlaws.org/resources</p>
-<p>Now we have 2 data sources that are both in 2014, but they do not represent two samples from the same population. Instead, they represent two things that may depend on each other.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Again, the first thing to do is plot the data. When we have two sets of data that may be dependent, a scatter plot is usually the first tool to reach for:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Total Laws 2014&quot;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">]);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/summary-stats_39_0.png" src="../_images/summary-stats_39_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Total Laws 2014&quot;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Total Laws in 2014&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Firearms morality rate (2014)&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/summary-stats_40_0.png" src="../_images/summary-stats_40_0.png" />
-</div>
-</div>
-<ul class="simple">
-<li><p>What does this data suggest?</p></li>
-</ul>
-<!-- An increase in the number of gun laws seems to be associated with a decrease in homicide rates. --><ul class="simple">
-<li><p>We don’t know how to measure the dependence between two data sets like this – <strong>yet</strong></p></li>
-</ul>
-<p>Let’s see if we can turn this into into two data sets:</p>
-<ul class="simple">
-<li><p>In fact, the data <em>seems</em> to fall into two clusters, one with &lt; 50 laws and one with &gt; 50 laws.</p></li>
-</ul>
-<p>Finding clusterings of data is a job computers are good at.</p>
-<p>Let’s use a standard <strong>clustering algorithm</strong> to see what it find.</p>
-<div class="alert alert-success">
-    <b>Clustering</b>
-<p>Clustering is a (non-parametric) machine learning algorithm that involves the task of grouping a set of objects in such a way that objects in the same group are more similar to each other than to those in other groups. For example, we can use distance as a measure of similarity.</p>
-</div><div class="section" id="k-means-clustering">
-<h2>K-means Clustering<a class="headerlink" href="#k-means-clustering" title="Permalink to this headline">¶</a></h2>
-<p>The <strong><span class="math notranslate nohighlight">\(K\)</span>-Means Clustering Algorithm</strong> is a randomized, iterative algorithm to cluster data.</p>
-<p>The goal of <span class="math notranslate nohighlight">\(K\)</span>-Means clustering is to find <span class="math notranslate nohighlight">\(K\)</span> clusters (or groups). The K-Means Algorithm Steps are:</p>
-<ol class="simple">
-<li><p><strong>Initialization</strong>: Randomly pick some points in the data set to represent the initial “centroids” (for all <span class="math notranslate nohighlight">\(K\)</span> groups you may consider).</p></li>
-</ol>
-<p>Iterate:
-2. <strong>Assignment</strong> of data points to clusters: Calculate the (Euclidean) distances between all the data points and the centroids. Assign each data sample as belonging to the cluster (centroid) to which it is closest to.</p>
-<p>If the assignments do not change, then stop. If not:</p>
-<ol class="simple">
-<li><p><strong>Centroids Update</strong>: Calculate the new centroids for each cluster based on the updated assignments.</p></li>
-<li><p>Return to step 2.</p></li>
-</ol>
-<p>We could code this by hand, but there are several libraries that contain clustering algorithms.</p>
-<p><img alt="scikit-learn logo" src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" /></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> library has many useful methods for machine learning, including clustering.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># create a k-means model</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">law_data</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Total Laws 2014&quot;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">]))</span>
-<span class="n">law_data</span><span class="o">=</span><span class="n">law_data</span><span class="o">.</span><span class="n">T</span> <span class="c1">#transpose</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">law_data</span><span class="p">)</span> <span class="c1"># train the model using the data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KMeans(algorithm=&#39;auto&#39;, copy_x=True, init=&#39;k-means++&#39;, max_iter=300,
-       n_clusters=2, n_init=10, n_jobs=None, precompute_distances=&#39;auto&#39;,
-       random_state=None, tol=0.0001, verbose=0)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusters</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">law_data</span><span class="p">)</span> <span class="c1">#predict the clusters for the data</span>
-<span class="c1"># the trained model now can be used to predict the clusters for other data, too</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">law_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">law_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">clusters</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/summary-stats_52_0.png" src="../_images/summary-stats_52_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[79.375     ,  5.7125    ],
-       [16.4047619 , 12.53095238]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">law_data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">law_data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">c</span><span class="o">=</span><span class="n">clusters</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;xb&#39;</span><span class="p">,</span><span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/summary-stats_54_0.png" src="../_images/summary-stats_54_0.png" />
-</div>
-</div>
-<p>We will put details of the <span class="math notranslate nohighlight">\(K\)</span>-means algorithm in our Canvas page.</p>
-<p>Now let’s partition the data accordingly:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">less50</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Total Laws 2014&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">][</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">]</span>
-
-<span class="n">less50</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="nb">len</span><span class="p">(</span><span class="n">less50</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(12.530952380952382, 42)
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Note that less50 is a pandas series object. It also has a mean method, as well as other useful summary statistics</strong>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">more50</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Total Laws 2014&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">50</span><span class="p">][</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">]</span>
-
-<span class="n">more50</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="nb">len</span><span class="p">(</span><span class="n">more50</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.7125, 8)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">law_diff</span><span class="o">=</span><span class="n">less50</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">more50</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">law_diff</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.818452380952381
-</pre></div>
-</div>
-</div>
-</div>
-<p>Again, if we want to perform a binary hypothesis test, we need to pool the data and draw representative samples from it:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_laws</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RATE-2014&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100000</span>
-<span class="n">event_count</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="n">sample_less50</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">all_laws</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-    <span class="n">sample_more50</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">all_laws</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-    <span class="n">sample_diff</span><span class="o">=</span><span class="n">sample_less50</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">sample_more50</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">sample_diff</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">law_diff</span><span class="p">:</span>
-        <span class="n">event_count</span><span class="o">+=</span><span class="mi">1</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Under null hypothesis, observe effect this large with prob. &quot;</span><span class="p">,</span><span class="n">event_count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Under null hypothesis, observe effect this large with prob.  1e-05
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>What is your conclusion?</p></li>
-</ul>
-<!-- There is an association between the number of gun laws and the firearms mortality rate. More gun laws are associated with lower firearms mortality rates. --><ul class="simple">
-<li><p>What are some issues with this analysis?</p></li>
-</ul>
-<p>The number of gun laws passed by a state may depend on factors that also affect firearms mortality, such as</p>
-<ol class="simple">
-<li><p>rural or urban</p></li>
-<li><p>education levels</p></li>
-<li><p>poverty levels</p></li>
-</ol>
-<p>We can say that having more gun laws is <strong>associated</strong> with lower firearms mortality, but we cannot say that it <strong>causes</strong> lower firearm mortality.</p>
-<p>A more careful statistical analysis would have to <strong>control</strong> for these other variables when measuring the effects of gun laws on firearms mortality.</p>
-</div>
-</div>
-<div class="section" id="reading-assignment">
-<h1>Reading Assignment<a class="headerlink" href="#reading-assignment" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://tinlizzie.org/histograms/">Exploring Histograms</a></p></li>
-<li><p>Section <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/05.11-k-means.html">“In Depth: k-Means Clustering”</a> from “Python Data Science Handbook” textbook</p></li>
-</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -865,7 +365,7 @@ This simulation supports rejecting the null hypothesis. Under this interpretatio
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="visualization.html" title="previous page">Visualizing Multiple Data Sets</a>
+    <a class='left-prev' id="prev-link" href="visualization.html" title="previous page">Visualizing Multiple Data Sets - Part 1: Scatter Plots</a>
 
         </div>
         
