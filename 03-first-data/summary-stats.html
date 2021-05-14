@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Summary Statistics &#8212; Introduction to Data Science for Engineers</title>
+    <title>Partitions and Summary Statistics &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -148,7 +148,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Summary Statistics
+     Partitions and Summary Statistics
     </a>
    </li>
   </ul>
@@ -236,6 +236,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Partitions and Summary Statistics
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary-statistics">
+   Summary Statistics
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -244,21 +262,113 @@
         
               <div>
                 
-  <div class="section" id="summary-statistics">
+  <div class="section" id="partitions-and-summary-statistics">
+<h1>Partitions and Summary Statistics<a class="headerlink" href="#partitions-and-summary-statistics" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter, we will use a relatively simple approach to assessing whether a particular socioeconomic factor is associated with different numbers of Covid-19 cases. We will use the values of that socioeconomic factor to <em>partition</em> the Covid case data into two groups. Below, we provide some definitions to clarify exactly what we mean by a partition. We start by introducing the concept of <em>disjoint</em> collections of data:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">disjoint
+: collections of data are disjoint if no data point belongs to more than one of the collections</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If the data points are unique, then we can use the mathematics of sets to formalize these ideas.  If you are unfamiliar with sets and their operations, please review <strong>Appendix A</strong> for a brief introduction. For our purposes, we can always consider a collection of data points to be unique if we include a unique index value with each data point.</p>
+<p>A collection of sets <span class="math notranslate nohighlight">\(A_0, A_1, \ldots, A_{n-1}\)</span> are disjoint if <span class="math notranslate nohighlight">\(A_i \cap A_j =\emptyset\)</span> for every <span class="math notranslate nohighlight">\(i \in \{0,1,\ldots, n-1\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{0,1,\ldots, n-1\}\)</span>, where <span class="math notranslate nohighlight">\(i \ne j\)</span>.</p>
+<!--
+MOVE THIS TO APPENDIX A
+
+````{panels}
+DEFINITION
+^^^
+set
+: a set is an unordered collection of unique items
+````
+
+Note that sets can contain any type of item, such as number, labels, names, types of dogs, weather conditions, etc.
+-->
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">partition
+: a partition of a data set is a group of <strong>disjoint</strong> collections of data, such that every data point in the original data set belongs to exactly one of the collections.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If <span class="math notranslate nohighlight">\(S\)</span> is a set of data, then the collections <span class="math notranslate nohighlight">\(A_0, A_1, \ldots A_{n-1}\)</span> partition <span class="math notranslate nohighlight">\(S\)</span> if:
+$<span class="math notranslate nohighlight">\(
+\bigcup_{i=0}^{n-1} A_i = S
+\)</span><span class="math notranslate nohighlight">\(
+and \)</span>A_0, A_1, \ldots, A_{n-1}$ are  disjoint.</p>
+<p>A <em>binary partition</em> of a set <span class="math notranslate nohighlight">\(S\)</span> is a pair of sets <span class="math notranslate nohighlight">\(A_0\)</span> and <span class="math notranslate nohighlight">\(A_1\)</span> such that <span class="math notranslate nohighlight">\(A_0 \cup A_1 =S\)</span> and <span class="math notranslate nohighlight">\(A_0 \cap A_1 = \emptyset\)</span>.</p>
+<p>To use a particular socioeconomic metric to partition our data, we will partition the data into two sets: one with higher values of that metric, and one with lower values of that metric.</p>
+<p>To determine what constitutes a “higher value” or a “lower value”, we compare the data to one of several possible choices of <em>summary statistics</em>, which we introduce next:</p>
+</div>
+<div class="section" id="summary-statistics">
 <h1>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h1>
 <p>Summary statistics are values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as a the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists. Most statisticians use the term <strong>sample mean</strong> for this statistic, and often refer to it as simply the <strong>mean</strong>, but this can create confusion with another type of mean for random data: the <strong>ensemble mean</strong>, which is also usually just called the <strong>mean</strong>, and which is introduced in Chapter ZZ.</p>
 <p>Because of this ambiguity in the <strong>mean</strong>ing of the word <strong>mean</strong>, I will use the term <em>average</em> to refer to the value that is computed from data.</p>
 <p>When teaching a class on this subject, I usually ask the class: “What does the <strong>average</strong> or <strong>sample mean</strong> mean?”. Here are some of the common answers:</p>
 <ol class="simple">
 <li><p>The value where most of the data “sits” is centered around</p></li>
+<li><p>The value that is most likely to occur</p></li>
 <li><p>The value that has minimum distance from every value</p></li>
-<li><p>Value most likely to occur</p></li>
-<li><p>Value that divides group into 2 sets of equal size</p></li>
+<li><p>The value that divides group into 2 sets of equal size</p></li>
 </ol>
-<p>It turns out that none of these are very accurate descriptions of the average. To understand average, we first have to understand that representing data by a summary statistic results in errors, and we can use these errors to help choose a “good” summary statistic.</p>
+<p>Only one of these descriptions of the average is always accurate, and even then the description is ambiguous.</p>
+<p>To understand average, we first have to understand that representing data by a summary statistic results in errors, and we can use these errors to help choose a “good” summary statistic.</p>
 <p>Let <span class="math notranslate nohighlight">\(d_0, d_1, \ldots, d_{N-1}\)</span> be our data points, and let <span class="math notranslate nohighlight">\(\nu\)</span> be a summary decision statistic.</p>
 <p>The <em>error</em> <span class="math notranslate nohighlight">\(e_i\)</span> between data point <span class="math notranslate nohighlight">\(d_i\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span> is simply <span class="math notranslate nohighlight">\(e_i= d_i-\nu\)</span>. Note that the error may be positive or negative.</p>
-<p>Intuitively, we should try to choose <span class="math notranslate nohighlight">\(\nu\)</span> to minimize the errors to the data. However, how to do this is not entirely clear because we</p>
+<p>Intuitively, we should try to choose <span class="math notranslate nohighlight">\(\nu\)</span> to minimize the errors to the data. However, how to do this is not entirely clear because we have many different errors, and it is decreasing the error to one data point may increase the error to another data point.</p>
+<p>The typical way to overcome this problem is to combine the errors together in some way. The most obvious way to combine them is to just add them up. However, we will shortly see that this has some problems, so let’s go ahead and introduce three different ways to combine the errors:</p>
+<ol class="simple">
+<li><p>Sum of errors:
+$<span class="math notranslate nohighlight">\( E_s = \sum_{i=0}^{N-1} e_i\)</span>$</p></li>
+<li><p>Sum of absolute errors:
+$<span class="math notranslate nohighlight">\( E_1 = \sum_{i=0}^{N-1} \left\vert e_i \right \vert\)</span>$</p></li>
+<li><p>Sum of squared errors:
+$<span class="math notranslate nohighlight">\( E_2 = \sum_{i=0}^{N-1} \left( e_i \right )^2\)</span>$</p></li>
+</ol>
+<p>Let’s plot each of these errors as a function of the summary statistic <span class="math notranslate nohighlight">\(\nu\)</span> for a simple data set: <span class="math notranslate nohighlight">\(D= \{0,1,2\}\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting different types of error functions. An experiment</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">sum_errors</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="n">sum_abs_errors</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
+<span class="n">sum_square_errors</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sum_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of errors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sum_abs_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of absolute errors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sum_square_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of squared errors&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Summary statistic&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Error function value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/summary-stats_8_0.png" src="../_images/summary-stats_8_0.png" />
+</div>
+</div>
 <p><span style="color:red">JMS: Working here</span></p>
 <p><strong>Put this in a definition block</strong>
 The average is the value that minimizes the total squared error to the data.**</p>

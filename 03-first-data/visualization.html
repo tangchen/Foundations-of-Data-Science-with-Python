@@ -53,7 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Summary Statistics" href="summary-stats.html" />
+    <link rel="next" title="Partitions and Summary Statistics" href="summary-stats.html" />
     <link rel="prev" title="Intro to Pandas" href="pandas-start.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -149,7 +149,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="summary-stats.html">
-     Summary Statistics
+     Partitions and Summary Statistics
     </a>
    </li>
   </ul>
@@ -276,7 +276,7 @@
 </div>
 </div>
 </div>
-<p>As previously mentioned, we are interested in how socioeconomic factors may be have impacted the spread of Covid-19, which we measure through the number of cases. Thus, every statistical test we will do will be based on the number of cases.</p>
+<p>As previously mentioned, we are interested in how socioeconomic factors may have impacted the spread of Covid-19, which we measure through the number of cases. Thus, every statistical test we will do will be based on the number of cases.</p>
 <p>Let’s begin with a scatter plot of the number of cases by state (indexed from 0 to 49):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -408,7 +408,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 </div>
 </div>
 </div>
-<p>We can better plot these data on the same plot if we use a different <span class="math notranslate nohighlight">\(y\)</span>-axis for each data set. To do this, we can use Matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function to create a figure and a first axis, and then the <code class="docutils literal notranslate"><span class="pre">twinx</span></code> function to share the <strong>same</strong> <span class="math notranslate nohighlight">\(x\)</span>-axis but allow a new <span class="math notranslate nohighlight">\(y\)</span>-axis to be created for the second data set:</p>
+<p>We can make a more useful plot of these data on the same axes if we use a different <span class="math notranslate nohighlight">\(y\)</span>-axis for each data set. To do this, we can use Matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function to create a figure and a first axis, and then the <code class="docutils literal notranslate"><span class="pre">twinx</span></code> function to share the <strong>same</strong> <span class="math notranslate nohighlight">\(x\)</span>-axis but allow a new <span class="math notranslate nohighlight">\(y\)</span>-axis to be created for the second data set:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -571,7 +571,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 <p>The number of cases (shown in blue) generally increases with the population of the states. We might make some guesses about how these two variables might be related. Statisticians call such guesses <em>hypotheses</em> if they can be formulated as something that can be tested from the data. Two possible hypotheses about how population of a state might affect the number of cases are:</p>
 <ul class="simple">
 <li><p>Each person in the United States has the same probability of getting Covid. Thus, the number of cases per state should increase in proportion to the state’s population.</p></li>
-<li><p>The probability of getting Covid increases with the population of a state because there is an increase amoung of mixing among the people within the state. Then the number of cases per state should increase with population even faster than under the previous assumption.</p></li>
+<li><p>The previous assumption holds and the probability of getting Covid also increases with the population of a state because there is an increase amount of mixing among the people within the state. Then the number of cases per state should increase with population even faster than under the previous assumption.</p></li>
 </ul>
 <p>Of course, there may be many other hypotheses that explain this relationship. In this chapter, we will try to remove some of the underlying effects of different state populations by normalizing the cases and GDP on a per population basis.</p>
 <p>Let’s look at how we would do this within our Pandas dataframe. We can create a new column of our dataframe by simply assigning to it. Here, we just use functions of our other dataframe columns:</p>
@@ -1144,7 +1144,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 <img alt="../_images/visualization_38_1.png" src="../_images/visualization_38_1.png" />
 </div>
 </div>
-<p>Even with this adjustment, we see that there are some states that have Covid cases/population that are very different than most of the other states. These may be considered <em>outliers</em>:</p>
+<p>Even with this adjustment, we see that there are some states that have Covid cases/population that are very different than most of the other states. Such data may often be <em>outliers</em>:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -1739,7 +1739,7 @@ To be specific, we are going to look at the Covid cases per population variable 
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="pandas-start.html" title="previous page">Intro to Pandas</a>
-    <a class='right-next' id="next-link" href="summary-stats.html" title="next page">Summary Statistics</a>
+    <a class='right-next' id="next-link" href="summary-stats.html" title="next page">Partitions and Summary Statistics</a>
 
         </div>
         
