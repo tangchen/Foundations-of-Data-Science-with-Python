@@ -250,6 +250,28 @@
   <a class="reference internal nav-link" href="#summary-statistics">
    Summary Statistics
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimizing-the-number-of-nonzero-errors">
+     Minimizing the Number of Nonzero Errors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimizing-the-sum-of-absolute-errors">
+     Minimizing the Sum of Absolute Errors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimizing-the-sum-of-squared-errors">
+     Minimizing the Sum of Squared Errors
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-summary-statistics-to-partition-the-covid-data">
+     Using Summary Statistics to Partition the Covid Data
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -316,11 +338,11 @@ $<span class="math notranslate nohighlight">\(
 and \)</span>A_0, A_1, \ldots, A_{n-1}$ are  disjoint.</p>
 <p>A <em>binary partition</em> of a set <span class="math notranslate nohighlight">\(S\)</span> is a pair of sets <span class="math notranslate nohighlight">\(A_0\)</span> and <span class="math notranslate nohighlight">\(A_1\)</span> such that <span class="math notranslate nohighlight">\(A_0 \cup A_1 =S\)</span> and <span class="math notranslate nohighlight">\(A_0 \cap A_1 = \emptyset\)</span>.</p>
 <p>To use a particular socioeconomic metric to partition our data, we will partition the data into two sets: one with higher values of that metric, and one with lower values of that metric.</p>
-<p>To determine what constitutes a “higher value” or a “lower value”, we compare the data to one of several possible choices of <em>summary statistics</em>, which we introduce next:</p>
+<p>To determine what constitutes a “higher value” or a “lower value”, we compute a threshold from the data to compare to. Any such value that is computed from the data is called a <em>summary statistic</em>:</p>
 </div>
 <div class="section" id="summary-statistics">
 <h1>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h1>
-<p>Summary statistics are values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as a the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists. Most statisticians use the term <strong>sample mean</strong> for this statistic, and often refer to it as simply the <strong>mean</strong>, but this can create confusion with another type of mean for random data: the <strong>ensemble mean</strong>, which is also usually just called the <strong>mean</strong>, and which is introduced in Chapter ZZ.</p>
+<p>Summary statistics are numerical values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as a the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists. Most statisticians use the term <strong>sample mean</strong> for this statistic, and often refer to it as simply the <strong>mean</strong>, but this can create confusion with another type of mean for random data: the <strong>ensemble mean</strong>, which is also usually just called the <strong>mean</strong>, and which is introduced in Chapter ZZ.</p>
 <p>Because of this ambiguity in the <strong>mean</strong>ing of the word <strong>mean</strong>, I will use the term <em>average</em> to refer to the value that is computed from data.</p>
 <p>When teaching a class on this subject, I usually ask the class: “What does the <strong>average</strong> or <strong>sample mean</strong> mean?”. Here are some of the common answers:</p>
 <ol class="simple">
@@ -330,36 +352,57 @@ and \)</span>A_0, A_1, \ldots, A_{n-1}$ are  disjoint.</p>
 <li><p>The value that divides group into 2 sets of equal size</p></li>
 </ol>
 <p>Only one of these descriptions of the average is always accurate, and even then the description is ambiguous.</p>
-<p>To understand average, we first have to understand that representing data by a summary statistic results in errors, and we can use these errors to help choose a “good” summary statistic.</p>
+<p>To understand average (and also some other summary statistics), we first have to understand that representing data by a summary statistic results in errors, and we can use these errors to help choose a “good” summary statistic.</p>
 <p>Let <span class="math notranslate nohighlight">\(d_0, d_1, \ldots, d_{N-1}\)</span> be our data points, and let <span class="math notranslate nohighlight">\(\nu\)</span> be a summary decision statistic.</p>
 <p>The <em>error</em> <span class="math notranslate nohighlight">\(e_i\)</span> between data point <span class="math notranslate nohighlight">\(d_i\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span> is simply <span class="math notranslate nohighlight">\(e_i= d_i-\nu\)</span>. Note that the error may be positive or negative.</p>
 <p>Intuitively, we should try to choose <span class="math notranslate nohighlight">\(\nu\)</span> to minimize the errors to the data. However, how to do this is not entirely clear because we have many different errors, and it is decreasing the error to one data point may increase the error to another data point.</p>
-<p>The typical way to overcome this problem is to combine the errors together in some way. The most obvious way to combine them is to just add them up. However, we will shortly see that this has some problems, so let’s go ahead and introduce three different ways to combine the errors:</p>
+<p>The typical way to overcome this problem is to combine the errors together in some way. The most obvious way to combine them is to just add them up. However, we will shortly see that this has some problems, so let’s go ahead and introduce four different ways to combine the errors. Since the errors depend on the choice of summary statistic, <span class="math notranslate nohighlight">\(\nu\)</span>, we write these combinations as functions of <span class="math notranslate nohighlight">\(\nu\)</span>:</p>
 <ol class="simple">
 <li><p>Sum of errors:
-$<span class="math notranslate nohighlight">\( E_s = \sum_{i=0}^{N-1} e_i\)</span>$</p></li>
+$<span class="math notranslate nohighlight">\( E_s(\nu) = \sum_{i=0}^{N-1} e_i\)</span>$</p></li>
+<li><p>Number of non-zero error values:
+$<span class="math notranslate nohighlight">\( E_0(\nu) = \sum_{i=0}^{N-1} \mathbf{1}_{\mathbb{R} - \{0\}}(e_i)\)</span>$</p></li>
 <li><p>Sum of absolute errors:
-$<span class="math notranslate nohighlight">\( E_1 = \sum_{i=0}^{N-1} \left\vert e_i \right \vert\)</span>$</p></li>
+$<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert\)</span>$</p></li>
 <li><p>Sum of squared errors:
-$<span class="math notranslate nohighlight">\( E_2 = \sum_{i=0}^{N-1} \left( e_i \right )^2\)</span>$</p></li>
+$<span class="math notranslate nohighlight">\( E_2(\nu) = \sum_{i=0}^{N-1} \left( e_i \right )^2\)</span>$</p></li>
 </ol>
-<p>Let’s plot each of these errors as a function of the summary statistic <span class="math notranslate nohighlight">\(\nu\)</span> for a simple data set: <span class="math notranslate nohighlight">\(D= \{0,1,2\}\)</span>:</p>
+<p>Let’s plot each of these errors as a function of the summary statistic <span class="math notranslate nohighlight">\(\nu\)</span> for a simple data set: <span class="math notranslate nohighlight">\(D= \{-1,-1,0,2,5\}\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting different types of error functions. An experiment</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">sum_errors</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-<span class="n">sum_abs_errors</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span><span class="p">)</span>
-<span class="n">sum_square_errors</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1"># For clarity, store the different error metrics in different variables.</span>
+<span class="c1"># Initialize them here</span>
+<span class="n">sum_errors</span>         <span class="o">=</span> <span class="mi">0</span>
+<span class="n">num_nonzero_errors</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sum_abs_errors</span>     <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sum_square_errors</span>  <span class="o">=</span> <span class="mi">0</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sum_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of errors&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sum_abs_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of absolute errors&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sum_square_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of squared errors&quot;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Summary statistic&quot;</span><span class="p">)</span>
+<span class="n">nus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">801</span><span class="p">)</span> <span class="c1"># If we want exact resolution of 8/800=0.01, need to </span>
+                             <span class="c1"># include one extra point at 8</span>
+<span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span>
+    <span class="n">sum_errors</span>         <span class="o">+=</span> <span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">nus</span><span class="p">)</span>
+    <span class="n">num_nonzero_errors</span> <span class="o">+=</span> <span class="p">((</span><span class="n">d</span><span class="o">-</span><span class="n">nus</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">sum_abs_errors</span>     <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">nus</span><span class="p">)</span>
+    <span class="n">sum_square_errors</span>  <span class="o">+=</span> <span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">nus</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">sum_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of errors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">num_nonzero_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;No. of nonzero errors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">sum_abs_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of absolute errors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">sum_square_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of squared errors&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the data as markers</span>
+<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">ymin</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the repeated value at -1 as a second marker:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ymin</span><span class="o">+</span><span class="mi">7</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Summary statistic, $\nu$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Error function value&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
@@ -369,84 +412,386 @@ $<span class="math notranslate nohighlight">\( E_2 = \sum_{i=0}^{N-1} \left( e_i
 <img alt="../_images/summary-stats_8_0.png" src="../_images/summary-stats_8_0.png" />
 </div>
 </div>
-<p><span style="color:red">JMS: Working here</span></p>
-<p><strong>Put this in a definition block</strong>
-The average is the value that minimizes the total squared error to the data.**</p>
-<p>Both Pandas and Numpy provide methods to calculate the average:</p>
+<p>Since <span class="math notranslate nohighlight">\(E_0\)</span> and <span class="math notranslate nohighlight">\(E_1\)</span> have a much smaller range than the other two values, let’s also plot them separately:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
- <span class="s2">&quot;http://wireless.ece.ufl.edu/jshea/idse/data/firearms-combined.csv&quot;</span><span class="p">)</span>
-<span class="n">rate2005</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2005&quot;</span><span class="p">])</span>
-<span class="n">rate2014</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2005&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">num_nonzero_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;No. of nonzero errors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">sum_abs_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of absolute errors&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the data as markers</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">ymin</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">ymin</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="c1"># Plot the repeated value at -1 as a second marker:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ymin</span><span class="o">+</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Summary statistic, $\nu$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Error function value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.81
+<img alt="../_images/summary-stats_10_0.png" src="../_images/summary-stats_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">nus</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">100</span><span class="p">],</span><span class="n">sum_abs_errors</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-2.0 15.0
+-1.0 10.0
+0.0 9.0
+1.0 10.0
+2.0 11.0
+3.0 14.0
+4.0 17.0
+5.0 20.0
+6.0 25.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Before putting much thought into what this means, let’s just find the minimums for these different error metrics. To do this, we will find the <strong>index</strong> of the minimum value of each metric using NumPy’s <code class="docutils literal notranslate"><span class="pre">argmin</span></code> function. Then we will use that index value as the index of the <code class="docutils literal notranslate"><span class="pre">nus</span></code> array to determine the minimizing value of <span class="math notranslate nohighlight">\(\nu\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nu_e</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_errors</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">nu_0</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">num_nonzero_errors</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">nu_1</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_abs_errors</span><span class="p">)</span> <span class="p">]</span>
+<span class="n">nu_2</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_square_errors</span><span class="p">)</span> <span class="p">]</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;         Metric         |     Minimizing value of nu&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;____________________________________________________&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:^24s}</span><span class="s2">|</span><span class="si">{:^30s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Sum or errors&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nu_e</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:^24s}</span><span class="s2">|</span><span class="si">{:^30s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;No. nonzero errors&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nu_0</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:^24s}</span><span class="s2">|</span><span class="si">{:^30s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Sum of abs errors&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nu_1</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:^24s}</span><span class="s2">|</span><span class="si">{:^30s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Sum of squared errors&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">nu_2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Metric         |     Minimizing value of nu
+____________________________________________________
+     Sum or errors      |             6.0              
+   No. nonzero errors   |             -1.0             
+   Sum of abs errors    |             0.0              
+ Sum of squared errors  |             1.0              
+</pre></div>
+</div>
+</div>
+</div>
+<p>Interestingly, even for this very small data set, each of these error metrics results in a different minimizing value of <span class="math notranslate nohighlight">\(\nu\)</span> on the range <span class="math notranslate nohighlight">\(\nu \in [-2,6]\)</span>. None of these metrics is inherently “correct” – although we explain below why one of them is not useful.</p>
+<p>From inspecting the graph and further thought, we can make the following observations:</p>
+<ol class="simple">
+<li><p>The sum of errors decreases without bound as a function of <span class="math notranslate nohighlight">\(\nu\)</span>. Thus, there is not a minimizing value of <span class="math notranslate nohighlight">\(\nu\)</span> if <span class="math notranslate nohighlight">\(\nu\)</span>  can be any real value. Because of this, the sum of errors is not useful in determining a summary statistic.</p></li>
+<li><p>The number of nonzero errors is equal to the number of data points <em>except at each of the data points</em>. The number of nonzero errors at a data point is equal to the number of other data points. This metric will be minimized by setting <span class="math notranslate nohighlight">\(\nu\)</span> equal to one of the data points that appears the most in the data set.</p></li>
+<li><p>The sum of absolute errors is a continuous function that is a piecewise linear function. Furthermore, the linear segments connect between data points, between the minimum data points and <span class="math notranslate nohighlight">\(- \infty\)</span>, and between the maximum data point and <span class="math notranslate nohighlight">\(+ \infty\)</span>. It is not hard to see that the absolute error will increase linearly as <span class="math notranslate nohighlight">\(\nu\)</span> is decreased from the minimum data point or increased from the maximum data point. For such a function, the minimizing value will be at one of the points where the linear segments intersect, which is at one of the data points.</p></li>
+<li><p>The sum of squared errors is a parabola. For this example, the minimum is not at one of the data points.</p></li>
+</ol>
+<p>In the subsections below, we use the metrics <span class="math notranslate nohighlight">\(E_0\)</span>, <span class="math notranslate nohighlight">\(E_1\)</span>, and <span class="math notranslate nohighlight">\(E_2\)</span> to define three common summary statistics.</p>
+<div class="section" id="minimizing-the-number-of-nonzero-errors">
+<h2>Minimizing the Number of Nonzero Errors<a class="headerlink" href="#minimizing-the-number-of-nonzero-errors" title="Permalink to this headline">¶</a></h2>
+<p>Consider first <span class="math notranslate nohighlight">\(E_0\)</span>, the number of nonzero errors. As previously mentioned, <span class="math notranslate nohighlight">\(E_0\)</span> is minimized at the data point that appears most often in the data set. This value is called the <strong>mode</strong>:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">mode
+: The <em>mode</em> of a data set is a value in the data set that appears most often. As there may be more than one most common value, the mode of a data set is not unique.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Unfortunately, NumPy does not offer a function to calculate the mode directly. There are NumPy functions that can find the mode indirectly, but here we use two straight-forward approaches. Since we will often have our data in a Pandas dataframe, we can use the <code class="docutils literal notranslate"><span class="pre">mode</span></code> method of a Pandas dataframe. To convert our example data into a simple data frame, just pass it to Pandas’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;RATE-2014&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.440000000000003
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Pandas’ <code class="docutils literal notranslate"><span class="pre">mode</span></code> function returns an indexed set of modes. Since this data set only has one mode, the index 0 value is that mode: -1.</p>
+<p>If we are not working with Pandas already, an easier alternative is to use the <code class="docutils literal notranslate"><span class="pre">mode</span></code> function from the <code class="docutils literal notranslate"><span class="pre">stats</span></code> library of SciPy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModeResult(mode=array([-1]), count=array([2]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>As with Pandas, SciPy’s <code class="docutils literal notranslate"><span class="pre">mode</span></code> function can return all of the modes. If we just want one value, we can just get the first element of the first return:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">D</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong></p>
+<p>Consider the data set
+$<span class="math notranslate nohighlight">\(
+D_2 = [-1,-1, 2,2]
+\)</span>$</p>
+<p>Copy and modify the code from
+above to calculate and plot the number of nonzero errors for this data set as a function of <span class="math notranslate nohighlight">\(\nu\)</span>. What values can be the mode? What values do scipy.stats and Pandas return for the mode?</p>
+</div>
+<div class="section" id="minimizing-the-sum-of-absolute-errors">
+<h2>Minimizing the Sum of Absolute Errors<a class="headerlink" href="#minimizing-the-sum-of-absolute-errors" title="Permalink to this headline">¶</a></h2>
+<p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
+$<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span><span class="math notranslate nohighlight">\(
+so its derivative is
+\begin{align}
+E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
+&amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
+\end{align}
+where \)</span>\operatorname{sgn}(x)<span class="math notranslate nohighlight">\( is the *signum* function, which is defined as 
+\)</span><span class="math notranslate nohighlight">\(
+\operatorname{sgn}(x) = \begin{cases}
+-1, &amp;x&lt; 0 \\
+1, &amp; x &gt; 0 \\
+\mbox{undefined}, &amp; x=0
+\end{cases}
+\)</span><span class="math notranslate nohighlight">\(
+Let \)</span>L(\nu)<span class="math notranslate nohighlight">\( be the number of data points \)</span>d_i<span class="math notranslate nohighlight">\( such that \)</span>d_i &lt; \nu<span class="math notranslate nohighlight">\(, and let \)</span>M(\nu)<span class="math notranslate nohighlight">\( be the number of data points that are greater than \)</span>\nu<span class="math notranslate nohighlight">\(. Then the derivative of \)</span>E_1<span class="math notranslate nohighlight">\( can be written as
+\)</span><span class="math notranslate nohighlight">\(
+E_1'(\nu) = L(\nu) - M(\nu)
+\)</span><span class="math notranslate nohighlight">\(
+When \)</span>\nu<span class="math notranslate nohighlight">\( is less than every data point, then \)</span>E_1’(\nu) = 0 - N = -N<span class="math notranslate nohighlight">\(; i.e., the slope of \)</span>E_1(\nu)=-N<span class="math notranslate nohighlight">\(. When \)</span>\nu<span class="math notranslate nohighlight">\( is greater than every data point, then the slope of \)</span>E_1(\nu)<span class="math notranslate nohighlight">\( is \)</span>E_1’(\nu) = N-0 = N<span class="math notranslate nohighlight">\(. At each data point in between, the slope of \)</span>E_1(\nu)<span class="math notranslate nohighlight">\( changes by the number of data points in the data set that have that same value. The minimum value of \)</span>E_1(\nu)<span class="math notranslate nohighlight">\( is achieved wherever the slope changes from negative to positive, which must occur wherever there are an equal number of data points on each side of \)</span>\nu$. We call this value the <strong>median</strong>:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">median
+: The <em>median</em> of a data set is a value <span class="math notranslate nohighlight">\(m\)</span> such that the number of data points that are less than <span class="math notranslate nohighlight">\(m\)</span> is equal to the number of data points that are greater than <span class="math notranslate nohighlight">\(m\)</span>. For some data sets, there may be multiple values that satisify this criterion, so the median is not always unique.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>When a data set has an even number of values (<span class="math notranslate nohighlight">\(N=2\)</span>), then any value between <span class="math notranslate nohighlight">\(d_{\frac{N}{2}-1}\)</span> and <span class="math notranslate nohighlight">\(d_{\frac{N}{2}}\)</span> will minimize the sum of absolute errors and is thus a median; in practice, the value that is in between these two data points is often returned as the median:</p>
+<div class="math notranslate nohighlight">
+\[
+m= \frac{d_{\frac{N}{2}-1} + d_{\frac{N}{2}}}{2}
+\]</div>
+<p>NumPy and Pandas provide <code class="docutils literal notranslate"><span class="pre">median</span></code> functions and/or methods; the SciPy stats library does <strong>not</strong> have a median function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rate2005</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.809999999999997
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong></p>
+<p>Consider again the data set
+$<span class="math notranslate nohighlight">\(
+D_2 = [-1,-1, 2,2]
+\)</span>$</p>
+<p>Copy and modify the code from
+above to calculate and plot the sum of absolute errors for this data set as a function of <span class="math notranslate nohighlight">\(\nu\)</span>. What values can be the median? What values do NumPy and Pandas return for the median?</p>
+</div>
+<div class="section" id="minimizing-the-sum-of-squared-errors">
+<h2>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
+<p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivatives with respect to <span class="math notranslate nohighlight">\(\nu\)</span> setting it equal to zero:</p>
+<p>\begin{align}
+E_2’(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \
+&amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \
+&amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \
+&amp;= 2 \sum_{i=0}^{N-1}   \left( d_i - \nu \right ) \
+&amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu
+\end{align}</p>
+<p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:
+\begin{align}
+2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \
+\sum_{i=0}^{N-1} d_i &amp;= N \nu .
+\end{align}
+Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:
+\begin{align}
+\nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
+\end{align}</p>
+<p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">average
+: The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by
+\begin{align}
+\mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
+\end{align}</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Thus we see that the average is the value that minimizes the total squared-error to the data. Unlike the median or the mode, the average is unique.</p>
+<p>Numpy and Pandas provide <code class="docutils literal notranslate"><span class="pre">mean</span></code> methods to calculate the average (sample mean); again, scipy.stats does <strong>not</strong> provide a mean method, since it is already available in NumPy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rate2014</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.44
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1.0
+dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
-<p>The sample mean of the 2014 data set is larger than that for the 2005 data set. This may indicate that the overturn of the assault weapon ban in 2014 is associated with an increase in firearms mortality.</p>
-<p>However, the difference is relatively small, as are the sample sizes (50).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span><span class="o">=</span><span class="n">rate2014</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">rate2005</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">diff</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6300000000000026
-</pre></div>
-</div>
-</div>
+<div class="section" id="using-summary-statistics-to-partition-the-covid-data">
+<h2>Using Summary Statistics to Partition the Covid Data<a class="headerlink" href="#using-summary-statistics-to-partition-the-covid-data" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
