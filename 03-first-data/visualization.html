@@ -152,6 +152,11 @@
      Partitions and Summary Statistics
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="histogram.html">
+     Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -247,6 +252,28 @@
    Scatter Plots for Multiple Datasets
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pooling-data-to-create-binary-comparisons">
+   Pooling Data to Create Binary Comparisons
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histograms-for-multiple-datasets">
+   Histograms for Multiple Datasets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-the-number-size-of-histogram-bins">
+     Choosing the number/size of histogram bins
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bin-alignment-for-multiple-histograms-in-one-figure">
+     Bin alignment for multiple histograms in one figure
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -276,7 +303,7 @@
 </div>
 </div>
 </div>
-<p>As previously mentioned, we are interested in how socioeconomic factors may have impacted the spread of Covid-19, which we measure through the number of cases. Thus, every statistical test we will do will be based on the number of cases.</p>
+<p>As previously mentioned, we are interested in how socioeconomic factors may be have impacted the spread of Covid-19, which we measure through the number of cases. Thus, every statistical test we will do will be based on the number of cases.</p>
 <p>Let’s begin with a scatter plot of the number of cases by state (indexed from 0 to 49):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -408,7 +435,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 </div>
 </div>
 </div>
-<p>We can make a more useful plot of these data on the same axes if we use a different <span class="math notranslate nohighlight">\(y\)</span>-axis for each data set. To do this, we can use Matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function to create a figure and a first axis, and then the <code class="docutils literal notranslate"><span class="pre">twinx</span></code> function to share the <strong>same</strong> <span class="math notranslate nohighlight">\(x\)</span>-axis but allow a new <span class="math notranslate nohighlight">\(y\)</span>-axis to be created for the second data set:</p>
+<p>We can better plot these data on the same plot if we use a different <span class="math notranslate nohighlight">\(y\)</span>-axis for each data set. To do this, we can use Matplotlib’s <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function to create a figure and a first axis, and then the <code class="docutils literal notranslate"><span class="pre">twinx</span></code> function to share the <strong>same</strong> <span class="math notranslate nohighlight">\(x\)</span>-axis but allow a new <span class="math notranslate nohighlight">\(y\)</span>-axis to be created for the second data set:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -571,7 +598,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 <p>The number of cases (shown in blue) generally increases with the population of the states. We might make some guesses about how these two variables might be related. Statisticians call such guesses <em>hypotheses</em> if they can be formulated as something that can be tested from the data. Two possible hypotheses about how population of a state might affect the number of cases are:</p>
 <ul class="simple">
 <li><p>Each person in the United States has the same probability of getting Covid. Thus, the number of cases per state should increase in proportion to the state’s population.</p></li>
-<li><p>The previous assumption holds and the probability of getting Covid also increases with the population of a state because there is an increase amount of mixing among the people within the state. Then the number of cases per state should increase with population even faster than under the previous assumption.</p></li>
+<li><p>The probability of getting Covid increases with the population of a state because there is an increase amoung of mixing among the people within the state. Then the number of cases per state should increase with population even faster than under the previous assumption.</p></li>
 </ul>
 <p>Of course, there may be many other hypotheses that explain this relationship. In this chapter, we will try to remove some of the underlying effects of different state populations by normalizing the cases and GDP on a per population basis.</p>
 <p>Let’s look at how we would do this within our Pandas dataframe. We can create a new column of our dataframe by simply assigning to it. Here, we just use functions of our other dataframe columns:</p>
@@ -1144,7 +1171,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 <img alt="../_images/visualization_38_1.png" src="../_images/visualization_38_1.png" />
 </div>
 </div>
-<p>Even with this adjustment, we see that there are some states that have Covid cases/population that are very different than most of the other states. Such data may often be <em>outliers</em>:</p>
+<p>Even with this adjustment, we see that there are some states that have Covid cases/population that are very different than most of the other states. These may be considered <em>outliers</em>:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -1705,12 +1732,186 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 </div>
 <p>The top to states in terms of both raw cases and cases per person are New York and New Jersey, with Covid rates per population over 0.013, whereas other states rates were all below 0.01.</p>
 <p>In this case, we know that these states had a very rapid early spread of Covid in comparison to other states, so these data points are probably the true values and would <em>not</em> be considered outliers.</p>
-<!-- ## Pooling Data to Create Binary Comparisons --><!-- In this chapter, we will conduct our first binary hypothesis tests. Here, binary does not refer to 0 and 1, but to the fact that we will consider data from two different *classes*, or groups. We will evaluate a single variable and determine whether the data in different classes is different in some characteristic. 
-
-To be specific, we are going to look at the Covid cases per population variable and determine whether the following classes affect this variable:
-* *High population vs Low population*: We will split the states into two classes based on population.
-* *Higher GDP vs Lower GDP*: We will split the states into two classes based on GDP per population.
-* *Urban vs Rural*: We will split the states into two classes based on what percentage of the state lives in a rural area. --></div>
+</div>
+<div class="section" id="pooling-data-to-create-binary-comparisons">
+<h2>Pooling Data to Create Binary Comparisons<a class="headerlink" href="#pooling-data-to-create-binary-comparisons" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter, we will conduct our first binary hypothesis tests. Here, binary does not refer to 0 and 1, but to the fact that we will consider data from two different <em>classes</em>, or groups. We will evaluate a single variable and determine whether the data in different classes is different in some characteristic.</p>
+<p>To be specific, we are going to look at the Covid cases per population variable and determine whether the following classes affect this variable:</p>
+<ul class="simple">
+<li><p><em>High population vs Low population</em>: We will split the states into two classes based on population.</p></li>
+<li><p><em>Higher GDP vs Lower GDP</em>: We will split the states into two classes based on GDP per population.</p></li>
+<li><p><em>Urban vs Rural</em>: We will split the states into two classes based on what percentage of the state lives in a rural area.</p></li>
+</ul>
+</div>
+<div class="section" id="histograms-for-multiple-datasets">
+<h2>Histograms for Multiple Datasets<a class="headerlink" href="#histograms-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
+<p>As with the data in Chapter XX, we next want to study the rates of occurrence of the values of the data. We start with the</p>
+<p>However, unlike the histograms we previously generated, this data takes on <strong>real values</strong>, not just integers. One implication of this is that we cannot meaningfully count the data (for instance to compute the relative frequencies):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 3.4,  3.6,  5.2,  5.3,  6.6,  6.7,  6.8,  7. ,  7.7,  7.8,  8. ,
+         8.5,  8.8,  9.3,  9.5,  9.6, 10. , 10.1, 10.2, 10.7, 10.8, 11.1,
+        11.2, 11.5, 11.6, 11.9, 12.1, 12.8, 12.9, 13. , 13.2, 13.4, 13.8,
+        13.9, 14.1, 15.7, 16. , 16.1, 16.9, 17.5, 18.5, 30. ]),
+ array([1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 2, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 3, 2, 1, 1, 1, 1]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is exactly one occurrence of most (36) of the values. If the mortality rates were calculated to more than one decimal place, it is likely that all of the values would be distinct. Yet we can see that the values are not evenly distributed: there are only two values in the range <span class="math notranslate nohighlight">\([3,5)\)</span>, but there are ten values in the range <span class="math notranslate nohighlight">\([10,12)\)</span>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function is designed to generate meaningful histograms for continuous data by counting the number of occurrences per bin:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_51_0.png" src="../_images/visualization_51_0.png" />
+</div>
+</div>
+<p>Each bar of the histgram represents a “bin” of data values. In fact, the counts and bin edges are returned by the hist function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_53_0.png" src="../_images/visualization_53_0.png" />
+</div>
+</div>
+<p>Note that here I used a Python convention of storing the matplotlib patches information, which is the third returned value, in the variable “_” (underscore) to indicate that it is a value that we do not care about.</p>
+<p>We can inspect the bins and counts by evaluating those variables or printing them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bins:&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Counts:&quot;</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bins: [ 3.4   6.06  8.72 11.38 14.04 16.7  19.36 22.02 24.68 27.34 30.  ]
+Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some styling will help make this more legible. The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> keyword parameter in matplotlib sets the transparency (from totally transparent (<code class="docutils literal notranslate"><span class="pre">alpha=0</span></code>) to totally opaque (<code class="docutils literal notranslate"><span class="pre">alpha=1</span></code>). Adding transparency makes it much easier to see the data in both histograms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_57_0.png" src="../_images/visualization_57_0.png" />
+</div>
+</div>
+<p>The choice of <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">0.5</span></code> is usually a good starting point, but the best value to use is up to the graph’s creator.</p>
+<div class="section" id="choosing-the-number-size-of-histogram-bins">
+<h3>Choosing the number/size of histogram bins<a class="headerlink" href="#choosing-the-number-size-of-histogram-bins" title="Permalink to this headline">¶</a></h3>
+<p>Unlike integer data, when the data comes from the continuous real line, there is no right way to choose the size or number of the histogram bins.</p>
+<p>We can easily change the number of bins to provide more resolution into the data; however if we increase the number of bins, the number of data points per bin will be lower.</p>
+<p>If we just want to specify a number of bins (instead of a list of bin edges, like in the previous chapter), then we can just pass number of bins to the <code class="docutils literal notranslate"><span class="pre">bins</span></code> keyword argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_60_0.png" src="../_images/visualization_60_0.png" />
+</div>
+</div>
+<p>If we increase the number of bins too much, we will run into a similar problem we had in counting using <code class="docutils literal notranslate"><span class="pre">np.unique()</span></code>: most of the bins will have either 1 or 0 values in them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_62_0.png" src="../_images/visualization_62_0.png" />
+</div>
+</div>
+<p>Thus the number of bins should be chosen to balance between providing more resolution versus having sufficiently high counts in the bins to see how the values are distributed. Selecting the number of bins to achieve an appropriate balance is up to the graph creator. There are some research papers that provide techniques to select the number of bins; however, they are beyond the scope of this book.</p>
+<p>If you need a guidline for selecting the number of histogram bins, you can try:</p>
+<p><strong>Make the number of bins as large as possible while ensuring that  at least 50% of the bins contain at least 2 data points.</strong></p>
+</div>
+<div class="section" id="bin-alignment-for-multiple-histograms-in-one-figure">
+<h3>Bin alignment for multiple histograms in one figure<a class="headerlink" href="#bin-alignment-for-multiple-histograms-in-one-figure" title="Permalink to this headline">¶</a></h3>
+<p>One issue that arises when plotting multiple histograms in one figure is that the bins created by each call to <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> are not aligned. This can be helpful in that the bins are typically offset from each other, which makes it easier to see the separate bar heights. However, the bar heights cannot be directly compared because they correspond to different ranges of data. There are various solutions, but let’s use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to create our own set of bin edges. Start by finding the min and max of each data set:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">rate2005</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">rate2014</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rate2005</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rate2014</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.1 2.6
+18.5 19.2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can make a linearly spaced set of bin edges from the minimum to the maximum values using NumPy’s <code class="docutils literal notranslate"><span class="pre">linspace()</span></code> function. It is usually called with three arguments: start, stop, number of points:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_edges</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">19.2</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 2.1  3.   3.9  4.8  5.7  6.6  7.5  8.4  9.3 10.2 11.1 12.  12.9 13.8
+ 14.7 15.6 16.5 17.4 18.3 19.2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2005&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2014&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_68_0.png" src="../_images/visualization_68_0.png" />
+</div>
+</div>
+<p>Now we can finish the graph by providing data labels and adding a legend and axis labels. In this case, we might omit a title because the title would probably be something like “Mortality Rate Histograms for 2005 and 2014”, which can already be determined from inspecting the graph.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2005</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2005&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">rate2014</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;2014&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Mortality rate (deaths per 100k people)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Counts&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/visualization_70_0.png" src="../_images/visualization_70_0.png" />
+</div>
+</div>
+<p>What inferences might you make from this plot?</p>
+<p>A quick visual inspect should indicate that the two data sets are quite similar. However, we can see that the in from 5 to 10, the 2005 data set has higher counts, while in the bins from 10 to 19.2, the 2014 data set has more bins with a higher count.</p>
+<p>The histogram gives us some insight into how these data sets might be similar or different, but they do not give us a way to perform a quantitative comparison or to determine if any observed difference is likely to have come from real differences in the underlying data sets or could just be attributed to randomness. To resolve both these issues, we can compute values that capture some summary information about the data set. We call these values <strong>summary statistics</strong>:</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

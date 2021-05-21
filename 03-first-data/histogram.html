@@ -1,0 +1,1176 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data &#8212; Introduction to Data Science for Engineers</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Partitions and Summary Statistics" href="summary-stats.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Data Science for Engineers</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Quick Start
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-intro/intro.html">
+   Chapter 1: Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
+     Extremely Brief Intro to Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/jupyter-start.html">
+     Getting Started in Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/python-start.html">
+     Getting Started in Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-first-stats/first-stats-sims.html">
+   Chapter 2: First Simulations, and Visualizations, and Statistical Tests
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Chapter 3: First Visualizations and Statistical Tests with Real Data
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas-start.html">
+     Intro to Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="visualization.html">
+     Visualizing Multiple Data Sets - Part 1: Scatter Plots
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary-stats.html">
+     Partitions and Summary Statistics
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/03-first-data/histogram.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03-first-data/histogram.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#partitioning-based-on-gdp">
+   Partitioning Based on GDP
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#partitioning-based-on-urban-index">
+   Partitioning Based on Urban Index
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="visualizing-multiple-data-sets-part-2-histograms-for-partitioned-data">
+<h1>Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data<a class="headerlink" href="#visualizing-multiple-data-sets-part-2-histograms-for-partitioned-data" title="Permalink to this headline">¶</a></h1>
+<p>Now we return to our Covid data set and apply what we have learned about partitions and summary statistics to set up what we call binary comparisons: these are comparisons between two groups. As before, we begin by importing the data from the CSV file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
+
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+ <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The text.latex.preview rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The mathtext.fallback_to_cm rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: Support for setting the &#39;mathtext.fallback_to_cm&#39; rcParam is deprecated since 3.3 and will be removed two minor releases later; use &#39;mathtext.fallback : &#39;cm&#39; instead.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The validate_bool_maybe_none function was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The savefig.jpeg_quality rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The keymap.all_axes rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_path rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, we will add a column to our dataframe with the number of cases normalized by the population in thousands:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the following subsections, we will partition the data based on population, normalized gdp, and how urban the state’s population is. In each case, we will partition the data into two sets by comparing the metric being studied to the median value of that metric. Here, we have chosen median because it will result in the data set being partitioned into subsets that are approximately equal in size.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hp_mu</span><span class="o">=</span><span class="n">high_pop</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">hp_mu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.4600954057318667
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_mu</span><span class="o">=</span><span class="n">low_pop</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">lp_mu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.9769431219393079
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hp_mu</span><span class="o">/</span><span class="n">lp_mu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7502250658266998
+</pre></div>
+</div>
+</div>
+</div>
+<p>The difference in averages is large: the average normalized case rate for higher population states is 75% larger than for the lower population states. Let’s investigate the other socioeconomic factors before trying to assess whether this observed difference is a real effect or whether it could be attributed to randomness in the data sets being compared.</p>
+<div class="section" id="partitioning-based-on-gdp">
+<h2>Partitioning Based on GDP<a class="headerlink" href="#partitioning-based-on-gdp" title="Permalink to this headline">¶</a></h2>
+<p>The gross domestic product (GDP) provides a measure of how affluent a state is. As we expect that GDP will increase along with population, we first add normalized GDP per population in thousands to our dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first  step in partitioning the data is to find the median of the normalized GDP:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_gdp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">m_gdp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>61.04737129841516
+</pre></div>
+</div>
+</div>
+</div>
+<p>To partition the data let’s first see what happens when a numerical column of a dataframe is compared to a value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">m_gdp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>state
+Alabama           False
+Alaska             True
+Arizona           False
+Arkansas          False
+California         True
+Colorado           True
+Connecticut        True
+Delaware           True
+Florida           False
+Georgia           False
+Hawaii             True
+Idaho             False
+Illinois           True
+Indiana           False
+Iowa               True
+Kansas             True
+Kentucky          False
+Louisiana         False
+Maine             False
+Maryland           True
+Massachusetts      True
+Michigan          False
+Minnesota          True
+Mississippi       False
+Missouri          False
+Montana           False
+Nebraska           True
+Nevada            False
+New Hampshire      True
+New Jersey         True
+New Mexico        False
+New York           True
+North Carolina    False
+North Dakota       True
+Ohio              False
+Oklahoma          False
+Oregon             True
+Pennsylvania       True
+Rhode Island      False
+South Carolina    False
+South Dakota       True
+Tennessee         False
+Texas              True
+Utah               True
+Vermont           False
+Virginia           True
+Washington         True
+West Virginia     False
+Wisconsin         False
+Wyoming            True
+Name: gdp_norm, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pandas returns a series that contains Boolean values indicating whether the comparison for the value at each index was true or false. We can use such a series to partition our dataframe if we pass it as the index (in square brackets) to the data frame. So, we can create a dataframe with states that have population higher than the median as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higher_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">m_gdp</span> <span class="p">]</span>
+<span class="n">higher_gdp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cases</th>
+      <th>population</th>
+      <th>gdp</th>
+      <th>urban</th>
+      <th>cases_norm</th>
+      <th>gdp_norm</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Alaska</th>
+      <td>353</td>
+      <td>731545</td>
+      <td>54674.7</td>
+      <td>66.02</td>
+      <td>0.482540</td>
+      <td>74.738670</td>
+    </tr>
+    <tr>
+      <th>California</th>
+      <td>50470</td>
+      <td>39512223</td>
+      <td>3205000.1</td>
+      <td>94.95</td>
+      <td>1.277326</td>
+      <td>81.114143</td>
+    </tr>
+    <tr>
+      <th>Colorado</th>
+      <td>15207</td>
+      <td>5758736</td>
+      <td>400863.4</td>
+      <td>86.15</td>
+      <td>2.640684</td>
+      <td>69.609616</td>
+    </tr>
+    <tr>
+      <th>Connecticut</th>
+      <td>27700</td>
+      <td>3565287</td>
+      <td>290703.0</td>
+      <td>87.99</td>
+      <td>7.769361</td>
+      <td>81.537054</td>
+    </tr>
+    <tr>
+      <th>Delaware</th>
+      <td>4734</td>
+      <td>973764</td>
+      <td>77879.4</td>
+      <td>83.30</td>
+      <td>4.861548</td>
+      <td>79.977695</td>
+    </tr>
+    <tr>
+      <th>Hawaii</th>
+      <td>609</td>
+      <td>1415872</td>
+      <td>97001.1</td>
+      <td>91.93</td>
+      <td>0.430124</td>
+      <td>68.509795</td>
+    </tr>
+    <tr>
+      <th>Illinois</th>
+      <td>52918</td>
+      <td>12671821</td>
+      <td>893355.5</td>
+      <td>88.49</td>
+      <td>4.176038</td>
+      <td>70.499378</td>
+    </tr>
+    <tr>
+      <th>Iowa</th>
+      <td>7145</td>
+      <td>3155070</td>
+      <td>196247.4</td>
+      <td>64.02</td>
+      <td>2.264609</td>
+      <td>62.200648</td>
+    </tr>
+    <tr>
+      <th>Kansas</th>
+      <td>4305</td>
+      <td>2913314</td>
+      <td>178605.1</td>
+      <td>74.20</td>
+      <td>1.477699</td>
+      <td>61.306505</td>
+    </tr>
+    <tr>
+      <th>Maryland</th>
+      <td>21825</td>
+      <td>6045680</td>
+      <td>432997.8</td>
+      <td>87.20</td>
+      <td>3.610016</td>
+      <td>71.621025</td>
+    </tr>
+    <tr>
+      <th>Massachusetts</th>
+      <td>62205</td>
+      <td>6892503</td>
+      <td>603209.6</td>
+      <td>91.97</td>
+      <td>9.025023</td>
+      <td>87.516770</td>
+    </tr>
+    <tr>
+      <th>Minnesota</th>
+      <td>5136</td>
+      <td>5639632</td>
+      <td>389503.7</td>
+      <td>73.27</td>
+      <td>0.910698</td>
+      <td>69.065446</td>
+    </tr>
+    <tr>
+      <th>Nebraska</th>
+      <td>4332</td>
+      <td>1934408</td>
+      <td>133201.0</td>
+      <td>73.13</td>
+      <td>2.239445</td>
+      <td>68.858793</td>
+    </tr>
+    <tr>
+      <th>New Hampshire</th>
+      <td>2146</td>
+      <td>1359711</td>
+      <td>88014.8</td>
+      <td>60.30</td>
+      <td>1.578277</td>
+      <td>64.730520</td>
+    </tr>
+    <tr>
+      <th>New Jersey</th>
+      <td>118652</td>
+      <td>8882190</td>
+      <td>642967.7</td>
+      <td>94.68</td>
+      <td>13.358417</td>
+      <td>72.388420</td>
+    </tr>
+    <tr>
+      <th>New York</th>
+      <td>309696</td>
+      <td>19453561</td>
+      <td>1791566.8</td>
+      <td>87.87</td>
+      <td>15.919759</td>
+      <td>92.094542</td>
+    </tr>
+    <tr>
+      <th>North Dakota</th>
+      <td>1067</td>
+      <td>762062</td>
+      <td>57471.9</td>
+      <td>59.90</td>
+      <td>1.400149</td>
+      <td>75.416305</td>
+    </tr>
+    <tr>
+      <th>Oregon</th>
+      <td>2510</td>
+      <td>4217737</td>
+      <td>258692.6</td>
+      <td>81.03</td>
+      <td>0.595106</td>
+      <td>61.334455</td>
+    </tr>
+    <tr>
+      <th>Pennsylvania</th>
+      <td>48224</td>
+      <td>12801989</td>
+      <td>818448.6</td>
+      <td>78.66</td>
+      <td>3.766915</td>
+      <td>63.931363</td>
+    </tr>
+    <tr>
+      <th>South Dakota</th>
+      <td>2450</td>
+      <td>884659</td>
+      <td>56051.9</td>
+      <td>56.65</td>
+      <td>2.769429</td>
+      <td>63.359893</td>
+    </tr>
+    <tr>
+      <th>Texas</th>
+      <td>29072</td>
+      <td>28995881</td>
+      <td>1861581.9</td>
+      <td>84.70</td>
+      <td>1.002625</td>
+      <td>64.201598</td>
+    </tr>
+    <tr>
+      <th>Utah</th>
+      <td>4672</td>
+      <td>3205958</td>
+      <td>196639.4</td>
+      <td>90.58</td>
+      <td>1.457287</td>
+      <td>61.335613</td>
+    </tr>
+    <tr>
+      <th>Virginia</th>
+      <td>15846</td>
+      <td>8535519</td>
+      <td>566529.4</td>
+      <td>75.45</td>
+      <td>1.856478</td>
+      <td>66.373164</td>
+    </tr>
+    <tr>
+      <th>Washington</th>
+      <td>14814</td>
+      <td>7614893</td>
+      <td>624861.4</td>
+      <td>84.05</td>
+      <td>1.945398</td>
+      <td>82.057804</td>
+    </tr>
+    <tr>
+      <th>Wyoming</th>
+      <td>559</td>
+      <td>578759</td>
+      <td>40764.3</td>
+      <td>64.76</td>
+      <td>0.965860</td>
+      <td>70.433980</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Note the exceptionally high normalized case rate for New York (15.92) and New Jersey (13.4).</p>
+<p>By changine the inequality to <span class="math notranslate nohighlight">\(\le\)</span>, we can create a dataframe with states at or below the median population:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lower_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">&lt;=</span> <span class="n">m_gdp</span> <span class="p">]</span>
+<span class="n">lower_gdp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cases</th>
+      <th>population</th>
+      <th>gdp</th>
+      <th>urban</th>
+      <th>cases_norm</th>
+      <th>gdp_norm</th>
+    </tr>
+    <tr>
+      <th>state</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Alabama</th>
+      <td>7068</td>
+      <td>4903185</td>
+      <td>230750.1</td>
+      <td>59.04</td>
+      <td>1.441512</td>
+      <td>47.061267</td>
+    </tr>
+    <tr>
+      <th>Arizona</th>
+      <td>7648</td>
+      <td>7278717</td>
+      <td>379018.8</td>
+      <td>89.81</td>
+      <td>1.050735</td>
+      <td>52.072199</td>
+    </tr>
+    <tr>
+      <th>Arkansas</th>
+      <td>3281</td>
+      <td>3017804</td>
+      <td>132596.4</td>
+      <td>56.16</td>
+      <td>1.087214</td>
+      <td>43.938042</td>
+    </tr>
+    <tr>
+      <th>Florida</th>
+      <td>33683</td>
+      <td>21477737</td>
+      <td>1126510.3</td>
+      <td>91.16</td>
+      <td>1.568275</td>
+      <td>52.450139</td>
+    </tr>
+    <tr>
+      <th>Georgia</th>
+      <td>25431</td>
+      <td>10617423</td>
+      <td>634137.5</td>
+      <td>75.07</td>
+      <td>2.395214</td>
+      <td>59.726122</td>
+    </tr>
+    <tr>
+      <th>Idaho</th>
+      <td>2016</td>
+      <td>1787065</td>
+      <td>85791.1</td>
+      <td>70.58</td>
+      <td>1.128107</td>
+      <td>48.006704</td>
+    </tr>
+    <tr>
+      <th>Indiana</th>
+      <td>18099</td>
+      <td>6732219</td>
+      <td>384871.7</td>
+      <td>72.44</td>
+      <td>2.688415</td>
+      <td>57.168624</td>
+    </tr>
+    <tr>
+      <th>Kentucky</th>
+      <td>4708</td>
+      <td>4467673</td>
+      <td>218426.1</td>
+      <td>58.38</td>
+      <td>1.053792</td>
+      <td>48.890351</td>
+    </tr>
+    <tr>
+      <th>Louisiana</th>
+      <td>28044</td>
+      <td>4648794</td>
+      <td>259079.3</td>
+      <td>73.19</td>
+      <td>6.032532</td>
+      <td>55.730432</td>
+    </tr>
+    <tr>
+      <th>Maine</th>
+      <td>1095</td>
+      <td>1344212</td>
+      <td>68984.9</td>
+      <td>38.66</td>
+      <td>0.814604</td>
+      <td>51.319955</td>
+    </tr>
+    <tr>
+      <th>Michigan</th>
+      <td>41348</td>
+      <td>9986857</td>
+      <td>543489.4</td>
+      <td>74.57</td>
+      <td>4.140242</td>
+      <td>54.420465</td>
+    </tr>
+    <tr>
+      <th>Mississippi</th>
+      <td>6815</td>
+      <td>2976149</td>
+      <td>117642.3</td>
+      <td>49.35</td>
+      <td>2.289872</td>
+      <td>39.528364</td>
+    </tr>
+    <tr>
+      <th>Missouri</th>
+      <td>7563</td>
+      <td>6137428</td>
+      <td>332659.7</td>
+      <td>70.44</td>
+      <td>1.232275</td>
+      <td>54.201809</td>
+    </tr>
+    <tr>
+      <th>Montana</th>
+      <td>452</td>
+      <td>1068778</td>
+      <td>54034.7</td>
+      <td>55.89</td>
+      <td>0.422913</td>
+      <td>50.557459</td>
+    </tr>
+    <tr>
+      <th>Nevada</th>
+      <td>5053</td>
+      <td>3080156</td>
+      <td>181751.6</td>
+      <td>94.20</td>
+      <td>1.640501</td>
+      <td>59.007271</td>
+    </tr>
+    <tr>
+      <th>New Mexico</th>
+      <td>3411</td>
+      <td>2096829</td>
+      <td>106914.4</td>
+      <td>77.43</td>
+      <td>1.626742</td>
+      <td>50.988612</td>
+    </tr>
+    <tr>
+      <th>North Carolina</th>
+      <td>10507</td>
+      <td>10488084</td>
+      <td>601787.9</td>
+      <td>66.09</td>
+      <td>1.001804</td>
+      <td>57.378249</td>
+    </tr>
+    <tr>
+      <th>Ohio</th>
+      <td>18027</td>
+      <td>11689100</td>
+      <td>703368.9</td>
+      <td>77.92</td>
+      <td>1.542206</td>
+      <td>60.173059</td>
+    </tr>
+    <tr>
+      <th>Oklahoma</th>
+      <td>3618</td>
+      <td>3956971</td>
+      <td>201604.3</td>
+      <td>66.24</td>
+      <td>0.914336</td>
+      <td>50.949148</td>
+    </tr>
+    <tr>
+      <th>Rhode Island</th>
+      <td>8621</td>
+      <td>1059361</td>
+      <td>62335.4</td>
+      <td>90.73</td>
+      <td>8.137925</td>
+      <td>58.842453</td>
+    </tr>
+    <tr>
+      <th>South Carolina</th>
+      <td>6095</td>
+      <td>5148714</td>
+      <td>251664.5</td>
+      <td>66.33</td>
+      <td>1.183791</td>
+      <td>48.879099</td>
+    </tr>
+    <tr>
+      <th>Tennessee</th>
+      <td>10506</td>
+      <td>6829174</td>
+      <td>380823.0</td>
+      <td>66.39</td>
+      <td>1.538400</td>
+      <td>55.764138</td>
+    </tr>
+    <tr>
+      <th>Vermont</th>
+      <td>866</td>
+      <td>623989</td>
+      <td>34320.2</td>
+      <td>38.90</td>
+      <td>1.387845</td>
+      <td>55.001290</td>
+    </tr>
+    <tr>
+      <th>West Virginia</th>
+      <td>1126</td>
+      <td>1792147</td>
+      <td>78480.5</td>
+      <td>48.72</td>
+      <td>0.628297</td>
+      <td>43.791330</td>
+    </tr>
+    <tr>
+      <th>Wisconsin</th>
+      <td>6973</td>
+      <td>5822434</td>
+      <td>353935.5</td>
+      <td>70.15</td>
+      <td>1.197609</td>
+      <td>60.788237</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>As expected, the two dataframes have the same size:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">higher_gdp</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lower_gdp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(25, 25)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s generate histograms for case data for both the higher GDP and lower GDP data sets. We plot them on the same axes to make it easier to compare them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &gt; median&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span>  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &lt;= median&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cases per population in thousands&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Count&#39;)
+</pre></div>
+</div>
+<img alt="../_images/histogram_24_1.png" src="../_images/histogram_24_1.png" />
+</div>
+</div>
+<p>The histogram shows that states with GDPs over the median have higher case counts in general (for instance, the larger bars in the range 2-5), as well as larger maximum values (above 8).  One reason for this might be that states with higher GDPs may have network effects, where more of the population interacts with a larger number of people. For instance, such states may have more of their population employed in office jobs and likely to travel for their work.</p>
+<p>When an effect is observed visually, we usually want to quantify that effect in some way and then test whether any observed difference is “real” (rather than just caused by randomness). Let’s compare the average of the normalized number of cases for these two different groups:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hgdp_mu</span><span class="o">=</span><span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">lgdp_mu</span><span class="o">=</span><span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">hgdp_mu</span><span class="p">,</span> <span class="n">lgdp_mu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.511232264232122, 1.9258062634390536)
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a substantial difference between the two average values. However, the average is more sensitive to extreme values, such as the large normalized case rates of New York and New Jersey. One way to deal with this is to use a statistic that is not as sensitive to extrema; for example, the median is such a statistic:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.9453983135416348, 1.3878449780364717)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong></p>
+<p>A new data frame can be created that excludes New York and New Jersey using the following command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;New Jersey&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using this reduced data set, partition the data around the median normalized GDP, plot the histograms for the normalized Covid rates of the two partitions, and find the average normalized Covid rates for the two partitions.</p>
+</div>
+<div class="section" id="partitioning-based-on-urban-index">
+<h2>Partitioning Based on Urban Index<a class="headerlink" href="#partitioning-based-on-urban-index" title="Permalink to this headline">¶</a></h2>
+<p>Some of the networking effects mentioned in the previous section may be associated with populations living in large, urban areas. In this section, we partition the data based on the urban index, which is the percentage of the population that is living in an urban area.  As for the previous metric, we start by finding the median urban index for the states:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_urban</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">m_urban</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>73.735
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we use that median to partition the data and plot the histograms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higher_urban</span><span class="o">=</span><span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">m_urban</span> <span class="p">]</span>
+<span class="n">lower_urban</span> <span class="o">=</span><span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">&lt;=</span> <span class="n">m_urban</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">higher_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Urban index &gt; median&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lower_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span>  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Urban index &lt;= median&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cases per population in thousands&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Count&#39;)
+</pre></div>
+</div>
+<img alt="../_images/histogram_37_1.png" src="../_images/histogram_37_1.png" />
+</div>
+</div>
+<p>As with normalized GDP, a substantial difference in distribution of normalized number of Covid cases is seen for states that are more urban versus less urban. The average normalized case rates for these partitions are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higher_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">lower_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.8908656178327066, 1.5461729098384682)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, a substantial difference in averages is observed.</p>
+<p><strong>Exercise</strong></p>
+<p>Compare the medians for these two groups.</p>
+<p><strong>Exercise</strong></p>
+<p>Remove New York and New Jersey from the data set and recreate the histograms and averages for the partitioned data set without those two states.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./03-first-data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="summary-stats.html" title="previous page">Partitions and Summary Statistics</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By John M. Shea<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
