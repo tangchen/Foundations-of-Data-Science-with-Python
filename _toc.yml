@@ -16,6 +16,9 @@
     - file: 03-first-data/visualization
     - file: 03-first-data/summary-stats
     - file: 03-first-data/histogram
+    - file: 03-first-data/hypothesis-testing
+    - file: 03-first-data/2d-scatter
+    - file: 03-first-data/review
 
 #- file: 03/Lecture 3-Prep.ipynb
 #- file: 03/Lecture 3 Assignment.ipynb
