@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Overview &#8212; Introduction to Data Science for Engineers</title>
+    <title>Review &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 1: Introduction" href="../01-intro/intro.html" />
+    <link rel="prev" title="A Quick Preview of Two-Dimensional Statistical Methods" href="2d-scatter.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -80,8 +80,8 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
    Overview
   </a>
  </li>
@@ -91,7 +91,7 @@
   Quick Start
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01-intro/intro.html">
    Chapter 1: Introduction
@@ -124,48 +124,48 @@
    Chapter 2: First Simulations, and Visualizations, and Statistical Tests
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03-first-data/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    Chapter 3: First Visualizations and Statistical Tests with Real Data
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../03-first-data/pandas-start.html">
+    <a class="reference internal" href="pandas-start.html">
      Intro to Pandas
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03-first-data/visualization.html">
+    <a class="reference internal" href="visualization.html">
      Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03-first-data/summary-stats.html">
+    <a class="reference internal" href="summary-stats.html">
      Partitions and Summary Statistics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03-first-data/histogram.html">
+    <a class="reference internal" href="histogram.html">
      Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03-first-data/hypothesis-testing.html">
+    <a class="reference internal" href="hypothesis-testing.html">
      Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03-first-data/2d-scatter.html">
+    <a class="reference internal" href="2d-scatter.html">
      A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03-first-data/review.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Review
     </a>
    </li>
@@ -212,7 +212,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/intro/intro.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/03-first-data/review.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -237,7 +237,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/intro/intro.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03-first-data/review.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -262,18 +262,9 @@
         
               <div>
                 
-  <div class="section" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>This book is an introduction to data science targeted toward engineers, but it will be easily accessible to anyone who knows calculus and knows the basics of computer programming. By leveraging this required background knowledge, this book fits a unique niche in the books on data science and statistics:</p>
-<ul class="simple">
-<li><p>Many books on statistics (especially those for engineers) teach a theoretical approach to answering statistical questions that many learners find difficult to understand. This book applies a modern, computational approach to work with data, and in particular, uses simulations (an approach called <em>resampling</em>) to answer statistical questions. Most learners can easily understand how resampling works in contrast to some arcane formula.</p></li>
-<li><p>Some of the other books that use the resampling approach to statistics are targeted toward a broader audience who may not have the rigorous mathematical background of engineers. Unlike these other books, this text provides a basic introduction to probability and its application to statistics.</p></li>
-<li><p>Techniques like data reduction and selection require linear algebra, and many books on statistics omit these topics because of the difficulty of covering linear algebra and statistics. By focusing on leveraging existing computational libraries, this book provides a solid introduction to linear algebra and its application to data science.</p></li>
-<li><p>Where many statistics books use contrived examples to make examples that are solveable using a calculator, througout this book I have tried to use real data sets wherever practical.</p></li>
-<li><p>Although the approach taken and the material covered is targeted toward engineers, the data sets and the questions asked are chosen to appeal to a broad audience.</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
+  <div class="section" id="review">
+<h1>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
+<p>In this Chapter, we started working with real data. I demonstrated how to import data from CSV files into Pandas data frames and some of the basics of working with those data frames. Then we explored the data using scatter plots. Summary statistics, including mean, median, and mode were introduced and explained in terms of the error functions that they optimize. Then the median was used to partition the data into two using two different data features. Binary hypothesis testing was introduced, and bootstrap resampling was used to determine whether an observed difference in means could be attributable to random sampling. Finally, two-dimensional scatter plots were created by plotting one of the features of the data as a function of another feature of the data; fitting curves to the data was briefly explored, although the details are left for a later chapter.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -289,7 +280,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./intro"
+            path: "./03-first-data"
         },
         predefinedOutput: true
     }
@@ -301,7 +292,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="../01-intro/intro.html" title="next page">Chapter 1: Introduction</a>
+    <a class='left-prev' id="prev-link" href="2d-scatter.html" title="previous page">A Quick Preview of Two-Dimensional Statistical Methods</a>
 
         </div>
         
