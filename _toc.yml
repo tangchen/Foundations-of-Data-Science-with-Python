@@ -16,6 +16,7 @@
     - file: 03-first-data/intro-example
     - file: 03-first-data/pandas-start
     - file: 03-first-data/visualization
+    - file: 03-first-data/partitions
     - file: 03-first-data/summary-stats
     - file: 03-first-data/histogram
     - file: 03-first-data/hypothesis-testing
