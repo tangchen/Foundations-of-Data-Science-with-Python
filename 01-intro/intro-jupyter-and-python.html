@@ -49,6 +49,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="1.4.2. Getting Started in Jupyter" href="jupyter-start.html" />
@@ -333,22 +335,23 @@ Python version 2 or Python versions after 3 may have syntax changes that cause t
 <p>After downloading, install Python in the usual way (for instance, by double-clicking on the downloaded file). Anaconda will install Python and many useful modules for data science, as well as Jupyter notebook and JupyterLab.</p>
 <p><strong>Add Insert explaining Jupyter notebook vs JupyterLab</strong></p>
 <p><strong>Special notation for a notice</strong>
-Note that the term “Jupyter notebook” can refer both to a file format (with <em>.ipynb</em> extension) and to an application with a web interface to work with those files. To help avoid confusion, I will write <em>Jupyter notebook file</em> whenever referring to such a file, and we will use JuypterLab as the web application for opening and working with such files. As of January 2001, JupyterLab is the “is the next-generation web-based user interface for Project Jupyter.” (ref https://jupyterlab.readthedocs.io/en/stable/). Jupyter notebook has a very similar interface, and most users will be able to use either one interchangeably.</p>
+Note that the term “Jupyter notebook” can refer both to a file format (with <em>.ipynb</em> extension) and to an application with a web interface to work with those files. To help avoid confusion, I will write <em>Jupyter notebook file</em> whenever referring to such a file, and we will use JuypterLab as the web application for opening and working with such files. As of January 2001, JupyterLab is the “is the next-generation web-based user interface for Project Jupyter.” (ref <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">https://jupyterlab.readthedocs.io/en/stable/</a>). Jupyter notebook has a very similar interface, and most users will be able to use either one interchangeably.</p>
 </div>
 <div class="section" id="getting-organized">
 <h2><span class="section-number">1.4.1.4. </span>Getting organized<a class="headerlink" href="#getting-organized" title="Permalink to this headline">¶</a></h2>
 <p>We are almost ready to start using Jupyter and Python. Before you begin to do that, I recommend to take a minute to think about how you will organize your files. To learn data science requires actually working with data and performing analyses. This will result in you generating a lot of Jupyter notebook files, as well as a lot of data files. I suggest that you create a folder for this data-science book (or for the course, if you are using this as a course textbook). This folder should be easily accessible from your home directory because that is the location where JupyterLab will open by default. You may wish to add additional structure underneath that folder. If you create a separate folder for data, I would suggest to make it a subfolder of the one containing your notebooks to make it easiest to access that data.</p>
 <p><strong>Note</strong> that your user directory will be referred to by a tilde (~). Thus one possible organization of your files is shown below:</p>
 <p><strong>Turn this into a prettier image</strong></p>
-<p>\begin{align*}
-&amp;\mbox{~} \
-&amp; |\
-&amp;\longrightarrow &amp;&amp; \mbox{data-science} \
-&amp;&amp;&amp; | \
-&amp;&amp;&amp; \longrightarrow  &amp;&amp;\mbox{notebooks} \
-&amp;&amp;&amp;&amp;&amp; | \
-&amp;&amp;&amp;&amp;&amp; \longrightarrow  &amp;&amp;\mbox{data} \
-\end{align*}</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp;\mbox{~} \\
+&amp; |\\
+&amp;\longrightarrow &amp;&amp; \mbox{data-science} \\
+&amp;&amp;&amp; | \\
+&amp;&amp;&amp; \longrightarrow  &amp;&amp;\mbox{notebooks} \\
+&amp;&amp;&amp;&amp;&amp; | \\
+&amp;&amp;&amp;&amp;&amp; \longrightarrow  &amp;&amp;\mbox{data} \\
+\end{align*}\]</div>
 <p>Within the <em>notebooks</em> directory, you may wish to add subfolders, for instance by chapter, topic, or lecture.</p>
 </div>
 </div>

@@ -49,7 +49,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -282,6 +282,11 @@
    3.4.3. Minimizing the Sum of Squared Errors
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-remarks-on-mode-median-and-average">
+   3.4.4. Some Remarks on Mode, Median, and Average
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -295,32 +300,43 @@
                 
   <div class="section" id="summary-statistics">
 <h1><span class="section-number">3.4. </span>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h1>
-<p>Summary statistics are numerical values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as a the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists. Most statisticians use the term <strong>sample mean</strong> for this statistic, and often refer to it as simply the <strong>mean</strong>, but this can create confusion with another type of mean for random data: the <strong>ensemble mean</strong>, which is also usually just called the <strong>mean</strong>, and which is introduced in Chapter ZZ.</p>
+<p>Summary statistics are numerical values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists. Most statisticians use the term <strong>sample mean</strong> for this statistic, and often refer to it as simply the <strong>mean</strong>, but this can create confusion with another type of mean for random data: the <strong>ensemble mean</strong>, which is also usually just called the <strong>mean</strong>, and which is introduced in Chapter ZZ.</p>
 <p>Because of this ambiguity in the <strong>mean</strong>ing of the word <strong>mean</strong>, I will use the term <em>average</em> to refer to the value that is computed from data.</p>
 <p>When teaching a class on this subject, I usually ask the class: “What does the <strong>average</strong> or <strong>sample mean</strong> mean?”. Here are some of the common answers:</p>
 <ol class="simple">
-<li><p>The value where most of the data “sits” is centered around</p></li>
+<li><p>The value that most of the data is centered around</p></li>
 <li><p>The value that is most likely to occur</p></li>
 <li><p>The value that has minimum distance from every value</p></li>
 <li><p>The value that divides group into 2 sets of equal size</p></li>
 </ol>
 <p>Only one of these descriptions of the average is always accurate, and even then the description is ambiguous.</p>
 <p>To understand average (and also some other summary statistics), we first have to understand that representing data by a summary statistic results in errors, and we can use these errors to help choose a “good” summary statistic.</p>
-<p>Let <span class="math notranslate nohighlight">\(d_0, d_1, \ldots, d_{N-1}\)</span> be our data points, and let <span class="math notranslate nohighlight">\(\nu\)</span> be a summary decision statistic.</p>
+<p>Let <span class="math notranslate nohighlight">\(d_0, d_1, \ldots, d_{N-1}\)</span> be a set of numerical data points, and let <span class="math notranslate nohighlight">\(\nu\)</span> be a summary decision statistic.</p>
 <p>The <em>error</em> <span class="math notranslate nohighlight">\(e_i\)</span> between data point <span class="math notranslate nohighlight">\(d_i\)</span> and <span class="math notranslate nohighlight">\(\nu\)</span> is simply <span class="math notranslate nohighlight">\(e_i= d_i-\nu\)</span>. Note that the error may be positive or negative.</p>
-<p>Intuitively, we should try to choose <span class="math notranslate nohighlight">\(\nu\)</span> to minimize the errors to the data. However, how to do this is not entirely clear because we have many different errors, and it is decreasing the error to one data point may increase the error to another data point.</p>
+<p>Intuitively, we should try to choose <span class="math notranslate nohighlight">\(\nu\)</span> to minimize the errors to the data. However, how to do this is not entirely clear because we have many different errors, and if we adjust the value of <span class="math notranslate nohighlight">\(\nu\)</span> to decrease the error to one data point, that may increase the error to another data point.</p>
 <p>The typical way to overcome this problem is to combine the errors together in some way. The most obvious way to combine them is to just add them up. However, we will shortly see that this has some problems, so let’s go ahead and introduce four different ways to combine the errors. Since the errors depend on the choice of summary statistic, <span class="math notranslate nohighlight">\(\nu\)</span>, we write these combinations as functions of <span class="math notranslate nohighlight">\(\nu\)</span>:</p>
-<ol class="simple">
-<li><p>Sum of errors:
-$<span class="math notranslate nohighlight">\( E_s(\nu) = \sum_{i=0}^{N-1} e_i\)</span>$</p></li>
-<li><p>Number of non-zero error values:
-$<span class="math notranslate nohighlight">\( E_0(\nu) = \sum_{i=0}^{N-1} \mathbf{1}_{\mathbb{R} - \{0\}}(e_i)\)</span>$</p></li>
-<li><p>Sum of absolute errors:
-$<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert\)</span>$</p></li>
-<li><p>Sum of squared errors:
-$<span class="math notranslate nohighlight">\( E_2(\nu) = \sum_{i=0}^{N-1} \left( e_i \right )^2\)</span>$</p></li>
-</ol>
-<p>Let’s plot each of these errors as a function of the summary statistic <span class="math notranslate nohighlight">\(\nu\)</span> for a simple data set: <span class="math notranslate nohighlight">\(D= \{-1,-1,0,2,5\}\)</span>:</p>
+<p><strong>1. Sum of errors:</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E_s(\nu) = \sum_{i=0}^{N-1} e_i
+\end{equation*}\]</div>
+<p><strong>2. Number of non-zero error values:</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E_0(\nu) = \sum_{i=0}^{N-1} \mathbf{1}_{\mathbb{R} - \{0\}}(e_i)
+\end{equation*}\]</div>
+<p>(This uses an indicator function to count the number of values that are not equal to <span class="math notranslate nohighlight">\(\nu\)</span>.)</p>
+<p><strong>3. Sum of absolute errors:</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert
+\end{equation*}\]</div>
+<p><strong>4. Sum of squared errors:</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
+E_2(\nu) = \sum_{i=0}^{N-1} \left( e_i \right )^2
+\end{equation*}\]</div>
+<p>Let’s plot each of these errors as a function of the summary statistic <span class="math notranslate nohighlight">\(\nu\)</span> for a simple data set: <span class="math notranslate nohighlight">\(D= \{-1,-1,0,2,5\}\)</span>. I have also plotted the data using star markers, and the repeated data points have been vertically offset, so we can see both data points.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting different types of error functions. An experiment</span>
@@ -362,7 +378,24 @@ $<span class="math notranslate nohighlight">\( E_2(\nu) = \sum_{i=0}^{N-1} \left
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/summary-stats_3_0.png" src="../_images/summary-stats_3_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The text.latex.preview rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The mathtext.fallback_to_cm rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: Support for setting the &#39;mathtext.fallback_to_cm&#39; rcParam is deprecated since 3.3 and will be removed two minor releases later; use &#39;mathtext.fallback : &#39;cm&#39; instead.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The validate_bool_maybe_none function was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The savefig.jpeg_quality rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The keymap.all_axes rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_path rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<img alt="../_images/summary-stats_3_1.png" src="../_images/summary-stats_3_1.png" />
 </div>
 </div>
 <p>Since <span class="math notranslate nohighlight">\(E_0\)</span> and <span class="math notranslate nohighlight">\(E_1\)</span> have a much smaller range than the other two values, let’s also plot them separately:</p>
@@ -459,8 +492,10 @@ ____________________________________________________
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">mode
-: The <em>mode</em> of a data set is a value in the data set that appears most often. As there may be more than one most common value, the mode of a data set is not unique.</p>
+<dl class="simple myst">
+<dt>mode</dt><dd><p class="card-text">The <em>mode</em> of a data set is a value in the data set that appears most often. As there may be more than one most common value, the mode of a data set is not unique.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -594,35 +629,39 @@ ____________________________________________________
 </div>
 </div>
 <p><strong>Exercise</strong></p>
-<p>Consider the data set
-$<span class="math notranslate nohighlight">\(
+<p>Consider the data set</p>
+<div class="math notranslate nohighlight">
+\[
 D_2 = [-1,-1, 2,2]
-\)</span>$</p>
+\]</div>
 <p>Copy and modify the code from
 above to calculate and plot the number of nonzero errors for this data set as a function of <span class="math notranslate nohighlight">\(\nu\)</span>. What values can be the mode? What values do scipy.stats and Pandas return for the mode?</p>
 </div>
 <div class="section" id="minimizing-the-sum-of-absolute-errors">
 <h2><span class="section-number">3.4.2. </span>Minimizing the Sum of Absolute Errors<a class="headerlink" href="#minimizing-the-sum-of-absolute-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
-$<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span><span class="math notranslate nohighlight">\(
-so its derivative is
-\begin{align}
+$<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span>$
+so its derivative is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-22c62148-0651-42a4-8e3d-48005d8b5361">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-22c62148-0651-42a4-8e3d-48005d8b5361" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
 &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
-\end{align}
-where \)</span>\operatorname{sgn}(x)<span class="math notranslate nohighlight">\( is the *signum* function, which is defined as 
-\)</span><span class="math notranslate nohighlight">\(
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\operatorname{sgn}(x)\)</span> is the <em>signum</em> function, which is defined as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 \operatorname{sgn}(x) = \begin{cases}
 -1, &amp;x&lt; 0 \\
 1, &amp; x &gt; 0 \\
 \mbox{undefined}, &amp; x=0
 \end{cases}
-\)</span><span class="math notranslate nohighlight">\(
-Let \)</span>L(\nu)<span class="math notranslate nohighlight">\( be the number of data points \)</span>d_i<span class="math notranslate nohighlight">\( such that \)</span>d_i &lt; \nu<span class="math notranslate nohighlight">\(, and let \)</span>M(\nu)<span class="math notranslate nohighlight">\( be the number of data points that are greater than \)</span>\nu<span class="math notranslate nohighlight">\(. Then the derivative of \)</span>E_1<span class="math notranslate nohighlight">\( can be written as
-\)</span><span class="math notranslate nohighlight">\(
+\end{equation*}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(L(\nu)\)</span> be the number of data points <span class="math notranslate nohighlight">\(d_i\)</span> such that <span class="math notranslate nohighlight">\(d_i &lt; \nu\)</span>, and let <span class="math notranslate nohighlight">\(M(\nu)\)</span> be the number of data points that are greater than <span class="math notranslate nohighlight">\(\nu\)</span>. Then the derivative of <span class="math notranslate nohighlight">\(E_1\)</span> can be written as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
 E_1'(\nu) = L(\nu) - M(\nu)
-\)</span><span class="math notranslate nohighlight">\(
-When \)</span>\nu<span class="math notranslate nohighlight">\( is less than every data point, then \)</span>E_1’(\nu) = 0 - N = -N<span class="math notranslate nohighlight">\(; i.e., the slope of \)</span>E_1(\nu)=-N<span class="math notranslate nohighlight">\(. When \)</span>\nu<span class="math notranslate nohighlight">\( is greater than every data point, then the slope of \)</span>E_1(\nu)<span class="math notranslate nohighlight">\( is \)</span>E_1’(\nu) = N-0 = N<span class="math notranslate nohighlight">\(. At each data point in between, the slope of \)</span>E_1(\nu)<span class="math notranslate nohighlight">\( changes by the number of data points in the data set that have that same value. The minimum value of \)</span>E_1(\nu)<span class="math notranslate nohighlight">\( is achieved wherever the slope changes from negative to positive, which must occur wherever there are an equal number of data points on each side of \)</span>\nu$. We call this value the <strong>median</strong>:</p>
+\end{equation*}\]</div>
+<p>When <span class="math notranslate nohighlight">\(\nu\)</span> is less than every data point, then <span class="math notranslate nohighlight">\(E_1'(\nu) = 0 - N = -N\)</span>; i.e., the slope of <span class="math notranslate nohighlight">\(E_1(\nu)=-N\)</span>. When <span class="math notranslate nohighlight">\(\nu\)</span> is greater than every data point, then the slope of <span class="math notranslate nohighlight">\(E_1(\nu)\)</span> is <span class="math notranslate nohighlight">\(E_1'(\nu) = N-0 = N\)</span>. At each data point in between, the slope of <span class="math notranslate nohighlight">\(E_1(\nu)\)</span> changes by the number of data points in the data set that have that same value. The minimum value of <span class="math notranslate nohighlight">\(E_1(\nu)\)</span> is achieved wherever the slope changes from negative to positive, which must occur wherever there are an equal number of data points on each side of <span class="math notranslate nohighlight">\(\nu\)</span>. We call this value the <strong>median</strong>:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -631,14 +670,16 @@ When \)</span>\nu<span class="math notranslate nohighlight">\( is less than ever
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">median
-: The <em>median</em> of a data set is a value <span class="math notranslate nohighlight">\(m\)</span> such that the number of data points that are less than <span class="math notranslate nohighlight">\(m\)</span> is equal to the number of data points that are greater than <span class="math notranslate nohighlight">\(m\)</span>. For some data sets, there may be multiple values that satisify this criterion, so the median is not always unique.</p>
+<dl class="simple myst">
+<dt>median</dt><dd><p class="card-text">The <em>median</em> of a data set is a value <span class="math notranslate nohighlight">\(m\)</span> such that the number of data points that are less than <span class="math notranslate nohighlight">\(m\)</span> is equal to the number of data points that are greater than <span class="math notranslate nohighlight">\(m\)</span>. For some data sets, there may be multiple values that satisify this criterion, so the median is not always unique.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>When a data set has an even number of values (<span class="math notranslate nohighlight">\(N=2\)</span>), then any value between <span class="math notranslate nohighlight">\(d_{\frac{N}{2}-1}\)</span> and <span class="math notranslate nohighlight">\(d_{\frac{N}{2}}\)</span> will minimize the sum of absolute errors and is thus a median; in practice, the value that is in between these two data points is often returned as the median:</p>
+<p>When a data set has an even number of values (<span class="math notranslate nohighlight">\(N=2\)</span>), then any value between <span class="math notranslate nohighlight">\(d_{\frac{N}{2}-1}\)</span> and <span class="math notranslate nohighlight">\(d_{\frac{N}{2}}\)</span> will minimize the sum of absolute errors and is thus a median; in practice, the value that halfway between these two data points is often returned as the median:</p>
 <div class="math notranslate nohighlight">
 \[
 m= \frac{d_{\frac{N}{2}-1} + d_{\frac{N}{2}}}{2}
@@ -670,32 +711,36 @@ dtype: float64
 </div>
 </div>
 <p><strong>Exercise</strong></p>
-<p>Consider again the data set
-$<span class="math notranslate nohighlight">\(
+<p>Consider again the data set</p>
+<div class="math notranslate nohighlight">
+\[
 D_2 = [-1,-1, 2,2]
-\)</span>$</p>
+\]</div>
 <p>Copy and modify the code from
 above to calculate and plot the sum of absolute errors for this data set as a function of <span class="math notranslate nohighlight">\(\nu\)</span>. What values can be the median? What values do NumPy and Pandas return for the median?</p>
 </div>
 <div class="section" id="minimizing-the-sum-of-squared-errors">
 <h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
-<p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivatives with respect to <span class="math notranslate nohighlight">\(\nu\)</span> setting it equal to zero:</p>
-<p>\begin{align}
-E_2’(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \
-&amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \
-&amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \
-&amp;= 2 \sum_{i=0}^{N-1}   \left( d_i - \nu \right ) \
-&amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu
-\end{align}</p>
-<p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:
-\begin{align}
-2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \
-\sum_{i=0}^{N-1} d_i &amp;= N \nu .
-\end{align}
-Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:
-\begin{align}
+<p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivative of <span class="math notranslate nohighlight">\(E_2(v)\)</span> with respect to <span class="math notranslate nohighlight">\(\nu\)</span> and setting it equal to zero:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3461cbeb-b26b-49ab-8c7c-1bcfc1bef351">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-3461cbeb-b26b-49ab-8c7c-1bcfc1bef351" title="Permalink to this equation">¶</a></span>\[\begin{align}
+E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
+&amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \\
+&amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \\
+&amp;= 2 \sum_{i=0}^{N-1}   \left( d_i - \nu \right ) \\
+&amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu 
+\end{align}\]</div>
+<p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-26d50d49-eb18-4ef8-993a-2b63f852d2b6">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-26d50d49-eb18-4ef8-993a-2b63f852d2b6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \\
+ \sum_{i=0}^{N-1} d_i &amp;= N \nu .
+\end{align}\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-42e554eb-1ce8-433a-8ba9-565d45d8a7ad">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-42e554eb-1ce8-433a-8ba9-565d45d8a7ad" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
-\end{align}</p>
+\end{align}\]</div>
 <p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
@@ -705,11 +750,14 @@ Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the 
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">average
-: The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by
-\begin{align}
+<dl class="simple myst">
+<dt>average</dt><dd><p class="card-text">The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by</p>
+</dd>
+</dl>
+<div class="amsmath math notranslate nohighlight" id="equation-ba4d92bf-bb5e-4bed-b2ba-314ad1b1e4a6">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-ba4d92bf-bb5e-4bed-b2ba-314ad1b1e4a6" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
-\end{align}</p>
+\end{align}\]</div>
 </div>
 </div>
 </div>
@@ -742,6 +790,45 @@ dtype: float64
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="some-remarks-on-mode-median-and-average">
+<h2><span class="section-number">3.4.4. </span>Some Remarks on Mode, Median, and Average<a class="headerlink" href="#some-remarks-on-mode-median-and-average" title="Permalink to this headline">¶</a></h2>
+<p>As our example illustrates, the mode, median, and average for a data set can all be different values. The mode is usually not meaningful if the data take on real values: usually, there are not any significant number of repeats in the data. For this reason, the mode is the summary statistic that we will use least.</p>
+<p>As previously mentioned, the average is the most commonly used summary statistic. It is widely accepted for this purpose by the scientific community. Many people consider the median to be a more robust statistic because it is less sensitive to extreme values (such as outliers). For example, suppose we inserted the value 100 into the example data that we have been using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D3</span><span class="o">=</span><span class="n">D</span><span class="o">+</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compare how the average and median are affected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">D3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">D3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The median is slightly larger because the new value causes it to shift one data point to the right. However, the average is drastically larger, outside of the original set of values completely. On the other hand, if the value of 100 is not an outlier, the change in median may be considered to not represent the new data set as well.</p>
+<p>In general, the choice of summary statistic is up to the data scientist or statistician who is analyzing the behavior. If the data set may contain outliers, an alternative to removing the suspected outliers from the analysis is to use the median instead of the average.</p>
 </div>
 </div>
 

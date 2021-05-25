@@ -49,7 +49,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -281,8 +281,10 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">disjoint
-: collections of data are disjoint if no data point belongs to more than one of the collections</p>
+<dl class="simple myst">
+<dt>disjoint</dt><dd><p class="card-text">collections of data are disjoint if no data point belongs to more than one of the collections</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -310,18 +312,21 @@ Note that sets can contain any type of item, such as number, labels, names, type
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">partition
-: a partition of a data set is a group of <strong>disjoint</strong> collections of data, such that every data point in the original data set belongs to exactly one of the collections.</p>
+<dl class="simple myst">
+<dt>partition</dt><dd><p class="card-text">a partition of a data set is a group of <strong>disjoint</strong> collections of data, such that every data point in the original data set belongs to exactly one of the collections.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>If <span class="math notranslate nohighlight">\(S\)</span> is a set of data, then the collections <span class="math notranslate nohighlight">\(A_0, A_1, \ldots A_{n-1}\)</span> partition <span class="math notranslate nohighlight">\(S\)</span> if:
-$<span class="math notranslate nohighlight">\(
+<p>If <span class="math notranslate nohighlight">\(S\)</span> is a set of data, then the collections <span class="math notranslate nohighlight">\(A_0, A_1, \ldots A_{n-1}\)</span> partition <span class="math notranslate nohighlight">\(S\)</span> if:</p>
+<div class="math notranslate nohighlight">
+\[
 \bigcup_{i=0}^{n-1} A_i = S
-\)</span><span class="math notranslate nohighlight">\(
-and \)</span>A_0, A_1, \ldots, A_{n-1}$ are  disjoint.</p>
+\]</div>
+<p>and <span class="math notranslate nohighlight">\(A_0, A_1, \ldots, A_{n-1}\)</span> are  disjoint.</p>
 <p>A <em>binary partition</em> of a set <span class="math notranslate nohighlight">\(S\)</span> is a pair of sets <span class="math notranslate nohighlight">\(A_0\)</span> and <span class="math notranslate nohighlight">\(A_1\)</span> such that <span class="math notranslate nohighlight">\(A_0 \cup A_1 =S\)</span> and <span class="math notranslate nohighlight">\(A_0 \cap A_1 = \emptyset\)</span>.</p>
 <p>To use a particular socioeconomic metric to partition our data, we will partition the data into two sets: one with higher values of that metric, and one with lower values of that metric.</p>
 <p>To determine what constitutes a “higher value” or a “lower value”, we compute a threshold from the data to compare to. Any such value that is computed from the data is called a <em>summary statistic</em>:</p>

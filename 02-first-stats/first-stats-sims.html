@@ -49,7 +49,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -330,8 +330,10 @@
 <p class="card-text">DEFINTION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">probability
-: a number between 0 and 1 that we assign to an event that is proportional to how likely that event is to occur</p>
+<dl class="simple myst">
+<dt>probability</dt><dd><p class="card-text">a number between 0 and 1 that we assign to an event that is proportional to how likely that event is to occur</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -384,7 +386,7 @@
 </div>
 </div>
 </div>
-<p>Now let’s simulate the scenario described in <a class="reference external" href="random-experiments:motivating-problem"></a>. We could repeatedly choose random faces using a loop, but the <code class="docutils literal notranslate"><span class="pre">random</span></code> module offers a more efficient way to choose all 20 faces at the same time, using the <code class="docutils literal notranslate"><span class="pre">choices</span></code> function:</p>
+<p>Now let’s simulate the scenario described in <a class="reference internal" href="#random-experiments-motivating-problem"><span class="std std-ref">Motivating Problem: Is This Coin Fair?</span></a>. We could repeatedly choose random faces using a loop, but the <code class="docutils literal notranslate"><span class="pre">random</span></code> module offers a more efficient way to choose all 20 faces at the same time, using the <code class="docutils literal notranslate"><span class="pre">choices</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
@@ -446,8 +448,10 @@
 <p class="card-text">DEFINTION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">scatter plot
-: A (two-dimensional) scatter plot takes two sequences <span class="math notranslate nohighlight">\(\mathbf{x}= (x_0, x_1, \ldots)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}=(y_0, y_1, \ldots)\)</span> and plots symbols (called <em>markers</em>) that represent the locations of the points <span class="math notranslate nohighlight">\((x_0, y_0), (x_1, y_1), \ldots\)</span> in two dimensions.</p>
+<dl class="simple myst">
+<dt>scatter plot</dt><dd><p class="card-text">A (two-dimensional) scatter plot takes two sequences <span class="math notranslate nohighlight">\(\mathbf{x}= (x_0, x_1, \ldots)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{y}=(y_0, y_1, \ldots)\)</span> and plots symbols (called <em>markers</em>) that represent the locations of the points <span class="math notranslate nohighlight">\((x_0, y_0), (x_1, y_1), \ldots\)</span> in two dimensions.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -528,8 +532,10 @@
 <p class="card-text">DEFINTION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">histogram
-: a type of bar graph in which the heights of the bars is proportional to the number of occurrences of the outcomes spanned by the width of the bars</p>
+<dl class="simple myst">
+<dt>histogram</dt><dd><p class="card-text">a type of bar graph in which the heights of the bars is proportional to the number of occurrences of the outcomes spanned by the width of the bars</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -649,8 +655,10 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">relative frequency
-:  the proportion of times that we observe a result matching our criteria during repeated experiments (including simulation); i.e., the number of times that an event occurs divided by the number of times the experiment is conducted.</p>
+<dl class="simple myst">
+<dt>relative frequency</dt><dd><p class="card-text">the proportion of times that we observe a result matching our criteria during repeated experiments (including simulation); i.e., the number of times that an event occurs divided by the number of times the experiment is conducted.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>

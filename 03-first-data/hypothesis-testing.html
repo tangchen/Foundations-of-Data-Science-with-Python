@@ -49,7 +49,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -536,8 +536,10 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">statistical hypothesis
-: an explanation for phenomena observed in a data set that can be formally tested using the data</p>
+<dl class="simple myst">
+<dt>statistical hypothesis</dt><dd><p class="card-text">an explanation for phenomena observed in a data set that can be formally tested using the data</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -552,8 +554,10 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">null hypothesis (for multiple groups)
-: the hypothesis that the feature(s) being measured come from the same random phenomena; any observed differences come from issues related to random sampling, such as having sets that are too small to accurately measure the true value of some summary statistic</p>
+<dl class="simple myst">
+<dt>null hypothesis (for multiple groups)</dt><dd><p class="card-text">the hypothesis that the feature(s) being measured come from the same random phenomena; any observed differences come from issues related to random sampling, such as having sets that are too small to accurately measure the true value of some summary statistic</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -561,7 +565,7 @@
 </div>
 <p>It is helpful to introduce mathematical notation to refer to hypotheses. The null hypothesis is usually denoted by <span class="math notranslate nohighlight">\(H_0\)</span>, which is typically read as “H naught”. Intuitively, the zero can be read as implying zero difference between the populations (in the feature being compared).</p>
 <p>When there is a null hypothesis, we typically compare it with the hypothesis that the feature being measured comes from random phenomena that differ between the two groups. We call this the <em>alternative hypothesis</em> and denote it by <span class="math notranslate nohighlight">\(H_a\)</span>.</p>
-<p>Usually, <span class="math notranslate nohighlight">\(H_a\)</span> cannot be tested directly because we do not know ahead of time <em>how</em> the underlying phenomena differ. Thus, we will usually conduct tests by assuming the null hypothesis is true. Then, apply an approach similar to falsification in the nature sciences: we try to test whether the null hypothesis is true, and a result that it is likely false would imply that the alternative hypothesis is likely true. (Note that I use “likely” here as informal way of introducing the fact that we will not be able to make any hypotheses as being absolutely true: we will only be able to estimate the probabilities of hypotheses.)</p>
+<p>Usually, <span class="math notranslate nohighlight">\(H_a\)</span> cannot be tested directly because we do not know ahead of time <em>how</em> the underlying phenomena differ. Thus, we will usually conduct tests by assuming the null hypothesis is true. Then, apply an approach similar to falsification in the natural sciences: we try to test whether the null hypothesis is true, and a result that it is likely false would imply that the alternative hypothesis is likely true. (Note that I use “likely” here as informal way of introducing the fact that randomness in the data will usually prevent us from deciding that any hypothesis is absolutely true; i.e., we will only be able to estimate the probabilities of hypotheses.)</p>
 <p>Testing under the assumption that <span class="math notranslate nohighlight">\(H_0\)</span> is true is called <em>null hypothesis testing</em>. There are several methods to test the null hypothesis. Before introducing the technique we will use, we note that statistical methods can generally be put into one of two categories:</p>
 <ol class="simple">
 <li><p>In <em>model-based</em> methods, we assume that (under <span class="math notranslate nohighlight">\(H_0\)</span>), the summary statistics we use will fit certain statistical models, and we can typically use those models to produce an analytic estimate for the probability of observing such a large difference in the observed summary statistics.</p></li>
@@ -570,9 +574,9 @@
 <p>It is important to note that either approach will rely on assumptions. However, we will use the model-free method because it has several important advantages:</p>
 <ol class="simple">
 <li><p>It does not require certain size data before the model is accurate.</p></li>
-<li><p>It does not require analytical models for every summary statistic that may be considered.</p></li>
+<li><p>It does not require analytical formulas to be available for every summary statistic that may be considered.</p></li>
 <li><p>It does not rely on mathematical formulas that may seem obscure or that require a significant amount of foundational work in probability to understand.</p></li>
-<li><p>The model-free approach we will use is easier to get started with, especially for engineers who are experience programming and simulating phenomena.</p></li>
+<li><p>The model-free approach we will use is easier to get started with, especially for engineers who are experienced in programming and simulating phenomena.</p></li>
 </ol>
 <p>The approach we will use is called <em>resampling</em>:</p>
 <div class="sphinx-bs container pb-4 docutils">
@@ -583,8 +587,10 @@
 <p class="card-text">DEFINITION</p>
 </div>
 <div class="card-body docutils">
-<p class="card-text">resampling
-: Resampling is a type of statistical simulation in which new samples are repeatedly drawn from the existing data for each of the groups under consideration, and the statistical measures being used are evaluated for each of the new sample groups.</p>
+<dl class="simple myst">
+<dt>resampling</dt><dd><p class="card-text">Resampling is a type of statistical simulation in which new samples are repeatedly drawn from the existing data for each of the groups under consideration, and the statistical measures being used are evaluated for each of the new sample groups.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -614,7 +620,7 @@
 </div>
 </div>
 </div>
-<p>Random number generators, such as the one used by <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code> actually produce a sequence of pseudo-random numbers, which look random but are actually deterministic if the internal state of the random number generator is known. This internal state can be set using a “seed”. To allow readers to obtain the same results as those shown in this book, I set the seed of the random number generator as shown below. However, be aware that if you re-run cells or run cells out of order, you will get different results.</p>
+<p>Random number generators, such as the one used by <code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>  produce a sequence of pseudo-random numbers, which look random but are actually deterministic if the internal state of the random number generator is known. This internal state can be set using a “seed”. To allow readers to obtain the same results as those shown in this book, I set the seed of the random number generator as shown below (where the see value was chosen arbitrarily). However, be aware that if you re-run cells or run cells out of order, you will get different results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npr</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">21341</span><span class="p">)</span>
@@ -635,7 +641,7 @@
 </div>
 </div>
 </div>
-<p>Note that the resulting array has a repeated value, even though all the values in <code class="docutils literal notranslate"><span class="pre">pooled</span></code> are different. There are two ways to sample from data:</p>
+<p>Note that the resulting array has a repeated value, even though there are no repeated values in <code class="docutils literal notranslate"><span class="pre">pooled</span></code>. There are two ways to sample from data:</p>
 <ol class="simple">
 <li><p><strong>Sampling with replacement:</strong> Items drawn are placed back into the array from which data is being sampled. Any number of items may be drawn.</p></li>
 <li><p><strong>Sampling without replacement:</strong> Items drawn are removed from the array from which data is being sampled. The maximum number of items that can be drawn is the size of the original array.</p></li>
@@ -671,8 +677,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>new a: [1.05073463 1.05073463 2.64068365]
-new b: [2.64068365 1.27732626 1.08721441]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>new a: [1.27732626 1.05073463 2.64068365]
+new b: [1.08721441 1.05073463 0.48254038]
 </pre></div>
 </div>
 </div>
