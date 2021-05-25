@@ -289,7 +289,7 @@
 <p><strong>Relink to current Pandas logo?</strong>
 <img alt="Pandas logo" src="https://pandas.pydata.org/_static/pandas_logo.png" /></p>
 <p><em>“pandas is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language”</em></p>
-<p>https://pandas.pydata.org</p>
+<p><a class="reference external" href="https://pandas.pydata.org">https://pandas.pydata.org</a></p>
 <p>Rather than spending time explaining what Pandas does, let’s just import it and start working with it. We will import it into the <code class="docutils literal notranslate"><span class="pre">pd</span></code> namespace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -301,12 +301,13 @@
 <p>Pandas works with data in <em>dataframes</em>. A dataframe is similar to a spreadsheet or a database table. It is a two-dimensional structure in which each row corresponds to a single data entry: a set of information about a particular entity or observation. Each column stores one particular piece of information about these entries. Like tables in spreadsheets or databases, the columns can be labeled, and the rows can be indexed by consecutive integers or by the data in one of the columns.</p>
 <p>We will work with the following data:</p>
 <ul class="simple">
-<li><p><strong>Cases</strong> and <strong>deaths</strong> from COVID-19 were retrieved from The New York Times “Coronavirus (Covid-19) Data in the United States github repository at https://github.com/nytimes/covid-19-data/blob/master/us-states.csv . Retrieved April 26, 2021.</p></li>
-<li><p><strong>Population</strong> data is from “Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2019” 2010-2019 Population Estimates. United States Census Bureau, Population Division. December 30, 2019. Link: https://www2.census.gov/programs-surveys/popest/tables/2010-2019/state/totals/nst-est2019-01.xlsx Retrieved April 26, 2021.</p></li>
-<li><p><strong>GDP</strong> data is from the US Department of Commerce Bureau of Economic Analysis, Regional Data: GDP and Personal Income, Current-dollar Gross Domestic Product (GDP) (Millions of current dollars) 2019:Q4. Link: https://apps.bea.gov/itable/iTable.cfm?ReqID=70&amp;step=1&amp;acrdn=1. Retrieved April 27, 2021.</p></li>
-<li><p>Data on <strong>percentage of population living in urban areas</strong> is from the United States Census Bureau, List of Population, Land Area, and Percent Urban and Rural in 2010 and Changes from 2000 to 2010, “Percent Urban and Rural in 2010 by State”. Link: https://www2.census.gov/geo/docs/reference/ua/PctUrbanRural_State.xls. Retrieved April 27, 2021.</p></li>
+<li><p><strong>Cases</strong> and <strong>deaths</strong> from COVID-19 were retrieved from The New York Times “Coronavirus (Covid-19) Data in the United States github repository at <a class="reference external" href="https://github.com/nytimes/covid-19-data/blob/master/us-states.csv">https://github.com/nytimes/covid-19-data/blob/master/us-states.csv</a>. Retrieved April 26, 2021.</p></li>
+<li><p><strong>Population</strong> data is from “Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2019” 2010-2019 Population Estimates. United States Census Bureau, Population Division. December 30, 2019. Link: <a class="reference external" href="https://www2.census.gov/programs-surveys/popest/tables/2010-2019/state/totals/nst-est2019-01.xlsx">https://www2.census.gov/programs-surveys/popest/tables/2010-2019/state/totals/nst-est2019-01.xlsx</a>. Retrieved April 26, 2021.</p></li>
+<li><p><strong>GDP</strong> data is from the US Department of Commerce Bureau of Economic Analysis, Regional Data: GDP and Personal Income, Current-dollar Gross Domestic Product (GDP) (Millions of current dollars) 2019:Q4. Link: <a class="reference external" href="https://apps.bea.gov/itable/iTable.cfm?ReqID=70&amp;step=1&amp;acrdn=1">https://apps.bea.gov/itable/iTable.cfm?ReqID=70&amp;step=1&amp;acrdn=1</a>. Retrieved April 27, 2021.</p></li>
+<li><p>Data on <strong>percentage of population living in urban areas</strong> is from the United States Census Bureau, List of Population, Land Area, and Percent Urban and Rural in 2010 and Changes from 2000 to 2010, “Percent Urban and Rural in 2010 by State”. Link: <a class="reference external" href="https://www2.census.gov/geo/docs/reference/ua/PctUrbanRural_State.xls">https://www2.census.gov/geo/docs/reference/ua/PctUrbanRural_State.xls</a>. Retrieved April 27, 2021.</p></li>
 </ul>
-<p>To make it easier to start working with these data sets, I have merged the data into a single CSV file that is available at https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv.</p>
+<p>To make it easier to start working with these data sets, I have merged the data into a single CSV file that is available at</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv">https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv</a>.</p>
 <p>Pandas provides a method to read CSV files, and it can read them directly from a URL:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -318,7 +319,8 @@
 </div>
 </div>
 </div>
-<p>Note that this CSV file can be reconstructed from the raw data by running the commands in the notebook “Download Covid Data.ipynb”, which is in the Chapter 3 folder on the book’s github site. <span style="color:red"> LINK TO BE PROVIDED</span></p>
+<p>Note that this CSV file can be reconstructed from the raw data by running the commands in the notebook “Download Covid Data.ipynb”, which is in the Chapter 3 folder on the book’s github site at</p>
+<p><a class="reference external" href="https://github.com/jmshea/intro-data-science-for-engineers/blob/main/03-first-data/Download%20Covid%20Data.ipynb">https://github.com/jmshea/intro-data-science-for-engineers/blob/main/03-first-data/Download%20Covid%20Data.ipynb</a></p>
 <div class="section" id="working-with-dataframes">
 <h2>Working with Dataframes<a class="headerlink" href="#working-with-dataframes" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start by looking at the dataframe. When run inside of Jupyter, Pandas will pretty-print a dataframe if the dataframe variable is evaluated as the last line of a code cell. Note that the column labels are imported from the first line of the CSV, and the unlabeled column on the left-hand side is the index, which acts like labels for the rows and which defaults to consecutive integers, starting at row 0.</p>
@@ -822,7 +824,7 @@ Name: state, dtype: object
 </div>
 </div>
 </div>
-<p>A columns of a dataframe is returned as a Pandas series object, which is a one-dimensional object with a row index.</p>
+<p>A columns of a dataframe is returned as a Pandas series object, which is a one-dimensional object (like a list) that has a row index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">])</span>
@@ -2210,64 +2212,34 @@ Name: cases, dtype: int64
 </div>
 </div>
 </div>
-<p>If all we want is the numerical values in the data series, we can convert it to a list:</p>
+<p>If all we want is the numerical values in the data series, we can convert it to a list or a NumPy array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">])</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7068,
- 353,
- 7648,
- 3281,
- 50470,
- 15207,
- 27700,
- 4734,
- 33683,
- 25431,
- 609,
- 2016,
- 52918,
- 18099,
- 7145,
- 4305,
- 4708,
- 28044,
- 1095,
- 21825,
- 62205,
- 41348,
- 5136,
- 6815,
- 7563,
- 452,
- 4332,
- 5053,
- 2146,
- 118652,
- 3411,
- 309696,
- 10507,
- 1067,
- 18027,
- 3618,
- 2510,
- 48224,
- 8621,
- 6095,
- 2450,
- 10506,
- 29072,
- 4672,
- 866,
- 15846,
- 14814,
- 1126,
- 6973,
- 559]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[7068, 353, 7648, 3281, 50470, 15207, 27700, 4734, 33683, 25431, 609, 2016, 52918, 18099, 7145, 4305, 4708, 28044, 1095, 21825, 62205, 41348, 5136, 6815, 7563, 452, 4332, 5053, 2146, 118652, 3411, 309696, 10507, 1067, 18027, 3618, 2510, 48224, 8621, 6095, 2450, 10506, 29072, 4672, 866, 15846, 14814, 1126, 6973, 559]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  7068,    353,   7648,   3281,  50470,  15207,  27700,   4734,
+        33683,  25431,    609,   2016,  52918,  18099,   7145,   4305,
+         4708,  28044,   1095,  21825,  62205,  41348,   5136,   6815,
+         7563,    452,   4332,   5053,   2146, 118652,   3411, 309696,
+        10507,   1067,  18027,   3618,   2510,  48224,   8621,   6095,
+         2450,  10506,  29072,   4672,    866,  15846,  14814,   1126,
+         6973,    559])
 </pre></div>
 </div>
 </div>
