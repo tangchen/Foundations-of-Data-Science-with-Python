@@ -7,5 +7,15 @@ only_build_toc_files: true
 execute:
   execute_notebooks: "off"
 parse:
-  myst_extended_syntax: true
+  myst_enable_extensions: 
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - linkify
+    - smartquotes
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 

@@ -13,7 +13,6 @@
 
   - file: 03-first-data/intro
     sections:
-    - file: 03-first-data/intro-example
     - file: 03-first-data/pandas-start
     - file: 03-first-data/visualization
     - file: 03-first-data/partitions
