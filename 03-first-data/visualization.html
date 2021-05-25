@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visualizing Multiple Data Sets - Part 1: Scatter Plots &#8212; Introduction to Data Science for Engineers</title>
+    <title>3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Partitions and Summary Statistics" href="summary-stats.html" />
-    <link rel="prev" title="Intro to Pandas" href="pandas-start.html" />
+    <link rel="next" title="3.3. Partitions and Summary Statistics" href="summary-stats.html" />
+    <link rel="prev" title="3.1. Intro to Pandas" href="pandas-start.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,7 +97,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01-intro/intro.html">
-   Chapter 1: Introduction
+   1. Chapter 1: Introduction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -107,29 +107,29 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
-     Extremely Brief Intro to Jupyter and Python
+     1.4.1. Extremely Brief Intro to Jupyter and Python
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/jupyter-start.html">
-     Getting Started in Jupyter
+     1.4.2. Getting Started in Jupyter
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/python-start.html">
-     Getting Started in Python
+     1.4.3. Getting Started in Python
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-first-stats/first-stats-sims.html">
-   Chapter 2: First Simulations, and Visualizations, and Statistical Tests
+   2. Chapter 2: First Simulations, and Visualizations, and Statistical Tests
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro.html">
-   Chapter 3: First Visualizations and Statistical Tests with Real Data
+   3. First Visualizations and Statistical Tests with Real Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -139,37 +139,37 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="pandas-start.html">
-     Intro to Pandas
+     3.1. Intro to Pandas
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Visualizing Multiple Data Sets - Part 1: Scatter Plots
+     3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="summary-stats.html">
-     Partitions and Summary Statistics
+     3.3. Partitions and Summary Statistics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="histogram.html">
-     Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
+     3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="hypothesis-testing.html">
-     Binary Hypothesis Testing with Real Data
+     3.7. Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2d-scatter.html">
-     A Quick Preview of Two-Dimensional Statistical Methods
+     3.9. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="review.html">
-     Review
+     3.10. Review
     </a>
    </li>
   </ul>
@@ -264,27 +264,27 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#scatter-plots-for-multiple-datasets">
-   Scatter Plots for Multiple Datasets
+   3.2.1. Scatter Plots for Multiple Datasets
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pooling-data-to-create-binary-comparisons">
-   Pooling Data to Create Binary Comparisons
+   3.2.2. Pooling Data to Create Binary Comparisons
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#histograms-for-multiple-datasets">
-   Histograms for Multiple Datasets
+   3.2.3. Histograms for Multiple Datasets
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#choosing-the-number-size-of-histogram-bins">
-     Choosing the number/size of histogram bins
+     3.2.3.1. Choosing the number/size of histogram bins
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bin-alignment-for-multiple-histograms-in-one-figure">
-     Bin alignment for multiple histograms in one figure
+     3.2.3.2. Bin alignment for multiple histograms in one figure
     </a>
    </li>
   </ul>
@@ -301,7 +301,7 @@
               <div>
                 
   <div class="section" id="visualizing-multiple-data-sets-part-1-scatter-plots">
-<h1>Visualizing Multiple Data Sets - Part 1: Scatter Plots<a class="headerlink" href="#visualizing-multiple-data-sets-part-1-scatter-plots" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.2. </span>Visualizing Multiple Data Sets - Part 1: Scatter Plots<a class="headerlink" href="#visualizing-multiple-data-sets-part-1-scatter-plots" title="Permalink to this headline">¶</a></h1>
 <p>As previously mentioned, our first step in working with data sets is typically to gain some basic understanding of the data and relationships among the different data sets using visualizations. In this section, we will start with scatter plots of the data. Then after introducing Summary Statistics in Section XX, we will use these to pool our data before plotting histograms in Section YY.</p>
 <p>Since we will be creating several plots of these data sets, it is convenient to store the values in the appropriate columns of the dataframe as lists or numpy arrays. Here we store the values as numpy arrays to allow us to use some of numpy’s built-in methods later in this chapter:</p>
 <div class="cell docutils container">
@@ -355,7 +355,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 </div>
 <p>There are one or two outliers, but this could be caused by the fact that states have different populations.  Let’s try to get some understanding of how these two factors seem to interact:</p>
 <div class="section" id="scatter-plots-for-multiple-datasets">
-<h2>Scatter Plots for Multiple Datasets<a class="headerlink" href="#scatter-plots-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2.1. </span>Scatter Plots for Multiple Datasets<a class="headerlink" href="#scatter-plots-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to create a with multiple datasets is to simply call Matplotlib’s multiple times from within a single cell. Let’s try that with our cases and population data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1749,7 +1749,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 <p>In this case, we know that these states had a very rapid early spread of Covid in comparison to other states, so these data points are probably the true values and would <em>not</em> be considered outliers.</p>
 </div>
 <div class="section" id="pooling-data-to-create-binary-comparisons">
-<h2>Pooling Data to Create Binary Comparisons<a class="headerlink" href="#pooling-data-to-create-binary-comparisons" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2.2. </span>Pooling Data to Create Binary Comparisons<a class="headerlink" href="#pooling-data-to-create-binary-comparisons" title="Permalink to this headline">¶</a></h2>
 <p>In this chapter, we will conduct our first binary hypothesis tests. Here, binary does not refer to 0 and 1, but to the fact that we will consider data from two different <em>classes</em>, or groups. We will evaluate a single variable and determine whether the data in different classes is different in some characteristic.</p>
 <p>To be specific, we are going to look at the Covid cases per population variable and determine whether the following classes affect this variable:</p>
 <ul class="simple">
@@ -1759,7 +1759,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 </ul>
 </div>
 <div class="section" id="histograms-for-multiple-datasets">
-<h2>Histograms for Multiple Datasets<a class="headerlink" href="#histograms-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2.3. </span>Histograms for Multiple Datasets<a class="headerlink" href="#histograms-for-multiple-datasets" title="Permalink to this headline">¶</a></h2>
 <p>As with the data in Chapter XX, we next want to study the rates of occurrence of the values of the data. We start with the</p>
 <p>However, unlike the histograms we previously generated, this data takes on <strong>real values</strong>, not just integers. One implication of this is that we cannot meaningfully count the data (for instance to compute the relative frequencies):</p>
 <div class="cell docutils container">
@@ -1833,7 +1833,7 @@ Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
 </div>
 <p>The choice of <code class="docutils literal notranslate"><span class="pre">alpha</span> <span class="pre">=</span> <span class="pre">0.5</span></code> is usually a good starting point, but the best value to use is up to the graph’s creator.</p>
 <div class="section" id="choosing-the-number-size-of-histogram-bins">
-<h3>Choosing the number/size of histogram bins<a class="headerlink" href="#choosing-the-number-size-of-histogram-bins" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.3.1. </span>Choosing the number/size of histogram bins<a class="headerlink" href="#choosing-the-number-size-of-histogram-bins" title="Permalink to this headline">¶</a></h3>
 <p>Unlike integer data, when the data comes from the continuous real line, there is no right way to choose the size or number of the histogram bins.</p>
 <p>We can easily change the number of bins to provide more resolution into the data; however if we increase the number of bins, the number of data points per bin will be lower.</p>
 <p>If we just want to specify a number of bins (instead of a list of bin edges, like in the previous chapter), then we can just pass number of bins to the <code class="docutils literal notranslate"><span class="pre">bins</span></code> keyword argument:</p>
@@ -1865,7 +1865,7 @@ Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
 <p><strong>Make the number of bins as large as possible while ensuring that  at least 50% of the bins contain at least 2 data points.</strong></p>
 </div>
 <div class="section" id="bin-alignment-for-multiple-histograms-in-one-figure">
-<h3>Bin alignment for multiple histograms in one figure<a class="headerlink" href="#bin-alignment-for-multiple-histograms-in-one-figure" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.2.3.2. </span>Bin alignment for multiple histograms in one figure<a class="headerlink" href="#bin-alignment-for-multiple-histograms-in-one-figure" title="Permalink to this headline">¶</a></h3>
 <p>One issue that arises when plotting multiple histograms in one figure is that the bins created by each call to <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> are not aligned. This can be helpful in that the bins are typically offset from each other, which makes it easier to see the separate bar heights. However, the bar heights cannot be directly compared because they correspond to different ranges of data. There are various solutions, but let’s use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> to create our own set of bin edges. Start by finding the min and max of each data set:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1954,8 +1954,8 @@ Counts: [ 5.  8. 14. 12.  7.  3.  0.  0.  0.  1.]
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="pandas-start.html" title="previous page">Intro to Pandas</a>
-    <a class='right-next' id="next-link" href="summary-stats.html" title="next page">Partitions and Summary Statistics</a>
+    <a class='left-prev' id="prev-link" href="pandas-start.html" title="previous page"><span class="section-number">3.1. </span>Intro to Pandas</a>
+    <a class='right-next' id="next-link" href="summary-stats.html" title="next page"><span class="section-number">3.3. </span>Partitions and Summary Statistics</a>
 
         </div>
         

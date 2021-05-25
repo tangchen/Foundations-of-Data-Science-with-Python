@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 3: First Visualizations and Statistical Tests with Real Data &#8212; Introduction to Data Science for Engineers</title>
+    <title>3. First Visualizations and Statistical Tests with Real Data &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Intro to Pandas" href="pandas-start.html" />
-    <link rel="prev" title="Chapter 2: First Simulations, and Visualizations, and Statistical Tests" href="../02-first-stats/first-stats-sims.html" />
+    <link rel="next" title="3.1. Intro to Pandas" href="pandas-start.html" />
+    <link rel="prev" title="2. Chapter 2: First Simulations, and Visualizations, and Statistical Tests" href="../02-first-stats/first-stats-sims.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -95,7 +95,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01-intro/intro.html">
-   Chapter 1: Introduction
+   1. Chapter 1: Introduction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -105,29 +105,29 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
-     Extremely Brief Intro to Jupyter and Python
+     1.4.1. Extremely Brief Intro to Jupyter and Python
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/jupyter-start.html">
-     Getting Started in Jupyter
+     1.4.2. Getting Started in Jupyter
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/python-start.html">
-     Getting Started in Python
+     1.4.3. Getting Started in Python
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-first-stats/first-stats-sims.html">
-   Chapter 2: First Simulations, and Visualizations, and Statistical Tests
+   2. Chapter 2: First Simulations, and Visualizations, and Statistical Tests
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Chapter 3: First Visualizations and Statistical Tests with Real Data
+   3. First Visualizations and Statistical Tests with Real Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -137,37 +137,37 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="pandas-start.html">
-     Intro to Pandas
+     3.1. Intro to Pandas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="visualization.html">
-     Visualizing Multiple Data Sets - Part 1: Scatter Plots
+     3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="summary-stats.html">
-     Partitions and Summary Statistics
+     3.3. Partitions and Summary Statistics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="histogram.html">
-     Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
+     3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="hypothesis-testing.html">
-     Binary Hypothesis Testing with Real Data
+     3.7. Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2d-scatter.html">
-     A Quick Preview of Two-Dimensional Statistical Methods
+     3.9. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="review.html">
-     Review
+     3.10. Review
     </a>
    </li>
   </ul>
@@ -255,19 +255,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-early-numbers-of-covid-19-cases-across-states">
-   Example: Early Numbers of Covid-19 Cases Across States
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -276,21 +263,11 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="chapter-3-first-visualizations-and-statistical-tests-with-real-data">
-<h1>Chapter 3: First Visualizations and Statistical Tests with Real Data<a class="headerlink" href="#chapter-3-first-visualizations-and-statistical-tests-with-real-data" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="first-visualizations-and-statistical-tests-with-real-data">
+<h1><span class="section-number">3. </span>First Visualizations and Statistical Tests with Real Data<a class="headerlink" href="#first-visualizations-and-statistical-tests-with-real-data" title="Permalink to this headline">¶</a></h1>
 <p>In <a class="reference internal" href="../02-first-stats/first-stats-sims.html"><span class="doc">Chapter 2</span></a>, we considered a simple statistical question that we could study through simulation, data visualization, and estimating probabilities. However, the type of problem considered in <a class="reference internal" href="../02-first-stats/first-stats-sims.html"><span class="doc">Chapter 2</span></a> is different than many that we encounter in data science because we had an exact model for the random experiment that we ended up simulating (repeated flips of a fair coin).</p>
 <p>In this chapter, we consider how to apply the ideas from <a class="reference internal" href="../02-first-stats/first-stats-sims.html"><span class="doc">Chapter 2</span></a> to a real data set, where we do not know the underlying model for the experiment.</p>
-<div class="section" id="example-early-numbers-of-covid-19-cases-across-states">
-<h2>Example: Early Numbers of Covid-19 Cases Across States<a class="headerlink" href="#example-early-numbers-of-covid-19-cases-across-states" title="Permalink to this headline">¶</a></h2>
+<p><strong>Example: Early Numbers of Covid-19 Cases Across States</strong></p>
 <p>The novel coronavirus called Covid-19 spread quickly in the United States (US) during the spring of 2020 and soon became a pandemic, affecting countries throughout the world. However, the spread of Covid-19 was very different in different areas, and we would like to investigate that to see what types of socioeconomic factors might be related to the spread of Covid-19 in the US.</p>
 <p>By early summer, states were implementing a variety of different of mitigation measures, from masking to stay-at-home orders. So here we will focus on the spread of Covid-19 prior to most of these measures being put in place. We have chosen to perform our statistical analyses using the cumulative number of Covid-19 cases through the end of April 2020.</p>
 <p>We analyze data on the number of Covid-19 cases for each state (from a dataset maintained by the New York Times) with data about the states and their populations that comes from the US Census Bureau and the US Department of Commerce’s Bureau of Economic Analysis. The goal is to investigate whether factors such as economic productivity and how urban a state is were statistically significant indicators of the number of Covid-19.</p>
@@ -301,7 +278,6 @@
 </ul>
 <p>In the next section, we begin by introducing the Pandas  library, which is one of the most common Python libraries for importing and working with tabular data.</p>
 <div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -330,8 +306,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../02-first-stats/first-stats-sims.html" title="previous page">Chapter 2: First Simulations, and Visualizations, and Statistical Tests</a>
-    <a class='right-next' id="next-link" href="pandas-start.html" title="next page">Intro to Pandas</a>
+    <a class='left-prev' id="prev-link" href="../02-first-stats/first-stats-sims.html" title="previous page"><span class="section-number">2. </span>Chapter 2: First Simulations, and Visualizations, and Statistical Tests</a>
+    <a class='right-next' id="next-link" href="pandas-start.html" title="next page"><span class="section-number">3.1. </span>Intro to Pandas</a>
 
         </div>
         

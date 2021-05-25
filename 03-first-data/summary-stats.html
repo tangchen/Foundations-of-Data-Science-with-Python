@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Partitions and Summary Statistics &#8212; Introduction to Data Science for Engineers</title>
+    <title>3.3. Partitions and Summary Statistics &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data" href="histogram.html" />
-    <link rel="prev" title="Visualizing Multiple Data Sets - Part 1: Scatter Plots" href="visualization.html" />
+    <link rel="next" title="3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data" href="histogram.html" />
+    <link rel="prev" title="3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots" href="visualization.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,7 +97,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01-intro/intro.html">
-   Chapter 1: Introduction
+   1. Chapter 1: Introduction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -107,29 +107,29 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
-     Extremely Brief Intro to Jupyter and Python
+     1.4.1. Extremely Brief Intro to Jupyter and Python
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/jupyter-start.html">
-     Getting Started in Jupyter
+     1.4.2. Getting Started in Jupyter
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/python-start.html">
-     Getting Started in Python
+     1.4.3. Getting Started in Python
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-first-stats/first-stats-sims.html">
-   Chapter 2: First Simulations, and Visualizations, and Statistical Tests
+   2. Chapter 2: First Simulations, and Visualizations, and Statistical Tests
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro.html">
-   Chapter 3: First Visualizations and Statistical Tests with Real Data
+   3. First Visualizations and Statistical Tests with Real Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -139,37 +139,37 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="pandas-start.html">
-     Intro to Pandas
+     3.1. Intro to Pandas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="visualization.html">
-     Visualizing Multiple Data Sets - Part 1: Scatter Plots
+     3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Partitions and Summary Statistics
+     3.3. Partitions and Summary Statistics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="histogram.html">
-     Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
+     3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="hypothesis-testing.html">
-     Binary Hypothesis Testing with Real Data
+     3.7. Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2d-scatter.html">
-     A Quick Preview of Two-Dimensional Statistical Methods
+     3.9. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="review.html">
-     Review
+     3.10. Review
     </a>
    </li>
   </ul>
@@ -264,27 +264,27 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Partitions and Summary Statistics
+   3.3. Partitions and Summary Statistics
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary-statistics">
-   Summary Statistics
+   3.4. Summary Statistics
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#minimizing-the-number-of-nonzero-errors">
-     Minimizing the Number of Nonzero Errors
+     3.4.1. Minimizing the Number of Nonzero Errors
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#minimizing-the-sum-of-absolute-errors">
-     Minimizing the Sum of Absolute Errors
+     3.4.2. Minimizing the Sum of Absolute Errors
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#minimizing-the-sum-of-squared-errors">
-     Minimizing the Sum of Squared Errors
+     3.4.3. Minimizing the Sum of Squared Errors
     </a>
    </li>
   </ul>
@@ -301,7 +301,7 @@
               <div>
                 
   <div class="section" id="partitions-and-summary-statistics">
-<h1>Partitions and Summary Statistics<a class="headerlink" href="#partitions-and-summary-statistics" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.3. </span>Partitions and Summary Statistics<a class="headerlink" href="#partitions-and-summary-statistics" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter, we will use a relatively simple approach to assessing whether a particular socioeconomic factor is associated with different numbers of Covid-19 cases. We will use the values of that socioeconomic factor to <em>partition</em> the Covid case data into two groups. Below, we provide some definitions to clarify exactly what we mean by a partition. We start by introducing the concept of <em>disjoint</em> collections of data:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
@@ -357,7 +357,7 @@ and \)</span>A_0, A_1, \ldots, A_{n-1}$ are  disjoint.</p>
 <p>To determine what constitutes a “higher value” or a “lower value”, we compute a threshold from the data to compare to. Any such value that is computed from the data is called a <em>summary statistic</em>:</p>
 </div>
 <div class="section" id="summary-statistics">
-<h1>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.4. </span>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h1>
 <p>Summary statistics are numerical values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as a the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists. Most statisticians use the term <strong>sample mean</strong> for this statistic, and often refer to it as simply the <strong>mean</strong>, but this can create confusion with another type of mean for random data: the <strong>ensemble mean</strong>, which is also usually just called the <strong>mean</strong>, and which is introduced in Chapter ZZ.</p>
 <p>Because of this ambiguity in the <strong>mean</strong>ing of the word <strong>mean</strong>, I will use the term <em>average</em> to refer to the value that is computed from data.</p>
 <p>When teaching a class on this subject, I usually ask the class: “What does the <strong>average</strong> or <strong>sample mean</strong> mean?”. Here are some of the common answers:</p>
@@ -512,7 +512,7 @@ ____________________________________________________
 </ol>
 <p>In the subsections below, we use the metrics <span class="math notranslate nohighlight">\(E_0\)</span>, <span class="math notranslate nohighlight">\(E_1\)</span>, and <span class="math notranslate nohighlight">\(E_2\)</span> to define three common summary statistics.</p>
 <div class="section" id="minimizing-the-number-of-nonzero-errors">
-<h2>Minimizing the Number of Nonzero Errors<a class="headerlink" href="#minimizing-the-number-of-nonzero-errors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4.1. </span>Minimizing the Number of Nonzero Errors<a class="headerlink" href="#minimizing-the-number-of-nonzero-errors" title="Permalink to this headline">¶</a></h2>
 <p>Consider first <span class="math notranslate nohighlight">\(E_0\)</span>, the number of nonzero errors. As previously mentioned, <span class="math notranslate nohighlight">\(E_0\)</span> is minimized at the data point that appears most often in the data set. This value is called the <strong>mode</strong>:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
@@ -665,7 +665,7 @@ D_2 = [-1,-1, 2,2]
 above to calculate and plot the number of nonzero errors for this data set as a function of <span class="math notranslate nohighlight">\(\nu\)</span>. What values can be the mode? What values do scipy.stats and Pandas return for the mode?</p>
 </div>
 <div class="section" id="minimizing-the-sum-of-absolute-errors">
-<h2>Minimizing the Sum of Absolute Errors<a class="headerlink" href="#minimizing-the-sum-of-absolute-errors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4.2. </span>Minimizing the Sum of Absolute Errors<a class="headerlink" href="#minimizing-the-sum-of-absolute-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
 $<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span><span class="math notranslate nohighlight">\(
 so its derivative is
@@ -741,7 +741,7 @@ D_2 = [-1,-1, 2,2]
 above to calculate and plot the sum of absolute errors for this data set as a function of <span class="math notranslate nohighlight">\(\nu\)</span>. What values can be the median? What values do NumPy and Pandas return for the median?</p>
 </div>
 <div class="section" id="minimizing-the-sum-of-squared-errors">
-<h2>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivatives with respect to <span class="math notranslate nohighlight">\(\nu\)</span> setting it equal to zero:</p>
 <p>\begin{align}
 E_2’(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \
@@ -833,8 +833,8 @@ dtype: float64
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="visualization.html" title="previous page">Visualizing Multiple Data Sets - Part 1: Scatter Plots</a>
-    <a class='right-next' id="next-link" href="histogram.html" title="next page">Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data</a>
+    <a class='left-prev' id="prev-link" href="visualization.html" title="previous page"><span class="section-number">3.2. </span>Visualizing Multiple Data Sets - Part 1: Scatter Plots</a>
+    <a class='right-next' id="next-link" href="histogram.html" title="next page"><span class="section-number">3.5. </span>Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data</a>
 
         </div>
         

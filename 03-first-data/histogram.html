@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data &#8212; Introduction to Data Science for Engineers</title>
+    <title>3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Binary Hypothesis Testing with Real Data" href="hypothesis-testing.html" />
-    <link rel="prev" title="Partitions and Summary Statistics" href="summary-stats.html" />
+    <link rel="next" title="3.7. Binary Hypothesis Testing with Real Data" href="hypothesis-testing.html" />
+    <link rel="prev" title="3.3. Partitions and Summary Statistics" href="summary-stats.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,7 +97,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01-intro/intro.html">
-   Chapter 1: Introduction
+   1. Chapter 1: Introduction
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -107,29 +107,29 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
-     Extremely Brief Intro to Jupyter and Python
+     1.4.1. Extremely Brief Intro to Jupyter and Python
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/jupyter-start.html">
-     Getting Started in Jupyter
+     1.4.2. Getting Started in Jupyter
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01-intro/python-start.html">
-     Getting Started in Python
+     1.4.3. Getting Started in Python
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../02-first-stats/first-stats-sims.html">
-   Chapter 2: First Simulations, and Visualizations, and Statistical Tests
+   2. Chapter 2: First Simulations, and Visualizations, and Statistical Tests
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro.html">
-   Chapter 3: First Visualizations and Statistical Tests with Real Data
+   3. First Visualizations and Statistical Tests with Real Data
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -139,37 +139,37 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="pandas-start.html">
-     Intro to Pandas
+     3.1. Intro to Pandas
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="visualization.html">
-     Visualizing Multiple Data Sets - Part 1: Scatter Plots
+     3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="summary-stats.html">
-     Partitions and Summary Statistics
+     3.3. Partitions and Summary Statistics
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
+     3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="hypothesis-testing.html">
-     Binary Hypothesis Testing with Real Data
+     3.7. Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2d-scatter.html">
-     A Quick Preview of Two-Dimensional Statistical Methods
+     3.9. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="review.html">
-     Review
+     3.10. Review
     </a>
    </li>
   </ul>
@@ -264,24 +264,24 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
+   3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#partitioning-based-on-gdp">
-     Partitioning Based on GDP
+     3.5.1. Partitioning Based on GDP
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#partitioning-based-on-urban-index">
-     Partitioning Based on Urban Index
+     3.5.2. Partitioning Based on Urban Index
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reading-assignment">
-   Reading Assignment
+   3.6. Reading Assignment
   </a>
  </li>
 </ul>
@@ -296,7 +296,7 @@
               <div>
                 
   <div class="section" id="visualizing-multiple-data-sets-part-2-histograms-for-partitioned-data">
-<h1>Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data<a class="headerlink" href="#visualizing-multiple-data-sets-part-2-histograms-for-partitioned-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.5. </span>Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data<a class="headerlink" href="#visualizing-multiple-data-sets-part-2-histograms-for-partitioned-data" title="Permalink to this headline">¶</a></h1>
 <p>Now we return to our Covid data set and apply what we have learned about partitions and summary statistics to set up what we call binary comparisons: these are comparisons between two groups. As before, we begin by importing the data from the CSV file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -379,7 +379,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 </div>
 <p>The difference in averages is large: the average normalized case rate for higher population states is 75% larger than for the lower population states. Let’s investigate the other socioeconomic factors before trying to assess whether this observed difference is a real effect or whether it could be attributed to randomness in the data sets being compared.</p>
 <div class="section" id="partitioning-based-on-gdp">
-<h2>Partitioning Based on GDP<a class="headerlink" href="#partitioning-based-on-gdp" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5.1. </span>Partitioning Based on GDP<a class="headerlink" href="#partitioning-based-on-gdp" title="Permalink to this headline">¶</a></h2>
 <p>The gross domestic product (GDP) provides a measure of how affluent a state is. As we expect that GDP will increase along with population, we first add normalized GDP per population in thousands to our dataframe:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1088,7 +1088,7 @@ Name: gdp_norm, dtype: bool
 <p>Using this reduced data set, partition the data around the median normalized GDP, plot the histograms for the normalized Covid rates of the two partitions, and find the average normalized Covid rates for the two partitions.</p>
 </div>
 <div class="section" id="partitioning-based-on-urban-index">
-<h2>Partitioning Based on Urban Index<a class="headerlink" href="#partitioning-based-on-urban-index" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5.2. </span>Partitioning Based on Urban Index<a class="headerlink" href="#partitioning-based-on-urban-index" title="Permalink to this headline">¶</a></h2>
 <p>Some of the networking effects mentioned in the previous section may be associated with populations living in large, urban areas. In this section, we partition the data based on the urban index, which is the percentage of the population that is living in an urban area.  As for the previous metric, we start by finding the median urban index for the states:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1150,7 +1150,7 @@ Name: gdp_norm, dtype: bool
 </div>
 </div>
 <div class="section" id="reading-assignment">
-<h1>Reading Assignment<a class="headerlink" href="#reading-assignment" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.6. </span>Reading Assignment<a class="headerlink" href="#reading-assignment" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://tinlizzie.org/histograms/">Exploring Histograms</a></p></li>
 </ul>
@@ -1181,8 +1181,8 @@ Name: gdp_norm, dtype: bool
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="summary-stats.html" title="previous page">Partitions and Summary Statistics</a>
-    <a class='right-next' id="next-link" href="hypothesis-testing.html" title="next page">Binary Hypothesis Testing with Real Data</a>
+    <a class='left-prev' id="prev-link" href="summary-stats.html" title="previous page"><span class="section-number">3.3. </span>Partitions and Summary Statistics</a>
+    <a class='right-next' id="next-link" href="hypothesis-testing.html" title="next page"><span class="section-number">3.7. </span>Binary Hypothesis Testing with Real Data</a>
 
         </div>
         
