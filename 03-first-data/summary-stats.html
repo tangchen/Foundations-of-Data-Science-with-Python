@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.3. Partitions and Summary Statistics &#8212; Introduction to Data Science for Engineers</title>
+    <title>3.4. Summary Statistics &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data" href="histogram.html" />
-    <link rel="prev" title="3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots" href="visualization.html" />
+    <link rel="prev" title="3.3. Partitions" href="partitions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -147,9 +147,14 @@
      3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="partitions.html">
+     3.3. Partitions
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.3. Partitions and Summary Statistics
+     3.4. Summary Statistics
     </a>
    </li>
    <li class="toctree-l2">
@@ -262,32 +267,20 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   3.3. Partitions and Summary Statistics
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimizing-the-number-of-nonzero-errors">
+   3.4.1. Minimizing the Number of Nonzero Errors
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary-statistics">
-   3.4. Summary Statistics
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimizing-the-sum-of-absolute-errors">
+   3.4.2. Minimizing the Sum of Absolute Errors
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#minimizing-the-number-of-nonzero-errors">
-     3.4.1. Minimizing the Number of Nonzero Errors
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#minimizing-the-sum-of-absolute-errors">
-     3.4.2. Minimizing the Sum of Absolute Errors
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#minimizing-the-sum-of-squared-errors">
-     3.4.3. Minimizing the Sum of Squared Errors
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimizing-the-sum-of-squared-errors">
+   3.4.3. Minimizing the Sum of Squared Errors
+  </a>
  </li>
 </ul>
 
@@ -300,63 +293,7 @@
         
               <div>
                 
-  <div class="section" id="partitions-and-summary-statistics">
-<h1><span class="section-number">3.3. </span>Partitions and Summary Statistics<a class="headerlink" href="#partitions-and-summary-statistics" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter, we will use a relatively simple approach to assessing whether a particular socioeconomic factor is associated with different numbers of Covid-19 cases. We will use the values of that socioeconomic factor to <em>partition</em> the Covid case data into two groups. Below, we provide some definitions to clarify exactly what we mean by a partition. We start by introducing the concept of <em>disjoint</em> collections of data:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">DEFINITION</p>
-</div>
-<div class="card-body docutils">
-<p class="card-text">disjoint
-: collections of data are disjoint if no data point belongs to more than one of the collections</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>If the data points are unique, then we can use the mathematics of sets to formalize these ideas.  If you are unfamiliar with sets and their operations, please review <strong>Appendix A</strong> for a brief introduction. For our purposes, we can always consider a collection of data points to be unique if we include a unique index value with each data point.</p>
-<p>A collection of sets <span class="math notranslate nohighlight">\(A_0, A_1, \ldots, A_{n-1}\)</span> are disjoint if <span class="math notranslate nohighlight">\(A_i \cap A_j =\emptyset\)</span> for every <span class="math notranslate nohighlight">\(i \in \{0,1,\ldots, n-1\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{0,1,\ldots, n-1\}\)</span>, where <span class="math notranslate nohighlight">\(i \ne j\)</span>.</p>
-<!--
-MOVE THIS TO APPENDIX A
-
-````{panels}
-DEFINITION
-^^^
-set
-: a set is an unordered collection of unique items
-````
-
-Note that sets can contain any type of item, such as number, labels, names, types of dogs, weather conditions, etc.
--->
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">DEFINITION</p>
-</div>
-<div class="card-body docutils">
-<p class="card-text">partition
-: a partition of a data set is a group of <strong>disjoint</strong> collections of data, such that every data point in the original data set belongs to exactly one of the collections.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>If <span class="math notranslate nohighlight">\(S\)</span> is a set of data, then the collections <span class="math notranslate nohighlight">\(A_0, A_1, \ldots A_{n-1}\)</span> partition <span class="math notranslate nohighlight">\(S\)</span> if:
-$<span class="math notranslate nohighlight">\(
-\bigcup_{i=0}^{n-1} A_i = S
-\)</span><span class="math notranslate nohighlight">\(
-and \)</span>A_0, A_1, \ldots, A_{n-1}$ are  disjoint.</p>
-<p>A <em>binary partition</em> of a set <span class="math notranslate nohighlight">\(S\)</span> is a pair of sets <span class="math notranslate nohighlight">\(A_0\)</span> and <span class="math notranslate nohighlight">\(A_1\)</span> such that <span class="math notranslate nohighlight">\(A_0 \cup A_1 =S\)</span> and <span class="math notranslate nohighlight">\(A_0 \cap A_1 = \emptyset\)</span>.</p>
-<p>To use a particular socioeconomic metric to partition our data, we will partition the data into two sets: one with higher values of that metric, and one with lower values of that metric.</p>
-<p>To determine what constitutes a “higher value” or a “lower value”, we compute a threshold from the data to compare to. Any such value that is computed from the data is called a <em>summary statistic</em>:</p>
-</div>
-<div class="section" id="summary-statistics">
+  <div class="section" id="summary-statistics">
 <h1><span class="section-number">3.4. </span>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h1>
 <p>Summary statistics are numerical values calculated from sample data that measure some characteristic about the data. Most people use the <strong>average</strong> of the data as a the standard summary statistic; for instance, when receiving their exam scores, students will usually ask what the class average was for the exam. The average is also the most commonly used summary statistic by data scientists. Most statisticians use the term <strong>sample mean</strong> for this statistic, and often refer to it as simply the <strong>mean</strong>, but this can create confusion with another type of mean for random data: the <strong>ensemble mean</strong>, which is also usually just called the <strong>mean</strong>, and which is introduced in Chapter ZZ.</p>
 <p>Because of this ambiguity in the <strong>mean</strong>ing of the word <strong>mean</strong>, I will use the term <em>average</em> to refer to the value that is computed from data.</p>
@@ -425,7 +362,7 @@ $<span class="math notranslate nohighlight">\( E_2(\nu) = \sum_{i=0}^{N-1} \left
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/summary-stats_8_0.png" src="../_images/summary-stats_8_0.png" />
+<img alt="../_images/summary-stats_3_0.png" src="../_images/summary-stats_3_0.png" />
 </div>
 </div>
 <p>Since <span class="math notranslate nohighlight">\(E_0\)</span> and <span class="math notranslate nohighlight">\(E_1\)</span> have a much smaller range than the other two values, let’s also plot them separately:</p>
@@ -449,7 +386,7 @@ $<span class="math notranslate nohighlight">\( E_2(\nu) = \sum_{i=0}^{N-1} \left
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/summary-stats_10_0.png" src="../_images/summary-stats_10_0.png" />
+<img alt="../_images/summary-stats_5_0.png" src="../_images/summary-stats_5_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -833,7 +770,7 @@ dtype: float64
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="visualization.html" title="previous page"><span class="section-number">3.2. </span>Visualizing Multiple Data Sets - Part 1: Scatter Plots</a>
+    <a class='left-prev' id="prev-link" href="partitions.html" title="previous page"><span class="section-number">3.3. </span>Partitions</a>
     <a class='right-next' id="next-link" href="histogram.html" title="next page"><span class="section-number">3.5. </span>Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data</a>
 
         </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.10. Review &#8212; Introduction to Data Science for Engineers</title>
+    <title>3.3. Partitions &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,9 +49,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="3.9. A Quick Preview of Two-Dimensional Statistical Methods" href="2d-scatter.html" />
+    <link rel="next" title="3.4. Summary Statistics" href="summary-stats.html" />
+    <link rel="prev" title="3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots" href="visualization.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -144,8 +147,8 @@
      3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="partitions.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      3.3. Partitions
     </a>
    </li>
@@ -169,8 +172,8 @@
      3.9. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="review.html">
      3.10. Review
     </a>
    </li>
@@ -217,7 +220,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/03-first-data/review.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/03-first-data/partitions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -242,7 +245,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03-first-data/review.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03-first-data/partitions.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -267,9 +270,61 @@
         
               <div>
                 
-  <div class="section" id="review">
-<h1><span class="section-number">3.10. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
-<p>In this Chapter, we started working with real data. I demonstrated how to import data from CSV files into Pandas data frames and some of the basics of working with those data frames. Then we explored the data using scatter plots. Summary statistics, including mean, median, and mode were introduced and explained in terms of the error functions that they optimize. Then the median was used to partition the data into two using two different data features. Binary hypothesis testing was introduced, and bootstrap resampling was used to determine whether an observed difference in means could be attributable to random sampling. Finally, two-dimensional scatter plots were created by plotting one of the features of the data as a function of another feature of the data; fitting curves to the data was briefly explored, although the details are left for a later chapter.</p>
+  <div class="section" id="partitions">
+<h1><span class="section-number">3.3. </span>Partitions<a class="headerlink" href="#partitions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter, we will use a relatively simple approach to assessing whether a particular socioeconomic factor is associated with different numbers of Covid-19 cases. We will use the values of that socioeconomic factor to <em>partition</em> the Covid case data into two groups. Below, we provide some definitions to clarify exactly what we mean by a partition. We start by introducing the concept of <em>disjoint</em> collections of data:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">disjoint
+: collections of data are disjoint if no data point belongs to more than one of the collections</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If the data points are unique, then we can use the mathematics of sets to formalize these ideas.  If you are unfamiliar with sets and their operations, please review <strong>Appendix A</strong> for a brief introduction. For our purposes, we can always consider a collection of data points to be unique if we include a unique index value with each data point.</p>
+<p>A collection of sets <span class="math notranslate nohighlight">\(A_0, A_1, \ldots, A_{n-1}\)</span> are disjoint if <span class="math notranslate nohighlight">\(A_i \cap A_j =\emptyset\)</span> for every <span class="math notranslate nohighlight">\(i \in \{0,1,\ldots, n-1\}\)</span>, <span class="math notranslate nohighlight">\(j \in \{0,1,\ldots, n-1\}\)</span>, where <span class="math notranslate nohighlight">\(i \ne j\)</span>.</p>
+<!--
+MOVE THIS TO APPENDIX A
+
+````{panels}
+DEFINITION
+^^^
+set
+: a set is an unordered collection of unique items
+````
+
+Note that sets can contain any type of item, such as number, labels, names, types of dogs, weather conditions, etc.
+-->
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">partition
+: a partition of a data set is a group of <strong>disjoint</strong> collections of data, such that every data point in the original data set belongs to exactly one of the collections.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If <span class="math notranslate nohighlight">\(S\)</span> is a set of data, then the collections <span class="math notranslate nohighlight">\(A_0, A_1, \ldots A_{n-1}\)</span> partition <span class="math notranslate nohighlight">\(S\)</span> if:
+$<span class="math notranslate nohighlight">\(
+\bigcup_{i=0}^{n-1} A_i = S
+\)</span><span class="math notranslate nohighlight">\(
+and \)</span>A_0, A_1, \ldots, A_{n-1}$ are  disjoint.</p>
+<p>A <em>binary partition</em> of a set <span class="math notranslate nohighlight">\(S\)</span> is a pair of sets <span class="math notranslate nohighlight">\(A_0\)</span> and <span class="math notranslate nohighlight">\(A_1\)</span> such that <span class="math notranslate nohighlight">\(A_0 \cup A_1 =S\)</span> and <span class="math notranslate nohighlight">\(A_0 \cap A_1 = \emptyset\)</span>.</p>
+<p>To use a particular socioeconomic metric to partition our data, we will partition the data into two sets: one with higher values of that metric, and one with lower values of that metric.</p>
+<p>To determine what constitutes a “higher value” or a “lower value”, we compute a threshold from the data to compare to. Any such value that is computed from the data is called a <em>summary statistic</em>:</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -297,7 +352,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="2d-scatter.html" title="previous page"><span class="section-number">3.9. </span>A Quick Preview of Two-Dimensional Statistical Methods</a>
+    <a class='left-prev' id="prev-link" href="visualization.html" title="previous page"><span class="section-number">3.2. </span>Visualizing Multiple Data Sets - Part 1: Scatter Plots</a>
+    <a class='right-next' id="next-link" href="summary-stats.html" title="next page"><span class="section-number">3.4. </span>Summary Statistics</a>
 
         </div>
         
