@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.7. Binary Hypothesis Testing with Real Data &#8212; Introduction to Data Science for Engineers</title>
+    <title>3.6. Binary Hypothesis Testing with Real Data &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.9. A Quick Preview of Two-Dimensional Statistical Methods" href="2d-scatter.html" />
+    <link rel="next" title="3.7. A Quick Preview of Two-Dimensional Statistical Methods" href="2d-scatter.html" />
     <link rel="prev" title="3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data" href="histogram.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -184,17 +184,17 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.7. Binary Hypothesis Testing with Real Data
+     3.6. Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2d-scatter.html">
-     3.9. A Quick Preview of Two-Dimensional Statistical Methods
+     3.7. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="review.html">
-     3.10. Review
+     3.8. Review
     </a>
    </li>
   </ul>
@@ -287,31 +287,19 @@
             </div>
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   3.7. Binary Hypothesis Testing with Real Data
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#small-data-example-using-covid-rates">
+   3.6.1. Small Data Example Using Covid Rates
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#small-data-example-using-covid-rates">
-     3.7.1. Small Data Example Using Covid Rates
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#testing-the-observed-differences-in-covid-rates">
-     3.7.2. Testing the Observed Differences in Covid Rates
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribution-of-the-bootstrap-mean-difference">
-     3.7.3. Distribution of the bootstrap mean-difference
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reading-assignment">
-   3.8. Reading Assignment
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-the-observed-differences-in-covid-rates">
+   3.6.2. Testing the Observed Differences in Covid Rates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distribution-of-the-bootstrap-mean-difference">
+   3.6.3. Distribution of the bootstrap mean-difference
   </a>
  </li>
 </ul>
@@ -326,7 +314,7 @@
               <div>
                 
   <div class="section" id="binary-hypothesis-testing-with-real-data">
-<h1><span class="section-number">3.7. </span>Binary Hypothesis Testing with Real Data<a class="headerlink" href="#binary-hypothesis-testing-with-real-data" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.6. </span>Binary Hypothesis Testing with Real Data<a class="headerlink" href="#binary-hypothesis-testing-with-real-data" title="Permalink to this headline">¶</a></h1>
 <p>When dealing with data from different groups, we will generally observe differences. For instance, we may measure the means or medians of the data sets and we will usually find that these summary statistics are different.  At this point, we wish to understand whether the observed difference is “significant”: is this difference a property of the underlying groups or is it just caused by random variations in the data?</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -350,7 +338,7 @@
 <p>As we saw in Chapter 2, the number of samples of random phenomena has a significant impact on how accurately we can estimate those phenomena. When it comes to real data, the problem is amplified because we do not know the ground-truth characterization of the random phenomena that is producing the data.</p>
 <p>Let’s start by restricting our analysis to a very small subset of our data to see how effects observed with small data may be caused simply by random sampling. By restricting our data, we can show examples of the technique that we will be using, and the examples will be small enough to easily understand.</p>
 <div class="section" id="small-data-example-using-covid-rates">
-<h2><span class="section-number">3.7.1. </span>Small Data Example Using Covid Rates<a class="headerlink" href="#small-data-example-using-covid-rates" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6.1. </span>Small Data Example Using Covid Rates<a class="headerlink" href="#small-data-example-using-covid-rates" title="Permalink to this headline">¶</a></h2>
 <p>Consider the normalized Covid case rates from the first six states, and partition them into two sets using alphabetical order:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -586,6 +574,23 @@
 <p>It is helpful to introduce mathematical notation to refer to hypotheses. The null hypothesis is usually denoted by <span class="math notranslate nohighlight">\(H_0\)</span>, which is typically read as “H naught”. Intuitively, the zero can be read as implying zero difference between the populations (in the feature being compared).</p>
 <p>When there is a null hypothesis, we typically compare it with the hypothesis that the feature being measured comes from random phenomena that differ between the two groups. We call this the <em>alternative hypothesis</em> and denote it by <span class="math notranslate nohighlight">\(H_a\)</span>.</p>
 <p>Usually, <span class="math notranslate nohighlight">\(H_a\)</span> cannot be tested directly because we do not know ahead of time <em>how</em> the underlying phenomena differ. Thus, we will usually conduct tests by assuming the null hypothesis is true. Then, apply an approach similar to falsification in the natural sciences: we try to test whether the null hypothesis is true, and a result that it is likely false would imply that the alternative hypothesis is likely true. (Note that I use “likely” here as informal way of introducing the fact that randomness in the data will usually prevent us from deciding that any hypothesis is absolutely true; i.e., we will only be able to estimate the probabilities of hypotheses.)</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>binary hypothesis test</dt><dd><p class="card-text">A binary hypothesis test is a statistical test that decides between two competing statistical hypotheses.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>Testing under the assumption that <span class="math notranslate nohighlight">\(H_0\)</span> is true is called <em>null hypothesis testing</em>. There are several methods to test the null hypothesis. Before introducing the technique we will use, we note that statistical methods can generally be put into one of two categories:</p>
 <ol class="simple">
 <li><p>In <em>model-based</em> methods, we assume that (under <span class="math notranslate nohighlight">\(H_0\)</span>), the summary statistics we use will fit certain statistical models, and we can typically use those models to produce an analytic estimate for the probability of observing such a large difference in the observed summary statistics.</p></li>
@@ -683,7 +688,8 @@
 </div>
 </div>
 </div>
-<p>To perform resampling, we create new groups to represent <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, but where the samples are drawn from the pooled data. In this chapter, we use the most popular method, which is drawing the data <strong>with replacement</strong>.  This is commonly called <strong>bootstrap sampling</strong>. When creating the new groups, it is important to use the same sizes as the original groups. Here is what one draw looks like.</p>
+<p>To perform resampling, we simulate how <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> <strong>could have been created</strong> if they came from the same random phenomena. Thus, we
+create new <span class="math notranslate nohighlight">\(\tilde{a}\)</span> and <span class="math notranslate nohighlight">\(\tilde{b}\)</span> that contain the same number of samples as <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, respectively, but where the samples are drawn from the pooled data. In this chapter, we use the most popular method, which is drawing the data <strong>with replacement</strong>.  This is commonly called <strong>bootstrap sampling</strong>. When creating the new groups, it is important to use the same sizes as the original groups. The cell below will perform one such random draw of <span class="math notranslate nohighlight">\(\tilde{a}\)</span> and <span class="math notranslate nohighlight">\(\tilde{b}\)</span>, which in Python I call <code class="docutils literal notranslate"><span class="pre">newa</span></code> and <code class="docutils literal notranslate"><span class="pre">newb</span></code>.</p>
 <p>Try running the cell below a few times:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -729,7 +735,7 @@ new diff 0.7315410188646995
 </div>
 <p>One thing to note is that the new difference can be either positive or negative. We previously mentioned that we want to determine “how often we see such a large difference”, but this turns out to be ambiguous, because we could use the magnitude (absolute value) of the new difference or we could use the signed new difference. For now, let’s use the magnitude, which is called a two-sided test. I will have more to say about one-sided tests vs. two sided tests in <span style="color:red">Chapter 5 (tentative)</span>.</p>
 <p>Now, we will see how to build a simulation to estimate the probability of seeing such a large difference in sample means under <span class="math notranslate nohighlight">\(H_0\)</span>. This probability is called the <span class="math notranslate nohighlight">\(\mathbf{p}\)</span><strong>-value</strong>. For now, we will say that the difference is statistically significant if the observed <span class="math notranslate nohighlight">\(p\)</span>-value is smaller than a threshold.</p>
-<p>An important part of statistical testing is to declare what is being tested and what the criterion is for statistical significance <strong>before</strong> performing the statistical tests. Thus, we need to determine the <span class="math notranslate nohighlight">\(p\)</span>-value threshold <strong>before</strong> running the simulation. For instance, if <span class="math notranslate nohighlight">\(H_0\)</span> is true and we see differences as large as we observed in our data 10% of the time, should we consider the observed difference significant? What if it were only 5% of the time? How about only 1% of the time? There is no right answer to that question. The threshold for rejecting
+<p>An important part of statistical testing is to declare what is being tested and what the criterion is for statistical significance <strong>before</strong> performing the statistical tests. Thus, we need to determine the <span class="math notranslate nohighlight">\(p\)</span>-value threshold <strong>before</strong> running the simulation. For instance, if <span class="math notranslate nohighlight">\(H_0\)</span> is true and we see differences as large as we observed in our data 10% of the time, should we consider the observed difference significant? What if it were only 5% of the time? How about only 1% of the time? There is no right answer to that question. The threshold for rejecting the null hypothesis
 will determine the maximum probability that we will allow for making the error of rejecting the null hypothesis when it is actually true. For instance if the threshold is 10%, then if there is no actual difference between the groups for the random phenomena being measured, a difference in summary statistics as large as the one observed could still occur as often as 10% of the time. In many scientific fields, a <span class="math notranslate nohighlight">\(p\)</span>-value threshold of 5% is used. In this book, I will use a <span class="math notranslate nohighlight">\(p\)</span>-value threshold of 1%, which can be considered to be more “strict” in the sense that we are less likely to reject the null hypothesis.</p>
 <p>Note that if the estimated <span class="math notranslate nohighlight">\(p\)</span>-value is above the threshold, that does not mean that the null hypothesis is true or that the alternative hypothesis is false. We say that we “fail to reject the null hypothesis”. In many such cases, the null hypothesis will actually be false but we just do not have enough data to support rejecting the null hypothesis.</p>
 <p>With these details out of the way, we can build our simulation. As in Chapter 2, the simulation is a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop in which each iteration of the for loop represents one random draw. Here, each random draw is to create two groups <span class="math notranslate nohighlight">\(\tilde{a}\)</span> and <span class="math notranslate nohighlight">\(\tilde{b}\)</span> by drawing from the pooled data. For each draw, we calculate the averages, and we use a counter to track how often we observe an absolute difference in means that is large as we observed in the original data.</p>
@@ -773,7 +779,7 @@ will determine the maximum probability that we will allow for making the error o
 <p>Run the cell above a few times. The results will vary, but should be close to 0.2. Since this <span class="math notranslate nohighlight">\(p\)</span>-value is much larger than our threshold of 1% (i.e., 0.01), we <strong>fail to reject the null hypothesis</strong>. The observed difference will occur approximately 20% of the time even if there is no difference in normalized Covid rates among these states.</p>
 </div>
 <div class="section" id="testing-the-observed-differences-in-covid-rates">
-<h2><span class="section-number">3.7.2. </span>Testing the Observed Differences in Covid Rates<a class="headerlink" href="#testing-the-observed-differences-in-covid-rates" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6.2. </span>Testing the Observed Differences in Covid Rates<a class="headerlink" href="#testing-the-observed-differences-in-covid-rates" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s apply bootstrap resampling to test the previous observed differences in covid rates based on GDP per population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -859,7 +865,7 @@ will determine the maximum probability that we will allow for making the error o
 </div>
 </div>
 </div>
-<p>Run the simulation a few times. The results should vary but will generally be around 0.07 ( 7%). Since this is larger than our <span class="math notranslate nohighlight">\(p\)</span>-value threshold of 1%, we fail to reject the null hypothesis. We cannot be sure that higher per-capita GDP is associated with higher per-capita Covid rates.</p>
+<p>Run the simulation a few times. The results should vary but will generally be around 0.07 ( 7%). Since this is larger than our <span class="math notranslate nohighlight">\(p\)</span>-value threshold of 1%, we fail to reject the null hypothesis. The data does not provide enough evidence for us to be sure that per-capita GDP is associated with higher per-capita Covid rates.</p>
 <p>The simulation code above can easily be turned into a function that can be applied to any data when we are using resampling to perform a two-sided test for an observed differencce of means. To make this into a function:</p>
 <ol class="simple">
 <li><p>Click in the cell with the simulation above and choose “Copy Cells” from Jupyter’s Edit menu. (Alternatively, you can use the Copy command from your Browser’s Edit menu or the corresponding keyboard shortcut.)</p></li>
@@ -969,7 +975,7 @@ will determine the maximum probability that we will allow for making the error o
 <p>With the additional simulation iterations, the <span class="math notranslate nohighlight">\(p\)</span>-value is found to be approximately 0.009, which is below our threshold. Therefore, we reject the null hypothesis, and we can say that the groupings based on the Urban index  are associated with differences in the mean per-capita Covid rates that are statistically significant at the <span class="math notranslate nohighlight">\(p&lt;0.01\)</span> level.</p>
 </div>
 <div class="section" id="distribution-of-the-bootstrap-mean-difference">
-<h2><span class="section-number">3.7.3. </span>Distribution of the bootstrap mean-difference<a class="headerlink" href="#distribution-of-the-bootstrap-mean-difference" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6.3. </span>Distribution of the bootstrap mean-difference<a class="headerlink" href="#distribution-of-the-bootstrap-mean-difference" title="Permalink to this headline">¶</a></h2>
 <p>Every time we create a bootstrap value for the difference of means, we create a new random value. Let’s see how the bootstrap means are distributed by modifying our simulation to also produce a histogram of those values. Copy the simulation from above, update the function name, and add the marked lines to store every mean difference and plot the histogram:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1014,17 +1020,11 @@ will determine the maximum probability that we will allow for making the error o
 </div>
 <p>A few obervations:</p>
 <ol class="simple">
-<li><p>The difference of means has a bell shape – we saw that before. Why do you think that is?</p></li>
+<li><p>The difference of means has a bell shape – we saw this shape before. Why do you think that is?</p></li>
 <li><p>The majority of the values fall between -2 and +2. Thus, it is not surprising that getting a mean-difference as large as 2.34 is rare.</p></li>
 </ol>
 <p>Later in the book, we will investigate how we can use the histogram to provide confidence intervals on the mean difference under the null hypothesis. This is a way to provide more information about how an observed difference in means compares to what is expected under the null hypothesis.</p>
 </div>
-</div>
-<div class="section" id="reading-assignment">
-<h1><span class="section-number">3.8. </span>Reading Assignment<a class="headerlink" href="#reading-assignment" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://tinlizzie.org/histograms/">Exploring Histograms</a></p></li>
-</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1053,7 +1053,7 @@ will determine the maximum probability that we will allow for making the error o
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="histogram.html" title="previous page"><span class="section-number">3.5. </span>Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data</a>
-    <a class='right-next' id="next-link" href="2d-scatter.html" title="next page"><span class="section-number">3.9. </span>A Quick Preview of Two-Dimensional Statistical Methods</a>
+    <a class='right-next' id="next-link" href="2d-scatter.html" title="next page"><span class="section-number">3.7. </span>A Quick Preview of Two-Dimensional Statistical Methods</a>
 
         </div>
         

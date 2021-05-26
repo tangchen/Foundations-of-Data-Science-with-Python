@@ -184,17 +184,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="hypothesis-testing.html">
-     3.7. Binary Hypothesis Testing with Real Data
+     3.6. Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2d-scatter.html">
-     3.9. A Quick Preview of Two-Dimensional Statistical Methods
+     3.7. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="review.html">
-     3.10. Review
+     3.8. Review
     </a>
    </li>
   </ul>
@@ -662,8 +662,8 @@ above to calculate and plot the number of nonzero errors for this data set as a 
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
 $<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span>$
 so its derivative is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9fd76ac-0acb-4ced-9bf3-7683ea34cdf0">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-d9fd76ac-0acb-4ced-9bf3-7683ea34cdf0" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9270beab-fd6f-44b9-941d-5b11d5b5fabd">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-9270beab-fd6f-44b9-941d-5b11d5b5fabd" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
 &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
 \end{align}\]</div>
@@ -742,8 +742,8 @@ above to calculate and plot the sum of absolute errors for this data set as a fu
 <div class="section" id="minimizing-the-sum-of-squared-errors">
 <h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivative of <span class="math notranslate nohighlight">\(E_2(v)\)</span> with respect to <span class="math notranslate nohighlight">\(\nu\)</span> and setting it equal to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3fc75cd8-fbe8-4c4c-83bd-a418afe0bc5d">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-3fc75cd8-fbe8-4c4c-83bd-a418afe0bc5d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8d7def74-c753-423b-b8e0-c93bdc07028e">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-8d7def74-c753-423b-b8e0-c93bdc07028e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \\
@@ -751,14 +751,14 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu 
 \end{align}\]</div>
 <p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4d76ace-ac6b-47d3-a84e-3379fd5082ab">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-e4d76ace-ac6b-47d3-a84e-3379fd5082ab" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b4196292-f614-4957-a4f6-6a945a567441">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-b4196292-f614-4957-a4f6-6a945a567441" title="Permalink to this equation">¶</a></span>\[\begin{align}
 2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \\
  \sum_{i=0}^{N-1} d_i &amp;= N \nu .
 \end{align}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32210b0c-8295-4b63-be06-76cd7fe0b1fd">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-32210b0c-8295-4b63-be06-76cd7fe0b1fd" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-59798925-1837-4465-8bba-1aded948e779">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-59798925-1837-4465-8bba-1aded948e779" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
 \end{align}\]</div>
 <p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
@@ -774,8 +774,8 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 <dt>average</dt><dd><p class="card-text">The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-6cd9f733-030c-4c82-ae34-3ec72b54870e">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-6cd9f733-030c-4c82-ae34-3ec72b54870e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-16ab566a-8b69-48f9-9254-e6701e2375cf">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-16ab566a-8b69-48f9-9254-e6701e2375cf" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
 \end{align}\]</div>
 </div>

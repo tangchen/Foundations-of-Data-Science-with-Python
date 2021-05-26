@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.10. Review &#8212; Introduction to Data Science for Engineers</title>
+    <title>3.8. Review &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,9 +49,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="3.9. A Quick Preview of Two-Dimensional Statistical Methods" href="2d-scatter.html" />
+    <link rel="prev" title="3.7. A Quick Preview of Two-Dimensional Statistical Methods" href="2d-scatter.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -181,17 +183,17 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="hypothesis-testing.html">
-     3.7. Binary Hypothesis Testing with Real Data
+     3.6. Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="2d-scatter.html">
-     3.9. A Quick Preview of Two-Dimensional Statistical Methods
+     3.7. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.10. Review
+     3.8. Review
     </a>
    </li>
   </ul>
@@ -288,8 +290,35 @@
               <div>
                 
   <div class="section" id="review">
-<h1><span class="section-number">3.10. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
-<p>In this Chapter, we started working with real data. I demonstrated how to import data from CSV files into Pandas data frames and some of the basics of working with those data frames. Then we explored the data using scatter plots. Summary statistics, including mean, median, and mode were introduced and explained in terms of the error functions that they optimize. Then the median was used to partition the data into two using two different data features. Binary hypothesis testing was introduced, and bootstrap resampling was used to determine whether an observed difference in means could be attributable to random sampling. Finally, two-dimensional scatter plots were created by plotting one of the features of the data as a function of another feature of the data; fitting curves to the data was briefly explored, although the details are left for a later chapter.</p>
+<h1><span class="section-number">3.8. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
+<p>In this Chapter, we started working with real data, introduced Pands, partitions, summary statistics, binary hypothesis testing via bootstrap resampling, and two-dimensional statistics.</p>
+<p><strong>Key Take-aways:</strong></p>
+<ul class="simple">
+<li><p>Pandas stores data in dataframes. <strong>Dataframes store tabular data, like spreadsheets or database tables.</strong></p></li>
+<li><p><strong>Pandas can import data from standard file formats</strong>, including comma-separated value (CSV) files and Excel files.</p></li>
+<li><p><strong>Scatter plots are useful for initial data exploration and identifying outliers.</strong></p></li>
+<li><p><strong>Partitions divide data into disjoint subsets.</strong></p></li>
+<li><p><strong>Summary statistics represent a group of data by a single number.</strong></p></li>
+<li><p><strong>Common summary statistics minimize a measure of error from the summary statistic to the data:</strong></p>
+<ul>
+<li><p>Mode minimizes the <em>error count</em>.</p></li>
+<li><p>Median minimizes the <em>sum of absolute errors</em>.</p></li>
+<li><p>Average, or sample mean, minimizes the <em>sum of squared errors</em>.</p></li>
+</ul>
+</li>
+<li><p>A <strong>statistical hypothesis is a hypothesis that is testable using data.</strong></p></li>
+<li><p>A <strong>binary hypothesis test is a statistical test that decides between two competing statistical hypotheses.</strong></p>
+<ul>
+<li><p>A <strong>null hypothesis, denoted <span class="math notranslate nohighlight">\(H_0\)</span> assumes that the data being evaluated come from the same underlying random phenomena</strong>. Observed differences are caused by random sampling.</p></li>
+</ul>
+</li>
+<li><p><strong>Resampling is a model-free technique to draw new samples of data for use in statistical testing.</strong></p>
+<ul>
+<li><p><strong>Bootstrap resampling is when data is drawn from the pooled data with replacement.</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Two-dimensional statistical methods can be used to directly work with pairs of data</strong> through techniques such as curve fitting.</p></li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -317,7 +346,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="2d-scatter.html" title="previous page"><span class="section-number">3.9. </span>A Quick Preview of Two-Dimensional Statistical Methods</a>
+    <a class='left-prev' id="prev-link" href="2d-scatter.html" title="previous page"><span class="section-number">3.7. </span>A Quick Preview of Two-Dimensional Statistical Methods</a>
 
         </div>
         
