@@ -13,7 +13,13 @@
     - file: 01-intro/jupyter-start
     - file: 01-intro/python-start
 
-  - file: 02-first-stats/first-stats-sims
+  - file: 02-first-stats/intro
+    sections:
+    - file: 02-first-stats/motivating-problem
+    - file: 02-first-stats/first-sims
+    - file: 02-first-stats/first-vis
+    - file: 02-first-stats/first-stats
+    - file: 02-first-stats/review
 
   - file: 03-first-data/intro
     sections:
