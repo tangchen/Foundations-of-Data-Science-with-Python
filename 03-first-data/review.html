@@ -324,6 +324,295 @@
   <div class="section" id="review">
 <h1><span class="section-number">3.8. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
 <p>In this Chapter, we started working with real data, introduced Pands, partitions, summary statistics, binary hypothesis testing via bootstrap resampling, and two-dimensional statistics.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p><strong>Self-assessment:</strong></p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
+      <!-- QUESTION -->
+      <div id="quizQn" style="padding: 20px;
+      background: #4c93ba;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 10px;">
+      Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:</div>
+      <!-- ANSWER -->
+      <div id="quizAns" style="margin: 10px 0;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 10px;">
+      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checktZuskbGxGRmC()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>sum of squared errors  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checktZuskbGxGRmC()" 
+      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>sum of absolute errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checktZuskbGxGRmC()" 
+      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>Total number of errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checktZuskbGxGRmC()" 
+      id="quizo3" data-correct="False" data-feedback="There is no minimum value for this metric." data-answered=0>Sum of errors  </label>  </div></div>
+    <div id="tZuskbGxGRmC" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=3></div>
+    <script type="text/Javascript">
+
+        function checktZuskbGxGRmC(){
+
+            console.log(event.srcElement.id)           
+            console.log(event.srcElement.dataset.correct)   
+            console.log(event.srcElement.dataset.feedback)
+
+            answers= event.srcElement.parentElement.children;
+            console.log(answers);
+
+            var feedback = document.getElementById("tZuskbGxGRmC");
+            reset = false;
+            if (event.srcElement.dataset.correct=="True" )   {
+                if (event.srcElement.dataset.answered<=0) {
+                    if (feedback.dataset.answeredcorrect<0) {
+                        feedback.dataset.answeredcorrect=1;
+                        reset=true;
+                    } else {
+                       feedback.dataset.answeredcorrect++;
+                    }
+                    if (reset) {
+                        for (var i = 0; i < answers.length; i++) {
+                            child=answers[i];
+                            child.style.background="#fafafa";
+                            child.dataset.answered=0;
+                        }
+                    }
+                    event.srcElement.style.background="#d8ffc4";
+                    event.srcElement.dataset.answered=1;
+                    feedback.style.color="#009113";
+
+                }
+            } else {
+                if (feedback.dataset.answeredcorrect>0) {
+                    feedback.dataset.answeredcorrect=-1;
+                    reset=true;
+                } else {
+                   feedback.dataset.answeredcorrect--;
+                }
+
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        child=answers[i];
+                        child.style.background="#fafafa";
+                        child.dataset.answered=0;
+                    }
+                }
+                event.srcElement.style.background="#ffe8e8";
+                feedback.style.color="#DC2329";
+            }
+
+
+            numcorrect=feedback.dataset.numcorrect;
+            answeredcorrect=feedback.dataset.answeredcorrect;
+            if (answeredcorrect>=0) {
+                feedback.innerHTML=event.srcElement.dataset.feedback + " ["             + answeredcorrect + "/" + numcorrect + "]";
+            } else {
+                feedback.innerHTML=event.srcElement.dataset.feedback + "["             + 0 + "/" + numcorrect + "]";
+            }
+
+
+        }
+
+    </script>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
+      <!-- QUESTION -->
+      <div id="quizQn" style="padding: 20px;
+      background: #4c93ba;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 10px;">
+      Which of the following summary statistics minimizes the sum of squared errors to the data:</div>
+      <!-- ANSWER -->
+      <div id="quizAns" style="margin: 10px 0;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 10px;">
+      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checksfwIlEWicmgg()" 
+      id="quizo0" data-correct="True" data-feedback="Correct.">average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checksfwIlEWicmgg()" 
+      id="quizo1" data-correct="False" data-feedback="Try again.">median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checksfwIlEWicmgg()" 
+      id="quizo2" data-correct="False" data-feedback="Try again.">mode  </label>  </div></div>
+    <div id="sfwIlEWicmgg" style="font-size: 20px;text-align:center;"></div>
+    <script type="text/Javascript">
+
+        function checksfwIlEWicmgg(){
+
+            console.log(event.srcElement.id)           
+            console.log(event.srcElement.dataset.correct)   
+            console.log(event.srcElement.dataset.feedback)
+
+            answers= event.srcElement.parentElement.children;
+            console.log(answers);
+
+            for (var i = 0; i < answers.length; i++) {
+                child=answers[i];
+                child.style.background="#fafafa";
+            }
+            var feedback = document.getElementById("sfwIlEWicmgg");
+            feedback.innerHTML=event.srcElement.dataset.feedback;
+            if (event.srcElement.dataset.correct=="True")   {
+                event.srcElement.style.background="#d8ffc4";
+                feedback.style.color="#009113";
+            } else {
+                event.srcElement.style.background="#ffe8e8";
+                feedback.style.color="#DC2329";
+            }
+
+
+
+
+        }
+
+    </script>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
+      <!-- QUESTION -->
+      <div id="quizQn" style="padding: 20px;
+      background: #4c93ba;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 10px;">
+      Which of the following summary statistics minimizes the sum of absolute errors to the data:</div>
+      <!-- ANSWER -->
+      <div id="quizAns" style="margin: 10px 0;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 10px;">
+      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checkUUbrqVNcCWPI()" 
+      id="quizo0" data-correct="False" data-feedback="Try again.">average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checkUUbrqVNcCWPI()" 
+      id="quizo1" data-correct="True" data-feedback="Correct.">median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checkUUbrqVNcCWPI()" 
+      id="quizo2" data-correct="False" data-feedback="Try again.">mode  </label>  </div></div>
+    <div id="UUbrqVNcCWPI" style="font-size: 20px;text-align:center;"></div>
+    <script type="text/Javascript">
+
+        function checkUUbrqVNcCWPI(){
+
+            console.log(event.srcElement.id)           
+            console.log(event.srcElement.dataset.correct)   
+            console.log(event.srcElement.dataset.feedback)
+
+            answers= event.srcElement.parentElement.children;
+            console.log(answers);
+
+            for (var i = 0; i < answers.length; i++) {
+                child=answers[i];
+                child.style.background="#fafafa";
+            }
+            var feedback = document.getElementById("UUbrqVNcCWPI");
+            feedback.innerHTML=event.srcElement.dataset.feedback;
+            if (event.srcElement.dataset.correct=="True")   {
+                event.srcElement.style.background="#d8ffc4";
+                feedback.style.color="#009113";
+            } else {
+                event.srcElement.style.background="#ffe8e8";
+                feedback.style.color="#DC2329";
+            }
+
+
+
+
+        }
+
+    </script>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
+      <!-- QUESTION -->
+      <div id="quizQn" style="padding: 20px;
+      background: #4c93ba;
+      color: #fff;
+      font-size: 24px;
+      border-radius: 10px;">
+      Which of the following summary statistics minimizes the number of non-zero errors to the data:</div>
+      <!-- ANSWER -->
+      <div id="quizAns" style="margin: 10px 0;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 10px;">
+      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checkfrHacLkJLYnD()" 
+      id="quizo0" data-correct="False" data-feedback="Try again.">average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checkfrHacLkJLYnD()" 
+      id="quizo1" data-correct="False" data-feedback="Try again.">median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 20px; cursor: pointer; text-align: center;" 
+      onclick="checkfrHacLkJLYnD()" 
+      id="quizo2" data-correct="True" data-feedback="Correct.">mode  </label>  </div></div>
+    <div id="frHacLkJLYnD" style="font-size: 20px;text-align:center;"></div>
+    <script type="text/Javascript">
+
+        function checkfrHacLkJLYnD(){
+
+            console.log(event.srcElement.id)           
+            console.log(event.srcElement.dataset.correct)   
+            console.log(event.srcElement.dataset.feedback)
+
+            answers= event.srcElement.parentElement.children;
+            console.log(answers);
+
+            for (var i = 0; i < answers.length; i++) {
+                child=answers[i];
+                child.style.background="#fafafa";
+            }
+            var feedback = document.getElementById("frHacLkJLYnD");
+            feedback.innerHTML=event.srcElement.dataset.feedback;
+            if (event.srcElement.dataset.correct=="True")   {
+                event.srcElement.style.background="#d8ffc4";
+                feedback.style.color="#009113";
+            } else {
+                event.srcElement.style.background="#ffe8e8";
+                feedback.style.color="#DC2329";
+            }
+
+
+
+
+        }
+
+    </script>
+</div></div>
+</div>
 <p><strong>Key Take-aways:</strong></p>
 <ul class="simple">
 <li><p>Pandas stores data in dataframes. <strong>Dataframes store tabular data, like spreadsheets or database tables.</strong></p></li>
