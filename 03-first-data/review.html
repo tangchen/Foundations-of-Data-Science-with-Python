@@ -324,7 +324,15 @@
   <div class="section" id="review">
 <h1><span class="section-number">3.8. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
 <p>In this Chapter, we started working with real data, introduced Pands, partitions, summary statistics, binary hypothesis testing via bootstrap resampling, and two-dimensional statistics.</p>
-<div class="cell tag_remove-input docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">quizlet</span> <span class="kn">import</span> <span class="n">display_quiz</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>Self-assessment:</strong></p>
 <div class="cell tag_remove-input docutils container">
@@ -345,24 +353,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkbFHlrZujmdis()" 
-      id="quizo0" data-correct="False" data-feedback="There is no minimum value for this metric." data-answered=0>sum of errors  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkzrjacpBOEiDA()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>sum of squared errors  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkbFHlrZujmdis()" 
-      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>sum of absolute errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkzrjacpBOEiDA()" 
+      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>total number of errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkbFHlrZujmdis()" 
-      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>sum of squared errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkzrjacpBOEiDA()" 
+      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>sum of absolute errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkbFHlrZujmdis()" 
-      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>total number of errors  </label>  </div></div>
-    <div id="bFHlrZujmdis" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=3></div>
+      onclick="checkzrjacpBOEiDA()" 
+      id="quizo3" data-correct="False" data-feedback="There is no minimum value for this metric." data-answered=0>sum of errors  </label>  </div></div>
+    <div id="zrjacpBOEiDA" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=3></div>
         <script type="text/Javascript">
 
-        function checkbFHlrZujmdis(){
+        function checkzrjacpBOEiDA(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -371,7 +379,7 @@
                 answers= event.srcElement.parentElement.children;
                 console.log(answers);
 
-                var feedback = document.getElementById("bFHlrZujmdis");
+                var feedback = document.getElementById("zrjacpBOEiDA");
                 reset = false;
                 if (event.srcElement.dataset.correct=="True" )   {
                     if (event.srcElement.dataset.answered<=0) {
@@ -445,20 +453,20 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkHWDlyzbxwltL()" 
-      id="quizo0" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkFeBNUrJDxtnL()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkHWDlyzbxwltL()" 
-      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkFeBNUrJDxtnL()" 
+      id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkHWDlyzbxwltL()" 
-      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>median  </label>  </div></div>
-    <div id="HWDlyzbxwltL" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checkFeBNUrJDxtnL()" 
+      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label>  </div></div>
+    <div id="FeBNUrJDxtnL" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkHWDlyzbxwltL(){
+        function checkFeBNUrJDxtnL(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -471,7 +479,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("HWDlyzbxwltL");
+                var feedback = document.getElementById("FeBNUrJDxtnL");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -507,20 +515,20 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checksMfCtPxiVboz()" 
-      id="quizo0" data-correct="False" data-feedback="Try again." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkJKjKtnyoKwrO()" 
+      id="quizo0" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checksMfCtPxiVboz()" 
+      onclick="checkJKjKtnyoKwrO()" 
       id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checksMfCtPxiVboz()" 
-      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label>  </div></div>
-    <div id="sMfCtPxiVboz" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checkJKjKtnyoKwrO()" 
+      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>average  </label>  </div></div>
+    <div id="JKjKtnyoKwrO" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checksMfCtPxiVboz(){
+        function checkJKjKtnyoKwrO(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -533,7 +541,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("sMfCtPxiVboz");
+                var feedback = document.getElementById("JKjKtnyoKwrO");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -569,20 +577,20 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkUralMFDEJtgm()" 
+      onclick="checkTXBNYNWrDnWO()" 
       id="quizo0" data-correct="False" data-feedback="Try again." data-answered=0>median  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkUralMFDEJtgm()" 
-      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkTXBNYNWrDnWO()" 
+      id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkUralMFDEJtgm()" 
-      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>average  </label>  </div></div>
-    <div id="UralMFDEJtgm" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checkTXBNYNWrDnWO()" 
+      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>mode  </label>  </div></div>
+    <div id="TXBNYNWrDnWO" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkUralMFDEJtgm(){
+        function checkTXBNYNWrDnWO(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -595,7 +603,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("UralMFDEJtgm");
+                var feedback = document.getElementById("TXBNYNWrDnWO");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -658,24 +666,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkdXPwlkhRciJK()" 
-      id="quizo0" data-correct="False" data-feedback="Different population characteristics often produce variations in data, but these are not erroneous values and not considered outliers." data-answered=0>different population characteristics  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkmtlGbsOZhnss()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>data entry errors  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkdXPwlkhRciJK()" 
-      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>unit conversion errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkmtlGbsOZhnss()" 
+      id="quizo1" data-correct="False" data-feedback="Different population characteristics often produce variations in data, but these are not erroneous values and not considered outliers." data-answered=0>different population characteristics  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkdXPwlkhRciJK()" 
-      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>measurement errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkmtlGbsOZhnss()" 
+      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>unit conversion errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkdXPwlkhRciJK()" 
-      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>data entry errors  </label>  </div></div>
-    <div id="dXPwlkhRciJK" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=3></div>
+      onclick="checkmtlGbsOZhnss()" 
+      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>measurement errors  </label>  </div></div>
+    <div id="mtlGbsOZhnss" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=3></div>
         <script type="text/Javascript">
 
-        function checkdXPwlkhRciJK(){
+        function checkmtlGbsOZhnss(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -684,7 +692,7 @@
                 answers= event.srcElement.parentElement.children;
                 console.log(answers);
 
-                var feedback = document.getElementById("dXPwlkhRciJK");
+                var feedback = document.getElementById("mtlGbsOZhnss");
                 reset = false;
                 if (event.srcElement.dataset.correct=="True" )   {
                     if (event.srcElement.dataset.answered<=0) {
