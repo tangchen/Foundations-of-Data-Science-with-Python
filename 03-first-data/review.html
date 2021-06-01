@@ -332,9 +332,9 @@
 <div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
       <!-- QUESTION -->
       <div id="quizQn" style="padding: 20px;
-      background: #4c93ba;
+      background: #feb44A;
       color: #fff;
-      font-size: 24px;
+      font-size: 20px;
       border-radius: 10px;">
       Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:</div>
       <!-- ANSWER -->
@@ -344,43 +344,63 @@
       grid-gap: 10px;">
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkNeHYqcwOMetE()" 
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkyxXxiCcWUNIM()" 
       id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>sum of squared errors  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkNeHYqcwOMetE()" 
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkyxXxiCcWUNIM()" 
       id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>sum of absolute errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkNeHYqcwOMetE()" 
-      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>total number of errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkyxXxiCcWUNIM()" 
+      id="quizo2" data-correct="False" data-feedback="There is no minimum value for this metric." data-answered=0>sum of errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkNeHYqcwOMetE()" 
-      id="quizo3" data-correct="False" data-feedback="There is no minimum value for this metric." data-answered=0>Sum of errors  </label>  </div></div>
-    <div id="NeHYqcwOMetE" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=3></div>
-    <script type="text/Javascript">
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkyxXxiCcWUNIM()" 
+      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>total number of errors  </label>  </div></div>
+    <div id="yxXxiCcWUNIM" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=3></div>
+        <script type="text/Javascript">
 
-        function checkNeHYqcwOMetE(){
+        function checkyxXxiCcWUNIM(){
 
-            console.log(event.srcElement.id)           
-            console.log(event.srcElement.dataset.correct)   
-            console.log(event.srcElement.dataset.feedback)
+                console.log(event.srcElement.id)           
+                console.log(event.srcElement.dataset.correct)   
+                console.log(event.srcElement.dataset.feedback)
 
-            answers= event.srcElement.parentElement.children;
-            console.log(answers);
+                answers= event.srcElement.parentElement.children;
+                console.log(answers);
 
-            var feedback = document.getElementById("NeHYqcwOMetE");
-            reset = false;
-            if (event.srcElement.dataset.correct=="True" )   {
-                if (event.srcElement.dataset.answered<=0) {
-                    if (feedback.dataset.answeredcorrect<0) {
-                        feedback.dataset.answeredcorrect=1;
+                var feedback = document.getElementById("yxXxiCcWUNIM");
+                reset = false;
+                if (event.srcElement.dataset.correct=="True" )   {
+                    if (event.srcElement.dataset.answered<=0) {
+                        if (feedback.dataset.answeredcorrect<0) {
+                            feedback.dataset.answeredcorrect=1;
+                            reset=true;
+                        } else {
+                           feedback.dataset.answeredcorrect++;
+                        }
+                        if (reset) {
+                            for (var i = 0; i < answers.length; i++) {
+                                child=answers[i];
+                                child.style.background="#fafafa";
+                                child.dataset.answered=0;
+                            }
+                        }
+                        event.srcElement.style.background="#d8ffc4";
+                        event.srcElement.dataset.answered=1;
+                        feedback.style.color="#009113";
+
+                    }
+                } else {
+                    if (feedback.dataset.answeredcorrect>0) {
+                        feedback.dataset.answeredcorrect=-1;
                         reset=true;
                     } else {
-                       feedback.dataset.answeredcorrect++;
+                       feedback.dataset.answeredcorrect--;
                     }
+
                     if (reset) {
                         for (var i = 0; i < answers.length; i++) {
                             child=answers[i];
@@ -388,43 +408,23 @@
                             child.dataset.answered=0;
                         }
                     }
-                    event.srcElement.style.background="#d8ffc4";
-                    event.srcElement.dataset.answered=1;
-                    feedback.style.color="#009113";
-
+                    event.srcElement.style.background="#ffe8e8";
+                    feedback.style.color="#DC2329";
                 }
-            } else {
-                if (feedback.dataset.answeredcorrect>0) {
-                    feedback.dataset.answeredcorrect=-1;
-                    reset=true;
+
+
+                numcorrect=feedback.dataset.numcorrect;
+                answeredcorrect=feedback.dataset.answeredcorrect;
+                if (answeredcorrect>=0) {
+                    feedback.innerHTML=event.srcElement.dataset.feedback + " ["                 + answeredcorrect + "/" + numcorrect + "]";
                 } else {
-                   feedback.dataset.answeredcorrect--;
+                    feedback.innerHTML=event.srcElement.dataset.feedback + "["                 + 0 + "/" + numcorrect + "]";
                 }
 
-                if (reset) {
-                    for (var i = 0; i < answers.length; i++) {
-                        child=answers[i];
-                        child.style.background="#fafafa";
-                        child.dataset.answered=0;
-                    }
-                }
-                event.srcElement.style.background="#ffe8e8";
-                feedback.style.color="#DC2329";
+
             }
 
-
-            numcorrect=feedback.dataset.numcorrect;
-            answeredcorrect=feedback.dataset.answeredcorrect;
-            if (answeredcorrect>=0) {
-                feedback.innerHTML=event.srcElement.dataset.feedback + " ["             + answeredcorrect + "/" + numcorrect + "]";
-            } else {
-                feedback.innerHTML=event.srcElement.dataset.feedback + "["             + 0 + "/" + numcorrect + "]";
-            }
-
-
-        }
-
-    </script>
+        </script>
 </div></div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -434,7 +434,7 @@
       <div id="quizQn" style="padding: 20px;
       background: #4c93ba;
       color: #fff;
-      font-size: 24px;
+      font-size: 20px;
       border-radius: 10px;">
       Which of the following summary statistics minimizes the sum of squared errors to the data:</div>
       <!-- ANSWER -->
@@ -444,49 +444,49 @@
       grid-gap: 10px;">
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checksfwIlEWicmgg()" 
-      id="quizo0" data-correct="True" data-feedback="Correct.">average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkYfPBKCDyJKtP()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checksfwIlEWicmgg()" 
-      id="quizo1" data-correct="False" data-feedback="Try again.">median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkYfPBKCDyJKtP()" 
+      id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checksfwIlEWicmgg()" 
-      id="quizo2" data-correct="False" data-feedback="Try again.">mode  </label>  </div></div>
-    <div id="sfwIlEWicmgg" style="font-size: 20px;text-align:center;"></div>
-    <script type="text/Javascript">
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkYfPBKCDyJKtP()" 
+      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>median  </label>  </div></div>
+    <div id="YfPBKCDyJKtP" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
+        <script type="text/Javascript">
 
-        function checksfwIlEWicmgg(){
+        function checkYfPBKCDyJKtP(){
 
-            console.log(event.srcElement.id)           
-            console.log(event.srcElement.dataset.correct)   
-            console.log(event.srcElement.dataset.feedback)
+                console.log(event.srcElement.id)           
+                console.log(event.srcElement.dataset.correct)   
+                console.log(event.srcElement.dataset.feedback)
 
-            answers= event.srcElement.parentElement.children;
-            console.log(answers);
+                answers= event.srcElement.parentElement.children;
+                console.log(answers);
 
-            for (var i = 0; i < answers.length; i++) {
-                child=answers[i];
-                child.style.background="#fafafa";
+                for (var i = 0; i < answers.length; i++) {
+                    child=answers[i];
+                    child.style.background="#fafafa";
+                }
+                var feedback = document.getElementById("YfPBKCDyJKtP");
+                feedback.innerHTML=event.srcElement.dataset.feedback;
+                if (event.srcElement.dataset.correct=="True")   {
+                    event.srcElement.style.background="#d8ffc4";
+                    feedback.style.color="#009113";
+                } else {
+                    event.srcElement.style.background="#ffe8e8";
+                    feedback.style.color="#DC2329";
+                }
+
+
+
+
             }
-            var feedback = document.getElementById("sfwIlEWicmgg");
-            feedback.innerHTML=event.srcElement.dataset.feedback;
-            if (event.srcElement.dataset.correct=="True")   {
-                event.srcElement.style.background="#d8ffc4";
-                feedback.style.color="#009113";
-            } else {
-                event.srcElement.style.background="#ffe8e8";
-                feedback.style.color="#DC2329";
-            }
 
-
-
-
-        }
-
-    </script>
+        </script>
 </div></div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -496,7 +496,7 @@
       <div id="quizQn" style="padding: 20px;
       background: #4c93ba;
       color: #fff;
-      font-size: 24px;
+      font-size: 20px;
       border-radius: 10px;">
       Which of the following summary statistics minimizes the sum of absolute errors to the data:</div>
       <!-- ANSWER -->
@@ -506,49 +506,49 @@
       grid-gap: 10px;">
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkUUbrqVNcCWPI()" 
-      id="quizo0" data-correct="False" data-feedback="Try again.">average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checksoKRUlRKlAHH()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>median  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkUUbrqVNcCWPI()" 
-      id="quizo1" data-correct="True" data-feedback="Correct.">median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checksoKRUlRKlAHH()" 
+      id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkUUbrqVNcCWPI()" 
-      id="quizo2" data-correct="False" data-feedback="Try again.">mode  </label>  </div></div>
-    <div id="UUbrqVNcCWPI" style="font-size: 20px;text-align:center;"></div>
-    <script type="text/Javascript">
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checksoKRUlRKlAHH()" 
+      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label>  </div></div>
+    <div id="soKRUlRKlAHH" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
+        <script type="text/Javascript">
 
-        function checkUUbrqVNcCWPI(){
+        function checksoKRUlRKlAHH(){
 
-            console.log(event.srcElement.id)           
-            console.log(event.srcElement.dataset.correct)   
-            console.log(event.srcElement.dataset.feedback)
+                console.log(event.srcElement.id)           
+                console.log(event.srcElement.dataset.correct)   
+                console.log(event.srcElement.dataset.feedback)
 
-            answers= event.srcElement.parentElement.children;
-            console.log(answers);
+                answers= event.srcElement.parentElement.children;
+                console.log(answers);
 
-            for (var i = 0; i < answers.length; i++) {
-                child=answers[i];
-                child.style.background="#fafafa";
+                for (var i = 0; i < answers.length; i++) {
+                    child=answers[i];
+                    child.style.background="#fafafa";
+                }
+                var feedback = document.getElementById("soKRUlRKlAHH");
+                feedback.innerHTML=event.srcElement.dataset.feedback;
+                if (event.srcElement.dataset.correct=="True")   {
+                    event.srcElement.style.background="#d8ffc4";
+                    feedback.style.color="#009113";
+                } else {
+                    event.srcElement.style.background="#ffe8e8";
+                    feedback.style.color="#DC2329";
+                }
+
+
+
+
             }
-            var feedback = document.getElementById("UUbrqVNcCWPI");
-            feedback.innerHTML=event.srcElement.dataset.feedback;
-            if (event.srcElement.dataset.correct=="True")   {
-                event.srcElement.style.background="#d8ffc4";
-                feedback.style.color="#009113";
-            } else {
-                event.srcElement.style.background="#ffe8e8";
-                feedback.style.color="#DC2329";
-            }
 
-
-
-
-        }
-
-    </script>
+        </script>
 </div></div>
 </div>
 <div class="cell tag_remove-input docutils container">
@@ -558,7 +558,7 @@
       <div id="quizQn" style="padding: 20px;
       background: #4c93ba;
       color: #fff;
-      font-size: 24px;
+      font-size: 20px;
       border-radius: 10px;">
       Which of the following summary statistics minimizes the number of non-zero errors to the data:</div>
       <!-- ANSWER -->
@@ -568,49 +568,176 @@
       grid-gap: 10px;">
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkfrHacLkJLYnD()" 
-      id="quizo0" data-correct="False" data-feedback="Try again.">average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkaWHIfHdZQiRJ()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkfrHacLkJLYnD()" 
-      id="quizo1" data-correct="False" data-feedback="Try again.">median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkaWHIfHdZQiRJ()" 
+      id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 20px; cursor: pointer; text-align: center;" 
-      onclick="checkfrHacLkJLYnD()" 
-      id="quizo2" data-correct="True" data-feedback="Correct.">mode  </label>  </div></div>
-    <div id="frHacLkJLYnD" style="font-size: 20px;text-align:center;"></div>
-    <script type="text/Javascript">
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkaWHIfHdZQiRJ()" 
+      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>average  </label>  </div></div>
+    <div id="aWHIfHdZQiRJ" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
+        <script type="text/Javascript">
 
-        function checkfrHacLkJLYnD(){
+        function checkaWHIfHdZQiRJ(){
 
-            console.log(event.srcElement.id)           
-            console.log(event.srcElement.dataset.correct)   
-            console.log(event.srcElement.dataset.feedback)
+                console.log(event.srcElement.id)           
+                console.log(event.srcElement.dataset.correct)   
+                console.log(event.srcElement.dataset.feedback)
 
-            answers= event.srcElement.parentElement.children;
-            console.log(answers);
+                answers= event.srcElement.parentElement.children;
+                console.log(answers);
 
-            for (var i = 0; i < answers.length; i++) {
-                child=answers[i];
-                child.style.background="#fafafa";
+                for (var i = 0; i < answers.length; i++) {
+                    child=answers[i];
+                    child.style.background="#fafafa";
+                }
+                var feedback = document.getElementById("aWHIfHdZQiRJ");
+                feedback.innerHTML=event.srcElement.dataset.feedback;
+                if (event.srcElement.dataset.correct=="True")   {
+                    event.srcElement.style.background="#d8ffc4";
+                    feedback.style.color="#009113";
+                } else {
+                    event.srcElement.style.background="#ffe8e8";
+                    feedback.style.color="#DC2329";
+                }
+
+
+
+
             }
-            var feedback = document.getElementById("frHacLkJLYnD");
-            feedback.innerHTML=event.srcElement.dataset.feedback;
-            if (event.srcElement.dataset.correct=="True")   {
-                event.srcElement.style.background="#d8ffc4";
-                feedback.style.color="#009113";
-            } else {
-                event.srcElement.style.background="#ffe8e8";
-                feedback.style.color="#DC2329";
+
+        </script>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">question</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;Choose all of the following that are typical causes of outliers in data sets:&#39;&#39;&#39;</span>
+<span class="n">answers</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">{</span><span class="s1">&#39;answer&#39;</span><span class="p">:</span><span class="s2">&quot;data entry errors&quot;</span><span class="p">,</span>
+     <span class="s1">&#39;correct&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+     <span class="s1">&#39;feedback&#39;</span><span class="p">:</span> <span class="s2">&quot;Correct.&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;answer&#39;</span><span class="p">:</span> <span class="s2">&quot;unit conversion errors&quot;</span><span class="p">,</span>
+     <span class="s1">&#39;correct&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+     <span class="s1">&#39;feedback&#39;</span><span class="p">:</span> <span class="s2">&quot;Correct.&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;answer&#39;</span><span class="p">:</span> <span class="s2">&quot;measurement errors&quot;</span><span class="p">,</span>
+     <span class="s1">&#39;correct&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+     <span class="s1">&#39;feedback&#39;</span><span class="p">:</span> <span class="s2">&quot;Correct.&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;answer&#39;</span><span class="p">:</span> <span class="s2">&quot;different population characteristics&quot;</span><span class="p">,</span>
+     <span class="s1">&#39;correct&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+     <span class="s1">&#39;feedback&#39;</span><span class="p">:</span> <span class="s2">&quot;Different population characteristics often produce variations in data, but these are not erroneous values and not considered outliers.&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+
+<span class="n">display_quiz</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">answers</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="n">question_background</span><span class="o">=</span><span class="s2">&quot;#feb44A&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
+      <!-- QUESTION -->
+      <div id="quizQn" style="padding: 20px;
+      background: #feb44A;
+      color: #fff;
+      font-size: 20px;
+      border-radius: 10px;">
+      Choose all of the following that are typical causes of outliers in data sets:</div>
+      <!-- ANSWER -->
+      <div id="quizAns" style="margin: 10px 0;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 10px;">
+      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkFLUEwHYEUEOt()" 
+      id="quizo0" data-correct="False" data-feedback="Different population characteristics often produce variations in data, but these are not erroneous values and not considered outliers." data-answered=0>different population characteristics  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkFLUEwHYEUEOt()" 
+      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>data entry errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkFLUEwHYEUEOt()" 
+      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>unit conversion errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkFLUEwHYEUEOt()" 
+      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>measurement errors  </label>  </div></div>
+    <div id="FLUEwHYEUEOt" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=3></div>
+        <script type="text/Javascript">
+
+        function checkFLUEwHYEUEOt(){
+
+                console.log(event.srcElement.id)           
+                console.log(event.srcElement.dataset.correct)   
+                console.log(event.srcElement.dataset.feedback)
+
+                answers= event.srcElement.parentElement.children;
+                console.log(answers);
+
+                var feedback = document.getElementById("FLUEwHYEUEOt");
+                reset = false;
+                if (event.srcElement.dataset.correct=="True" )   {
+                    if (event.srcElement.dataset.answered<=0) {
+                        if (feedback.dataset.answeredcorrect<0) {
+                            feedback.dataset.answeredcorrect=1;
+                            reset=true;
+                        } else {
+                           feedback.dataset.answeredcorrect++;
+                        }
+                        if (reset) {
+                            for (var i = 0; i < answers.length; i++) {
+                                child=answers[i];
+                                child.style.background="#fafafa";
+                                child.dataset.answered=0;
+                            }
+                        }
+                        event.srcElement.style.background="#d8ffc4";
+                        event.srcElement.dataset.answered=1;
+                        feedback.style.color="#009113";
+
+                    }
+                } else {
+                    if (feedback.dataset.answeredcorrect>0) {
+                        feedback.dataset.answeredcorrect=-1;
+                        reset=true;
+                    } else {
+                       feedback.dataset.answeredcorrect--;
+                    }
+
+                    if (reset) {
+                        for (var i = 0; i < answers.length; i++) {
+                            child=answers[i];
+                            child.style.background="#fafafa";
+                            child.dataset.answered=0;
+                        }
+                    }
+                    event.srcElement.style.background="#ffe8e8";
+                    feedback.style.color="#DC2329";
+                }
+
+
+                numcorrect=feedback.dataset.numcorrect;
+                answeredcorrect=feedback.dataset.answeredcorrect;
+                if (answeredcorrect>=0) {
+                    feedback.innerHTML=event.srcElement.dataset.feedback + " ["                 + answeredcorrect + "/" + numcorrect + "]";
+                } else {
+                    feedback.innerHTML=event.srcElement.dataset.feedback + "["                 + 0 + "/" + numcorrect + "]";
+                }
+
+
             }
 
-
-
-
-        }
-
-    </script>
+        </script>
 </div></div>
 </div>
 <p><strong>Key Take-aways:</strong></p>
