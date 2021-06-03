@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.5. Review &#8212; Introduction to Data Science for Engineers</title>
+    <title>4.1. Outcomes, Sample Spaces, and Events &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,10 +49,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. First Visualizations and Statistical Tests with Real Data" href="../03-first-data/intro.html" />
-    <link rel="prev" title="2.4. First Statistical Tests" href="first-stats.html" />
+    <link rel="next" title="4.2. Relative Frequencies and Probabilities" href="relative-frequency.html" />
+    <link rel="prev" title="4. Introduction to Probability" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -135,38 +137,38 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-first-stats/intro.html">
    2. First Simulations, and Visualizations, and Statistical Tests
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="motivating-problem.html">
+    <a class="reference internal" href="../02-first-stats/motivating-problem.html">
      2.1. Motivating Problem: Is This Coin Fair?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-sims.html">
+    <a class="reference internal" href="../02-first-stats/first-sims.html">
      2.2. First Computer Simulations
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-vis.html">
+    <a class="reference internal" href="../02-first-stats/first-vis.html">
      2.3. First Visualizations: Scatter Plots and Histograms
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-stats.html">
+    <a class="reference internal" href="../02-first-stats/first-stats.html">
      2.4. First Statistical Tests
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-first-stats/review.html">
      2.5. Review
     </a>
    </li>
@@ -224,33 +226,33 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04-probability1/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    4. Introduction to Probability
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/outcomes-samplespaces-events.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      4.1. Outcomes, Sample Spaces, and Events
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/relative-frequency.html">
+    <a class="reference internal" href="relative-frequency.html">
      4.2. Relative Frequencies and Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/fair-experiments.html">
+    <a class="reference internal" href="fair-experiments.html">
      4.3. Fair Experiments
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/axiomatic-prob.html">
+    <a class="reference internal" href="axiomatic-prob.html">
      4.4. Axiomatic  Probability
     </a>
    </li>
@@ -297,7 +299,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/02-first-stats/review.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/04-probability1/outcomes-samplespaces-events.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -322,7 +324,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02-first-stats/review.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04-probability1/outcomes-samplespaces-events.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -347,156 +349,87 @@
         
               <div>
                 
-  <div class="section" id="review">
-<h1><span class="section-number">2.5. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
-<p>This chapter uses a simple experiment to introduce key concepts that will be used throughout this book.</p>
-<div class="cell tag_remove-input docutils container">
+  <div class="section" id="outcomes-sample-spaces-and-events">
+<h1><span class="section-number">4.1. </span>Outcomes, Sample Spaces, and Events<a class="headerlink" href="#outcomes-sample-spaces-and-events" title="Permalink to this headline">¶</a></h1>
+<p>We begin with building some intuition about probability by further investigating relative frequency. We start by defining what can be an <em>outcome</em> of a random experiment:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
 </div>
-<p><strong>Self-Check:</strong></p>
-<p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
-      <!-- QUESTION -->
-      <div id="quizQn" style="padding: 20px;
-      background: #6F78FF;
-      color: #fff;
-      font-size: 20px;
-      border-radius: 10px;">
-      Which of these cannot be a probability?</div>
-      <!-- ANSWER -->
-      <div id="quizAns" style="margin: 10px 0;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 10px;">
-      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo0" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0.5  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo1" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>1  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo2" data-correct="True" data-feedback="Correct! Probabilities must be numbers between 0 and 1." data-answered=0>-0.5  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo3" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0  </label>  </div></div>
-    <div id="IIvjJtAGCTXE" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
-        <script type="text/Javascript">
-
-        function checkIIvjJtAGCTXE(){
-
-                console.log(event.srcElement.id)           
-                console.log(event.srcElement.dataset.correct)   
-                console.log(event.srcElement.dataset.feedback)
-
-                answers= event.srcElement.parentElement.children;
-                console.log(answers);
-
-                for (var i = 0; i < answers.length; i++) {
-                    child=answers[i];
-                    child.style.background="#fafafa";
-                }
-                var feedback = document.getElementById("IIvjJtAGCTXE");
-                feedback.innerHTML=event.srcElement.dataset.feedback;
-                if (event.srcElement.dataset.correct=="True")   {
-                    event.srcElement.style.background="#d8ffc4";
-                    feedback.style.color="#009113";
-                } else {
-                    event.srcElement.style.background="#ffe8e8";
-                    feedback.style.color="#DC2329";
-                }
-
-
-
-
-            }
-
-        </script>
-</div></div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>outcome (of a random experiment)</dt><dd><p class="card-text">An outcome of a random experiment is a result of the experiment that cannot be further decomposed.</p>
+</dd>
+</dl>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
-      <!-- QUESTION -->
-      <div id="quizQn" style="padding: 20px;
-      background: #6F78FF;
-      color: #fff;
-      font-size: 20px;
-      border-radius: 10px;">
-      Determine the relative frequency of the outcome 3 in the following data set:
-
-2,3,5,2,3</div>
-      <!-- ANSWER -->
-      <div id="quizAns" style="margin: 10px 0;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 10px;">
-      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo0" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1." data-answered=0>2  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo1" data-correct="True" data-feedback="Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4." data-answered=0>0.4  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo2" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0." data-answered=0>0  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo3" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments." data-answered=0>0.6  </label>  </div></div>
-    <div id="fLYNMlsinTak" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
-        <script type="text/Javascript">
-
-        function checkfLYNMlsinTak(){
-
-                console.log(event.srcElement.id)           
-                console.log(event.srcElement.dataset.correct)   
-                console.log(event.srcElement.dataset.feedback)
-
-                answers= event.srcElement.parentElement.children;
-                console.log(answers);
-
-                for (var i = 0; i < answers.length; i++) {
-                    child=answers[i];
-                    child.style.background="#fafafa";
-                }
-                var feedback = document.getElementById("fLYNMlsinTak");
-                feedback.innerHTML=event.srcElement.dataset.feedback;
-                if (event.srcElement.dataset.correct=="True")   {
-                    event.srcElement.style.background="#d8ffc4";
-                    feedback.style.color="#009113";
-                } else {
-                    event.srcElement.style.background="#ffe8e8";
-                    feedback.style.color="#DC2329";
-                }
-
-
-
-
-            }
-
-        </script>
-</div></div>
 </div>
-<p><strong>Take-aways:</strong></p>
-<ul class="simple">
-<li><p><strong>Computer simulations can be used to efficiently conduct experiments of random phenomena.</strong></p></li>
-<li><p><strong>Scatter plots are a common visualization tool to see all the values of some numerical data.</strong></p></li>
-<li><p><strong>Histograms are a common visualization tool to see how the values of a numerical data set are distributed.</strong> Unlike scatter plots, the histogram summarizes information about the data: the values of the data cannot be recovered from the histogram.</p></li>
-<li><p><strong>Relative frequency of an event is the proportion of experiments where that event occurred.</strong>  For many experiments, if the number of observed experiment outcomes is large, the relative frequency will converge to the true probability of the event.</p></li>
-<li><p><strong>Simulations can be used to estimate the probability of some event by measuring the relative frequency.</strong></p></li>
-<li><p><strong>Simulations can be used to determine how likely an observed event has occurred under specific experimental assumptions.</strong></p></li>
-</ul>
+</div>
+</div>
+</div>
+<p>Consider rolling a standard six-sided die and observing the top face. The possible outcomes are 1,2,3,4,5, and 6. For convenience, we place all possible outcomes into a set, which is an <em>unordered</em> collection of items. Sets are written mathematically as a comma-separated list of items within curly braces: <span class="math notranslate nohighlight">\(\{~~ \}\)</span>.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>sample space</dt><dd><p class="card-text">The sample space of a random experiment is the set of all possible outcomes.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We will denote the sample space by <span class="math notranslate nohighlight">\(S\)</span>. Another common notation is <span class="math notranslate nohighlight">\(\Omega\)</span> (capital omega). When referring to multiple experiments, we will often use subscripts to distinguish the different sample spaces. So, for our six-sided die, the sample space is</p>
+<p>$<span class="math notranslate nohighlight">\(
+S_1=\{1,2,3,4,5,6\}
+\)</span>$.</p>
+<p>Note that outcomes are not the only types of experimental results that we can ask about. For the six-sided die, we could ask if the result is even or if the result is less than 3. These are not outcomes. Instead they can be written as sets of outcomes. We call these events:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>event</dt><dd><p class="card-text">An event is a set of outcomes. The event occurs if the result of the experiment is any of the outcomes in the set.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If we roll a six-sided die, the event that the outcome is even can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+E = \{2,4,6 \}.
+\]</div>
+<p>Note that we have assigned the notation <span class="math notranslate nohighlight">\(E\)</span> to refer to this event. We will often create notation to refer to events to formalize and simplify our mathematical representations.</p>
+<p>If we roll a six-sided die, the event that the outcome is less than 3 can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+G = \{1,2\}.
+\]</div>
+<p>Sample spaces can contain any type of item. For instance, we can refer to the sample space for flipping a coin as</p>
+<div class="math notranslate nohighlight">
+\[
+S_2 = \{ \mbox{heads}, \mbox{tails} \}.
+\]</div>
+<p>More typically, we would introduce mathematical notation <span class="math notranslate nohighlight">\(H=\mbox{outcome is heads}\)</span>, <span class="math notranslate nohighlight">\(T=\mbox{outcome is tails}\)</span>. Then we can use the more concise notation</p>
+<div class="math notranslate nohighlight">
+\[
+S_2 = \{ H, T \}.
+\]</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -512,7 +445,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./02-first-stats"
+            path: "./04-probability1"
         },
         predefinedOutput: true
     }
@@ -524,8 +457,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="first-stats.html" title="previous page"><span class="section-number">2.4. </span>First Statistical Tests</a>
-    <a class='right-next' id="next-link" href="../03-first-data/intro.html" title="next page"><span class="section-number">3. </span>First Visualizations and Statistical Tests with Real Data</a>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page"><span class="section-number">4. </span>Introduction to Probability</a>
+    <a class='right-next' id="next-link" href="relative-frequency.html" title="next page"><span class="section-number">4.2. </span>Relative Frequencies and Probabilities</a>
 
         </div>
         

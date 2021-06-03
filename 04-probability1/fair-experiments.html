@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.5. Review &#8212; Introduction to Data Science for Engineers</title>
+    <title>4.3. Fair Experiments &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,10 +49,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. First Visualizations and Statistical Tests with Real Data" href="../03-first-data/intro.html" />
-    <link rel="prev" title="2.4. First Statistical Tests" href="first-stats.html" />
+    <link rel="next" title="4.4. Axiomatic Probability" href="axiomatic-prob.html" />
+    <link rel="prev" title="4.2. Relative Frequencies and Probabilities" href="relative-frequency.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -135,38 +137,38 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-first-stats/intro.html">
    2. First Simulations, and Visualizations, and Statistical Tests
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="motivating-problem.html">
+    <a class="reference internal" href="../02-first-stats/motivating-problem.html">
      2.1. Motivating Problem: Is This Coin Fair?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-sims.html">
+    <a class="reference internal" href="../02-first-stats/first-sims.html">
      2.2. First Computer Simulations
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-vis.html">
+    <a class="reference internal" href="../02-first-stats/first-vis.html">
      2.3. First Visualizations: Scatter Plots and Histograms
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-stats.html">
+    <a class="reference internal" href="../02-first-stats/first-stats.html">
      2.4. First Statistical Tests
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-first-stats/review.html">
      2.5. Review
     </a>
    </li>
@@ -224,33 +226,33 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04-probability1/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    4. Introduction to Probability
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/outcomes-samplespaces-events.html">
+    <a class="reference internal" href="outcomes-samplespaces-events.html">
      4.1. Outcomes, Sample Spaces, and Events
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/relative-frequency.html">
+    <a class="reference internal" href="relative-frequency.html">
      4.2. Relative Frequencies and Probabilities
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/fair-experiments.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      4.3. Fair Experiments
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/axiomatic-prob.html">
+    <a class="reference internal" href="axiomatic-prob.html">
      4.4. Axiomatic  Probability
     </a>
    </li>
@@ -297,7 +299,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/02-first-stats/review.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/04-probability1/fair-experiments.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -322,7 +324,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02-first-stats/review.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04-probability1/fair-experiments.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -347,156 +349,103 @@
         
               <div>
                 
-  <div class="section" id="review">
-<h1><span class="section-number">2.5. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
-<p>This chapter uses a simple experiment to introduce key concepts that will be used throughout this book.</p>
-<div class="cell tag_remove-input docutils container">
+  <div class="section" id="fair-experiments">
+<h1><span class="section-number">4.3. </span>Fair Experiments<a class="headerlink" href="#fair-experiments" title="Permalink to this headline">¶</a></h1>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
 </div>
-<p><strong>Self-Check:</strong></p>
-<p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
-<div class="cell tag_remove-input docutils container">
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>fair (random experiment)</dt><dd><p class="card-text">An experiment is said to be fair if every outcome is equally likely.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>This is probably one of the oldest ways of calculating probabilities. Much of the early work on probability was motivated by gambling, and games involving cards, dice, and coins are generally based on assumption that the underlying experiment is fair.</p>
+<p>Consider a fair experiment with <span class="math notranslate nohighlight">\(|S|=N\)</span> outcomes, and let <span class="math notranslate nohighlight">\(p_i\)</span> denote the probability of outcome <span class="math notranslate nohighlight">\(i\)</span>, then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\sum_{i=1}^{N} p_i &amp;= 1 \\
+\sum_{i=1}^{N} p_1 &amp;= 1 \\
+Np_1 &amp;=1\\
+p_1 &amp;= \frac 1 N .
+\end{align*}\]</div>
+<p>Since all the probabilities are equal,
+$<span class="math notranslate nohighlight">\(
+p_i = \frac 1 N = \frac{1}{|S|}.
+\)</span>$</p>
+<p>So, for instance, the probability of getting any number on a fair six-sided die is 1/6.</p>
+<p>For a coin, let <span class="math notranslate nohighlight">\(p_H\)</span> and <span class="math notranslate nohighlight">\(p_T\)</span> denote the probabilities of heads and tails, respectively. If the coin is fair, then we have <span class="math notranslate nohighlight">\(p_H =p_T\)</span> and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+p_H + p_T &amp;= 1 \\
+p_H + p_H &amp;= 1 \\
+2p_H &amp;= 1 \\
+p_H &amp;=\frac{1}{2}
+\end{align*}\]</div>
+<p>So <span class="math notranslate nohighlight">\(p_H=p_T= 1/2\)</span>, where <span class="math notranslate nohighlight">\(|S|=2\)</span>.</p>
+<p>Although this is an accurate and extremely easy way to calculate probabilities, it is extremely limited in its application because most probabilities we will encounter are not from fair experiments. Even very simple compound experiments that are based on fair experiments are not necessarily fair:</p>
+<p><strong>Example</strong></p>
+<p>Monopoly uses two fair six-sided dice. The player moves the sum of the amounts shown on the two dice. Simulate rolling the pair of dice one million times and plot the relative frequencies:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">die1</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">die2</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">dice</span><span class="o">=</span><span class="n">die1</span><span class="o">+</span><span class="n">die2</span>
+
+<span class="n">vals</span><span class="p">,</span> <span class="n">counts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dice</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">rel_freqs</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">dice</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">rel_freqs</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sum of top faces of two dice&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative frequencies&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
-      <!-- QUESTION -->
-      <div id="quizQn" style="padding: 20px;
-      background: #6F78FF;
-      color: #fff;
-      font-size: 20px;
-      border-radius: 10px;">
-      Which of these cannot be a probability?</div>
-      <!-- ANSWER -->
-      <div id="quizAns" style="margin: 10px 0;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 10px;">
-      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo0" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0.5  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo1" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>1  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo2" data-correct="True" data-feedback="Correct! Probabilities must be numbers between 0 and 1." data-answered=0>-0.5  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo3" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0  </label>  </div></div>
-    <div id="IIvjJtAGCTXE" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
-        <script type="text/Javascript">
-
-        function checkIIvjJtAGCTXE(){
-
-                console.log(event.srcElement.id)           
-                console.log(event.srcElement.dataset.correct)   
-                console.log(event.srcElement.dataset.feedback)
-
-                answers= event.srcElement.parentElement.children;
-                console.log(answers);
-
-                for (var i = 0; i < answers.length; i++) {
-                    child=answers[i];
-                    child.style.background="#fafafa";
-                }
-                var feedback = document.getElementById("IIvjJtAGCTXE");
-                feedback.innerHTML=event.srcElement.dataset.feedback;
-                if (event.srcElement.dataset.correct=="True")   {
-                    event.srcElement.style.background="#d8ffc4";
-                    feedback.style.color="#009113";
-                } else {
-                    event.srcElement.style.background="#ffe8e8";
-                    feedback.style.color="#DC2329";
-                }
-
-
-
-
-            }
-
-        </script>
-</div></div>
+<img alt="../_images/fair-experiments_7_0.png" src="../_images/fair-experiments_7_0.png" />
 </div>
-<div class="cell tag_remove-input docutils container">
+</div>
+<p>Another simple example is the number of coin flips needed to observe heads on repeated flips of a fair coin:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10000</span>
+<span class="n">outcomes</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+    <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">coin</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># Use 1 to represent Heads</span>
+            <span class="k">break</span>
+    <span class="n">outcomes</span><span class="o">+=</span><span class="p">[</span><span class="n">count</span><span class="p">]</span>
+    
+<span class="n">vals</span><span class="p">,</span> <span class="n">counts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">rel_freqs</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">outcomes</span><span class="p">)</span>
+            
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">rel_freqs</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;No. of flips to first Heads&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative frequencies&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
-      <!-- QUESTION -->
-      <div id="quizQn" style="padding: 20px;
-      background: #6F78FF;
-      color: #fff;
-      font-size: 20px;
-      border-radius: 10px;">
-      Determine the relative frequency of the outcome 3 in the following data set:
-
-2,3,5,2,3</div>
-      <!-- ANSWER -->
-      <div id="quizAns" style="margin: 10px 0;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 10px;">
-      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo0" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1." data-answered=0>2  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo1" data-correct="True" data-feedback="Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4." data-answered=0>0.4  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo2" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0." data-answered=0>0  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo3" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments." data-answered=0>0.6  </label>  </div></div>
-    <div id="fLYNMlsinTak" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
-        <script type="text/Javascript">
-
-        function checkfLYNMlsinTak(){
-
-                console.log(event.srcElement.id)           
-                console.log(event.srcElement.dataset.correct)   
-                console.log(event.srcElement.dataset.feedback)
-
-                answers= event.srcElement.parentElement.children;
-                console.log(answers);
-
-                for (var i = 0; i < answers.length; i++) {
-                    child=answers[i];
-                    child.style.background="#fafafa";
-                }
-                var feedback = document.getElementById("fLYNMlsinTak");
-                feedback.innerHTML=event.srcElement.dataset.feedback;
-                if (event.srcElement.dataset.correct=="True")   {
-                    event.srcElement.style.background="#d8ffc4";
-                    feedback.style.color="#009113";
-                } else {
-                    event.srcElement.style.background="#ffe8e8";
-                    feedback.style.color="#DC2329";
-                }
-
-
-
-
-            }
-
-        </script>
-</div></div>
+<img alt="../_images/fair-experiments_9_0.png" src="../_images/fair-experiments_9_0.png" />
 </div>
-<p><strong>Take-aways:</strong></p>
-<ul class="simple">
-<li><p><strong>Computer simulations can be used to efficiently conduct experiments of random phenomena.</strong></p></li>
-<li><p><strong>Scatter plots are a common visualization tool to see all the values of some numerical data.</strong></p></li>
-<li><p><strong>Histograms are a common visualization tool to see how the values of a numerical data set are distributed.</strong> Unlike scatter plots, the histogram summarizes information about the data: the values of the data cannot be recovered from the histogram.</p></li>
-<li><p><strong>Relative frequency of an event is the proportion of experiments where that event occurred.</strong>  For many experiments, if the number of observed experiment outcomes is large, the relative frequency will converge to the true probability of the event.</p></li>
-<li><p><strong>Simulations can be used to estimate the probability of some event by measuring the relative frequency.</strong></p></li>
-<li><p><strong>Simulations can be used to determine how likely an observed event has occurred under specific experimental assumptions.</strong></p></li>
-</ul>
+</div>
+<p>These limitations lead us to our ultimate formulation for probabilities:</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -512,7 +461,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./02-first-stats"
+            path: "./04-probability1"
         },
         predefinedOutput: true
     }
@@ -524,8 +473,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="first-stats.html" title="previous page"><span class="section-number">2.4. </span>First Statistical Tests</a>
-    <a class='right-next' id="next-link" href="../03-first-data/intro.html" title="next page"><span class="section-number">3. </span>First Visualizations and Statistical Tests with Real Data</a>
+    <a class='left-prev' id="prev-link" href="relative-frequency.html" title="previous page"><span class="section-number">4.2. </span>Relative Frequencies and Probabilities</a>
+    <a class='right-next' id="next-link" href="axiomatic-prob.html" title="next page"><span class="section-number">4.4. </span>Axiomatic  Probability</a>
 
         </div>
         

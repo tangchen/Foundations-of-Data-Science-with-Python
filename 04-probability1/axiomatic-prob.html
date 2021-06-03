@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.5. Review &#8212; Introduction to Data Science for Engineers</title>
+    <title>4.4. Axiomatic Probability &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,10 +49,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3. First Visualizations and Statistical Tests with Real Data" href="../03-first-data/intro.html" />
-    <link rel="prev" title="2.4. First Statistical Tests" href="first-stats.html" />
+    <link rel="prev" title="4.3. Fair Experiments" href="fair-experiments.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -135,38 +136,38 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-first-stats/intro.html">
    2. First Simulations, and Visualizations, and Statistical Tests
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="motivating-problem.html">
+    <a class="reference internal" href="../02-first-stats/motivating-problem.html">
      2.1. Motivating Problem: Is This Coin Fair?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-sims.html">
+    <a class="reference internal" href="../02-first-stats/first-sims.html">
      2.2. First Computer Simulations
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-vis.html">
+    <a class="reference internal" href="../02-first-stats/first-vis.html">
      2.3. First Visualizations: Scatter Plots and Histograms
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="first-stats.html">
+    <a class="reference internal" href="../02-first-stats/first-stats.html">
      2.4. First Statistical Tests
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-first-stats/review.html">
      2.5. Review
     </a>
    </li>
@@ -224,33 +225,33 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04-probability1/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    4. Introduction to Probability
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/outcomes-samplespaces-events.html">
+    <a class="reference internal" href="outcomes-samplespaces-events.html">
      4.1. Outcomes, Sample Spaces, and Events
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/relative-frequency.html">
+    <a class="reference internal" href="relative-frequency.html">
      4.2. Relative Frequencies and Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/fair-experiments.html">
+    <a class="reference internal" href="fair-experiments.html">
      4.3. Fair Experiments
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04-probability1/axiomatic-prob.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      4.4. Axiomatic  Probability
     </a>
    </li>
@@ -297,7 +298,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/02-first-stats/review.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/04-probability1/axiomatic-prob.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -322,7 +323,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02-first-stats/review.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04-probability1/axiomatic-prob.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -339,6 +340,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-spaces">
+   4.4.1. Probability Spaces
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#axioms-of-probability">
+   4.4.2. Axioms of Probability
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -347,156 +366,106 @@
         
               <div>
                 
-  <div class="section" id="review">
-<h1><span class="section-number">2.5. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
-<p>This chapter uses a simple experiment to introduce key concepts that will be used throughout this book.</p>
-<div class="cell tag_remove-input docutils container">
-</div>
-<p><strong>Self-Check:</strong></p>
-<p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
-      <!-- QUESTION -->
-      <div id="quizQn" style="padding: 20px;
-      background: #6F78FF;
-      color: #fff;
-      font-size: 20px;
-      border-radius: 10px;">
-      Which of these cannot be a probability?</div>
-      <!-- ANSWER -->
-      <div id="quizAns" style="margin: 10px 0;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 10px;">
-      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo0" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0.5  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo1" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>1  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo2" data-correct="True" data-feedback="Correct! Probabilities must be numbers between 0 and 1." data-answered=0>-0.5  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIIvjJtAGCTXE()" 
-      id="quizo3" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0  </label>  </div></div>
-    <div id="IIvjJtAGCTXE" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
-        <script type="text/Javascript">
-
-        function checkIIvjJtAGCTXE(){
-
-                console.log(event.srcElement.id)           
-                console.log(event.srcElement.dataset.correct)   
-                console.log(event.srcElement.dataset.feedback)
-
-                answers= event.srcElement.parentElement.children;
-                console.log(answers);
-
-                for (var i = 0; i < answers.length; i++) {
-                    child=answers[i];
-                    child.style.background="#fafafa";
-                }
-                var feedback = document.getElementById("IIvjJtAGCTXE");
-                feedback.innerHTML=event.srcElement.dataset.feedback;
-                if (event.srcElement.dataset.correct=="True")   {
-                    event.srcElement.style.background="#d8ffc4";
-                    feedback.style.color="#009113";
-                } else {
-                    event.srcElement.style.background="#ffe8e8";
-                    feedback.style.color="#DC2329";
-                }
-
-
-
-
-            }
-
-        </script>
-</div></div>
-</div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
-      <!-- QUESTION -->
-      <div id="quizQn" style="padding: 20px;
-      background: #6F78FF;
-      color: #fff;
-      font-size: 20px;
-      border-radius: 10px;">
-      Determine the relative frequency of the outcome 3 in the following data set:
-
-2,3,5,2,3</div>
-      <!-- ANSWER -->
-      <div id="quizAns" style="margin: 10px 0;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 10px;">
-      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo0" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1." data-answered=0>2  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo1" data-correct="True" data-feedback="Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4." data-answered=0>0.4  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo2" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0." data-answered=0>0  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkfLYNMlsinTak()" 
-      id="quizo3" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments." data-answered=0>0.6  </label>  </div></div>
-    <div id="fLYNMlsinTak" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect=1></div>
-        <script type="text/Javascript">
-
-        function checkfLYNMlsinTak(){
-
-                console.log(event.srcElement.id)           
-                console.log(event.srcElement.dataset.correct)   
-                console.log(event.srcElement.dataset.feedback)
-
-                answers= event.srcElement.parentElement.children;
-                console.log(answers);
-
-                for (var i = 0; i < answers.length; i++) {
-                    child=answers[i];
-                    child.style.background="#fafafa";
-                }
-                var feedback = document.getElementById("fLYNMlsinTak");
-                feedback.innerHTML=event.srcElement.dataset.feedback;
-                if (event.srcElement.dataset.correct=="True")   {
-                    event.srcElement.style.background="#d8ffc4";
-                    feedback.style.color="#009113";
-                } else {
-                    event.srcElement.style.background="#ffe8e8";
-                    feedback.style.color="#DC2329";
-                }
-
-
-
-
-            }
-
-        </script>
-</div></div>
-</div>
-<p><strong>Take-aways:</strong></p>
+  <div class="section" id="axiomatic-probability">
+<h1><span class="section-number">4.4. </span>Axiomatic  Probability<a class="headerlink" href="#axiomatic-probability" title="Permalink to this headline">¶</a></h1>
+<p>Defining probabilities using relative frequencies for statistically regular experiments or using simple math for fair experiments are helpful to develop some intuition about probability. However, these methods have limitations that restrict their usefulness to many  real world problems. These problems were recognized by mathematicians working on probability and motivated these mathematicians to develop an approach to probability that is:</p>
 <ul class="simple">
-<li><p><strong>Computer simulations can be used to efficiently conduct experiments of random phenomena.</strong></p></li>
-<li><p><strong>Scatter plots are a common visualization tool to see all the values of some numerical data.</strong></p></li>
-<li><p><strong>Histograms are a common visualization tool to see how the values of a numerical data set are distributed.</strong> Unlike scatter plots, the histogram summarizes information about the data: the values of the data cannot be recovered from the histogram.</p></li>
-<li><p><strong>Relative frequency of an event is the proportion of experiments where that event occurred.</strong>  For many experiments, if the number of observed experiment outcomes is large, the relative frequency will converge to the true probability of the event.</p></li>
-<li><p><strong>Simulations can be used to estimate the probability of some event by measuring the relative frequency.</strong></p></li>
-<li><p><strong>Simulations can be used to determine how likely an observed event has occurred under specific experimental assumptions.</strong></p></li>
+<li><p>not based on a particular application or interpretation,</p></li>
+<li><p>agrees models based on relative frequency and fair probabilities,</p></li>
+<li><p>agrees with our intuition (where appropriate), and</p></li>
+<li><p>are useful to solving real-world problems.</p></li>
 </ul>
+<p>The approach they developed is called <em>Axiomatic Probability</em>. Axiomatic means that there is a set of rules (called axioms) for probability, but that the set of rules is made as small as possible.</p>
+<div class="section" id="probability-spaces">
+<h2><span class="section-number">4.4.1. </span>Probability Spaces<a class="headerlink" href="#probability-spaces" title="Permalink to this headline">¶</a></h2>
+<p>The first step in developing Axiomatic Probability is to define the core objects that the axioms apply to. In this case, define a <em>Probability Space</em> as an ordered collection (tuple) of three objects, and we denote it by
+$<span class="math notranslate nohighlight">\(
+(S, \mathcal{F}, P)
+\)</span>$</p>
+<p>These objects are called the <em>sample space</em>, the <em>event class</em>, and the <em>probability measure</em>.</p>
+<p><strong>Sample Space</strong></p>
+<p>We have already introduce the sample space in <a class="reference internal" href="outcomes-samplespaces-events.html"><span class="doc">Outcomes, Sample Spaces, and Events</span></a>. It is a <strong>set</strong> containing all possible outcomes for an experiment.</p>
+<p><strong>Event Class</strong></p>
+<p>The second object, denoted by a calligraphic F (<span class="math notranslate nohighlight">\(\mathcal{F}\)</span>), is called the <em>event class</em>.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">event class:
+For a sample space <span class="math notranslate nohighlight">\(S\)</span> and a probability measure <span class="math notranslate nohighlight">\(P\)</span>, the event class, denoted by <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is a collection of all subsets of <span class="math notranslate nohighlight">\(S\)</span> to which we will assign probability (i.e., for which <span class="math notranslate nohighlight">\(P\)</span> will be defined). The sets in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are called events.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>When <span class="math notranslate nohighlight">\(S\)</span> is finite, then <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> can be taken to be all possible subsets of <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">power set: For a set <span class="math notranslate nohighlight">\(S\)</span> with finite cardinality, <span class="math notranslate nohighlight">\(|S|=N &lt; \infty\)</span>, the power set is the set of all possible subsets. We will use the notation <span class="math notranslate nohighlight">\(2^S\)</span> to denote the power set.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Note that the power set includes both the empty set (<span class="math notranslate nohighlight">\(\emptyset\)</span>) and <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p><strong>Example</strong>
+Consider flipping a coin and observing the top face. Then <span class="math notranslate nohighlight">\(S=\{H,T\}\)</span> and
+$<span class="math notranslate nohighlight">\(
+\mathcal{F} = \bigl\{ \emptyset, H, T, \{H,T\} = S \bigr\}
+\)</span>$</p>
+<p>Note that <span class="math notranslate nohighlight">\(|S|=2\)</span> and <span class="math notranslate nohighlight">\(|2^S| = 4 = \)</span>2^|S|$.</p>
+<p><strong>Exercise</strong></p>
+<p>Consider rolling a standard six-sided die. Give the sample space, <span class="math notranslate nohighlight">\(S\)</span>,  and the power set of the sample space, <span class="math notranslate nohighlight">\(2^S\)</span>.  What is the cardinality of <span class="math notranslate nohighlight">\(2^S\)</span>?</p>
+<p>When <span class="math notranslate nohighlight">\(|S|=\infty\)</span>, weird things can happen if we try to assign probabilities to every subset of <span class="math notranslate nohighlight">\(S\)</span>. <strong>JMS: Working here. Need footnote about uncountably infinite</strong> For typical data science applications, we can assume that any event that we want to ask about will be in the event class, and we do not need to explicitly enumerate the event class.</p>
+<p><strong>Probability Measure</strong></p>
+<p>Until now, we have discussed the probabilities of outcomes. However, this is not the approach taken in probability spaces:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">probability measure:
+The probability measure, <span class="math notranslate nohighlight">\(P\)</span>, is a real-valued set function that maps every element of the event class to the real line.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Note that in defining the probability measure, we do not specify the range of values for <span class="math notranslate nohighlight">\(P\)</span>, because at this point we are only defining the structure of the probability space through the types of elements that make it up.</p>
+<p>Although <span class="math notranslate nohighlight">\(P\)</span> assigns outcomes to events (as opposed to outcomes), every outcome in <span class="math notranslate nohighlight">\(S\)</span> is typically an event in the event class. Thus, <span class="math notranslate nohighlight">\(P\)</span> is more general in its operation than we have considered in our previous examples. As explained in <a class="reference internal" href="outcomes-samplespaces-events.html"><span class="doc">Outcomes, Sample Spaces, and Events</span></a>, an event occurs if the experiment’s outcome is one of the outcomes in that event’s set.</p>
+</div>
+<div class="section" id="axioms-of-probability">
+<h2><span class="section-number">4.4.2. </span>Axioms of Probability<a class="headerlink" href="#axioms-of-probability" title="Permalink to this headline">¶</a></h2>
+<p>As previously mentioned, axioms are a minimal set of rules. There are three Axioms of Probability that are specified in terms of the probability measure:</p>
+<p><strong>The Axioms of Probability</strong></p>
+<p><strong>I.</strong> For every event <span class="math notranslate nohighlight">\(E\)</span> in the eventclass <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, <span class="math notranslate nohighlight">\( P(E) \ge 0\)</span>
+<em>(the event probabilities are non-negative)</em></p>
+<p><strong>II.</strong> <span class="math notranslate nohighlight">\(P(S) =1\)</span>   (the probability that some outcome occurs is 1)</p>
+<p><strong>III.</strong> For all pairs ofevents <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(F\)</span> in the event class that are disjoint (<span class="math notranslate nohighlight">\(E \cap F = \emptyset\)</span>),
+<span class="math notranslate nohighlight">\(P( E \cup F) = P(E)+P(F)\)</span> (if two events are disjoint, then the probability that either one of the events occurs is equal to the sum of the event probabilities)</p>
+<p>When dealing with infinite sample spaces, an alternative version of Axiom III should be used:</p>
+<p><strong>III’.</strong> If <span class="math notranslate nohighlight">\(A_1, A_2, \ldots\)</span> is a sequence of
+event that are all disjoint  (<span class="math notranslate nohighlight">\(A_i \cap A_j = \emptyset~ \forall i\ne j\)</span>),
+then
+$<span class="math notranslate nohighlight">\(
+          P \left[ \bigcup_{k=1}^{\infty} A_k \right] = \sum_{k=1}^{\infty}
+            P\left[ A_k \right].
+            \)</span>$</p>
+<!-- *(Note that these sums and unions are over countably infinite sequences of events.)* --><p>Many students of probability wonder why Axiom I does not specify that <span class="math notranslate nohighlight">\(0 \le P(E) \le 1\)</span>. The answer is that the second part of that inequality is not needed because it can be proven from the other axioms. Anything that is not required is removed to ensure that the axioms are a minimal set of rules.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -512,7 +481,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./02-first-stats"
+            path: "./04-probability1"
         },
         predefinedOutput: true
     }
@@ -524,8 +493,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="first-stats.html" title="previous page"><span class="section-number">2.4. </span>First Statistical Tests</a>
-    <a class='right-next' id="next-link" href="../03-first-data/intro.html" title="next page"><span class="section-number">3. </span>First Visualizations and Statistical Tests with Real Data</a>
+    <a class='left-prev' id="prev-link" href="fair-experiments.html" title="previous page"><span class="section-number">4.3. </span>Fair Experiments</a>
 
         </div>
         
