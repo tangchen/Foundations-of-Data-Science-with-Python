@@ -53,6 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.5. Corollaries to the Axioms of Probability" href="corollaries.html" />
     <link rel="prev" title="4.3. Fair Experiments" href="fair-experiments.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -255,6 +256,11 @@
      4.4. Axiomatic  Probability
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="corollaries.html">
+     4.5. Corollaries to the Axioms of Probability
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -375,7 +381,7 @@
 <li><p>agrees with our intuition (where appropriate), and</p></li>
 <li><p>are useful to solving real-world problems.</p></li>
 </ul>
-<p>The approach they developed is called <em>Axiomatic Probability</em>. Axiomatic means that there is a set of rules (called axioms) for probability, but that the set of rules is made as small as possible. This approach may at first seem unnecessarily mathematical, but I believe that the reader will soon see that this approach will help them to develop a fundamentally sound understanding of probability.</p>
+<p>The approach they developed is called <em>Axiomatic Probability</em>. Axiomatic means that there is a set of assumptions or rules (called axioms) for probability, but that the set of rules is made as small as possible. This approach may at first seem unnecessarily mathematical, but I believe that the reader will soon see that this approach will help them to develop a fundamentally sound understanding of probability.</p>
 <div class="section" id="probability-spaces">
 <h2><span class="section-number">4.4.1. </span>Probability Spaces<a class="headerlink" href="#probability-spaces" title="Permalink to this headline">¶</a></h2>
 <p>The first step in developing Axiomatic Probability is to define the core objects that the axioms apply to. Define a <em>Probability Space</em> as an ordered collection (tuple) of three objects, and we denote it by
@@ -685,6 +691,13 @@ P\left( E_1 \cup E_2 \right) &amp;= \frac{ \left \vert E_1 \cup E_2 \right \vert
 <li><p>The outcomes of the experiment are the combination of the outcomes from the individual rolls of the two dice.</p></li>
 <li><p>The composite experiment is still a fair experiment. It is easy to calculate probabilities using Axiom III and the properties of fair experiments once we can determine the number of outcomes in the event of interest.</p></li>
 </ul>
+<p>However, we can see that the solution method is still lacking in some ways:</p>
+<ul class="simple">
+<li><p>It only works for fair experiments</p></li>
+<li><p>It requires enumeration of the outcomes in the event – this may be challenging to do without a computer and may not scale well.</p></li>
+<li><p>It will not work if the trials are not independent.</p></li>
+</ul>
+<p>Some of the difficulties in solving this problem come from not having a larger toolbox; i.e., the axioms provide a very limited set of equations for working with probabilities. In the next section, we explore several corollaries to the axioms and show how these can be used to simplify some problems in probability.</p>
 </div>
 </div>
 
@@ -714,6 +727,7 @@ P\left( E_1 \cup E_2 \right) &amp;= \frac{ \left \vert E_1 \cup E_2 \right \vert
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="fair-experiments.html" title="previous page"><span class="section-number">4.3. </span>Fair Experiments</a>
+    <a class='right-next' id="next-link" href="corollaries.html" title="next page"><span class="section-number">4.5. </span>Corollaries to the Axioms of Probability</a>
 
         </div>
         
