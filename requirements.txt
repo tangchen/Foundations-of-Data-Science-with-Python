@@ -1,4 +1,7 @@
 jupyter-book
 matplotlib
 numpy
+pandas
+scipy
+termcolor
 ghp-import
