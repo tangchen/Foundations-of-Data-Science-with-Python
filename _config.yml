@@ -9,6 +9,7 @@ execute:
 parse:
   myst_enable_extensions: 
     - amsmath
+    - html_image
     - colon_fence
     - deflist
     - dollarmath
