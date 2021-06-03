@@ -368,21 +368,21 @@
                 
   <div class="section" id="axiomatic-probability">
 <h1><span class="section-number">4.4. </span>Axiomatic  Probability<a class="headerlink" href="#axiomatic-probability" title="Permalink to this headline">¶</a></h1>
-<p>Defining probabilities using relative frequencies for statistically regular experiments or using simple math for fair experiments are helpful to develop some intuition about probability. However, these methods have limitations that restrict their usefulness to many  real world problems. These problems were recognized by mathematicians working on probability and motivated these mathematicians to develop an approach to probability that is:</p>
+<p>The methods of the previous two sections that define probabilities using relative frequencies or based on properties of fair experiments are helpful to develop some intuition about probability. However, these methods have limitations that restrict their usefulness to many  real world problems. These problems were recognized by mathematicians working on probability and motivated these mathematicians to develop an approach to probability that is:</p>
 <ul class="simple">
 <li><p>not based on a particular application or interpretation,</p></li>
 <li><p>agrees models based on relative frequency and fair probabilities,</p></li>
 <li><p>agrees with our intuition (where appropriate), and</p></li>
 <li><p>are useful to solving real-world problems.</p></li>
 </ul>
-<p>The approach they developed is called <em>Axiomatic Probability</em>. Axiomatic means that there is a set of rules (called axioms) for probability, but that the set of rules is made as small as possible.</p>
+<p>The approach they developed is called <em>Axiomatic Probability</em>. Axiomatic means that there is a set of rules (called axioms) for probability, but that the set of rules is made as small as possible. This approach may at first seem unnecessarily mathematical, but I believe that the reader will soon see that this approach will help them to develop a fundamentally sound understanding of probability.</p>
 <div class="section" id="probability-spaces">
 <h2><span class="section-number">4.4.1. </span>Probability Spaces<a class="headerlink" href="#probability-spaces" title="Permalink to this headline">¶</a></h2>
-<p>The first step in developing Axiomatic Probability is to define the core objects that the axioms apply to. In this case, define a <em>Probability Space</em> as an ordered collection (tuple) of three objects, and we denote it by
+<p>The first step in developing Axiomatic Probability is to define the core objects that the axioms apply to. Define a <em>Probability Space</em> as an ordered collection (tuple) of three objects, and we denote it by
 $<span class="math notranslate nohighlight">\(
 (S, \mathcal{F}, P)
 \)</span>$</p>
-<p>These objects are called the <em>sample space</em>, the <em>event class</em>, and the <em>probability measure</em>.</p>
+<p>These objects are called the <em>sample space</em>, the <em>event class</em>, and the <em>probability measure</em>. Since there are three objects in a probability space, it is sometimes said that <strong>probability is a triple</strong> or <strong>a probability space is a triple</strong>.</p>
 <p><strong>Sample Space</strong></p>
 <p>We have already introduce the sample space in <a class="reference internal" href="outcomes-samplespaces-events.html"><span class="doc">Outcomes, Sample Spaces, and Events</span></a>. It is a <strong>set</strong> containing all possible outcomes for an experiment.</p>
 <p><strong>Event Class</strong></p>
@@ -454,7 +454,7 @@ The probability measure, <span class="math notranslate nohighlight">\(P\)</span>
 <p><strong>I.</strong> For every event <span class="math notranslate nohighlight">\(E\)</span> in the eventclass <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, <span class="math notranslate nohighlight">\( P(E) \ge 0\)</span>
 <em>(the event probabilities are non-negative)</em></p>
 <p><strong>II.</strong> <span class="math notranslate nohighlight">\(P(S) =1\)</span>   (the probability that some outcome occurs is 1)</p>
-<p><strong>III.</strong> For all pairs ofevents <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(F\)</span> in the event class that are disjoint (<span class="math notranslate nohighlight">\(E \cap F = \emptyset\)</span>),
+<p><strong>III.</strong> For all pairs of events <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(F\)</span> in the event class that are disjoint (<span class="math notranslate nohighlight">\(E \cap F = \emptyset\)</span>),
 <span class="math notranslate nohighlight">\(P( E \cup F) = P(E)+P(F)\)</span> (if two events are disjoint, then the probability that either one of the events occurs is equal to the sum of the event probabilities)</p>
 <p>When dealing with infinite sample spaces, an alternative version of Axiom III should be used:</p>
 <p><strong>III’.</strong> If <span class="math notranslate nohighlight">\(A_1, A_2, \ldots\)</span> is a sequence of
@@ -465,6 +465,226 @@ $<span class="math notranslate nohighlight">\(
             P\left[ A_k \right].
             \)</span>$</p>
 <!-- *(Note that these sums and unions are over countably infinite sequences of events.)* --><p>Many students of probability wonder why Axiom I does not specify that <span class="math notranslate nohighlight">\(0 \le P(E) \le 1\)</span>. The answer is that the second part of that inequality is not needed because it can be proven from the other axioms. Anything that is not required is removed to ensure that the axioms are a minimal set of rules.</p>
+<p>Axiom III is a powerful tool for calculating probabilities. However, it must be used carefully.</p>
+<p><strong>Example</strong></p>
+<p>A fair six-sided die is rolled twice. What is the probability that the top face on the first roll is less than 3? What is the probability that the top face on the second roll is less than 3?</p>
+<p>First, let’s define some notation for the events of interest:</p>
+<p>Let <span class="math notranslate nohighlight">\(E_i\)</span> denote the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3</p>
+<p>Then
+$<span class="math notranslate nohighlight">\(E_1=\{1_1, 2_1 \},\)</span><span class="math notranslate nohighlight">\(
+where \)</span>k_l<span class="math notranslate nohighlight">\( denotes the **outcome** that the top face is \)</span>k<span class="math notranslate nohighlight">\( on roll \)</span>l<span class="math notranslate nohighlight">\(. Similarly,
+\)</span><span class="math notranslate nohighlight">\(E_2=\{1_2, 2_2 \}.\)</span><span class="math notranslate nohighlight">\(  Note that we can rewrite
+\)</span><span class="math notranslate nohighlight">\(
+E_i = \{1_i\} \cup \{2_i\},
+\)</span><span class="math notranslate nohighlight">\( 
+where \)</span>\cup$ is the union operator.  Because outcomes are always disjoint, axiom III can be applied to yield</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(E_i) &amp;= P\left(\{1_i\} \cup \{2_i\} \right) \\
+ &amp;= P\left(\{1_i\} \right) + P \left( \{2_i\} \right) \\
+ &amp;= \frac{1}{6} + \frac{1}{6},
+\end{align*}\]</div>
+<p>where the last line comes from applying the probability of an outcome in a fair experiment. Thus, <span class="math notranslate nohighlight">\(P(E_i)=1/3\)</span> for <span class="math notranslate nohighlight">\(i=1,2\)</span>. Most readers will intuitively have known this answer.</p>
+<p><strong>Example</strong></p>
+<p>Consider the same exact experiment described in the previous example.  However, let’s ask a slightly different question: what is the probability that either the value on the first die is less than 3 <strong>or</strong> the value on the second die is less than 3. (This could also include the case that both are less than 3.)  Mathematically, we write this as <span class="math notranslate nohighlight">\(P(E_1 \cup E_2)\)</span> using the events already defined.</p>
+<p>Since <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> correspond to events on completely different dice, it may be tempting to apply Axiom III like:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(E_1 \cup E_2) &amp;= P(E_1) + P(E_2) \\
+&amp;= \frac{1}{3} + \frac{1}{3}\\
+&amp;= \frac{2}{3}.
+\end{align*}\]</div>
+<p>However, it is easy to see that somehow this thinking is not correct. For example, if we defined events <span class="math notranslate nohighlight">\(G_i\)</span> to be the event that the value on die <span class="math notranslate nohighlight">\(i\)</span> is less than 5, this approach would imply that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(G_1 \cup G_2) &amp;= P(G_1) + P(G_2) \\
+&amp;= \frac{2}{3} + \frac{2}{3}\\
+&amp;= \frac{4}{3}.
+\end{align*}\]</div>
+<p>Hopefully the reader recognizes that this is not an allowed value for a probability! Let’s delve in to see what went wrong. We can begin by estimating the true value of <span class="math notranslate nohighlight">\(P(E_1 \cup E_2)\)</span> using simulation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">num_sims</span><span class="o">=</span> <span class="mi">100_000</span>
+
+<span class="c1"># Generate the dice values for all simulations:</span>
+<span class="n">die1</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_sims</span><span class="p">)</span>
+<span class="n">die2</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_sims</span><span class="p">)</span>
+
+<span class="c1"># Each comparison will generate an array of True/False value</span>
+<span class="n">E1occurred</span><span class="o">=</span> <span class="p">(</span><span class="n">die1</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">E2occurred</span><span class="o">=</span> <span class="p">(</span><span class="n">die2</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Use NumPy&#39;s union operator (|) to return True where either array is True:</span>
+<span class="n">Eoccurred</span> <span class="o">=</span> <span class="n">E1occurred</span> <span class="o">|</span> <span class="n">E2occurred</span>
+
+<span class="c1"># NumPy&#39;s count_nonzero function will count 1 for each True value and 0 for each False value</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P(E1 or E2) =~&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">Eoccurred</span><span class="p">)</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(E1 or E2) =~ 0.55974
+</pre></div>
+</div>
+</div>
+</div>
+<p>The estimated probability is about 0.56, which is lower than predicted by trying to apply Axiom III. The problem is that Axiom III does not hold in the way that it is used here because <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are not disjoint: both can occur at the same time. Let’s enumerate every thing that could happen by writing the outcomes of dice 1 and dice 2 as a tuple, where <span class="math notranslate nohighlight">\((j,k)\)</span> means that die 1’s outcome was <span class="math notranslate nohighlight">\(j\)</span> and die 2’s outcome was <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<p>We will use colors to help denote when events belong to a particular event. We start by printing all outcomes with the outcomes in event <span class="math notranslate nohighlight">\(E_1\)</span> highlighted in blue:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Need to see if this is standard in Anaconda</span>
+<span class="kn">from</span> <span class="nn">termcolor</span> <span class="kn">import</span> <span class="n">colored</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outcomes in E1 are in blue:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)   &quot;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)   &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outcomes in E1 are in blue:
+<span class=" -Color -Color-Blue">(1, 1)   (1, 2)   (1, 3)   (1, 4)   (1, 5)   (1, 6)   </span>
+<span class=" -Color -Color-Blue">(2, 1)   (2, 2)   (2, 3)   (2, 4)   (2, 5)   (2, 6)   </span>
+(3, 1)   (3, 2)   (3, 3)   (3, 4)   (3, 5)   (3, 6)   
+(4, 1)   (4, 2)   (4, 3)   (4, 4)   (4, 5)   (4, 6)   
+(5, 1)   (5, 2)   (5, 3)   (5, 4)   (5, 5)   (5, 6)   
+(6, 1)   (6, 2)   (6, 3)   (6, 4)   (6, 5)   (6, 6)   
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can easily modify this to highlight the events in <span class="math notranslate nohighlight">\(E_2\)</span> in green:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outcomes in E2 are in green:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">k</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)   &quot;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)   &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outcomes in E2 are in green:
+<span class=" -Color -Color-Green">(1, 1)   (1, 2)   </span>(1, 3)   (1, 4)   (1, 5)   (1, 6)   
+<span class=" -Color -Color-Green">(2, 1)   (2, 2)   </span>(2, 3)   (2, 4)   (2, 5)   (2, 6)   
+<span class=" -Color -Color-Green">(3, 1)   (3, 2)   </span>(3, 3)   (3, 4)   (3, 5)   (3, 6)   
+<span class=" -Color -Color-Green">(4, 1)   (4, 2)   </span>(4, 3)   (4, 4)   (4, 5)   (4, 6)   
+<span class=" -Color -Color-Green">(5, 1)   (5, 2)   </span>(5, 3)   (5, 4)   (5, 5)   (5, 6)   
+<span class=" -Color -Color-Green">(6, 1)   (6, 2)   </span>(6, 3)   (6, 4)   (6, 5)   (6, 6)   
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that we can already see that the set of outcomes in <span class="math notranslate nohighlight">\(E_1\)</span> overlap with the set of outcomes in <span class="math notranslate nohighlight">\(E_2\)</span>. To make that explicit, let’s highlight the outcomes that are in both <span class="math notranslate nohighlight">\(E_1\)</span> or <span class="math notranslate nohighlight">\(E_2\)</span> in red:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outcomes in both E1 and E2 are in red:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span> <span class="ow">and</span> <span class="n">k</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)   &quot;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)   &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outcomes in both E1 and E2 are in red:
+<span class=" -Color -Color-Red">(1, 1)   (1, 2)   </span>(1, 3)   (1, 4)   (1, 5)   (1, 6)   
+<span class=" -Color -Color-Red">(2, 1)   (2, 2)   </span>(2, 3)   (2, 4)   (2, 5)   (2, 6)   
+(3, 1)   (3, 2)   (3, 3)   (3, 4)   (3, 5)   (3, 6)   
+(4, 1)   (4, 2)   (4, 3)   (4, 4)   (4, 5)   (4, 6)   
+(5, 1)   (5, 2)   (5, 3)   (5, 4)   (5, 5)   (5, 6)   
+(6, 1)   (6, 2)   (6, 3)   (6, 4)   (6, 5)   (6, 6)   
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, does this mean that we cannot use Axiom III to solve this problem? No. We just have to be more careful. Let’s highlight all the outcomes that belong to <span class="math notranslate nohighlight">\(E_1 \cup E_2\)</span> with a yellow background. Let’s also count these as we go:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outcomes in  E1 OR E2 are on a yellow background:&quot;</span><span class="p">)</span>
+<span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span> <span class="ow">or</span> <span class="n">k</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)   &quot;</span><span class="p">,</span> <span class="n">on_color</span><span class="o">=</span> <span class="s1">&#39;on_yellow&#39;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;)   &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of outcomes in E1 OR E2 is&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outcomes in  E1 OR E2 are on a yellow background:
+<span class=" -Color -Color-BGYellow">(1, 1)   (1, 2)   (1, 3)   (1, 4)   (1, 5)   (1, 6)   </span>
+<span class=" -Color -Color-BGYellow">(2, 1)   (2, 2)   (2, 3)   (2, 4)   (2, 5)   (2, 6)   </span>
+<span class=" -Color -Color-BGYellow">(3, 1)   (3, 2)   </span>(3, 3)   (3, 4)   (3, 5)   (3, 6)   
+<span class=" -Color -Color-BGYellow">(4, 1)   (4, 2)   </span>(4, 3)   (4, 4)   (4, 5)   (4, 6)   
+<span class=" -Color -Color-BGYellow">(5, 1)   (5, 2)   </span>(5, 3)   (5, 4)   (5, 5)   (5, 6)   
+<span class=" -Color -Color-BGYellow">(6, 1)   (6, 2)   </span>(6, 3)   (6, 4)   (6, 5)   (6, 6)   
+
+Number of outcomes in E1 OR E2 is 20
+</pre></div>
+</div>
+</div>
+</div>
+<p>If an event is written in terms of a set of <span class="math notranslate nohighlight">\(K\)</span> <strong>outcomes</strong> <span class="math notranslate nohighlight">\(o_0, o_1, \ldots, o_{K-1}\)</span>, and the experiment is fair and has <span class="math notranslate nohighlight">\(N\)</span> total outcomes, then Axiom III can be applied to calculate the probability as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(E) &amp;= P \left(\left\{o_0, o_1, \ldots, o_{K-1} \right\} \right) \\
+&amp;= P \left( o_0 \right) + P \left( o_1 \right) +  \ldots + P \left( o_{K-1}  \right) \\
+&amp;= \frac{1}{N} + \frac{1}{N} + \ldots + \frac{1}{N} \mbox{        (total of } K \mbox{ terms)} \\
+&amp;= \frac{K}{N} 
+\end{align*}\]</div>
+<p>We believe that this experiment is fair and that any of the 36 total outcomes is equally likely to occur. The form above is general to any event for a fair experiment, and it is convenient to rewrite it in terms of set cardinalities as
+$<span class="math notranslate nohighlight">\(
+P(E) = \frac{|E|}{|S|}.
+\)</span>$</p>
+<p>Applying this our example, we can easily calculate the probability we are looking for as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P\left( E_1 \cup E_2 \right) &amp;= \frac{ \left \vert E_1 \cup E_2 \right \vert } { \left \vert S \right \vert} \\ 
+&amp;= \frac{20}{36} \\
+&amp;= \frac{5}{9}
+\end{align*}\]</div>
+<p>Note that the calculated value matches our estimate from the simulation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5555555555555556
+</pre></div>
+</div>
+</div>
+</div>
+<p>The key to making this work was that we had to realize several things:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E_1\)</span> and $E_2 are not outcomes. They are events, and they can occur at the same time.</p></li>
+<li><p>The outcomes of the experiment are the combination of the outcomes from the individual rolls of the two dice.</p></li>
+<li><p>The composite experiment is still a fair experiment. It is easy to calculate probabilities using Axiom III and the properties of fair experiments once we can determine the number of outcomes in the event of interest.</p></li>
+</ul>
 </div>
 </div>
 
