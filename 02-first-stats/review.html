@@ -359,19 +359,7 @@
 </div>
 <p><strong>Self-Check:</strong></p>
 <p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">questions</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../questions/ch2.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
-    <span class="n">questions</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
-    
-<span class="k">for</span> <span class="n">question</span> <span class="ow">in</span> <span class="n">questions</span><span class="p">:</span>
-    <span class="n">display_quiz</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
       <!-- QUESTION -->
@@ -389,24 +377,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checknQhtYNcjmrxa()" 
-      id="quizo0" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>1  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkxtOpKCElemdM()" 
+      id="quizo0" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0.5  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checknQhtYNcjmrxa()" 
+      onclick="checkxtOpKCElemdM()" 
       id="quizo1" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checknQhtYNcjmrxa()" 
-      id="quizo2" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0.5  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkxtOpKCElemdM()" 
+      id="quizo2" data-correct="True" data-feedback="Correct! Probabilities must be numbers between 0 and 1." data-answered=0>-0.5  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checknQhtYNcjmrxa()" 
-      id="quizo3" data-correct="True" data-feedback="Correct! Probabilities must be numbers between 0 and 1." data-answered=0>-0.5  </label>  </div></div>
-    <div id="nQhtYNcjmrxa" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checkxtOpKCElemdM()" 
+      id="quizo3" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>1  </label>  </div></div>
+    <div id="xtOpKCElemdM" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checknQhtYNcjmrxa(){
+        function checkxtOpKCElemdM(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -419,7 +407,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("nQhtYNcjmrxa");
+                var feedback = document.getElementById("xtOpKCElemdM");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -453,24 +441,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkXwaXfMCLDqOU()" 
-      id="quizo0" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments." data-answered=0>0.6  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkmSxKHrMGdNnG()" 
+      id="quizo0" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1." data-answered=0>2  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkXwaXfMCLDqOU()" 
-      id="quizo1" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1." data-answered=0>2  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkmSxKHrMGdNnG()" 
+      id="quizo1" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0." data-answered=0>0  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkXwaXfMCLDqOU()" 
-      id="quizo2" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0." data-answered=0>0  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkmSxKHrMGdNnG()" 
+      id="quizo2" data-correct="True" data-feedback="Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4." data-answered=0>0.4  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkXwaXfMCLDqOU()" 
-      id="quizo3" data-correct="True" data-feedback="Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4." data-answered=0>0.4  </label>  </div></div>
-    <div id="XwaXfMCLDqOU" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checkmSxKHrMGdNnG()" 
+      id="quizo3" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments." data-answered=0>0.6  </label>  </div></div>
+    <div id="mSxKHrMGdNnG" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkXwaXfMCLDqOU(){
+        function checkmSxKHrMGdNnG(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -483,7 +471,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("XwaXfMCLDqOU");
+                var feedback = document.getElementById("mSxKHrMGdNnG");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
