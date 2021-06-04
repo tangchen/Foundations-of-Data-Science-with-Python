@@ -2,7 +2,7 @@ from IPython.core.display import display, HTML
 import random
 import string
 
-def display_quiz (question, answers, multiple=False, randomize=True,
+def display_quiz_mc (question, answers, multiple=False, randomize=True,
                           question_background="#6F78FF"):
     
     num_correct=0
@@ -61,7 +61,7 @@ def display_quiz (question, answers, multiple=False, randomize=True,
     <div id="'''
     
     quiz_html+=feedback_id
-    quiz_html+='''" style="font-size: 20px;text-align:center;" data-answeredcorrect=0 data-numcorrect='''
+    quiz_html+='''" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect='''
     quiz_html+=str(num_correct) + '''></div>'''
 
     javascript = """

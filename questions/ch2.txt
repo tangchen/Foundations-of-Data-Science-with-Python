@@ -1,0 +1,54 @@
+[
+    {
+        "question": "Which of these cannot be a probability?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "1",
+                "correct": false,
+                "feedback": "This is a number between 0 and 1, so it can be probability."
+            },
+            {
+                "answer": "-0.5",
+                "correct": true,
+                "feedback": "Correct! Probabilities must be numbers between 0 and 1."
+            },
+            {
+                "answer": "0",
+                "correct": false,
+                "feedback": "This is a number between 0 and 1, so it can be probability."
+            },
+            {
+                "answer": "0.5",
+                "correct": false,
+                "feedback": "This is a number between 0 and 1, so it can be probability."
+            }
+        ]
+    },
+    {
+        "question": "Determine the relative frequency of the outcome 3 in the following data set:\n\n2,3,5,2,3",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "2",
+                "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1."
+            },
+            {
+                "answer": "0.6",
+                "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments."
+            },
+            {
+                "answer": "0.4",
+                "correct": true,
+                "feedback": "Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4."
+            },
+            {
+                "answer": "0",
+                "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0."
+            }
+        ]
+    }
+]
