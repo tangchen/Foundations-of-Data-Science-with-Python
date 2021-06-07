@@ -57,7 +57,7 @@
         ]
     },
     {
-        "question": "Which of these are used to typeset mathematiccs in Jupyter notebooks?",
+        "question": "Which of these are used to typeset mathematics in Jupyter notebooks?",
         "type": "multiple_choice",
         "answers": [
             {
