@@ -36,7 +36,7 @@ def display_multiple (ref, num=1_000_000, shuffle_questions=False,
 
     if static:
         questions=[]
-        with open('../questions/ch1.txt', 'r') as infile:
+        with open(ref, 'r') as infile:
             questions=json.load(infile)
   
             if  num < len(questions):
