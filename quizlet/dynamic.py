@@ -8,7 +8,7 @@ def display_questions_dynamic (url, num=1_000_000, shuffle_questions=False,
 
     letters = string.ascii_letters
     div_id= ''.join(random.choice(letters) for i in range(12))
-    print(div_id)
+    #print(div_id)
 
     mydiv='<div id="'+ div_id + '" data-shufflequestions="' + str(shuffle_questions) +'"'
     mydiv+=' data-shuffleanswers="' + str(shuffle_answers) +'"'
