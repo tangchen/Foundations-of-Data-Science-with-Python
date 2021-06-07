@@ -1,6 +1,8 @@
 import random
+import json
 
 from .multiple_choice import display_quiz_mc
+from .dynamic import display_questions_dynamic
 def display_quiz (question, answers=[],  randomize=True, multiple=False, 
                   question_background=""):
     if type(question)==dict:
@@ -29,11 +31,22 @@ def display_quiz (question, answers=[],  randomize=True, multiple=False,
 
 
 
-def display_multiple (questions, num=1_000_000, shuffle=False):
-    if  num < len(questions):
-        questions=random.sample(questions, num)
-    elif shuffle:
-        random.shuffle(questions)
+def display_multiple (ref, num=1_000_000, shuffle_questions=False,
+                      shuffle_answers=True, static=False):
 
-    for question in questions:
-        display_quiz (question)
+    if static:
+        questions=[]
+        with open('../questions/ch1.txt', 'r') as infile:
+            questions=json.load(infile)
+  
+            if  num < len(questions):
+                questions=random.sample(questions, num)
+            elif shuffle_questions:
+                random.shuffle(questions)
+
+            for question in questions:
+                display_quiz (question)
+
+    else:
+        display_questions_dynamic(ref, num, shuffle_questions, shuffle_answers)
+
