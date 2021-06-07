@@ -351,6 +351,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spaced-repetition-review">
+   3.8.1. Spaced Repetition Review
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -380,24 +393,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkOHXKuDQyMmxh()" 
+      onclick="checkcbJyBBQHbCCa()" 
       id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>sum of absolute errors  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkOHXKuDQyMmxh()" 
-      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>total number of errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkcbJyBBQHbCCa()" 
+      id="quizo1" data-correct="False" data-feedback="There is no minimum value for this metric." data-answered=0>sum of errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkOHXKuDQyMmxh()" 
-      id="quizo2" data-correct="False" data-feedback="There is no minimum value for this metric." data-answered=0>sum of errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkcbJyBBQHbCCa()" 
+      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>total number of errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkOHXKuDQyMmxh()" 
+      onclick="checkcbJyBBQHbCCa()" 
       id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>sum of squared errors  </label>  </div></div>
-    <div id="OHXKuDQyMmxh" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=3></div>
+    <div id="cbJyBBQHbCCa" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=3></div>
         <script type="text/Javascript">
 
-        function checkOHXKuDQyMmxh(){
+        function checkcbJyBBQHbCCa(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -406,7 +419,7 @@
                 answers= event.srcElement.parentElement.children;
                 console.log(answers);
 
-                var feedback = document.getElementById("OHXKuDQyMmxh");
+                var feedback = document.getElementById("cbJyBBQHbCCa");
                 reset = false;
                 if (event.srcElement.dataset.correct=="True" )   {
                     if (event.srcElement.dataset.answered<=0) {
@@ -476,20 +489,20 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkXaMtZBFvjDAX()" 
+      onclick="checkOIAhpAwwIWzl()" 
       id="quizo0" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkXaMtZBFvjDAX()" 
+      onclick="checkOIAhpAwwIWzl()" 
       id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkXaMtZBFvjDAX()" 
+      onclick="checkOIAhpAwwIWzl()" 
       id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>average  </label>  </div></div>
-    <div id="XaMtZBFvjDAX" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
+    <div id="OIAhpAwwIWzl" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkXaMtZBFvjDAX(){
+        function checkOIAhpAwwIWzl(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -502,7 +515,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("XaMtZBFvjDAX");
+                var feedback = document.getElementById("OIAhpAwwIWzl");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -534,20 +547,20 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkkuOnRSCBHqJc()" 
-      id="quizo0" data-correct="False" data-feedback="Try again." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkbtJhFwLFHRmE()" 
+      id="quizo0" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkkuOnRSCBHqJc()" 
-      id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkbtJhFwLFHRmE()" 
+      id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkkuOnRSCBHqJc()" 
+      onclick="checkbtJhFwLFHRmE()" 
       id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>median  </label>  </div></div>
-    <div id="kuOnRSCBHqJc" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
+    <div id="btJhFwLFHRmE" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkkuOnRSCBHqJc(){
+        function checkbtJhFwLFHRmE(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -560,7 +573,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("kuOnRSCBHqJc");
+                var feedback = document.getElementById("btJhFwLFHRmE");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -592,20 +605,20 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkLuuFvwQlBDzU()" 
-      id="quizo0" data-correct="False" data-feedback="Try again." data-answered=0>average  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checktFTJznHNMeLI()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>mode  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkLuuFvwQlBDzU()" 
+      onclick="checktFTJznHNMeLI()" 
       id="quizo1" data-correct="False" data-feedback="Try again." data-answered=0>median  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkLuuFvwQlBDzU()" 
-      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>mode  </label>  </div></div>
-    <div id="LuuFvwQlBDzU" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checktFTJznHNMeLI()" 
+      id="quizo2" data-correct="False" data-feedback="Try again." data-answered=0>average  </label>  </div></div>
+    <div id="tFTJznHNMeLI" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkLuuFvwQlBDzU(){
+        function checktFTJznHNMeLI(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -618,7 +631,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("LuuFvwQlBDzU");
+                var feedback = document.getElementById("tFTJznHNMeLI");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -650,24 +663,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkBqTdlvVuocbp()" 
-      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>data entry errors  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkafEEFSPWyxxq()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>unit conversion errors  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkBqTdlvVuocbp()" 
+      onclick="checkafEEFSPWyxxq()" 
       id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>measurement errors  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkBqTdlvVuocbp()" 
-      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>unit conversion errors  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkafEEFSPWyxxq()" 
+      id="quizo2" data-correct="False" data-feedback="Different population characteristics often produce variations in data, but these are not erroneous values and not considered outliers." data-answered=0>different population characteristics  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkBqTdlvVuocbp()" 
-      id="quizo3" data-correct="False" data-feedback="Different population characteristics often produce variations in data, but these are not erroneous values and not considered outliers." data-answered=0>different population characteristics  </label>  </div></div>
-    <div id="BqTdlvVuocbp" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=3></div>
+      onclick="checkafEEFSPWyxxq()" 
+      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>data entry errors  </label>  </div></div>
+    <div id="afEEFSPWyxxq" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=3></div>
         <script type="text/Javascript">
 
-        function checkBqTdlvVuocbp(){
+        function checkafEEFSPWyxxq(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -676,7 +689,7 @@
                 answers= event.srcElement.parentElement.children;
                 console.log(answers);
 
-                var feedback = document.getElementById("BqTdlvVuocbp");
+                var feedback = document.getElementById("afEEFSPWyxxq");
                 reset = false;
                 if (event.srcElement.dataset.correct=="True" )   {
                     if (event.srcElement.dataset.answered<=0) {
@@ -732,6 +745,473 @@
         </script>
 </div></div>
 </div>
+<div class="section" id="spaced-repetition-review">
+<h2><span class="section-number">3.8.1. </span>Spaced Repetition Review<a class="headerlink" href="#spaced-repetition-review" title="Permalink to this headline">¶</a></h2>
+<p>Answer these questions to check your retention on knowledge from Chapters 1 and 2:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="eDCouBXuYZwA" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><script type="text/Javascript">//var mydiv=document.getElementById("testDIV");//console.log(mydiv);
+    //console.log(element);
+
+    // Make a random ID
+    function makeid(length) {
+        var result           = [];
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+          result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+       }
+       return result.join('');
+    }
+
+    // Choose a random subset of an array. Can also be used to shuffle the array
+    function getRandomSubarray(arr, size) {
+        var shuffled = arr.slice(0), i = arr.length, temp, index;
+        while (i--) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        return shuffled.slice(0, size);
+    }
+
+
+    function check() {
+        var id=this.id.split('-')[0];
+
+        //console.log("In check(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.correct)   
+        //console.log(event.srcElement.dataset.feedback)
+
+        var answers= event.srcElement.parentElement.children;
+        //console.log(answers);
+
+        // Split behavior based on multiple choice vs many choice:
+        var fb = document.getElementById("fb"+id);
+        if (fb.dataset.numcorrect==1) {
+            for (var i = 0; i < answers.length; i++) {
+                var child=answers[i];
+                child.style.background="#fafafa";
+            }
+
+
+
+            fb.textContent=event.srcElement.dataset.feedback;
+            if (event.srcElement.dataset.correct=="true")   {
+                // console.log("Correct action");
+                event.srcElement.style.background="#d8ffc4";
+                fb.style.color="#009113";
+            } else {
+                //console.log("Error action");
+                event.srcElement.style.background="#ffe8e8";
+                fb.style.color="#DC2329";
+            }
+        }
+        else {
+            //console.log("Many choice not implemented yet");
+            var reset = false;
+            if (event.srcElement.dataset.correct=="true" )   {
+                if (event.srcElement.dataset.answered<=0) {
+                    if (fb.dataset.answeredcorrect<0) {
+                        fb.dataset.answeredcorrect=1;
+                        reset=true;
+                    } else {
+                       fb.dataset.answeredcorrect++;
+                    }
+                    if (reset) {
+                        for (var i = 0; i < answers.length; i++) {
+                            var child=answers[i];
+                            child.style.background="#fafafa";
+                            child.dataset.answered=0;
+                        }
+                    }
+                    event.srcElement.style.background="#d8ffc4";
+                    event.srcElement.dataset.answered=1;
+                    fb.style.color="#009113";
+
+                }
+            } else {
+                if (fb.dataset.answeredcorrect>0) {
+                    fb.dataset.answeredcorrect=-1;
+                    reset=true;
+                } else {
+                   fb.dataset.answeredcorrect--;
+                }
+
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child=answers[i];
+                        child.style.background="#fafafa";
+                        child.dataset.answered=0;
+                    }
+                }
+                event.srcElement.style.background="#ffe8e8";
+                fb.style.color="#DC2329";
+            }
+
+
+            var numcorrect=fb.dataset.numcorrect;
+            var answeredcorrect=fb.dataset.answeredcorrect;
+            if (answeredcorrect>=0) {
+                fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+            } else {
+                fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
+            }
+
+
+        }
+
+
+
+    }
+
+    function parse (json, mydiv) {
+        //var mydiv=document.getElementById(myid);
+        var shuffle_questions=mydiv.dataset.shufflequestions;
+        var num_questions=mydiv.dataset.numquestions;
+        var shuffle_answers=mydiv.dataset.shuffleanswers;
+
+        if (num_questions>json.length) {
+            num_questions=json.length;
+        }
+
+        var questions;
+        if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+            //console.log(num_questions+","+json.length);
+            questions=getRandomSubarray(json, num_questions);
+        } else {
+            questions=json;
+        }
+
+        //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+        questions.forEach((qa, index, array) => {
+            //console.log(qa.question); 
+
+            var id = makeid(8);
+            //console.log(id);
+
+
+            // Create Div to contain question and answers
+            var iDiv = document.createElement('div');
+            iDiv.id = 'quizWrap'+id+index;
+            iDiv.style='max-width: 600px; margin: 0 auto;padding-bottom: 30px;';
+            mydiv.appendChild(iDiv);
+            // iDiv.innerHTML=qa.question;
+
+            // Create div to contain question part
+            var qDiv = document.createElement('div');
+            qDiv.id="quizQn"+id+index;
+            qDiv.style='padding: 20px;color: #fafafa;font-size: 20px;border-radius: 10px; background: #6F78FF;';
+            //qDiv.innerHTML=qa.question;
+            qDiv.textContent=qa.question;
+            iDiv.append(qDiv);
+
+            // Create div to contain answer part
+            var aDiv = document.createElement('div');
+            aDiv.id="quizAns"+id+index;
+            aDiv.style="margin: 10px 0; display: grid; grid-template-columns: auto auto;grid-gap: 10px;";
+            iDiv.append(aDiv);
+
+            var num_correct=0;
+
+            var shuffled;
+            if (shuffle_answers=="True") {
+                //console.log(shuffle_answers+" read as true");
+                shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+            } else {
+                //console.log(shuffle_answers+" read as false");
+                shuffled=qa.answers;
+            }
+
+
+
+
+            shuffled.forEach((item, index, ans_array) => {
+                //console.log(answer);
+
+                // Make input element
+                var inp = document.createElement("input");
+                inp.type="radio";
+                inp.id="quizo"+id+index;
+                inp.style="display:none;";
+                aDiv.append(inp);
+
+                //Make label for input element
+                var lab = document.createElement("label");
+                lab.style="background: #fafafa; border: 1px solid #eee;  border-radius: 10px; padding: 10px; font-size: 16px; cursor: pointer; text-align: center;";
+                lab.id=id+ '-' +index;
+                lab.onclick=check;
+                lab.textContent=item.answer;
+
+                // Set the data attributes for the answer
+                lab.setAttribute('data-correct', item.correct);
+                if (item.correct) {
+                    num_correct++;
+                }
+                lab.setAttribute('data-feedback', item.feedback);
+                lab.setAttribute('data-answered', 0);
+
+                aDiv.append(lab);
+
+
+            });
+
+            //Make div for feedback
+            var fb = document.createElement("div");
+            fb.id="fb"+id;
+            fb.style="font-size: 20px;text-align:center;";
+            fb.setAttribute("data-answeredcorrect", 0);
+            fb.setAttribute("data-numcorrect", num_correct);
+            iDiv.append(fb);
+
+
+        });
+    }
+
+
+            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json")
+      .then(response => response.json())
+      .then(json => parse(json, eDCouBXuYZwA)
+    );
+
+
+    </script>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="ADarMDBOvmEK" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><script type="text/Javascript">//var mydiv=document.getElementById("testDIV");//console.log(mydiv);
+    //console.log(element);
+
+    // Make a random ID
+    function makeid(length) {
+        var result           = [];
+        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        var charactersLength = characters.length;
+        for ( var i = 0; i < length; i++ ) {
+          result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+       }
+       return result.join('');
+    }
+
+    // Choose a random subset of an array. Can also be used to shuffle the array
+    function getRandomSubarray(arr, size) {
+        var shuffled = arr.slice(0), i = arr.length, temp, index;
+        while (i--) {
+            index = Math.floor((i + 1) * Math.random());
+            temp = shuffled[index];
+            shuffled[index] = shuffled[i];
+            shuffled[i] = temp;
+        }
+        return shuffled.slice(0, size);
+    }
+
+
+    function check() {
+        var id=this.id.split('-')[0];
+
+        //console.log("In check(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.correct)   
+        //console.log(event.srcElement.dataset.feedback)
+
+        var answers= event.srcElement.parentElement.children;
+        //console.log(answers);
+
+        // Split behavior based on multiple choice vs many choice:
+        var fb = document.getElementById("fb"+id);
+        if (fb.dataset.numcorrect==1) {
+            for (var i = 0; i < answers.length; i++) {
+                var child=answers[i];
+                child.style.background="#fafafa";
+            }
+
+
+
+            fb.textContent=event.srcElement.dataset.feedback;
+            if (event.srcElement.dataset.correct=="true")   {
+                // console.log("Correct action");
+                event.srcElement.style.background="#d8ffc4";
+                fb.style.color="#009113";
+            } else {
+                //console.log("Error action");
+                event.srcElement.style.background="#ffe8e8";
+                fb.style.color="#DC2329";
+            }
+        }
+        else {
+            //console.log("Many choice not implemented yet");
+            var reset = false;
+            if (event.srcElement.dataset.correct=="true" )   {
+                if (event.srcElement.dataset.answered<=0) {
+                    if (fb.dataset.answeredcorrect<0) {
+                        fb.dataset.answeredcorrect=1;
+                        reset=true;
+                    } else {
+                       fb.dataset.answeredcorrect++;
+                    }
+                    if (reset) {
+                        for (var i = 0; i < answers.length; i++) {
+                            var child=answers[i];
+                            child.style.background="#fafafa";
+                            child.dataset.answered=0;
+                        }
+                    }
+                    event.srcElement.style.background="#d8ffc4";
+                    event.srcElement.dataset.answered=1;
+                    fb.style.color="#009113";
+
+                }
+            } else {
+                if (fb.dataset.answeredcorrect>0) {
+                    fb.dataset.answeredcorrect=-1;
+                    reset=true;
+                } else {
+                   fb.dataset.answeredcorrect--;
+                }
+
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child=answers[i];
+                        child.style.background="#fafafa";
+                        child.dataset.answered=0;
+                    }
+                }
+                event.srcElement.style.background="#ffe8e8";
+                fb.style.color="#DC2329";
+            }
+
+
+            var numcorrect=fb.dataset.numcorrect;
+            var answeredcorrect=fb.dataset.answeredcorrect;
+            if (answeredcorrect>=0) {
+                fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+            } else {
+                fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
+            }
+
+
+        }
+
+
+
+    }
+
+    function parse (json, mydiv) {
+        //var mydiv=document.getElementById(myid);
+        var shuffle_questions=mydiv.dataset.shufflequestions;
+        var num_questions=mydiv.dataset.numquestions;
+        var shuffle_answers=mydiv.dataset.shuffleanswers;
+
+        if (num_questions>json.length) {
+            num_questions=json.length;
+        }
+
+        var questions;
+        if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+            //console.log(num_questions+","+json.length);
+            questions=getRandomSubarray(json, num_questions);
+        } else {
+            questions=json;
+        }
+
+        //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+        questions.forEach((qa, index, array) => {
+            //console.log(qa.question); 
+
+            var id = makeid(8);
+            //console.log(id);
+
+
+            // Create Div to contain question and answers
+            var iDiv = document.createElement('div');
+            iDiv.id = 'quizWrap'+id+index;
+            iDiv.style='max-width: 600px; margin: 0 auto;padding-bottom: 30px;';
+            mydiv.appendChild(iDiv);
+            // iDiv.innerHTML=qa.question;
+
+            // Create div to contain question part
+            var qDiv = document.createElement('div');
+            qDiv.id="quizQn"+id+index;
+            qDiv.style='padding: 20px;color: #fafafa;font-size: 20px;border-radius: 10px; background: #6F78FF;';
+            //qDiv.innerHTML=qa.question;
+            qDiv.textContent=qa.question;
+            iDiv.append(qDiv);
+
+            // Create div to contain answer part
+            var aDiv = document.createElement('div');
+            aDiv.id="quizAns"+id+index;
+            aDiv.style="margin: 10px 0; display: grid; grid-template-columns: auto auto;grid-gap: 10px;";
+            iDiv.append(aDiv);
+
+            var num_correct=0;
+
+            var shuffled;
+            if (shuffle_answers=="True") {
+                //console.log(shuffle_answers+" read as true");
+                shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+            } else {
+                //console.log(shuffle_answers+" read as false");
+                shuffled=qa.answers;
+            }
+
+
+
+
+            shuffled.forEach((item, index, ans_array) => {
+                //console.log(answer);
+
+                // Make input element
+                var inp = document.createElement("input");
+                inp.type="radio";
+                inp.id="quizo"+id+index;
+                inp.style="display:none;";
+                aDiv.append(inp);
+
+                //Make label for input element
+                var lab = document.createElement("label");
+                lab.style="background: #fafafa; border: 1px solid #eee;  border-radius: 10px; padding: 10px; font-size: 16px; cursor: pointer; text-align: center;";
+                lab.id=id+ '-' +index;
+                lab.onclick=check;
+                lab.textContent=item.answer;
+
+                // Set the data attributes for the answer
+                lab.setAttribute('data-correct', item.correct);
+                if (item.correct) {
+                    num_correct++;
+                }
+                lab.setAttribute('data-feedback', item.feedback);
+                lab.setAttribute('data-answered', 0);
+
+                aDiv.append(lab);
+
+
+            });
+
+            //Make div for feedback
+            var fb = document.createElement("div");
+            fb.id="fb"+id;
+            fb.style="font-size: 20px;text-align:center;";
+            fb.setAttribute("data-answeredcorrect", 0);
+            fb.setAttribute("data-numcorrect", num_correct);
+            iDiv.append(fb);
+
+
+        });
+    }
+
+
+            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch2.json")
+      .then(response => response.json())
+      .then(json => parse(json, ADarMDBOvmEK)
+    );
+
+
+    </script>
+</div></div>
+</div>
 <p><strong>Key Take-aways:</strong></p>
 <ul class="simple">
 <li><p>Pandas stores data in dataframes. <strong>Dataframes store tabular data, like spreadsheets or database tables.</strong></p></li>
@@ -759,6 +1239,7 @@
 </li>
 <li><p><strong>Two-dimensional statistical methods can be used to directly work with pairs of data</strong> through techniques such as curve fitting.</p></li>
 </ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
