@@ -135,18 +135,18 @@ def display_questions_dynamic(url, num=1_000_000, shuffle_questions=False, shuff
         
         var questions;
         if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
-            console.log(num_questions+","+json.length);
+            //console.log(num_questions+","+json.length);
             questions=getRandomSubarray(json, num_questions);
         } else {
             questions=json;
         }
     
-        console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+        //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
         questions.forEach((qa, index, array) => {
             //console.log(qa.question); 
 
             var id = makeid(8);
-            console.log(id);
+            //console.log(id);
 
 
             // Create Div to contain question and answers
