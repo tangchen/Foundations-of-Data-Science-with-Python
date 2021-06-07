@@ -364,9 +364,114 @@
 </div>
 <p><strong>Self-Assessment:</strong></p>
 <p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
-<div class="cell tag_remove-input docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_multiple</span><span class="p">(</span><span class="s1">&#39;../questions/ch1.json&#39;</span><span class="p">,</span> <span class="n">static</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
+      <!-- QUESTION -->
+      <div id="quizQn" style="padding: 20px;
+      background: #FEB44A;
+      color: #fff;
+      font-size: 20px;
+      border-radius: 10px;">
+      Choose all of the following that can be included in Jupyter notebooks?</div>
+      <!-- ANSWER -->
+      <div id="quizAns" style="margin: 10px 0;
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-gap: 10px;">
+      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkiKuQKUJLctAX()" 
+      id="quizo0" data-correct="True" data-feedback="Correct." data-answered=0>Typeset mathematics  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkiKuQKUJLctAX()" 
+      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>Text and graphics output from Python  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkiKuQKUJLctAX()" 
+      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>Formatted text  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkiKuQKUJLctAX()" 
+      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>Python executable code  </label><input type="radio" name="quiz" id="quizo4" style="display:none;" ><label style="background: #fafafa;
+      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
+      font-size: 16px; cursor: pointer; text-align: center;" 
+      onclick="checkiKuQKUJLctAX()" 
+      id="quizo4" data-correct="False" data-feedback="I hope not." data-answered=0>Live snakes via Python  </label>  </div></div>
+    <div id="iKuQKUJLctAX" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=4></div>
+        <script type="text/Javascript">
+
+        function checkiKuQKUJLctAX(){
+
+                console.log(event.srcElement.id)           
+                console.log(event.srcElement.dataset.correct)   
+                console.log(event.srcElement.dataset.feedback)
+
+                answers= event.srcElement.parentElement.children;
+                console.log(answers);
+
+                var feedback = document.getElementById("iKuQKUJLctAX");
+                reset = false;
+                if (event.srcElement.dataset.correct=="True" )   {
+                    if (event.srcElement.dataset.answered<=0) {
+                        if (feedback.dataset.answeredcorrect<0) {
+                            feedback.dataset.answeredcorrect=1;
+                            reset=true;
+                        } else {
+                           feedback.dataset.answeredcorrect++;
+                        }
+                        if (reset) {
+                            for (var i = 0; i < answers.length; i++) {
+                                child=answers[i];
+                                child.style.background="#fafafa";
+                                child.dataset.answered=0;
+                            }
+                        }
+                        event.srcElement.style.background="#d8ffc4";
+                        event.srcElement.dataset.answered=1;
+                        feedback.style.color="#009113";
+
+                    }
+                } else {
+                    if (feedback.dataset.answeredcorrect>0) {
+                        feedback.dataset.answeredcorrect=-1;
+                        reset=true;
+                    } else {
+                       feedback.dataset.answeredcorrect--;
+                    }
+
+                    if (reset) {
+                        for (var i = 0; i < answers.length; i++) {
+                            child=answers[i];
+                            child.style.background="#fafafa";
+                            child.dataset.answered=0;
+                        }
+                    }
+                    event.srcElement.style.background="#ffe8e8";
+                    feedback.style.color="#DC2329";
+                }
+
+
+                numcorrect=feedback.dataset.numcorrect;
+                answeredcorrect=feedback.dataset.answeredcorrect;
+                if (answeredcorrect>=0) {
+                    feedback.innerHTML=event.srcElement.dataset.feedback + " ["                 + answeredcorrect + "/" + numcorrect + "]";
+                } else {
+                    feedback.innerHTML=event.srcElement.dataset.feedback + "["                 + 0 + "/" + numcorrect + "]";
+                }
+
+
+            }
+
+        </script>
+</div><div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
       <!-- QUESTION -->
       <div id="quizQn" style="padding: 20px;
       background: #6F78FF;
@@ -382,24 +487,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIFpaqEQIlmGw()" 
-      id="quizo0" data-correct="False" data-feedback="False." data-answered=0>Rich Text  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkZrDoTThIloFa()" 
+      id="quizo0" data-correct="False" data-feedback="False." data-answered=0>Wiki markup  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIFpaqEQIlmGw()" 
-      id="quizo1" data-correct="False" data-feedback="False." data-answered=0>SVG  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkZrDoTThIloFa()" 
+      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>Markdown  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIFpaqEQIlmGw()" 
-      id="quizo2" data-correct="False" data-feedback="False." data-answered=0>Wiki markup  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkZrDoTThIloFa()" 
+      id="quizo2" data-correct="False" data-feedback="False." data-answered=0>SVG  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkIFpaqEQIlmGw()" 
-      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>Markdown  </label>  </div></div>
-    <div id="IFpaqEQIlmGw" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checkZrDoTThIloFa()" 
+      id="quizo3" data-correct="False" data-feedback="False." data-answered=0>Rich Text  </label>  </div></div>
+    <div id="ZrDoTThIloFa" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkIFpaqEQIlmGw(){
+        function checkZrDoTThIloFa(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -412,7 +517,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("IFpaqEQIlmGw");
+                var feedback = document.getElementById("ZrDoTThIloFa");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -435,7 +540,7 @@
       color: #fff;
       font-size: 20px;
       border-radius: 10px;">
-      Which of these are used to typeset mathematiccs in Jupyter notebooks?</div>
+      Which of these are used to typeset mathematics in Jupyter notebooks?</div>
       <!-- ANSWER -->
       <div id="quizAns" style="margin: 10px 0;
       display: grid;
@@ -444,24 +549,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkhLUMSbIoUyDQ()" 
-      id="quizo0" data-correct="False" data-feedback="False." data-answered=0>MS Equation  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkfsgOcBsCCkVe()" 
+      id="quizo0" data-correct="False" data-feedback="False." data-answered=0>SilIcoN  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkhLUMSbIoUyDQ()" 
-      id="quizo1" data-correct="False" data-feedback="False." data-answered=0>SilIcoN  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkfsgOcBsCCkVe()" 
+      id="quizo1" data-correct="False" data-feedback="False." data-answered=0>AcrYliC  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkhLUMSbIoUyDQ()" 
-      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>LaTeX  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkfsgOcBsCCkVe()" 
+      id="quizo2" data-correct="False" data-feedback="False." data-answered=0>MS Equation  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkhLUMSbIoUyDQ()" 
-      id="quizo3" data-correct="False" data-feedback="False." data-answered=0>AcrYliC  </label>  </div></div>
-    <div id="hLUMSbIoUyDQ" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checkfsgOcBsCCkVe()" 
+      id="quizo3" data-correct="True" data-feedback="Correct." data-answered=0>LaTeX  </label>  </div></div>
+    <div id="fsgOcBsCCkVe" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkhLUMSbIoUyDQ(){
+        function checkfsgOcBsCCkVe(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -474,7 +579,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("hLUMSbIoUyDQ");
+                var feedback = document.getElementById("fsgOcBsCCkVe");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -506,24 +611,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkgaSwHEejnOKv()" 
-      id="quizo0" data-correct="False" data-feedback="False." data-answered=0>parentheses ()  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkTXCkUTycreMM()" 
+      id="quizo0" data-correct="False" data-feedback="Blank lines can help distinguish the end of code blocks visually, but do not affect the functional grouping" data-answered=0>blank lines  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkgaSwHEejnOKv()" 
-      id="quizo1" data-correct="True" data-feedback="Correct." data-answered=0>indentation  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkTXCkUTycreMM()" 
+      id="quizo1" data-correct="False" data-feedback="Curly braces are used to group code in C, C++, and other languages, but not Python" data-answered=0>curly braces {}  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkgaSwHEejnOKv()" 
-      id="quizo2" data-correct="False" data-feedback="Curly braces are used to group code in C, C++, and other languages, but not Python" data-answered=0>curly braces {}  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkTXCkUTycreMM()" 
+      id="quizo2" data-correct="True" data-feedback="Correct." data-answered=0>indentation  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkgaSwHEejnOKv()" 
-      id="quizo3" data-correct="False" data-feedback="Blank lines can help distinguish the end of code blocks visually, but do not affect the functional grouping" data-answered=0>blank lines  </label>  </div></div>
-    <div id="gaSwHEejnOKv" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
+      onclick="checkTXCkUTycreMM()" 
+      id="quizo3" data-correct="False" data-feedback="False." data-answered=0>parentheses ()  </label>  </div></div>
+    <div id="TXCkUTycreMM" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
         <script type="text/Javascript">
 
-        function checkgaSwHEejnOKv(){
+        function checkTXCkUTycreMM(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -536,7 +641,7 @@
                     child=answers[i];
                     child.style.background="#fafafa";
                 }
-                var feedback = document.getElementById("gaSwHEejnOKv");
+                var feedback = document.getElementById("TXCkUTycreMM");
                 feedback.innerHTML=event.srcElement.dataset.feedback;
                 if (event.srcElement.dataset.correct=="True")   {
                     event.srcElement.style.background="#d8ffc4";
@@ -568,24 +673,24 @@
       <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkskvNtGNxQcgd()" 
-      id="quizo0" data-correct="True" data-feedback="Correct. A single hash is used to create a single-line comment" data-answered=0># comment  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkUerwmKhGoLJc()" 
+      id="quizo0" data-correct="True" data-feedback="Correct. This is used for multi-line comments." data-answered=0>''' comment'''  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkskvNtGNxQcgd()" 
-      id="quizo1" data-correct="False" data-feedback="Incorrect. This is a C-style comment." data-answered=0>/* comment */  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkUerwmKhGoLJc()" 
+      id="quizo1" data-correct="False" data-feedback="Incorrect. This is the format of a single-line comment in C." data-answered=0>//  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkskvNtGNxQcgd()" 
-      id="quizo2" data-correct="False" data-feedback="Incorrect. This is the format of a single-line comment in C." data-answered=0>//  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
+      onclick="checkUerwmKhGoLJc()" 
+      id="quizo2" data-correct="False" data-feedback="Incorrect. This is a C-style comment." data-answered=0>/* comment */  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
       border: 1px solid #eee;  border-radius: 10px; padding: 10px;
       font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkskvNtGNxQcgd()" 
-      id="quizo3" data-correct="True" data-feedback="Correct. This is used for multi-line comments." data-answered=0>``` comment```  </label>  </div></div>
-    <div id="skvNtGNxQcgd" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=2></div>
+      onclick="checkUerwmKhGoLJc()" 
+      id="quizo3" data-correct="True" data-feedback="Correct. A single hash is used to create a single-line comment" data-answered=0># comment  </label>  </div></div>
+    <div id="UerwmKhGoLJc" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=2></div>
         <script type="text/Javascript">
 
-        function checkskvNtGNxQcgd(){
+        function checkUerwmKhGoLJc(){
 
                 console.log(event.srcElement.id)           
                 console.log(event.srcElement.dataset.correct)   
@@ -594,7 +699,7 @@
                 answers= event.srcElement.parentElement.children;
                 console.log(answers);
 
-                var feedback = document.getElementById("skvNtGNxQcgd");
+                var feedback = document.getElementById("UerwmKhGoLJc");
                 reset = false;
                 if (event.srcElement.dataset.correct=="True" )   {
                     if (event.srcElement.dataset.answered<=0) {
