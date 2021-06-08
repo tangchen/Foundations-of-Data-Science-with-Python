@@ -7,6 +7,8 @@ import pkg_resources
 def display_questions_dynamic (url, num=1_000_000, shuffle_questions=False,
                                    shuffle_answers=True):
 
+    resource_package = __name__
+
     letters = string.ascii_letters
     div_id= ''.join(random.choice(letters) for i in range(12))
     #print(div_id)
@@ -14,6 +16,11 @@ def display_questions_dynamic (url, num=1_000_000, shuffle_questions=False,
     mydiv='<div id="'+ div_id + '" data-shufflequestions="' + str(shuffle_questions) +'"'
     mydiv+=' data-shuffleanswers="' + str(shuffle_answers) +'"'
     mydiv+=' data-numquestions="' + str(num) +'">'
+
+    styles="<style>"
+    css=pkg_resources.resource_string(resource_package, "styles.css")
+    styles+=css.decode("utf-8")
+    styles+="</style>"
     
     
     script='<script type="text/Javascript">'
@@ -25,7 +32,6 @@ def display_questions_dynamic (url, num=1_000_000, shuffle_questions=False,
     #return
 
     # print(__name__)
-    resource_package = __name__
     helpers=pkg_resources.resource_string(resource_package, "helpers.js")
     script+=helpers.decode("utf-8")
 
@@ -53,5 +59,5 @@ def display_questions_dynamic (url, num=1_000_000, shuffle_questions=False,
     </script>
       '''
     javascript=script + url + script_end
-    display(HTML(mydiv + javascript))
+    display(HTML(mydiv + styles +  javascript))
 

@@ -1,0 +1,46 @@
+
+.Input {
+    align:left;
+    font-size: 20pt;
+}
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+ .Input-text:focus {
+     outline: none;
+     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+ }
+
+ .Quiz {
+     max-width: 600px;
+     margin: 0 auto;
+ }
+ .QuizQn {
+     padding: 20px;
+     background: #05B217;
+     color: #fafafa;
+     font-size: 20pt;
+     border-radius: 10px;
+ }
+ .InpLabel {
+     line-height:40px;
+     float:left;
+     margin-right:10px;
+ }
+ 
