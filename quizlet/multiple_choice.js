@@ -14,7 +14,7 @@ function check_mc() {
     if (fb.dataset.numcorrect==1) {
         for (var i = 0; i < answers.length; i++) {
             var child=answers[i];
-            child.style.background="#fafafa";
+            child.className="MCButton";
         }
 
 
@@ -22,12 +22,16 @@ function check_mc() {
         fb.textContent=event.srcElement.dataset.feedback;
         if (event.srcElement.dataset.correct=="true")   {
             // console.log("Correct action");
-            event.srcElement.style.background="#d8ffc4";
-            fb.style.color="#009113";
+            this.classList.add("correctButton");
+
+            fb.className="Feedback";
+            fb.classList.add("correct");
+
         } else {
             //console.log("Error action");
-            event.srcElement.style.background="#ffe8e8";
-            fb.style.color="#DC2329";
+            this.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
         }
     }
     else {
@@ -44,13 +48,14 @@ function check_mc() {
                 if (reset) {
                     for (var i = 0; i < answers.length; i++) {
                         var child=answers[i];
-                        child.style.background="#fafafa";
+                        child.className="MCButton";
                         child.dataset.answered=0;
                     }
                 }
-                event.srcElement.style.background="#d8ffc4";
-                event.srcElement.dataset.answered=1;
-                fb.style.color="#009113";
+                this.classList.add("correctButton");
+                this.dataset.answered=1;
+                fb.className="Feedback";
+                fb.classList.add("correct");
 
             }
         } else {
@@ -64,12 +69,13 @@ function check_mc() {
             if (reset) {
                 for (var i = 0; i < answers.length; i++) {
                     var child=answers[i];
-                    child.style.background="#fafafa";
+                    child.className="MCButton";
                     child.dataset.answered=0;
                 }
             }
-            event.srcElement.style.background="#ffe8e8";
-            fb.style.color="#DC2329";
+            this.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
         }
 
 
@@ -88,7 +94,7 @@ function check_mc() {
 
 }
 
-function make_mc(qa, shuffle_answers, aDiv, id) {
+function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
     var shuffled;
     if (shuffle_answers=="True") {
         //console.log(shuffle_answers+" read as true");
@@ -115,7 +121,7 @@ function make_mc(qa, shuffle_answers, aDiv, id) {
         
         //Make label for input element
         var lab = document.createElement("label");
-        lab.style="background: #fafafa; border: 1px solid #eee;  border-radius: 10px; padding: 10px; font-size: 16px; cursor: pointer; text-align: center;";
+        lab.className="MCButton";
         lab.id=id+ '-' +index;
         lab.onclick=check_mc;
         lab.textContent=item.answer;
@@ -129,10 +135,15 @@ function make_mc(qa, shuffle_answers, aDiv, id) {
         lab.setAttribute('data-answered', 0);
 
         aDiv.append(lab);
-        
-        
+
     });
 
+    if (num_correct>1) {
+        qDiv.className="ManyChoiceQn";
+    } else {
+        qDiv.className="MultipleChoiceQn";
+    }
+
     return num_correct;
-    
+
 }

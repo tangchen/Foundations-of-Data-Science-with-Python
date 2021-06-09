@@ -16,7 +16,7 @@ function check_numeric(event) {
 
         var fb = document.getElementById("fb"+id);
         fb.style.display="none";
-        fb.textContent="Incorrect";
+        fb.textContent="Incorrect -- try again.";
 
         answers=JSON.parse(this.dataset.answers);
         console.log(answers);

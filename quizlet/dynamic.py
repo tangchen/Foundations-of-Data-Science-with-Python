@@ -38,6 +38,9 @@ def display_questions_dynamic (url, num=1_000_000, shuffle_questions=False,
     multiple_choice=pkg_resources.resource_string(resource_package, "multiple_choice.js")
     script+=multiple_choice.decode("utf-8")
 
+    numeric=pkg_resources.resource_string(resource_package, "numeric.js")
+    script+=numeric.decode("utf-8")
+
     show_questions = pkg_resources.resource_string(resource_package, "show_questions.js")
     script+=show_questions.decode("utf-8")
 
