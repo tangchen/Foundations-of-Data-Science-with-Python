@@ -1,11 +1,16 @@
-function check_numeric(event) {
+function check_numeric(ths, event) {
 
     if (event.keyCode === 13) {
-        this.blur();
+        ths.blur();
 
-        var id=this.id.split('-')[0];
+        var id=ths.id.split('-')[0];
 
-        var submission=this.value;
+        var submission=ths.value;
+				if (submission.indexOf('/') != -1) {
+            sub_parts=submission.split('/');
+            console.log(sub_parts);
+            submission=sub_parts[0]/sub_parts[1];
+        }
         console.log("Reader entered", submission);
 
 
@@ -18,7 +23,7 @@ function check_numeric(event) {
         fb.style.display="none";
         fb.textContent="Incorrect -- try again.";
 
-        answers=JSON.parse(this.dataset.answers);
+        answers=JSON.parse(ths.dataset.answers);
         console.log(answers);
 
         answers.forEach((answer,index,array) => {
@@ -37,11 +42,19 @@ function check_numeric(event) {
                        );
         fb.style.display="block";
         if (correct) {
-            this.style.background="#009113";
-            fb.style.color="#009113";
+            //ths.style.background="#009113";
+            //fb.style.color="#009113";
+            ths.className="Input-text";
+            ths.classList.add("correctButton");
+            fb.className="Feedback";
+            fb.classList.add("correct");
         } else {
-            this.style.background="#DC2329";
-            fb.style.color="#DC2329";
+            //ths.style.background="#DC2329";
+            //fb.style.color="#DC2329";
+            ths.className="Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
         }
 
 
@@ -50,6 +63,50 @@ function check_numeric(event) {
     }
 
 }
+
+function isValid(el,  charC) {
+		if (charC == 46) {
+				if (el.value.indexOf('.') === -1) {
+					  return true;
+				} else if (el.value.indexOf('/') != -1) {
+            parts=el.value.split('/');
+				    if (parts[1].indexOf('.') === -1) {
+					      return true;
+            }
+        }
+        else{
+					  return false;
+				}
+		} else if (charC == 47) {
+				if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+					      return true;
+            } else {
+					  return false;
+				    }
+        } else {
+            return false;
+        }
+		} else {
+				if (charC > 31 && (charC < 48 || charC > 57))
+					  return false;
+		}
+		return true;
+}
+
+function numeric_keypress( evnt) {
+		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC==13) {
+        check_numeric(this, evnt);
+    } else{
+		    return isValid(this, charC);
+    }
+}
+
+
+
+
 
 function make_numeric(qa, qDiv, aDiv, id) {
 
@@ -73,50 +130,25 @@ function make_numeric(qa, qDiv, aDiv, id) {
     inp.className="Input-text";
     inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
     aDiv.append(inp);
+    console.log(inp);
 
-    inp.addEventListener("keyup", check_numeric);
-
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
     /*
-    inp.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-            console.log(this.value);
-            this.blur();
-            return false;
-        }
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
     }
                         );
-    */
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress=numeric_keypress;
+    inp.onpaste= event => false;
+
+    inp.addEventListener("focus", function(event) {
+        this.value="";
+        return false;
+    }
+                        );
 
 
-
-        // Make input element
-    /*
-        var inp = document.createElement("input");
-        inp.type="radio";
-        inp.id="quizo"+id+index;
-        inp.style="display:none;";
-        aDiv.append(inp);
-        
-        //Make label for input element
-        var lab = document.createElement("label");
-        lab.style="background: #fafafa; border: 1px solid #eee;  border-radius: 10px; padding: 10px; font-size: 16px; cursor: pointer; text-align: center;";
-        lab.id=id+ '-' +index;
-        lab.onclick=check_mc;
-        lab.textContent=item.answer;
-        
-        // Set the data attributes for the answer
-        lab.setAttribute('data-correct', item.correct);
-        if (item.correct) {
-            num_correct++;
-        }
-        lab.setAttribute('data-feedback', item.feedback);
-        lab.setAttribute('data-answered', 0);
-
-        aDiv.append(lab);
-        
-        
-    });
-
-    */
-    
 }
