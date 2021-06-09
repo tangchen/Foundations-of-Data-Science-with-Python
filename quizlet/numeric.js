@@ -8,15 +8,21 @@ function check_numeric(ths, event) {
         var submission=ths.value;
 				if (submission.indexOf('/') != -1) {
             sub_parts=submission.split('/');
-            console.log(sub_parts);
+            //console.log(sub_parts);
             submission=sub_parts[0]/sub_parts[1];
         }
         console.log("Reader entered", submission);
 
+        if ("precision" in ths.dataset) {
+            precision=ths.dataset.precision;
+            submission=Math.round((submission + Number.EPSILON) * 10**precision) / 10**precision
 
-        console.log("In check_numeric(), id="+id);
+            console.log("Rounded to ", submission )
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
         //console.log(event.srcElement.id)           
-        //console.log(event.srcElement.dataset.correct)   
         //console.log(event.srcElement.dataset.feedback)
 
         var fb = document.getElementById("fb"+id);
@@ -26,7 +32,10 @@ function check_numeric(ths, event) {
         answers=JSON.parse(ths.dataset.answers);
         console.log(answers);
 
-        answers.forEach((answer,index,array) => {
+        var defaultFB="";
+        var correct;
+        var done=false;
+        answers.every(answer => {
             console.log(answer.type);
 
             correct=false;
@@ -35,29 +44,43 @@ function check_numeric(ths, event) {
                     fb.textContent=answer.feedback;
                     correct=answer.correct;
                     console.log(answer.correct);
+                    done=true;
                 }
-            } 
+            } else if (answer.type=="range") {
+                console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="default") {
+                defaultFB=answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
 
+        if ((!done) && (defaultFB != "")) {
+            fb.textContent=defaultFB;
+            console.log("Default feedback", defaultFB);
         }
-                       );
+
         fb.style.display="block";
         if (correct) {
-            //ths.style.background="#009113";
-            //fb.style.color="#009113";
             ths.className="Input-text";
             ths.classList.add("correctButton");
             fb.className="Feedback";
             fb.classList.add("correct");
         } else {
-            //ths.style.background="#DC2329";
-            //fb.style.color="#DC2329";
             ths.className="Input-text";
             ths.classList.add("incorrectButton");
             fb.className="Feedback";
             fb.classList.add("incorrect");
         }
-
-
 
         return false;
     }
@@ -87,7 +110,13 @@ function isValid(el,  charC) {
         } else {
             return false;
         }
-		} else {
+		} else if (charC == 45) {
+        if (el.value == "" ) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
 				if (charC > 31 && (charC < 48 || charC > 57))
 					  return false;
 		}
@@ -129,6 +158,9 @@ function make_numeric(qa, qDiv, aDiv, id) {
     inp.id=id+"-0";
     inp.className="Input-text";
     inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
     aDiv.append(inp);
     console.log(inp);
 
