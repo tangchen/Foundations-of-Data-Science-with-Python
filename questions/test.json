@@ -62,13 +62,33 @@
         "answers": [
             {
                 "type": "value",
-		            "value": 3.14,
+                "value": 3.14,
                 "correct": true,
                 "feedback": "Correct."
             },
             {
                 "type": "range",
-		            "range": [ 3.142857, 3.142858], 
+                "range": [ 3.142857, 3.142858], 
+                "correct": true,
+                "feedback": "True to 2 decimal places, but you know pi is not really 22/7, right?"
+            }
+
+        ]
+    },
+    {
+        "question": "Enter the value of pi (will be checked to 2 decimal places):",
+        "type": "numeric",
+        "precision": 2,
+        "answers": [
+            {
+                "type": "value",
+                "value": 3.14,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "range",
+                "range": [ 3.142857, 3.142858], 
                 "correct": true,
                 "feedback": "True to 2 decimal places, but you know pi is not really 22/7, right?"
             }
