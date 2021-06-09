@@ -71,8 +71,16 @@
                 "range": [ 3.142857, 3.142858], 
                 "correct": true,
                 "feedback": "True to 2 decimal places, but you know pi is not really 22/7, right?"
+            },
+            {
+                "type": "range",
+                "range": [ -100000000, 0], 
+                "correct": false, "feedback": "pi is the AREA of a circle of radius 1. Try again."
+            },
+            {
+                "type": "default",
+                "feedback": "pi is the area of a circle of radius 1. Try again."
             }
-
         ]
     },
     {
@@ -91,8 +99,17 @@
                 "range": [ 3.142857, 3.142858], 
                 "correct": true,
                 "feedback": "True to 2 decimal places, but you know pi is not really 22/7, right?"
+            },
+            {
+                "type": "range",
+                "range": [ -100000000, 0], 
+                "correct": false,
+                "feedback": "pi is the AREA of a circle of radius 1. Try again."
+            },
+            {
+                "type": "default",
+                "feedback": "pi is the area of a circle of radius 1. Try again."
             }
-
         ]
     }
 ]
