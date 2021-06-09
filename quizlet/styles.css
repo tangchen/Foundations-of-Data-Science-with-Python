@@ -33,6 +33,7 @@
 
  .Input-text:focus {
      outline: none;
+     background-color: #c0c0c0;
      box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
  }
 
@@ -98,16 +99,12 @@
 .correctButton {
     background: var(--correct-green);
     color: #fafafa;
-    -webkit-box-shadow: inset 0px 0px 5px #555555;
-    -moz-box-shadow: inset 0px 0px 5px #555555;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
 .incorrectButton {
     background: var(--incorrect-red);
     color: #fafafa;
-    -webkit-box-shadow: inset 0px 0px 5px #555555;
-    -moz-box-shadow: inset 0px 0px 5px #555555;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
