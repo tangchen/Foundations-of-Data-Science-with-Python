@@ -15,9 +15,9 @@ function check_numeric(ths, event) {
 
         if ("precision" in ths.dataset) {
             precision=ths.dataset.precision;
-            submission=Math.round((submission + Number.EPSILON) * 10**precision) / 10**precision
-
-            console.log("Rounded to ", submission )
+            // console.log("1:", submission)
+            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
 
@@ -137,14 +137,14 @@ function numeric_keypress( evnt) {
 
 
 
-function make_numeric(qa, qDiv, aDiv, id) {
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
         //console.log(answer);
 
     
-    qDiv.className="NumericQn";
+    outerqDiv.className="NumericQn";
     aDiv.style.display='block';
 
     var lab = document.createElement("label");
