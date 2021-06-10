@@ -33,11 +33,33 @@ function show_questions (json, mydiv) {
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id="OuterquizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
         // Create div to contain question part
         var qDiv = document.createElement('div');
         qDiv.id="quizQn"+id+index;
-        qDiv.textContent=qa.question;
-        iDiv.append(qDiv);
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML=qa.question;
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa){
+            codeDiv = document.createElement('div');
+            codeDiv.id="code"+id+index;
+            codeDiv.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=qa.code;
+            outerqDiv.append(codeDiv);
+            console.log(codeDiv);
+        }
+
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
@@ -49,12 +71,12 @@ function show_questions (json, mydiv) {
 
         var num_correct;
         if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if  (qa.type=="numeric") {
             console.log("numeric");
-            make_numeric(qa, qDiv, aDiv, id);
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 

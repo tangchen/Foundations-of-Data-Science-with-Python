@@ -8,6 +8,41 @@
     --incorrect-red: #c80202;
     --correct-green: #009113;
 }
+
+
+.Quiz {
+     max-width: 600px;
+     margin-top: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
+     padding-bottom: 4px;
+     padding-top: 4px;
+     line-height: 1.1;
+     font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode > pre {
+    padding: 4px;
+}
+.Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+}
+.Feedback{
+     font-size: 16pt;
+     text-align:center;
+ }
+
 .Input {
     align:left;
     font-size: 20pt;
@@ -37,22 +72,6 @@
      box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
  }
 
- .Quiz {
-     max-width: 600px;
-     margin: 0 auto;
-     padding-bottom: 15px;
-     padding-top: 15px;
- }
- .Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
- }
- .Feedback{
-     font-size: 20px;
-     text-align:center;
- }
  .MCButton{
      background: #fafafa;
      border: 1px solid #eee;
@@ -63,24 +82,21 @@
      text-align: center;
  }
  .MultipleChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--medium-slate-blue);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .ManyChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--orange-pantone);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .NumericQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--russian-violet);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
 .InpLabel {

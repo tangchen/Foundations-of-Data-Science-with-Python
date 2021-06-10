@@ -94,7 +94,7 @@ function check_mc() {
 
 }
 
-function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
     if (shuffle_answers=="True") {
         //console.log(shuffle_answers+" read as true");
@@ -139,9 +139,9 @@ function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
     });
 
     if (num_correct>1) {
-        qDiv.className="ManyChoiceQn";
+        outerqDiv.className="ManyChoiceQn";
     } else {
-        qDiv.className="MultipleChoiceQn";
+        outerqDiv.className="MultipleChoiceQn";
     }
 
     return num_correct;
