@@ -113,18 +113,33 @@
         ]
     },
     {
-        "question": "Python test:\n Line Two<p>Line Three</p><p>Line Four</p><code>code 1\ncode2\n</code>",
+        "question": "Determine the output of the following Python code: <pre><code>a=\"1\"\nb=\"2\"\nprint(a+b)</code></pre>",
         "type": "multiple_choice",
         "answers": [
             {
-                "answer": "Choice 1",
+                "answer": "1",
                 "correct": false,
-                "feedback": "False."
+                "feedback": "No. When strings are operated on by +, they are concatenated."
             },
             {
-                "answer": "Choice 2",
+                "answer": "2",
+                "correct": false,
+                "feedback": "No. When strings are operated on by +, they are concatenated."
+            },
+            {
+                "answer": "3",
+                "correct": false,
+                "feedback": "No. When strings are operated on by +, they are concatenated."
+            },
+            {
+                "answer": "12",
                 "correct": true,
-                "feedback": "True."
+                "feedback": "Yes. The + operator will concatenate the strings \"1\" and \"2\"."
+            },
+            {
+                "answer": "error",
+                "correct": false,
+                "feedback": "No. The + operator for strings performs string concatenation."
             }
         ]
     }
