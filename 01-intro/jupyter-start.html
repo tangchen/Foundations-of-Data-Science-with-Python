@@ -383,6 +383,16 @@
    1.6.3. Intro to Markdown in Jupyter
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-notebooks-into-and-out-of-jupyter-lab">
+   1.6.4. Getting Notebooks Into and Out of Jupyter Lab
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-your-work-closing-notebooks-and-closing-jupyter-lab">
+   1.6.5. Saving Your Work, Closing Notebooks, and Closing Jupyter Lab
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -566,10 +576,48 @@ $$
 $<span class="math notranslate nohighlight">\(
 \int_{0}^{\infty} e^{-x}~dx = 1
 \)</span>$</p>
-<p><strong>6. Other Markdown formatting</strong></p>
+<p><strong>7. Other Markdown formatting</strong></p>
 <p>Markdown has many other features that we will not cover, such as horizontal rules, block quotes, syntax highlighting, and tables.
 A good reference for Markdown syntax is
 <a class="reference external" href="https://www.markdownguide.org/extended-syntax/">Markdown Guide(https://www.markdownguide.org/extended-syntax/)</a></p>
+</div>
+<div class="section" id="getting-notebooks-into-and-out-of-jupyter-lab">
+<h2><span class="section-number">1.6.4. </span>Getting Notebooks Into and Out of Jupyter Lab<a class="headerlink" href="#getting-notebooks-into-and-out-of-jupyter-lab" title="Permalink to this headline">¶</a></h2>
+<p>There are several ways to get notebooks into Jupyter Lab:</p>
+<ul class="simple">
+<li><p>As previously mentioned, you can use the left-hand files pane to navigate to the current location of a file. Note that you will be constrained to only navigating to files that are in the directory in which  Jupyter was started or any subdirectory below that. One disadvantage of this approach is that your work will be saved wherever that file currently resides. For instance, if you have downloaded a notebook from the internet into your <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> folder, your work on that notebook will remain in the <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> folder.</p></li>
+<li><p>You can use drag-and-drop to copy any file into a directory that you are currently browsing using Jupyter Lab’s files pane. To do this:</p>
+<ul>
+<li><p>Open the files panel in Jupyter and navigate to the directory where you want to work.</p></li>
+<li><p>Open the folder containing the file you want to copy.</p></li>
+<li><p>Position and resize the folder and your web browser’s window so that you can see both at the same time.</p></li>
+<li><p>Click and hold on the Jupyter notebook that you want to move. Then drag it onto the files panel.</p></li>
+<li><p>When the Jupyter notebook is over Jupyter lab’s files panel, the outline of the files panel will change to indicate that it is ready for you to drop the file. Release the mouse button or trackpad to copy the file into the selected directory.</p></li>
+<li><p><strong>Note that this makes a copy of the file from its original location.</strong></p></li>
+</ul>
+</li>
+<li><p>As an alternative to drag-and-drop, you can click on the upload icon (an arrow with a line under it) at the very top of the files panel. This will bring up a file selector that you can use to copy a file from anywhere on your computer.</p></li>
+</ul>
+</div>
+<div class="section" id="saving-your-work-closing-notebooks-and-closing-jupyter-lab">
+<h2><span class="section-number">1.6.5. </span>Saving Your Work, Closing Notebooks, and Closing Jupyter Lab<a class="headerlink" href="#saving-your-work-closing-notebooks-and-closing-jupyter-lab" title="Permalink to this headline">¶</a></h2>
+<p>You can save your work by choosing <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Notebook</span></code> in Jupyter Lab’s <code class="docutils literal notranslate"><span class="pre">File</span></code> menu, or by pressing the keyboard sequence listed next to that item in the menu. When you manually save your work in this way, Jupyter actually saves two copies of your work: it updates the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file that you see in the file list, and it also updates a <em>hidden</em> checkpoint file.  When you are updating your document, Jupyter will also autosave your work periodically – the default is every 120s. When Jupyter autosaves, it only updates the .ipynb file. If Jupyter crashes or your quit it without saving your notebooks, your last autosaved work will be what you see in the .ipynb files. However, you can always revert to the version that your purposefully saved by using the <code class="docutils literal notranslate"><span class="pre">Revert</span> <span class="pre">Notebook</span> <span class="pre">to</span> <span class="pre">Checkpoint</span></code> item in the File menu.</p>
+<p>When starting new Jupyter notebooks, their initial name will be “Untitled.ipynb”. You can easily rename your notebook in a couple of ways. First, you can choose the <code class="docutils literal notranslate"><span class="pre">Rename</span> <span class="pre">Notebook...</span></code> option from the file menu. As an alternative, you can right-click on the notebook in the left-hand Files panel and
+choose <code class="docutils literal notranslate"><span class="pre">Rename</span></code>. In both cases, be sure to only change the part of the notebook name that is in front of the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> extension. The extension is used by Jupyter to recognize Jupyter notebooks.</p>
+<p>When you are finished working with a Jupyter notebook, I recommend you perform the following steps:</p>
+<ol class="simple">
+<li><p>First, from the <code class="docutils literal notranslate"><span class="pre">Kernel</span></code> menu, choose <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">Kernel</span> <span class="pre">and</span> <span class="pre">Run</span> <span class="pre">All</span> <span class="pre">Cells...</span></code> This will clear the previous output from your work and rerun every cell from the top down.</p></li>
+<li><p>Check over your notebook carefully to make sure you haven’t introduced any errors or produced any unexpected results from having been able to execute cells out of order and from deleting cells or their content. By performing these first two steps, you help make sure that someone else loading your notebook will be able to reproduce your work.</p></li>
+<li><p>Check the notebook file name and update if necessary.</p></li>
+<li><p>Save the notebook.</p></li>
+<li><p>Choose <code class="docutils literal notranslate"><span class="pre">Close</span> <span class="pre">and</span> <span class="pre">Shutdown</span> <span class="pre">Notebook</span></code> from Jupyter’s <code class="docutils literal notranslate"><span class="pre">File</span></code> menu.</p></li>
+<li><p>If you are completely finished working in Jupyter Lab, then choose <code class="docutils literal notranslate"><span class="pre">Shut</span> <span class="pre">Down</span></code> from Jupyter’s <code class="docutils literal notranslate"><span class="pre">File</span></code> menu.</p></li>
+</ol>
+<p>Another common workflow in Jupyter Lab is to use an existing notebook as a starting point for a new notebook. Again, there are several ways to do this:</p>
+<ul class="simple">
+<li><p>If you already have the existing notebook open, then you can save it under a new name by choosing <code class="docutils literal notranslate"><span class="pre">Save</span> <span class="pre">Notebook</span> <span class="pre">As...</span></code> from Jupyter’s <code class="docutils literal notranslate"><span class="pre">File</span></code> menu and giving the notebook a new name. <strong>Note that after you use this option, the notebook that is open in the main work are will be the notebook with the new name. You will no longer be working on the original notebook.</strong></p></li>
+<li><p>You can also duplicate a notebook by right-clicking on the notebook’s name in the File panel on the left-hand side and choosing <code class="docutils literal notranslate"><span class="pre">Duplicate</span></code>. A copy of the notebook will be created with the name of the existing notebook appended with a suffix like <code class="docutils literal notranslate"><span class="pre">-Copy1</span></code> before the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>.</p></li>
+</ul>
 </div>
 </div>
 
