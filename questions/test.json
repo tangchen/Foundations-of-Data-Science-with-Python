@@ -111,5 +111,21 @@
                 "feedback": "pi is the area of a circle of radius 1. Try again."
             }
         ]
+    },
+    {
+        "question": "Python test:\n Line Two<p>Line Three</p><p>Line Four</p><pre>code 1\ncode2\n</pre>",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Choice 1",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "Choice 2",
+                "correct": true,
+                "feedback": "True."
+            }
+        ]
     }
 ]
