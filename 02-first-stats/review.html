@@ -379,7 +379,7 @@
 <p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="TMhJRgrDinpz" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+<div class="output text_html"><div id="KuUdxaNAJsrr" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -507,7 +507,7 @@
 }
 
 
-</style><script type="text/Javascript">questionsTMhJRgrDinpz=[
+</style><script type="text/Javascript">questionsKuUdxaNAJsrr=[
     {
         "question": "Which of these cannot be a probability?",
         "type": "multiple_choice",
@@ -1039,10 +1039,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, TMhJRgrDinpz))
+        .then(json => show_questions(json, KuUdxaNAJsrr))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsTMhJRgrDinpz, TMhJRgrDinpz);
+        show_questions(questionsKuUdxaNAJsrr, KuUdxaNAJsrr);
         });
         }
         </script>
@@ -1054,7 +1054,7 @@ function show_questions (json, mydiv) {
 <p>The spaced repetition questions are drawn randomly when the page is constructed. If you want to do additional review, just force a reload of the page in your browser, and a new set of random questions will be chosen.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="wRhCspOuaale" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>
+<div class="output text_html"><div id="lSxVVaxAqCcB" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="4"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -1182,7 +1182,7 @@ function show_questions (json, mydiv) {
 }
 
 
-</style><script type="text/Javascript">questionswRhCspOuaale=[
+</style><script type="text/Javascript">questionslSxVVaxAqCcB=[
     {
         "question": "Choose all of the following that can be included in Jupyter notebooks?",
         "type": "many_choice",
@@ -1317,6 +1317,92 @@ function show_questions (json, mydiv) {
                 "feedback": "Incorrect. This is a C-style comment."
             }
         ]
+    },
+    {
+        "question": "Determine the output of the following Python code:",
+	      "code": "a=\"1\"\nb=\"2\"\nprint(a+b)",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "1",
+                "correct": false,
+                "feedback": "No. When strings are operated on by +, they are concatenated."
+            },
+            {
+                "answer": "2",
+                "correct": false,
+                "feedback": "No. When strings are operated on by +, they are concatenated."
+            },
+            {
+                "answer": "3",
+                "correct": false,
+                "feedback": "No. When strings are operated on by +, they are concatenated."
+            },
+            {
+                "answer": "12",
+                "correct": true,
+                "feedback": "Yes. The + operator will concatenate the strings \"1\" and \"2\"."
+            },
+            {
+                "answer": "error",
+                "correct": false,
+                "feedback": "No. The + operator for strings performs string concatenation."
+            }
+        ]
+    },
+    {
+        "question": "What is the output of the following Python program?",
+        "code": "dogs=['Amber', 'Madden', 'Roxy', 'Pippen']\nprint(dogs[2])",
+        "answers": [
+            {
+                "answer": "Amber",
+                "correct": false,
+                "feedback": "Because of 0-based indexing, Amber would be docs[0]"
+            },
+            {
+                "answer": "Madden",
+                "correct": false,
+                "feedback": "Because of 0-based indexing, Madden would be docs[1]"
+            },
+            {
+                "answer": "Roxy",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Pippen",
+                "correct": false,
+                "feedback": "Because of 0-based indexing, Pippen would be docs[3]"
+            }
+        ],
+        "type": "multiple_choice"
+    },
+    {
+        "question": "What numbers are printed by the following Python program?",
+        "code": "for k in range(3,9,3):\nprint(k)",
+        "answers": [
+            {
+                "answer": "0, 3",
+                "correct": false,
+                "feedback": "No. The first argument is the starting value for the range. Try again."
+            },
+            {
+                "answer": "3, 6",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "3, 6, 9",
+                "correct": false,
+                "feedback": "No. Although the second argument (9) is the end of this range, remember that the end values are not included in the range."
+            },
+            {
+                "answer": "3, 9",
+                "correct": false,
+                "feedback": "No. The second argument (9) is the end of this range, and the third argument (3) is the increment."
+            }
+        ],
+        "type": "multiple_choice"
     }
 ]
 ;
@@ -1781,10 +1867,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, wRhCspOuaale))
+        .then(json => show_questions(json, lSxVVaxAqCcB))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionswRhCspOuaale, wRhCspOuaale);
+        show_questions(questionslSxVVaxAqCcB, lSxVVaxAqCcB);
         });
         }
         </script>
