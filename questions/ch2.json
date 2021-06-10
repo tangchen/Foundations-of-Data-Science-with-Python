@@ -24,7 +24,23 @@
                 "feedback": "This is a number between 0 and 1, so it can be probability."
             }
         ]
+    },{
+        "question": "True or False: Relative frequencies can only take values  between 0 and 1.",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": true,
+                "feedback": "Correct. Relative frequencies are a proportion of the total and thus (like probabilities) take values between 0 and 1."
+            },
+            {
+                "answer": "False",
+                "correct": false,
+                "feedback": "Incorrect. Relative frequencies are a proportion of the total and thus (like probabilities) take values between 0 and 1."
+            }
+        ]
     },
+
     {
         "question": "Determine the relative frequency of the outcome 3 in the following data set:\n\n2,3,5,2,3",
         "type": "multiple_choice",
