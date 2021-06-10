@@ -377,7 +377,7 @@
 <p>In this Chapter, we started working with real data, introduced Pands, partitions, summary statistics, binary hypothesis testing via bootstrap resampling, and two-dimensional statistics.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="NzbtsrgEMjUz" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+<div class="output text_html"><div id="qeBOoJapWlEC" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -387,6 +387,41 @@
     --incorrect-red: #c80202;
     --correct-green: #009113;
 }
+
+
+.Quiz {
+     max-width: 600px;
+     margin-top: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
+     padding-bottom: 4px;
+     padding-top: 4px;
+     line-height: 1.1;
+     font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode > pre {
+    padding: 4px;
+}
+.Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+}
+.Feedback{
+     font-size: 16pt;
+     text-align:center;
+ }
+
 .Input {
     align:left;
     font-size: 20pt;
@@ -416,22 +451,6 @@
      box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
  }
 
- .Quiz {
-     max-width: 600px;
-     margin: 0 auto;
-     padding-bottom: 15px;
-     padding-top: 15px;
- }
- .Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
- }
- .Feedback{
-     font-size: 20px;
-     text-align:center;
- }
  .MCButton{
      background: #fafafa;
      border: 1px solid #eee;
@@ -442,24 +461,21 @@
      text-align: center;
  }
  .MultipleChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--medium-slate-blue);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .ManyChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--orange-pantone);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .NumericQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--russian-violet);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
 .InpLabel {
@@ -489,7 +505,7 @@
 }
 
 
-</style><script type="text/Javascript">questionsNzbtsrgEMjUz=[
+</style><script type="text/Javascript">questionsqeBOoJapWlEC=[
     {
         "question": "Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:",
         "type": "many_choice",
@@ -724,7 +740,7 @@ function check_mc() {
 
 }
 
-function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
     if (shuffle_answers=="True") {
         //console.log(shuffle_answers+" read as true");
@@ -769,9 +785,9 @@ function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
     });
 
     if (num_correct>1) {
-        qDiv.className="ManyChoiceQn";
+        outerqDiv.className="ManyChoiceQn";
     } else {
-        qDiv.className="MultipleChoiceQn";
+        outerqDiv.className="MultipleChoiceQn";
     }
 
     return num_correct;
@@ -794,9 +810,9 @@ function check_numeric(ths, event) {
 
         if ("precision" in ths.dataset) {
             precision=ths.dataset.precision;
-            submission=Math.round((submission + Number.EPSILON) * 10**precision) / 10**precision
-
-            console.log("Rounded to ", submission )
+            // console.log("1:", submission)
+            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
 
@@ -916,14 +932,14 @@ function numeric_keypress( evnt) {
 
 
 
-function make_numeric(qa, qDiv, aDiv, id) {
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
         //console.log(answer);
 
 
-    qDiv.className="NumericQn";
+    outerqDiv.className="NumericQn";
     aDiv.style.display='block';
 
     var lab = document.createElement("label");
@@ -998,11 +1014,33 @@ function show_questions (json, mydiv) {
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id="OuterquizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
         // Create div to contain question part
         var qDiv = document.createElement('div');
         qDiv.id="quizQn"+id+index;
-        qDiv.textContent=qa.question;
-        iDiv.append(qDiv);
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML=qa.question;
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa){
+            codeDiv = document.createElement('div');
+            codeDiv.id="code"+id+index;
+            codeDiv.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=qa.code;
+            outerqDiv.append(codeDiv);
+            console.log(codeDiv);
+        }
+
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
@@ -1014,12 +1052,12 @@ function show_questions (json, mydiv) {
 
         var num_correct;
         if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if  (qa.type=="numeric") {
             console.log("numeric");
-            make_numeric(qa, qDiv, aDiv, id);
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 
@@ -1036,24 +1074,22 @@ function show_questions (json, mydiv) {
     });
 }
 
-    //console.log(element);
-    {
-    const jmscontroller = new AbortController();
-    const signal = jmscontroller.signal;
+        //console.log(element);
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
 
-    setTimeout(() => jmscontroller.abort(), 5000);
+        setTimeout(() => jmscontroller.abort(), 5000);
 
-            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch3.json", {signal})
-      .then(response => response.json())
-      .then(json => show_questions(json, NzbtsrgEMjUz))
-    .catch(err => {
-    console.log("Fetch error or timeout");
-    show_questions(questionsNzbtsrgEMjUz, NzbtsrgEMjUz);
-    });
-    }
-
-
-    </script>
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch3.json", {signal})
+        .then(response => response.json())
+        .then(json => show_questions(json, qeBOoJapWlEC))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        show_questions(questionsqeBOoJapWlEC, qeBOoJapWlEC);
+        });
+        }
+        </script>
 </div></div>
 </div>
 <div class="section" id="spaced-repetition-review">
@@ -1061,7 +1097,7 @@ function show_questions (json, mydiv) {
 <p>Answer these questions to check your retention on knowledge from Chapters 1 and 2:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="MPvgllsGsqGq" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
+<div class="output text_html"><div id="OKyptLHTMAOB" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -1071,6 +1107,41 @@ function show_questions (json, mydiv) {
     --incorrect-red: #c80202;
     --correct-green: #009113;
 }
+
+
+.Quiz {
+     max-width: 600px;
+     margin-top: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
+     padding-bottom: 4px;
+     padding-top: 4px;
+     line-height: 1.1;
+     font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode > pre {
+    padding: 4px;
+}
+.Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+}
+.Feedback{
+     font-size: 16pt;
+     text-align:center;
+ }
+
 .Input {
     align:left;
     font-size: 20pt;
@@ -1100,22 +1171,6 @@ function show_questions (json, mydiv) {
      box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
  }
 
- .Quiz {
-     max-width: 600px;
-     margin: 0 auto;
-     padding-bottom: 15px;
-     padding-top: 15px;
- }
- .Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
- }
- .Feedback{
-     font-size: 20px;
-     text-align:center;
- }
  .MCButton{
      background: #fafafa;
      border: 1px solid #eee;
@@ -1126,24 +1181,21 @@ function show_questions (json, mydiv) {
      text-align: center;
  }
  .MultipleChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--medium-slate-blue);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .ManyChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--orange-pantone);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .NumericQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--russian-violet);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
 .InpLabel {
@@ -1173,7 +1225,7 @@ function show_questions (json, mydiv) {
 }
 
 
-</style><script type="text/Javascript">questionsMPvgllsGsqGq=[
+</style><script type="text/Javascript">questionsOKyptLHTMAOB=[
     {
         "question": "Choose all of the following that can be included in Jupyter notebooks?",
         "type": "many_choice",
@@ -1429,7 +1481,7 @@ function check_mc() {
 
 }
 
-function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
     if (shuffle_answers=="True") {
         //console.log(shuffle_answers+" read as true");
@@ -1474,9 +1526,9 @@ function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
     });
 
     if (num_correct>1) {
-        qDiv.className="ManyChoiceQn";
+        outerqDiv.className="ManyChoiceQn";
     } else {
-        qDiv.className="MultipleChoiceQn";
+        outerqDiv.className="MultipleChoiceQn";
     }
 
     return num_correct;
@@ -1499,9 +1551,9 @@ function check_numeric(ths, event) {
 
         if ("precision" in ths.dataset) {
             precision=ths.dataset.precision;
-            submission=Math.round((submission + Number.EPSILON) * 10**precision) / 10**precision
-
-            console.log("Rounded to ", submission )
+            // console.log("1:", submission)
+            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
 
@@ -1621,14 +1673,14 @@ function numeric_keypress( evnt) {
 
 
 
-function make_numeric(qa, qDiv, aDiv, id) {
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
         //console.log(answer);
 
 
-    qDiv.className="NumericQn";
+    outerqDiv.className="NumericQn";
     aDiv.style.display='block';
 
     var lab = document.createElement("label");
@@ -1703,11 +1755,33 @@ function show_questions (json, mydiv) {
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id="OuterquizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
         // Create div to contain question part
         var qDiv = document.createElement('div');
         qDiv.id="quizQn"+id+index;
-        qDiv.textContent=qa.question;
-        iDiv.append(qDiv);
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML=qa.question;
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa){
+            codeDiv = document.createElement('div');
+            codeDiv.id="code"+id+index;
+            codeDiv.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=qa.code;
+            outerqDiv.append(codeDiv);
+            console.log(codeDiv);
+        }
+
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
@@ -1719,12 +1793,12 @@ function show_questions (json, mydiv) {
 
         var num_correct;
         if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if  (qa.type=="numeric") {
             console.log("numeric");
-            make_numeric(qa, qDiv, aDiv, id);
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 
@@ -1741,29 +1815,27 @@ function show_questions (json, mydiv) {
     });
 }
 
-    //console.log(element);
-    {
-    const jmscontroller = new AbortController();
-    const signal = jmscontroller.signal;
+        //console.log(element);
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
 
-    setTimeout(() => jmscontroller.abort(), 5000);
+        setTimeout(() => jmscontroller.abort(), 5000);
 
-            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
-      .then(response => response.json())
-      .then(json => show_questions(json, MPvgllsGsqGq))
-    .catch(err => {
-    console.log("Fetch error or timeout");
-    show_questions(questionsMPvgllsGsqGq, MPvgllsGsqGq);
-    });
-    }
-
-
-    </script>
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
+        .then(response => response.json())
+        .then(json => show_questions(json, OKyptLHTMAOB))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        show_questions(questionsOKyptLHTMAOB, OKyptLHTMAOB);
+        });
+        }
+        </script>
 </div></div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="vzJRiQxpvYBs" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
+<div class="output text_html"><div id="ULlPTpqPCEDx" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -1773,6 +1845,41 @@ function show_questions (json, mydiv) {
     --incorrect-red: #c80202;
     --correct-green: #009113;
 }
+
+
+.Quiz {
+     max-width: 600px;
+     margin-top: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
+     padding-bottom: 4px;
+     padding-top: 4px;
+     line-height: 1.1;
+     font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode > pre {
+    padding: 4px;
+}
+.Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+}
+.Feedback{
+     font-size: 16pt;
+     text-align:center;
+ }
+
 .Input {
     align:left;
     font-size: 20pt;
@@ -1802,22 +1909,6 @@ function show_questions (json, mydiv) {
      box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
  }
 
- .Quiz {
-     max-width: 600px;
-     margin: 0 auto;
-     padding-bottom: 15px;
-     padding-top: 15px;
- }
- .Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
- }
- .Feedback{
-     font-size: 20px;
-     text-align:center;
- }
  .MCButton{
      background: #fafafa;
      border: 1px solid #eee;
@@ -1828,24 +1919,21 @@ function show_questions (json, mydiv) {
      text-align: center;
  }
  .MultipleChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--medium-slate-blue);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .ManyChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--orange-pantone);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .NumericQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--russian-violet);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
 .InpLabel {
@@ -1875,7 +1963,7 @@ function show_questions (json, mydiv) {
 }
 
 
-</style><script type="text/Javascript">questionsvzJRiQxpvYBs=[
+</style><script type="text/Javascript">questionsULlPTpqPCEDx=[
     {
         "question": "Which of these cannot be a probability?",
         "type": "multiple_choice",
@@ -1901,7 +1989,23 @@ function show_questions (json, mydiv) {
                 "feedback": "This is a number between 0 and 1, so it can be probability."
             }
         ]
+    },{
+        "question": "True or False: Relative frequencies can only take values  between 0 and 1.",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "True",
+                "correct": true,
+                "feedback": "Correct. Relative frequencies are a proportion of the total and thus (like probabilities) take values between 0 and 1."
+            },
+            {
+                "answer": "False",
+                "correct": false,
+                "feedback": "Incorrect. Relative frequencies are a proportion of the total and thus (like probabilities) take values between 0 and 1."
+            }
+        ]
     },
+
     {
         "question": "Determine the relative frequency of the outcome 3 in the following data set:\n\n2,3,5,2,3",
         "type": "multiple_choice",
@@ -1928,7 +2032,8 @@ function show_questions (json, mydiv) {
             }
         ]
     }
-];
+]
+;
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
     var result           = [];
@@ -2047,7 +2152,7 @@ function check_mc() {
 
 }
 
-function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
     if (shuffle_answers=="True") {
         //console.log(shuffle_answers+" read as true");
@@ -2092,9 +2197,9 @@ function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
     });
 
     if (num_correct>1) {
-        qDiv.className="ManyChoiceQn";
+        outerqDiv.className="ManyChoiceQn";
     } else {
-        qDiv.className="MultipleChoiceQn";
+        outerqDiv.className="MultipleChoiceQn";
     }
 
     return num_correct;
@@ -2117,9 +2222,9 @@ function check_numeric(ths, event) {
 
         if ("precision" in ths.dataset) {
             precision=ths.dataset.precision;
-            submission=Math.round((submission + Number.EPSILON) * 10**precision) / 10**precision
-
-            console.log("Rounded to ", submission )
+            // console.log("1:", submission)
+            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
 
@@ -2239,14 +2344,14 @@ function numeric_keypress( evnt) {
 
 
 
-function make_numeric(qa, qDiv, aDiv, id) {
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
         //console.log(answer);
 
 
-    qDiv.className="NumericQn";
+    outerqDiv.className="NumericQn";
     aDiv.style.display='block';
 
     var lab = document.createElement("label");
@@ -2321,11 +2426,33 @@ function show_questions (json, mydiv) {
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id="OuterquizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
         // Create div to contain question part
         var qDiv = document.createElement('div');
         qDiv.id="quizQn"+id+index;
-        qDiv.textContent=qa.question;
-        iDiv.append(qDiv);
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML=qa.question;
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa){
+            codeDiv = document.createElement('div');
+            codeDiv.id="code"+id+index;
+            codeDiv.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=qa.code;
+            outerqDiv.append(codeDiv);
+            console.log(codeDiv);
+        }
+
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
@@ -2337,12 +2464,12 @@ function show_questions (json, mydiv) {
 
         var num_correct;
         if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if  (qa.type=="numeric") {
             console.log("numeric");
-            make_numeric(qa, qDiv, aDiv, id);
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 
@@ -2359,24 +2486,22 @@ function show_questions (json, mydiv) {
     });
 }
 
-    //console.log(element);
-    {
-    const jmscontroller = new AbortController();
-    const signal = jmscontroller.signal;
+        //console.log(element);
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
 
-    setTimeout(() => jmscontroller.abort(), 5000);
+        setTimeout(() => jmscontroller.abort(), 5000);
 
-            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch2.json", {signal})
-      .then(response => response.json())
-      .then(json => show_questions(json, vzJRiQxpvYBs))
-    .catch(err => {
-    console.log("Fetch error or timeout");
-    show_questions(questionsvzJRiQxpvYBs, vzJRiQxpvYBs);
-    });
-    }
-
-
-    </script>
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch2.json", {signal})
+        .then(response => response.json())
+        .then(json => show_questions(json, ULlPTpqPCEDx))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        show_questions(questionsULlPTpqPCEDx, ULlPTpqPCEDx);
+        });
+        }
+        </script>
 </div></div>
 </div>
 <p><strong>Key Take-aways:</strong></p>

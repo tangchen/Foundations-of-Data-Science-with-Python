@@ -366,7 +366,7 @@
 <p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="YvxpTVcwUQvt" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+<div class="output text_html"><div id="fPKFXyAxsytz" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -376,6 +376,41 @@
     --incorrect-red: #c80202;
     --correct-green: #009113;
 }
+
+
+.Quiz {
+     max-width: 600px;
+     margin-top: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
+     padding-bottom: 4px;
+     padding-top: 4px;
+     line-height: 1.1;
+     font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode > pre {
+    padding: 4px;
+}
+.Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+}
+.Feedback{
+     font-size: 16pt;
+     text-align:center;
+ }
+
 .Input {
     align:left;
     font-size: 20pt;
@@ -405,22 +440,6 @@
      box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
  }
 
- .Quiz {
-     max-width: 600px;
-     margin: 0 auto;
-     padding-bottom: 15px;
-     padding-top: 15px;
- }
- .Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
- }
- .Feedback{
-     font-size: 20px;
-     text-align:center;
- }
  .MCButton{
      background: #fafafa;
      border: 1px solid #eee;
@@ -431,24 +450,21 @@
      text-align: center;
  }
  .MultipleChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--medium-slate-blue);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .ManyChoiceQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--orange-pantone);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
  .NumericQn {
-     padding: 20px;
+     padding: 10px;
      background: var(--russian-violet);
      color: #fafafa;
-     font-size: 20pt;
      border-radius: 10px;
  }
 .InpLabel {
@@ -478,7 +494,7 @@
 }
 
 
-</style><script type="text/Javascript">questionsYvxpTVcwUQvt=[
+</style><script type="text/Javascript">questionsfPKFXyAxsytz=[
     {
         "question": "Choose all of the following that can be included in Jupyter notebooks?",
         "type": "many_choice",
@@ -734,7 +750,7 @@ function check_mc() {
 
 }
 
-function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
     if (shuffle_answers=="True") {
         //console.log(shuffle_answers+" read as true");
@@ -779,9 +795,9 @@ function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
     });
 
     if (num_correct>1) {
-        qDiv.className="ManyChoiceQn";
+        outerqDiv.className="ManyChoiceQn";
     } else {
-        qDiv.className="MultipleChoiceQn";
+        outerqDiv.className="MultipleChoiceQn";
     }
 
     return num_correct;
@@ -804,9 +820,9 @@ function check_numeric(ths, event) {
 
         if ("precision" in ths.dataset) {
             precision=ths.dataset.precision;
-            submission=Math.round((submission + Number.EPSILON) * 10**precision) / 10**precision
-
-            console.log("Rounded to ", submission )
+            // console.log("1:", submission)
+            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
 
@@ -926,14 +942,14 @@ function numeric_keypress( evnt) {
 
 
 
-function make_numeric(qa, qDiv, aDiv, id) {
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
         //console.log(answer);
 
 
-    qDiv.className="NumericQn";
+    outerqDiv.className="NumericQn";
     aDiv.style.display='block';
 
     var lab = document.createElement("label");
@@ -1008,11 +1024,33 @@ function show_questions (json, mydiv) {
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id="OuterquizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
         // Create div to contain question part
         var qDiv = document.createElement('div');
         qDiv.id="quizQn"+id+index;
-        qDiv.textContent=qa.question;
-        iDiv.append(qDiv);
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML=qa.question;
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa){
+            codeDiv = document.createElement('div');
+            codeDiv.id="code"+id+index;
+            codeDiv.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=qa.code;
+            outerqDiv.append(codeDiv);
+            console.log(codeDiv);
+        }
+
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
@@ -1024,12 +1062,12 @@ function show_questions (json, mydiv) {
 
         var num_correct;
         if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
         } else if  (qa.type=="numeric") {
             console.log("numeric");
-            make_numeric(qa, qDiv, aDiv, id);
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 
@@ -1046,24 +1084,22 @@ function show_questions (json, mydiv) {
     });
 }
 
-    //console.log(element);
-    {
-    const jmscontroller = new AbortController();
-    const signal = jmscontroller.signal;
+        //console.log(element);
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
 
-    setTimeout(() => jmscontroller.abort(), 5000);
+        setTimeout(() => jmscontroller.abort(), 5000);
 
-            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
-      .then(response => response.json())
-      .then(json => show_questions(json, YvxpTVcwUQvt))
-    .catch(err => {
-    console.log("Fetch error or timeout");
-    show_questions(questionsYvxpTVcwUQvt, YvxpTVcwUQvt);
-    });
-    }
-
-
-    </script>
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
+        .then(response => response.json())
+        .then(json => show_questions(json, fPKFXyAxsytz))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        show_questions(questionsfPKFXyAxsytz, fPKFXyAxsytz);
+        });
+        }
+        </script>
 </div></div>
 </div>
 <p><strong>Take-aways:</strong></p>
