@@ -34,6 +34,8 @@ def display_quiz (question, answers=[],  randomize=True, multiple=False,
 def display_multiple (ref, num=1_000_000, shuffle_questions=False,
                       shuffle_answers=True, static=False):
 
+    ''' The following is DEPRACATED and will be removed soon
+
     if static:
         questions=[]
         with open(ref, 'r') as infile:
@@ -48,5 +50,7 @@ def display_multiple (ref, num=1_000_000, shuffle_questions=False,
                 display_quiz (question)
 
     else:
-        display_questions_dynamic(ref, num, shuffle_questions, shuffle_answers)
+
+    '''
+    display_questions_dynamic(ref, num, shuffle_questions, shuffle_answers)
 
