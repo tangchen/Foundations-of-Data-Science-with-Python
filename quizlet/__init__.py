@@ -1,2 +1,2 @@
 #from .multiple_choice import display_quiz_mc
-from .general import display_quiz, display_multiple
+from .dynamic import  display_multiple
