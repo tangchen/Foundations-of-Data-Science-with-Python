@@ -3,11 +3,10 @@ import string
 import random
 import pkg_resources
 import urllib
+import json
 
 
-def display_multiple (url, num=1_000_000, shuffle_questions=False,
-                      shuffle_answers=True, static=False):
-
+def display_quiz (ref, num=1_000_000, shuffle_questions=False, shuffle_answers=True):
     resource_package = __name__
 
     letters = string.ascii_letters
@@ -27,10 +26,29 @@ def display_multiple (url, num=1_000_000, shuffle_questions=False,
     script='<script type="text/Javascript">'
     
     script+="questions"+div_id+"="
-    file = urllib.request.urlopen(url)
 
-    for line in file:
-	    script+=  line.decode("utf-8")
+
+    if type(ref)==list:
+        #print("List detected. Assuming JSON")
+        script+=json.dumps(ref);
+        static=True;
+        url=""
+    elif type(ref)==str:
+        if ref.lower().find("http")==0:
+            url=ref;
+            file = urllib.request.urlopen(url)
+            for line in file:
+	            script+=  line.decode("utf-8")
+            static=False;
+        else:
+            #print("File detected")
+            with open (ref) as file:
+                for line in file:
+                    script+=line
+            static=True
+            url=""
+    else:
+        raise Exception("First argument must be list (JSON), URL, or file ref")
 
     script+=''';
     '''
@@ -54,34 +72,46 @@ def display_multiple (url, num=1_000_000, shuffle_questions=False,
     show_questions = pkg_resources.resource_string(resource_package, "show_questions.js")
     script+=show_questions.decode("utf-8")
 
-    script+='''
-    //console.log(element);
-    {
-    const jmscontroller = new AbortController();
-    const signal = jmscontroller.signal;
+    if static:
+        script+='''
+        {
+        show_questions(questions'''
+        script_end=div_id+", "+div_id
+        script_end+=''');
+        }
+        </script>
+        '''
 
-    setTimeout(() => jmscontroller.abort(), 5000);
+        javascript=script +  script_end
+        print()
+    else:
+        script+='''
+        //console.log(element);
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
 
-            fetch("'''
-    script_end='''", {signal})
-      .then(response => response.json())
-      .then(json => show_questions(json, '''
-      #.then(json => console.log( '''
+        setTimeout(() => jmscontroller.abort(), 5000);
 
-    script_end+=div_id
-    script_end+= '''))
-    .catch(err => {
-    console.log("Fetch error or timeout");
-    show_questions(questions'''
-    script_end+=div_id+", "+div_id
-    script_end+=''');
-    });
-    }
+        fetch("'''
+        script_end='''", {signal})
+        .then(response => response.json())
+        .then(json => show_questions(json, '''
+        #.then(json => console.log( '''
 
+        script_end+=div_id
+        script_end+= '''))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        show_questions(questions'''
+        script_end+=div_id+", "+div_id
+        script_end+=''');
+        });
+        }
+        </script>
+        '''
+        javascript=script + url + script_end
 
-    </script>
-      '''
-    javascript=script + url + script_end
     #print(javascript)
     display(HTML(mydiv + styles +  javascript))
 
