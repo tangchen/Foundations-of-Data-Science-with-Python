@@ -113,7 +113,8 @@
         ]
     },
     {
-        "question": "Determine the output of the following Python code: <pre><code>a=\"1\"\nb=\"2\"\nprint(a+b)</code></pre>",
+        "question": "Determine the output of the following Python code:",
+	"code": "a=\"1\"\nb=\"2\"\nprint(a+b)",
         "type": "multiple_choice",
         "answers": [
             {
