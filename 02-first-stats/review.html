@@ -379,132 +379,620 @@
 <p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
-      <!-- QUESTION -->
-      <div id="quizQn" style="padding: 20px;
-      background: #6F78FF;
-      color: #fff;
-      font-size: 20px;
-      border-radius: 10px;">
-      Which of these cannot be a probability?</div>
-      <!-- ANSWER -->
-      <div id="quizAns" style="margin: 10px 0;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 10px;">
-      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkYjTypbCULXhX()" 
-      id="quizo0" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>1  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkYjTypbCULXhX()" 
-      id="quizo1" data-correct="True" data-feedback="Correct! Probabilities must be numbers between 0 and 1." data-answered=0>-0.5  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkYjTypbCULXhX()" 
-      id="quizo2" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkYjTypbCULXhX()" 
-      id="quizo3" data-correct="False" data-feedback="This is a number between 0 and 1, so it can be probability." data-answered=0>0.5  </label>  </div></div>
-    <div id="YjTypbCULXhX" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
-        <script type="text/Javascript">
+<div class="output text_html"><div id="isBveAkbcZYy" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+.Input {
+    align:left;
+    font-size: 20pt;
+}
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
 
-        function checkYjTypbCULXhX(){
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
 
-                console.log(event.srcElement.id)           
-                console.log(event.srcElement.dataset.correct)   
-                console.log(event.srcElement.dataset.feedback)
+ .Input-text:focus {
+     outline: none;
+     background-color: #c0c0c0;
+     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+ }
 
-                answers= event.srcElement.parentElement.children;
-                console.log(answers);
+ .Quiz {
+     max-width: 600px;
+     margin: 0 auto;
+     padding-bottom: 15px;
+     padding-top: 15px;
+ }
+ .Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+ }
+ .Feedback{
+     font-size: 20px;
+     text-align:center;
+ }
+ .MCButton{
+     background: #fafafa;
+     border: 1px solid #eee;
+     border-radius: 10px;
+     padding: 10px;
+     font-size: 16px;
+     cursor: pointer;
+     text-align: center;
+ }
+ .MultipleChoiceQn {
+     padding: 20px;
+     background: var(--medium-slate-blue);
+     color: #fafafa;
+     font-size: 20pt;
+     border-radius: 10px;
+ }
+ .ManyChoiceQn {
+     padding: 20px;
+     background: var(--orange-pantone);
+     color: #fafafa;
+     font-size: 20pt;
+     border-radius: 10px;
+ }
+ .NumericQn {
+     padding: 20px;
+     background: var(--russian-violet);
+     color: #fafafa;
+     font-size: 20pt;
+     border-radius: 10px;
+ }
+.InpLabel {
+     line-height: 34px;
+     float:left;
+     margin-right: 10px;
+     color: #101010;
+     font-size: 15pt;
+}
+.incorrect {
+    color: var(--incorrect-red);
+}
+.correct {
+    color: var(--correct-green);
+}
+.correctButton {
+    background: var(--correct-green);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+.incorrectButton {
+    background: var(--incorrect-red);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
 
-                for (var i = 0; i < answers.length; i++) {
-                    child=answers[i];
-                    child.style.background="#fafafa";
-                }
-                var feedback = document.getElementById("YjTypbCULXhX");
-                feedback.innerHTML=event.srcElement.dataset.feedback;
-                if (event.srcElement.dataset.correct=="True")   {
-                    event.srcElement.style.background="#d8ffc4";
-                    feedback.style.color="#009113";
+
+</style><script type="text/Javascript">questionsisBveAkbcZYy=[
+    {
+        "question": "Which of these cannot be a probability?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "1",
+                "correct": false,
+                "feedback": "This is a number between 0 and 1, so it can be probability."
+            },
+            {
+                "answer": "-0.5",
+                "correct": true,
+                "feedback": "Correct! Probabilities must be numbers between 0 and 1."
+            },
+            {
+                "answer": "0",
+                "correct": false,
+                "feedback": "This is a number between 0 and 1, so it can be probability."
+            },
+            {
+                "answer": "0.5",
+                "correct": false,
+                "feedback": "This is a number between 0 and 1, so it can be probability."
+            }
+        ]
+    },
+    {
+        "question": "Determine the relative frequency of the outcome 3 in the following data set:\n\n2,3,5,2,3",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "2",
+                "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1."
+            },
+            {
+                "answer": "0.6",
+                "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments."
+            },
+            {
+                "answer": "0.4",
+                "correct": true,
+                "feedback": "Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4."
+            },
+            {
+                "answer": "0",
+                "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0."
+            }
+        ]
+    }
+];
+    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+function makeid(length) {
+    var result           = [];
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+function check_mc() {
+    var id=this.id.split('-')[0];
+
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var answers= event.srcElement.parentElement.children;
+    //console.log(answers);
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb"+id);
+    if (fb.dataset.numcorrect==1) {
+        for (var i = 0; i < answers.length; i++) {
+            var child=answers[i];
+            child.className="MCButton";
+        }
+
+
+
+        fb.textContent=event.srcElement.dataset.feedback;
+        if (event.srcElement.dataset.correct=="true")   {
+            // console.log("Correct action");
+            this.classList.add("correctButton");
+
+            fb.className="Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            //console.log("Error action");
+            this.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        //console.log("Many choice not implemented yet");
+        var reset = false;
+        if (event.srcElement.dataset.correct=="true" )   {
+            if (event.srcElement.dataset.answered<=0) {
+                if (fb.dataset.answeredcorrect<0) {
+                    fb.dataset.answeredcorrect=1;
+                    reset=true;
                 } else {
-                    event.srcElement.style.background="#ffe8e8";
-                    feedback.style.color="#DC2329";
+                    fb.dataset.answeredcorrect++;
                 }
-
-
-
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child=answers[i];
+                        child.className="MCButton";
+                        child.dataset.answered=0;
+                    }
+                }
+                this.classList.add("correctButton");
+                this.dataset.answered=1;
+                fb.className="Feedback";
+                fb.classList.add("correct");
 
             }
-
-        </script>
-</div><div class="output text_html"><div id="quizWrap" style="max-width: 600px; margin: 0 auto;">
-      <!-- QUESTION -->
-      <div id="quizQn" style="padding: 20px;
-      background: #6F78FF;
-      color: #fff;
-      font-size: 20px;
-      border-radius: 10px;">
-      Determine the relative frequency of the outcome 3 in the following data set:
-
-2,3,5,2,3</div>
-      <!-- ANSWER -->
-      <div id="quizAns" style="margin: 10px 0;
-      display: grid;
-      grid-template-columns: auto auto;
-      grid-gap: 10px;">
-      <input type="radio" name="quiz" id="quizo0" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkMCFtEydyWKmM()" 
-      id="quizo0" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments." data-answered=0>0.6  </label><input type="radio" name="quiz" id="quizo1" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkMCFtEydyWKmM()" 
-      id="quizo1" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1." data-answered=0>2  </label><input type="radio" name="quiz" id="quizo2" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkMCFtEydyWKmM()" 
-      id="quizo2" data-correct="False" data-feedback="Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0." data-answered=0>0  </label><input type="radio" name="quiz" id="quizo3" style="display:none;" ><label style="background: #fafafa;
-      border: 1px solid #eee;  border-radius: 10px; padding: 10px;
-      font-size: 16px; cursor: pointer; text-align: center;" 
-      onclick="checkMCFtEydyWKmM()" 
-      id="quizo3" data-correct="True" data-feedback="Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4." data-answered=0>0.4  </label>  </div></div>
-    <div id="MCFtEydyWKmM" style="font-size: 20px;text-align:center;padding-bottom: 30px" data-answeredcorrect=0 data-numcorrect=1></div>
-        <script type="text/Javascript">
-
-        function checkMCFtEydyWKmM(){
-
-                console.log(event.srcElement.id)           
-                console.log(event.srcElement.dataset.correct)   
-                console.log(event.srcElement.dataset.feedback)
-
-                answers= event.srcElement.parentElement.children;
-                console.log(answers);
-
-                for (var i = 0; i < answers.length; i++) {
-                    child=answers[i];
-                    child.style.background="#fafafa";
-                }
-                var feedback = document.getElementById("MCFtEydyWKmM");
-                feedback.innerHTML=event.srcElement.dataset.feedback;
-                if (event.srcElement.dataset.correct=="True")   {
-                    event.srcElement.style.background="#d8ffc4";
-                    feedback.style.color="#009113";
-                } else {
-                    event.srcElement.style.background="#ffe8e8";
-                    feedback.style.color="#DC2329";
-                }
-
-
-
-
+        } else {
+            if (fb.dataset.answeredcorrect>0) {
+                fb.dataset.answeredcorrect=-1;
+                reset=true;
+            } else {
+                fb.dataset.answeredcorrect--;
             }
 
-        </script>
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child=answers[i];
+                    child.className="MCButton";
+                    child.dataset.answered=0;
+                }
+            }
+            this.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+
+        var numcorrect=fb.dataset.numcorrect;
+        var answeredcorrect=fb.dataset.answeredcorrect;
+        if (answeredcorrect>=0) {
+            fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+
+
+}
+
+function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers=="True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled=qa.answers;
+    }
+
+
+    var num_correct=0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type="radio";
+        inp.id="quizo"+id+index;
+        inp.style="display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className="MCButton";
+        lab.id=id+ '-' +index;
+        lab.onclick=check_mc;
+        lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        lab.setAttribute('data-feedback', item.feedback);
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct>1) {
+        qDiv.className="ManyChoiceQn";
+    } else {
+        qDiv.className="MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id=ths.id.split('-')[0];
+
+        var submission=ths.value;
+				if (submission.indexOf('/') != -1) {
+            sub_parts=submission.split('/');
+            //console.log(sub_parts);
+            submission=sub_parts[0]/sub_parts[1];
+        }
+        console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            precision=ths.dataset.precision;
+            submission=Math.round((submission + Number.EPSILON) * 10**precision) / 10**precision
+
+            console.log("Rounded to ", submission )
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb"+id);
+        fb.style.display="none";
+        fb.textContent="Incorrect -- try again.";
+
+        answers=JSON.parse(ths.dataset.answers);
+        console.log(answers);
+
+        var defaultFB="";
+        var correct;
+        var done=false;
+        answers.every(answer => {
+            console.log(answer.type);
+
+            correct=false;
+            if (answer.type=="value"){
+                if (submission == answer.value) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="range") {
+                console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="default") {
+                defaultFB=answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.textContent=defaultFB;
+            console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display="block";
+        if (correct) {
+            ths.className="Input-text";
+            ths.classList.add("correctButton");
+            fb.className="Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className="Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        return false;
+    }
+
+}
+
+function isValid(el,  charC) {
+		if (charC == 46) {
+				if (el.value.indexOf('.') === -1) {
+					  return true;
+				} else if (el.value.indexOf('/') != -1) {
+            parts=el.value.split('/');
+				    if (parts[1].indexOf('.') === -1) {
+					      return true;
+            }
+        }
+        else{
+					  return false;
+				}
+		} else if (charC == 47) {
+				if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+					      return true;
+            } else {
+					  return false;
+				    }
+        } else {
+            return false;
+        }
+		} else if (charC == 45) {
+        if (el.value == "" ) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+				if (charC > 31 && (charC < 48 || charC > 57))
+					  return false;
+		}
+		return true;
+}
+
+function numeric_keypress( evnt) {
+		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC==13) {
+        check_numeric(this, evnt);
+    } else{
+		    return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, qDiv, aDiv, id) {
+
+
+
+        //console.log(answer);
+
+
+    qDiv.className="NumericQn";
+    aDiv.style.display='block';
+
+    var lab = document.createElement("label");
+    lab.className="InpLabel";
+    lab.textContent="Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type="text";
+    //inp.id="input-"+id;
+    inp.id=id+"-0";
+    inp.className="Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress=numeric_keypress;
+    inp.onpaste= event => false;
+
+    inp.addEventListener("focus", function(event) {
+        this.value="";
+        return false;
+    }
+                        );
+
+
+}
+function show_questions (json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions=mydiv.dataset.shufflequestions;
+    var num_questions=mydiv.dataset.numquestions;
+    var shuffle_answers=mydiv.dataset.shuffleanswers;
+
+    if (num_questions>json.length) {
+        num_questions=json.length;
+    }
+
+    var questions;
+    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+        //console.log(num_questions+","+json.length);
+        questions=getRandomSubarray(json, num_questions);
+    } else {
+        questions=json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'quizWrap'+id+index;
+        iDiv.className='Quiz';
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id="quizQn"+id+index;
+        qDiv.textContent=qa.question;
+        iDiv.append(qDiv);
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id="quizAns"+id+index;
+        aDiv.className='Answer';
+        iDiv.append(aDiv);
+
+        console.log(qa.type);
+
+        var num_correct;
+        if (qa.type=="multiple_choice")  {
+            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+        } else if   (qa.type=="many_choice"){
+            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+        } else if  (qa.type=="numeric") {
+            console.log("numeric");
+            make_numeric(qa, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id="fb"+id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className="Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+}
+
+    //console.log(element);
+    {
+    const jmscontroller = new AbortController();
+    const signal = jmscontroller.signal;
+
+    setTimeout(() => jmscontroller.abort(), 5000);
+
+            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch2.json", {signal})
+      .then(response => response.json())
+      .then(json => show_questions(json, isBveAkbcZYy))
+    .catch(err => {
+    console.log("Fetch error or timeout");
+    show_questions(questionsisBveAkbcZYy, isBveAkbcZYy);
+    });
+    }
+
+
+    </script>
 </div></div>
 </div>
 <div class="section" id="spaced-repetition-review-of-previous-chapter">
@@ -513,232 +1001,701 @@
 <p>The spaced repetition questions are drawn randomly when the page is constructed. If you want to do additional review, just force a reload of the page in your browser, and a new set of random questions will be chosen.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="testDIV" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><script type="text/Javascript">var mydiv=document.getElementById("testDIV");console.log(mydiv);
-    //console.log(element);
+<div class="output text_html"><div id="AxsbYWWapdTA" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>
+:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+.Input {
+    align:left;
+    font-size: 20pt;
+}
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
 
-    // Make a random ID
-    function makeid(length) {
-        var result           = [];
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-        var charactersLength = characters.length;
-        for ( var i = 0; i < length; i++ ) {
-          result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
-       }
-       return result.join('');
-    }
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
 
-    // Choose a random subset of an array. Can also be used to shuffle the array
-    function getRandomSubarray(arr, size) {
-        var shuffled = arr.slice(0), i = arr.length, temp, index;
-        while (i--) {
-            index = Math.floor((i + 1) * Math.random());
-            temp = shuffled[index];
-            shuffled[index] = shuffled[i];
-            shuffled[i] = temp;
-        }
-        return shuffled.slice(0, size);
-    }
+ .Input-text:focus {
+     outline: none;
+     background-color: #c0c0c0;
+     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+ }
+
+ .Quiz {
+     max-width: 600px;
+     margin: 0 auto;
+     padding-bottom: 15px;
+     padding-top: 15px;
+ }
+ .Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+ }
+ .Feedback{
+     font-size: 20px;
+     text-align:center;
+ }
+ .MCButton{
+     background: #fafafa;
+     border: 1px solid #eee;
+     border-radius: 10px;
+     padding: 10px;
+     font-size: 16px;
+     cursor: pointer;
+     text-align: center;
+ }
+ .MultipleChoiceQn {
+     padding: 20px;
+     background: var(--medium-slate-blue);
+     color: #fafafa;
+     font-size: 20pt;
+     border-radius: 10px;
+ }
+ .ManyChoiceQn {
+     padding: 20px;
+     background: var(--orange-pantone);
+     color: #fafafa;
+     font-size: 20pt;
+     border-radius: 10px;
+ }
+ .NumericQn {
+     padding: 20px;
+     background: var(--russian-violet);
+     color: #fafafa;
+     font-size: 20pt;
+     border-radius: 10px;
+ }
+.InpLabel {
+     line-height: 34px;
+     float:left;
+     margin-right: 10px;
+     color: #101010;
+     font-size: 15pt;
+}
+.incorrect {
+    color: var(--incorrect-red);
+}
+.correct {
+    color: var(--correct-green);
+}
+.correctButton {
+    background: var(--correct-green);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+.incorrectButton {
+    background: var(--incorrect-red);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
 
 
-    function check() {
-        var id=this.id.split('-')[0];
-
-        //console.log("In check(), id="+id);
-        //console.log(event.srcElement.id)           
-        //console.log(event.srcElement.dataset.correct)   
-        //console.log(event.srcElement.dataset.feedback)
-
-        var answers= event.srcElement.parentElement.children;
-        //console.log(answers);
-
-        // Split behavior based on multiple choice vs many choice:
-        var fb = document.getElementById("fb"+id);
-        if (fb.dataset.numcorrect==1) {
-            for (var i = 0; i < answers.length; i++) {
-                var child=answers[i];
-                child.style.background="#fafafa";
+</style><script type="text/Javascript">questionsAxsbYWWapdTA=[
+    {
+        "question": "Choose all of the following that can be included in Jupyter notebooks?",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "Text and graphics output from Python",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Typeset mathematics",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Python executable code",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Formatted text",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Live snakes via Python",
+                "correct": false,
+                "feedback": "I hope not."
             }
-
-
-
-            fb.textContent=event.srcElement.dataset.feedback;
-            if (event.srcElement.dataset.correct=="true")   {
-                console.log("Correct action");
-                event.srcElement.style.background="#d8ffc4";
-                fb.style.color="#009113";
-            } else {
-                console.log("Error action");
-                event.srcElement.style.background="#ffe8e8";
-                fb.style.color="#DC2329";
+        ]
+    },
+    {
+        "question": "Which of these are used to create formatted text in Jupyter notebooks?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "Wiki markup",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "SVG",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "Markdown",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "Rich Text",
+                "correct": false,
+                "feedback": "False."
             }
-        }
-        else {
-            //console.log("Many choice not implemented yet");
-            var reset = false;
-            if (event.srcElement.dataset.correct=="true" )   {
-                if (event.srcElement.dataset.answered<=0) {
-                    if (fb.dataset.answeredcorrect<0) {
-                        fb.dataset.answeredcorrect=1;
-                        reset=true;
-                    } else {
-                       fb.dataset.answeredcorrect++;
-                    }
-                    if (reset) {
-                        for (var i = 0; i < answers.length; i++) {
-                            var child=answers[i];
-                            child.style.background="#fafafa";
-                            child.dataset.answered=0;
-                        }
-                    }
-                    event.srcElement.style.background="#d8ffc4";
-                    event.srcElement.dataset.answered=1;
-                    fb.style.color="#009113";
+        ]
+    },
+    {
+        "question": "Which of these are used to typeset mathematics in Jupyter notebooks?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "SiliCoN",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "AcrYliC",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "MS Equation",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "LaTeX",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    },
+    {
+        "question": "Which of the following are used to create functional code blocks in Python?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "curly braces {}",
+                "correct": false,
+                "feedback": "Curly braces are used to group code in C, C++, and other languages, but not Python"
+            },
+            {
+                "answer": "parentheses ()",
+                "correct": false,
+                "feedback": "False."
+            },
+            {
+                "answer": "blank lines",
+                "correct": false,
+                "feedback": "Blank lines can help distinguish the end of code blocks visually, but do not affect the functional grouping"
+            },
+            {
+                "answer": "indentation",
+                "correct": true,
+                "feedback": "Correct."
+            }
+        ]
+    },
+    {
+        "question": "Choose all of the following that are used to create comments in Python:",
+        "type": "many_choice",
+        "answers": [
+            {
+                "answer": "//",
+                "correct": false,
+                "feedback": "Incorrect. This is the format of a single-line comment in C."
+            },
+            {
+                "answer": "# comment",
+                "correct": true,
+                "feedback": "Correct. A single hash is used to create a single-line comment"
+            },
+            {
+                "answer": "''' comment'''",
+                "correct": true,
+                "feedback": "Correct. This is used for multi-line comments."
+            },
+            {
+                "answer": "/* comment */",
+                "correct": false,
+                "feedback": "Incorrect. This is a C-style comment."
+            }
+        ]
+    }
+]
+;
+    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+function makeid(length) {
+    var result           = [];
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    }
+    return result.join('');
+}
 
-                }
-            } else {
-                if (fb.dataset.answeredcorrect>0) {
-                    fb.dataset.answeredcorrect=-1;
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+function check_mc() {
+    var id=this.id.split('-')[0];
+
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var answers= event.srcElement.parentElement.children;
+    //console.log(answers);
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb"+id);
+    if (fb.dataset.numcorrect==1) {
+        for (var i = 0; i < answers.length; i++) {
+            var child=answers[i];
+            child.className="MCButton";
+        }
+
+
+
+        fb.textContent=event.srcElement.dataset.feedback;
+        if (event.srcElement.dataset.correct=="true")   {
+            // console.log("Correct action");
+            this.classList.add("correctButton");
+
+            fb.className="Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            //console.log("Error action");
+            this.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        //console.log("Many choice not implemented yet");
+        var reset = false;
+        if (event.srcElement.dataset.correct=="true" )   {
+            if (event.srcElement.dataset.answered<=0) {
+                if (fb.dataset.answeredcorrect<0) {
+                    fb.dataset.answeredcorrect=1;
                     reset=true;
                 } else {
-                   fb.dataset.answeredcorrect--;
+                    fb.dataset.answeredcorrect++;
                 }
-
                 if (reset) {
                     for (var i = 0; i < answers.length; i++) {
                         var child=answers[i];
-                        child.style.background="#fafafa";
+                        child.className="MCButton";
                         child.dataset.answered=0;
                     }
                 }
-                event.srcElement.style.background="#ffe8e8";
-                fb.style.color="#DC2329";
+                this.classList.add("correctButton");
+                this.dataset.answered=1;
+                fb.className="Feedback";
+                fb.classList.add("correct");
+
             }
-
-
-            var numcorrect=fb.dataset.numcorrect;
-            var answeredcorrect=fb.dataset.answeredcorrect;
-            if (answeredcorrect>=0) {
-                fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
-            } else {
-                fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
-            }
-
-
-        }
-
-
-
-    }
-
-    function parse (json) {
-        var mydiv=document.getElementById("testDIV");
-        console.log(mydiv);
-        console.log(mydiv.dataset);
-        var shuffle_questions=mydiv.dataset.shufflequestions;
-        var num_questions=mydiv.dataset.numquestions;
-        var shuffle_answers=mydiv.dataset.shuffleanswers;
-
-        if (num_questions>json.length) {
-            num_questions=json.length;
-        }
-
-        var questions;
-        if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
-            //console.log(num_questions+","+json.length);
-            questions=getRandomSubarray(json, num_questions);
         } else {
-            questions=json;
-        }
-
-        console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
-        questions.forEach((qa, index, array) => {
-            //console.log(qa.question); 
-
-            var id = makeid(8);
-            //console.log(id);
-
-
-            // Create Div to contain question and answers
-            var iDiv = document.createElement('div');
-            iDiv.id = 'quizWrap'+id+index;
-            iDiv.style='max-width: 600px; margin: 0 auto;padding-bottom: 30px;';
-            mydiv.appendChild(iDiv);
-            // iDiv.innerHTML=qa.question;
-
-            // Create div to contain question part
-            var qDiv = document.createElement('div');
-            qDiv.id="quizQn"+id+index;
-            qDiv.style='padding: 20px;color: #fafafa;font-size: 20px;border-radius: 10px; background: #6F78FF;';
-            //qDiv.innerHTML=qa.question;
-            qDiv.textContent=qa.question;
-            iDiv.append(qDiv);
-
-            // Create div to contain answer part
-            var aDiv = document.createElement('div');
-            aDiv.id="quizAns"+id+index;
-            aDiv.style="margin: 10px 0; display: grid; grid-template-columns: auto auto;grid-gap: 10px;";
-            iDiv.append(aDiv);
-
-            var num_correct=0;
-
-            var shuffled;
-            if (shuffle_answers=="True") {
-                //console.log(shuffle_answers+" read as true");
-                shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+            if (fb.dataset.answeredcorrect>0) {
+                fb.dataset.answeredcorrect=-1;
+                reset=true;
             } else {
-                //console.log(shuffle_answers+" read as false");
-                shuffled=qa.answers;
+                fb.dataset.answeredcorrect--;
             }
 
-
-
-
-            shuffled.forEach((item, index, ans_array) => {
-                //console.log(answer);
-
-                // Make input element
-                var inp = document.createElement("input");
-                inp.type="radio";
-                inp.id="quizo"+id+index;
-                inp.style="display:none;";
-                aDiv.append(inp);
-
-                //Make label for input element
-                var lab = document.createElement("label");
-                lab.style="background: #fafafa; border: 1px solid #eee;  border-radius: 10px; padding: 10px; font-size: 16px; cursor: pointer; text-align: center;";
-                lab.id=id+ '-' +index;
-                lab.onclick=check;
-                lab.textContent=item.answer;
-
-                // Set the data attributes for the answer
-                lab.setAttribute('data-correct', item.correct);
-                if (item.correct) {
-                    num_correct++;
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child=answers[i];
+                    child.className="MCButton";
+                    child.dataset.answered=0;
                 }
-                lab.setAttribute('data-feedback', item.feedback);
-                lab.setAttribute('data-answered', 0);
-
-                aDiv.append(lab);
-
-
-            });
-
-            //Make div for feedback
-            var fb = document.createElement("div");
-            fb.id="fb"+id;
-            fb.style="font-size: 20px;text-align:center;";
-            fb.setAttribute("data-answeredcorrect", 0);
-            fb.setAttribute("data-numcorrect", num_correct);
-            iDiv.append(fb);
+            }
+            this.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
 
 
-        });
+        var numcorrect=fb.dataset.numcorrect;
+        var answeredcorrect=fb.dataset.answeredcorrect;
+        if (answeredcorrect>=0) {
+            fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
+        }
+
+
     }
 
 
-            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json")
+
+}
+
+function make_mc(qa, shuffle_answers, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers=="True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled=qa.answers;
+    }
+
+
+    var num_correct=0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type="radio";
+        inp.id="quizo"+id+index;
+        inp.style="display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className="MCButton";
+        lab.id=id+ '-' +index;
+        lab.onclick=check_mc;
+        lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        lab.setAttribute('data-feedback', item.feedback);
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct>1) {
+        qDiv.className="ManyChoiceQn";
+    } else {
+        qDiv.className="MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id=ths.id.split('-')[0];
+
+        var submission=ths.value;
+				if (submission.indexOf('/') != -1) {
+            sub_parts=submission.split('/');
+            //console.log(sub_parts);
+            submission=sub_parts[0]/sub_parts[1];
+        }
+        console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            precision=ths.dataset.precision;
+            submission=Math.round((submission + Number.EPSILON) * 10**precision) / 10**precision
+
+            console.log("Rounded to ", submission )
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb"+id);
+        fb.style.display="none";
+        fb.textContent="Incorrect -- try again.";
+
+        answers=JSON.parse(ths.dataset.answers);
+        console.log(answers);
+
+        var defaultFB="";
+        var correct;
+        var done=false;
+        answers.every(answer => {
+            console.log(answer.type);
+
+            correct=false;
+            if (answer.type=="value"){
+                if (submission == answer.value) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="range") {
+                console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="default") {
+                defaultFB=answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.textContent=defaultFB;
+            console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display="block";
+        if (correct) {
+            ths.className="Input-text";
+            ths.classList.add("correctButton");
+            fb.className="Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className="Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        return false;
+    }
+
+}
+
+function isValid(el,  charC) {
+		if (charC == 46) {
+				if (el.value.indexOf('.') === -1) {
+					  return true;
+				} else if (el.value.indexOf('/') != -1) {
+            parts=el.value.split('/');
+				    if (parts[1].indexOf('.') === -1) {
+					      return true;
+            }
+        }
+        else{
+					  return false;
+				}
+		} else if (charC == 47) {
+				if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+					      return true;
+            } else {
+					  return false;
+				    }
+        } else {
+            return false;
+        }
+		} else if (charC == 45) {
+        if (el.value == "" ) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+				if (charC > 31 && (charC < 48 || charC > 57))
+					  return false;
+		}
+		return true;
+}
+
+function numeric_keypress( evnt) {
+		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC==13) {
+        check_numeric(this, evnt);
+    } else{
+		    return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, qDiv, aDiv, id) {
+
+
+
+        //console.log(answer);
+
+
+    qDiv.className="NumericQn";
+    aDiv.style.display='block';
+
+    var lab = document.createElement("label");
+    lab.className="InpLabel";
+    lab.textContent="Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type="text";
+    //inp.id="input-"+id;
+    inp.id=id+"-0";
+    inp.className="Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress=numeric_keypress;
+    inp.onpaste= event => false;
+
+    inp.addEventListener("focus", function(event) {
+        this.value="";
+        return false;
+    }
+                        );
+
+
+}
+function show_questions (json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions=mydiv.dataset.shufflequestions;
+    var num_questions=mydiv.dataset.numquestions;
+    var shuffle_answers=mydiv.dataset.shuffleanswers;
+
+    if (num_questions>json.length) {
+        num_questions=json.length;
+    }
+
+    var questions;
+    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+        //console.log(num_questions+","+json.length);
+        questions=getRandomSubarray(json, num_questions);
+    } else {
+        questions=json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'quizWrap'+id+index;
+        iDiv.className='Quiz';
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id="quizQn"+id+index;
+        qDiv.textContent=qa.question;
+        iDiv.append(qDiv);
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id="quizAns"+id+index;
+        aDiv.className='Answer';
+        iDiv.append(aDiv);
+
+        console.log(qa.type);
+
+        var num_correct;
+        if (qa.type=="multiple_choice")  {
+            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+        } else if   (qa.type=="many_choice"){
+            num_correct=make_mc(qa, shuffle_answers, qDiv, aDiv, id);
+        } else if  (qa.type=="numeric") {
+            console.log("numeric");
+            make_numeric(qa, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id="fb"+id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className="Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+}
+
+    //console.log(element);
+    {
+    const jmscontroller = new AbortController();
+    const signal = jmscontroller.signal;
+
+    setTimeout(() => jmscontroller.abort(), 5000);
+
+            fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
       .then(response => response.json())
-      .then(json => parse(json));
+      .then(json => show_questions(json, AxsbYWWapdTA))
+    .catch(err => {
+    console.log("Fetch error or timeout");
+    show_questions(questionsAxsbYWWapdTA, AxsbYWWapdTA);
+    });
+    }
 
 
     </script>
