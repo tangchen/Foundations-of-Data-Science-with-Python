@@ -113,7 +113,7 @@
         ]
     },
     {
-        "question": "Python test:\n Line Two<p>Line Three</p><p>Line Four</p><pre>code 1\ncode2\n</pre>",
+        "question": "Python test:\n Line Two<p>Line Three</p><p>Line Four</p><code>code 1\ncode2\n</code>",
         "type": "multiple_choice",
         "answers": [
             {
