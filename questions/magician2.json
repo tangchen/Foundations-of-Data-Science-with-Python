@@ -11,6 +11,12 @@
                 "feedback": "Correct."
             },
             {
+                "type": "value",
+                "value": 0.75,
+                "correct": false,
+                "feedback": "It is tempting to think that these flips are independent of each other. But they are not!"
+            },
+            {
                 "type": "range",
                 "range": [ -1000000, 0], 
                 "correct": false,
