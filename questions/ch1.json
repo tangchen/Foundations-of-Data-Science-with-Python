@@ -195,7 +195,7 @@
     },
     {
         "question": "What numbers are printed by the following Python program?",
-        "code": "for k in range(3,9,3):\nprint(k)",
+        "code": "for k in range(3,9,3):\n    print(k)",
         "answers": [
             {
                 "answer": "0, 3",
