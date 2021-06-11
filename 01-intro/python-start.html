@@ -379,55 +379,101 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loops-and-conditionals">
+   1.7.4. Loops and Conditionals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-in-statements">
+     1.7.4.1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       for
+      </span>
+     </code>
+     …
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       in
+      </span>
+     </code>
+     Statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-statements">
+     1.7.4.2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       if
+      </span>
+     </code>
+     Statements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-statements">
+     1.7.4.3.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       while
+      </span>
+     </code>
+     statements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#copying-variables">
-   1.7.4. Copying Variables
+   1.7.5. Copying Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#indentation-and-line-breaks-in-python">
-   1.7.5. Indentation and Line Breaks in Python
+   1.7.6. Indentation and Line Breaks in Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loops-in-python">
-   1.7.6. Loops in Python
+   1.7.7. Loops in Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#functions">
-   1.7.7. Functions
+   1.7.8. Functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#getting-help-and-completion">
-   1.7.8. Getting Help and Completion
+   1.7.9. Getting Help and Completion
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#python-modules-and-namespaces">
-   1.7.9. Python Modules and Namespaces
+   1.7.10. Python Modules and Namespaces
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#numpy-arrays">
-     1.7.9.1. NumPy Arrays
+     1.7.10.1. NumPy Arrays
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#writing-big-numbers-in-python">
-   1.7.10. Writing Big Numbers in Python
+   1.7.11. Writing Big Numbers in Python
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary-and-other-resources">
-   1.7.11. Summary and Other Resources
+   1.7.12. Summary and Other Resources
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#jupyter-magics">
-   1.7.12. Jupyter Magics
+   1.7.13. Jupyter Magics
   </a>
  </li>
 </ul>
@@ -938,11 +984,11 @@ may not remember what you meant for a block of code to do.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">35</span><span class="o">-</span><span class="mi">8781</span><span class="n">bcd2667d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">8781</span><span class="n">bcd2667d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">tuple1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;one&#39;</span>
 
-<span class="ne">TypeError</span>: &#39;tuple&#39; object does not support item assignment
+<span class="ne">NameError</span>: name &#39;tuple1&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -953,53 +999,7 @@ may not remember what you meant for a block of code to do.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop)</span></code> creates a sequence of values that starts at <em>start</em> and ends at <em>stop</em>-1.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code> creates a sequence of values that starts at <em>start</em>, increments by <em>step</em> and ends at <em>stop</em>-1.</p></li>
 </ul>
-<p>You can iterate over ranges using a <code class="docutils literal notranslate"><span class="pre">for</span></code>…<code class="docutils literal notranslate"><span class="pre">in</span></code> statement as shown below. More detais on loops are in Section XXX</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-2
-3
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-3
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-4
-6
-8
-</pre></div>
-</div>
-</div>
-</div>
+<p>You can iterate over ranges using a <code class="docutils literal notranslate"><span class="pre">for</span></code>…<code class="docutils literal notranslate"><span class="pre">in</span></code> statement, which is discussed in the next section.</p>
 <p>Python also contains one <em>mapping</em> type:</p>
 <ul class="simple">
 <li><p><em>dict</em> is a dictionary object that provides a map between key-value pairs.
@@ -1083,8 +1083,158 @@ test
 <p>The <code class="docutils literal notranslate"><span class="pre">keys</span></code> and <code class="docutils literal notranslate"><span class="pre">values</span></code> methods return special objects of type <code class="docutils literal notranslate"><span class="pre">dict_keys</span></code> and <code class="docutils literal notranslate"><span class="pre">dict_values</span></code>, respectively, but for our purposes, we can treat these like lists. An example is shown in the Section <a class="reference internal" href="#python-intro-loops"><span class="std std-ref">Loops in Python</span></a>.</p>
 </div>
 </div>
+<div class="section" id="loops-and-conditionals">
+<h2><span class="section-number">1.7.4. </span>Loops and Conditionals<a class="headerlink" href="#loops-and-conditionals" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="for-in-statements">
+<h3><span class="section-number">1.7.4.1. </span><code class="docutils literal notranslate"><span class="pre">for</span></code>… <code class="docutils literal notranslate"><span class="pre">in</span></code> Statements<a class="headerlink" href="#for-in-statements" title="Permalink to this headline">¶</a></h3>
+<p>In data science, we often need to either iterate over data or carry out iterations of a simulation. For both purposes, we will usually relay on Python’s <code class="docutils literal notranslate"><span class="pre">for</span></code>…<code class="docutils literal notranslate"><span class="pre">in</span></code> statement. This is a type of <em>compound</em> statement. Compound statements consist of a <em>header</em> and a <em>suite</em> (Python’s terminology) or <em>body</em>. The header always ends in a colon, and the <em>suite</em> is one more statements that are run consecutively according to conditions in the header. For our purposes, we will always create the suite as a set of statements that are indented one more level than the corresponding header, with each statement on a new line.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">for</span></code>…<code class="docutils literal notranslate"><span class="pre">in</span></code> compound statement takes a variable after the <code class="docutils literal notranslate"><span class="pre">for</span></code> keyword. This variable will hold the current iteration value. It takes an <em>iterable</em> object, which is any object that can be iterated over. The typical one we will use for this is the <code class="docutils literal notranslate"><span class="pre">range</span></code> object that we have just introduced:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+4
+6
+8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another example of an iterable object is a list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;apples&#39;</span><span class="p">,</span> <span class="s1">&#39;bananas&#39;</span><span class="p">,</span> <span class="s1">&#39;cherries&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">kind</span> <span class="ow">in</span> <span class="n">fruit</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apples
+bananas
+cherries
+</pre></div>
+</div>
+</div>
+</div>
+<p>When iterating over objects like a list, it is often helpful to keep track of the iteration index. One easy way to do this is to use the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function that returns a tupe of the current iteration index and the item:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">kind</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fruit</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+apples
+
+1
+bananas
+
+2
+cherries
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the previous example, I purposefully split the printing into different lines to show a multi-statement suite.</p>
+</div>
+<div class="section" id="if-statements">
+<h3><span class="section-number">1.7.4.2. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is used to run code conditionally. If statements will often be inside other loop or conditional statements. For instance, to print out only the even numbers from 1 to 10, we can use an <code class="docutils literal notranslate"><span class="pre">if</span></code> inside a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> ==0:
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+4
+6
+8
+10
+</pre></div>
+</div>
+</div>
+</div>
+<p>More generally, an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement may also have <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses.  Elif is short for “else if”, and these headers act like <code class="docutils literal notranslate"><span class="pre">if</span></code> headers but only will be evaluated if the above <code class="docutils literal notranslate"><span class="pre">if</span></code> or <code class="docutils literal notranslate"><span class="pre">elif</span></code> headers did not have their conditions satisfied. There can only be on <code class="docutils literal notranslate"><span class="pre">else</span></code> clause, and its suite will be executed if the <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">elif</span></code> clauses did not have their conditions satisfied.  Note that the <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> headers must be at the same indentation level as the corresponding <code class="docutils literal notranslate"><span class="pre">if</span></code> header, and these headers must also end with a colon (:). We will put the statements that belong to the suites for these headers on separate lines below the header and indented to one greater level.</p>
+<p>As a simple example, suppose we want to identify the even numbers from 1 to 10, but if a number is NOT even, we wish to determine if it is divisible by 3. Otherwise, we just want to print an asterisk:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> ==0:
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot; is even&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">i</span><span class="o">%</span><span class="k">3</span>==0:
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot; is not even but divides by 3&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*
+2  is even
+3  is not even but divides by 3
+4  is even
+*
+6  is even
+*
+8  is even
+9  is not even but divides by 3
+10  is even
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="while-statements">
+<h3><span class="section-number">1.7.4.3. </span><code class="docutils literal notranslate"><span class="pre">while</span></code> statements<a class="headerlink" href="#while-statements" title="Permalink to this headline">¶</a></h3>
+<p><strong>To be finished</strong></p>
+</div>
+</div>
 <div class="section" id="copying-variables">
-<h2><span class="section-number">1.7.4. </span>Copying Variables<a class="headerlink" href="#copying-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.5. </span>Copying Variables<a class="headerlink" href="#copying-variables" title="Permalink to this headline">¶</a></h2>
 <p>You have to be careful when copying variables in Python or you may get some unexpected results. Suppose you have a variable c that contains a list, and you want to copy it to a variable d:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1176,7 +1326,7 @@ c= [0, 2]
 </div>
 </div>
 <div class="section" id="indentation-and-line-breaks-in-python">
-<span id="python-intro-indentation"></span><h2><span class="section-number">1.7.5. </span>Indentation and Line Breaks in Python<a class="headerlink" href="#indentation-and-line-breaks-in-python" title="Permalink to this headline">¶</a></h2>
+<span id="python-intro-indentation"></span><h2><span class="section-number">1.7.6. </span>Indentation and Line Breaks in Python<a class="headerlink" href="#indentation-and-line-breaks-in-python" title="Permalink to this headline">¶</a></h2>
 <p>Programming languages usually have some convention to indicate which statements belong together. For instance, if a statement starts a loop (such as <code class="docutils literal notranslate"><span class="pre">for</span></code> or <code class="docutils literal notranslate"><span class="pre">while</span></code>), there must be a way to indicate which of the following statements should be executed in each iteration of the loop and which should be executed after loop iteration. In many languages, such as C, C++, Java, and Javascript, code blocks are surrounded by curly braces: { }.</p>
 <p>In Python, indentation is used to deliminate code blocks. The languages mentioned above used indentation as a <em>convention</em> that indicates meaning to humans working on code. Python uses indentation to <em>define</em> code blocks and convey meaning to the Python interpreter.</p>
 <p>Either tabs or spaces can be used to denote code blocks, but the PEP-8 standard is to use 4 spaces per indent level. Jupyter inserts 4 spaces when <code class="docutils literal notranslate"><span class="pre">Tab</span></code> is pressed in a code block. <strong>Change to footnote: Some editors can be set up to insert a prescribed number of spaces when tab is used or convert tabs to spaces upon saving.</strong></p>
@@ -1253,7 +1403,7 @@ c= [0, 2]
 </div>
 </div>
 <div class="section" id="loops-in-python">
-<span id="python-intro-loops"></span><h2><span class="section-number">1.7.6. </span>Loops in Python<a class="headerlink" href="#loops-in-python" title="Permalink to this headline">¶</a></h2>
+<span id="python-intro-loops"></span><h2><span class="section-number">1.7.7. </span>Loops in Python<a class="headerlink" href="#loops-in-python" title="Permalink to this headline">¶</a></h2>
 <p>Python provides <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops. While loops work much as in other languages:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1349,7 +1499,7 @@ cats
 </div>
 </div>
 <div class="section" id="functions">
-<span id="python-intro-functions"></span><h2><span class="section-number">1.7.7. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="python-intro-functions"></span><h2><span class="section-number">1.7.8. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>We have already used built-in functions, like <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">type()</span></code>.
 In this book, we will also often create new functions. As with the built-in functions,
 user-defined functions can take arguments and can return values. Functions are declared
@@ -1513,7 +1663,7 @@ that returns the squared error between its inputs:</p>
 <p>We will see in the next section how to get help on a function.</p>
 </div>
 <div class="section" id="getting-help-and-completion">
-<h2><span class="section-number">1.7.8. </span>Getting Help and Completion<a class="headerlink" href="#getting-help-and-completion" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.9. </span>Getting Help and Completion<a class="headerlink" href="#getting-help-and-completion" title="Permalink to this headline">¶</a></h2>
 <p>Python has built-in help for almost every function and object. This help can be retrieved in several ways. For instance, consider the built-in <code class="docutils literal notranslate"><span class="pre">sum</span></code> command. Here are several ways to get help in Jupyter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1636,7 +1786,7 @@ dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs
 </div>
 </div>
 <div class="section" id="python-modules-and-namespaces">
-<h2><span class="section-number">1.7.9. </span>Python Modules and Namespaces<a class="headerlink" href="#python-modules-and-namespaces" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.10. </span>Python Modules and Namespaces<a class="headerlink" href="#python-modules-and-namespaces" title="Permalink to this headline">¶</a></h2>
 <p>Python has many useful modules that extend Python’s basic functionality. Some of these are included with the base Python distributin and many others are included in the Anaconda distribution. Many more can be installed over the Internet.</p>
 <p>To use a module, you must import it into your Python working environment. The most basic way to do this is to type <code class="docutils literal notranslate"><span class="pre">import</span></code> followed by the name of the module to be imported:</p>
 <div class="cell docutils container">
@@ -1803,7 +1953,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="numpy-arrays">
-<h3><span class="section-number">1.7.9.1. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.7.10.1. </span>NumPy Arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <p>NumPy provides an <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> container for holding one-dimensional or multi-dimensional collections of numbers. Most engineers will have some familiarity with vectors or matrices, and one-dimensional arrays are equivalent to vectors, while two-dimensional arrays are equivalent to matrices. The majority of our work on arrays and their mathematics (linear algebra) will be deferred to <strong>CHAPTER ON LINEAR ALGEBRA</strong>. However, arrays are very helpful for doing basic data manipulation and storing numerical values for simulations, so we review some basics here.</p>
 <p>Arrays can be created using NumPy’s <code class="docutils literal notranslate"><span class="pre">array</span></code> function. For instance, to create a one-dimensional array (i.e., a vector), pass a list of numbers to <code class="docutils literal notranslate"><span class="pre">np.array</span></code>:</p>
 <div class="cell docutils container">
@@ -1925,7 +2075,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="writing-big-numbers-in-python">
-<h2><span class="section-number">1.7.10. </span>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.11. </span>Writing Big Numbers in Python<a class="headerlink" href="#writing-big-numbers-in-python" title="Permalink to this headline">¶</a></h2>
 <p>We will be building simulations in Python that require looping thousands or millions of times. Thus, we will often be writing a <code class="docutils literal notranslate"><span class="pre">range</span></code> that has an argument with many zeros. The <code class="docutils literal notranslate"><span class="pre">range</span></code> function will not take a <code class="docutils literal notranslate"><span class="pre">float</span></code> value, and numbers written in scientific notation (like <code class="docutils literal notranslate"><span class="pre">1e6</span></code>) will be treated as floats. This results in using integers that are very hard to read, like 10000000. We can’t use commas in the numbers because that would create a tuple:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1954,7 +2104,7 @@ array([  6,  24, 120])
 </div>
 </div>
 <div class="section" id="summary-and-other-resources">
-<h2><span class="section-number">1.7.11. </span>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.12. </span>Summary and Other Resources<a class="headerlink" href="#summary-and-other-resources" title="Permalink to this headline">¶</a></h2>
 <p>Do not worry too much about absorbing all these details about Python now. This book contains many examples to get you started, and you can refer back to this section for reference. Some additional features of the Python programming language will be introduced as needed.</p>
 <p>For users who want to learn more about Python, the following resources are recommended:</p>
 <ul class="simple">
@@ -1964,7 +2114,7 @@ array([  6,  24, 120])
 </ul>
 </div>
 <div class="section" id="jupyter-magics">
-<h2><span class="section-number">1.7.12. </span>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.13. </span>Jupyter Magics<a class="headerlink" href="#jupyter-magics" title="Permalink to this headline">¶</a></h2>
 <p>Code cells can also contain special instructions intended for JupyterLab itself, rather than the
 Python kernel. These are called <em>magics</em>. For instance, to output your current directory, you can use the
 <code class="docutils literal notranslate"><span class="pre">%pwd</span></code> magic</p>
