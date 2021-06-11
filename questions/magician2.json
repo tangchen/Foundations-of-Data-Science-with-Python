@@ -1,0 +1,27 @@
+[
+    {
+        "question": "For the magician's coin problem, what do you believe is the value of P(H2|H1)? (You can enter a fraction or at least two decimal places).",
+        "type": "numeric",
+        "precision": 2,
+        "answers": [
+            {
+                "type": "value",
+                "value": 0.83,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "Remember that probabilities must be non-negative. You can try again."
+            },
+            {
+                "type": "range",
+                "range": [ 1, 1000000], 
+                "correct": false,
+                "feedback": "Remember that probabilities cannot be larger than 1. You can try again."
+            }
+        ]
+    }
+]
