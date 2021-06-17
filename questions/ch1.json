@@ -168,17 +168,17 @@
     },
     {
         "question": "What is the output of the following Python program?",
-        "code": "dogs=['Amber', 'Madden', 'Roxy', 'Pippen']\nprint(dogs[2])",
+        "code": "dogs=['Amber', 'Madden', 'Roxy', 'Annie']\nprint(dogs[2])",
         "answers": [
             {
                 "answer": "Amber",
                 "correct": false,
-                "feedback": "Because of 0-based indexing, Amber would be docs[0]"
+                "feedback": "Because of 0-based indexing, Amber would be dogs[0]"
             },
             {
                 "answer": "Madden",
                 "correct": false,
-                "feedback": "Because of 0-based indexing, Madden would be docs[1]"
+                "feedback": "Because of 0-based indexing, Madden would be dogs[1]"
             },
             {
                 "answer": "Roxy",
@@ -186,9 +186,9 @@
                 "feedback": "Correct."
             },
             {
-                "answer": "Pippen",
+                "answer": "Annie",
                 "correct": false,
-                "feedback": "Because of 0-based indexing, Pippen would be docs[3]"
+                "feedback": "Because of 0-based indexing, Annie would be dogs[3]"
             }
         ],
         "type": "multiple_choice"
@@ -219,5 +219,26 @@
             }
         ],
         "type": "multiple_choice"
+    },
+    {
+        "question": "The variable mylist is a Python list. Choose which code snippet will append the item 3 to mylist.",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "code": "mylist+=3",
+                "correct": false,
+                "feedback": "The Python + operator is not defined for a list and an integer."
+            },
+            {
+                "code": "mylist+=[3]",
+                "correct": true,
+                "feedback": "Correct. When operating on two lists, the Python + operator performs list concatenation."
+            },
+            {
+                "code": "mylist+={3}",
+                "correct": false,
+                "feedback": "False. In Python, {3} will be a set, and the + operator is not defined for a list and a set."
+            }
+        ]
     }
 ]
