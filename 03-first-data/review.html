@@ -377,7 +377,7 @@
 <p>In this Chapter, we started working with real data, introduced Pands, partitions, summary statistics, binary hypothesis testing via bootstrap resampling, and two-dimensional statistics.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="RWMwoIZBcldR" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+<div class="output text_html"><div id="uuzUgNiFXRlB" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -505,7 +505,7 @@
 }
 
 
-</style><script type="text/Javascript">questionsRWMwoIZBcldR=[
+</style><script type="text/Javascript">questionsuuzUgNiFXRlB=[
     {
         "question": "Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:",
         "type": "many_choice",
@@ -652,39 +652,68 @@ function check_mc() {
     //console.log(event.srcElement.dataset.correct)   
     //console.log(event.srcElement.dataset.feedback)
 
-    var answers= event.srcElement.parentElement.children;
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth=0;
+    while ((label.nodeName!="LABEL") && (depth<3)) {
+        label=label.parentElement;
+        //console.log(depth,label);
+        depth++;
+    }
+
+
+
+    var answers=label.parentElement.children;
+
     //console.log(answers);
+
 
     // Split behavior based on multiple choice vs many choice:
     var fb = document.getElementById("fb"+id);
+    //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
     if (fb.dataset.numcorrect==1) {
         for (var i = 0; i < answers.length; i++) {
             var child=answers[i];
+            //console.log(child);
             child.className="MCButton";
         }
 
 
 
-        fb.textContent=event.srcElement.dataset.feedback;
-        if (event.srcElement.dataset.correct=="true")   {
+        if (label.dataset.correct=="true")   {
             // console.log("Correct action");
-            this.classList.add("correctButton");
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Correct!";
+            }
+            label.classList.add("correctButton");
 
             fb.className="Feedback";
             fb.classList.add("correct");
 
         } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Incorrect -- try again.";
+            }
             //console.log("Error action");
-            this.classList.add("incorrectButton");
+            label.classList.add("incorrectButton");
             fb.className="Feedback";
             fb.classList.add("incorrect");
         }
     }
     else {
-        //console.log("Many choice not implemented yet");
         var reset = false;
-        if (event.srcElement.dataset.correct=="true" )   {
-            if (event.srcElement.dataset.answered<=0) {
+        var feedback;
+        if (label.dataset.correct=="true" )   {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Correct!";
+            }
+            if (label.dataset.answered<=0) {
                 if (fb.dataset.answeredcorrect<0) {
                     fb.dataset.answeredcorrect=1;
                     reset=true;
@@ -698,13 +727,18 @@ function check_mc() {
                         child.dataset.answered=0;
                     }
                 }
-                this.classList.add("correctButton");
-                this.dataset.answered=1;
+                label.classList.add("correctButton");
+                label.dataset.answered=1;
                 fb.className="Feedback";
                 fb.classList.add("correct");
 
             }
         } else {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Incorrect -- try again.";
+            }
             if (fb.dataset.answeredcorrect>0) {
                 fb.dataset.answeredcorrect=-1;
                 reset=true;
@@ -719,7 +753,7 @@ function check_mc() {
                     child.dataset.answered=0;
                 }
             }
-            this.classList.add("incorrectButton");
+            label.classList.add("incorrectButton");
             fb.className="Feedback";
             fb.classList.add("incorrect");
         }
@@ -728,15 +762,22 @@ function check_mc() {
         var numcorrect=fb.dataset.numcorrect;
         var answeredcorrect=fb.dataset.answeredcorrect;
         if (answeredcorrect>=0) {
-            fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
         } else {
-            fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
+            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
         }
 
 
     }
 
-
+    if (MathJax) {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
 
 }
 
@@ -770,14 +811,39 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
         lab.className="MCButton";
         lab.id=id+ '-' +index;
         lab.onclick=check_mc;
-        lab.textContent=item.answer;
+        var aSpan = document.createElement('span');
+        aSpan.classsName="";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item){
+            codeSpan = document.createElement('span');
+            codeSpan.id="code"+id+index;
+            codeSpan.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
 
         // Set the data attributes for the answer
         lab.setAttribute('data-correct', item.correct);
         if (item.correct) {
             num_correct++;
         }
-        lab.setAttribute('data-feedback', item.feedback);
+        if ("feedback" in item){
+            lab.setAttribute('data-feedback', item.feedback);
+        }
         lab.setAttribute('data-answered', 0);
 
         aDiv.append(lab);
@@ -834,14 +900,16 @@ function check_numeric(ths, event) {
             console.log(answer.type);
 
             correct=false;
-            if (answer.type=="value"){
+            // if (answer.type=="value"){
+            if ('value' in answer){
                 if (submission == answer.value) {
                     fb.textContent=answer.feedback;
                     correct=answer.correct;
                     console.log(answer.correct);
                     done=true;
                 }
-            } else if (answer.type=="range") {
+            // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
                 console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
                     fb.textContent=answer.feedback;
@@ -877,6 +945,14 @@ function check_numeric(ths, event) {
             fb.classList.add("incorrect");
         }
 
+        if (MathJax) {
+            var version=MathJax.version;
+            if (version[0]=="2") {
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset();
+            }
+        }
         return false;
     }
 
@@ -1072,6 +1148,15 @@ function show_questions (json, mydiv) {
 
 
     });
+    if (MathJax) {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
+    return false;
 }
 
         //console.log(element);
@@ -1083,10 +1168,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch3.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, RWMwoIZBcldR))
+        .then(json => show_questions(json, uuzUgNiFXRlB))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsRWMwoIZBcldR, RWMwoIZBcldR);
+        show_questions(questionsuuzUgNiFXRlB, uuzUgNiFXRlB);
         });
         }
         </script>
@@ -1097,7 +1182,7 @@ function show_questions (json, mydiv) {
 <p>Answer these questions to check your retention on knowledge from Chapters 1 and 2:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="NwzilCwXmald" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>
+<div class="output text_html"><div id="nTjldZkqhXCR" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -1225,7 +1310,7 @@ function show_questions (json, mydiv) {
 }
 
 
-</style><script type="text/Javascript">questionsNwzilCwXmald=[
+</style><script type="text/Javascript">questionsnTjldZkqhXCR=[
     {
         "question": "Choose all of the following that can be included in Jupyter notebooks?",
         "type": "many_choice",
@@ -1395,17 +1480,17 @@ function show_questions (json, mydiv) {
     },
     {
         "question": "What is the output of the following Python program?",
-        "code": "dogs=['Amber', 'Madden', 'Roxy', 'Pippen']\nprint(dogs[2])",
+        "code": "dogs=['Amber', 'Madden', 'Roxy', 'Annie']\nprint(dogs[2])",
         "answers": [
             {
                 "answer": "Amber",
                 "correct": false,
-                "feedback": "Because of 0-based indexing, Amber would be docs[0]"
+                "feedback": "Because of 0-based indexing, Amber would be dogs[0]"
             },
             {
                 "answer": "Madden",
                 "correct": false,
-                "feedback": "Because of 0-based indexing, Madden would be docs[1]"
+                "feedback": "Because of 0-based indexing, Madden would be dogs[1]"
             },
             {
                 "answer": "Roxy",
@@ -1413,9 +1498,9 @@ function show_questions (json, mydiv) {
                 "feedback": "Correct."
             },
             {
-                "answer": "Pippen",
+                "answer": "Annie",
                 "correct": false,
-                "feedback": "Because of 0-based indexing, Pippen would be docs[3]"
+                "feedback": "Because of 0-based indexing, Annie would be dogs[3]"
             }
         ],
         "type": "multiple_choice"
@@ -1446,6 +1531,27 @@ function show_questions (json, mydiv) {
             }
         ],
         "type": "multiple_choice"
+    },
+    {
+        "question": "The variable mylist is a Python list. Choose which code snippet will append the item 3 to mylist.",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "code": "mylist+=3",
+                "correct": false,
+                "feedback": "The Python + operator is not defined for a list and an integer."
+            },
+            {
+                "code": "mylist+=[3]",
+                "correct": true,
+                "feedback": "Correct. When operating on two lists, the Python + operator performs list concatenation."
+            },
+            {
+                "code": "mylist+={3}",
+                "correct": false,
+                "feedback": "False. In Python, {3} will be a set, and the + operator is not defined for a list and a set."
+            }
+        ]
     }
 ]
 ;
@@ -1479,39 +1585,68 @@ function check_mc() {
     //console.log(event.srcElement.dataset.correct)   
     //console.log(event.srcElement.dataset.feedback)
 
-    var answers= event.srcElement.parentElement.children;
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth=0;
+    while ((label.nodeName!="LABEL") && (depth<3)) {
+        label=label.parentElement;
+        //console.log(depth,label);
+        depth++;
+    }
+
+
+
+    var answers=label.parentElement.children;
+
     //console.log(answers);
+
 
     // Split behavior based on multiple choice vs many choice:
     var fb = document.getElementById("fb"+id);
+    //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
     if (fb.dataset.numcorrect==1) {
         for (var i = 0; i < answers.length; i++) {
             var child=answers[i];
+            //console.log(child);
             child.className="MCButton";
         }
 
 
 
-        fb.textContent=event.srcElement.dataset.feedback;
-        if (event.srcElement.dataset.correct=="true")   {
+        if (label.dataset.correct=="true")   {
             // console.log("Correct action");
-            this.classList.add("correctButton");
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Correct!";
+            }
+            label.classList.add("correctButton");
 
             fb.className="Feedback";
             fb.classList.add("correct");
 
         } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Incorrect -- try again.";
+            }
             //console.log("Error action");
-            this.classList.add("incorrectButton");
+            label.classList.add("incorrectButton");
             fb.className="Feedback";
             fb.classList.add("incorrect");
         }
     }
     else {
-        //console.log("Many choice not implemented yet");
         var reset = false;
-        if (event.srcElement.dataset.correct=="true" )   {
-            if (event.srcElement.dataset.answered<=0) {
+        var feedback;
+        if (label.dataset.correct=="true" )   {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Correct!";
+            }
+            if (label.dataset.answered<=0) {
                 if (fb.dataset.answeredcorrect<0) {
                     fb.dataset.answeredcorrect=1;
                     reset=true;
@@ -1525,13 +1660,18 @@ function check_mc() {
                         child.dataset.answered=0;
                     }
                 }
-                this.classList.add("correctButton");
-                this.dataset.answered=1;
+                label.classList.add("correctButton");
+                label.dataset.answered=1;
                 fb.className="Feedback";
                 fb.classList.add("correct");
 
             }
         } else {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Incorrect -- try again.";
+            }
             if (fb.dataset.answeredcorrect>0) {
                 fb.dataset.answeredcorrect=-1;
                 reset=true;
@@ -1546,7 +1686,7 @@ function check_mc() {
                     child.dataset.answered=0;
                 }
             }
-            this.classList.add("incorrectButton");
+            label.classList.add("incorrectButton");
             fb.className="Feedback";
             fb.classList.add("incorrect");
         }
@@ -1555,15 +1695,22 @@ function check_mc() {
         var numcorrect=fb.dataset.numcorrect;
         var answeredcorrect=fb.dataset.answeredcorrect;
         if (answeredcorrect>=0) {
-            fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
         } else {
-            fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
+            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
         }
 
 
     }
 
-
+    if (MathJax) {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
 
 }
 
@@ -1597,14 +1744,39 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
         lab.className="MCButton";
         lab.id=id+ '-' +index;
         lab.onclick=check_mc;
-        lab.textContent=item.answer;
+        var aSpan = document.createElement('span');
+        aSpan.classsName="";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item){
+            codeSpan = document.createElement('span');
+            codeSpan.id="code"+id+index;
+            codeSpan.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
 
         // Set the data attributes for the answer
         lab.setAttribute('data-correct', item.correct);
         if (item.correct) {
             num_correct++;
         }
-        lab.setAttribute('data-feedback', item.feedback);
+        if ("feedback" in item){
+            lab.setAttribute('data-feedback', item.feedback);
+        }
         lab.setAttribute('data-answered', 0);
 
         aDiv.append(lab);
@@ -1661,14 +1833,16 @@ function check_numeric(ths, event) {
             console.log(answer.type);
 
             correct=false;
-            if (answer.type=="value"){
+            // if (answer.type=="value"){
+            if ('value' in answer){
                 if (submission == answer.value) {
                     fb.textContent=answer.feedback;
                     correct=answer.correct;
                     console.log(answer.correct);
                     done=true;
                 }
-            } else if (answer.type=="range") {
+            // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
                 console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
                     fb.textContent=answer.feedback;
@@ -1704,6 +1878,14 @@ function check_numeric(ths, event) {
             fb.classList.add("incorrect");
         }
 
+        if (MathJax) {
+            var version=MathJax.version;
+            if (version[0]=="2") {
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset();
+            }
+        }
         return false;
     }
 
@@ -1899,6 +2081,15 @@ function show_questions (json, mydiv) {
 
 
     });
+    if (MathJax) {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
+    return false;
 }
 
         //console.log(element);
@@ -1910,10 +2101,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, NwzilCwXmald))
+        .then(json => show_questions(json, nTjldZkqhXCR))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsNwzilCwXmald, NwzilCwXmald);
+        show_questions(questionsnTjldZkqhXCR, nTjldZkqhXCR);
         });
         }
         </script>
@@ -1921,7 +2112,7 @@ function show_questions (json, mydiv) {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="FJOmCeGMsvHZ" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
+<div class="output text_html"><div id="xAnqktWDDnDs" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -2049,7 +2240,7 @@ function show_questions (json, mydiv) {
 }
 
 
-</style><script type="text/Javascript">questionsFJOmCeGMsvHZ=[
+</style><script type="text/Javascript">questionsxAnqktWDDnDs=[
     {
         "question": "Which of these cannot be a probability?",
         "type": "multiple_choice",
@@ -2150,39 +2341,68 @@ function check_mc() {
     //console.log(event.srcElement.dataset.correct)   
     //console.log(event.srcElement.dataset.feedback)
 
-    var answers= event.srcElement.parentElement.children;
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth=0;
+    while ((label.nodeName!="LABEL") && (depth<3)) {
+        label=label.parentElement;
+        //console.log(depth,label);
+        depth++;
+    }
+
+
+
+    var answers=label.parentElement.children;
+
     //console.log(answers);
+
 
     // Split behavior based on multiple choice vs many choice:
     var fb = document.getElementById("fb"+id);
+    //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
     if (fb.dataset.numcorrect==1) {
         for (var i = 0; i < answers.length; i++) {
             var child=answers[i];
+            //console.log(child);
             child.className="MCButton";
         }
 
 
 
-        fb.textContent=event.srcElement.dataset.feedback;
-        if (event.srcElement.dataset.correct=="true")   {
+        if (label.dataset.correct=="true")   {
             // console.log("Correct action");
-            this.classList.add("correctButton");
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Correct!";
+            }
+            label.classList.add("correctButton");
 
             fb.className="Feedback";
             fb.classList.add("correct");
 
         } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Incorrect -- try again.";
+            }
             //console.log("Error action");
-            this.classList.add("incorrectButton");
+            label.classList.add("incorrectButton");
             fb.className="Feedback";
             fb.classList.add("incorrect");
         }
     }
     else {
-        //console.log("Many choice not implemented yet");
         var reset = false;
-        if (event.srcElement.dataset.correct=="true" )   {
-            if (event.srcElement.dataset.answered<=0) {
+        var feedback;
+        if (label.dataset.correct=="true" )   {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Correct!";
+            }
+            if (label.dataset.answered<=0) {
                 if (fb.dataset.answeredcorrect<0) {
                     fb.dataset.answeredcorrect=1;
                     reset=true;
@@ -2196,13 +2416,18 @@ function check_mc() {
                         child.dataset.answered=0;
                     }
                 }
-                this.classList.add("correctButton");
-                this.dataset.answered=1;
+                label.classList.add("correctButton");
+                label.dataset.answered=1;
                 fb.className="Feedback";
                 fb.classList.add("correct");
 
             }
         } else {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Incorrect -- try again.";
+            }
             if (fb.dataset.answeredcorrect>0) {
                 fb.dataset.answeredcorrect=-1;
                 reset=true;
@@ -2217,7 +2442,7 @@ function check_mc() {
                     child.dataset.answered=0;
                 }
             }
-            this.classList.add("incorrectButton");
+            label.classList.add("incorrectButton");
             fb.className="Feedback";
             fb.classList.add("incorrect");
         }
@@ -2226,15 +2451,22 @@ function check_mc() {
         var numcorrect=fb.dataset.numcorrect;
         var answeredcorrect=fb.dataset.answeredcorrect;
         if (answeredcorrect>=0) {
-            fb.textContent=event.srcElement.dataset.feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
         } else {
-            fb.textContent=event.srcElement.dataset.feedback + "["  + 0 + "/" + numcorrect + "]";
+            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
         }
 
 
     }
 
-
+    if (MathJax) {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
 
 }
 
@@ -2268,14 +2500,39 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
         lab.className="MCButton";
         lab.id=id+ '-' +index;
         lab.onclick=check_mc;
-        lab.textContent=item.answer;
+        var aSpan = document.createElement('span');
+        aSpan.classsName="";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item){
+            codeSpan = document.createElement('span');
+            codeSpan.id="code"+id+index;
+            codeSpan.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
 
         // Set the data attributes for the answer
         lab.setAttribute('data-correct', item.correct);
         if (item.correct) {
             num_correct++;
         }
-        lab.setAttribute('data-feedback', item.feedback);
+        if ("feedback" in item){
+            lab.setAttribute('data-feedback', item.feedback);
+        }
         lab.setAttribute('data-answered', 0);
 
         aDiv.append(lab);
@@ -2332,14 +2589,16 @@ function check_numeric(ths, event) {
             console.log(answer.type);
 
             correct=false;
-            if (answer.type=="value"){
+            // if (answer.type=="value"){
+            if ('value' in answer){
                 if (submission == answer.value) {
                     fb.textContent=answer.feedback;
                     correct=answer.correct;
                     console.log(answer.correct);
                     done=true;
                 }
-            } else if (answer.type=="range") {
+            // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
                 console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
                     fb.textContent=answer.feedback;
@@ -2375,6 +2634,14 @@ function check_numeric(ths, event) {
             fb.classList.add("incorrect");
         }
 
+        if (MathJax) {
+            var version=MathJax.version;
+            if (version[0]=="2") {
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset();
+            }
+        }
         return false;
     }
 
@@ -2570,6 +2837,15 @@ function show_questions (json, mydiv) {
 
 
     });
+    if (MathJax) {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
+    return false;
 }
 
         //console.log(element);
@@ -2581,10 +2857,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, FJOmCeGMsvHZ))
+        .then(json => show_questions(json, xAnqktWDDnDs))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsFJOmCeGMsvHZ, FJOmCeGMsvHZ);
+        show_questions(questionsxAnqktWDDnDs, xAnqktWDDnDs);
         });
         }
         </script>
