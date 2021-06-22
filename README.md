@@ -10,4 +10,7 @@ and to get feedback from the community. Your feedback is welcome, but please do 
 very early and rough, so please be kind!
 
 
+If you find this useful... 
+ <a href="https://www.buymeacoffee.com/jshea" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
 Copyright 2021 by John M. Shea. All rights reserved.
