@@ -377,7 +377,7 @@
 <p>In this Chapter, we started working with real data, introduced Pands, partitions, summary statistics, binary hypothesis testing via bootstrap resampling, and two-dimensional statistics.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="uuzUgNiFXRlB" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+<div class="output text_html"><div id="HugssslBcUsk" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -478,6 +478,9 @@
      color: #fafafa;
      border-radius: 10px;
  }
+.NumericQn p {
+     color: inherit;
+}
 .InpLabel {
      line-height: 34px;
      float:left;
@@ -505,7 +508,7 @@
 }
 
 
-</style><script type="text/Javascript">questionsuuzUgNiFXRlB=[
+</style><script type="text/Javascript">questionsHugssslBcUsk=[
     {
         "question": "Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:",
         "type": "many_choice",
@@ -1148,7 +1151,7 @@ function show_questions (json, mydiv) {
 
 
     });
-    if (MathJax) {
+    if (typeof MathJax != 'undefined') {
         var version=MathJax.version;
         if (version[0]=="2") {
             MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
@@ -1168,10 +1171,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch3.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, uuzUgNiFXRlB))
+        .then(json => show_questions(json, HugssslBcUsk))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsuuzUgNiFXRlB, uuzUgNiFXRlB);
+        show_questions(questionsHugssslBcUsk, HugssslBcUsk);
         });
         }
         </script>
@@ -1182,7 +1185,7 @@ function show_questions (json, mydiv) {
 <p>Answer these questions to check your retention on knowledge from Chapters 1 and 2:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="nTjldZkqhXCR" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>
+<div class="output text_html"><div id="BwTgSmAMtdXI" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -1283,6 +1286,9 @@ function show_questions (json, mydiv) {
      color: #fafafa;
      border-radius: 10px;
  }
+.NumericQn p {
+     color: inherit;
+}
 .InpLabel {
      line-height: 34px;
      float:left;
@@ -1310,7 +1316,7 @@ function show_questions (json, mydiv) {
 }
 
 
-</style><script type="text/Javascript">questionsnTjldZkqhXCR=[
+</style><script type="text/Javascript">questionsBwTgSmAMtdXI=[
     {
         "question": "Choose all of the following that can be included in Jupyter notebooks?",
         "type": "many_choice",
@@ -2081,7 +2087,7 @@ function show_questions (json, mydiv) {
 
 
     });
-    if (MathJax) {
+    if (typeof MathJax != 'undefined') {
         var version=MathJax.version;
         if (version[0]=="2") {
             MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
@@ -2101,10 +2107,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, nTjldZkqhXCR))
+        .then(json => show_questions(json, BwTgSmAMtdXI))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsnTjldZkqhXCR, nTjldZkqhXCR);
+        show_questions(questionsBwTgSmAMtdXI, BwTgSmAMtdXI);
         });
         }
         </script>
@@ -2112,7 +2118,7 @@ function show_questions (json, mydiv) {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="xAnqktWDDnDs" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
+<div class="output text_html"><div id="EZNsHPSEkBNR" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -2213,6 +2219,9 @@ function show_questions (json, mydiv) {
      color: #fafafa;
      border-radius: 10px;
  }
+.NumericQn p {
+     color: inherit;
+}
 .InpLabel {
      line-height: 34px;
      float:left;
@@ -2240,7 +2249,7 @@ function show_questions (json, mydiv) {
 }
 
 
-</style><script type="text/Javascript">questionsxAnqktWDDnDs=[
+</style><script type="text/Javascript">questionsEZNsHPSEkBNR=[
     {
         "question": "Which of these cannot be a probability?",
         "type": "multiple_choice",
@@ -2248,7 +2257,7 @@ function show_questions (json, mydiv) {
             {
                 "answer": "1",
                 "correct": false,
-                "feedback": "This is a number between 0 and 1, so it can be probability."
+                "feedback": "This is a number between 0 and 1 (inclusive of the end points), so it can be probability."
             },
             {
                 "answer": "-0.5",
@@ -2258,16 +2267,17 @@ function show_questions (json, mydiv) {
             {
                 "answer": "0",
                 "correct": false,
-                "feedback": "This is a number between 0 and 1, so it can be probability."
+                "feedback": "This is a number between 0 and 1 (inclusive of the end points), so it can be probability."
             },
             {
                 "answer": "0.5",
                 "correct": false,
-                "feedback": "This is a number between 0 and 1, so it can be probability."
+                "feedback": "This is a number between 0 and 1 (inclusive of the end points), so it can be probability."
             }
         ]
-    },{
-        "question": "True or False: Relative frequencies can only take values  between 0 and 1.",
+    },
+    {
+        "question": "<b>True or False:</b> Relative frequencies can only take values  between 0 and 1.",
         "type": "multiple_choice",
         "answers": [
             {
@@ -2282,29 +2292,37 @@ function show_questions (json, mydiv) {
             }
         ]
     },
-
-    {
-        "question": "Determine the relative frequency of the outcome 3 in the following data set:\n\n2,3,5,2,3",
-        "type": "multiple_choice",
+{
+        "question": "Determine the relative frequency of the outcome 3 in the following dataset:<p><p>2, 3, 5, 2, 3",
+        "type": "numeric",
         "answers": [
             {
-                "answer": "2",
-                "correct": false,
-                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1."
-            },
-            {
-                "answer": "0.6",
-                "correct": false,
-                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments."
-            },
-            {
-                "answer": "0.4",
+                "type": "value",
+                "value": "0.4",
                 "correct": true,
                 "feedback": "Correct! The outcome 3 occurred 2 times out of 5 experiments, so the relative frequency is 2/5=0.4."
             },
             {
-                "answer": "0",
+                "type": "default",
                 "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. Count the number of times that outcome 3 occurred and divide by the total number of experiments."
+            },
+            {
+                "type": "range",
+                "range": [ -100000000, 0], 
+                "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1."
+            },
+            {
+                "type": "range",
+                "range": [ 1.0000001, 100000000], 
+                "correct": false,
+                "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. It is always between 0 and 1."
+            },
+            {
+                "type": "value",
+                "answer": "0",
+                "value": false,
                 "feedback": "Relative frequency is the proportion of experiments in which an outcome occurs. Since 3 occured, that proportion will not be 0."
             }
         ]
@@ -2837,7 +2855,7 @@ function show_questions (json, mydiv) {
 
 
     });
-    if (MathJax) {
+    if (typeof MathJax != 'undefined') {
         var version=MathJax.version;
         if (version[0]=="2") {
             MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
@@ -2857,10 +2875,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, xAnqktWDDnDs))
+        .then(json => show_questions(json, EZNsHPSEkBNR))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsxAnqktWDDnDs, xAnqktWDDnDs);
+        show_questions(questionsEZNsHPSEkBNR, EZNsHPSEkBNR);
         });
         }
         </script>
