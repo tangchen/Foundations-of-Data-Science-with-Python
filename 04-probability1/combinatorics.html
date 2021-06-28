@@ -694,6 +694,96 @@ $<span class="math notranslate nohighlight">\(
 \)</span>$</p>
 <p>For instance, for the Monopoly dice problem, <span class="math notranslate nohighlight">\(|S_0|=|S_1|=6\)</span>, so <span class="math notranslate nohighlight">\(|S| = |S_0| \cdot |S_1| = 6 \cdot 6 = 36\)</span>.</p>
 <p>For flipping a fair coin 20 times, <span class="math notranslate nohighlight">\(|S_i| = 2\)</span>, and <span class="math notranslate nohighlight">\(|S| = |S_0| \cdot |S_1| \cdot \ldots \cdot |S_{19}| = 2^{20} = 1,048,576\)</span></p>
+<p><strong>Example: Monopoly Dice</strong></p>
+<p>Let’s consider how to find the probability for a particular value of the sum of the dice. Let <span class="math notranslate nohighlight">\(E_8\)</span> be the event that the sum of the numbers on the top faces of the two dice is 10. To find <span class="math notranslate nohighlight">\(P(E_{10})\)</span>, we have to determine <span class="math notranslate nohighlight">\(|E_{10}|\)</span>. Note that if we know the value of the first die, then the value of the second die is determined. Moreover, not all values of the first die can result in a sum of 10. So we just need to determine what values of the first die <strong>can</strong> result in sums of 10. The smallest value of the first die that can result in a sum of 10 will occur when the second die has a value of 6. So, the first die must be at least 4. Clearly, if it is larger than 4, there will be a value of the second die that results in a sum of 10. From this, we conclude that <span class="math notranslate nohighlight">\(|E_{10}|=3\)</span>. To be explicite,</p>
+<div class="math notranslate nohighlight">
+\[
+E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
+\]</div>
+<p>Then <span class="math notranslate nohighlight">\(P(E_3) = 3/36 = 1/12\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">12</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<p>(Reader, please compare this with the probability found through enumeration in the version of this example using <code class="docutils literal notranslate"><span class="pre">itertools</span></code>.)</p>
+<p><strong>Example: Flipping a Fair Coin 20 Times</strong></p>
+<p>This experimental set up seems even easier than the Monopoly dice problem because of the small size of the subexperiment sample spaces, but enumerating the event that the number of heads is 6 or fewer turns out to be much more challenging and will require us to introduce some new mathematical tools. Before we get to that, let’s answer a few questions that will help us build to our ultimate result:</p>
+<p>Let <span class="math notranslate nohighlight">\(H_i\)</span> be the event that there are <strong>exactly</strong> <span class="math notranslate nohighlight">\(i\)</span> heads on the 20 flips.</p>
+<p>First, what is <span class="math notranslate nohighlight">\(|H_0|\)</span>? There is exactly one way to get zero heads. All of the 20 flips were tails.</p>
+<p>Next, what is <span class="math notranslate nohighlight">\(|H_1|\)</span>? There is exactly one head in the 20 flips. It can either be on the first flip, the second flip, …, or finally the 20th flip. In other words, there are 20 different places for the heads to be, so <span class="math notranslate nohighlight">\(|H_1|=20\)</span>.</p>
+<p>Now, what is <span class="math notranslate nohighlight">\(|H_2|\)</span>? This is where things start to get challenging and interesting.  We will solve this two ways. The first way will get us the answer. The second way will help lead us to a general solution for <span class="math notranslate nohighlight">\(H_i\)</span>.</p>
+<p>We can count <span class="math notranslate nohighlight">\(|H_2|\)</span> in much the same way that we counted <span class="math notranslate nohighlight">\(H_1\)</span>. For convenience, let’s consider the flips in order. For each place the first heads occurs, we will have multiple places that the second heads could occur.  I.e., if the first heads is on flip 0, then the second heads can be on flips 1 through 19. But if the first head is on flip 18, the second head has to be on flip 19. The total number of outcomes in <span class="math notranslate nohighlight">\(H_2\)</span> can thus be written as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+|H_2| &amp;= \sum_{i=0}^{18} \sum_{j=i+1}^{19} 1 \\
+&amp;= \sum_{i=0}^{18} \left[ 19 - \left( i+1 \right) +1 \right] \\
+&amp;= 19\cdot 20   - \sum_{i=1}^{19} i \\
+&amp;= 380 - \frac{19 \cdot 20}{2} \\
+&amp;= 190,
+\end{align*}\]</div>
+<p>(The last summation is a standard form.)</p>
+<p>This will get increasingly tedious and challenging to write and compute as we consider <span class="math notranslate nohighlight">\(H_i\)</span> for larger <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>Consider a second approach. We consider the result of the flips. The first heads can go in any of the 20 places. The second heads can go in any of the remaining 19 places. Then the total number of results is <span class="math notranslate nohighlight">\(20 \cdot 19 = 380\)</span>.</p>
+<p><strong>But this result does not match up with  the one we just computed in detail! Why</strong> The reason is that we have <strong>overcounted</strong>. For instance, let’s mark the first value we choose by underlining it.  Then here are two outcomes we will find this way (values not shown are all <span class="math notranslate nohighlight">\(T\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(\underline{H}, T, T, H, T, \ldots) \\
+(H, T, T, \underline{H}, T, \ldots)
+\end{split}\]</div>
+<p>Our counting mechanism has created two different representations of the same outcome (i.e., where there is a heads on rolls 0 and 3). It should be relatively easy to see that the number we will count in this way is twice the total number, so we have to divide by two to get: <span class="math notranslate nohighlight">\(|H_2| = 20 \cdot 19 /2 =190\)</span>.</p>
+<p>But now let’s consider how we can rewrite this value to make it extensible to find <span class="math notranslate nohighlight">\(H_i\)</span> for <span class="math notranslate nohighlight">\(i&gt;2\)</span>.</p>
+<p>We first introduce the number of ways to reorder a set of objects:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">permutation:
+A <em>permutation</em> is a reordering of a set of objects.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Given <span class="math notranslate nohighlight">\(n\)</span> distinct objects, we can calculate the number of permutations as possible. There are <span class="math notranslate nohighlight">\(n\)</span> ways to choose the first object, then <span class="math notranslate nohighlight">\(n-1\)</span> ways to choose the second objects, <span class="math notranslate nohighlight">\(n-2\)</span> ways to choose the third object, …, and exactly 1 way to choose the <span class="math notranslate nohighlight">\(n\)</span> the object.</p>
+<p><strong>The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects is written as <span class="math notranslate nohighlight">\(n!\)</span>, where</strong></p>
+<div class="math notranslate nohighlight">
+\[
+n! = n(n-1)(n-2)\cdots(2)(1).
+\]</div>
+<p>The term <span class="math notranslate nohighlight">\(n!\)</span> is read “n factorial” (en fact-or-ee-ul).</p>
+<p>In Python, I recommend you use the factorial function from SciPy.special. If the argument is not more than 20, I would recommend to pass the keyword parameter <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> to get back an integer solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">factorial</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then the number of ways that 20 unique objects can be arranged is</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factorial</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">exact</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2432902008176640000
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="this-is-still-in-progress">
 <h2><span class="section-number">4.6.3. </span>THIS IS STILL IN PROGRESS<a class="headerlink" href="#this-is-still-in-progress" title="Permalink to this headline">¶</a></h2>
