@@ -430,11 +430,12 @@ For a sample space <span class="math notranslate nohighlight">\(S\)</span> and a
 </div>
 <p>Note that the power set includes both the empty set (<span class="math notranslate nohighlight">\(\emptyset\)</span>) and <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <p><strong>Example</strong>
-Consider flipping a coin and observing the top face. Then <span class="math notranslate nohighlight">\(S=\{H,T\}\)</span> and
-$<span class="math notranslate nohighlight">\(
+Consider flipping a coin and observing the top face. Then <span class="math notranslate nohighlight">\(S=\{H,T\}\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[
 \mathcal{F} = \bigl\{ \emptyset, H, T, \{H,T\} = S \bigr\}
-\)</span>$</p>
-<p>Note that <span class="math notranslate nohighlight">\(|S|=2\)</span> and <span class="math notranslate nohighlight">\(|2^S| = 4 = \)</span>2^|S|$.</p>
+\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(|S|=2\)</span> and <span class="math notranslate nohighlight">\(|2^S| = 4 = 2^|S|\)</span>.</p>
 <p><strong>Exercise</strong></p>
 <p>Consider rolling a standard six-sided die. Give the sample space, <span class="math notranslate nohighlight">\(S\)</span>,  and the power set of the sample space, <span class="math notranslate nohighlight">\(2^S\)</span>.  What is the cardinality of <span class="math notranslate nohighlight">\(2^S\)</span>?</p>
 <p>When <span class="math notranslate nohighlight">\(|S|=\infty\)</span>, weird things can happen if we try to assign probabilities to every subset of <span class="math notranslate nohighlight">\(S\)</span>. <strong>JMS: Working here. Need footnote about uncountably infinite</strong> For typical data science applications, we can assume that any event that we want to ask about will be in the event class, and we do not need to explicitly enumerate the event class.</p>
@@ -470,25 +471,32 @@ The probability measure, <span class="math notranslate nohighlight">\(P\)</span>
 <p>When dealing with infinite sample spaces, an alternative version of Axiom III should be used:</p>
 <p><strong>III’.</strong> If <span class="math notranslate nohighlight">\(A_1, A_2, \ldots\)</span> is a sequence of
 event that are all disjoint  (<span class="math notranslate nohighlight">\(A_i \cap A_j = \emptyset~ \forall i\ne j\)</span>),
-then
-$<span class="math notranslate nohighlight">\(
-          P \left[ \bigcup_{k=1}^{\infty} A_k \right] = \sum_{k=1}^{\infty}
-            P\left[ A_k \right].
-            \)</span>$</p>
+then</p>
+<div class="math notranslate nohighlight">
+\[
+P \left[ \bigcup_{k=1}^{\infty} A_k \right] = \sum_{k=1}^{\infty}
+ P\left[ A_k \right].
+\]</div>
 <!-- *(Note that these sums and unions are over countably infinite sequences of events.)* --><p>Many students of probability wonder why Axiom I does not specify that <span class="math notranslate nohighlight">\(0 \le P(E) \le 1\)</span>. The answer is that the second part of that inequality is not needed because it can be proven from the other axioms. Anything that is not required is removed to ensure that the axioms are a minimal set of rules.</p>
 <p>Axiom III is a powerful tool for calculating probabilities. However, it must be used carefully.</p>
 <p><strong>Example</strong></p>
 <p>A fair six-sided die is rolled twice. What is the probability that the top face on the first roll is less than 3? What is the probability that the top face on the second roll is less than 3?</p>
 <p>First, let’s define some notation for the events of interest:</p>
 <p>Let <span class="math notranslate nohighlight">\(E_i\)</span> denote the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3</p>
-<p>Then
-$<span class="math notranslate nohighlight">\(E_1=\{1_1, 2_1 \},\)</span><span class="math notranslate nohighlight">\(
-where \)</span>k_l<span class="math notranslate nohighlight">\( denotes the **outcome** that the top face is \)</span>k<span class="math notranslate nohighlight">\( on roll \)</span>l<span class="math notranslate nohighlight">\(. Similarly,
-\)</span><span class="math notranslate nohighlight">\(E_2=\{1_2, 2_2 \}.\)</span><span class="math notranslate nohighlight">\(  Note that we can rewrite
-\)</span><span class="math notranslate nohighlight">\(
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+E_1=\{1_1, 2_1 \},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_l\)</span> denotes the <strong>outcome</strong> that the top face is <span class="math notranslate nohighlight">\(k\)</span> on roll <span class="math notranslate nohighlight">\(l\)</span>. Similarly,</p>
+<div class="math notranslate nohighlight">
+\[E_2=\{1_2, 2_2 \}.\]</div>
+<p>Note that we can rewrite</p>
+<div class="math notranslate nohighlight">
+\[
 E_i = \{1_i\} \cup \{2_i\},
-\)</span><span class="math notranslate nohighlight">\( 
-where \)</span>\cup$ is the union operator.  Because outcomes are always disjoint, axiom III can be applied to yield</p>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\cup\)</span> is the union operator.  Because outcomes are always disjoint, axiom III can be applied to yield</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 P(E_i) &amp;= P\left(\{1_i\} \cup \{2_i\} \right) \\

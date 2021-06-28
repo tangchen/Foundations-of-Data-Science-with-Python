@@ -375,37 +375,41 @@ P\left( \overline{A} \right) = 1 - P\left(A \right).
 P(S) &amp;= 1\\
 P(A \cup \overline{A}) &amp;=1 \\
 P(A) + P(\overline{A}) &amp;= 1 \\
-P(A) = 1 - P(\overline{A}).
+P(A) &amp;= 1 - P(\overline{A}).
 \end{align*}\]</div>
 <p><strong>Example</strong></p>
 <p>A fair six-sided die is rolled two times and the top faces are recorded. What is the probability that neither roll is less than 3?</p>
 <p>Let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the outcome of roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3. Then we are asked to find <span class="math notranslate nohighlight">\(P\left(\overline{E_1} \cap \overline{E_2} \right)\)</span>.</p>
-<p>By DeMorgan’s rules,
-$<span class="math notranslate nohighlight">\(
+<p>By DeMorgan’s rules,</p>
+<div class="math notranslate nohighlight">
+\[
 P\left(\overline{E_1} \cap \overline{E_2} \right) = P\left(\overline{E_1 \cup E_2} \right).
-\)</span><span class="math notranslate nohighlight">\(
-We can apply Corollary 1 to get 
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>We can apply Corollary 1 to get</p>
+<div class="math notranslate nohighlight">
+\[
 P\left(\overline{E_1 \cup E_2} \right) = 1 - P\left(E_1 \cup E_2 \right).
-\)</span><span class="math notranslate nohighlight">\(
-But we already found the probability on the right-hand side to be 5/9 in {doc}`../axiomatic-prob`. Thus, probability we are looking for is \)</span>1-5/9=4/9$.</p>
+\]</div>
+<p>But we already found the probability on the right-hand side to be 5/9 in <span class="xref std std-doc">../axiomatic-prob</span>. Thus, probability we are looking for is <span class="math notranslate nohighlight">\(1-5/9=4/9\)</span>.</p>
 <p><strong>Corollary 2.</strong> <span class="math notranslate nohighlight">\(P(A)\le 1\)</span></p>
 <p>As previously noted, this restriction is not included in the axioms.</p>
 <p><em>Proof:</em></p>
-<p>By Corollary 1, we have
-$<span class="math notranslate nohighlight">\(
+<p>By Corollary 1, we have</p>
+<div class="math notranslate nohighlight">
+\[
 P(A) = 1 - P(\overline{A}).
-\)</span>$</p>
+\]</div>
 <p>By Axiom I, <span class="math notranslate nohighlight">\(P(\overline{A}) \ge 0\)</span>, so it must be that <span class="math notranslate nohighlight">\(P(A) \le 1\)</span>.</p>
 <p><strong>Corollary 3.</strong> <span class="math notranslate nohighlight">\(P(\emptyset)=0\)</span></p>
 <p><em>Proof:</em></p>
-<p>By Corollary 1, we have
-$<span class="math notranslate nohighlight">\(
+<p>By Corollary 1, we have</p>
+<div class="math notranslate nohighlight">
+\[
 P(\emptyset) = 1 - P(\overline{\emptyset}).
-\)</span><span class="math notranslate nohighlight">\(
-But \)</span>\overline{\emptyset} =S$. Thus,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4ae6af88-d8ba-49ed-bbfd-df542cc0db1b">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-4ae6af88-d8ba-49ed-bbfd-df542cc0db1b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+\]</div>
+<p>But <span class="math notranslate nohighlight">\(\overline{\emptyset} =S\)</span>. Thus,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9c9e435c-c797-4ba4-98c9-f6898461ebbf">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-9c9e435c-c797-4ba4-98c9-f6898461ebbf" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(\emptyset) &amp;= 1 - P(S) \\
 &amp;= 1-1 \\
 &amp;=0
@@ -479,8 +483,8 @@ P( \overline{V} \cap \overline{M}) &amp;= P\left( \overline{V \cup M} \right) \\
 <p>This probability can be written as <span class="math notranslate nohighlight">\(P(M \cap \overline{V})\)</span>. I will provide a purely mathematical answer, but it is helpful to draw a Venn diagram to visualize this scenario. Note that</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-P(M) = P \left(M \cap V \right) + P\left(M \cap \overline{V} \right)\\
-P\left(M \cap \overline{V} \right) &amp;= P(M) - P \left(M \cap V \right) 
+P(M) &amp;= P \left(M \cap V \right) + P\left(M \cap \overline{V} \right)\\
+P\left(M \cap \overline{V} \right) &amp;= P(M) - P \left(M \cap V \right) \\
 &amp;= 0.25 - 0.16 \\
 &amp;= 0.09
 \end{align*}\]</div>
