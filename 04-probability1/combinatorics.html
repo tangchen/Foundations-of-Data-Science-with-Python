@@ -691,7 +691,16 @@ $<span class="math notranslate nohighlight">\(
 |S|= |S_0| \cdot |S_1|  \cdot \ldots \cdot |S_{K-1}|.
 \)</span>$</p>
 <p>For instance, for the Monopoly dice problem, <span class="math notranslate nohighlight">\(|S_0|=|S_1|=6\)</span>, so <span class="math notranslate nohighlight">\(|S| = |S_0| \cdot |S_1| = 6 \cdot 6 = 36\)</span>.</p>
-<p>For flipping a fair coin 20 times, <span class="math notranslate nohighlight">\(|S_i| = 2\)</span>, and <span class="math notranslate nohighlight">\(|S| = |S_0| \cdot |S_1| \cdot \ldots \cdot |S_{19}| = 2^{20} = 1,048,576\)</span></p>
+<p>This is an example of drawing items from a set and recording the ordered sequence of outcomes, where each item is placed back into the set before the next draw. This is called sampling <strong>with replacement</strong> and <strong>with ordering</strong>. For a set of <span class="math notranslate nohighlight">\(k\)</span> draws from <span class="math notranslate nohighlight">\(N\)</span> items, sampling with replacement means that each <span class="math notranslate nohighlight">\(|S_i|\)</span> in the expression above is equal to <span class="math notranslate nohighlight">\(N\)</span>. Thus,</p>
+<div class="admonition-sampling-with-replacement-and-with-ordering admonition">
+<p class="admonition-title">Sampling with Replacement and with Ordering</p>
+<p>The number of ways to choose <span class="math notranslate nohighlight">\(k\)</span> items from a set of <span class="math notranslate nohighlight">\(N\)</span> items with replacement and with ordering is</p>
+<div class="math notranslate nohighlight">
+\[
+\underbrace{N \cdot N \cdot \ldots \cdot N}_{k \mbox{ times}} = N^k
+\]</div>
+</div>
+<p>For flipping a fair coin 20 times, <span class="math notranslate nohighlight">\(N=2\)</span> and <span class="math notranslate nohighlight">\(k=20\)</span>, so and <span class="math notranslate nohighlight">\(|S| =  2^{20} = 1,048,576\)</span>.</p>
 <p><strong>Example: Monopoly Dice</strong></p>
 <p>Let’s consider how to find the probability for a particular value of the sum of the dice. Let <span class="math notranslate nohighlight">\(E_8\)</span> be the event that the sum of the numbers on the top faces of the two dice is 10. To find <span class="math notranslate nohighlight">\(P(E_{10})\)</span>, we have to determine <span class="math notranslate nohighlight">\(|E_{10}|\)</span>. Note that if we know the value of the first die, then the value of the second die is determined. Moreover, not all values of the first die can result in a sum of 10. So we just need to determine what values of the first die <strong>can</strong> result in sums of 10. The smallest value of the first die that can result in a sum of 10 will occur when the second die has a value of 6. So, the first die must be at least 4. Clearly, if it is larger than 4, there will be a value of the second die that results in a sum of 10. From this, we conclude that <span class="math notranslate nohighlight">\(|E_{10}|=3\)</span>. To be explicite,</p>
 <div class="math notranslate nohighlight">
@@ -750,7 +759,7 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 <p>Extend the approach described above to give a formula for the <span class="math notranslate nohighlight">\(|H_3|\)</span>. (For this purpose, I recommend you use three summation terms, although a more general and sophisticated solution for skilled programmers can be created using recursion.) Use Python to evaluate the sum. Check your answer using the self-assessment quiz below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="NdTgTYMgbHMI" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+<div class="output text_html"><div id="ypRvdAtfxZJs" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -881,7 +890,7 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 }
 
 
-</style><script type="text/Javascript">questionsNdTgTYMgbHMI=[
+</style><script type="text/Javascript">questionsypRvdAtfxZJs=[
     {
         "question": "How many outcomes are in the event $H_3$ (there are 3 heads on 20 flips of a fair coin)?",
         "type": "numeric",
@@ -1269,6 +1278,7 @@ function check_numeric(ths, event) {
 }
 
 function isValid(el,  charC) {
+    console.log("Input char: ", charC);
 		if (charC == 46) {
 				if (el.value.indexOf('.') === -1) {
 					  return true;
@@ -1292,8 +1302,28 @@ function isValid(el,  charC) {
             return false;
         }
 		} else if (charC == 45) {
+        edex=el.value.indexOf('e');
+        if (edex==-1) {
+            edex=el.value.indexOf('E');
+        }
+
         if (el.value == "" ) {
             return true;
+        } else if ( edex== (el.value.length-1) ) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+				if ( (el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1) ) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0){
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else{
+                return false;
+            }
         } else {
             return false;
         }
@@ -1501,10 +1531,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/three_heads.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, NdTgTYMgbHMI))
+        .then(json => show_questions(json, ypRvdAtfxZJs))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsNdTgTYMgbHMI, NdTgTYMgbHMI);
+        show_questions(questionsypRvdAtfxZJs, ypRvdAtfxZJs);
         });
         }
         </script>
@@ -1622,10 +1652,10 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 </div>
 </div>
 </div>
-<p>Use the binom function to calculate the cardinalities shown below:</p>
+<p>Use the binom function to calculate the cardinalities and probabilities shown below. (Recall that <span class="math notranslate nohighlight">\(P(H_i) = |H_i|/|S|\)</span>, and we found <span class="math notranslate nohighlight">\(|S|\)</span> further above.)</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="RMDdtoHPpmsL" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
+<div class="output text_html"><div id="aoSpWhmPrhBJ" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -1756,7 +1786,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 }
 
 
-</style><script type="text/Javascript">questionsRMDdtoHPpmsL=[
+</style><script type="text/Javascript">questionsaoSpWhmPrhBJ=[
     {
         "question": "How many outcomes are in the event $H_4$ (there are 4 heads on 20 flips of a fair coin)?",
         "type": "numeric",
@@ -2246,6 +2276,7 @@ function check_numeric(ths, event) {
 }
 
 function isValid(el,  charC) {
+    console.log("Input char: ", charC);
 		if (charC == 46) {
 				if (el.value.indexOf('.') === -1) {
 					  return true;
@@ -2269,8 +2300,28 @@ function isValid(el,  charC) {
             return false;
         }
 		} else if (charC == 45) {
+        edex=el.value.indexOf('e');
+        if (edex==-1) {
+            edex=el.value.indexOf('E');
+        }
+
         if (el.value == "" ) {
             return true;
+        } else if ( edex== (el.value.length-1) ) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+				if ( (el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1) ) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0){
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else{
+                return false;
+            }
         } else {
             return false;
         }
@@ -2478,10 +2529,896 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/binom.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, RMDdtoHPpmsL))
+        .then(json => show_questions(json, aoSpWhmPrhBJ))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsRMDdtoHPpmsL, RMDdtoHPpmsL);
+        show_questions(questionsaoSpWhmPrhBJ, aoSpWhmPrhBJ);
+        });
+        }
+        </script>
+</div></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="WyVlhSPhjJWR" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
+:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+
+.Quiz {
+     max-width: 600px;
+     margin-top: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
+     padding-bottom: 4px;
+     padding-top: 4px;
+     line-height: 1.1;
+     font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode > pre {
+    padding: 4px;
+}
+.Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+}
+.Feedback{
+     font-size: 16pt;
+     text-align:center;
+ }
+
+.Input {
+    align:left;
+    font-size: 20pt;
+}
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+ .Input-text:focus {
+     outline: none;
+     background-color: #c0c0c0;
+     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+ }
+
+ .MCButton{
+     background: #fafafa;
+     border: 1px solid #eee;
+     border-radius: 10px;
+     padding: 10px;
+     font-size: 16px;
+     cursor: pointer;
+     text-align: center;
+ }
+ .MultipleChoiceQn {
+     padding: 10px;
+     background: var(--medium-slate-blue);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+ .ManyChoiceQn {
+     padding: 10px;
+     background: var(--orange-pantone);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+ .NumericQn {
+     padding: 10px;
+     background: var(--russian-violet);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+.NumericQn p {
+     color: inherit;
+}
+.InpLabel {
+     line-height: 34px;
+     float:left;
+     margin-right: 10px;
+     color: #101010;
+     font-size: 15pt;
+}
+.incorrect {
+    color: var(--incorrect-red);
+}
+.correct {
+    color: var(--correct-green);
+}
+.correctButton {
+    background: var(--correct-green);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+.incorrectButton {
+    background: var(--incorrect-red);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+
+</style><script type="text/Javascript">questionsWyVlhSPhjJWR=[
+    {
+        "question": "Find the probability of 4 heads on 20 flips of a fair coin, $P(H_4)$ to 2 significant digits.",
+        "type": "numeric",
+        "precision": 4,
+        "answers": [
+            {
+                "type": "value",
+                "value": 0.0046,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be negative."
+            },
+            {
+                "type": "range",
+                "range": [ 1.0000000001, 1000000000], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be greater than 1."
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "Incorrect. Find $|H_4|$ using the binomial coefficient and divide by the cardinality of $S$. "
+            }
+        ]
+    },
+    {
+        "question": "Find the probability of 6 heads on 20 flips of a fair coin, $P(H_6)$ to 2 significant digits.",
+        "type": "numeric",
+        "precision": 3,
+        "answers": [
+            {
+                "type": "value",
+                "value": 0.037,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be negative."
+            },
+            {
+                "type": "range",
+                "range": [ 1.0000000001, 1000000000], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be greater than 1."
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "Incorrect. Find $|H_6|$ using the binomial coefficient and divide by the cardinality of $S$. "
+            }
+
+        ]
+    },
+    {
+        "question": "Find the probability of 8 heads on 20 flips of a fair coin, $P(H_8)$ to 2 significant digits.",
+        "type": "numeric",
+        "precision": 2,
+        "answers": [
+            {
+                "type": "value",
+                "value": 0.12,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be negative."
+            },
+            {
+                "type": "range",
+                "range": [ 1.0000000001, 1000000000], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be greater than 1."
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "Incorrect. Find $|H_8|$ using the binomial coefficient and divide by the cardinality of $S$. "
+            }
+        ]
+    },
+    {
+        "question": "Find the probability of 10 heads on 20 flips of a fair coin, $P(H_{10})$ to 2 significant digits.",
+        "type": "numeric",
+        "precision": 2,
+        "answers": [
+            {
+                "type": "value",
+                "value": 0.18,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be negative."
+            },
+            {
+                "type": "range",
+                "range": [ 1.0000000001, 1000000000], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be greater than 1."
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "Incorrect. Find $|H_{10}|$ using the binomial coefficient and divide by the cardinality of $S$. "
+            }
+        ]
+    },
+    {
+        "question": "Find the probability of 12 heads on 20 flips of a fair coin, $P(H_{12})$ to 2 significant digits.",
+        "type": "numeric",
+        "precision": 2,
+        "answers": [
+            {
+                "type": "value",
+                "value": 0.12,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be negative."
+            },
+            {
+                "type": "range",
+                "range": [ 1.0000000001, 1000000000], 
+                "correct": false,
+                "feedback": "No. Probabilities cannot be greater than 1."
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "Incorrect. Find $|H_{12}|$ using the binomial coefficient and divide by the cardinality of $S$. "
+            }
+        ]
+    }
+]
+;
+    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+function makeid(length) {
+    var result           = [];
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+function check_mc() {
+    var id=this.id.split('-')[0];
+
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth=0;
+    while ((label.nodeName!="LABEL") && (depth<3)) {
+        label=label.parentElement;
+        //console.log(depth,label);
+        depth++;
+    }
+
+
+
+    var answers=label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb"+id);
+    //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+    if (fb.dataset.numcorrect==1) {
+        for (var i = 0; i < answers.length; i++) {
+            var child=answers[i];
+            //console.log(child);
+            child.className="MCButton";
+        }
+
+
+
+        if (label.dataset.correct=="true")   {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className="Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+        if (label.dataset.correct=="true" )   {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Correct!";
+            }
+            if (label.dataset.answered<=0) {
+                if (fb.dataset.answeredcorrect<0) {
+                    fb.dataset.answeredcorrect=1;
+                    reset=true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child=answers[i];
+                        child.className="MCButton";
+                        child.dataset.answered=0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered=1;
+                fb.className="Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect>0) {
+                fb.dataset.answeredcorrect=-1;
+                reset=true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child=answers[i];
+                    child.className="MCButton";
+                    child.dataset.answered=0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+
+        var numcorrect=fb.dataset.numcorrect;
+        var answeredcorrect=fb.dataset.answeredcorrect;
+        if (answeredcorrect>=0) {
+            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (MathJax) {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers=="True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled=qa.answers;
+    }
+
+
+    var num_correct=0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type="radio";
+        inp.id="quizo"+id+index;
+        inp.style="display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className="MCButton";
+        lab.id=id+ '-' +index;
+        lab.onclick=check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName="";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item){
+            codeSpan = document.createElement('span');
+            codeSpan.id="code"+id+index;
+            codeSpan.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item){
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct>1) {
+        outerqDiv.className="ManyChoiceQn";
+    } else {
+        outerqDiv.className="MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id=ths.id.split('-')[0];
+
+        var submission=ths.value;
+				if (submission.indexOf('/') != -1) {
+            sub_parts=submission.split('/');
+            //console.log(sub_parts);
+            submission=sub_parts[0]/sub_parts[1];
+        }
+        console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            precision=ths.dataset.precision;
+            // console.log("1:", submission)
+            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb"+id);
+        fb.style.display="none";
+        fb.textContent="Incorrect -- try again.";
+
+        answers=JSON.parse(ths.dataset.answers);
+        console.log(answers);
+
+        var defaultFB="";
+        var correct;
+        var done=false;
+        answers.every(answer => {
+            console.log(answer.type);
+
+            correct=false;
+            // if (answer.type=="value"){
+            if ('value' in answer){
+                if (submission == answer.value) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="default") {
+                defaultFB=answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.textContent=defaultFB;
+            console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display="block";
+        if (correct) {
+            ths.className="Input-text";
+            ths.classList.add("correctButton");
+            fb.className="Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className="Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        if (MathJax) {
+            var version=MathJax.version;
+            if (version[0]=="2") {
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset();
+            }
+        }
+        return false;
+    }
+
+}
+
+function isValid(el,  charC) {
+    console.log("Input char: ", charC);
+		if (charC == 46) {
+				if (el.value.indexOf('.') === -1) {
+					  return true;
+				} else if (el.value.indexOf('/') != -1) {
+            parts=el.value.split('/');
+				    if (parts[1].indexOf('.') === -1) {
+					      return true;
+            }
+        }
+        else{
+					  return false;
+				}
+		} else if (charC == 47) {
+				if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+					      return true;
+            } else {
+					  return false;
+				    }
+        } else {
+            return false;
+        }
+		} else if (charC == 45) {
+        edex=el.value.indexOf('e');
+        if (edex==-1) {
+            edex=el.value.indexOf('E');
+        }
+
+        if (el.value == "" ) {
+            return true;
+        } else if ( edex== (el.value.length-1) ) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+				if ( (el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1) ) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0){
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else{
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+				if (charC > 31 && (charC < 48 || charC > 57))
+					  return false;
+		}
+		return true;
+}
+
+function numeric_keypress( evnt) {
+		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC==13) {
+        check_numeric(this, evnt);
+    } else{
+		    return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+        //console.log(answer);
+
+
+    outerqDiv.className="NumericQn";
+    aDiv.style.display='block';
+
+    var lab = document.createElement("label");
+    lab.className="InpLabel";
+    lab.textContent="Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type="text";
+    //inp.id="input-"+id;
+    inp.id=id+"-0";
+    inp.className="Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress=numeric_keypress;
+    inp.onpaste= event => false;
+
+    inp.addEventListener("focus", function(event) {
+        this.value="";
+        return false;
+    }
+                        );
+
+
+}
+function jaxify(string) {
+    mystring = string;
+    count=0;
+    console.log(loc);
+    var loc=mystring.search(/([^\\]|^)(\$)/);
+    while (loc>0) {
+        if (count%2==0) {
+            mystring=mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+        } else {
+            mystring=mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+        }
+        count++;
+        loc=mystring.search(/([^\\]|^)(\$)/);
+    }
+
+    return mystring;
+}
+
+
+function show_questions (json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions=mydiv.dataset.shufflequestions;
+    var num_questions=mydiv.dataset.numquestions;
+    var shuffle_answers=mydiv.dataset.shuffleanswers;
+
+    if (num_questions>json.length) {
+        num_questions=json.length;
+    }
+
+    var questions;
+    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+        //console.log(num_questions+","+json.length);
+        questions=getRandomSubarray(json, num_questions);
+    } else {
+        questions=json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'quizWrap'+id+index;
+        iDiv.className='Quiz';
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id="OuterquizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id="quizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML=jaxify(qa.question);
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa){
+            codeDiv = document.createElement('div');
+            codeDiv.id="code"+id+index;
+            codeDiv.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=qa.code;
+            outerqDiv.append(codeDiv);
+            console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id="quizAns"+id+index;
+        aDiv.className='Answer';
+        iDiv.append(aDiv);
+
+        console.log(qa.type);
+
+        var num_correct;
+        if (qa.type=="multiple_choice")  {
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if   (qa.type=="many_choice"){
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if  (qa.type=="numeric") {
+            console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id="fb"+id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className="Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version",MathJax.version);
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        } else{
+            console.log("MathJax not found");
+        }
+    }
+    return false;
+}
+
+        //console.log(element);
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
+
+        setTimeout(() => jmscontroller.abort(), 5000);
+
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/coin-flip-probs.json", {signal})
+        .then(response => response.json())
+        .then(json => show_questions(json, WyVlhSPhjJWR))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        show_questions(questionsWyVlhSPhjJWR, WyVlhSPhjJWR);
         });
         }
         </script>
