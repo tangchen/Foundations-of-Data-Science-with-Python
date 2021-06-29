@@ -386,7 +386,9 @@
         
               <div>
                 
-  <div class="section" id="combinatorics">
+  <div class="cell tag_remove-input docutils container">
+</div>
+<div class="section" id="combinatorics">
 <h1><span class="section-number">4.6. </span>Combinatorics<a class="headerlink" href="#combinatorics" title="Permalink to this headline">¶</a></h1>
 <p><em>“Counting is the religion of this generation… Anybody can count…” – Gertrude Stein</em></p>
 <p>For fair experiments with a finite sample space <span class="math notranslate nohighlight">\(S\)</span>, we used Axiom III of the Axioms of Probability to show that the probability of an event <span class="math notranslate nohighlight">\(E\)</span> is simply</p>
@@ -460,7 +462,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>Consider counting for the Monopoly dice problem. The simulated values for the relative frequencies are shown below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/combinatorics_9_0.png" src="../_images/combinatorics_9_0.png" />
+<img alt="../_images/combinatorics_10_0.png" src="../_images/combinatorics_10_0.png" />
 </div>
 </div>
 <p>The sample spaces for the two dice are the same. In Python, we can define them using simple ranges:</p>
@@ -622,7 +624,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/combinatorics_27_0.png" src="../_images/combinatorics_27_0.png" />
+<img alt="../_images/combinatorics_28_0.png" src="../_images/combinatorics_28_0.png" />
 </div>
 </div>
 <p>The relative frequencies match the true (analytical) probabilities quite closely.</p>
@@ -720,6 +722,7 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 <p>First, what is <span class="math notranslate nohighlight">\(|H_0|\)</span>? There is exactly one way to get zero heads. All of the 20 flips were tails.</p>
 <p>Next, what is <span class="math notranslate nohighlight">\(|H_1|\)</span>? There is exactly one head in the 20 flips. It can either be on the first flip, the second flip, …, or finally the 20th flip. In other words, there are 20 different places for the heads to be, so <span class="math notranslate nohighlight">\(|H_1|=20\)</span>.</p>
 <p>Now, what is <span class="math notranslate nohighlight">\(|H_2|\)</span>? This is where things start to get challenging and interesting.  We will solve this two ways. The first way will get us the answer. The second way will help lead us to a general solution for <span class="math notranslate nohighlight">\(H_i\)</span>.</p>
+<p><strong>Counting <span class="math notranslate nohighlight">\(H_2\)</span>: Way 1</strong></p>
 <p>We can count <span class="math notranslate nohighlight">\(|H_2|\)</span> in much the same way that we counted <span class="math notranslate nohighlight">\(H_1\)</span>. For convenience, let’s consider the flips in order. For each place the first heads occurs, we will have multiple places that the second heads could occur.  I.e., if the first heads is on flip 0, then the second heads can be on flips 1 through 19. But if the first head is on flip 18, the second head has to be on flip 19. The total number of outcomes in <span class="math notranslate nohighlight">\(H_2\)</span> can thus be written as</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -730,17 +733,782 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 &amp;= 190,
 \end{align*}\]</div>
 <p>(The last summation is a standard form.)</p>
-<p>This will get increasingly tedious and challenging to write and compute as we consider <span class="math notranslate nohighlight">\(H_i\)</span> for larger <span class="math notranslate nohighlight">\(i\)</span>.</p>
-<p>Consider a second approach. We consider the result of the flips. The first heads can go in any of the 20 places. The second heads can go in any of the remaining 19 places. Then the total number of results is <span class="math notranslate nohighlight">\(20 \cdot 19 = 380\)</span>.</p>
-<p><strong>But this result does not match up with  the one we just computed in detail! Why</strong> The reason is that we have <strong>overcounted</strong>. For instance, let’s mark the first value we choose by underlining it.  Then here are two outcomes we will find this way (values not shown are all <span class="math notranslate nohighlight">\(T\)</span>):</p>
+<p>Note that we could have used Python to calculate this sum:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">19</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+       <span class="n">total</span><span class="o">+=</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>190
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Exercise</strong></p>
+<p>Extend the approach described above to give a formula for the <span class="math notranslate nohighlight">\(|H_3|\)</span>. (For this purpose, I recommend you use three summation terms, although a more general and sophisticated solution for skilled programmers can be created using recursion.) Use Python to evaluate the sum. Check your answer using the self-assessment quiz below:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="hkYzlgpnoTHg" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+
+.Quiz {
+     max-width: 600px;
+     margin-top: 15px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 15px;
+     padding-bottom: 4px;
+     padding-top: 4px;
+     line-height: 1.1;
+     font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode > pre {
+    padding: 4px;
+}
+.Answer{
+     margin: 10px 0;
+     display: grid;
+     grid-template-columns: auto auto;
+     grid-gap: 10px;
+}
+.Feedback{
+     font-size: 16pt;
+     text-align:center;
+ }
+
+.Input {
+    align:left;
+    font-size: 20pt;
+}
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+ .Input-text:focus {
+     outline: none;
+     background-color: #c0c0c0;
+     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+ }
+
+ .MCButton{
+     background: #fafafa;
+     border: 1px solid #eee;
+     border-radius: 10px;
+     padding: 10px;
+     font-size: 16px;
+     cursor: pointer;
+     text-align: center;
+ }
+ .MultipleChoiceQn {
+     padding: 10px;
+     background: var(--medium-slate-blue);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+ .ManyChoiceQn {
+     padding: 10px;
+     background: var(--orange-pantone);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+ .NumericQn {
+     padding: 10px;
+     background: var(--russian-violet);
+     color: #fafafa;
+     border-radius: 10px;
+ }
+.NumericQn p {
+     color: inherit;
+}
+.InpLabel {
+     line-height: 34px;
+     float:left;
+     margin-right: 10px;
+     color: #101010;
+     font-size: 15pt;
+}
+.incorrect {
+    color: var(--incorrect-red);
+}
+.correct {
+    color: var(--correct-green);
+}
+.correctButton {
+    background: var(--correct-green);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+.incorrectButton {
+    background: var(--incorrect-red);
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+
+</style><script type="text/Javascript">questionshkYzlgpnoTHg=[
+    {
+        "question": "How many outcomes are in the event $H_3$ (there are 3 heads on 20 flips of a fair coin)?",
+        "type": "numeric",
+        "precision": 0,
+        "answers": [
+            {
+                "type": "value",
+                "value": 1140,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "value",
+                "value": 6840,
+                "correct": false,
+                "feedback": "You may be overcounting different orders. Did you compute this using a triple summation, as suggested?"
+            },
+            {
+                "type": "value",
+                "value": 3420,
+                "correct": false,
+                "feedback": "You may be overcounting different orders. Did you compute this using a triple summation, as suggested?"
+            },
+            {
+                "type": "value",
+                "value": 1330,
+                "correct": false,
+                "feedback": "Check your bounds carefully. What is the last position that the first symbol could be in?"
+            },
+            {
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "No. We are counting a number of objects, so it cannot be negative."
+            },
+            {
+                "type": "range",
+                "range": [ 1048577, 1000000000], 
+                "correct": false,
+                "feedback": "No. Recall that  the entire sample space only has 1048576 outcomes. $H_3$ cannot have more outcomes than $S$."
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "You should have 3 for statements, with 3 different variables, and each of the nested for statements should have a range that depends on the index variable of the previous for statement."
+            }
+        ]
+    }
+]
+;
+    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+function makeid(length) {
+    var result           = [];
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+function check_mc() {
+    var id=this.id.split('-')[0];
+
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth=0;
+    while ((label.nodeName!="LABEL") && (depth<3)) {
+        label=label.parentElement;
+        //console.log(depth,label);
+        depth++;
+    }
+
+
+
+    var answers=label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb"+id);
+    //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+    if (fb.dataset.numcorrect==1) {
+        for (var i = 0; i < answers.length; i++) {
+            var child=answers[i];
+            //console.log(child);
+            child.className="MCButton";
+        }
+
+
+
+        if (label.dataset.correct=="true")   {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className="Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent=label.dataset.feedback;
+            } else{
+                fb.textContent="Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+        if (label.dataset.correct=="true" )   {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Correct!";
+            }
+            if (label.dataset.answered<=0) {
+                if (fb.dataset.answeredcorrect<0) {
+                    fb.dataset.answeredcorrect=1;
+                    reset=true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child=answers[i];
+                        child.className="MCButton";
+                        child.dataset.answered=0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered=1;
+                fb.className="Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback=label.dataset.feedback;
+            } else{
+                feedback="Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect>0) {
+                fb.dataset.answeredcorrect=-1;
+                reset=true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child=answers[i];
+                    child.className="MCButton";
+                    child.dataset.answered=0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+
+        var numcorrect=fb.dataset.numcorrect;
+        var answeredcorrect=fb.dataset.answeredcorrect;
+        if (answeredcorrect>=0) {
+            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (MathJax) {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers=="True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled=qa.answers;
+    }
+
+
+    var num_correct=0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type="radio";
+        inp.id="quizo"+id+index;
+        inp.style="display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className="MCButton";
+        lab.id=id+ '-' +index;
+        lab.onclick=check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName="";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item){
+            codeSpan = document.createElement('span');
+            codeSpan.id="code"+id+index;
+            codeSpan.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item){
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct>1) {
+        outerqDiv.className="ManyChoiceQn";
+    } else {
+        outerqDiv.className="MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id=ths.id.split('-')[0];
+
+        var submission=ths.value;
+				if (submission.indexOf('/') != -1) {
+            sub_parts=submission.split('/');
+            //console.log(sub_parts);
+            submission=sub_parts[0]/sub_parts[1];
+        }
+        console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            precision=ths.dataset.precision;
+            // console.log("1:", submission)
+            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb"+id);
+        fb.style.display="none";
+        fb.textContent="Incorrect -- try again.";
+
+        answers=JSON.parse(ths.dataset.answers);
+        console.log(answers);
+
+        var defaultFB="";
+        var correct;
+        var done=false;
+        answers.every(answer => {
+            console.log(answer.type);
+
+            correct=false;
+            // if (answer.type=="value"){
+            if ('value' in answer){
+                if (submission == answer.value) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent=answer.feedback;
+                    correct=answer.correct;
+                    console.log(answer.correct);
+                    done=true;
+                }
+            } else if (answer.type=="default") {
+                defaultFB=answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.textContent=defaultFB;
+            console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display="block";
+        if (correct) {
+            ths.className="Input-text";
+            ths.classList.add("correctButton");
+            fb.className="Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className="Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className="Feedback";
+            fb.classList.add("incorrect");
+        }
+
+        if (MathJax) {
+            var version=MathJax.version;
+            if (version[0]=="2") {
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset();
+            }
+        }
+        return false;
+    }
+
+}
+
+function isValid(el,  charC) {
+		if (charC == 46) {
+				if (el.value.indexOf('.') === -1) {
+					  return true;
+				} else if (el.value.indexOf('/') != -1) {
+            parts=el.value.split('/');
+				    if (parts[1].indexOf('.') === -1) {
+					      return true;
+            }
+        }
+        else{
+					  return false;
+				}
+		} else if (charC == 47) {
+				if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+					      return true;
+            } else {
+					  return false;
+				    }
+        } else {
+            return false;
+        }
+		} else if (charC == 45) {
+        if (el.value == "" ) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+				if (charC > 31 && (charC < 48 || charC > 57))
+					  return false;
+		}
+		return true;
+}
+
+function numeric_keypress( evnt) {
+		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC==13) {
+        check_numeric(this, evnt);
+    } else{
+		    return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+        //console.log(answer);
+
+
+    outerqDiv.className="NumericQn";
+    aDiv.style.display='block';
+
+    var lab = document.createElement("label");
+    lab.className="InpLabel";
+    lab.textContent="Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type="text";
+    //inp.id="input-"+id;
+    inp.id=id+"-0";
+    inp.className="Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress=numeric_keypress;
+    inp.onpaste= event => false;
+
+    inp.addEventListener("focus", function(event) {
+        this.value="";
+        return false;
+    }
+                        );
+
+
+}
+function show_questions (json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions=mydiv.dataset.shufflequestions;
+    var num_questions=mydiv.dataset.numquestions;
+    var shuffle_answers=mydiv.dataset.shuffleanswers;
+
+    if (num_questions>json.length) {
+        num_questions=json.length;
+    }
+
+    var questions;
+    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+        //console.log(num_questions+","+json.length);
+        questions=getRandomSubarray(json, num_questions);
+    } else {
+        questions=json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'quizWrap'+id+index;
+        iDiv.className='Quiz';
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id="OuterquizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id="quizQn"+id+index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML=qa.question;
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa){
+            codeDiv = document.createElement('div');
+            codeDiv.id="code"+id+index;
+            codeDiv.className="QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML=qa.code;
+            outerqDiv.append(codeDiv);
+            console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id="quizAns"+id+index;
+        aDiv.className='Answer';
+        iDiv.append(aDiv);
+
+        console.log(qa.type);
+
+        var num_correct;
+        if (qa.type=="multiple_choice")  {
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if   (qa.type=="many_choice"){
+            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if  (qa.type=="numeric") {
+            console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id="fb"+id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className="Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    if (typeof MathJax != 'undefined') {
+        var version=MathJax.version;
+        if (version[0]=="2") {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    }
+    return false;
+}
+
+        //console.log(element);
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
+
+        setTimeout(() => jmscontroller.abort(), 5000);
+
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/three_heads.json", {signal})
+        .then(response => response.json())
+        .then(json => show_questions(json, hkYzlgpnoTHg))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        show_questions(questionshkYzlgpnoTHg, hkYzlgpnoTHg);
+        });
+        }
+        </script>
+</div></div>
+</div>
+<p>This approach will get increasingly tedious and challenging to write and compute as we consider <span class="math notranslate nohighlight">\(H_i\)</span> for larger <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p><strong>Counting <span class="math notranslate nohighlight">\(H_2\)</span>: Way 2</strong></p>
+<p>Consider a second approach in which we try to count how many ways we could create the result (i.e., an <span class="math notranslate nohighlight">\(n\)</span> tuple) of the flips:</p>
+<ul class="simple">
+<li><p>The first heads can go in any of the 20 places.</p></li>
+<li><p>The second heads can go in any of the remaining 19 places.</p></li>
+</ul>
+<p>Then the total number of results is <span class="math notranslate nohighlight">\(20 \cdot 19 = 380\)</span>.</p>
+<p><strong>But this result does not match up with  the one we just computed in detail! Why?</strong></p>
+<p>The reason is that we have <strong>overcounted</strong>. For instance, let’s mark the first value we choose by underlining it.  Then here are two outcomes we will find this way (values not shown are all <span class="math notranslate nohighlight">\(T\)</span>):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 (\underline{H}, T, T, H, T, \ldots) \\
 (H, T, T, \underline{H}, T, \ldots)
 \end{split}\]</div>
-<p>Our counting mechanism has created two different representations of the same outcome (i.e., where there is a heads on rolls 0 and 3). It should be relatively easy to see that the number we will count in this way is twice the total number, so we have to divide by two to get: <span class="math notranslate nohighlight">\(|H_2| = 20 \cdot 19 /2 =190\)</span>.</p>
+<p>Our counting mechanism has created two different representations (<em>orderings</em>) of the same outcome (i.e., where there is a heads on rolls 0 and 3). The number we will count in this way is twice the total number because for any particular outcome, there are two different orders by which we could have created it (i.e., by putting  the first <span class="math notranslate nohighlight">\(H\)</span> in the leftmost position or by putting the first <span class="math notranslate nohighlight">\(H\)</span> in the rightmost position). So, we have to divide by two to get: <span class="math notranslate nohighlight">\(|H_2| = 20 \cdot 19 /2 =190\)</span>, which agrees with our previous result.</p>
 <p>But now let’s consider how we can rewrite this value to make it extensible to find <span class="math notranslate nohighlight">\(H_i\)</span> for <span class="math notranslate nohighlight">\(i&gt;2\)</span>.</p>
-<p>We first introduce the number of ways to reorder a set of objects:</p>
+<p>We first introduce the number of ways that a set of objects can be ordered:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -750,19 +1518,25 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 </div>
 <div class="card-body docutils">
 <p class="card-text">permutation:
-A <em>permutation</em> is a reordering of a set of objects.</p>
+A <em>permutation</em> is an ordering (or reordering) of a set of objects.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>Given <span class="math notranslate nohighlight">\(n\)</span> distinct objects, we can calculate the number of permutations as possible. There are <span class="math notranslate nohighlight">\(n\)</span> ways to choose the first object, then <span class="math notranslate nohighlight">\(n-1\)</span> ways to choose the second objects, <span class="math notranslate nohighlight">\(n-2\)</span> ways to choose the third object, …, and exactly 1 way to choose the <span class="math notranslate nohighlight">\(n\)</span> the object.</p>
-<p><strong>The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects is written as <span class="math notranslate nohighlight">\(n!\)</span>, where</strong></p>
+<p>Given <span class="math notranslate nohighlight">\(n\)</span> distinct objects, it is not hard to calculate the number of permutations possible. Consider drawing the objects one at a time, until all objects have been drawn, to create the ordered set of objects:</p>
+<ul class="simple">
+<li><p>There are <span class="math notranslate nohighlight">\(n\)</span> ways to choose the first object.</p></li>
+<li><p>Then there are <span class="math notranslate nohighlight">\(n-1\)</span> ways to choose the second object from the remaining set.</p></li>
+<li><p>Then there <span class="math notranslate nohighlight">\(n-2\)</span> ways to choose the third object from the remaining set.</p></li>
+<li><p>…</p></li>
+<li><p>On the final (<span class="math notranslate nohighlight">\(n\)</span>th) draw, there is only one object remaining in the set.</p></li>
+</ul>
+<p>**The number of permutations of <span class="math notranslate nohighlight">\(n\)</span> distinct objects is written as <span class="math notranslate nohighlight">\(n!\)</span>, which is read “<span class="math notranslate nohighlight">\(n\)</span> factorial” (en fact-or-ee-ul). The rules for Cartesian products can be applied to calculate **</p>
 <div class="math notranslate nohighlight">
 \[
 n! = n(n-1)(n-2)\cdots(2)(1).
 \]</div>
-<p>The term <span class="math notranslate nohighlight">\(n!\)</span> is read “n factorial” (en fact-or-ee-ul).</p>
 <p>In Python, I recommend you use the factorial function from SciPy.special. If the argument is not more than 20, I would recommend to pass the keyword parameter <code class="docutils literal notranslate"><span class="pre">exact=True</span></code> to get back an integer solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
