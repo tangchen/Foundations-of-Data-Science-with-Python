@@ -378,12 +378,12 @@
         "question": "Which of the following are true of a probability measure? (Choose all that apply.)",
         "answers": [
             {
-                "answer": "non-negative",
+                "answer": "values are non-negative",
                 "correct": true,
                 "feedback": "Correct. Probabilty measures return the probability of an event, and probabilities are non-negative ($\\ge 0$)."
             },
             {
-                "answer": "$\\le 1$",
+                "answer": "values are $\\le 1$",
                 "correct": true,
                 "feedback": "Correct. Probabilty measures return the probability of an event, and probabilities are $\\le 1$."
             },
