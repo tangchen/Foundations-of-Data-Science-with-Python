@@ -380,7 +380,7 @@
 <p><span class="math notranslate nohighlight">\(\mbox{ }\)</span></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="OFrWtykEbxKy" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+<div class="output text_html"><div id="dasJfKuRAmqi" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -464,6 +464,9 @@
      cursor: pointer;
      text-align: center;
  }
+.MCButton p {
+    color: inherit;    
+}
  .MultipleChoiceQn {
      padding: 10px;
      background: var(--medium-slate-blue);
@@ -524,7 +527,7 @@
 @keyframes correct-anim {
     100% {background-color: var(--correct-green);}
 }
-</style><script type="text/Javascript">questionsOFrWtykEbxKy=[
+</style><script type="text/Javascript">questionsdasJfKuRAmqi=[
     {
         "question": "If I roll a fair 6-sided die two times, what is the probability that at least one of those dice show a 1 on the top face? Answer as a fraction or a decimal with at least 2 significant digits.",
         "type": "numeric",
@@ -904,12 +907,12 @@
         "question": "Which of the following are true of a probability measure? (Choose all that apply.)",
         "answers": [
             {
-                "answer": "non-negative",
+                "answer": "values are non-negative",
                 "correct": true,
                 "feedback": "Correct. Probabilty measures return the probability of an event, and probabilities are non-negative ($\\ge 0$)."
             },
             {
-                "answer": "$\\le 1$",
+                "answer": "values are $\\le 1$",
                 "correct": true,
                 "feedback": "Correct. Probabilty measures return the probability of an event, and probabilities are $\\le 1$."
             },
@@ -936,7 +939,8 @@
         ],
         "type": "multiple_choice"
     }
-];
+]
+;
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
     var result           = [];
@@ -1553,10 +1557,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch4.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, OFrWtykEbxKy))
+        .then(json => show_questions(json, dasJfKuRAmqi))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsOFrWtykEbxKy, OFrWtykEbxKy);
+        show_questions(questionsdasJfKuRAmqi, dasJfKuRAmqi);
         });
         }
         </script>
