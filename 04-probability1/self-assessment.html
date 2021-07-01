@@ -372,7 +372,7 @@
 <p><em>These questions may appear twice while I work out a bug in JupyterQuiz.</em></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="zZKIVzaWLAno" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
+<div class="output text_html"><div id="jfSinkSeWRfa" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
 :root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
@@ -503,7 +503,7 @@
 }
 
 
-</style><script type="text/Javascript">questionszZKIVzaWLAno=[
+</style><script type="text/Javascript">questionsjfSinkSeWRfa=[
     {
         "question": "If I roll a fair 6-sided die two times, what is the probability that at least one of those dice show a 1 on the top face? Answer as a fraction or a decimal with at least 2 significant digits.",
         "type": "numeric",
@@ -878,9 +878,44 @@
                 "feedback": "Incorrect. We are looking for a count of the number of outcomes, not a probability."
             }
         ]
+    },
+    {
+        "question": "Which of the following are true of a probability measure? (Choose all that apply.)",
+        "answers": [
+            {
+                "answer": "non-negative",
+                "correct": true,
+                "feedback": "Correct. Probabilty measures return the probability of an event, and probabilities are non-negative ($\\ge 0$)."
+            },
+            {
+                "answer": "$\\le 1$",
+                "correct": true,
+                "feedback": "Correct. Probabilty measures return the probability of an event, and probabilities are $\\le 1$."
+            },
+            {
+                "answer": "one-to-one",
+                "correct": false,
+                "feedback": "Incorrect. One-to-one would mean that the probability measure produces different values for every event. But multiple events can have the same probability."
+            },
+            {
+                "answer": "maps from outcomes onto the real line",
+                "correct": false,
+                "feedback": "Incorrect. A probability measure measures events, not outcomes."
+            },
+            {
+                "answer": "maps from events onto the real line",
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "answer": "additive:<p> for any two events $A,B$ in the event class,<p>$$P(A \\cup B) = P(A) +P(B)$$",
+                "correct": false,
+                "feedback": "Incorrect. This only holds if $A$ and $B$ are disjoint."
+            }
+        ],
+        "type": "multiple_choice"
     }
-]
-;
+];
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
     var result           = [];
@@ -1029,13 +1064,16 @@ function check_mc() {
 
     }
 
-    if (MathJax) {
+    if (typeof MathJax != 'undefined') {
         var version=MathJax.version;
+        console.log('MathJax version', version);
         if (version[0]=="2") {
             MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
         }
+    } else {
+        console.log('MathJax not detected');
     }
 
 }
@@ -1203,14 +1241,16 @@ function check_numeric(ths, event) {
             fb.className="Feedback";
             fb.classList.add("incorrect");
         }
-
-        if (MathJax) {
+        if (typeof MathJax != 'undefined') {
             var version=MathJax.version;
+            console.log('MathJax version', version);
             if (version[0]=="2") {
                 MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
             }
+        } else {
+            console.log('MathJax not detected');
         }
         return false;
     }
@@ -1398,7 +1438,6 @@ function show_questions (json, mydiv) {
         var qDiv = document.createElement('div');
         qDiv.id="quizQn"+id+index;
         //qDiv.textContent=qa.question;
-        console.log(qa);
         qDiv.innerHTML=jaxify(qa.question);
         outerqDiv.append(qDiv);
 
@@ -1472,10 +1511,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch4.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, zZKIVzaWLAno))
+        .then(json => show_questions(json, jfSinkSeWRfa))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionszZKIVzaWLAno, zZKIVzaWLAno);
+        show_questions(questionsjfSinkSeWRfa, jfSinkSeWRfa);
         });
         }
         </script>
