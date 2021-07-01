@@ -284,9 +284,7 @@
         ]
     },
     {
-        "question": [
-            "Which of the following types of mathematical objects can be an event class?"
-        ],
+        "question": "Which of the following types of mathematical objects can be an event class?",
         "type": "multiple_choice",
         "answers": [
             {
