@@ -276,6 +276,11 @@
      4.7. Self Assessment Exercises
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="summary.html">
+     4.8. Summary
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -413,6 +418,20 @@ P(E) = \frac{|E|}{|S|}
 </div>
 </div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>One of the biggest mistakes made by people learning the material in this section is to try to mix probabilities and combinatorics when computing the probability of an event. For most problems, the solution should only consist of these three steps:</p>
+<ol class="simple">
+<li><p>Find <span class="math notranslate nohighlight">\(|S|\)</span> using combinatorics. This is usually not difficult.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(|E|\)</span> using combinatorics. This may be very challenging, even if the textual description of an event is simple.</p></li>
+<li><p>Calculate</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P(E) = \frac{|E|}{|S|}.
+\]</div>
+<p>Note that no probability is computed until the last step. This approach is illustrated when calculating probabilities in the examples below.</p>
+</div>
 <p>For the data science topics covered in this book, we do not have to deal with many very challenging counting problems. However, if you look back over the past chapters, you may be discover that several problems have already been introduced that could be solve by counting:</p>
 <ul class="simple">
 <li><p><strong>Example A</strong>: In Chapter 2, we asked “If you only observe 6 heads on the 20 flips, should you reject the idea that the coin is fair?” We solved this problem via simulating flipping a fair coin 20 times and determining the probability of seeing 6 or fewer heads. However, if we record the ordered Heads and Tails outcomes, this is a fair experiment, and so we could solve for the same probability by counting the number of outcomes with 6 or fewer heads.</p></li>
@@ -464,7 +483,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>Consider counting for the Monopoly dice problem. The simulated values for the relative frequencies are shown below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/combinatorics_10_0.png" src="../_images/combinatorics_10_0.png" />
+<img alt="../_images/combinatorics_11_0.png" src="../_images/combinatorics_11_0.png" />
 </div>
 </div>
 <p>The sample spaces for the two dice are the same. In Python, we can define them using simple ranges:</p>
@@ -626,7 +645,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/combinatorics_28_0.png" src="../_images/combinatorics_28_0.png" />
+<img alt="../_images/combinatorics_29_0.png" src="../_images/combinatorics_29_0.png" />
 </div>
 </div>
 <p>The relative frequencies match the true (analytical) probabilities quite closely.</p>

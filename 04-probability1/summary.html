@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.3. Fair Experiments &#8212; Introduction to Data Science for Engineers</title>
+    <title>4.8. Summary &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4.4. Axiomatic Probability" href="axiomatic-prob.html" />
-    <link rel="prev" title="4.2. Relative Frequencies and Probabilities" href="relative-frequency.html" />
+    <link rel="prev" title="4.7. Self Assessment Exercises" href="self-assessment.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -251,8 +250,8 @@
      4.2. Relative Frequencies and Probabilities
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="fair-experiments.html">
      4.3. Fair Experiments
     </a>
    </li>
@@ -276,8 +275,8 @@
      4.7. Self Assessment Exercises
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="summary.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      4.8. Summary
     </a>
    </li>
@@ -324,7 +323,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/04-probability1/fair-experiments.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/04-probability1/summary.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -349,7 +348,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04-probability1/fair-experiments.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04-probability1/summary.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -374,103 +373,30 @@
         
               <div>
                 
-  <div class="section" id="fair-experiments">
-<h1><span class="section-number">4.3. </span>Fair Experiments<a class="headerlink" href="#fair-experiments" title="Permalink to this headline">¶</a></h1>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">DEFINTION</p>
-</div>
-<div class="card-body docutils">
-<dl class="simple myst">
-<dt>fair (random experiment)</dt><dd><p class="card-text">An experiment is said to be fair if every outcome is equally likely.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>This is probably one of the oldest ways of calculating probabilities. Much of the early work on probability was motivated by gambling, and games involving cards, dice, and coins are generally based on assumption that the underlying experiment is fair.</p>
-<p>Consider a fair experiment with <span class="math notranslate nohighlight">\(|S|=N\)</span> outcomes, and let <span class="math notranslate nohighlight">\(p_i\)</span> denote the probability of outcome <span class="math notranslate nohighlight">\(i\)</span>, then</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-\sum_{i=1}^{N} p_i &amp;= 1 \\
-\sum_{i=1}^{N} p_1 &amp;= 1 \\
-Np_1 &amp;=1\\
-p_1 &amp;= \frac 1 N .
-\end{align*}\]</div>
-<p>Since all the probabilities are equal,
-$<span class="math notranslate nohighlight">\(
-p_i = \frac 1 N = \frac{1}{|S|}.
-\)</span>$</p>
-<p>So, for instance, the probability of getting any number on a fair six-sided die is 1/6.</p>
-<p>For a coin, let <span class="math notranslate nohighlight">\(p_H\)</span> and <span class="math notranslate nohighlight">\(p_T\)</span> denote the probabilities of heads and tails, respectively. If the coin is fair, then we have <span class="math notranslate nohighlight">\(p_H =p_T\)</span> and</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-p_H + p_T &amp;= 1 \\
-p_H + p_H &amp;= 1 \\
-2p_H &amp;= 1 \\
-p_H &amp;=\frac{1}{2}
-\end{align*}\]</div>
-<p>So <span class="math notranslate nohighlight">\(p_H=p_T= 1/2\)</span>, where <span class="math notranslate nohighlight">\(|S|=2\)</span>.</p>
-<p>Although this is an accurate and extremely easy way to calculate probabilities, it is extremely limited in its application because most probabilities we will encounter are not from fair experiments. Even very simple compound experiments that are based on fair experiments are not necessarily fair:</p>
-<p><strong>Example</strong></p>
-<p>Monopoly uses two fair six-sided dice. The player moves the sum of the amounts shown on the two dice. Simulate rolling the pair of dice one million times and plot the relative frequencies:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">die1</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">die2</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">dice</span><span class="o">=</span><span class="n">die1</span><span class="o">+</span><span class="n">die2</span>
-
-<span class="n">vals</span><span class="p">,</span> <span class="n">counts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dice</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">rel_freqs</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">dice</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">rel_freqs</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sum of top faces of two dice&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative frequencies&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/fair-experiments_7_0.png" src="../_images/fair-experiments_7_0.png" />
-</div>
-</div>
-<p>Another simple example is the number of coin flips needed to observe heads on repeated flips of a fair coin:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10000</span>
-<span class="n">outcomes</span><span class="o">=</span><span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">coin</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span>
-        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="c1"># Use 1 to represent Heads</span>
-            <span class="k">break</span>
-    <span class="n">outcomes</span><span class="o">+=</span><span class="p">[</span><span class="n">count</span><span class="p">]</span>
-    
-<span class="n">vals</span><span class="p">,</span> <span class="n">counts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">rel_freqs</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">outcomes</span><span class="p">)</span>
-            
-<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">rel_freqs</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;No. of flips to first Heads&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative frequencies&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/fair-experiments_9_0.png" src="../_images/fair-experiments_9_0.png" />
-</div>
-</div>
-<p>These limitations lead us to our ultimate formulation for probabilities:</p>
+  <div class="section" id="summary">
+<h1><span class="section-number">4.8. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<p>The primary purpose of this chapter is to formalize our language and techniques for dealing with random phenomena. Our framework for doing that is the probability space, which consists of:</p>
+<ul class="simple">
+<li><p>a sample space, which contains all of the outcomes for a random experiment,</p></li>
+<li><p>an event class, which contains sets of events to which we will assign probability, and</p></li>
+<li><p>a probability measure, which is a set function that assigns probabilities to the events.</p></li>
+</ul>
+<p>The properties of probability come from the three Axioms of Probability:</p>
+<p><strong>I.</strong>  For every event <span class="math notranslate nohighlight">\(E\)</span> in the eventclass <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, <span class="math notranslate nohighlight">\( P(E) \ge 0\)</span>  <em>(the event probabilities are non-negative)</em>.</p>
+<p><strong>II.</strong> <span class="math notranslate nohighlight">\(P(S) =1\)</span>   <em>(the probability that some outcome occurs is 1)</em></p>
+<p><strong>III.</strong> For all pairs of events <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(F\)</span> in the event class that are disjoint (<span class="math notranslate nohighlight">\(E \cap F = \emptyset\)</span>),
+<span class="math notranslate nohighlight">\(P( E \cup F) = P(E)+P(F)\)</span> <em>(if two events are disjoint, then the probability that either one of the events occurs is equal to the sum of the event probabilities)</em></p>
+<p>I also formalized the concept of <em>fair experiments</em>, in which each outcome is equally likely. Calculating the probabilities for a fair experiment follow a simple rule:</p>
+<ul class="simple">
+<li><p>For a fair experiment with <span class="math notranslate nohighlight">\(|S|\)</span> outcomes, the probability of an event that contains <span class="math notranslate nohighlight">\(E\)</span> outcomes is</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+P(E) = \frac{|E|}{|S|}
+\]</div>
+<p>However, we saw that counting the number of outcomes in an event is sometimes nontrival, and we introduced several counting techniques from combinatorics to help with this.
+We will see some of these same formulas again when we introduce random variables.</p>
+<p>In the next chapter, we introduce conditional probability, which is used when there may be dependence between events. Because statistical techniques are often designed to test such dependence, this is one of the most important fundamental topics in this book.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -498,8 +424,7 @@ p_H &amp;=\frac{1}{2}
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="relative-frequency.html" title="previous page"><span class="section-number">4.2. </span>Relative Frequencies and Probabilities</a>
-    <a class='right-next' id="next-link" href="axiomatic-prob.html" title="next page"><span class="section-number">4.4. </span>Axiomatic  Probability</a>
+    <a class='left-prev' id="prev-link" href="self-assessment.html" title="previous page"><span class="section-number">4.7. </span>Self Assessment Exercises</a>
 
         </div>
         
