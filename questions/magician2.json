@@ -1,6 +1,6 @@
 [
     {
-        "question": "For the magician's coin problem, what do you believe is the value of P(H2|H1)? (You can enter a fraction or at least two decimal places).",
+        "question": "For the magician's coin problem, what do you believe is the value of $P(H_2|H_1)$? (You can enter a fraction or at least two decimal places).",
         "type": "numeric",
         "precision": 2,
         "answers": [
