@@ -398,13 +398,15 @@
 <p>Our first step in creating a scatter plot is to store all the data generated during the simulation. A list is a good container for this purpose:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100</span>
-<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">flips</span> <span class="o">=</span> <span class="mi">20</span>
 
-<span class="n">results</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>              <span class="c1"># The simulation loop</span>
-    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span> <span class="c1"># Simulate all coin flips for one experiment</span>
-    <span class="n">results</span><span class="o">+=</span><span class="p">[</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)]</span>          <span class="c1"># Add the number of &#39;H&#39;s in this experiment to our results list</span>
+<span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>  <span class="c1"># The simulation loop</span>
+    <span class="n">coins</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>  <span class="c1"># Simulate all coin flips for one experiment</span>
+    <span class="n">results</span> <span class="o">+=</span> <span class="p">[</span>
+        <span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+    <span class="p">]</span>  <span class="c1"># Add the number of &#39;H&#39;s in this experiment to our results list</span>
 </pre></div>
 </div>
 </div>
@@ -432,10 +434,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbdffc2dc10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff0be2de2d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/first-vis_7_1.png" src="../_images/first-vis_7_1.png" />
+<img alt="../_images/first-vis_8_1.png" src="../_images/first-vis_8_1.png" />
 </div>
 </div>
 <p>It is helpful to label the axes and provide a title for future reference:</p>
@@ -452,7 +454,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Experimental Numbers of Heads Observed when a Coin is Flipped 20 Times&#39;)
 </pre></div>
 </div>
-<img alt="../_images/first-vis_9_1.png" src="../_images/first-vis_9_1.png" />
+<img alt="../_images/first-vis_10_1.png" src="../_images/first-vis_10_1.png" />
 </div>
 </div>
 <p>It should be clear that most of the results are around 8-12.  It might be easier to visualize this if we plot the number of experiments in which value for the number of heads is observed. We can understand how to create this from a physical perspective: Imagine if we took the graph above and rotated it <span class="math notranslate nohighlight">\(90^\circ\)</span> to the left and that the circular markers were turned into balls that were allowed to drop down until they fell onto the axis or another ball. Let’s build exactly this type of visualization one ball at a time:</p>
@@ -483,15 +485,108 @@
 <p>For instance, here is the data used to create the visualization above along with the histogram created using the default bins:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="o">=</span><span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>
-         <span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span>
-         <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span>
-         <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span>
-         <span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span>
-         <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span>
-         <span class="mi">14</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span>
-         <span class="mi">13</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span>
-         <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">14</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">13</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">12</span><span class="p">,</span>
+    <span class="mi">7</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">11</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">10</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+    <span class="mi">9</span><span class="p">,</span>
+    <span class="mi">8</span><span class="p">,</span>
+<span class="p">]</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -499,10 +594,10 @@
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 1.,  1.,  1.,  3.,  8., 30., 17., 13., 14., 12.]),
  array([ 2. ,  3.2,  4.4,  5.6,  6.8,  8. ,  9.2, 10.4, 11.6, 12.8, 14. ]),
- &lt;BarContainer object of 10 artists&gt;)
+ &lt;a list of 10 Patch objects&gt;)
 </pre></div>
 </div>
-<img alt="../_images/first-vis_15_1.png" src="../_images/first-vis_15_1.png" />
+<img alt="../_images/first-vis_16_1.png" src="../_images/first-vis_16_1.png" />
 </div>
 </div>
 <p>We can see the counts and bin edges from the first two outputs of the <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> function, respectively. The third output is a Matplotlib object that we will not cover in this book.</p>
@@ -519,10 +614,10 @@
          9.,  3.]),
  array([ 2. ,  2.8,  3.6,  4.4,  5.2,  6. ,  6.8,  7.6,  8.4,  9.2, 10. ,
         10.8, 11.6, 12.4, 13.2, 14. ]),
- &lt;BarContainer object of 15 artists&gt;)
+ &lt;a list of 15 Patch objects&gt;)
 </pre></div>
 </div>
-<img alt="../_images/first-vis_17_1.png" src="../_images/first-vis_17_1.png" />
+<img alt="../_images/first-vis_18_1.png" src="../_images/first-vis_18_1.png" />
 </div>
 </div>
 <p>We can make a much better histogram by specifying the bins.  We will do so by specifying a list of bin edges. When working with integer data, it is typically best to make bins that are one unit wide with bin edges that are 0.5 to each side of the bin centers. To span the observed values in this dataset, we would need bin edges at <span class="math notranslate nohighlight">\(1.5, 2.5, \dots, 14.5\)</span></p>
@@ -530,8 +625,10 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">edges</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span>
-                  <span class="nb">max</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">-</span><span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
+    <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -554,10 +651,10 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 1.,  0.,  1.,  1.,  3.,  8., 12., 18., 17., 13., 14.,  9.,  3.]),
  array([ 1.5,  2.5,  3.5,  4.5,  5.5,  6.5,  7.5,  8.5,  9.5, 10.5, 11.5,
         12.5, 13.5, 14.5]),
- &lt;BarContainer object of 13 artists&gt;)
+ &lt;a list of 13 Patch objects&gt;)
 </pre></div>
 </div>
-<img alt="../_images/first-vis_21_1.png" src="../_images/first-vis_21_1.png" />
+<img alt="../_images/first-vis_22_1.png" src="../_images/first-vis_22_1.png" />
 </div>
 </div>
 <p>This graph is not ideal for a variety of reasons. First, all the bars run together because they are the same color. Second, the <span class="math notranslate nohighlight">\(y\)</span>-axis labels are not appropriate because we have quantities that are integers, not real numbers. Third, it is a hard to read off the heights of the bars if they are far from the labeled <span class="math notranslate nohighlight">\(y\)</span>-axes. Finally, the axes are not labeled and the graph is not titled, so someone looking at the graph will have no idea what it is trying to convey. Fortunately, these are all easily remedied:</p>
@@ -570,9 +667,9 @@
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Die value&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of occurrences&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram of 100 die rolls &quot;</span><span class="p">);</span>
@@ -580,7 +677,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/first-vis_23_0.png" src="../_images/first-vis_23_0.png" />
+<img alt="../_images/first-vis_24_0.png" src="../_images/first-vis_24_0.png" />
 </div>
 </div>
 <p>The <strong>counts</strong> of the outcomes can be used to estimate the <strong>probabilities</strong> of the outcomes if we turn them into relative frequencies:</p>
@@ -605,7 +702,7 @@
 <p>Let’s consider two different approaches to getting the relative frequencies. The first is via <code class="docutils literal notranslate"><span class="pre">plt.hist</span></code>. <strong>IF</strong> the bin widths are equal to 1, then the relative frequencies can be found by setting the keyword parameter <code class="docutils literal notranslate"><span class="pre">density=True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">edges</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -614,10 +711,10 @@
         0.09, 0.03]),
  array([ 1.5,  2.5,  3.5,  4.5,  5.5,  6.5,  7.5,  8.5,  9.5, 10.5, 11.5,
         12.5, 13.5, 14.5]),
- &lt;BarContainer object of 13 artists&gt;)
+ &lt;a list of 13 Patch objects&gt;)
 </pre></div>
 </div>
-<img alt="../_images/first-vis_28_1.png" src="../_images/first-vis_28_1.png" />
+<img alt="../_images/first-vis_29_1.png" src="../_images/first-vis_29_1.png" />
 </div>
 </div>
 <p>Note that when <code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code> is called with <code class="docutils literal notranslate"><span class="pre">density=True</span></code> and bins that are 1 unit wide, the first output will be the relative frequencies (the <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter is useful in other situations when the bins are not 1 unit wide, but we defer the discussion of this to <strong>CHAPTER ???</strong>). We can verify the relative frequencies from <code class="docutils literal notranslate"><span class="pre">plt.hist</span></code> by directly counting and then normalizing. We could do this with a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, but NumPy makes this much easier using the <code class="docutils literal notranslate"><span class="pre">np.unique()</span></code> function, which will return a list of the unique values in a list or array. If <code class="docutils literal notranslate"><span class="pre">return_counts=True</span></code> is also passed to that function, it will also return an array that contains a count of each unique item:</p>
@@ -638,7 +735,7 @@
 sum of the counts:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">/</span><span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

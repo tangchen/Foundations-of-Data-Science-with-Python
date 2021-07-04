@@ -383,7 +383,7 @@
 <p>We will simulate the fair coin experiment using Python. We can simulate a fair coin by random choosing a result from a list that represent heads and tails, where each element in the list is equally likely to be chosen. Let’s use the string ‘H’ to denote heads and the string ‘T’ to denote tails:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">faces</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -412,7 +412,7 @@
 <p>Now let’s simulate the scenario described in <a class="reference internal" href="motivating-problem.html#random-experiments-motivating-problem"><span class="std std-ref">Motivating Problem: Is This Coin Fair?</span></a>. We could repeatedly choose random faces using a loop, but the <code class="docutils literal notranslate"><span class="pre">random</span></code> module offers a more efficient way to choose all 20 faces at the same time, using the <code class="docutils literal notranslate"><span class="pre">choices</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -426,7 +426,7 @@
 <p>To count the number of ‘H’ results in the list, we can use the <code class="docutils literal notranslate"><span class="pre">count</span></code> method of the list object:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -444,11 +444,11 @@
 <p><em>In the code below, I use the <code class="docutils literal notranslate"><span class="pre">end</span></code> keyword parameter of the <code class="docutils literal notranslate"><span class="pre">print</span></code> function to cause each print statement to output a space at the end instead of a new line. This is only done to make the output more concise.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">20</span>
-<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
-<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>              <span class="c1"># The simulation loop</span>
-    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span> <span class="c1"># Simulate all coin flips for one experiment</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">flips</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>  <span class="c1"># The simulation loop</span>
+    <span class="n">coins</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>  <span class="c1"># Simulate all coin flips for one experiment</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

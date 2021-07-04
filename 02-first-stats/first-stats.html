@@ -392,27 +392,26 @@
 <p>Now let’s focus on finding how often 6 or fewer heads occurs. Let’s print information about those extreme results. To do this, we will use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement inside our simulation loop to check if the number of heads observed is less than or equal to 6 and call a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement if that condition is satisfied.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100</span>
-<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">flips</span> <span class="o">=</span> <span class="mi">20</span>
 
-<span class="n">threshold</span><span class="o">=</span><span class="mi">6</span> <span class="c1"># best practice is to put any thresholds outside the simulation loop</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># best practice is to put any thresholds outside the simulation loop</span>
 
 <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
-    <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">num_heads</span><span class="o">&lt;=</span><span class="n">threshold</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span><span class="s1">&#39;: &#39;</span><span class="p">,</span><span class="n">num_heads</span><span class="p">,</span><span class="s1">&#39;Heads&#39;</span><span class="p">)</span>
+    <span class="n">coins</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+    <span class="n">num_heads</span> <span class="o">=</span> <span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num_heads</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="s2">&quot;Heads&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13 :  5 Heads
-37 :  5 Heads
-57 :  5 Heads
-75 :  5 Heads
-79 :  6 Heads
-80 :  6 Heads
-88 :  4 Heads
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 :  6 Heads
+12 :  5 Heads
+14 :  5 Heads
+69 :  6 Heads
+78 :  5 Heads
+92 :  4 Heads
 </pre></div>
 </div>
 </div>
@@ -429,7 +428,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coinsim_print</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">flips</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Simulate multiple experiments, where each experiment involves flipping a coin</span>
 <span class="sd">    a specified number of times and printing the results of the experiment if the</span>
 <span class="sd">    number of heads observed is &lt;= a threshold</span>
@@ -438,13 +437,13 @@
 <span class="sd">    threshold: will print if the number of heads observed is &lt;= this value</span>
 <span class="sd">    num_sims: the total number of experiments to simulate</span>
 <span class="sd">    flips: the number of coin flips in one experiment</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
-        <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">num_heads</span><span class="o">&lt;=</span><span class="n">threshold</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span><span class="s1">&#39;: &#39;</span><span class="p">,</span><span class="n">num_heads</span><span class="p">,</span><span class="s1">&#39;Heads&#39;</span><span class="p">)</span>
+        <span class="n">coins</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+        <span class="n">num_heads</span> <span class="o">=</span> <span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_heads</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">,</span> <span class="s2">&quot;Heads&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -456,12 +455,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12 :  6 Heads
-20 :  6 Heads
-22 :  6 Heads
-28 :  6 Heads
-35 :  6 Heads
-53 :  5 Heads
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8 :  6 Heads
+9 :  6 Heads
+12 :  5 Heads
+14 :  5 Heads
+60 :  6 Heads
+70 :  6 Heads
+74 :  6 Heads
+75 :  6 Heads
+81 :  5 Heads
+91 :  6 Heads
 </pre></div>
 </div>
 </div>
@@ -480,24 +483,24 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span>
-<span class="n">flips</span><span class="o">=</span><span class="mi">20</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_sims</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">flips</span> <span class="o">=</span> <span class="mi">20</span>
 
-<span class="n">threshold</span><span class="o">=</span><span class="mi">6</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mi">6</span>
 
-<span class="n">event_count</span><span class="o">=</span><span class="mi">0</span>    <span class="c1"># count how many experiments satisfy the given criteria</span>
+<span class="n">event_count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># count how many experiments satisfy the given criteria</span>
 <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
-    <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">num_heads</span><span class="o">&lt;=</span><span class="n">threshold</span><span class="p">:</span>
-        <span class="n">event_count</span><span class="o">+=</span><span class="mi">1</span>
-    
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relative frequency of&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span><span class="s2">&quot;or fewer heads is&quot;</span><span class="p">,</span><span class="n">event_count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
+    <span class="n">coins</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+    <span class="n">num_heads</span> <span class="o">=</span> <span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">num_heads</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">event_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relative frequency of&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="s2">&quot;or fewer heads is&quot;</span><span class="p">,</span> <span class="n">event_count</span> <span class="o">/</span> <span class="n">num_sims</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.061
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.056
 </pre></div>
 </div>
 </div>
@@ -505,7 +508,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">coinsim</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">flips</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;</span>
+    <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Simulate multiple experiments, where each experiment involves flipping a coin</span>
 <span class="sd">    a specified number of times and printing the results of the experiment if the</span>
 <span class="sd">    number of heads observed is &lt;= a threshold</span>
@@ -514,16 +517,18 @@
 <span class="sd">    threshold: will print if the number of heads observed is &lt;= this value</span>
 <span class="sd">    num_sims: the total number of experiments to simulate</span>
 <span class="sd">    flips: the number of coin flips in one experiment</span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    
-    <span class="n">event_count</span><span class="o">=</span><span class="mi">0</span>    <span class="c1"># count how many experiments satisfy the given criteria</span>
-    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="n">coins</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
-        <span class="n">num_heads</span><span class="o">=</span><span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">num_heads</span><span class="o">&lt;=</span><span class="n">threshold</span><span class="p">:</span>
-            <span class="n">event_count</span><span class="o">+=</span><span class="mi">1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relative frequency of&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span><span class="s2">&quot;or fewer heads is&quot;</span><span class="p">,</span><span class="n">event_count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>       
+    <span class="n">event_count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># count how many experiments satisfy the given criteria</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">coins</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">faces</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">flips</span><span class="p">)</span>
+        <span class="n">num_heads</span> <span class="o">=</span> <span class="n">coins</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_heads</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">:</span>
+            <span class="n">event_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;Relative frequency of&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="s2">&quot;or fewer heads is&quot;</span><span class="p">,</span> <span class="n">event_count</span> <span class="o">/</span> <span class="n">num_sims</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -535,7 +540,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.053
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.073
 </pre></div>
 </div>
 </div>
@@ -548,7 +553,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.05778
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 6 or fewer heads is 0.057744
 </pre></div>
 </div>
 </div>
@@ -559,11 +564,6 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coinsim</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Relative frequency of 4 or fewer heads is 0.005969
 </pre></div>
 </div>
 </div>
