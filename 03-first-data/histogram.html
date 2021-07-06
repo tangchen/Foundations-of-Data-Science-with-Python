@@ -402,14 +402,15 @@
 <p>Now we return to our Covid data set and apply what we have learned about partitions and summary statistics to set up what we call binary comparisons: these are comparisons between two groups. As before, we begin by importing the data from the CSV file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 
-<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
- <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv&quot;</span>
+<span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span>
 </pre></div>
 </div>
 </div>
@@ -420,7 +421,7 @@
 <p>The gross domestic product (GDP) provides a measure of how affluent a state is. As we expect that GDP will increase along with population, we first add normalized GDP (in millions) per capita (in thousands) to our dataframe<a class="footnote-reference brackets" href="#per-capita" id="id1">1</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span>
 </pre></div>
 </div>
 </div>
@@ -428,7 +429,7 @@
 <p>We will partition the data around the median of the normalized GDP, which is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_gdp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 <span class="n">m_gdp</span>
 </pre></div>
 </div>
@@ -442,7 +443,7 @@
 <p>To partition the data let’s first see what happens when a numerical column of a dataframe is compared to a value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">m_gdp</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">m_gdp</span>
 </pre></div>
 </div>
 </div>
@@ -506,7 +507,7 @@ Name: gdp_norm, dtype: bool
 <p>Pandas returns a series that contains Boolean values indicating whether the comparison for the value at each index was true or false. We can use such a series to partition our dataframe if we pass it as the index (in square brackets) to the data frame. So, we can create a dataframe with states that have population higher than the median as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higher_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">m_gdp</span> <span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higher_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">m_gdp</span><span class="p">]</span>
 <span class="n">higher_gdp</span>
 </pre></div>
 </div>
@@ -781,7 +782,7 @@ Name: gdp_norm, dtype: bool
 <p>By changine the inequality to <span class="math notranslate nohighlight">\(\le\)</span>, we can create a dataframe with states at or below the median population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lower_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">&lt;=</span> <span class="n">m_gdp</span> <span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lower_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">m_gdp</span><span class="p">]</span>
 <span class="n">lower_gdp</span>
 </pre></div>
 </div>
@@ -1069,7 +1070,7 @@ Name: gdp_norm, dtype: bool
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &gt; median&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span>  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &lt;= median&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &lt;= median&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cases per population in thousands&quot;</span><span class="p">)</span>
@@ -1088,7 +1089,7 @@ Name: gdp_norm, dtype: bool
 <p>To resolve this issue, lets just pass bins that span the region as the bins for each histogram:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mybins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mybins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">mybins</span>
 </pre></div>
 </div>
@@ -1101,10 +1102,8 @@ Name: gdp_norm, dtype: bool
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &gt; median&quot;</span><span class="p">,</span>
-        <span class="n">bins</span><span class="o">=</span><span class="n">mybins</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span>  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &lt;= median&quot;</span><span class="p">,</span>
-        <span class="n">bins</span><span class="o">=</span><span class="n">mybins</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &gt; median&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">mybins</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GDP/pop &lt;= median&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">mybins</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cases per population in thousands&quot;</span><span class="p">)</span>
@@ -1123,8 +1122,8 @@ Name: gdp_norm, dtype: bool
 <p>When an effect is observed visually, we usually want to quantify that effect in some way and then test whether any observed difference is “real” (rather than just caused by randomness). Let’s compare the average of the normalized number of cases for these two different groups:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hgdp_mu</span><span class="o">=</span><span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">lgdp_mu</span><span class="o">=</span><span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hgdp_mu</span> <span class="o">=</span> <span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">lgdp_mu</span> <span class="o">=</span> <span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">hgdp_mu</span><span class="p">,</span> <span class="n">lgdp_mu</span>
 </pre></div>
 </div>
@@ -1152,7 +1151,7 @@ Name: gdp_norm, dtype: bool
 <p>A new data frame can be created that excludes New York and New Jersey using the following command:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;New Jersey&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;New Jersey&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1166,7 +1165,7 @@ Name: gdp_norm, dtype: bool
 <p>Some of the networking effects mentioned in the previous section may be associated with populations living in large, urban areas. In this section, we partition the data based on the urban index, which is the percentage of the population that is living in an urban area.  As before, we start by finding the median urban index for the states:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_urban</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_urban</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 <span class="n">m_urban</span>
 </pre></div>
 </div>
@@ -1180,18 +1179,20 @@ Name: gdp_norm, dtype: bool
 <p>Now we use that median to partition the data and plot the histograms:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higher_urban</span><span class="o">=</span><span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">m_urban</span> <span class="p">]</span>
-<span class="n">lower_urban</span> <span class="o">=</span><span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">&lt;=</span> <span class="n">m_urban</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">higher_urban</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">m_urban</span><span class="p">]</span>
+<span class="n">lower_urban</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">m_urban</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">higher_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Urban index &gt; median&quot;</span><span class="p">,</span>
-        <span class="n">bins</span><span class="o">=</span><span class="n">mybins</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">lower_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span>  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Urban index &lt;= median&quot;</span><span class="p">,</span>
-        <span class="n">bins</span><span class="o">=</span><span class="n">mybins</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">higher_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Urban index &gt; median&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">mybins</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">lower_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Urban index &lt;= median&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">mybins</span>
+<span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cases per population in thousands&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>

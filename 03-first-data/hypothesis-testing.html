@@ -406,15 +406,16 @@
 <span class="c1"># through with the same variables, but for users downloading the notebooks, this</span>
 <span class="c1"># separate Juypter notebook needs to recreate those variables from the CSV file</span>
 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 
-<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
- <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv&quot;</span>
+<span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">;</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -426,7 +427,7 @@
 <p>Consider the normalized Covid case rates from the first six states, and partition them into two sets using alphabetical order:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s2">&quot;Arizona&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="s2">&quot;Arizona&quot;</span><span class="p">]</span>
 <span class="n">a</span>
 </pre></div>
 </div>
@@ -501,7 +502,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Arkansas&quot;</span><span class="p">:</span><span class="s2">&quot;Colorado&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;Arkansas&quot;</span><span class="p">:</span><span class="s2">&quot;Colorado&quot;</span><span class="p">]</span>
 <span class="n">b</span>
 </pre></div>
 </div>
@@ -602,7 +603,7 @@
 <p>Note that the mean Covid case rate for states in group <span class="math notranslate nohighlight">\(b\)</span> is much larger then for states in group <span class="math notranslate nohighlight">\(a\)</span>. The difference is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span><span class="o">=</span><span class="n">b</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">diff</span>
 </pre></div>
 </div>
@@ -709,7 +710,7 @@
 <p>We can put all the data into one long NumPy array by horizontally stacking the data. To do this we use NumPy’s <code class="docutils literal notranslate"><span class="pre">hstack</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">a</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]))</span>
 <span class="n">pooled</span>
 </pre></div>
 </div>
@@ -777,10 +778,10 @@ create new <span class="math notranslate nohighlight">\(\tilde{a}\)</span> and <
 <p>Try running the cell below a few times:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">blen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">newa</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">alen</span><span class="p">)</span>
-<span class="n">newb</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">blen</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">blen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">newa</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">alen</span><span class="p">)</span>
+<span class="n">newb</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">blen</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new a:&quot;</span><span class="p">,</span> <span class="n">newa</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new b:&quot;</span><span class="p">,</span> <span class="n">newb</span><span class="p">)</span>
 </pre></div>
@@ -796,15 +797,15 @@ new b: [1.08721441 1.05073463 0.48254038]
 <p>Our goal is to determine whether the observed difference in summary statistics could be attributed just to randomness. We want to use resampling to determine how often we see such a large difference under <span class="math notranslate nohighlight">\(H_0\)</span>. Copy the cell from above and then add the line shown at the end of the cell below to print out the difference in means. Run the cell below a few times to see what can happen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">blen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="n">newa</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">alen</span><span class="p">)</span>
-<span class="n">newb</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">blen</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">blen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">newa</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">alen</span><span class="p">)</span>
+<span class="n">newb</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">blen</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new a:&quot;</span><span class="p">,</span> <span class="n">newa</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new b:&quot;</span><span class="p">,</span> <span class="n">newb</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original diff&quot;</span><span class="p">,</span> <span class="n">diff</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new diff&quot;</span><span class="p">,</span> <span class="n">newb</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span><span class="n">newa</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new diff&quot;</span><span class="p">,</span> <span class="n">newb</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">newa</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -826,31 +827,29 @@ will determine the maximum probability that we will allow for making the error o
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These are common to most simulation:</span>
-<span class="c1"># 1) Set up the number of iterations (draws from the pool) </span>
+<span class="c1"># 1) Set up the number of iterations (draws from the pool)</span>
 <span class="c1"># 2) Initialize our counter to zero</span>
-<span class="n">num_sims</span><span class="o">=</span><span class="mi">10_000</span>
-<span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">num_sims</span> <span class="o">=</span> <span class="mi">10_000</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1"># Put these outside the loop to save execution time, since they don&#39;t change</span>
-<span class="n">alen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">blen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-
+<span class="n">alen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">blen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
 
 <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="c1"># Bootstrap sampling </span>
-    <span class="n">newa</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">alen</span><span class="p">)</span>
-    <span class="n">newb</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">blen</span><span class="p">)</span>
-    
+    <span class="c1"># Bootstrap sampling</span>
+    <span class="n">newa</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">alen</span><span class="p">)</span>
+    <span class="n">newb</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">blen</span><span class="p">)</span>
+
     <span class="c1"># Calculate the absolute value of the difference of means</span>
-    <span class="n">newdiff</span><span class="o">=</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">newa</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">newb</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">)</span>
-    
+    <span class="n">newdiff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">newa</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">newb</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
     <span class="c1"># Update the counter if it exceeds the difference from the original groups</span>
-    <span class="k">if</span> <span class="n">newdiff</span> <span class="o">&gt;=</span><span class="n">diff</span><span class="p">:</span>
-        <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
-        
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of seeing a result this extreme =~&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
-        
+    <span class="k">if</span> <span class="n">newdiff</span> <span class="o">&gt;=</span> <span class="n">diff</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of seeing a result this extreme =~&quot;</span><span class="p">,</span> <span class="n">count</span> <span class="o">/</span> <span class="n">num_sims</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -867,12 +866,12 @@ will determine the maximum probability that we will allow for making the error o
 <p>Now let’s apply bootstrap resampling to test the previous observed differences in covid rates based on GDP per population:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_gdp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 <span class="n">m_gdp</span>
-<span class="n">higher_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">&gt;</span> <span class="n">m_gdp</span> <span class="p">]</span>
-<span class="n">lower_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">&lt;=</span> <span class="n">m_gdp</span> <span class="p">]</span>
-<span class="n">hgdp_mu</span><span class="o">=</span><span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">lgdp_mu</span><span class="o">=</span><span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">higher_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">m_gdp</span><span class="p">]</span>
+<span class="n">lower_gdp</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">m_gdp</span><span class="p">]</span>
+<span class="n">hgdp_mu</span> <span class="o">=</span> <span class="n">higher_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">lgdp_mu</span> <span class="o">=</span> <span class="n">lower_gdp</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -907,7 +906,7 @@ will determine the maximum probability that we will allow for making the error o
 <p>For this case, the pooled data is simply all of the normalized Covid data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled_covid</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pooled_covid</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -916,30 +915,29 @@ will determine the maximum probability that we will allow for making the error o
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These are common to most simulation:</span>
-<span class="c1"># 1) Set up the number of iterations (draws from the pool) </span>
+<span class="c1"># 1) Set up the number of iterations (draws from the pool)</span>
 <span class="c1"># 2) Initialize our counter to zero</span>
-<span class="n">num_sims</span><span class="o">=</span><span class="mi">10_000</span>
-<span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">num_sims</span> <span class="o">=</span> <span class="mi">10_000</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="c1"># Put these outside the loop to save execution time, since they don&#39;t change</span>
-<span class="n">hlen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">higher_gdp</span><span class="p">)</span>
-<span class="n">llen</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">lower_gdp</span><span class="p">)</span>
-
+<span class="n">hlen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">higher_gdp</span><span class="p">)</span>
+<span class="n">llen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lower_gdp</span><span class="p">)</span>
 
 
 <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-    <span class="c1"># Bootstrap sampling </span>
-    <span class="n">newh</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled_covid</span><span class="p">,</span> <span class="n">hlen</span><span class="p">)</span>
-    <span class="n">newl</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled_covid</span><span class="p">,</span> <span class="n">llen</span><span class="p">)</span>
-    
+    <span class="c1"># Bootstrap sampling</span>
+    <span class="n">newh</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled_covid</span><span class="p">,</span> <span class="n">hlen</span><span class="p">)</span>
+    <span class="n">newl</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">pooled_covid</span><span class="p">,</span> <span class="n">llen</span><span class="p">)</span>
+
     <span class="c1"># Calculate the absolute value of the difference of means</span>
-    <span class="n">newdiff</span><span class="o">=</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">newh</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">newl</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">)</span>
-    
+    <span class="n">newdiff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">newh</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">newl</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
     <span class="c1"># Update the counter if it exceeds the difference from the original groups</span>
-    <span class="k">if</span> <span class="n">newdiff</span> <span class="o">&gt;=</span><span class="n">diff_gdp</span><span class="p">:</span>
-        <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
-        
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of seeing a result this extreme =~&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">newdiff</span> <span class="o">&gt;=</span> <span class="n">diff_gdp</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of seeing a result this extreme =~&quot;</span><span class="p">,</span> <span class="n">count</span> <span class="o">/</span> <span class="n">num_sims</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -962,21 +960,21 @@ will determine the maximum probability that we will allow for making the error o
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resample_mean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">len1</span><span class="p">,</span> <span class="n">len2</span><span class="p">,</span> <span class="n">num_sims</span><span class="o">=</span><span class="mi">10_000</span><span class="p">):</span>
-    <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="c1"># Bootstrap sampling </span>
-        <span class="n">group1</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">len1</span><span class="p">)</span>
-        <span class="n">group2</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">len2</span><span class="p">)</span>
+        <span class="c1"># Bootstrap sampling</span>
+        <span class="n">group1</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">len1</span><span class="p">)</span>
+        <span class="n">group2</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">len2</span><span class="p">)</span>
 
         <span class="c1"># Calculate the absolute value of the difference of means</span>
-        <span class="n">newdiff</span><span class="o">=</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">group1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">group2</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">)</span>
+        <span class="n">newdiff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">group1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">group2</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 
         <span class="c1"># Update the counter if it exceeds the difference from the original groups</span>
-        <span class="k">if</span> <span class="n">newdiff</span> <span class="o">&gt;=</span><span class="n">diff</span><span class="p">:</span>
-            <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">newdiff</span> <span class="o">&gt;=</span> <span class="n">diff</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of seeing a result this extreme =~&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of seeing a result this extreme =~&quot;</span><span class="p">,</span> <span class="n">count</span> <span class="o">/</span> <span class="n">num_sims</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -997,9 +995,9 @@ will determine the maximum probability that we will allow for making the error o
 <p>Now let’s apply bootstrap resampling when the states are grouped using the urban index:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_urban</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-<span class="n">higher_urban</span><span class="o">=</span><span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">&gt;</span><span class="n">m_urban</span> <span class="p">]</span>
-<span class="n">lower_urban</span> <span class="o">=</span><span class="n">df</span><span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">&lt;=</span> <span class="n">m_urban</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_urban</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">higher_urban</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">m_urban</span><span class="p">]</span>
+<span class="n">lower_urban</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">m_urban</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1018,7 +1016,7 @@ will determine the maximum probability that we will allow for making the error o
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_urban</span><span class="o">=</span><span class="n">higher_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">lower_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diff_urban</span> <span class="o">=</span> <span class="n">higher_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">lower_urban</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">diff_urban</span>
 </pre></div>
 </div>
@@ -1032,7 +1030,7 @@ will determine the maximum probability that we will allow for making the error o
 <p>We can use our <code class="docutils literal notranslate"><span class="pre">resample_mean()</span></code> function to perform the two-sided test via bootstrap resampling:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_mean</span><span class="p">(</span> <span class="n">pooled_covid</span><span class="p">,</span> <span class="n">diff_urban</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">higher_urban</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lower_urban</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_mean</span><span class="p">(</span><span class="n">pooled_covid</span><span class="p">,</span> <span class="n">diff_urban</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">higher_urban</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lower_urban</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1045,8 +1043,9 @@ will determine the maximum probability that we will allow for making the error o
 <p>The observed <span class="math notranslate nohighlight">\(p\)</span>-value is close to 0.01, which is our threshold, and some simulations may exceed 0.01. We need to determine the <span class="math notranslate nohighlight">\(p\)</span>-value more accurately, which can be achieved by using more simulation iterations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_mean</span><span class="p">(</span> <span class="n">pooled_covid</span><span class="p">,</span> <span class="n">diff_urban</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">higher_urban</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lower_urban</span><span class="p">),</span>
-               <span class="n">num_sims</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_mean</span><span class="p">(</span>
+    <span class="n">pooled_covid</span><span class="p">,</span> <span class="n">diff_urban</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">higher_urban</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lower_urban</span><span class="p">),</span> <span class="n">num_sims</span><span class="o">=</span><span class="mi">100_000</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1064,25 +1063,25 @@ will determine the maximum probability that we will allow for making the error o
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resample_mean_hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="n">len1</span><span class="p">,</span> <span class="n">len2</span><span class="p">,</span> <span class="n">num_sims</span><span class="o">=</span><span class="mi">10_000</span><span class="p">):</span>
-    <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-    <span class="n">sample_means</span><span class="o">=</span><span class="p">[]</span> <span class="c1"># New variable to store sample means</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">sample_means</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># New variable to store sample means</span>
 
     <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="c1"># Bootstrap sampling </span>
-        <span class="n">group1</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">len1</span><span class="p">)</span>
-        <span class="n">group2</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">len2</span><span class="p">)</span>
+        <span class="c1"># Bootstrap sampling</span>
+        <span class="n">group1</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">len1</span><span class="p">)</span>
+        <span class="n">group2</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">len2</span><span class="p">)</span>
 
         <span class="c1"># Calculate the absolute value of the difference of means</span>
-        <span class="n">newdiff</span><span class="o">=</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">group1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">group2</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">)</span>
-        
-        <span class="n">sample_means</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">group1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">group2</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="p">]</span> <span class="c1"># Store sample mean</span>
+        <span class="n">newdiff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">group1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">group2</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+        <span class="n">sample_means</span> <span class="o">+=</span> <span class="p">[</span><span class="n">group1</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">group2</span><span class="o">.</span><span class="n">mean</span><span class="p">()]</span>  <span class="c1"># Store sample mean</span>
 
         <span class="c1"># Update the counter if it exceeds the difference from the original groups</span>
-        <span class="k">if</span> <span class="n">newdiff</span> <span class="o">&gt;=</span><span class="n">diff</span><span class="p">:</span>
-            <span class="n">count</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">newdiff</span> <span class="o">&gt;=</span> <span class="n">diff</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of seeing a result this extreme =~&quot;</span><span class="p">,</span> <span class="n">count</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span> <span class="c1"># Plot the histogram with 40 bins</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of seeing a result this extreme =~&quot;</span><span class="p">,</span> <span class="n">count</span> <span class="o">/</span> <span class="n">num_sims</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sample_means</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>  <span class="c1"># Plot the histogram with 40 bins</span>
 </pre></div>
 </div>
 </div>
@@ -1090,8 +1089,7 @@ will determine the maximum probability that we will allow for making the error o
 <p>Note that the histogram does not depend on the mean difference observed in the data. Since the pooled data and the group sizes are the same for both the GDP grouping and the Urban index grouping, both will produce the same histograms (up to variations from the random sampling). Let’s call the new function with the arguments used for the urban index data. Because the focus of this simulation is the histogram and 10,000 points will already produce a very detailed histogram, we leave <code class="docutils literal notranslate"><span class="pre">num_sims</span></code> set to the default.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_mean_hist</span><span class="p">(</span> <span class="n">pooled_covid</span><span class="p">,</span> <span class="n">diff_urban</span><span class="p">,</span>
-                    <span class="nb">len</span><span class="p">(</span><span class="n">higher_urban</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lower_urban</span><span class="p">)</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resample_mean_hist</span><span class="p">(</span><span class="n">pooled_covid</span><span class="p">,</span> <span class="n">diff_urban</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">higher_urban</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">lower_urban</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

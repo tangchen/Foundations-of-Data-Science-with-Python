@@ -444,25 +444,25 @@ E_2(\nu) = \sum_{i=0}^{N-1} \left( e_i \right )^2
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting different types of error functions. An experiment</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># For clarity, store the different error metrics in different variables.</span>
 <span class="c1"># Initialize them here</span>
-<span class="n">sum_errors</span>         <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sum_errors</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">num_nonzero_errors</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">sum_abs_errors</span>     <span class="o">=</span> <span class="mi">0</span>
-<span class="n">sum_square_errors</span>  <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sum_abs_errors</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sum_square_errors</span> <span class="o">=</span> <span class="mi">0</span>
 
 
-<span class="n">nus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">801</span><span class="p">)</span> <span class="c1"># If we want exact resolution of 8/800=0.01, need to </span>
-                             <span class="c1"># include one extra point at 8</span>
+<span class="n">nus</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">801</span><span class="p">)</span>  <span class="c1"># If we want exact resolution of 8/800=0.01, need to</span>
+<span class="c1"># include one extra point at 8</span>
 <span class="n">D</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span>
-    <span class="n">sum_errors</span>         <span class="o">+=</span> <span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">nus</span><span class="p">)</span>
-    <span class="n">num_nonzero_errors</span> <span class="o">+=</span> <span class="p">((</span><span class="n">d</span><span class="o">-</span><span class="n">nus</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">sum_abs_errors</span>     <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">nus</span><span class="p">)</span>
-    <span class="n">sum_square_errors</span>  <span class="o">+=</span> <span class="p">(</span><span class="n">d</span><span class="o">-</span><span class="n">nus</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">sum_errors</span> <span class="o">+=</span> <span class="n">d</span> <span class="o">-</span> <span class="n">nus</span>
+    <span class="n">num_nonzero_errors</span> <span class="o">+=</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">nus</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span>
+    <span class="n">sum_abs_errors</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">nus</span><span class="p">)</span>
+    <span class="n">sum_square_errors</span> <span class="o">+=</span> <span class="p">(</span><span class="n">d</span> <span class="o">-</span> <span class="n">nus</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">sum_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of errors&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">num_nonzero_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;No. of nonzero errors&quot;</span><span class="p">)</span>
@@ -471,9 +471,9 @@ E_2(\nu) = \sum_{i=0}^{N-1} \left( e_i \right )^2
 
 <span class="c1"># Plot the data as markers</span>
 <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">ymin</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
 <span class="c1"># Plot the repeated value at -1 as a second marker:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ymin</span><span class="o">+</span><span class="mi">7</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ymin</span> <span class="o">+</span> <span class="mi">7</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Summary statistic, $\nu$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Error function value&quot;</span><span class="p">)</span>
@@ -482,24 +482,7 @@ E_2(\nu) = \sum_{i=0}^{N-1} \left( e_i \right )^2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
-The text.latex.preview rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
-In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
-The mathtext.fallback_to_cm rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
-In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: Support for setting the &#39;mathtext.fallback_to_cm&#39; rcParam is deprecated since 3.3 and will be removed two minor releases later; use &#39;mathtext.fallback : &#39;cm&#39; instead.
-In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
-The validate_bool_maybe_none function was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
-In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
-The savefig.jpeg_quality rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
-In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
-The keymap.all_axes rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
-In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
-The animation.avconv_path rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
-In /Applications/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
-The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
-</pre></div>
-</div>
-<img alt="../_images/summary-stats_3_1.png" src="../_images/summary-stats_3_1.png" />
+<img alt="../_images/summary-stats_3_0.png" src="../_images/summary-stats_3_0.png" />
 </div>
 </div>
 <p>Since <span class="math notranslate nohighlight">\(E_0\)</span> and <span class="math notranslate nohighlight">\(E_1\)</span> have a much smaller range than the other two values, let’s also plot them separately:</p>
@@ -509,11 +492,11 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nus</span><span class="p">,</span> <span class="n">sum_abs_errors</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Sum of absolute errors&quot;</span><span class="p">)</span>
 
 <span class="c1"># Plot the data as markers</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
-<span class="n">ymin</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">ymin</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">ymin</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
 <span class="c1"># Plot the repeated value at -1 as a second marker:</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ymin</span><span class="o">+</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ymin</span> <span class="o">+</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Summary statistic, $\nu$&quot;</span><span class="p">)</span>
@@ -529,7 +512,7 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">nus</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">100</span><span class="p">],</span><span class="n">sum_abs_errors</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">100</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">nus</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">100</span><span class="p">],</span> <span class="n">sum_abs_errors</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">100</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -550,10 +533,10 @@ The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be r
 <p>Before putting much thought into what this means, let’s just find the minimums for these different error metrics. To do this, we will find the <strong>index</strong> of the minimum value of each metric using NumPy’s <code class="docutils literal notranslate"><span class="pre">argmin</span></code> function. Then we will use that index value as the index of the <code class="docutils literal notranslate"><span class="pre">nus</span></code> array to determine the minimizing value of <span class="math notranslate nohighlight">\(\nu\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nu_e</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_errors</span><span class="p">)</span> <span class="p">]</span>
-<span class="n">nu_0</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">num_nonzero_errors</span><span class="p">)</span> <span class="p">]</span>
-<span class="n">nu_1</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_abs_errors</span><span class="p">)</span> <span class="p">]</span>
-<span class="n">nu_2</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_square_errors</span><span class="p">)</span> <span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nu_e</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_errors</span><span class="p">)]</span>
+<span class="n">nu_0</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">num_nonzero_errors</span><span class="p">)]</span>
+<span class="n">nu_1</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_abs_errors</span><span class="p">)]</span>
+<span class="n">nu_2</span> <span class="o">=</span> <span class="n">nus</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">sum_square_errors</span><span class="p">)]</span>
 
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;         Metric         |     Minimizing value of nu&quot;</span><span class="p">)</span>
@@ -615,7 +598,7 @@ ____________________________________________________
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -709,6 +692,7 @@ ____________________________________________________
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
 <span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -746,8 +730,8 @@ above to calculate and plot the number of nonzero errors for this data set as a 
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
 $<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span>$
 so its derivative is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7cd34fe8-0aa1-4c66-a4e7-4f6a05f7a294">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-7cd34fe8-0aa1-4c66-a4e7-4f6a05f7a294" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4d8093ae-a3f1-494e-a603-4b21d48c3d48">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-4d8093ae-a3f1-494e-a603-4b21d48c3d48" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
 &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
 \end{align}\]</div>
@@ -826,8 +810,8 @@ above to calculate and plot the sum of absolute errors for this data set as a fu
 <div class="section" id="minimizing-the-sum-of-squared-errors">
 <h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivative of <span class="math notranslate nohighlight">\(E_2(v)\)</span> with respect to <span class="math notranslate nohighlight">\(\nu\)</span> and setting it equal to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a21755bb-b1e6-4f93-864a-dbaff1f9f920">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-a21755bb-b1e6-4f93-864a-dbaff1f9f920" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-761cab35-e3d3-4d65-88d7-ebdf3f3d05a4">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-761cab35-e3d3-4d65-88d7-ebdf3f3d05a4" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \\
@@ -835,14 +819,14 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu 
 \end{align}\]</div>
 <p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2a2267ab-0bd8-4de9-bec0-0e201998952c">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-2a2267ab-0bd8-4de9-bec0-0e201998952c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4f027ee6-441d-4525-b60e-34b4a20353c8">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-4f027ee6-441d-4525-b60e-34b4a20353c8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \\
  \sum_{i=0}^{N-1} d_i &amp;= N \nu .
 \end{align}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9a4d79c-d2ed-4df1-9d96-e12d89990616">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-a9a4d79c-d2ed-4df1-9d96-e12d89990616" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2a9b673f-8150-443b-a50d-cfcdac7fccfc">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-2a9b673f-8150-443b-a50d-cfcdac7fccfc" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
 \end{align}\]</div>
 <p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
@@ -858,8 +842,8 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 <dt>average</dt><dd><p class="card-text">The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-c8adf5da-9406-4065-b8bb-a11d0143a2c6">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-c8adf5da-9406-4065-b8bb-a11d0143a2c6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-71398ca1-6651-434f-8a23-7bebaf696a09">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-71398ca1-6651-434f-8a23-7bebaf696a09" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
 \end{align}\]</div>
 </div>
@@ -901,7 +885,7 @@ dtype: float64
 <p>As previously mentioned, the average is the most commonly used summary statistic. It is widely accepted for this purpose by the scientific community. Many people consider the median to be a more robust statistic because it is less sensitive to extreme values (such as outliers). For example, suppose we inserted the value 100 into the example data that we have been using:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D3</span><span class="o">=</span><span class="n">D</span><span class="o">+</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D3</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="p">[</span><span class="mi">100</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>

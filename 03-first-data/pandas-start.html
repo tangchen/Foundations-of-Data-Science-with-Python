@@ -420,10 +420,11 @@
 <p>Pandas provides a method to read CSV files, and it can read them directly from a URL:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
- <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/&quot;</span>
     <span class="o">+</span> <span class="s2">&quot;intro-data-science-for-engineers/main/&quot;</span>
-    <span class="o">+</span> <span class="s2">&quot;03-first-data/covid-merged.csv&quot;</span><span class="p">)</span>
+    <span class="o">+</span> <span class="s2">&quot;03-first-data/covid-merged.csv&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -873,7 +874,7 @@
 <p>In Pandas, particular columns can be retrieved by putting the name of the column in square brackets after the name of the dataframe. For instance, here is how to retrieve the content of the ‘state’ column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -949,7 +950,7 @@ Name: state, dtype: object
 <p>We can retrieve multiple columns simultaneously by including them in a list within the square bracks (meaning that there will be double square brackes – one set to tell Pandas we are selecting columns and one to form the list of columns to be selected:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span> <span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;cases&quot;</span><span class="p">]</span> <span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;cases&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -2324,7 +2325,7 @@ Name: cases, dtype: int64
 <p>If all we want is the numerical values in the data series, we can convert it to a list or a NumPy array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">])</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -2337,6 +2338,7 @@ Name: cases, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">])</span>
 </pre></div>
 </div>

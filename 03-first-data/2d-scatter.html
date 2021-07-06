@@ -384,15 +384,16 @@
 <span class="c1"># through with the same variables, but for users downloading the notebooks, this</span>
 <span class="c1"># separate Juypter notebook needs to recreate those variables from the CSV file</span>
 
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 
-<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
- <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv&quot;</span>
+<span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">;</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp_norm&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;gdp&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;population&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -432,23 +433,22 @@
 <p>Without going into details, let’s assume that we can find the slope <span class="math notranslate nohighlight">\(m\)</span> independently of the <span class="math notranslate nohighlight">\(y\)</span>-intercept, <span class="math notranslate nohighlight">\(b\)</span>. By inspection of the figure, the slope should be somewhere between 0 and 15/100=0.15. Let’s evaluate the squared error for several values in this range and determine which gives the best result:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">])</span>
-<span class="n">true_y</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">])</span>
-<span class="n">ms</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">])</span>
+<span class="n">true_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">])</span>
+<span class="n">ms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
-<span class="n">errors</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">best_error</span><span class="o">=</span><span class="mf">1e12</span> <span class="c1"># arbitrary big number</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">best_error</span> <span class="o">=</span> <span class="mf">1e12</span>  <span class="c1"># arbitrary big number</span>
 <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">ms</span><span class="p">:</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">x</span>
-    <span class="n">error</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">true_y</span> <span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="c1"># We will see more efficient ways later</span>
-    <span class="n">errors</span><span class="o">+=</span><span class="p">[</span><span class="n">error</span><span class="p">]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">true_y</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># We will see more efficient ways later</span>
+    <span class="n">errors</span> <span class="o">+=</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="n">best_error</span><span class="p">:</span>
-        <span class="n">best_error</span><span class="o">=</span><span class="n">error</span>
+        <span class="n">best_error</span> <span class="o">=</span> <span class="n">error</span>
         <span class="n">best_m</span> <span class="o">=</span> <span class="n">m</span>
-        
+
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best m =&quot;</span><span class="p">,</span> <span class="n">best_m</span><span class="p">,</span> <span class="s2">&quot;with error&quot;</span><span class="p">,</span> <span class="n">best_error</span><span class="p">)</span>
-     
 </pre></div>
 </div>
 </div>
@@ -462,12 +462,12 @@
 <p>Now, let’s plot the line with <span class="math notranslate nohighlight">\(b=0\)</span> along with the data to get an idea of what the best value of <span class="math notranslate nohighlight">\(b\)</span> might be.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="mf">0.038</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mf">0.038</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;urban&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cases_norm&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Percent of population in urban area&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Per-capita Covid Rate&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Per-capita Covid Rate&quot;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -481,17 +481,17 @@
 <p>Let’s try values between -20 and 20:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="o">=</span><span class="mf">0.038</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mf">0.038</span>
 
-<span class="n">bs</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
-<span class="n">best_error</span><span class="o">=</span><span class="mf">1e12</span> <span class="c1"># arbitrary big number</span>
+<span class="n">bs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">best_error</span> <span class="o">=</span> <span class="mf">1e12</span>  <span class="c1"># arbitrary big number</span>
 <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bs</span><span class="p">:</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">b</span>
-    <span class="n">error</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">true_y</span> <span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="c1"># We will see more efficient ways later</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">true_y</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># We will see more efficient ways later</span>
     <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="n">best_error</span><span class="p">:</span>
-        <span class="n">best_error</span><span class="o">=</span><span class="n">error</span>
+        <span class="n">best_error</span> <span class="o">=</span> <span class="n">error</span>
         <span class="n">best_b</span> <span class="o">=</span> <span class="n">b</span>
-        
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;best b =&quot;</span><span class="p">,</span> <span class="n">best_b</span><span class="p">,</span> <span class="s2">&quot;with error&quot;</span><span class="p">,</span> <span class="n">best_error</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -505,10 +505,10 @@
 <p>The best <span class="math notranslate nohighlight">\(y\)</span>-intercept is zero, so the previous plot already shows the best linear fit. The positive slope indicates that the Covid rate increases with increasing Urban index. However, the rapid rise of the Covid cases with large values of the Urban index indicate that it may be better to fit the data with some other function. For instance, here is a quadratic curve that reduces the total squared error to 380.4:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="mf">7.46</span><span class="o">-</span><span class="mf">0.25</span><span class="o">*</span><span class="n">xp</span><span class="o">+</span><span class="mf">2.43e-3</span><span class="o">*</span><span class="n">xp</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">true_y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span> <span class="mf">7.46</span> <span class="o">-</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">xp</span> <span class="o">+</span> <span class="mf">2.43e-3</span> <span class="o">*</span> <span class="n">xp</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">true_y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
