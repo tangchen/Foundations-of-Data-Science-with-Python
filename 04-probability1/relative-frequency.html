@@ -483,7 +483,7 @@ r_k(N) =\frac{n_k(N)}{N}.
 <span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
 
 <span class="n">npr</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">9823467</span><span class="p">)</span>
-<span class="n">outcomes</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">outcomes</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">outcomes</span>
 </pre></div>
 </div>
@@ -497,7 +497,7 @@ r_k(N) =\frac{n_k(N)}{N}.
 <p>Now we need to count the number of occurrences of each value. We can achieve this by passing the outcomes to NumPy’s <code class="docutils literal notranslate"><span class="pre">unique</span></code> function and using the keyword parameters <code class="docutils literal notranslate"><span class="pre">return_counts=True</span></code>. The function returns two arrays. The first array contains the unique values in the <code class="docutils literal notranslate"><span class="pre">outcomes</span></code> array, and the second array returns the corresponding count for each observed value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span><span class="p">,</span><span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -511,11 +511,11 @@ r_k(N) =\frac{n_k(N)}{N}.
 <p>Then the relative frequencies of the values is just the returned counts divided by the total number of outcomes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rel_freqs</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">outcomes</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rel_freqs</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">outcomes</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Relative frequencies:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">rel_freqs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">rel_freqs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -550,7 +550,7 @@ r_k(N) =\frac{n_k(N)}{N}.
 <p>The values show some pretty significant differences in the relative frequencies (from 0.1 to 0.25). Let’s see how the relative frequencies change as we vary <span class="math notranslate nohighlight">\(N\)</span> from 10 to 100,000. We will generate all 100,000 values at once and then subscript the array when we want to limit the analysis to a particular part. For instance, we can get the first 10 values as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outcomes100k</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outcomes100k</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100_000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">outcomes100k</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -563,12 +563,12 @@ r_k(N) =\frac{n_k(N)}{N}.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ns</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ns</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">N</span> <span class="ow">in</span> <span class="n">Ns</span><span class="p">:</span>
-    <span class="n">outcomes</span><span class="o">=</span><span class="n">outcomes100k</span><span class="p">[:</span><span class="n">N</span><span class="p">]</span>
-    <span class="n">vals</span><span class="p">,</span><span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">rel_freqs</span><span class="o">=</span><span class="n">counts</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">outcomes</span><span class="p">)</span>
+    <span class="n">outcomes</span> <span class="o">=</span> <span class="n">outcomes100k</span><span class="p">[:</span><span class="n">N</span><span class="p">]</span>
+    <span class="n">vals</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">outcomes</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">rel_freqs</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">outcomes</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">rel_freqs</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;N=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">N</span><span class="p">));</span>

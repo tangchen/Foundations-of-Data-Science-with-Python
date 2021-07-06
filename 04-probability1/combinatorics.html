@@ -489,8 +489,8 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>The sample spaces for the two dice are the same. In Python, we can define them using simple ranges:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S0</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">S1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S0</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">S1</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -498,15 +498,15 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>The <code class="docutils literal notranslate"><span class="pre">itertools</span></code> library has a <code class="docutils literal notranslate"><span class="pre">product</span></code> function to carry out the Cartesian product over these two ranges:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span><span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span> <span class="n">S0</span><span class="p">,</span> <span class="n">S1</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">S1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -523,7 +523,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>When the number of items being iterated over is small, the iterator can be used to directly create a list of these items:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Slist</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span> <span class="n">S0</span><span class="p">,</span> <span class="n">S1</span> <span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Slist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">S0</span><span class="p">,</span> <span class="n">S1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">Slist</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -550,15 +550,13 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>We can find the probability for the sums of the dice faces by iterating over <span class="math notranslate nohighlight">\(S\)</span> and counting the number of times  each sum occurs. It is easy to see that the sum of the faces will be between 2 and 12. We initalize a list with 13 zeros (from 0 to 12) to store the counts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">13</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">13</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">Slist</span><span class="p">:</span>
-    <span class="n">counts</span><span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">counts</span><span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sum:&quot;</span><span class="p">,</span> <span class="s2">&quot;# ways of occurring&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">counts</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
-    
-    
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">counts</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -582,7 +580,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>The right-hand column is the cardinality of the event described by the left-hand column. As the events partition the sample space (i.e., the are disjoint and cover everything in the sample space), the sum of the right-hand column is equal to the cardinality of <span class="math notranslate nohighlight">\(S\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span> <span class="p">(</span><span class="n">counts</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Slist</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">counts</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Slist</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -595,11 +593,11 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>If we let <span class="math notranslate nohighlight">\(E_i\)</span> denote the event that the sum of the dice faces is <span class="math notranslate nohighlight">\(i\)</span>, then <span class="math notranslate nohighlight">\(P(E_i) = |E_i| / |S|\)</span>, where the values of <span class="math notranslate nohighlight">\(|E_i|\)</span> are given in the table above. Thus, the probabilities are:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probs</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">13</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">13</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sum: probability&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">13</span><span class="p">):</span>
-    <span class="n">probs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">=</span><span class="n">counts</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">Slist</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+    <span class="n">probs</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">Slist</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="s2">&quot;: &quot;</span><span class="p">,</span> <span class="n">probs</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -624,19 +622,19 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>Let’s plot the analytical result along with simulated values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">npr</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">die1</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">die2</span><span class="o">=</span><span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
-<span class="n">dice</span><span class="o">=</span><span class="n">die1</span><span class="o">+</span><span class="n">die2</span>
+<span class="n">die1</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">die2</span> <span class="o">=</span> <span class="n">npr</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">dice</span> <span class="o">=</span> <span class="n">die1</span> <span class="o">+</span> <span class="n">die2</span>
 
-<span class="n">vals</span><span class="p">,</span> <span class="n">mycounts</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dice</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">rel_freqs</span><span class="o">=</span><span class="n">mycounts</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">dice</span><span class="p">)</span>
+<span class="n">vals</span><span class="p">,</span> <span class="n">mycounts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">dice</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">rel_freqs</span> <span class="o">=</span> <span class="n">mycounts</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">dice</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span><span class="n">rel_freqs</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">13</span><span class="p">),</span><span class="n">probs</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">13</span><span class="p">],</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">rel_freqs</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">probs</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">13</span><span class="p">],</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s2">&quot;rx&quot;</span><span class="p">,</span> <span class="n">use_line_collection</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sum of top faces of two dice&quot;</span><span class="p">)</span>
@@ -664,8 +662,8 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>Now we use itertools to iterate over all the groups of size 3 that can be created by samplign without replacement. This is a combined experiment with identical sample spaces for each component experiment. We can create an iterator for the sample space of one of these groups using <code class="docutils literal notranslate"><span class="pre">itertools.product</span></code> by passing <code class="docutils literal notranslate"><span class="pre">PB</span></code> and the keyword argument <code class="docutils literal notranslate"><span class="pre">repeat</span></code> with the number of items in the groups:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S3</span><span class="o">=</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">countB1</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S3</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">countB1</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S3</span><span class="p">:</span>
     <span class="n">countB1</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of ways to choose a group of size 3 under bootstrap sampling is&quot;</span><span class="p">,</span> <span class="n">countB</span><span class="p">)</span>
@@ -681,13 +679,15 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>Note that we are not done. We are interested in the number of ways to choose both groups of size 3. This can be considered to be a combined experiment in which each of the individual experiments has 216 outcomes. In other words, the second group has 216 outcomes for <strong>each</strong> outcome of the first group:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S3</span><span class="o">=</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">countB2</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S3</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">countB2</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S3</span><span class="p">:</span>
-    <span class="n">S3_2</span><span class="o">=</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">S3_2</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">PB</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">S3_2</span><span class="p">:</span>
         <span class="n">countB2</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of ways to choose TWO groups of size 3 under bootstrap sampling is&quot;</span><span class="p">,</span> <span class="n">countB2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Number of ways to choose TWO groups of size 3 under bootstrap sampling is&quot;</span><span class="p">,</span> <span class="n">countB2</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -706,7 +706,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>Now consider flipping a fair coin 20 times and determining the probability of an outcome less than or equal to 6. Each of the 20 subexperiments has the same sample space. Using <span class="math notranslate nohighlight">\(H\)</span> to denote heads and <span class="math notranslate nohighlight">\(T\)</span> to denote tails, we can refer to these sample spaces as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Si</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Si</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -714,7 +714,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>As before, we can create an iterator for the combined sample space using <code class="docutils literal notranslate"><span class="pre">itertools.product</span></code> by passing <code class="docutils literal notranslate"><span class="pre">Si</span></code> and the keyword argument <code class="docutils literal notranslate"><span class="pre">repeat</span></code> with the number of repetitions as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sdice</span><span class="o">=</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">Si</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sdice</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">Si</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -722,16 +722,16 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>We can count the cardinality of the sample space and the event that the number of heads is 6 or less simultaneously while looping over the outcomes in the sample space:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sdice</span><span class="o">=</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">Si</span><span class="p">,</span><span class="n">repeat</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sdice</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">Si</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
-<span class="n">Scount</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Ecount</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">Scount</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Ecount</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">Sdice</span><span class="p">:</span>
-    <span class="n">Scount</span><span class="o">+=</span><span class="mi">1</span>
-    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
-        <span class="n">Ecount</span><span class="o">+=</span><span class="mi">1</span>
-        
+    <span class="n">Scount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">Ecount</span> <span class="o">+=</span> <span class="mi">1</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;|E|=&quot;</span><span class="p">,</span> <span class="n">Ecount</span><span class="p">,</span> <span class="s2">&quot;   |S|=&quot;</span><span class="p">,</span> <span class="n">Scount</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -745,7 +745,7 @@ S= S_0 \times S_1  \times \ldots \times S_{K-1}
 <p>The the probability of seeing 6 or fewer heads is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P(6 or fewer heads)=&quot;</span><span class="p">,</span> <span class="n">Ecount</span><span class="o">/</span><span class="n">Scount</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P(6 or fewer heads)=&quot;</span><span class="p">,</span> <span class="n">Ecount</span> <span class="o">/</span> <span class="n">Scount</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -788,7 +788,7 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 <p>Then <span class="math notranslate nohighlight">\(P(E_3) = 3/36 = 1/12\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">/</span><span class="mi">12</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">12</span>
 </pre></div>
 </div>
 </div>
@@ -803,7 +803,7 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 <p>Consider again bootstrap resampling from a pool of 6 data points to two groups of cardinality 3.  This a problem of sampling with replacement and with ordering, so the total number of groups is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">6</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">6</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">6</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">6</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -818,7 +818,7 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 <p>The total number of groups that can be created using the full data set  is</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">50</span><span class="o">**</span><span class="mi">25</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">50</span><span class="o">**</span><span class="mf">25.</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">50</span> <span class="o">**</span> <span class="mi">25</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">50</span> <span class="o">**</span> <span class="mf">25.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -850,10 +850,10 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 <p>Note that we could have used Python to calculate this sum:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">19</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
-       <span class="n">total</span><span class="o">+=</span><span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1751,7 +1751,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binom</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binom</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
