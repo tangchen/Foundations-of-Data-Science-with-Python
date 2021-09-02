@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Overview &#8212; Introduction to Data Science for Engineers</title>
+    <title>5.2. Conditional Probability: Notation, Intuition, and Definition &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,7 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Introduction" href="../01-intro/intro.html" />
+    <link rel="prev" title="5.1. Simulating and Counting Conditional Probabilities" href="conditional-prob1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -80,13 +82,13 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
    Overview
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../01-intro/intro.html">
    1. Introduction
@@ -280,23 +282,23 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05-conditional-prob/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    5. Conditional Probability
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/conditional-prob1.html">
+    <a class="reference internal" href="conditional-prob1.html">
      5.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/conditional-prob-analysis.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      5.2. Conditional Probability: Notation, Intuition, and Definition
     </a>
    </li>
@@ -343,7 +345,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/intro/intro.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/conditional-prob-analysis.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -368,7 +370,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/intro/intro.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/conditional-prob-analysis.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -393,20 +395,55 @@
         
               <div>
                 
-  <div class="section" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>This book is an introduction to data science targeted toward engineers, but it will be easily accessible to anyone who knows calculus and knows the basics of computer programming. By leveraging this required background knowledge, this book fits a unique niche in the books on data science and statistics:</p>
+  <div class="section" id="conditional-probability-notation-intuition-and-definition">
+<h1><span class="section-number">5.2. </span>Conditional Probability: Notation, Intuition, and Definition<a class="headerlink" href="#conditional-probability-notation-intuition-and-definition" title="Permalink to this headline">¶</a></h1>
+<p>In the last section, we introduced the <em>concept</em> of conditional probability, which is we want to know the probability of an event <strong>given that another event has occurred</strong>. To make our work on conditional probability easier and to effectively communicate with others, we will need to introduce the standard mathematical notation for this type of conditional probability.</p>
+<p>A conditional probability is indicated if there is a vertical bar “|” inside the arguments of the probability measure. (Programmers often call the | symbol “pipe”.) If there is a | symbol, then the parts of the argument on each side of the | should both be events. The part that follows the | symbol is the conditioning event (i.e., the event that is given to have happened).</p>
+<p>Let’s make this more concrete by formalizing the notation for the Magician’s coin problem. As before, we let <span class="math notranslate nohighlight">\(H_i\)</span> be the even that the coin came up heads on flip <span class="math notranslate nohighlight">\(i\)</span>. Then if we want to know the conditional probability that the coin came up heads on the second flip given that it came up heads on the first flip, we can write it in mathematical notation as
+$<span class="math notranslate nohighlight">\(
+P\left( H_2 \left| H_1 \right. \right) .
+\)</span>$</p>
+<p>When we see such a statement, we will read the mathematical formulation (i.e., without referring to the definitions of <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span>) as “the conditional probability of <span class="math notranslate nohighlight">\(H_2\)</span> given <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul class="simple">
-<li><p>Many books on statistics (especially those for engineers) teach a theoretical approach to answering statistical questions that many learners find difficult to understand. This book applies a modern, computational approach to work with data, and in particular, uses simulations (an approach called <em>resampling</em>) to answer statistical questions. Most learners can easily understand how resampling works in contrast to some arcane formula.</p></li>
-<li><p>Some of the other books that use the resampling approach to statistics are targeted toward a broader audience who may not have the rigorous mathematical background of engineers. Unlike these other books, this text provides a basic introduction to probability and its application to statistics.</p></li>
-<li><p>Techniques like data reduction and selection require linear algebra, and many books on statistics omit these topics because of the difficulty of covering linear algebra and statistics. By focusing on leveraging existing computational libraries, this book provides a solid introduction to linear algebra and its application to data science.</p></li>
-<li><p>Where many statistics books use contrived examples to make examples that are solveable using a calculator, througout this book I have tried to use real data sets wherever practical.</p></li>
-<li><p>Although the approach taken and the material covered is targeted toward engineers, the data sets and the questions asked are chosen to appeal to a broad audience.</p></li>
+<li><p>Whatever follows the | symbol is the conditioning information.</p></li>
+<li><p>There cannot be more than one | symbol. I.e., this type of notation is nonsense:</p></li>
 </ul>
-<p>If you find this useful…
-<a href="https://www.buymeacoffee.com/jshea" target="_blank"><img alt="Buy Me A Coffee" src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" /></a></p>
-<div class="toctree-wrapper compound">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+P\left( H_3 \left \vert H_2 \right . \left \vert H_1 \right. \right) \mbox{    DON'T DO THIS}
+\end{equation*}\]</div>
+<p>If we want to know the probability of <span class="math notranslate nohighlight">\(H_3\)</span> given that both <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> occurred, then we can use the intersection operator <span class="math notranslate nohighlight">\(\cap\)</span> to express the event that both <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> occurred:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+P\left( H_3 \left \vert H_1 \cap H_2 \right. \right)
+\end{equation*}\]</div>
 </div>
+<p>Now that we have appropriate mathematical notation, we can work through a simple example. Here, we use basic counting arguments to calculate the indicated probabilities without yet providing a mathematical definition for conditional probabilities.</p>
+<p><strong>Simple Example: Defective Computers in a Lab</strong></p>
+<p>A computer lab contains</p>
+<ul class="simple">
+<li><p>two computer from manufacturer A, one of which is defective\pause</p></li>
+<li><p>three computers from manufacturer B, two of which are defective\pause</p></li>
+</ul>
+<p>A user sits down at a computer at random.</p>
+<p>Let the properties of the
+computer he sits down at be denoted by a two letter code, where the
+first letter is the manufacturer and the second letter is D for a
+defective computer and N for a non-defective computer. Since there would be two <span class="math notranslate nohighlight">\(BD\)</span>
+outcomes with this labeling (and the elements in a set must be unique), we denote the
+two defective computers from manufacturer <span class="math notranslate nohighlight">\(B\)</span> as <span class="math notranslate nohighlight">\(BD_1\)</span> and <span class="math notranslate nohighlight">\(BD_2\)</span>.  Then the sample space
+is
+$<span class="math notranslate nohighlight">\(
+\mathcal{S}=\left\{ AD, AN, BD_1, BD_2, BN\right\}
+\)</span>$</p>
+<p>Now we define the following events:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E_A\)</span> is the event that the user’s computer is from manufacturer <span class="math notranslate nohighlight">\(A\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E_B\)</span> is the event that the user’s computer is from manufacturer <span class="math notranslate nohighlight">\(B\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(E_D\)</span> is the event that the user’s computer is defective</p></li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -422,7 +459,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./intro"
+            path: "./05-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -438,15 +475,15 @@
 
 <div class='prev-next-bottom'>
     
-     <div id="next">
-        <a class="right-next" href="../01-intro/intro.html" title="next page">
+    <div id="prev">
+        <a class="left-prev" href="conditional-prob1.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1. </span>Introduction</p>
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">5.1. </span>Simulating and Counting Conditional Probabilities</p>
             </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
         </a>
-     </div>
+    </div>
 
 </div>
         
