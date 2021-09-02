@@ -1,6 +1,6 @@
 [
     {
-        "question": "Suppose a magician has three coins: one is a fair coin, and two are two-headed coins. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",,
+        "question": "Suppose a magician has three coins: one is a fair coin, and two are two-headed coins. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",
         "type": "numeric",
         "precision": 2,
         "answers": [
@@ -31,7 +31,7 @@
         ]
     },
     {
-        "question": "Suppose a magician has three coins: two are fair, and one is a two-headed coin. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",,
+        "question": "Suppose a magician has three coins: two are fair, and one is a two-headed coin. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",
         "type": "numeric",
         "precision": 2,
         "answers": [
