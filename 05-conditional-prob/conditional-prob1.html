@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Conditional Probability &#8212; Introduction to Data Science for Engineers</title>
+    <title>5.1. Simulating and Counting Conditional Probabilities &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.1. Simulating and Counting Conditional Probabilities" href="conditional-prob1.html" />
-    <link rel="prev" title="4.8. Summary" href="../04-probability1/summary.html" />
+    <link rel="prev" title="5. Conditional Probability" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -284,7 +283,7 @@
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="intro.html">
    5. Conditional Probability
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -292,9 +291,9 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="conditional-prob1.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      5.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
@@ -341,7 +340,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/intro.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/conditional-prob1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -366,7 +365,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/intro.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/conditional-prob1.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -383,6 +382,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-magicians-coin-part-1">
+   5.1.1. The Magician’s Coin Part 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-magicians-coin-part-2">
+   5.1.2. The Magician’s Coin Part 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-magicians-coin-part-3">
+   5.1.3. The Magician’s Coin Part 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   5.1.4. Exercise
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   5.1.5. Discussion
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -391,20 +423,208 @@
         
               <div>
                 
-  <div class="section" id="conditional-probability">
-<h1><span class="section-number">5. </span>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h1>
-<p><em>Conditional probability</em> is the study of <strong>dependence</strong> between random phenomena. This is one of the most important concepts in probability. In fact, it is often said that “all probabilities are conditional”, which means that we should always understand probability through the concepts taught in this chapter. Some examples of how we can use conditional probabilities are</p>
+  <div class="section" id="simulating-and-counting-conditional-probabilities">
+<h1><span class="section-number">5.1. </span>Simulating and Counting Conditional Probabilities<a class="headerlink" href="#simulating-and-counting-conditional-probabilities" title="Permalink to this headline">¶</a></h1>
+<p>We will begin to explore conditional probabilities through two methods that we have been using in previous chapters: simulation and counting. As with the questions in the introduction, the following example has a simple setup but quickly creates many interesting questions to explore:</p>
+<div class="section" id="the-magicians-coin-part-1">
+<h2><span class="section-number">5.1.1. </span>The Magician’s Coin Part 1<a class="headerlink" href="#the-magicians-coin-part-1" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you attend a magic show. The magician shows you two coins: a two-headed coin and a fair coin. She asks you to pick one of the coins and flip it at random, observing only the top face. If the outcome of that first flip is Heads, does that affect the probability that Heads would come up if you flip that coin again?</p>
+<p>To be able to answer this question, we will first answer a simpler question: <strong>What is the probability of getting heads when one of the coins is chosen at random and flipped?</strong></p>
+<p>I will show you how to easily analyze this probability in the next section, but let’s first build a simple simulation to simulate this probability.</p>
+<p>To facilitate learning, I build the simulation in three steps below. All of them leverage the <code class="docutils literal notranslate"><span class="pre">random</span></code> library, so let’s start by importing that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Step 1.</strong> Let’s use <code class="docutils literal notranslate"><span class="pre">random.choice()</span></code> to choose a random coin from the list <code class="docutils literal notranslate"><span class="pre">['fair',</span> <span class="pre">'2head']</span></code> and print it out for a very small simulation. (Note that there are <strong>much</strong> more computationally efficient ways to implement this simulation, but the goal here is to make the simulation as <strong>clear as possible</strong> to the reader.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">choose_coin</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">coin</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choose_coin</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2head
+fair
+fair
+fair
+fair
+fair
+2head
+2head
+fair
+fair
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Step 2.</strong> Now, we can check the outcome of the coin choice and randomly choose one of the faces of the chosen coin. If you are following along in a separate Jupyter notebook, I suggest you copy the function from above, rename it, and then add the rest of the code (the part below the comment in the function below):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">choose_and_flip</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
+        <span class="c1"># Delete the print statement and add the following:</span>
+        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="s1">&#39;fair&#39;</span><span class="p">:</span>
+            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">coin</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choose_and_flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2head H
+2head H
+fair T
+2head H
+2head H
+2head H
+2head H
+fair H
+fair H
+fair H
+</pre></div>
+</div>
+</div>
+</div>
+<p>By inspection, you should see that the relative frequency of heads is more than 1/2. Hopefully, you already expected this by intuition. You may even already have an idea of what the probability of heads is on one flip of  this coin.</p>
+<p><strong>Step 3.</strong> Finally, let’s estimate the probability of heads by determining the relative frequency of ‘H’. We initialize a counter called <code class="docutils literal notranslate"><span class="pre">num_heads</span></code> to zero outside the simulation loop and then increment it every time the outcome is <code class="docutils literal notranslate"><span class="pre">H</span></code>.</p>
+<p><strong>Important: Note that we need to drastically increase the number of simulated coin flips, so we will turn off printing inside the for loop.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_flip</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100_000</span><span class="p">):</span>
+    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
+    
+    <span class="n">num_heads</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="s1">&#39;fair&#39;</span><span class="p">:</span>
+            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
+        <span class="n">value</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value</span><span class="o">==</span><span class="s1">&#39;H&#39;</span><span class="p">:</span>
+            <span class="n">num_heads</span><span class="o">+=</span><span class="mi">1</span>
+            
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of H is approximately&quot;</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_flip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H is approximately 0.75061
+</pre></div>
+</div>
+</div>
+</div>
+<p>How can we calculate this probability using equally likely outcomes? Let’s create a table that enumerates all the outcomes:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Coin</p></th>
+<th class="text-align:center head"><p>Face 1</p></th>
+<th class="text-align:center head"><p>Face 2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Fair</p></td>
+<td class="text-align:center"><p><strong>Heads</strong></p></td>
+<td class="text-align:center"><p>Tails</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Two-Headed</p></td>
+<td class="text-align:center"><p><strong>Heads 1</strong></p></td>
+<td class="text-align:center"><p><strong>Heads 2</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>Here, I separately list the two different Heads outcomes for the two-headed coin because I want the outcomes to be equally likely. Since the coins are equally likely to be chosen, and the two faces of each coin are equally likely, the resulting outcomes of the combined experiment are also equally likely.</p>
+<p>Let <span class="math notranslate nohighlight">\(H_1\)</span> denote the event that the top face of the coin on the first flip is Heads. From the table, <span class="math notranslate nohighlight">\(|H_1|=3\)</span> and <span class="math notranslate nohighlight">\(|S|=4\)</span>. Since the outcomes are assumed to be equally likely, <span class="math notranslate nohighlight">\(P(H_1) = |H_1|/|S| = 3/4\)</span>, which matches our simulation.</p>
+</div>
+<div class="section" id="the-magicians-coin-part-2">
+<h2><span class="section-number">5.1.2. </span>The Magician’s Coin Part 2<a class="headerlink" href="#the-magicians-coin-part-2" title="Permalink to this headline">¶</a></h2>
+<p>The reader may wonder what happens if we instead ask about the second flip. Let <span class="math notranslate nohighlight">\(H_i\)</span> be the event that the <span class="math notranslate nohighlight">\(i\)</span>th flip of the coin is Heads. If you do not already know what <span class="math notranslate nohighlight">\(P(H_2)\)</span> will be, take a moment to think about what the simulation will look like – with careful thought, you should be able to know <span class="math notranslate nohighlight">\(P(H_2)\)</span>.</p>
+<p>Let’s build the simulation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_flips</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100_000</span><span class="p">):</span>
+    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
+    
+    <span class="n">num_heads</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="c1"># Note that the coin is chosen once -- the same coin is used for both flips!!!</span>
+        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="s1">&#39;fair&#39;</span><span class="p">:</span>
+            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> 
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
+        <span class="n">value1</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
+        <span class="n">value2</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">value2</span><span class="o">==</span><span class="s1">&#39;H&#39;</span><span class="p">:</span>
+            <span class="n">num_heads</span><span class="o">+=</span><span class="mi">1</span>
+            
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of H2 is approximately&quot;</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_flips</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H2 is approximately 0.75009
+</pre></div>
+</div>
+</div>
+</div>
+<p>Did you guess this answer? It should not be a surprise – we now flip twice as many coins and then throw half of them away (i.e., we never do anything with <code class="docutils literal notranslate"><span class="pre">value1</span></code>)! So, the simulation is just a less efficient version of <code class="docutils literal notranslate"><span class="pre">one_flip()</span></code>.  If we don’t have any other information about the coin (say, from observing the results of some of the flips), then the probability of heads on any flip, <span class="math notranslate nohighlight">\(P(H_i)\)</span>, is equal to <span class="math notranslate nohighlight">\(P(H_1)\)</span>: there are three possible heads outcomes out of four total outcomes.</p>
+<p><strong>Comments on Things Not Observed</strong></p>
+<p>Some students of probability have problems grasping the meaning of some of the probabilities asked about up to this point. For instance, students often ask questions like:</p>
 <ul class="simple">
-<li><p>In null hypothesis testing, we are asking whether an observed difference in a summary statistic <strong>depends</strong> on the underlying grouping of the data. This dependence can be best expressed in terms of conditional probabilities and conditional expectations.</p></li>
-<li><p>In wireless communications, we receive a noisy signal and need to determine which information symbol was transmitted. The noisy signal <strong>depends</strong> on the transmitted information, and thus we can use tools from conditional probability to make optimal decisions about the transmitted symbol.</p></li>
-<li><p>In compound experiments, the later experiments often <strong>depend</strong> on the results of the earlier experiments. For instance, consider drawing cards from a deck. If the first card is an ace, then the probability that second card will be an ace is different than if the first card had not been an ace.</p></li>
+<li><p>How can we evaluate the probability of getting heads if we don’t know which coin was chosen?</p></li>
+<li><p>How can we ask about the probability of getting heads on the <span class="math notranslate nohighlight">\(i\)</span>th flip, if we don’t even know what the outcomes of flips <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(i-1\)</span> were?</p></li>
 </ul>
-<p>In this chapter, we will introduce tools for working with conditional probability. These tools will often help us answer questions that are challenging to understand without conditional probability. Below I give a few quick examples of simple problems that people often find challenging to answer correctly: <span class="math notranslate nohighlight">\(\mbox{ }\)</span></p>
-<p><strong>Balls and Boxes/Urns</strong></p>
-<p>A class set of probability problems involves pulling colored balls from an urn. I have found that many students are not familiar with the  word <em>urn</em> (which is like a large vase), I will use a box instead. To make the problem interesting, the box must contain more than two balls, and the balls must be of at least two different colors. Below I ask some questions about a box containing three balls, of which two are white and one is black.</p>
+<p>It is normal to ask these questions, and we will be exploring this idea more as we learn about conditional probability. The short answer is that we can ask any question we like, but we may not always know how to answer it. A longer answer is that if we want to ask about the probability of some event <span class="math notranslate nohighlight">\(A\)</span> that depends on some possible events <span class="math notranslate nohighlight">\(B_i\)</span>, we can find the probabilities of <span class="math notranslate nohighlight">\(A\)</span> for each of the possible <span class="math notranslate nohighlight">\(B_i\)</span> that could have occurred and then combine them appropriately to find the probability of <span class="math notranslate nohighlight">\(A\)</span>. We will define all this precisely and introduce the appropriate mathematics later in this section.</p>
+</div>
+<div class="section" id="the-magicians-coin-part-3">
+<h2><span class="section-number">5.1.3. </span>The Magician’s Coin Part 3<a class="headerlink" href="#the-magicians-coin-part-3" title="Permalink to this headline">¶</a></h2>
+<p>Now, let’s return to our motivating question: if the coin is flipped once and comes up heads, what is the probability that it will be heads on a second flip (of the same coin)? If you want to take a guess, you can do so using the following quiz:</p>
+<div class="cell tag_remove-input docutils container">
+</div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="DENSVoXvxjcB" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="lyFNsEeCsWaF" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -563,98 +783,40 @@
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsDENSVoXvxjcB=[
+}</style><script type="text/Javascript">questionslyFNsEeCsWaF=[
     {
-        "question": "A box contains 2 white balls and 1 black ball. I reach in the box and remove one ball. Without inspecting it, I place it in my pocket. I withdraw a second ball. What is the probability that the second ball is white?",
-        "type": "multiple_choice",
+        "question": "For the magician's coin problem, what do you believe is the value of $P(H_2|H_1)$? (You can enter a fraction or at least two decimal places).",
+        "type": "numeric",
+        "precision": 2,
         "answers": [
             {
-                "answer": "1/2",
-                "correct": false
+                "type": "value",
+                "value": 0.83,
+                "correct": true,
+                "feedback": "Correct."
             },
             {
-                "answer": "2/3",
-                "correct": true
+                "type": "value",
+                "value": 0.75,
+                "correct": false,
+                "feedback": "It is tempting to think that these flips are independent of each other. But they are not!"
             },
             {
-                "answer": "1/3",
-                "correct": false
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "Remember that probabilities must be non-negative. You can try again."
             },
             {
-                "answer": "Impossible to know without knowing color of first ball",
-                "correct": false
-            },
-            {
-                "answer": "0",
-                "correct": false
-            },
-            {
-                "answer": "Something else",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "A box contains 2 white balls and 1 black ball. I reach in the box and remove one ball. Without inspecting it, I place it in my pocket. I withdraw a second ball. If the second ball is white, what is the probability that the ball in my pocket is white?",
-        "type": "multiple_choice",
-        "answers": [
-            {
-                "answer": "1/2",
-                "correct": true
-            },
-            {
-                "answer": "2/3",
-                "correct": false
-            },
-            {
-                "answer": "1/3",
-                "correct": false
-            },
-            {
-                "answer": "Impossible to know without knowing color of first ball",
-                "correct": false
-            },
-            {
-                "answer": "0",
-                "correct": false
-            },
-            {
-                "answer": "Something else",
-                "correct": false
-            }
-        ]
-    },
-    {
-        "question": "A box contains 2 white balls and 1 black ball. I reach in the box and remove one ball. Without inspecting it, I place it in my pocket. I then look into the box and remove a white ball. What is the probability that the ball in my pocket is white?",
-        "type": "multiple_choice",
-        "answers": [
-            {
-                "answer": "1/2",
-                "correct": false
-            },
-            {
-                "answer": "2/3",
-                "correct": true
-            },
-            {
-                "answer": "1/3",
-                "correct": false
-            },
-            {
-                "answer": "Impossible to know without knowing color of first ball",
-                "correct": false
-            },
-            {
-                "answer": "0",
-                "correct": false
-            },
-            {
-                "answer": "Something else",
-                "correct": false
+                "type": "range",
+                "range": [ 1, 1000000], 
+                "correct": false,
+                "feedback": "Remember that probabilities cannot be larger than 1. You can try again."
             }
         ]
     }
-];
+]
+;
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
     var result = [];
@@ -1269,31 +1431,73 @@ function show_questions(json, mydiv) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch5-intro.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/magician2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, DENSVoXvxjcB))
+        .then(json => show_questions(json, lyFNsEeCsWaF))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsDENSVoXvxjcB, DENSVoXvxjcB);
+        show_questions(questionslyFNsEeCsWaF, lyFNsEeCsWaF);
         });
         }
         </script>
 </div></div>
 </div>
-<p>If you are surprised or confused by the answers, don’t worry. That is normal, and even after we solve these in detail, it may still take you some time to build intuition and deeper understanding of these problems.</p>
-<p><strong>The Monty Hall Problem</strong></p>
-<p>Some readers may be familiar with this problem. However, even if you are familiar with the problem, you may still not understand the mathematics behind solving it.  This problem became famous when it appeared in the “Ask Marilyn” column of <em>Parade</em> magazine, which was distributed with many Sunday newspapers. In this column, Marilyn vos Savant answered tricky questions, and she provided an answer to this problem that provoked a lot of surprise and correspondence.</p>
-<p>The problem is based on an old TV game show called <em>Let’s Make a Deal</em>, which was hosted by Monty Hall. (The problem setup varies somewhat from how the actual TV game worked.)  Here is a slightly paraphrased version of the problem from Parade magazine:</p>
-<p>You are on a game show, and you’re given the choice of three doors:</p>
+<p>Again, let’s simulate the answer before trying to find it analytically. This simulation will be a bit different than the ones we have done before. In the previous simulations, every simulation iteration affects the probability being estimated. In this simulation, that will not be the case because we are going to simulate two coin flips, but <strong>we are only interested in those simulation iterations in which the coin came up Heads on the first flip</strong>. We will need two counters to estimate the probability of getting heads on the second flip given that the first flip was heads:</p>
 <ul class="simple">
-<li><p>Behind one door is a car</p></li>
-<li><p>Behind the other doors are goats</p></li>
+<li><p>First, we need to count how many times the first flip was heads.</p></li>
+<li><p>Second, for those iterations where the first flip was heads, we need to count how many times the second flip was also heads.
+Then the probability we are looking for is the ratio of the second counter to the first counter.</p></li>
 </ul>
-<p>You pick a door, and the host, who knows what’s behind the doors, opens another door, which he knows has a goat.</p>
-<p>The host then offers you the option to switch doors. Does it matter if you switch? If switching changes your probability of getting the prize, what is the new probability?</p>
-<div class="cell tag_remove-input docutils container">
+<p>To implement these in Python, we note that both these counters are only updated under certain conditions. Moreover, the second counter is only updated if the condition for the first counter holds <strong>and</strong> another condition holds (the second flip was also heads).  These conditions will be checked with <code class="docutils literal notranslate"><span class="pre">if</span></code> statements, and the condition-within-a-condition will be in the form of a <em>nested if statement</em>. Much like the nested for loops introduced in Chapter 1, a <em>nested if statement</em> occurs when an if statement is entirely enclosed in the body of another if statement.</p>
+<p>How can we simulate this?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_flips</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
+    <span class="n">heads_count1</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">heads_count2</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
+        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="s1">&#39;fair&#39;</span><span class="p">:</span>
+            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
+        <span class="n">coin1_face</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">coin1_face</span> <span class="o">==</span><span class="s1">&#39;H&#39;</span><span class="p">:</span>
+            <span class="n">heads_count1</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">coin2_face</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">coin2_face</span> <span class="o">==</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span>
+                <span class="n">heads_count2</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of heads on second flip given heads on first flip is&quot;</span><span class="p">,</span>
+          <span class="n">heads_count2</span><span class="o">/</span><span class="n">heads_count1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_flips</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="kVqzafVvUYBN" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of heads on second flip given heads on first flip is 0.8350596564835453
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2><span class="section-number">5.1.4. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<p>Modify the simulation for the Magician’s coin to answer the following question.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_quiz</span><span class="p">(</span><span class="n">git_path</span><span class="o">+</span><span class="s2">&quot;magician-post.json&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="hwfeuSoXhSYu" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1452,34 +1656,71 @@ function show_questions(json, mydiv) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionskVqzafVvUYBN=[
+}</style><script type="text/Javascript">questionshwfeuSoXhSYu=[
     {
-        "question": "For the Monty Hall problem, does it matter if you switch doors?",
-        "type": "multiple_choice",
+        "question": "Suppose a magician has three coins: one is a fair coin, and two are two-headed coins. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",
+        "type": "numeric",
+        "precision": 2,
         "answers": [
             {
-                "answer": "No. The car is behind any door with probability ${}^1{\\mskip -2.5mu/\\mskip -1mu}_3$",
-                "correct": false
+                "type": "value",
+                "value": 0.83,
+                "correct": true,
+                "feedback": "Incorrect. Having 2 two-headed coins is going to increase the probability of getting heads on the second flip in comparison to when there is only one fair coin. If you are simulating this probability, you only need to add one new coin to the original coins list in the simulation."
             },
             {
-                "answer": "Yes. The host has eliminated a goat. The probability of selecting the car is now ${}^1{\\mskip -2.5mu/\\mskip -1mu}_2$",
-                "correct": false
+                "type": "value",
+                "value": 0.9,
+                "correct": true,
+                "feedback": "Correct. "
             },
             {
-                "answer": "Yes. Switching can increase the probability of selecting the car to stricly more than ${}^1{\\mskip -2.5mu/\\mskip -1mu}_2$",
-                "correct": true
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "Remember that probabilities must be non-negative. You can try again."
             },
             {
-                "answer": "No. Switching reduces the probability of selecting the car",
-                "correct": false
+                "type": "range",
+                "range": [ 1, 1000000], 
+                "correct": false,
+                "feedback": "Remember that probabilities cannot be larger than 1. You can try again."
+            }
+        ]
+    },
+    {
+        "question": "Suppose a magician has three coins: two are fair, and one is a two-headed coin. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",
+        "type": "numeric",
+        "precision": 2,
+        "answers": [
+            {
+                "type": "value",
+                "value": 0.83,
+                "correct": true,
+                "feedback": "Incorrect. Having two fair coins is going to reduce the probability of getting heads on the second flip in comparison to when there is only one fair coin. If you are simulating this probability, you only need to add one new coin to the original coins list in the simulation."
             },
             {
-                "answer": "Something else",
-                "correct": false
+                "type": "value",
+                "value": 0.75,
+                "correct": true,
+                "feedback": "Correct. "
+            },
+            {
+                "type": "range",
+                "range": [ -1000000, 0], 
+                "correct": false,
+                "feedback": "Remember that probabilities must be non-negative. You can try again."
+            },
+            {
+                "type": "range",
+                "range": [ 1, 1000000], 
+                "correct": false,
+                "feedback": "Remember that probabilities cannot be larger than 1. You can try again."
             }
         ]
     }
-];
+]
+;
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
     var result = [];
@@ -2094,19 +2335,22 @@ function show_questions(json, mydiv) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch5-monty-hall.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/magician-post.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, kVqzafVvUYBN))
+        .then(json => show_questions(json, hwfeuSoXhSYu))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionskVqzafVvUYBN, kVqzafVvUYBN);
+        show_questions(questionshwfeuSoXhSYu, hwfeuSoXhSYu);
         });
         }
         </script>
 </div></div>
 </div>
-<p>If you do not understand how to get the answer, don’t worry – we will solve this problem later in the chapter.</p>
-<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="discussion">
+<h2><span class="section-number">5.1.5. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Many people are surprised that the outcome of the first coin flip affects the probabilities for the second coin flip. The reason is that their intuition tells them that the coin flips should be independent. If you are one of those people, here is a way to help fix your intuition in cases like these:</p>
+<p><strong>Replace the problem with a more extreme version of the same problem!</strong> Suppose we considered the probability of the coin coming up heads on the next flip given that <em>the coin was heads on the first 1,000,000 flips</em>. If you heard that the coin came up heads on 1,000,000 flips, what would you have to assume? You would have to assume that the selected coin was the two-headed coin.  So, the probability of heads on the next flip will be 1 (or extremely close to that). If you agree that the probability increases toward 1 as we observe 1,000,000 consecutive heads, then what about 100,000 heads? 1000 heads? 100 heads? It must be that if you see a lot of heads, the probability of the magician having selected the two-headed coin increases. So, shouldn’t it increase if even 1 head is observed? By how much? We will answer that later in this chapter.</p>
 </div>
 </div>
 
@@ -2140,23 +2384,14 @@ function show_questions(json, mydiv) {
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../04-probability1/summary.html" title="previous page">
+        <a class="left-prev" href="intro.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">4.8. </span>Summary</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Conditional Probability</p>
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="conditional-prob1.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5.1. </span>Simulating and Counting Conditional Probabilities</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
