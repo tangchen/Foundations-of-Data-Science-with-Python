@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3. First Visualizations and Statistical Tests with Real Data &#8212; Introduction to Data Science for Engineers</title>
+    <title>5.3. Formally Defining Conditional Probability &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,8 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.1. Intro to Pandas" href="pandas-start.html" />
-    <link rel="prev" title="2.5. Review" href="../02-first-stats/review.html" />
+    <link rel="prev" title="5.2. Conditional Probability: Notation and Intuition" href="notation-and-intuition.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -177,53 +178,53 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-first-data/intro.html">
    3. First Visualizations and Statistical Tests with Real Data
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="pandas-start.html">
+    <a class="reference internal" href="../03-first-data/pandas-start.html">
      3.1. Intro to Pandas
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="visualization.html">
+    <a class="reference internal" href="../03-first-data/visualization.html">
      3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="partitions.html">
+    <a class="reference internal" href="../03-first-data/partitions.html">
      3.3. Partitions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="summary-stats.html">
+    <a class="reference internal" href="../03-first-data/summary-stats.html">
      3.4. Summary Statistics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="histogram.html">
+    <a class="reference internal" href="../03-first-data/histogram.html">
      3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="hypothesis-testing.html">
+    <a class="reference internal" href="../03-first-data/hypothesis-testing.html">
      3.6. Binary Hypothesis Testing with Real Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="2d-scatter.html">
+    <a class="reference internal" href="../03-first-data/2d-scatter.html">
      3.7. A Quick Preview of Two-Dimensional Statistical Methods
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="review.html">
+    <a class="reference internal" href="../03-first-data/review.html">
      3.8. Review
     </a>
    </li>
@@ -281,28 +282,28 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05-conditional-prob/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    5. Conditional Probability
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/conditional-prob1.html">
+    <a class="reference internal" href="conditional-prob1.html">
      5.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/notation-and-intuition.html">
+    <a class="reference internal" href="notation-and-intuition.html">
      5.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/definition.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      5.3. Formally Defining Conditional Probability
     </a>
    </li>
@@ -349,7 +350,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/03-first-data/intro.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/definition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -374,7 +375,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03-first-data/intro.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/definition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -399,21 +400,23 @@
         
               <div>
                 
-  <div class="section" id="first-visualizations-and-statistical-tests-with-real-data">
-<h1><span class="section-number">3. </span>First Visualizations and Statistical Tests with Real Data<a class="headerlink" href="#first-visualizations-and-statistical-tests-with-real-data" title="Permalink to this headline">¶</a></h1>
-<p>In <span class="xref std std-doc">Chapter 2</span>, we considered a simple statistical question that we could study through simulation, data visualization, and estimating probabilities. However, the type of problem considered in <span class="xref std std-doc">Chapter 2</span> is different than many that we encounter in data science because we had an exact model for the random experiment that we ended up simulating (repeated flips of a fair coin).</p>
-<p>In this chapter, we consider how to apply the ideas from <span class="xref std std-doc">Chapter 2</span> to a real data set, where we do not know the underlying model for the experiment.</p>
-<p><strong>Example: Early Numbers of Covid-19 Cases Across States</strong></p>
-<p>The novel coronavirus called Covid-19 spread quickly in the United States (US) during the spring of 2020 and soon became a pandemic, affecting countries throughout the world. However, the spread of Covid-19 was very different in different areas, and we would like to investigate that to see what types of socioeconomic factors might be related to the spread of Covid-19 in the US.</p>
-<p>By early summer, states were implementing a variety of different of mitigation measures, from masking to stay-at-home orders. So here we will focus on the spread of Covid-19 prior to most of these measures being put in place. We have chosen to perform our statistical analyses using the cumulative number of Covid-19 cases through the end of April 2020.</p>
-<p>We analyze data on the number of Covid-19 cases for each state (from a dataset maintained by the New York Times) with data about the states and their populations that comes from the US Census Bureau and the US Department of Commerce’s Bureau of Economic Analysis. The goal is to investigate whether factors such as economic productivity and how urban a state is were statistically significant indicators of the number of Covid-19.</p>
-<p>All of this data is available in two common data formats:</p>
-<ul class="simple">
-<li><p><strong>Comma Separated Values (CSV)</strong> files have data points separated by commas. The CSV format has the benefit that it is a pure text file and is not tied to any particular company’s software. On the other hand, CSV files are not ideal if any of the entries contain commas. In this case, the entry can be enclosed in quotation marks, but then special treatment can be needed to deal with entries that contain quotation marks. There is no single standard for dealing with all these cases.</p></li>
-<li><p><strong>Excel File (.xls or .xlsx)</strong> files are spreadsheet files for Microsoft Excel. These have become so common that many non-Microsoft products and tools can read and import data from these files.</p></li>
-</ul>
-<p>In the next section, we begin by introducing the Pandas  library, which is one of the most common Python libraries for importing and working with tabular data.</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="formally-defining-conditional-probability">
+<h1><span class="section-number">5.3. </span>Formally Defining Conditional Probability<a class="headerlink" href="#formally-defining-conditional-probability" title="Permalink to this headline">¶</a></h1>
+<p>In <a class="reference internal" href="notation-and-intuition.html"><span class="doc">Conditional Probability: Notation and Intuition</span></a>, we introduced the idea of a <em>conditional sample space</em>. Suppose that we are interested in the conditional probability of <span class="math notranslate nohighlight">\(A\)</span> given that event <span class="math notranslate nohighlight">\(B\)</span> occurred. A Venn diagram for a general set of events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is shown in <a class="reference internal" href="#cond-prob-two-events"><span class="std std-numref">Fig. 5.1</span></a></p>
+<div class="figure align-default" id="cond-prob-two-events">
+<a class="reference internal image-reference" href="../_images/venn-diagram-two-events.svg"><img alt="Venn diagram for two generic events, $A$ and $B$." src="../_images/venn-diagram-two-events.svg" width="400px" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Venn diagram of two generic events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, where the event <span class="math notranslate nohighlight">\(B\)</span> is shaded to indicate that it is known to have occurred.</span><a class="headerlink" href="#cond-prob-two-events" title="Permalink to this image">¶</a></p>
+</div>
+<p>If the original sample space is <span class="math notranslate nohighlight">\(S\)</span>, then the set of outcomes that can have occurred given that <span class="math notranslate nohighlight">\(E\)</span> occurred is limited to the <em>conditional sample space</em></p>
+<div class="math notranslate nohighlight">
+\[
+S_{|B} = S \cap B = B
+\]</div>
+<p>Similarly, given that <span class="math notranslate nohighlight">\(B\)</span> occurred, the only possible outcomes in <span class="math notranslate nohighlight">\(A\)</span> that could have occurred are those in <span class="math notranslate nohighlight">\(A_{|B} = A \cap B\)</span>.  The conditional sample space <span class="math notranslate nohighlight">\(S_{|B}\)</span> and and the conditional event
+<span class="math notranslate nohighlight">\(A_{|B}\)</span> are shown in <a class="reference internal" href="#cond-sample-space"><span class="std std-numref">Fig. 5.2</span></a>.</p>
+<div class="figure align-default" id="cond-sample-space">
+<a class="reference internal image-reference" href="../_images/conditional-sample-space.svg"><img alt="Induced conditional sample space $S_{|B}$ and conditional event $A_{|B}$ from conditioning on event $B$." src="../_images/conditional-sample-space.svg" width="400px" /></a>
+<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Venn diagram of two generic events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, where the event <span class="math notranslate nohighlight">\(B\)</span> is shaded to indicate that it is known to have occurred.</span><a class="headerlink" href="#cond-sample-space" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 
@@ -430,7 +433,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./03-first-data"
+            path: "./05-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -447,23 +450,14 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../02-first-stats/review.html" title="previous page">
+        <a class="left-prev" href="notation-and-intuition.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">2.5. </span>Review</p>
+                <p class="prevnext-title"><span class="section-number">5.2. </span>Conditional Probability: Notation and Intuition</p>
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="pandas-start.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">3.1. </span>Intro to Pandas</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
