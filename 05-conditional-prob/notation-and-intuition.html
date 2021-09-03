@@ -345,7 +345,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/conditional-prob-analysis.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/notation-and-intuition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -370,7 +370,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/conditional-prob-analysis.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/notation-and-intuition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -399,10 +399,11 @@
 <h1><span class="section-number">5.2. </span>Conditional Probability: Notation and Intuition<a class="headerlink" href="#conditional-probability-notation-and-intuition" title="Permalink to this headline">¶</a></h1>
 <p>In the last section, we introduced the <em>concept</em> of conditional probability, which is we want to know the probability of an event <strong>given that another event has occurred</strong>. To make our work on conditional probability easier and to effectively communicate with others, we will need to introduce the standard mathematical notation for this type of conditional probability.</p>
 <p>A conditional probability is indicated if there is a vertical bar “|” inside the arguments of the probability measure. (Programmers often call the | symbol “pipe”.) If there is a | symbol, then the parts of the argument on each side of the | should both be events. The part that follows the | symbol is the conditioning event (i.e., the event that is given to have happened).</p>
-<p>Let’s make this more concrete by formalizing the notation for the Magician’s coin problem. As before, we let <span class="math notranslate nohighlight">\(H_i\)</span> be the even that the coin came up heads on flip <span class="math notranslate nohighlight">\(i\)</span>. Then if we want to know the conditional probability that the coin came up heads on the second flip given that it came up heads on the first flip, we can write it in mathematical notation as
-$<span class="math notranslate nohighlight">\(
+<p>Let’s make this more concrete by formalizing the notation for the Magician’s coin problem. As before, we let <span class="math notranslate nohighlight">\(H_i\)</span> be the even that the coin came up heads on flip <span class="math notranslate nohighlight">\(i\)</span>. Then if we want to know the conditional probability that the coin came up heads on the second flip given that it came up heads on the first flip, we can write it in mathematical notation as</p>
+<div class="math notranslate nohighlight">
+\[
 P\left( H_2 \left| H_1 \right. \right) .
-\)</span>$</p>
+\]</div>
 <p>When we see such a statement, we will read the mathematical formulation (i.e., without referring to the definitions of <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span>) as “the conditional probability of <span class="math notranslate nohighlight">\(H_2\)</span> given <span class="math notranslate nohighlight">\(H_1\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -434,10 +435,11 @@ first letter is the manufacturer and the second letter is D for a
 defective computer and N for a non-defective computer. Since there would be two <span class="math notranslate nohighlight">\(BD\)</span>
 outcomes with this labeling (and the elements in a set must be unique), we denote the
 two defective computers from manufacturer <span class="math notranslate nohighlight">\(B\)</span> as <span class="math notranslate nohighlight">\(BD_1\)</span> and <span class="math notranslate nohighlight">\(BD_2\)</span>.  Then the sample space
-is
-$<span class="math notranslate nohighlight">\(
+is</p>
+<div class="math notranslate nohighlight">
+\[
 {S}=\left\{ AD, AN, BD_1, BD_2, BN\right\}
-\)</span>$</p>
+\]</div>
 <p>Now we define the following events:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(E_A\)</span> is the event that the user’s computer is from manufacturer <span class="math notranslate nohighlight">\(A\)</span></p></li>
@@ -1348,16 +1350,18 @@ function show_questions(json, mydiv) {
 </div></div>
 </div>
 <p>Now consider how these probabilities change if you are given some information about one of the vents.  For instance, suppose I tell you that the computer is from Manufacture A. Given that information, does that change your answer for the probability that the computer is defective?</p>
-<p>Note that we can denote this probability by <span class="math notranslate nohighlight">\(P\left(E_D \left \vert E_A \right. \right)\)</span>.  If you don’t immediately understand what this probability is, we can use the following approach. Given <span class="math notranslate nohighlight">\(E_A\)</span>, the only possible outcomes are <span class="math notranslate nohighlight">\(AD\)</span> and <span class="math notranslate nohighlight">\(AN\)</span>. Thus given <span class="math notranslate nohighlight">\(E_A\)</span>, we can consider that the outcomes come from a new, smaller (conditional) sample space:
-$<span class="math notranslate nohighlight">\( 
+<p>Note that we can denote this probability by <span class="math notranslate nohighlight">\(P\left(E_D \left \vert E_A \right. \right)\)</span>.  If you don’t immediately understand what this probability is, we can use the following approach. Given <span class="math notranslate nohighlight">\(E_A\)</span>, the only possible outcomes are <span class="math notranslate nohighlight">\(AD\)</span> and <span class="math notranslate nohighlight">\(AN\)</span>. Thus given <span class="math notranslate nohighlight">\(E_A\)</span>, we can consider that the outcomes come from a new, smaller (conditional) sample space:</p>
+<div class="math notranslate nohighlight">
+\[ 
 S_{|A} = \left \{ AD, AN \right\}.
-\)</span>$
-All the outcomes were equally likely to begin with, and giving information that restricts the possible outcomes to two of the outcomes should not change the outcomes from being equally likely in the new sample space.</p>
-<p>The event <span class="math notranslate nohighlight">\(E_D\)</span> in the conditional sample space <span class="math notranslate nohighlight">\(S_{|A}\)</span> is <span class="math notranslate nohighlight">\(E_D=\left\{AD \right\}\)</span>, and
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>All the outcomes were equally likely to begin with, and giving information that restricts the possible outcomes to two of the outcomes should not change the outcomes from being equally likely in the new sample space.</p>
+<p>The event <span class="math notranslate nohighlight">\(E_D\)</span> in the conditional sample space <span class="math notranslate nohighlight">\(S_{|A}\)</span> is <span class="math notranslate nohighlight">\(E_D=\left\{AD \right\}\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[
 P(E_D) = P(\left\{AD\right\}) = \frac{ \left \vert \left\{AD\right\} \right \vert}
 {|S_{|A}|} = \frac 1 2 
-\)</span>$</p>
+\]</div>
 <p>Use this approach to answer the following questions:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -2230,7 +2234,7 @@ function show_questions(json, mydiv) {
 <li><p>The outcomes have to be equally likely.</p></li>
 <li><p>The conditioning event has to only restrict the set of outcomes to a subset of the sample space; it cannot make some of the remaining outcomes more likely than others.</p></li>
 </ol>
-<p>These requirements are often not met, and so we need a more systematic way to define and calculate conditional probabilities:</p>
+<p>These requirements are often not met, and so we need a more systematic way to define and calculate conditional probabilities. That is the subject of the next section.</p>
 </div>
 
     <script type="text/x-thebe-config">
