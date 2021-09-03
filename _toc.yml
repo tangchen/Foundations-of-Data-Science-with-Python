@@ -43,4 +43,4 @@ sections:
 - file: 05-conditional-prob/intro
   sections:
   - file: 05-conditional-prob/conditional-prob1
-  - file: 05-conditional-prob/conditional-prob-analysis
+  - file: 05-conditional-prob/notation-and-intuition
