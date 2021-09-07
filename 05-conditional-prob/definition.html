@@ -407,7 +407,7 @@
 <a class="reference internal image-reference" href="../_images/venn-diagram-two-events.svg"><img alt="Venn diagram for two generic events, $A$ and $B$." src="../_images/venn-diagram-two-events.svg" width="400px" /></a>
 <p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Venn diagram of two generic events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, where the event <span class="math notranslate nohighlight">\(B\)</span> is shaded to indicate that it is known to have occurred.</span><a class="headerlink" href="#cond-prob-two-events" title="Permalink to this image">¶</a></p>
 </div>
-<p>If the original sample space is <span class="math notranslate nohighlight">\(S\)</span>, then the set of outcomes that can have occurred given that <span class="math notranslate nohighlight">\(E\)</span> occurred is limited to the <em>conditional sample space</em></p>
+<p>If the original sample space is <span class="math notranslate nohighlight">\(S\)</span>, then the set of outcomes that can have occurred given that <span class="math notranslate nohighlight">\(B\)</span> occurred is limited to the <em>conditional sample space</em></p>
 <div class="math notranslate nohighlight">
 \[
 S_{|B} = S \cap B = B
@@ -418,6 +418,55 @@ S_{|B} = S \cap B = B
 <a class="reference internal image-reference" href="../_images/conditional-sample-space.svg"><img alt="Induced conditional sample space $S_{|B}$ and conditional event $A_{|B}$ from conditioning on event $B$." src="../_images/conditional-sample-space.svg" width="400px" /></a>
 <p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Venn diagram of two generic events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, where the event <span class="math notranslate nohighlight">\(B\)</span> is shaded to indicate that it is known to have occurred.</span><a class="headerlink" href="#cond-sample-space" title="Permalink to this image">¶</a></p>
 </div>
+<p>Based on <a class="reference internal" href="#cond-sample-space"><span class="std std-numref">Fig. 5.2</span></a>, we make the following observations under the condition that <span class="math notranslate nohighlight">\(B\)</span> is known to have occurred:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive, then there are no outcomes of <span class="math notranslate nohighlight">\(A\)</span> contained in the event <span class="math notranslate nohighlight">\(B\)</span>.  Thus, if <span class="math notranslate nohighlight">\(B\)</span> occurs, <span class="math notranslate nohighlight">\(A\)</span> cannot have occurred, and thus <span class="math notranslate nohighlight">\(P(A|B)=0\)</span> in this case.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(B \subset A\)</span>, then the intersection region <span class="math notranslate nohighlight">\(A \cap B = B\)</span>.  In other words, every outcome in <span class="math notranslate nohighlight">\(B\)</span> is an outcome in <span class="math notranslate nohighlight">\(A\)</span>. If <span class="math notranslate nohighlight">\(B\)</span> occurred, then <span class="math notranslate nohighlight">\(A\)</span> must have occurred, so <span class="math notranslate nohighlight">\(P(A|B)=1\)</span> in this case.</p></li>
+<li><p>Under the condition that <span class="math notranslate nohighlight">\(B\)</span> occurred, only the outcomes in <span class="math notranslate nohighlight">\(A\)</span> that are also in <span class="math notranslate nohighlight">\(B\)</span> are possible. Thus, <span class="math notranslate nohighlight">\(P(A|B)\)</span> should be proportional to <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> (i.e., the smaller region in <a class="reference internal" href="#cond-sample-space"><span class="std std-numref">Fig. 5.2</span></a>.</p></li>
+</ul>
+<p>These observations lead to the following definition of conditional probability:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINTION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>conditional probability</dt><dd><p class="card-text">The conditional probability of an event <span class="math notranslate nohighlight">\(A\)</span> given that an event <span class="math notranslate nohighlight">\(B\)</span> occurred, where <span class="math notranslate nohighlight">\(P(B) \ne 0\)</span>, is</p>
+</dd>
+</dl>
+<div class="math notranslate nohighlight">
+\[
+P(A|B) = \frac{P \left( A \cap B \right)}{P\left(B\right)}
+\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Now suppose we have a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\left( \right)\)</span> and an event <span class="math notranslate nohighlight">\(B\)</span> with <span class="math notranslate nohighlight">\(P(B) \ne 0\)</span>.  Then we define a new probability space <span class="math notranslate nohighlight">\(S, \mathcal{F},  
+P\left( ~ \left \vert B \right. \right)\)</span>, where <span class="math notranslate nohighlight">\(P\left( ~ \left \vert B \right. \right)\)</span> is the conditional probability measure given that <span class="math notranslate nohighlight">\(B\)</span> occurred. To be more precise, we define <span class="math notranslate nohighlight">\(P\left( ~ \left \vert B \right. \right)\)</span> on the event class <span class="math notranslate nohighlight">\(A\)</span> using the original probability measure <span class="math notranslate nohighlight">\(P()\)</span> as follows:</p>
+<ul class="simple">
+<li><p>for each <span class="math notranslate nohighlight">\(A \in \mathcal{F}\)</span>,
+$<span class="math notranslate nohighlight">\(
+P(A|B) = \frac{P \left( A \cap B \right)}{P\left(B\right)}.
+\)</span>$</p></li>
+</ul>
+<p>To claim that the triple <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\left( ~ \left \vert B \right. \right)\)</span> defined as above is a probability space, we need to verify that the conditional probability measure <span class="math notranslate nohighlight">\(P\left( ~ \left \vert B \right. \right)\)</span>  <strong>satisfies the axioms</strong> in this probability space:</p>
+<p><strong>1.</strong> Axiom 1 is that the probabilities are non-negative. Let’s check:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+      P(A|B)=\frac{P(A \cap B)}{P(B)}.
+\end{eqnarray*}\]</div>
+<p>Note that we are already given that <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>, and <span class="math notranslate nohighlight">\(P() \ge 0\)</span> for all events in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>. Since <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is a <span class="math notranslate nohighlight">\(\sigma\)</span>-algebra, <span class="math notranslate nohighlight">\(A \cap B \in \mathcal{F}\)</span> and so <span class="math notranslate nohighlight">\(P(A \cap B) \ge 0\)</span>.  Thus, <span class="math notranslate nohighlight">\(P(A|B)\)</span> is a non-negative quantity divided by a positive quantity, and so <span class="math notranslate nohighlight">\(P(A|B) \ge 0\)</span>.</p>
+<p><strong>2.</strong> Axiom 2 is that the probability of <span class="math notranslate nohighlight">\(S\)</span> (the sample space) is 1. Let’s check:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+      P(S|B)= \frac{P(S \cap B)}{P(B)}  = \frac{P(B)}{P(B)}
+       =1
+\end{eqnarray*}\]</div>
 </div>
 
     <script type="text/x-thebe-config">
