@@ -308,6 +308,11 @@
      5.3. Formally Defining Conditional Probability
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-conditional-prob/relating-cond-uncond.html">
+     5.4. Relating Conditional and Unconditional Probabilities
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -452,17 +457,19 @@ P(A) = 1 - P(\overline{A}).
 P(\emptyset) = 1 - P(\overline{\emptyset}).
 \]</div>
 <p>But <span class="math notranslate nohighlight">\(\overline{\emptyset} =S\)</span>. Thus,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-caba9817-01aa-4339-85ae-43b78dc7cc88">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-caba9817-01aa-4339-85ae-43b78dc7cc88" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-00f9bb98-6ef0-4c87-a1c1-6fd410ffbc02">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-00f9bb98-6ef0-4c87-a1c1-6fd410ffbc02" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(\emptyset) &amp;= 1 - P(S) \\
 &amp;= 1-1 \\
 &amp;=0
 \end{align}\]</div>
 <p><strong>Corollary 4.</strong> If <span class="math notranslate nohighlight">\(A_1, A_2, \ldots, A_n\)</span> are pairwise mutually
-exclusive, then
-\begin{eqnarray*}
-P\left(\bigcup_{k=1}^{n} A_k \right)= \sum_{k=1}^{n} P(A_k)
-\end{eqnarray*}</p>
+exclusive, then</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  \begin{eqnarray*}
+    P\left(\bigcup_{k=1}^{n} A_k \right)= \sum_{k=1}^{n} P(A_k)
+  \end{eqnarray*}
+</pre></div>
+</div>
 <p>The proof is by induction and is omitted.</p>
 <p><strong>Corollary 5.</strong> <span class="math notranslate nohighlight">\(P(A \cup B) = P(A) +P(B) - P(A \cap B)\)</span></p>
 <p><em>Proof</em></p>

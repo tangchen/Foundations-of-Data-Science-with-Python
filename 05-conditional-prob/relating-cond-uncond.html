@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.8. Review &#8212; Introduction to Data Science for Engineers</title>
+    <title>5.4. Relating Conditional and Unconditional Probabilities &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -51,8 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. First Simulations, and Visualizations, and Statistical Tests" href="../02-first-stats/intro.html" />
-    <link rel="prev" title="1.7. Getting Started in Python" href="python-start.html" />
+    <link rel="prev" title="5.3. Formally Defining Conditional Probability" href="definition.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,53 +89,53 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-intro/intro.html">
    1. Introduction
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="who-for.html">
+    <a class="reference internal" href="../01-intro/who-for.html">
      1.1. Who is this book for?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="why-this-book.html">
+    <a class="reference internal" href="../01-intro/why-this-book.html">
      1.2. Why learn data science from this book?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="what-is-data-science.html">
+    <a class="reference internal" href="../01-intro/what-is-data-science.html">
      1.3. What is data science?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="what-book-covers.html">
+    <a class="reference internal" href="../01-intro/what-book-covers.html">
      1.4. What data science topics does this book cover?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="intro-jupyter-and-python.html">
+    <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
      1.5. Extremely Brief Intro to Jupyter and Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="jupyter-start.html">
+    <a class="reference internal" href="../01-intro/jupyter-start.html">
      1.6. Getting Started in Jupyter
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="python-start.html">
+    <a class="reference internal" href="../01-intro/python-start.html">
      1.7. Getting Started in Python
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/review.html">
      1.8. Review
     </a>
    </li>
@@ -281,33 +282,33 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05-conditional-prob/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    5. Conditional Probability
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/conditional-prob1.html">
+    <a class="reference internal" href="conditional-prob1.html">
      5.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/notation-and-intuition.html">
+    <a class="reference internal" href="notation-and-intuition.html">
      5.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/definition.html">
+    <a class="reference internal" href="definition.html">
      5.3. Formally Defining Conditional Probability
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/relating-cond-uncond.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      5.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
@@ -354,7 +355,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/01-intro/review.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/relating-cond-uncond.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -379,7 +380,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01-intro/review.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/relating-cond-uncond.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -404,17 +405,15 @@
         
               <div>
                 
-  <div class="section" id="review">
-<h1><span class="section-number">1.8. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
-<p>This chapter explains who this book is designed for and a reader would choose to learn data science from this book. Then two of the key tools are briefly introduced: Jupyter and Python.</p>
-<div class="cell tag_remove-input docutils container">
-</div>
-<p><strong>Self-Assessment:</strong></p>
-<p>The following questions can be used to check your understanding of the material covered in this chapter:</p>
-<div class="cell tag_remove-input docutils container">
+  <div class="section" id="relating-conditional-and-unconditional-probabilities">
+<h1><span class="section-number">5.4. </span>Relating Conditional and Unconditional Probabilities<a class="headerlink" href="#relating-conditional-and-unconditional-probabilities" title="Permalink to this headline">¶</a></h1>
+<p>As you may have seen from the Magician’s Coin example, conditional probability is an area of probability where our intuition about probabilities may start to fail. One of my goals in writing this book is to leverage my experience in teaching related materials to help you identify where you may already have some intuition about probability that may not hold.  To this end, consider this very <em>simple</em> question:</p>
+<center>
+    <b>How does having some conditional information affect probabilities about an event?</b>
+</center>
+Before reading the discussion below, answer the following question:<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="HmlwBkbQZwGx" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
-:root {
+<div class="output text_html"><div id="PIXxztUTztjN" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -424,17 +423,16 @@
     --correct-green: #009113;
 }
 
-
 .Quiz {
-     max-width: 600px;
-     margin-top: 15px;
-     margin-left: auto;
-     margin-right: auto;
-     margin-bottom: 15px;
-     padding-bottom: 4px;
-     padding-top: 4px;
-     line-height: 1.1;
-     font-size: 16pt;
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
 }
 
 .QuizCode {
@@ -444,24 +442,28 @@
     margin-right: 20px;
 }
 
-.QuizCode > pre {
+.QuizCode>pre {
     padding: 4px;
 }
-.Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
 }
-.Feedback{
-     font-size: 16pt;
-     text-align:center;
- }
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
 
 .Input {
-    align:left;
+    align: left;
     font-size: 20pt;
 }
+
 .Input-text {
     display: block;
     margin: 10px;
@@ -471,7 +473,6 @@
     color: #fff;
     padding: 5px;
     padding-left: 10px;
-
     font-family: inherit;
     font-size: 20px;
     font-weight: inherit;
@@ -481,309 +482,120 @@
     transition: box-shadow 0.1s);
 }
 
- .Input-text:focus {
-     outline: none;
-     background-color: #c0c0c0;
-     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
- }
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
 
- .MCButton{
-     background: #fafafa;
-     border: 1px solid #eee;
-     border-radius: 10px;
-     padding: 10px;
-     font-size: 16px;
-     cursor: pointer;
-     text-align: center;
- }
- .MultipleChoiceQn {
-     padding: 10px;
-     background: var(--medium-slate-blue);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .ManyChoiceQn {
-     padding: 10px;
-     background: var(--orange-pantone);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .NumericQn {
-     padding: 10px;
-     background: var(--russian-violet);
-     color: #fafafa;
-     border-radius: 10px;
- }
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
 .NumericQn p {
-     color: inherit;
+    color: inherit;
 }
+
 .InpLabel {
-     line-height: 34px;
-     float:left;
-     margin-right: 10px;
-     color: #101010;
-     font-size: 15pt;
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
 }
+
 .incorrect {
     color: var(--incorrect-red);
 }
+
 .correct {
     color: var(--correct-green);
 }
+
 .correctButton {
+    /*
     background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
     color: #fafafa;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
+
 .incorrectButton {
-    background: var(--incorrect-red);
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
     color: #fafafa;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
 
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
 
-</style><script type="text/Javascript">questionsHmlwBkbQZwGx=[
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style><script type="text/Javascript">questionsPIXxztUTztjN=[
     {
-        "question": "Choose all of the following that can be included in Jupyter notebooks?",
-        "type": "many_choice",
-        "answers": [
-            {
-                "answer": "Text and graphics output from Python",
-                "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "Typeset mathematics",
-                "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "Python executable code",
-                "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "Formatted text",
-                "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "Live snakes via Python",
-                "correct": false,
-                "feedback": "I hope not."
-            }
-        ]
-    },
-    {
-        "question": "Which of these are used to create formatted text in Jupyter notebooks?",
+        "question": "Consider events $A$ and $B$ with both $P(A)>0$ and $P(B)>0$. Which of the following statements are true?",
         "type": "multiple_choice",
         "answers": [
             {
-                "answer": "Wiki markup",
+                "answer": "$$P(A|B) \\ge P(A)$$ (I.e., given some information, the probability increases or remains the same.)",
                 "correct": false,
-                "feedback": "False."
+                "feedback": "Incorrect. Try again."
             },
             {
-                "answer": "SVG",
+                "answer": "$$P(A|B) \\le P(A)$$ (I.e., given some information, the probability decreases or remains the same.)",
                 "correct": false,
-                "feedback": "False."
+                "feedback": "Incorrect. Try again."
             },
             {
-                "answer": "Markdown",
+                "answer": "$$P(A|B) = P(A)$$ (Conditional information does not change the probability of an event.)",
+                "correct": false,
+                "feedback": "Incorrect. You should have already seen multiple examples to disprove this in Chapter 5. If you believed this answer was correct when you chose it, you should review Chapter 5 from the beginning."
+            },
+            {
+                "answer": "$P(A|B)$ may be less than, equal to, or greater than $P(A)$, depending on the information given.",
                 "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "Rich Text",
-                "correct": false,
-                "feedback": "False."
-            }
-        ]
-    },
-    {
-        "question": "Which of these are used to typeset mathematics in Jupyter notebooks?",
-        "type": "multiple_choice",
-        "answers": [
-            {
-                "answer": "SiliCoN",
-                "correct": false,
-                "feedback": "False."
-            },
-            {
-                "answer": "AcrYliC",
-                "correct": false,
-                "feedback": "False."
-            },
-            {
-                "answer": "MS Equation",
-                "correct": false,
-                "feedback": "False."
-            },
-            {
-                "answer": "LaTeX",
-                "correct": true,
-                "feedback": "Correct."
-            }
-        ]
-    },
-    {
-        "question": "Which of the following are used to create functional code blocks in Python?",
-        "type": "multiple_choice",
-        "answers": [
-            {
-                "answer": "curly braces {}",
-                "correct": false,
-                "feedback": "Curly braces are used to group code in C, C++, and other languages, but not Python"
-            },
-            {
-                "answer": "parentheses ()",
-                "correct": false,
-                "feedback": "False."
-            },
-            {
-                "answer": "blank lines",
-                "correct": false,
-                "feedback": "Blank lines can help distinguish the end of code blocks visually, but do not affect the functional grouping"
-            },
-            {
-                "answer": "indentation",
-                "correct": true,
-                "feedback": "Correct."
-            }
-        ]
-    },
-    {
-        "question": "Choose all of the following that are used to create comments in Python:",
-        "type": "many_choice",
-        "answers": [
-            {
-                "answer": "//",
-                "correct": false,
-                "feedback": "Incorrect. This is the format of a single-line comment in C."
-            },
-            {
-                "answer": "# comment",
-                "correct": true,
-                "feedback": "Correct. A single hash is used to create a single-line comment"
-            },
-            {
-                "answer": "''' comment'''",
-                "correct": true,
-                "feedback": "Correct. This is used for multi-line comments."
-            },
-            {
-                "answer": "/* comment */",
-                "correct": false,
-                "feedback": "Incorrect. This is a C-style comment."
-            }
-        ]
-    },
-    {
-        "question": "Determine the output of the following Python code:",
-	      "code": "a=\"1\"\nb=\"2\"\nprint(a+b)",
-        "type": "multiple_choice",
-        "answers": [
-            {
-                "answer": "1",
-                "correct": false,
-                "feedback": "No. When strings are operated on by +, they are concatenated."
-            },
-            {
-                "answer": "2",
-                "correct": false,
-                "feedback": "No. When strings are operated on by +, they are concatenated."
-            },
-            {
-                "answer": "3",
-                "correct": false,
-                "feedback": "No. When strings are operated on by +, they are concatenated."
-            },
-            {
-                "answer": "12",
-                "correct": true,
-                "feedback": "Yes. The + operator will concatenate the strings \"1\" and \"2\"."
-            },
-            {
-                "answer": "error",
-                "correct": false,
-                "feedback": "No. The + operator for strings performs string concatenation."
-            }
-        ]
-    },
-    {
-        "question": "What is the output of the following Python program?",
-        "code": "dogs=['Amber', 'Madden', 'Roxy', 'Annie']\nprint(dogs[2])",
-        "answers": [
-            {
-                "answer": "Amber",
-                "correct": false,
-                "feedback": "Because of 0-based indexing, Amber would be dogs[0]"
-            },
-            {
-                "answer": "Madden",
-                "correct": false,
-                "feedback": "Because of 0-based indexing, Madden would be dogs[1]"
-            },
-            {
-                "answer": "Roxy",
-                "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "Annie",
-                "correct": false,
-                "feedback": "Because of 0-based indexing, Annie would be dogs[3]"
-            }
-        ],
-        "type": "multiple_choice"
-    },
-    {
-        "question": "What numbers are printed by the following Python program?",
-        "code": "for k in range(3,9,3):\n    print(k)",
-        "answers": [
-            {
-                "answer": "0, 3",
-                "correct": false,
-                "feedback": "No. The first argument is the starting value for the range. Try again."
-            },
-            {
-                "answer": "3, 6",
-                "correct": true,
-                "feedback": "Correct."
-            },
-            {
-                "answer": "3, 6, 9",
-                "correct": false,
-                "feedback": "No. Although the second argument (9) is the end of this range, remember that the end values are not included in the range."
-            },
-            {
-                "answer": "3, 9",
-                "correct": false,
-                "feedback": "No. The second argument (9) is the end of this range, and the third argument (3) is the increment."
-            }
-        ],
-        "type": "multiple_choice"
-    },
-    {
-        "question": "The variable mylist is a Python list. Choose which code snippet will append the item 3 to mylist.",
-        "type": "multiple_choice",
-        "answers": [
-            {
-                "code": "mylist+=3",
-                "correct": false,
-                "feedback": "The Python + operator is not defined for a list and an integer."
-            },
-            {
-                "code": "mylist+=[3]",
-                "correct": true,
-                "feedback": "Correct. When operating on two lists, the Python + operator performs list concatenation."
-            },
-            {
-                "code": "mylist+={3}",
-                "correct": false,
-                "feedback": "False. In Python, {3} will be a set, and the + operator is not defined for a list and a set."
+                "feedback": "Correct. See the discussion below."
             }
         ]
     }
@@ -791,11 +603,11 @@
 ;
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
-    var result           = [];
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
     }
     return result.join('');
 }
@@ -812,7 +624,7 @@ function getRandomSubarray(arr, size) {
     return shuffled.slice(0, size);
 }
 function check_mc() {
-    var id=this.id.split('-')[0];
+    var id = this.id.split('-')[0];
 
     //console.log("In check_mc(), id="+id);
     //console.log(event.srcElement.id)           
@@ -821,145 +633,148 @@ function check_mc() {
 
     var label = event.srcElement;
     //console.log(label, label.nodeName);
-    var depth=0;
-    while ((label.nodeName!="LABEL") && (depth<3)) {
-        label=label.parentElement;
-        //console.log(depth,label);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
         depth++;
     }
 
 
 
-    var answers=label.parentElement.children;
+    var answers = label.parentElement.children;
 
     //console.log(answers);
 
 
     // Split behavior based on multiple choice vs many choice:
-    var fb = document.getElementById("fb"+id);
+    var fb = document.getElementById("fb" + id);
     //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
-    if (fb.dataset.numcorrect==1) {
+    if (fb.dataset.numcorrect == 1) {
         for (var i = 0; i < answers.length; i++) {
-            var child=answers[i];
+            var child = answers[i];
             //console.log(child);
-            child.className="MCButton";
+            child.className = "MCButton";
         }
 
 
 
-        if (label.dataset.correct=="true")   {
+        if (label.dataset.correct == "true") {
             // console.log("Correct action");
             if ("feedback" in label.dataset) {
-                fb.textContent=label.dataset.feedback;
-            } else{
-                fb.textContent="Correct!";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
             }
             label.classList.add("correctButton");
 
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
 
         } else {
             if ("feedback" in label.dataset) {
-                fb.textContent=label.dataset.feedback;
-            } else{
-                fb.textContent="Incorrect -- try again.";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
             }
             //console.log("Error action");
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
     }
     else {
         var reset = false;
         var feedback;
-        if (label.dataset.correct=="true" )   {
+        if (label.dataset.correct == "true") {
             if ("feedback" in label.dataset) {
-                feedback=label.dataset.feedback;
-            } else{
-                feedback="Correct!";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
             }
-            if (label.dataset.answered<=0) {
-                if (fb.dataset.answeredcorrect<0) {
-                    fb.dataset.answeredcorrect=1;
-                    reset=true;
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
                 } else {
                     fb.dataset.answeredcorrect++;
                 }
                 if (reset) {
                     for (var i = 0; i < answers.length; i++) {
-                        var child=answers[i];
-                        child.className="MCButton";
-                        child.dataset.answered=0;
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
                     }
                 }
                 label.classList.add("correctButton");
-                label.dataset.answered=1;
-                fb.className="Feedback";
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
                 fb.classList.add("correct");
 
             }
         } else {
             if ("feedback" in label.dataset) {
-                feedback=label.dataset.feedback;
-            } else{
-                feedback="Incorrect -- try again.";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
             }
-            if (fb.dataset.answeredcorrect>0) {
-                fb.dataset.answeredcorrect=-1;
-                reset=true;
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
             } else {
                 fb.dataset.answeredcorrect--;
             }
 
             if (reset) {
                 for (var i = 0; i < answers.length; i++) {
-                    var child=answers[i];
-                    child.className="MCButton";
-                    child.dataset.answered=0;
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
                 }
             }
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
 
 
-        var numcorrect=fb.dataset.numcorrect;
-        var answeredcorrect=fb.dataset.answeredcorrect;
-        if (answeredcorrect>=0) {
-            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
         } else {
-            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
         }
 
 
     }
 
-    if (MathJax) {
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
         }
+    } else {
+        console.log('MathJax not detected');
     }
 
 }
 
 function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
-    if (shuffle_answers=="True") {
+    if (shuffle_answers == "True") {
         //console.log(shuffle_answers+" read as true");
-        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
     } else {
         //console.log(shuffle_answers+" read as false");
-        shuffled=qa.answers;
+        shuffled = qa.answers;
     }
 
 
-    var num_correct=0;
+    var num_correct = 0;
 
 
 
@@ -968,35 +783,36 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
         // Make input element
         var inp = document.createElement("input");
-        inp.type="radio";
-        inp.id="quizo"+id+index;
-        inp.style="display:none;";
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
         aDiv.append(inp);
 
         //Make label for input element
         var lab = document.createElement("label");
-        lab.className="MCButton";
-        lab.id=id+ '-' +index;
-        lab.onclick=check_mc;
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
         var aSpan = document.createElement('span');
-        aSpan.classsName="";
+        aSpan.classsName = "";
         //qDiv.id="quizQn"+id+index;
         if ("answer" in item) {
-            aSpan.innerHTML=item.answer;
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
         }
         lab.append(aSpan);
 
         // Create div for code inside question
         var codeSpan;
-        if ("code" in item){
+        if ("code" in item) {
             codeSpan = document.createElement('span');
-            codeSpan.id="code"+id+index;
-            codeSpan.className="QuizCode";
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeSpan.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=item.code;
+            codeCode.innerHTML = item.code;
             lab.append(codeSpan);
             //console.log(codeSpan);
         }
@@ -1008,7 +824,7 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
         if (item.correct) {
             num_correct++;
         }
-        if ("feedback" in item){
+        if ("feedback" in item) {
             lab.setAttribute('data-feedback', item.feedback);
         }
         lab.setAttribute('data-answered', 0);
@@ -1017,10 +833,10 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
     });
 
-    if (num_correct>1) {
-        outerqDiv.className="ManyChoiceQn";
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
     } else {
-        outerqDiv.className="MultipleChoiceQn";
+        outerqDiv.className = "MultipleChoiceQn";
     }
 
     return num_correct;
@@ -1031,20 +847,20 @@ function check_numeric(ths, event) {
     if (event.keyCode === 13) {
         ths.blur();
 
-        var id=ths.id.split('-')[0];
+        var id = ths.id.split('-')[0];
 
-        var submission=ths.value;
-				if (submission.indexOf('/') != -1) {
-            sub_parts=submission.split('/');
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            sub_parts = submission.split('/');
             //console.log(sub_parts);
-            submission=sub_parts[0]/sub_parts[1];
+            submission = sub_parts[0] / sub_parts[1];
         }
-        console.log("Reader entered", submission);
+        //console.log("Reader entered", submission);
 
         if ("precision" in ths.dataset) {
-            precision=ths.dataset.precision;
+            precision = ths.dataset.precision;
             // console.log("1:", submission)
-            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
             // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
@@ -1053,39 +869,39 @@ function check_numeric(ths, event) {
         //console.log(event.srcElement.id)           
         //console.log(event.srcElement.dataset.feedback)
 
-        var fb = document.getElementById("fb"+id);
-        fb.style.display="none";
-        fb.textContent="Incorrect -- try again.";
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
 
-        answers=JSON.parse(ths.dataset.answers);
-        console.log(answers);
+        answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
 
-        var defaultFB="";
+        var defaultFB = "";
         var correct;
-        var done=false;
+        var done = false;
         answers.every(answer => {
-            console.log(answer.type);
+            //console.log(answer.type);
 
-            correct=false;
+            correct = false;
             // if (answer.type=="value"){
-            if ('value' in answer){
+            if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
-                    console.log(answer.correct);
-                    done=true;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
                 }
-            // } else if (answer.type=="range") {
+                // } else if (answer.type=="range") {
             } else if ('range' in answer) {
-                console.log(answer.range);
+                //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
-                    console.log(answer.correct);
-                    done=true;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
                 }
-            } else if (answer.type=="default") {
-                defaultFB=answer.feedback;
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
             }
             if (done) {
                 return false; // Break out of loop if this has been marked correct
@@ -1095,79 +911,103 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent=defaultFB;
-            console.log("Default feedback", defaultFB);
+            fb.textContent = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
         }
 
-        fb.style.display="block";
+        fb.style.display = "block";
         if (correct) {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("correctButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
         } else {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
-
-        if (MathJax) {
-            var version=MathJax.version;
-            if (version[0]=="2") {
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
             }
+        } else {
+            console.log('MathJax not detected');
         }
         return false;
     }
 
 }
 
-function isValid(el,  charC) {
-		if (charC == 46) {
-				if (el.value.indexOf('.') === -1) {
-					  return true;
-				} else if (el.value.indexOf('/') != -1) {
-            parts=el.value.split('/');
-				    if (parts[1].indexOf('.') === -1) {
-					      return true;
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
             }
         }
-        else{
-					  return false;
-				}
-		} else if (charC == 47) {
-				if (el.value.indexOf('/') === -1) {
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
             if ((el.value != "") && (el.value != ".")) {
-					      return true;
+                return true;
             } else {
-					  return false;
-				    }
+                return false;
+            }
         } else {
             return false;
         }
-		} else if (charC == 45) {
-        if (el.value == "" ) {
+    } else if (charC == 45) {
+        edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
             return true;
         } else {
             return false;
         }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     } else {
-				if (charC > 31 && (charC < 48 || charC > 57))
-					  return false;
-		}
-		return true;
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
 }
 
-function numeric_keypress( evnt) {
-		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
 
-    if (charC==13) {
+    if (charC == 13) {
         check_numeric(this, evnt);
-    } else{
-		    return isValid(this, charC);
+    } else {
+        return isValid(this, charC);
     }
 }
 
@@ -1179,28 +1019,28 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
-        //console.log(answer);
+    //console.log(answer);
 
 
-    outerqDiv.className="NumericQn";
-    aDiv.style.display='block';
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
 
     var lab = document.createElement("label");
-    lab.className="InpLabel";
-    lab.textContent="Type numeric answer here:";
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
     aDiv.append(lab);
 
     var inp = document.createElement("input");
-    inp.type="text";
+    inp.type = "text";
     //inp.id="input-"+id;
-    inp.id=id+"-0";
-    inp.className="Input-text";
-    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
     if ("precision" in qa) {
         inp.setAttribute('data-precision', qa.precision);
     }
     aDiv.append(inp);
-    console.log(inp);
+    //console.log(inp);
 
     //inp.addEventListener("keypress", check_numeric);
     //inp.addEventListener("keypress", numeric_keypress);
@@ -1211,33 +1051,72 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
                         );
                         */
     //inp.onkeypress="return numeric_keypress(this, event)";
-    inp.onkeypress=numeric_keypress;
-    inp.onpaste= event => false;
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
 
-    inp.addEventListener("focus", function(event) {
-        this.value="";
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
         return false;
     }
-                        );
+    );
 
 
 }
-function show_questions (json, mydiv) {
-    //var mydiv=document.getElementById(myid);
-    var shuffle_questions=mydiv.dataset.shufflequestions;
-    var num_questions=mydiv.dataset.numquestions;
-    var shuffle_answers=mydiv.dataset.shuffleanswers;
+function jaxify(string) {
+    var mystring = string;
 
-    if (num_questions>json.length) {
-        num_questions=json.length;
+    count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
     }
 
     var questions;
-    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
         //console.log(num_questions+","+json.length);
-        questions=getRandomSubarray(json, num_questions);
+        questions = getRandomSubarray(json, num_questions);
     } else {
-        questions=json;
+        questions = json;
     }
 
     //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
@@ -1252,75 +1131,79 @@ function show_questions (json, mydiv) {
 
         // Create Div to contain question and answers
         var iDiv = document.createElement('div');
-        iDiv.id = 'quizWrap'+id+index;
-        iDiv.className='Quiz';
+        iDiv.id = 'quizWrap' + id + index;
+        iDiv.className = 'Quiz';
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
         var outerqDiv = document.createElement('div');
-        outerqDiv.id="OuterquizQn"+id+index;
+        outerqDiv.id = "OuterquizQn" + id + index;
         //qDiv.textContent=qa.question;
         iDiv.append(outerqDiv);
 
         // Create div to contain question part
         var qDiv = document.createElement('div');
-        qDiv.id="quizQn"+id+index;
+        qDiv.id = "quizQn" + id + index;
         //qDiv.textContent=qa.question;
-        qDiv.innerHTML=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
         outerqDiv.append(qDiv);
 
         // Create div for code inside question
         var codeDiv;
-        if ("code" in qa){
+        if ("code" in qa) {
             codeDiv = document.createElement('div');
-            codeDiv.id="code"+id+index;
-            codeDiv.className="QuizCode";
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeDiv.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=qa.code;
+            codeCode.innerHTML = qa.code;
             outerqDiv.append(codeDiv);
-            console.log(codeDiv);
+            //console.log(codeDiv);
         }
 
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
-        aDiv.id="quizAns"+id+index;
-        aDiv.className='Answer';
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
         iDiv.append(aDiv);
 
-        console.log(qa.type);
+        //console.log(qa.type);
 
         var num_correct;
-        if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if  (qa.type=="numeric") {
-            console.log("numeric");
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
             make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 
         //Make div for feedback
         var fb = document.createElement("div");
-        fb.id="fb"+id;
+        fb.id = "fb" + id;
         //fb.style="font-size: 20px;text-align:center;";
-        fb.className="Feedback";
+        fb.className = "Feedback";
         fb.setAttribute("data-answeredcorrect", 0);
         fb.setAttribute("data-numcorrect", num_correct);
         iDiv.append(fb);
 
 
     });
+    //console.log("At end of show_questions");
     if (typeof MathJax != 'undefined') {
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
+        } else {
+            console.log("MathJax not found");
         }
     }
     return false;
@@ -1333,19 +1216,52 @@ function show_questions (json, mydiv) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/cond-vs-uncond-prob.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, HmlwBkbQZwGx))
+        .then(json => show_questions(json, PIXxztUTztjN))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsHmlwBkbQZwGx, HmlwBkbQZwGx);
+        show_questions(questionsPIXxztUTztjN, PIXxztUTztjN);
         });
         }
         </script>
 </div></div>
 </div>
-<p><strong>Take-aways:</strong></p>
-<p><em>Coming soon!</em></p>
+<p>Click the “plus” button at the right below to reveal the detailed solution:</p>
+<div class="toggle docutils container">
+<p>To see how conditional information can change probabilities, let’s consider a few examples:</p>
+<p><strong>1.</strong> Suppose a <strong>fair</strong> coin is flipped twice, and let <span class="math notranslate nohighlight">\(H_i\)</span> denote the event that the coin came up heads on flip <span class="math notranslate nohighlight">\(i.\)</span> Then clearly, <span class="math notranslate nohighlight">\(P(H_i) =1/2\)</span> and <span class="math notranslate nohighlight">\(P(H_1 \cap H_2) = 1/4\)</span>. From the definition of conditional probability,</p>
+<div class="math notranslate nohighlight">
+\[
+P(H_2|H_1) = \frac{P(H_1 \cap H_2)}{P(H_1)} = \frac{1/4}{1/2} = 1/2
+\]</div>
+<p>So in this case, <span class="math notranslate nohighlight">\(P(H_2|H_1)= P(H_2)\)</span> and <strong>conditional information did not change the probability</strong>. This is expected because the outcome of the second flip should be independent of what happened on the first flip.</p>
+<p><strong>2.</strong> Suppose I have a box containing two balls, one of which is white and one of which is black. Balls are drawn consecutively from the box <strong>without replacement</strong>. Let <span class="math notranslate nohighlight">\(W_i\)</span> be the event that the <span class="math notranslate nohighlight">\(i\)</span>th draw is a white ball.  If we are told that the first draw was a white ball, then clearly the remaining ball is black, so <span class="math notranslate nohighlight">\(P(W_2|W_1)=0\)</span>. Let’s check using the definition of conditional probability. From our previous examples, we know that <span class="math notranslate nohighlight">\(P(W_i)=1/2\)</span>, and <span class="math notranslate nohighlight">\(P(W_1 \cap W_2) = 0\)</span> because there is no way to draw white balls out on both draws.  Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+P(W_2 |W_1) = \frac{P(W_1 \cap W_2)}{P(W_1)} = \frac{0}{1/2} = 0.
+\]</div>
+<p>So, in this case <span class="math notranslate nohighlight">\(P(W_2|W_1)&lt; P(W_2)\)</span>, and <strong>conditional information reduced the probability</strong>.</p>
+<p>In fact, this will happen whenever the two events being evaluated are mutually exclusive. Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be mutually exclusive events with <span class="math notranslate nohighlight">\(P(A)&gt;0\)</span> and <span class="math notranslate nohighlight">\(P(B) &gt;0\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[
+P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(\emptyset)}{P(B)} = 0.
+\]</div>
+<p>If two events are mutually exclusive, then if we know one of them occurs, then the other <strong>cannot have occurred</strong> because it shares no outcomes in common with the event that occurred.</p>
+<p><strong>3.</strong> Consider again the scenario where a fair coin is flipped two times and the ordered result is noted. Let <span class="math notranslate nohighlight">\(E_i\)</span> be the result that the number of heads observed is <span class="math notranslate nohighlight">\(i\)</span>, and let <span class="math notranslate nohighlight">\(F\)</span> be the result that at least one heads occurred.</p>
+<p>From counting, we see <span class="math notranslate nohighlight">\(P(E_1) = 1/2\)</span> and <span class="math notranslate nohighlight">\(P(F) = 3/4\)</span>. Let’s find <span class="math notranslate nohighlight">\(P(F|E_1)\)</span> using the definition of conditional probability. We need to calculate <span class="math notranslate nohighlight">\(P(F \cap E_1)\)</span>. We can write out the relevant events in terms of their outcomes as <span class="math notranslate nohighlight">\(E_1=\{ (H,T), ~(T,H) \}\)</span> and <span class="math notranslate nohighlight">\(F= \{ (H,T),~,(T,H),~,(H,H) \}\)</span>. Then <span class="math notranslate nohighlight">\(F \cap E_1 = E_1\)</span>.  So,</p>
+<div class="math notranslate nohighlight">
+\[
+P(F|E_1) = \frac{ P(F \cap E_1)}{P(E_1)} = \frac{ P(E_1)}{P(E_1)} = 1.
+\]</div>
+<p>So, in this case, <span class="math notranslate nohighlight">\(P(F|E_1) &gt; P(F)\)</span>, and <strong>conditional information increased the probability</strong>.</p>
+<p>In general, if we have events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> where <span class="math notranslate nohighlight">\(B\)</span> is a subset of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(A \cap B = B\)</span>. Then if
+<span class="math notranslate nohighlight">\(P(A)&lt;1\)</span> and <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>,
+$<span class="math notranslate nohighlight">\(
+P(A|B) =\frac{P(A \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1 &gt; P(A).
+\)</span>$</p>
+<p><strong>In conclusion, there is no general answer to how conditional information will change the probability of an event. The conditional probability may be greater than, less than, or equal to the unconditional probability, depending on the relation between the two events.</strong></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1361,7 +1277,7 @@ function show_questions (json, mydiv) {
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01-intro"
+            path: "./05-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -1378,23 +1294,14 @@ function show_questions (json, mydiv) {
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="python-start.html" title="previous page">
+        <a class="left-prev" href="definition.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">1.7. </span>Getting Started in Python</p>
+                <p class="prevnext-title"><span class="section-number">5.3. </span>Formally Defining Conditional Probability</p>
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="../02-first-stats/intro.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">2. </span>First Simulations, and Visualizations, and Statistical Tests</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
