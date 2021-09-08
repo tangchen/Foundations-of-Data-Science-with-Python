@@ -516,17 +516,9 @@ S= \left\{AD, AN, BD_1, BD_2, BN\right\}
 P(A|B) = \frac{ P(A \cap B)}{B}
 \]</div>
 <p>to calculate the probabilities in the problems below. (<em>It is easier to solve these using intuition/counting, but I encourage you to practice using the formula in the definition, which we will need to use in more complicated scenarios soon.</em>) Submit your answers as a fraction or a decimal with at least two digits of precision.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupyterquiz</span> <span class="kn">import</span> <span class="n">display_quiz</span>
-<span class="n">git_path</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/&quot;</span>
-
-<span class="n">display_quiz</span><span class="p">(</span><span class="n">git_path</span> <span class="o">+</span> <span class="s2">&quot;computerlab3.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="vSXcyZcXujEZ" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="acjJptEHQBrT" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -685,7 +677,7 @@ P(A|B) = \frac{ P(A \cap B)}{B}
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsvSXcyZcXujEZ=[
+}</style><script type="text/Javascript">questionsacjJptEHQBrT=[
     {
         "question": "For the Defective Computers in a Lab problem, find the conditional probability that the chosen computer is defective given that it is from manfacturer $A$, $P(E_D|E_A)$.",
         "type": "numeric",
@@ -1055,7 +1047,7 @@ function check_numeric(ths, event) {
             // if (answer.type=="value"){
             if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1064,7 +1056,7 @@ function check_numeric(ths, event) {
             } else if ('range' in answer) {
                 //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1080,7 +1072,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = defaultFB;
+            fb.textContent = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1100,6 +1092,7 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -1386,10 +1379,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/computerlab3.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, vSXcyZcXujEZ))
+        .then(json => show_questions(json, acjJptEHQBrT))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsvSXcyZcXujEZ, vSXcyZcXujEZ);
+        show_questions(questionsacjJptEHQBrT, acjJptEHQBrT);
         });
         }
         </script>
@@ -1401,14 +1394,9 @@ function show_questions(json, mydiv) {
 <center>
     <b>How does having some conditional information affect probabilities about an event?</b>
 </center>
-Before reading the discussion below, answer the following question:<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_quiz</span><span class="p">(</span><span class="n">git_path</span> <span class="o">+</span> <span class="s2">&quot;cond-vs-uncond-prob.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+Before reading the discussion below, answer the following question:<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="NFurtOHZqRwG" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="YJSgWTikMyAo" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1567,7 +1555,7 @@ Before reading the discussion below, answer the following question:<div class="c
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsNFurtOHZqRwG=[
+}</style><script type="text/Javascript">questionsYJSgWTikMyAo=[
     {
         "question": "Consider events $A$ and $B$ with both $P(A)>0$ and $P(B)>0$. Which of the following statements are true?",
         "type": "multiple_choice",
@@ -1881,7 +1869,7 @@ function check_numeric(ths, event) {
             // if (answer.type=="value"){
             if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1890,7 +1878,7 @@ function check_numeric(ths, event) {
             } else if ('range' in answer) {
                 //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1906,7 +1894,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = defaultFB;
+            fb.textContent = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1926,6 +1914,7 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -2212,10 +2201,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/cond-vs-uncond-prob.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, NFurtOHZqRwG))
+        .then(json => show_questions(json, YJSgWTikMyAo))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsNFurtOHZqRwG, NFurtOHZqRwG);
+        show_questions(questionsYJSgWTikMyAo, YJSgWTikMyAo);
         });
         }
         </script>
