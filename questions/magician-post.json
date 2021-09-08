@@ -7,7 +7,7 @@
             {
                 "type": "value",
                 "value": 0.83,
-                "correct": true,
+                "correct": false,
                 "feedback": "Incorrect. Having 2 two-headed coins is going to increase the probability of getting heads on the second flip in comparison to when there is only one fair coin. If you are simulating this probability, you only need to add one new coin to the original coins list in the simulation."
             },
             {
@@ -15,6 +15,11 @@
                 "value": 0.9,
                 "correct": true,
                 "feedback": "Correct. "
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "Incorrect."
             },
             {
                 "type": "range",
