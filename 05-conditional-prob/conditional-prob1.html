@@ -469,16 +469,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2head
-fair
-fair
-fair
-fair
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fair
 fair
 2head
 2head
+2head
+2head
+2head
+2head
 fair
-fair
+2head
 </pre></div>
 </div>
 </div>
@@ -508,16 +508,16 @@ fair
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2head H
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fair T
+fair H
 2head H
 fair T
 2head H
+fair T
 2head H
-2head H
-2head H
+fair T
 fair H
-fair H
-fair H
+fair T
 </pre></div>
 </div>
 </div>
@@ -553,7 +553,7 @@ fair H
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H is approximately 0.75061
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H is approximately 0.75133
 </pre></div>
 </div>
 </div>
@@ -614,7 +614,7 @@ fair H
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H2 is approximately 0.75009
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H2 is approximately 0.7493
 </pre></div>
 </div>
 </div>
@@ -635,7 +635,7 @@ fair H
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="lyFNsEeCsWaF" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="IrSVGDSXTjEJ" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -794,7 +794,7 @@ fair H
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionslyFNsEeCsWaF=[
+}</style><script type="text/Javascript">questionsIrSVGDSXTjEJ=[
     {
         "question": "For the magician's coin problem, what do you believe is the value of $P(H_2|H_1)$? (You can enter a fraction or at least two decimal places).",
         "type": "numeric",
@@ -1113,7 +1113,7 @@ function check_numeric(ths, event) {
             // if (answer.type=="value"){
             if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1122,7 +1122,7 @@ function check_numeric(ths, event) {
             } else if ('range' in answer) {
                 //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1138,7 +1138,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = defaultFB;
+            fb.textContent = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1158,6 +1158,7 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -1444,10 +1445,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/magician2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, lyFNsEeCsWaF))
+        .then(json => show_questions(json, IrSVGDSXTjEJ))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionslyFNsEeCsWaF, lyFNsEeCsWaF);
+        show_questions(questionsIrSVGDSXTjEJ, IrSVGDSXTjEJ);
         });
         }
         </script>
@@ -1492,7 +1493,7 @@ Then the probability we are looking for is the ratio of the second counter to th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of heads on second flip given heads on first flip is 0.8350596564835453
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of heads on second flip given heads on first flip is 0.830221392371299
 </pre></div>
 </div>
 </div>
@@ -1501,14 +1502,9 @@ Then the probability we are looking for is the ratio of the second counter to th
 <div class="section" id="exercise">
 <h2><span class="section-number">5.1.4. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <p>Modify the simulation for the Magician’s coin to answer the following question.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_quiz</span><span class="p">(</span><span class="n">git_path</span><span class="o">+</span><span class="s2">&quot;magician-post.json&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="hwfeuSoXhSYu" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1"><style>:root {
+<div class="output text_html"><div id="plquxBvuImOI" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1667,7 +1663,7 @@ Then the probability we are looking for is the ratio of the second counter to th
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionshwfeuSoXhSYu=[
+}</style><script type="text/Javascript">questionsplquxBvuImOI=[
     {
         "question": "Suppose a magician has three coins: one is a fair coin, and two are two-headed coins. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",
         "type": "numeric",
@@ -1676,7 +1672,7 @@ Then the probability we are looking for is the ratio of the second counter to th
             {
                 "type": "value",
                 "value": 0.83,
-                "correct": true,
+                "correct": false,
                 "feedback": "Incorrect. Having 2 two-headed coins is going to increase the probability of getting heads on the second flip in comparison to when there is only one fair coin. If you are simulating this probability, you only need to add one new coin to the original coins list in the simulation."
             },
             {
@@ -1684,6 +1680,11 @@ Then the probability we are looking for is the ratio of the second counter to th
                 "value": 0.9,
                 "correct": true,
                 "feedback": "Correct. "
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "Incorrect."
             },
             {
                 "type": "range",
@@ -2017,7 +2018,7 @@ function check_numeric(ths, event) {
             // if (answer.type=="value"){
             if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -2026,7 +2027,7 @@ function check_numeric(ths, event) {
             } else if ('range' in answer) {
                 //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -2042,7 +2043,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = defaultFB;
+            fb.textContent = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -2062,6 +2063,7 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -2348,10 +2350,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/magician-post.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, hwfeuSoXhSYu))
+        .then(json => show_questions(json, plquxBvuImOI))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionshwfeuSoXhSYu, hwfeuSoXhSYu);
+        show_questions(questionsplquxBvuImOI, plquxBvuImOI);
         });
         }
         </script>
