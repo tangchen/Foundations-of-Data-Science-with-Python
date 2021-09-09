@@ -42,7 +42,7 @@ sections:
   - file: 04-probability1/summary
 - file: 05-conditional-prob/intro
   sections:
-  - file: 05-conditional-prob/conditional-prob1
+  - file: 05-conditional-prob/simulating-cond-probs
   - file: 05-conditional-prob/notation-and-intuition
   - file: 05-conditional-prob/definition
   - file: 05-conditional-prob/relating-cond-uncond
