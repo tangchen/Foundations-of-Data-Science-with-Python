@@ -46,3 +46,4 @@ sections:
   - file: 05-conditional-prob/notation-and-intuition
   - file: 05-conditional-prob/definition
   - file: 05-conditional-prob/relating-cond-uncond
+  - file: 05-conditional-prob/more-on-simulating
