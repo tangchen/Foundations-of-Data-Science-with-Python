@@ -6,3 +6,4 @@ scipy
 termcolor
 ghp-import
 jupyterquiz
+jupytercards
