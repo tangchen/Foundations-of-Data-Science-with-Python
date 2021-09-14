@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4.7. Self Assessment Exercises &#8212; Introduction to Data Science for Engineers</title>
+    <title>4.7. Review &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -273,7 +273,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     4.7. Self Assessment Exercises
+     4.7. Review
     </a>
    </li>
    <li class="toctree-l2">
@@ -366,7 +366,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/04-probability1/self-assessment.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/04-probability1/review.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -391,7 +391,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04-probability1/self-assessment.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04-probability1/review.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -408,6 +408,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology-review">
+   4.7.1. Terminology Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#self-assessment-exercises">
+   4.7.2. Self Assessment Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -416,14 +434,418 @@
         
               <div>
                 
-  <div class="section" id="self-assessment-exercises">
-<h1><span class="section-number">4.7. </span>Self Assessment Exercises<a class="headerlink" href="#self-assessment-exercises" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="review">
+<h1><span class="section-number">4.7. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="terminology-review">
+<h2><span class="section-number">4.7.1. </span>Terminology Review<a class="headerlink" href="#terminology-review" title="Permalink to this headline">¶</a></h2>
+<p>Use the flashcards below to help you review the terminology introduced in this chapter.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+:root{
+--asparagus: #87a878ff;
+--terra-cotta: #e26d5aff;
+--cyan-process: #5bc0ebff;
+--dark-blue-gray: #666a86ff;
+--snow: #fffafbff;
+--rich-black-fogra-39: #090c08ff;
+}
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+
+
+.flip-container.flip .flipper {
+	transform: rotateY(180deg)  translateX(-10%);
+}
+
+
+.flip-container.slide .flipper.frontcard {
+    z-index: -20;
+    /*transform:  rotateY(-2deg)  translateX(0px) translateZ(-20px) scale(1,1.1);*/
+        position:absolute;
+
+
+    filter: brightness(90%);
+}
+
+.flip-container.prepare .flipper.backcard {
+    opacity:1;
+    transform:  translateX(20px); 
+    transition: display 0s;
+}
+
+
+.flip-container.slide .flipper.backcard {
+    opacity:1;
+    height: 360px;
+	transform:  rotateY(3deg)  translateX(700px) translateZ(20px) scale(1, 1.05) rotate(3deg);
+    filter: brightness(115%);
+    z-index: 20;
+}
+
+
+
+
+.flip-container.slideback .flipper.backcard {
+    z-index: 10;
+    opacity: 1;
+    filter: brightness (100%);
+	transform: translateX(0px) translateZ(20px) rotateY(0deg);
+}
+
+.flip-container.slideback .flipper.frontcard {
+    z-index: -10;
+    transform: translateX(0px) translateZ(-20px);
+    filter: brightness(90%);
+}
+
+
+.flip-container, .front, .back {
+	width: 640px;
+	height: 300px;
+}
+
+.flipper.frontcard {
+    position:absolute;
+    z-index: 10;
+	transform: translateX(0px) rotateY(0deg) translateZ(20px);
+}
+
+.flipper.backcard {
+    opacity:0;
+    position:absolute;
+    z-index: -10;
+    transform: translateX(0px) translateZ(-20px);
+    filter: brightness(90%);
+}
+
+
+
+
+/* flip speed goes here */
+.flipper {
+margin-left:20px;
+	transition: 0.6s;
+
+	transform-style: preserve-3d;
+
+	position: absolute;
+    width: 600px;
+	height: 200px;
+    top: 0px;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+    transform: rotateY(0deg);
+	backface-visibility: hidden;
+
+
+
+    background: var(--asparagus);
+
+
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+
+
+	backface-visibility: hidden;
+    background: var(--dark-blue-gray);
+
+
+    /*-webkit-backface-visibility: hidden;*/
+}
+
+.next {
+    position:relative; 
+    opacity:0.3;
+    left:600px;top:20px;
+    font-size: 16pt;
+    color: var(--rich-black-fogra-39);
+}
+
+.next.flipped {
+    opacity:1;
+}
+
+.next.hide {
+    opacity:0;
+}
+
+
+.card{
+ padding: 10px;
+    color: #fafafa;
+    border-radius: 10px;
+    padding:10px;
+    display:block;
+
+}
+.cardtext{
+    width:90%;
+    position:absolute;
+    margin-left:3%;
+    text-align:center;
+    font-size: 20pt;
+    color: var(--snow);
+  top: 50%;
+  transform: translate(0, -50%);
+  }
+
+</style><script type="text/Javascript">
+
+function jaxify(string) {
+    var mystring = string;
+
+    count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+function flip(ths) {
+    console.log(ths);
+    console.log(ths.id);
+    ths.classList.toggle("flip"); 
+    var next=document.getElementById(ths.id+'-next');
+    next.style.pointerEvents='none';
+    next.classList.add('flipped');
+    setTimeout(reenableNext, 700, next);
+}
+
+function reenableNext(next) {
+    next.style.pointerEvents='auto';
+}
+
+
+
+function slide2(containerId) {
+    var container = document.getElementById(containerId);
+    var next=document.getElementById(containerId+'-next');
+    var frontcard = container.children[0];
+    var backcard = container.children[1];
+    container.style.pointerEvents='none';
+    //backcard.style.pointerEvents='none';
+    next.style.pointerEvents='none';
+    next.classList.remove('flipped');
+    next.classList.add('hide');
+
+    //container.classList.add("prepare");
+
+    container.className="flip-container slide";
+    backcard.parentElement.removeChild(frontcard);
+    backcard.parentElement.appendChild(frontcard);
+    setTimeout(slideback, 600, container, frontcard, backcard, next);
+
+}
+
+
+function checkFlip(containerId) {
+    var container = document.getElementById(containerId);
+
+
+    if (container.classList.contains('flip')) {
+        container.classList.remove('flip');
+        setTimeout(slide2, 600, containerId);
+    } 
+    else {
+        slide2(containerId);
+    }
+}
+
+
+function slideback(container, frontcard, backcard, next) {
+    container.className="flip-container slideback";
+    setTimeout(cleanup, 600, container, frontcard, backcard, next);
+}
+
+function cleanup(container, frontcard, backcard, next) {
+    container.removeChild(frontcard);
+    backcard.className="flipper frontcard";
+    container.className="flip-container";
+
+    var cardnum=container.dataset.cardnum;
+    var cards=eval('cards'+container.id);
+    var flipper=createOneCard(container, false, cards, cardnum);
+    container.append(flipper);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    container.dataset.cardnum=(cardnum+1) % container.dataset.numCards;
+    next.style.pointerEvents='auto';
+    container.style.pointerEvents='auto';
+    next.classList.remove('hide');
+
+
+}
+
+
+function createOneCard  (mydiv, frontCard, cards, cardnum) {
+    colors=[
+        '--asparagus',
+        '--terra-cotta',
+        '--cyan-process'
+    ]
+
+    var flipper = document.createElement('div');
+    if (frontCard){
+        flipper.className="flipper frontcard";    
+    }
+    else {
+        flipper.className="flipper backcard";   
+    }
+
+    var front = document.createElement('div');
+    front.className='front card';
+
+    var frontSpan= document.createElement('span');
+    frontSpan.className='cardtext';
+    frontSpan.textContent=jaxify(cards[cardnum]['front']);
+    front.style.background='var(' + colors[cardnum % colors.length] + ')';
+
+
+    front.append(frontSpan);
+
+    flipper.append(front);
+
+    var back = document.createElement('div');
+    back.className='back card';
+
+    var backSpan= document.createElement('span');
+    backSpan.className='cardtext';
+    backSpan.textContent=jaxify(cards[cardnum]['back']);
+    back.append(backSpan);
+
+    flipper.append(back);
+
+    return flipper;
+
+}
+
+
+
+
+
+function createCards(id) {
+    console.log(id);
+
+    var mydiv=document.getElementById(id);
+
+    var cards=eval('cards'+id);
+    mydiv.dataset.cardnum=0;
+    mydiv.dataset.numCards=cards.length;
+
+    var cardnum=0;
+
+    for (var i=0; i<2; i++) {
+
+        var flipper;
+        if (i==0){
+            flipper=createOneCard(mydiv, true, cards, cardnum);
+        }
+        else {
+            flipper=createOneCard(mydiv, false, cards, cardnum);
+        }
+
+        mydiv.append(flipper);
+        cardnum = (cardnum + 1) % mydiv.dataset.numCards;
+    }
+    mydiv.dataset.cardnum = cardnum;
+
+    return flipper;
+}
+
+
+
+
+
+</script><script type="text/Javascript">
+
+    cardsqgXXPJSJEBxz=[
+    {
+        "front": "outcome (of a random experiment)",
+        "back": "An outcome of a random experiment is a result of the experiment that cannot be further decomposed."
+    },
+    {
+        "front": "sample space",
+        "back": "The sample space of a random experiment is the set of all possible outcomes."
+    },
+    {
+        "front": "event class",
+        "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\mathcal{F}$, is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\mathcal{F}$ are called events."
+    }
+];
+
+
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
+
+        setTimeout(() => jmscontroller.abort(), 5000);
+
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/flashcards/ch4.txt", {signal})
+        .then(response => response.json())
+        .then(json => createCards("qgXXPJSJEBxz"))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        createCards("qgXXPJSJEBxz");
+        });
+        }
+        </script>
+        <div style="height:40px"></div><div class="flip-container" id="qgXXPJSJEBxz" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="qgXXPJSJEBxz-next" onclick="checkFlip('qgXXPJSJEBxz')" > Next > </div><div style="height:40px"></div></div></div>
+</div>
+</div>
+<div class="section" id="self-assessment-exercises">
+<h2><span class="section-number">4.7.2. </span>Self Assessment Exercises<a class="headerlink" href="#self-assessment-exercises" title="Permalink to this headline">¶</a></h2>
 <p>Answer the questions below to assess your understanding of the material in this chapter.</p>
 <p><span class="math notranslate nohighlight">\(\mbox{ }\)</span></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="dasJfKuRAmqi" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
-:root {
+<div class="output text_html"><div id="DilxnVmOzSTo" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -433,17 +855,16 @@
     --correct-green: #009113;
 }
 
-
 .Quiz {
-     max-width: 600px;
-     margin-top: 15px;
-     margin-left: auto;
-     margin-right: auto;
-     margin-bottom: 15px;
-     padding-bottom: 4px;
-     padding-top: 4px;
-     line-height: 1.1;
-     font-size: 16pt;
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
 }
 
 .QuizCode {
@@ -453,25 +874,28 @@
     margin-right: 20px;
 }
 
-.QuizCode > pre {
+.QuizCode>pre {
     padding: 4px;
 }
-.Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
 }
-.Feedback{
-     font-size: 16pt;
-     text-align: center;
-     min-height: 2em;
- }
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
 
 .Input {
-    align:left;
+    align: left;
     font-size: 20pt;
 }
+
 .Input-text {
     display: block;
     margin: 10px;
@@ -481,7 +905,6 @@
     color: #fff;
     padding: 5px;
     padding-left: 10px;
-
     font-family: inherit;
     font-size: 20px;
     font-weight: inherit;
@@ -491,52 +914,59 @@
     transition: box-shadow 0.1s);
 }
 
- .Input-text:focus {
-     outline: none;
-     background-color: #c0c0c0;
-     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
- }
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
 
- .MCButton{
-     background: #fafafa;
-     border: 1px solid #eee;
-     border-radius: 10px;
-     padding: 10px;
-     font-size: 16px;
-     cursor: pointer;
-     text-align: center;
- }
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
 .MCButton p {
-    color: inherit;    
+    color: inherit;
 }
- .MultipleChoiceQn {
-     padding: 10px;
-     background: var(--medium-slate-blue);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .ManyChoiceQn {
-     padding: 10px;
-     background: var(--orange-pantone);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .NumericQn {
-     padding: 10px;
-     background: var(--russian-violet);
-     color: #fafafa;
-     border-radius: 10px;
- }
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
 .NumericQn p {
-     color: inherit;
+    color: inherit;
 }
+
 .InpLabel {
-     line-height: 34px;
-     float:left;
-     margin-right: 10px;
-     color: #101010;
-     font-size: 15pt;
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
 }
+
 .incorrect {
     color: var(--incorrect-red);
 }
@@ -544,6 +974,7 @@
 .correct {
     color: var(--correct-green);
 }
+
 .correctButton {
     /*
     background: var(--correct-green);
@@ -554,6 +985,7 @@
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
+
 .incorrectButton {
     animation: incorrect-anim 0.8s ease;
     animation-fill-mode: forwards;
@@ -563,13 +995,16 @@
 }
 
 @keyframes incorrect-anim {
-    100% {background-color: var(--incorrect-red);}
+    100% {
+        background-color: var(--incorrect-red);
+    }
 }
 
 @keyframes correct-anim {
-    100% {background-color: var(--correct-green);}
-}
-</style><script type="text/Javascript">questionsdasJfKuRAmqi=[
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style><script type="text/Javascript">questionsDilxnVmOzSTo=[
     {
         "question": "If I roll a fair 6-sided die two times, what is the probability that at least one of those dice show a 1 on the top face? Answer as a fraction or a decimal with at least 2 significant digits.",
         "type": "numeric",
@@ -985,11 +1420,11 @@
 ;
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
-    var result           = [];
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
     }
     return result.join('');
 }
@@ -1006,7 +1441,7 @@ function getRandomSubarray(arr, size) {
     return shuffled.slice(0, size);
 }
 function check_mc() {
-    var id=this.id.split('-')[0];
+    var id = this.id.split('-')[0];
 
     //console.log("In check_mc(), id="+id);
     //console.log(event.srcElement.id)           
@@ -1015,127 +1450,127 @@ function check_mc() {
 
     var label = event.srcElement;
     //console.log(label, label.nodeName);
-    var depth=0;
-    while ((label.nodeName!="LABEL") && (depth<10)) {
-        label=label.parentElement;
-        console.log(depth,label);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
         depth++;
     }
 
 
 
-    var answers=label.parentElement.children;
+    var answers = label.parentElement.children;
 
     //console.log(answers);
 
 
     // Split behavior based on multiple choice vs many choice:
-    var fb = document.getElementById("fb"+id);
+    var fb = document.getElementById("fb" + id);
     //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
-    if (fb.dataset.numcorrect==1) {
+    if (fb.dataset.numcorrect == 1) {
         for (var i = 0; i < answers.length; i++) {
-            var child=answers[i];
+            var child = answers[i];
             //console.log(child);
-            child.className="MCButton";
+            child.className = "MCButton";
         }
 
 
 
-        if (label.dataset.correct=="true")   {
+        if (label.dataset.correct == "true") {
             // console.log("Correct action");
             if ("feedback" in label.dataset) {
-                fb.textContent=jaxify(label.dataset.feedback);
-            } else{
-                fb.textContent="Correct!";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
             }
             label.classList.add("correctButton");
 
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
 
         } else {
             if ("feedback" in label.dataset) {
-                fb.textContent=jaxify(label.dataset.feedback);
-            } else{
-                fb.textContent="Incorrect -- try again.";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
             }
             //console.log("Error action");
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
     }
     else {
         var reset = false;
         var feedback;
-        if (label.dataset.correct=="true" )   {
+        if (label.dataset.correct == "true") {
             if ("feedback" in label.dataset) {
-                feedback=jaxify(label.dataset.feedback);
-            } else{
-                feedback="Correct!";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
             }
-            if (label.dataset.answered<=0) {
-                if (fb.dataset.answeredcorrect<0) {
-                    fb.dataset.answeredcorrect=1;
-                    reset=true;
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
                 } else {
                     fb.dataset.answeredcorrect++;
                 }
                 if (reset) {
                     for (var i = 0; i < answers.length; i++) {
-                        var child=answers[i];
-                        child.className="MCButton";
-                        child.dataset.answered=0;
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
                     }
                 }
                 label.classList.add("correctButton");
-                label.dataset.answered=1;
-                fb.className="Feedback";
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
                 fb.classList.add("correct");
 
             }
         } else {
             if ("feedback" in label.dataset) {
-                feedback=jaxify(label.dataset.feedback);
-            } else{
-                feedback="Incorrect -- try again.";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
             }
-            if (fb.dataset.answeredcorrect>0) {
-                fb.dataset.answeredcorrect=-1;
-                reset=true;
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
             } else {
                 fb.dataset.answeredcorrect--;
             }
 
             if (reset) {
                 for (var i = 0; i < answers.length; i++) {
-                    var child=answers[i];
-                    child.className="MCButton";
-                    child.dataset.answered=0;
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
                 }
             }
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
 
 
-        var numcorrect=fb.dataset.numcorrect;
-        var answeredcorrect=fb.dataset.answeredcorrect;
-        if (answeredcorrect>=0) {
-            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
         } else {
-            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
         }
 
 
     }
 
     if (typeof MathJax != 'undefined') {
-        var version=MathJax.version;
+        var version = MathJax.version;
         console.log('MathJax version', version);
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
         }
@@ -1147,16 +1582,16 @@ function check_mc() {
 
 function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
-    if (shuffle_answers=="True") {
+    if (shuffle_answers == "True") {
         //console.log(shuffle_answers+" read as true");
-        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
     } else {
         //console.log(shuffle_answers+" read as false");
-        shuffled=qa.answers;
+        shuffled = qa.answers;
     }
 
 
-    var num_correct=0;
+    var num_correct = 0;
 
 
 
@@ -1165,36 +1600,36 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
         // Make input element
         var inp = document.createElement("input");
-        inp.type="radio";
-        inp.id="quizo"+id+index;
-        inp.style="display:none;";
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
         aDiv.append(inp);
 
         //Make label for input element
         var lab = document.createElement("label");
-        lab.className="MCButton";
-        lab.id=id+ '-' +index;
-        lab.onclick=check_mc;
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
         var aSpan = document.createElement('span');
-        aSpan.classsName="";
+        aSpan.classsName = "";
         //qDiv.id="quizQn"+id+index;
         if ("answer" in item) {
-            aSpan.innerHTML=jaxify(item.answer);
+            aSpan.innerHTML = jaxify(item.answer);
             //aSpan.innerHTML=item.answer;
         }
         lab.append(aSpan);
 
         // Create div for code inside question
         var codeSpan;
-        if ("code" in item){
+        if ("code" in item) {
             codeSpan = document.createElement('span');
-            codeSpan.id="code"+id+index;
-            codeSpan.className="QuizCode";
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeSpan.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=item.code;
+            codeCode.innerHTML = item.code;
             lab.append(codeSpan);
             //console.log(codeSpan);
         }
@@ -1206,7 +1641,7 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
         if (item.correct) {
             num_correct++;
         }
-        if ("feedback" in item){
+        if ("feedback" in item) {
             lab.setAttribute('data-feedback', item.feedback);
         }
         lab.setAttribute('data-answered', 0);
@@ -1215,10 +1650,10 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
     });
 
-    if (num_correct>1) {
-        outerqDiv.className="ManyChoiceQn";
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
     } else {
-        outerqDiv.className="MultipleChoiceQn";
+        outerqDiv.className = "MultipleChoiceQn";
     }
 
     return num_correct;
@@ -1229,20 +1664,20 @@ function check_numeric(ths, event) {
     if (event.keyCode === 13) {
         ths.blur();
 
-        var id=ths.id.split('-')[0];
+        var id = ths.id.split('-')[0];
 
-        var submission=ths.value;
-				if (submission.indexOf('/') != -1) {
-            sub_parts=submission.split('/');
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            sub_parts = submission.split('/');
             //console.log(sub_parts);
-            submission=sub_parts[0]/sub_parts[1];
+            submission = sub_parts[0] / sub_parts[1];
         }
         //console.log("Reader entered", submission);
 
         if ("precision" in ths.dataset) {
-            precision=ths.dataset.precision;
+            precision = ths.dataset.precision;
             // console.log("1:", submission)
-            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
             // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
@@ -1251,39 +1686,39 @@ function check_numeric(ths, event) {
         //console.log(event.srcElement.id)           
         //console.log(event.srcElement.dataset.feedback)
 
-        var fb = document.getElementById("fb"+id);
-        fb.style.display="none";
-        fb.textContent="Incorrect -- try again.";
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
 
-        answers=JSON.parse(ths.dataset.answers);
+        answers = JSON.parse(ths.dataset.answers);
         //console.log(answers);
 
-        var defaultFB="";
+        var defaultFB = "";
         var correct;
-        var done=false;
+        var done = false;
         answers.every(answer => {
             //console.log(answer.type);
 
-            correct=false;
+            correct = false;
             // if (answer.type=="value"){
-            if ('value' in answer){
+            if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
                     //console.log(answer.correct);
-                    done=true;
+                    done = true;
                 }
-            // } else if (answer.type=="range") {
+                // } else if (answer.type=="range") {
             } else if ('range' in answer) {
                 //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
                     //console.log(answer.correct);
-                    done=true;
+                    done = true;
                 }
-            } else if (answer.type=="default") {
-                defaultFB=answer.feedback;
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
             }
             if (done) {
                 return false; // Break out of loop if this has been marked correct
@@ -1293,27 +1728,28 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent=defaultFB;
+            fb.textContent = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
-        fb.style.display="block";
+        fb.style.display = "block";
         if (correct) {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("correctButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
         } else {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
         if (typeof MathJax != 'undefined') {
-            var version=MathJax.version;
+            var version = MathJax.version;
             console.log('MathJax version', version);
-            if (version[0]=="2") {
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+            if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
             }
@@ -1325,70 +1761,70 @@ function check_numeric(ths, event) {
 
 }
 
-function isValid(el,  charC) {
+function isValid(el, charC) {
     //console.log("Input char: ", charC);
-		if (charC == 46) {
-				if (el.value.indexOf('.') === -1) {
-					  return true;
-				} else if (el.value.indexOf('/') != -1) {
-            parts=el.value.split('/');
-				    if (parts[1].indexOf('.') === -1) {
-					      return true;
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
             }
         }
-        else{
-					  return false;
-				}
-		} else if (charC == 47) {
-				if (el.value.indexOf('/') === -1) {
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
             if ((el.value != "") && (el.value != ".")) {
-					      return true;
+                return true;
             } else {
-					  return false;
-				    }
+                return false;
+            }
         } else {
             return false;
         }
-		} else if (charC == 45) {
-        edex=el.value.indexOf('e');
-        if (edex==-1) {
-            edex=el.value.indexOf('E');
+    } else if (charC == 45) {
+        edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
         }
 
-        if (el.value == "" ) {
+        if (el.value == "") {
             return true;
-        } else if ( edex== (el.value.length-1) ) { // If just after e or E
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
             return true;
         } else {
             return false;
         }
     } else if (charC == 101) { // "e"
-				if ( (el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1) ) {
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
             // Prev symbol must be digit or decimal point:
-            if (el.value.slice(-1).search(/\d/) >= 0){
+            if (el.value.slice(-1).search(/\d/) >= 0) {
                 return true;
             } else if (el.value.slice(-1).search(/\./) >= 0) {
                 return true;
-            } else{
+            } else {
                 return false;
             }
         } else {
             return false;
         }
     } else {
-				if (charC > 31 && (charC < 48 || charC > 57))
-					  return false;
-		}
-		return true;
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
 }
 
-function numeric_keypress( evnt) {
-		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
 
-    if (charC==13) {
+    if (charC == 13) {
         check_numeric(this, evnt);
-    } else{
-		    return isValid(this, charC);
+    } else {
+        return isValid(this, charC);
     }
 }
 
@@ -1400,23 +1836,23 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
-        //console.log(answer);
+    //console.log(answer);
 
 
-    outerqDiv.className="NumericQn";
-    aDiv.style.display='block';
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
 
     var lab = document.createElement("label");
-    lab.className="InpLabel";
-    lab.textContent="Type numeric answer here:";
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
     aDiv.append(lab);
 
     var inp = document.createElement("input");
-    inp.type="text";
+    inp.type = "text";
     //inp.id="input-"+id;
-    inp.id=id+"-0";
-    inp.className="Input-text";
-    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
     if ("precision" in qa) {
         inp.setAttribute('data-precision', qa.precision);
     }
@@ -1432,48 +1868,48 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
                         );
                         */
     //inp.onkeypress="return numeric_keypress(this, event)";
-    inp.onkeypress=numeric_keypress;
-    inp.onpaste= event => false;
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
 
-    inp.addEventListener("focus", function(event) {
-        this.value="";
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
         return false;
     }
-                        );
+    );
 
 
 }
 function jaxify(string) {
     var mystring = string;
 
-    count=0;
-    var loc=mystring.search(/([^\\]|^)(\$)/);
+    count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
 
-    count2=0;
-    var loc2=mystring.search(/([^\\]|^)(\$\$)/);
+    count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
 
     //console.log(loc);
 
-    while ( (loc >= 0) || (loc2 >=0))  {
+    while ((loc >= 0) || (loc2 >= 0)) {
 
         /* Have to replace all the double $$ first with current implementation */
-        if (loc2 >=0) {
-            if (count2%2==0) {
-                mystring=mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
             } else {
-                mystring=mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
             }
             count2++;
         } else {
-            if (count%2==0) {
-                mystring=mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
             } else {
-                mystring=mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
             }
             count++;
         }
-        loc=mystring.search(/([^\\]|^)(\$)/);
-        loc2=mystring.search(/([^\\]|^)(\$\$)/);
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
         //console.log(mystring,", loc:",loc,", loc2:",loc2);
     }
 
@@ -1482,22 +1918,22 @@ function jaxify(string) {
 }
 
 
-function show_questions (json, mydiv) {
+function show_questions(json, mydiv) {
     //var mydiv=document.getElementById(myid);
-    var shuffle_questions=mydiv.dataset.shufflequestions;
-    var num_questions=mydiv.dataset.numquestions;
-    var shuffle_answers=mydiv.dataset.shuffleanswers;
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
 
-    if (num_questions>json.length) {
-        num_questions=json.length;
+    if (num_questions > json.length) {
+        num_questions = json.length;
     }
 
     var questions;
-    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
         //console.log(num_questions+","+json.length);
-        questions=getRandomSubarray(json, num_questions);
+        questions = getRandomSubarray(json, num_questions);
     } else {
-        questions=json;
+        questions = json;
     }
 
     //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
@@ -1512,34 +1948,34 @@ function show_questions (json, mydiv) {
 
         // Create Div to contain question and answers
         var iDiv = document.createElement('div');
-        iDiv.id = 'quizWrap'+id+index;
-        iDiv.className='Quiz';
+        iDiv.id = 'quizWrap' + id + index;
+        iDiv.className = 'Quiz';
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
         var outerqDiv = document.createElement('div');
-        outerqDiv.id="OuterquizQn"+id+index;
+        outerqDiv.id = "OuterquizQn" + id + index;
         //qDiv.textContent=qa.question;
         iDiv.append(outerqDiv);
 
         // Create div to contain question part
         var qDiv = document.createElement('div');
-        qDiv.id="quizQn"+id+index;
+        qDiv.id = "quizQn" + id + index;
         //qDiv.textContent=qa.question;
-        qDiv.innerHTML=jaxify(qa.question);
+        qDiv.innerHTML = jaxify(qa.question);
         outerqDiv.append(qDiv);
 
         // Create div for code inside question
         var codeDiv;
-        if ("code" in qa){
+        if ("code" in qa) {
             codeDiv = document.createElement('div');
-            codeDiv.id="code"+id+index;
-            codeDiv.className="QuizCode";
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeDiv.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=qa.code;
+            codeCode.innerHTML = qa.code;
             outerqDiv.append(codeDiv);
             //console.log(codeDiv);
         }
@@ -1547,18 +1983,18 @@ function show_questions (json, mydiv) {
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
-        aDiv.id="quizAns"+id+index;
-        aDiv.className='Answer';
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
         iDiv.append(aDiv);
 
         //console.log(qa.type);
 
         var num_correct;
-        if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if  (qa.type=="numeric") {
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
             //console.log("numeric");
             make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
@@ -1566,9 +2002,9 @@ function show_questions (json, mydiv) {
 
         //Make div for feedback
         var fb = document.createElement("div");
-        fb.id="fb"+id;
+        fb.id = "fb" + id;
         //fb.style="font-size: 20px;text-align:center;";
-        fb.className="Feedback";
+        fb.className = "Feedback";
         fb.setAttribute("data-answeredcorrect", 0);
         fb.setAttribute("data-numcorrect", num_correct);
         iDiv.append(fb);
@@ -1577,13 +2013,13 @@ function show_questions (json, mydiv) {
     });
     //console.log("At end of show_questions");
     if (typeof MathJax != 'undefined') {
-        console.log("MathJax version",MathJax.version);
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
-        } else{
+        } else {
             console.log("MathJax not found");
         }
     }
@@ -1599,14 +2035,15 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch4.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, dasJfKuRAmqi))
+        .then(json => show_questions(json, DilxnVmOzSTo))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsdasJfKuRAmqi, dasJfKuRAmqi);
+        show_questions(questionsDilxnVmOzSTo, DilxnVmOzSTo);
         });
         }
         </script>
 </div></div>
+</div>
 </div>
 </div>
 
