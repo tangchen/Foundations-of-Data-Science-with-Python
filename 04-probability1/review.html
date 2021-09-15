@@ -805,7 +805,39 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsqgXXPJSJEBxz=[
+    cardsNmKonAOVNlqb=[
+    {
+        "front": "event class",
+        "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\\\mathcal{F}$ is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\\\mathcal{F}$ are called events."
+    },
+    {
+        "front": "power set",
+        "back": "For a set $S$ with finite cardinality, $|S|=N < \\\\infty$, the power set is the set of all possible subsets. We will use the notation $2^S$ to denote the power set."
+    },
+    {
+        "front": "probability measure",
+        "back": "The probability measure, $P$, is a real-valued set function that maps every element of the event class to the real line."
+    },
+    {
+        "front": "composite experiment",
+        "back": "A composite experiment is any experiment that consists of multiple sub-experiments."
+    },
+    {
+        "front": "trial (compound experiments)",
+        "back": "A trial in a compound experiment is one of the sub-experiments that make up the composite experiment."
+    },
+    {
+        "front": "repeated experiment",
+        "back": "A repeated experiment is a compound experiment in which the trials are identical and independent of each other."
+    },
+    {
+        "front": "statistical regularity",
+        "back": "An experiment has statistical regularity if under repeated experiments, the relative frequencies converge (in some sense) to some fixed values. "
+    },
+    {
+        "front": "chdefns=[]",
+        "back": "fileroot=\\\\"
+    },
     {
         "front": "outcome (of a random experiment)",
         "back": "An outcome of a random experiment is a result of the experiment that cannot be further decomposed."
@@ -815,8 +847,24 @@ function createCards(id) {
         "back": "The sample space of a random experiment is the set of all possible outcomes."
     },
     {
-        "front": "event class",
-        "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\mathcal{F}$, is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\mathcal{F}$ are called events."
+        "front": "event",
+        "back": "An event is a set of outcomes. The event occurs if the result of the experiment is any of the outcomes in the set. "
+    },
+    {
+        "front": "fair (random experiment)",
+        "back": "An experiment is said to be fair if every outcome is equally likely."
+    },
+    {
+        "front": "combinatorics",
+        "back": "*Combinatorics* is the mathematics of counting. "
+    },
+    {
+        "front": "cartesian product",
+        "back": "The *cartesian product* of two sets $A$ and $B$ is denoted $A \\\\times B$ and is defined by "
+    },
+    {
+        "front": "permutation:",
+        "back": "A *permutation* is an ordering (or reordering) of a set of objects."
     }
 ];
 
@@ -827,16 +875,16 @@ function createCards(id) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/flashcards/ch4.txt", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/04-probability1/flashcards/ch4.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("qgXXPJSJEBxz"))
+        .then(json => createCards("NmKonAOVNlqb"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("qgXXPJSJEBxz");
+        createCards("NmKonAOVNlqb");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="qgXXPJSJEBxz" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="qgXXPJSJEBxz-next" onclick="checkFlip('qgXXPJSJEBxz')" > Next > </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="NmKonAOVNlqb" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="NmKonAOVNlqb-next" onclick="checkFlip('NmKonAOVNlqb')" > Next > </div><div style="height:40px"></div></div></div>
 </div>
 </div>
 <div class="section" id="self-assessment-exercises">
