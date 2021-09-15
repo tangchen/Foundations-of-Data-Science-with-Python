@@ -710,7 +710,7 @@ function cleanup(container, frontcard, backcard, next) {
     backcard.className="flipper frontcard";
     container.className="flip-container";
 
-    var cardnum=container.dataset.cardnum;
+    var cardnum=parseInt(container.dataset.cardnum);
     var cards=eval('cards'+container.id);
     var flipper=createOneCard(container, false, cards, cardnum);
     container.append(flipper);
@@ -796,6 +796,13 @@ function createCards(id) {
     }
     mydiv.dataset.cardnum = cardnum;
 
+    if (cards.length==1) {
+        // Don't show next if no other cards!
+        var next=document.getElementById(id+'-next');
+        next.style.pointerEvents='none';
+        next.classList.add('hide');
+    }
+
     return flipper;
 }
 
@@ -805,14 +812,14 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsNmKonAOVNlqb=[
+    cardsDfLNRrCaOYiz=[
     {
         "front": "event class",
-        "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\\\mathcal{F}$ is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\\\mathcal{F}$ are called events."
+        "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\mathcal{F}$ is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\mathcal{F}$ are called events."
     },
     {
         "front": "power set",
-        "back": "For a set $S$ with finite cardinality, $|S|=N < \\\\infty$, the power set is the set of all possible subsets. We will use the notation $2^S$ to denote the power set."
+        "back": "For a set $S$ with finite cardinality, $|S|=N < \\infty$, the power set is the set of all possible subsets. We will use the notation $2^S$ to denote the power set."
     },
     {
         "front": "probability measure",
@@ -833,10 +840,6 @@ function createCards(id) {
     {
         "front": "statistical regularity",
         "back": "An experiment has statistical regularity if under repeated experiments, the relative frequencies converge (in some sense) to some fixed values. "
-    },
-    {
-        "front": "chdefns=[]",
-        "back": "fileroot=\\\\"
     },
     {
         "front": "outcome (of a random experiment)",
@@ -860,13 +863,14 @@ function createCards(id) {
     },
     {
         "front": "cartesian product",
-        "back": "The *cartesian product* of two sets $A$ and $B$ is denoted $A \\\\times B$ and is defined by "
+        "back": "The *cartesian product* of two sets $A$ and $B$ is denoted $A \\times B$ and is defined by "
     },
     {
         "front": "permutation:",
         "back": "A *permutation* is an ordering (or reordering) of a set of objects."
     }
-];
+]
+;
 
 
         {
@@ -877,14 +881,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/04-probability1/flashcards/ch4.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("NmKonAOVNlqb"))
+        .then(json => createCards("DfLNRrCaOYiz"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("NmKonAOVNlqb");
+        createCards("DfLNRrCaOYiz");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="NmKonAOVNlqb" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="NmKonAOVNlqb-next" onclick="checkFlip('NmKonAOVNlqb')" > Next > </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="DfLNRrCaOYiz" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="DfLNRrCaOYiz-next" onclick="checkFlip('DfLNRrCaOYiz')" > Next > </div><div style="height:40px"></div></div></div>
 </div>
 </div>
 <div class="section" id="self-assessment-exercises">
@@ -893,7 +897,7 @@ function createCards(id) {
 <p><span class="math notranslate nohighlight">\(\mbox{ }\)</span></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="DilxnVmOzSTo" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="vZPEOAxEDVQw" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1052,7 +1056,7 @@ function createCards(id) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsDilxnVmOzSTo=[
+}</style><script type="text/Javascript">questionsvZPEOAxEDVQw=[
     {
         "question": "If I roll a fair 6-sided die two times, what is the probability that at least one of those dice show a 1 on the top face? Answer as a fraction or a decimal with at least 2 significant digits.",
         "type": "numeric",
@@ -2083,10 +2087,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch4.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, DilxnVmOzSTo))
+        .then(json => show_questions(json, vZPEOAxEDVQw))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsDilxnVmOzSTo, DilxnVmOzSTo);
+        show_questions(questionsvZPEOAxEDVQw, vZPEOAxEDVQw);
         });
         }
         </script>
