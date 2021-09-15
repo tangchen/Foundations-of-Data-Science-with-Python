@@ -1,11 +1,11 @@
 [
     {
         "front": "event class",
-        "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\\\mathcal{F}$ is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\\\mathcal{F}$ are called events."
+        "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\mathcal{F}$ is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\mathcal{F}$ are called events."
     },
     {
         "front": "power set",
-        "back": "For a set $S$ with finite cardinality, $|S|=N < \\\\infty$, the power set is the set of all possible subsets. We will use the notation $2^S$ to denote the power set."
+        "back": "For a set $S$ with finite cardinality, $|S|=N < \\infty$, the power set is the set of all possible subsets. We will use the notation $2^S$ to denote the power set."
     },
     {
         "front": "probability measure",
@@ -26,10 +26,6 @@
     {
         "front": "statistical regularity",
         "back": "An experiment has statistical regularity if under repeated experiments, the relative frequencies converge (in some sense) to some fixed values. "
-    },
-    {
-        "front": "chdefns=[]",
-        "back": "fileroot=\\\\"
     },
     {
         "front": "outcome (of a random experiment)",
@@ -53,7 +49,7 @@
     },
     {
         "front": "cartesian product",
-        "back": "The *cartesian product* of two sets $A$ and $B$ is denoted $A \\\\times B$ and is defined by "
+        "back": "The *cartesian product* of two sets $A$ and $B$ is denoted $A \\times B$ and is defined by "
     },
     {
         "front": "permutation:",
