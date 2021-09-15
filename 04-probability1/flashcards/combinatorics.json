@@ -1,0 +1,14 @@
+[
+    {
+        "front": "combinatorics",
+        "back": "*Combinatorics* is the mathematics of counting. "
+    },
+    {
+        "front": "cartesian product",
+        "back": "The *cartesian product* of two sets $A$ and $B$ is denoted $A \\\\times B$ and is defined by "
+    },
+    {
+        "front": "permutation:",
+        "back": "A *permutation* is an ordering (or reordering) of a set of objects."
+    }
+]
