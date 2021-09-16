@@ -433,6 +433,11 @@
    3.4.4. Some Remarks on Mode, Median, and Average
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology-review">
+   3.4.5. Terminology Review
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -772,8 +777,8 @@ above to calculate and plot the number of nonzero errors for this data set as a 
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
 $<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span>$
 so its derivative is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6efdad8-c348-4a99-9142-d4b014628570">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-e6efdad8-c348-4a99-9142-d4b014628570" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-98f57c64-6b79-4f54-8f64-92ddf108f55c">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-98f57c64-6b79-4f54-8f64-92ddf108f55c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
 &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
 \end{align}\]</div>
@@ -852,8 +857,8 @@ above to calculate and plot the sum of absolute errors for this data set as a fu
 <div class="section" id="minimizing-the-sum-of-squared-errors">
 <h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivative of <span class="math notranslate nohighlight">\(E_2(v)\)</span> with respect to <span class="math notranslate nohighlight">\(\nu\)</span> and setting it equal to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-764a2940-ca61-4edf-9280-a2072efbf218">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-764a2940-ca61-4edf-9280-a2072efbf218" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c101655f-799d-4e00-bf12-06464542444f">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-c101655f-799d-4e00-bf12-06464542444f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \\
@@ -861,14 +866,14 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu 
 \end{align}\]</div>
 <p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5bb71d1-0c2f-4540-9155-7cd531231bec">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-d5bb71d1-0c2f-4540-9155-7cd531231bec" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-05f80204-5040-48cc-bcfb-6853c26a16be">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-05f80204-5040-48cc-bcfb-6853c26a16be" title="Permalink to this equation">¶</a></span>\[\begin{align}
 2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \\
  \sum_{i=0}^{N-1} d_i &amp;= N \nu .
 \end{align}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57cb9244-f078-41d9-949a-f64f9014b9bf">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-57cb9244-f078-41d9-949a-f64f9014b9bf" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-84b5cc2a-1c9d-4bcf-8cf9-271932844897">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-84b5cc2a-1c9d-4bcf-8cf9-271932844897" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
 \end{align}\]</div>
 <p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
@@ -884,8 +889,8 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 <dt>average</dt><dd><p class="card-text">The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-7d400ce8-f8d7-4d68-8efc-fb1496c22097">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-7d400ce8-f8d7-4d68-8efc-fb1496c22097" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b9e7dc36-28a8-477b-b1da-6131292f823d">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-b9e7dc36-28a8-477b-b1da-6131292f823d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
 \end{align}\]</div>
 </div>
@@ -959,6 +964,407 @@ dtype: float64
 </div>
 <p>The median is slightly larger because the new value causes it to shift one data point to the right. However, the average is drastically larger, outside of the original set of values completely. On the other hand, if the value of 100 is not an outlier, the change in median may be considered to not represent the new data set as well.</p>
 <p>In general, the choice of summary statistic is up to the data scientist or statistician who is analyzing the behavior. If the data set may contain outliers, an alternative to removing the suspected outliers from the analysis is to use the median instead of the average.</p>
+</div>
+<div class="section" id="terminology-review">
+<h2><span class="section-number">3.4.5. </span>Terminology Review<a class="headerlink" href="#terminology-review" title="Permalink to this headline">¶</a></h2>
+<p>Use the flashcards below to help you review the terminology introduced in this section.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output text_html"><style>
+:root{
+--asparagus: #87a878ff;
+--terra-cotta: #e26d5aff;
+--cyan-process: #5bc0ebff;
+--dark-blue-gray: #666a86ff;
+--snow: #fffafbff;
+--rich-black-fogra-39: #090c08ff;
+}
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+
+
+.flip-container.flip .flipper {
+	transform: rotateY(180deg)  translateX(-10%);
+}
+
+
+.flip-container.slide .flipper.frontcard {
+    z-index: -20;
+    /*transform:  rotateY(-2deg)  translateX(0px) translateZ(-20px) scale(1,1.1);*/
+        position:absolute;
+
+
+    filter: brightness(90%);
+}
+
+.flip-container.prepare .flipper.backcard {
+    opacity:1;
+    transform:  translateX(20px); 
+    transition: display 0s;
+}
+
+
+.flip-container.slide .flipper.backcard {
+    opacity:1;
+    height: 360px;
+	transform:  rotateY(3deg)  translateX(700px) translateZ(20px) scale(1, 1.05) rotate(3deg);
+    filter: brightness(115%);
+    z-index: 20;
+}
+
+
+
+
+.flip-container.slideback .flipper.backcard {
+    z-index: 10;
+    opacity: 1;
+    filter: brightness (100%);
+	transform: translateX(0px) translateZ(20px) rotateY(0deg);
+}
+
+.flip-container.slideback .flipper.frontcard {
+    z-index: -10;
+    transform: translateX(0px) translateZ(-20px);
+    filter: brightness(90%);
+}
+
+
+.flip-container, .front, .back {
+	width: 640px;
+	height: 300px;
+}
+
+.flipper.frontcard {
+    position:absolute;
+    z-index: 10;
+	transform: translateX(0px) rotateY(0deg) translateZ(20px);
+}
+
+.flipper.backcard {
+    opacity:0;
+    position:absolute;
+    z-index: -10;
+    transform: translateX(0px) translateZ(-20px);
+    filter: brightness(90%);
+}
+
+
+
+
+/* flip speed goes here */
+.flipper {
+margin-left:20px;
+	transition: 0.6s;
+
+	transform-style: preserve-3d;
+
+	position: absolute;
+    width: 600px;
+	height: 200px;
+    top: 0px;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+    transform: rotateY(0deg);
+	backface-visibility: hidden;
+
+
+
+    background: var(--asparagus);
+
+
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+
+
+	backface-visibility: hidden;
+    background: var(--dark-blue-gray);
+
+
+    /*-webkit-backface-visibility: hidden;*/
+}
+
+.next {
+    position:relative; 
+    opacity:0.3;
+    left:600px;top:20px;
+    font-size: 16pt;
+    color: var(--rich-black-fogra-39);
+}
+
+.next.flipped {
+    opacity:1;
+}
+
+.next.hide {
+    opacity:0;
+}
+
+
+.card{
+ padding: 10px;
+    color: #fafafa;
+    border-radius: 10px;
+    padding:10px;
+    display:block;
+
+}
+.cardtext{
+    width:90%;
+    position:absolute;
+    margin-left:3%;
+    text-align:center;
+    font-size: 20pt;
+    color: var(--snow);
+  top: 50%;
+  transform: translate(0, -50%);
+  }
+
+</style><script type="text/Javascript">
+
+function jaxify(string) {
+    var mystring = string;
+
+    count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+function flip(ths) {
+    console.log(ths);
+    console.log(ths.id);
+    ths.classList.toggle("flip"); 
+    var next=document.getElementById(ths.id+'-next');
+    next.style.pointerEvents='none';
+    next.classList.add('flipped');
+    setTimeout(reenableNext, 700, next);
+}
+
+function reenableNext(next) {
+    next.style.pointerEvents='auto';
+}
+
+
+
+function slide2(containerId) {
+    var container = document.getElementById(containerId);
+    var next=document.getElementById(containerId+'-next');
+    var frontcard = container.children[0];
+    var backcard = container.children[1];
+    container.style.pointerEvents='none';
+    //backcard.style.pointerEvents='none';
+    next.style.pointerEvents='none';
+    next.classList.remove('flipped');
+    next.classList.add('hide');
+
+    //container.classList.add("prepare");
+
+    container.className="flip-container slide";
+    backcard.parentElement.removeChild(frontcard);
+    backcard.parentElement.appendChild(frontcard);
+    setTimeout(slideback, 600, container, frontcard, backcard, next);
+
+}
+
+
+function checkFlip(containerId) {
+    var container = document.getElementById(containerId);
+
+
+    if (container.classList.contains('flip')) {
+        container.classList.remove('flip');
+        setTimeout(slide2, 600, containerId);
+    } 
+    else {
+        slide2(containerId);
+    }
+}
+
+
+function slideback(container, frontcard, backcard, next) {
+    container.className="flip-container slideback";
+    setTimeout(cleanup, 600, container, frontcard, backcard, next);
+}
+
+function cleanup(container, frontcard, backcard, next) {
+    container.removeChild(frontcard);
+    backcard.className="flipper frontcard";
+    container.className="flip-container";
+
+    var cardnum=parseInt(container.dataset.cardnum);
+    var cards=eval('cards'+container.id);
+    var flipper=createOneCard(container, false, cards, cardnum);
+    container.append(flipper);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    container.dataset.cardnum=(cardnum+1) % container.dataset.numCards;
+    next.style.pointerEvents='auto';
+    container.style.pointerEvents='auto';
+    next.classList.remove('hide');
+
+
+}
+
+
+function createOneCard  (mydiv, frontCard, cards, cardnum) {
+    colors=[
+        '--asparagus',
+        '--terra-cotta',
+        '--cyan-process'
+    ]
+
+    var flipper = document.createElement('div');
+    if (frontCard){
+        flipper.className="flipper frontcard";    
+    }
+    else {
+        flipper.className="flipper backcard";   
+    }
+
+    var front = document.createElement('div');
+    front.className='front card';
+
+    var frontSpan= document.createElement('span');
+    frontSpan.className='cardtext';
+    frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
+    //frontSpan.textContent=jaxify(cards[cardnum]['front']);
+    front.style.background='var(' + colors[cardnum % colors.length] + ')';
+
+
+    front.append(frontSpan);
+
+    flipper.append(front);
+
+    var back = document.createElement('div');
+    back.className='back card';
+
+    var backSpan= document.createElement('span');
+    backSpan.className='cardtext';
+    backSpan.textContent=jaxify(cards[cardnum]['back']);
+    back.append(backSpan);
+
+    flipper.append(back);
+
+    return flipper;
+
+}
+
+
+
+
+
+function createCards(id) {
+    console.log(id);
+
+    var mydiv=document.getElementById(id);
+
+    var cards=eval('cards'+id);
+    mydiv.dataset.cardnum=0;
+    mydiv.dataset.numCards=cards.length;
+
+    var cardnum=0;
+
+    for (var i=0; i<2; i++) {
+
+        var flipper;
+        if (i==0){
+            flipper=createOneCard(mydiv, true, cards, cardnum);
+        }
+        else {
+            flipper=createOneCard(mydiv, false, cards, cardnum);
+        }
+
+        mydiv.append(flipper);
+        cardnum = (cardnum + 1) % mydiv.dataset.numCards;
+    }
+    mydiv.dataset.cardnum = cardnum;
+
+    if (cards.length==1) {
+        // Don't show next if no other cards!
+        var next=document.getElementById(id+'-next');
+        next.style.pointerEvents='none';
+        next.classList.add('hide');
+    }
+
+    return flipper;
+}
+
+
+
+
+
+</script><script type="text/Javascript">
+
+    cardshAVAUWWAtDOx=[
+    {
+        "front": "<i>mode</i> of a data set",
+        "back": "A value in the data set that appears most often. As there may be more than one most common value, the mode of a data set is not unique."
+    },
+    {
+        "front": "<i>median</i> of a data set",
+        "back": "A value $m$ such that the number of data points that are less than $m$ is equal to the number of data points that are greater than $m$. For some data sets, there may be multiple values that satisify this criterion, so the median is not always unique."
+    },
+    {
+        "front": "<i>average</i> (or <i>sample mean</i>) of a data set",
+        "back": "The value that minimizes the squared error to the data. For a data set $d_0, d_1, \\ldots, d_{N-1}$ the average is\n \\begin{align}\n \\overline{d} = \\frac{1}{N} \\sum_{i=0}^{N-1} d_i.\n \\end{align}\n"
+    }
+]
+;
+
+        createCards("hAVAUWWAtDOx");
+        </script>
+        <div style="height:40px"></div><div class="flip-container" id="hAVAUWWAtDOx" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="hAVAUWWAtDOx-next" onclick="checkFlip('hAVAUWWAtDOx')" > Next > </div><div style="height:40px"></div></div></div>
+</div>
 </div>
 </div>
 
