@@ -11,9 +11,9 @@ The book can be read here: https://jmshea.github.io/intro-data-science-for-engin
 
 IDSE provides an interactive experience with:
 * Interactive self-assessment quizzes via [JupyterQuiz](https://github.com/jmshea/jupyterquiz)
-![Animated GIF showing example interactive quiz via JupyterQuiz](quiz-example.gif)
+![Animated GIF showing example interactive quiz via JupyterQuiz](intro/quiz-example.gif)
 * Interactive flashcards to aid in learning terminology via [JupyterCards](https://github.com/jmshea/jupytercards)
-![Animated GIF showing the output of JupyterCards for a sample set of 3 cards](https://github.com/jmshea/jupytercards/raw/main/flashcards.gif)
+![Animated GIF showing the output of JupyterCards for a sample set of 3 cards](intro/flashcards.gif)
 
 This repository is an experiment with writing in public. I will be putting the book here while it is
 still in very early and rough shape. My goals in doing this are to both offer this as a resource to the community
