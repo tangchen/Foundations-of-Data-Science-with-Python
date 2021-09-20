@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -430,7 +432,7 @@
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="vIFnJXJldmoC" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="PUdrnXEomoVn" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -589,7 +591,7 @@
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsvIFnJXJldmoC=[
+}</style><script type="text/Javascript">questionsPUdrnXEomoVn=[
     {
         "question": "Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:",
         "type": "many_choice",
@@ -1323,17 +1325,17 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch3.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, vIFnJXJldmoC))
+        .then(json => show_questions(json, PUdrnXEomoVn))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsvIFnJXJldmoC, vIFnJXJldmoC);
+        show_questions(questionsPUdrnXEomoVn, PUdrnXEomoVn);
         });
         }
         </script>
 </div></div>
 </div>
 <ul class="simple">
-<li><p>Interactive flashcards to aid in learning terminology via <a class="reference external" href="https://github.com/jmshea/jupytercards">JupyterCards</a></p></li>
+<li><p>Interactive flashcards to aid in learning terminology via <a class="reference external" href="https://github.com/jmshea/jupytercards">JupyterCards</a> <span class="math notranslate nohighlight">\(\,\!\)</span></p></li>
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -1646,7 +1648,7 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
 
     var frontSpan= document.createElement('span');
     frontSpan.className='cardtext';
-    frontSpan.innerHTML=jaxify(cards[cardnum]['front']+'\\(\\,\\!\\)');
+    frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
     //frontSpan.textContent=jaxify(cards[cardnum]['front']);
     front.style.background='var(' + colors[cardnum % colors.length] + ')';
 
@@ -1717,7 +1719,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardseMcQBSLwuInA=[
+    cardspUKoKOSyKSLl=[
     {
         "front": "outcome (of a random experiment)",
         "back": "An outcome of a random experiment is a result of the experiment that cannot be further decomposed."
@@ -1741,14 +1743,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/04-probability1/flashcards/outcomes-samplespaces-events.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("eMcQBSLwuInA"))
+        .then(json => createCards("pUKoKOSyKSLl"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("eMcQBSLwuInA");
+        createCards("pUKoKOSyKSLl");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="eMcQBSLwuInA" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="eMcQBSLwuInA-next" onclick="checkFlip('eMcQBSLwuInA')" >  </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="pUKoKOSyKSLl" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="pUKoKOSyKSLl-next" onclick="checkFlip('pUKoKOSyKSLl')" >  </div><div style="height:40px"></div></div></div>
 </div>
 <p>I am writing this book online. You can get the original Jupyter notebooks at</p>
 <p><a class="reference external" href="https://github.com/jmshea/intro-data-science-for-engineers">https://github.com/jmshea/intro-data-science-for-engineers</a></p>
