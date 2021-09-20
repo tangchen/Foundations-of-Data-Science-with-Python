@@ -432,7 +432,7 @@
 </ul>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="PUdrnXEomoVn" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="mIQxLQzDOBan" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -591,7 +591,7 @@
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsPUdrnXEomoVn=[
+}</style><script type="text/Javascript">questionsmIQxLQzDOBan=[
     {
         "question": "Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:",
         "type": "many_choice",
@@ -1325,10 +1325,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch3.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, PUdrnXEomoVn))
+        .then(json => show_questions(json, mIQxLQzDOBan))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsPUdrnXEomoVn, PUdrnXEomoVn);
+        show_questions(questionsmIQxLQzDOBan, mIQxLQzDOBan);
         });
         }
         </script>
@@ -1426,15 +1426,14 @@ function show_questions(json, mydiv) {
 
 /* flip speed goes here */
 .flipper {
-margin-left:20px;
-	transition: 0.6s;
-
-	transform-style: preserve-3d;
-
-	position: absolute;
+    margin-left:20px;
+	  transition: 0.6s;
+	  transform-style: preserve-3d;
+	  position: absolute;
     width: 600px;
-	height: 200px;
+	  height: 200px;
     top: 0px;
+    cursor:pointer;
 }
 
 /* hide back of pane during swap */
@@ -1473,6 +1472,7 @@ margin-left:20px;
 
 .next {
     position:relative; 
+    cursor:pointer;
     opacity:0.3;
     left:600px;top:20px;
     font-size: 16pt;
@@ -1719,7 +1719,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardspUKoKOSyKSLl=[
+    cardshgqutSjvnfcw=[
     {
         "front": "outcome (of a random experiment)",
         "back": "An outcome of a random experiment is a result of the experiment that cannot be further decomposed."
@@ -1743,14 +1743,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/04-probability1/flashcards/outcomes-samplespaces-events.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("pUKoKOSyKSLl"))
+        .then(json => createCards("hgqutSjvnfcw"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("pUKoKOSyKSLl");
+        createCards("hgqutSjvnfcw");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="pUKoKOSyKSLl" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="pUKoKOSyKSLl-next" onclick="checkFlip('pUKoKOSyKSLl')" >  </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="hgqutSjvnfcw" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="hgqutSjvnfcw-next" onclick="checkFlip('hgqutSjvnfcw')" >  </div><div style="height:40px"></div></div></div>
 </div>
 <p>I am writing this book online. You can get the original Jupyter notebooks at</p>
 <p><a class="reference external" href="https://github.com/jmshea/intro-data-science-for-engineers">https://github.com/jmshea/intro-data-science-for-engineers</a></p>
