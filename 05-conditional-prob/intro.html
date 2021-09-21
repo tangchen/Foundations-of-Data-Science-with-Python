@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Conditional Probability &#8212; Introduction to Data Science for Engineers</title>
+    <title>5. Dependence and Independence &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -145,7 +145,7 @@
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02-first-stats/intro.html">
-   2. First Simulations, and Visualizations, and Statistical Tests
+   2. First Simulations, Visualizations, and Statistical Tests
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -286,7 +286,7 @@
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   5. Conditional Probability
+   5. Dependence and Independence
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -417,15 +417,15 @@
         
               <div>
                 
-  <div class="section" id="conditional-probability">
-<h1><span class="section-number">5. </span>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h1>
-<p><em>Conditional probability</em> is the study of <strong>dependence</strong> between random phenomena. This is one of the most important concepts in probability. In fact, it is often said that “all probabilities are conditional”, which means that we should always understand probability through the concepts taught in this chapter. Some examples of how we can use conditional probabilities are</p>
+  <div class="section" id="dependence-and-independence">
+<h1><span class="section-number">5. </span>Dependence and Independence<a class="headerlink" href="#dependence-and-independence" title="Permalink to this headline">¶</a></h1>
+<p>Different random phenomena often depend on each other in obvious or subtle ways. <em>Conditional probability</em> is the study of such dependence. This is one of the most important concepts in probability. In fact, it is often said that “all probabilities are conditional”, which means that we should always understand probability through the concepts taught in this chapter. Some examples of how we can use conditional probabilities are:</p>
 <ul class="simple">
 <li><p>In null hypothesis testing, we are asking whether an observed difference in a summary statistic <strong>depends</strong> on the underlying grouping of the data. This dependence can be best expressed in terms of conditional probabilities and conditional expectations.</p></li>
 <li><p>In wireless communications, we receive a noisy signal and need to determine which information symbol was transmitted. The noisy signal <strong>depends</strong> on the transmitted information, and thus we can use tools from conditional probability to make optimal decisions about the transmitted symbol.</p></li>
 <li><p>In compound experiments, the later experiments often <strong>depend</strong> on the results of the earlier experiments. For instance, consider drawing cards from a deck. If the first card is an ace, then the probability that second card will be an ace is different than if the first card had not been an ace.</p></li>
 </ul>
-<p>In this chapter, we will introduce tools for working with conditional probability. These tools will often help us answer questions that are challenging to understand without conditional probability. Below I give a few quick examples of simple problems that people often find challenging to answer correctly: <span class="math notranslate nohighlight">\(\mbox{ }\)</span></p>
+<p>In this chapter, I will introduce tools for working with conditional probability. These tools will often help us answer questions that are challenging to understand without conditional probability. Below I give a few quick examples of simple problems that people often find challenging to answer correctly: <span class="math notranslate nohighlight">\(\mbox{ }\)</span></p>
 <p><strong>Balls and Boxes/Urns</strong></p>
 <p>A class set of probability problems involves pulling colored balls from an urn. I have found that many students are not familiar with the  word <em>urn</em> (which is like a large vase), I will use a box instead. To make the problem interesting, the box must contain more than two balls, and the balls must be of at least two different colors. Below I ask some questions about a box containing three balls, of which two are white and one is black.</p>
 <div class="cell tag_remove-input docutils container">
