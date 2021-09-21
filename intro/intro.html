@@ -450,7 +450,7 @@
 <p><strong>Interactive self-assessment quizzes via <a class="reference external" href="https://github.com/jmshea/jupyterquiz">JupyterQuiz</a></strong></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="mIQxLQzDOBan" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="hUhFyLgunQAX" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -609,7 +609,7 @@
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsmIQxLQzDOBan=[
+}</style><script type="text/Javascript">questionshUhFyLgunQAX=[
     {
         "question": "Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:",
         "type": "many_choice",
@@ -1343,10 +1343,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch3.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, mIQxLQzDOBan))
+        .then(json => show_questions(json, hUhFyLgunQAX))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsmIQxLQzDOBan, mIQxLQzDOBan);
+        show_questions(questionshUhFyLgunQAX, hUhFyLgunQAX);
         });
         }
         </script>
@@ -1378,12 +1378,9 @@ function show_questions(json, mydiv) {
 
 
 .flip-container.slide .flipper.frontcard {
-    z-index: -20;
-    /*transform:  rotateY(-2deg)  translateX(0px) translateZ(-20px) scale(1,1.1);*/
-        position:absolute;
-
-
     filter: brightness(90%);
+    position:absolute;
+    z-index: -20;
 }
 
 .flip-container.prepare .flipper.backcard {
@@ -1394,10 +1391,10 @@ function show_questions(json, mydiv) {
 
 
 .flip-container.slide .flipper.backcard {
-    opacity:1;
-    height: 360px;
-	transform:  rotateY(3deg)  translateX(700px) translateZ(20px) scale(1, 1.05) rotate(3deg);
     filter: brightness(115%);
+    height: 360px;
+    opacity:1;
+	  transform:  rotateY(3deg)  translateX(700px) translateZ(20px) scale(1, 1.05) rotate(3deg);
     z-index: 20;
 }
 
@@ -1405,36 +1402,36 @@ function show_questions(json, mydiv) {
 
 
 .flip-container.slideback .flipper.backcard {
-    z-index: 10;
+    filter: brightness(100%);
     opacity: 1;
-    filter: brightness (100%);
-	transform: translateX(0px) translateZ(20px) rotateY(0deg);
+	  transform: translateX(0px) translateZ(20px) rotateY(0deg);
+    z-index: 10;
 }
 
 .flip-container.slideback .flipper.frontcard {
-    z-index: -10;
-    transform: translateX(0px) translateZ(-20px);
     filter: brightness(90%);
+    transform: translateX(0px) translateZ(-20px);
+    z-index: -10;
 }
 
 
 .flip-container, .front, .back {
-	width: 640px;
-	height: 300px;
+	  height: 300px;
+	  width: 640px;
 }
 
 .flipper.frontcard {
     position:absolute;
+	  transform: translateX(0px) rotateY(0deg) translateZ(20px);
     z-index: 10;
-	transform: translateX(0px) rotateY(0deg) translateZ(20px);
 }
 
 .flipper.backcard {
+    filter: brightness(90%);
     opacity:0;
     position:absolute;
-    z-index: -10;
     transform: translateX(0px) translateZ(-20px);
-    filter: brightness(90%);
+    z-index: -10;
 }
 
 
@@ -1442,57 +1439,48 @@ function show_questions(json, mydiv) {
 
 /* flip speed goes here */
 .flipper {
-    margin-left:20px;
-	  transition: 0.6s;
-	  transform-style: preserve-3d;
-	  position: absolute;
-    width: 600px;
-	  height: 200px;
-    top: 0px;
     cursor:pointer;
+	  height: 200px;
+    margin-left:20px;
+	  position: absolute;
+    top: 0;
+	  transform-style: preserve-3d;
+	  transition: 0.6s;
+    width: 600px;
 }
 
 /* hide back of pane during swap */
 .front, .back {
-	backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
+	  backface-visibility: hidden;
+	  left: 0;
+	  position: absolute;
+	  top: 0;
 }
 
 /* front pane, placed above back */
 .front {
-	z-index: 2;
-    transform: rotateY(0deg);
-	backface-visibility: hidden;
-
-
-
+	  backface-visibility: hidden;
     background: var(--asparagus);
-
-
+    transform: rotateY(0deg);
+	  z-index: 2;
 }
 
 /* back, initially hidden pane */
 .back {
-	transform: rotateY(180deg);
-
-
-	backface-visibility: hidden;
+	  backface-visibility: hidden;
     background: var(--dark-blue-gray);
-
-
-    /*-webkit-backface-visibility: hidden;*/
+	  transform: rotateY(180deg);
 }
 
 .next {
-    position:relative; 
-    cursor:pointer;
-    opacity:0.3;
-    left:600px;top:20px;
-    font-size: 16pt;
     color: var(--rich-black-fogra-39);
+    cursor:pointer;
+    font-size: 16pt;
+    left:600px;
+    opacity:0.3;
+    position:relative; 
+    top:20px;
 }
 
 .next.flipped {
@@ -1505,26 +1493,33 @@ function show_questions(json, mydiv) {
 
 
 .card{
- padding: 10px;
-    color: #fafafa;
     border-radius: 10px;
-    padding:10px;
+    color: #fafafa;
     display:block;
+    padding:10px;
 
 }
 .cardtext{
-    width:90%;
-    position:absolute;
-    margin-left:3%;
-    text-align:center;
-    font-size: 20pt;
     color: var(--snow);
-  top: 50%;
-  transform: translate(0, -50%);
+    font-size: 20pt;
+    margin-left:3%;
+    position:absolute;
+    text-align:center;
+    top: 50%;
+    transform: translate(0, -50%);
+    width:90%;
   }
 
 </style><script type="text/Javascript">
-
+/*!
+ * swiped-events.js - v1.1.4
+ * Pure JavaScript swipe events
+ * https://github.com/john-doherty/swiped-events
+ * @inspiration https://stackoverflow.com/questions/16348031/disable-scrolling-when-touch-moving-certain-element
+ * @author John Doherty <www.johndoherty.info>
+ * @license MIT
+ */
+!function(t,e){"use strict";"function"!=typeof t.CustomEvent&&(t.CustomEvent=function(t,n){n=n||{bubbles:!1,cancelable:!1,detail:void 0};var a=e.createEvent("CustomEvent");return a.initCustomEvent(t,n.bubbles,n.cancelable,n.detail),a},t.CustomEvent.prototype=t.Event.prototype),e.addEventListener("touchstart",function(t){if("true"===t.target.getAttribute("data-swipe-ignore"))return;s=t.target,r=Date.now(),n=t.touches[0].clientX,a=t.touches[0].clientY,u=0,i=0},!1),e.addEventListener("touchmove",function(t){if(!n||!a)return;var e=t.touches[0].clientX,r=t.touches[0].clientY;u=n-e,i=a-r},!1),e.addEventListener("touchend",function(t){if(s!==t.target)return;var e=parseInt(l(s,"data-swipe-threshold","20"),10),o=parseInt(l(s,"data-swipe-timeout","500"),10),c=Date.now()-r,d="",p=t.changedTouches||t.touches||[];Math.abs(u)>Math.abs(i)?Math.abs(u)>e&&c<o&&(d=u>0?"swiped-left":"swiped-right"):Math.abs(i)>e&&c<o&&(d=i>0?"swiped-up":"swiped-down");if(""!==d){var b={dir:d.replace(/swiped-/,""),xStart:parseInt(n,10),xEnd:parseInt((p[0]||{}).clientX||-1,10),yStart:parseInt(a,10),yEnd:parseInt((p[0]||{}).clientY||-1,10)};s.dispatchEvent(new CustomEvent("swiped",{bubbles:!0,cancelable:!0,detail:b})),s.dispatchEvent(new CustomEvent(d,{bubbles:!0,cancelable:!0,detail:b}))}n=null,a=null,r=null},!1);var n=null,a=null,u=null,i=null,r=null,s=null;function l(t,n,a){for(;t&&t!==e.documentElement;){var u=t.getAttribute(n);if(u)return u;t=t.parentNode}return a}}(window,document);
 function jaxify(string) {
     var mystring = string;
 
@@ -1639,6 +1634,13 @@ function cleanup(container, frontcard, backcard, next) {
     next.style.pointerEvents='auto';
     container.style.pointerEvents='auto';
     next.classList.remove('hide');
+    container.addEventListener('swiped-left', function(e) {
+        /*
+          console.log(e.detail);
+          console.log(id);
+        */
+        checkFlip(container.id);
+    }, {once: true});
 
 
 }
@@ -1699,6 +1701,14 @@ function createCards(id) {
     var cards=eval('cards'+id);
     mydiv.dataset.cardnum=0;
     mydiv.dataset.numCards=cards.length;
+    mydiv.addEventListener('swiped-left', function(e) {
+        /*
+          console.log(e.detail);
+          console.log(id);
+        */
+        checkFlip(id);
+        e.preventDefault();
+    }, {once: true});
 
     var cardnum=0;
 
@@ -1712,7 +1722,7 @@ function createCards(id) {
             flipper=createOneCard(mydiv, false, cards, cardnum);
         }
 
-        mydiv.append(flipper);
+                mydiv.append(flipper);
         cardnum = (cardnum + 1) % mydiv.dataset.numCards;
     }
     mydiv.dataset.cardnum = cardnum;
@@ -1735,7 +1745,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardshgqutSjvnfcw=[
+    cardsWNgRvnyAflME=[
     {
         "front": "outcome (of a random experiment)",
         "back": "An outcome of a random experiment is a result of the experiment that cannot be further decomposed."
@@ -1759,14 +1769,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/04-probability1/flashcards/outcomes-samplespaces-events.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("hgqutSjvnfcw"))
+        .then(json => createCards("WNgRvnyAflME"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("hgqutSjvnfcw");
+        createCards("WNgRvnyAflME");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="hgqutSjvnfcw" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="hgqutSjvnfcw-next" onclick="checkFlip('hgqutSjvnfcw')" >  </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="WNgRvnyAflME" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="WNgRvnyAflME-next" onclick="checkFlip('WNgRvnyAflME')" >  </div><div style="height:40px"></div></div></div>
 </div>
 <p>I am writing this book online. You can get the original Jupyter notebooks at</p>
 <p><a class="reference external" href="https://github.com/jmshea/intro-data-science-for-engineers">https://github.com/jmshea/intro-data-science-for-engineers</a></p>
