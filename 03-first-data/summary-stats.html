@@ -778,8 +778,8 @@ above to calculate and plot the number of nonzero errors for this data set as a 
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
 $<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span>$
 so its derivative is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-00c860e3-94d4-4584-8b94-5c592bc4c377">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-00c860e3-94d4-4584-8b94-5c592bc4c377" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-178fd153-582d-478a-b528-af7bab5e085f">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-178fd153-582d-478a-b528-af7bab5e085f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
 &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
 \end{align}\]</div>
@@ -858,8 +858,8 @@ above to calculate and plot the sum of absolute errors for this data set as a fu
 <div class="section" id="minimizing-the-sum-of-squared-errors">
 <h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivative of <span class="math notranslate nohighlight">\(E_2(v)\)</span> with respect to <span class="math notranslate nohighlight">\(\nu\)</span> and setting it equal to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3bd67d5e-1952-48a9-855c-d72f20136d7a">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-3bd67d5e-1952-48a9-855c-d72f20136d7a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6f3d2079-b92b-498f-a8c6-bb722a1d6ec2">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-6f3d2079-b92b-498f-a8c6-bb722a1d6ec2" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \\
@@ -867,14 +867,14 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu 
 \end{align}\]</div>
 <p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-79b5cc65-3b72-4b4d-b42a-f308143d82df">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-79b5cc65-3b72-4b4d-b42a-f308143d82df" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-75ea6da8-0ba2-4214-b920-c846cd84fc05">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-75ea6da8-0ba2-4214-b920-c846cd84fc05" title="Permalink to this equation">¶</a></span>\[\begin{align}
 2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \\
  \sum_{i=0}^{N-1} d_i &amp;= N \nu .
 \end{align}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8bc0936-f780-41af-8dbe-3572cb96e2d5">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-f8bc0936-f780-41af-8dbe-3572cb96e2d5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9c378ce4-e1b2-488e-ad92-edd6aa9ff6be">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-9c378ce4-e1b2-488e-ad92-edd6aa9ff6be" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
 \end{align}\]</div>
 <p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
@@ -890,8 +890,8 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 <dt>average</dt><dd><p class="card-text">The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-8fcdf5ce-412b-4f01-ad1f-1970a24cdcaa">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-8fcdf5ce-412b-4f01-ad1f-1970a24cdcaa" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1927d914-e491-4d3a-8451-2d2614b377ae">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-1927d914-e491-4d3a-8451-2d2614b377ae" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
 \end{align}\]</div>
 </div>
@@ -971,9 +971,6 @@ dtype: float64
 <p>Use the flashcards below to help you review the terminology introduced in this section.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 <div class="output text_html"><style>
 :root{
 --asparagus: #87a878ff;
@@ -988,6 +985,7 @@ dtype: float64
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
+  touch-action: pinch-zoom pan-y;
 }
 
 
@@ -997,12 +995,9 @@ dtype: float64
 
 
 .flip-container.slide .flipper.frontcard {
-    z-index: -20;
-    /*transform:  rotateY(-2deg)  translateX(0px) translateZ(-20px) scale(1,1.1);*/
-        position:absolute;
-
-
     filter: brightness(90%);
+    position:absolute;
+    z-index: -20;
 }
 
 .flip-container.prepare .flipper.backcard {
@@ -1013,10 +1008,10 @@ dtype: float64
 
 
 .flip-container.slide .flipper.backcard {
-    opacity:1;
-    height: 360px;
-	transform:  rotateY(3deg)  translateX(700px) translateZ(20px) scale(1, 1.05) rotate(3deg);
     filter: brightness(115%);
+    height: 360px;
+    opacity:1;
+	  transform:  rotateY(3deg)  translateX(700px) translateZ(20px) scale(1, 1.05) rotate(3deg);
     z-index: 20;
 }
 
@@ -1024,36 +1019,36 @@ dtype: float64
 
 
 .flip-container.slideback .flipper.backcard {
-    z-index: 10;
+    filter: brightness(100%);
     opacity: 1;
-    filter: brightness (100%);
-	transform: translateX(0px) translateZ(20px) rotateY(0deg);
+	  transform: translateX(0px) translateZ(20px) rotateY(0deg);
+    z-index: 10;
 }
 
 .flip-container.slideback .flipper.frontcard {
-    z-index: -10;
-    transform: translateX(0px) translateZ(-20px);
     filter: brightness(90%);
+    transform: translateX(0px) translateZ(-20px);
+    z-index: -10;
 }
 
 
 .flip-container, .front, .back {
-	width: 640px;
-	height: 300px;
+	  height: 300px;
+	  width: 640px;
 }
 
 .flipper.frontcard {
     position:absolute;
+	  transform: translateX(0px) rotateY(0deg) translateZ(20px);
     z-index: 10;
-	transform: translateX(0px) rotateY(0deg) translateZ(20px);
 }
 
 .flipper.backcard {
+    filter: brightness(90%);
     opacity:0;
     position:absolute;
-    z-index: -10;
     transform: translateX(0px) translateZ(-20px);
-    filter: brightness(90%);
+    z-index: -10;
 }
 
 
@@ -1061,57 +1056,48 @@ dtype: float64
 
 /* flip speed goes here */
 .flipper {
-margin-left:20px;
-	transition: 0.6s;
-
-	transform-style: preserve-3d;
-
-	position: absolute;
+    cursor:pointer;
+	  height: 200px;
+    margin-left:20px;
+	  position: absolute;
+    top: 0;
+	  transform-style: preserve-3d;
+	  transition: 0.6s;
     width: 600px;
-	height: 200px;
-    top: 0px;
 }
 
 /* hide back of pane during swap */
 .front, .back {
-	backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
+	  backface-visibility: hidden;
+	  left: 0;
+	  position: absolute;
+	  top: 0;
 }
 
 /* front pane, placed above back */
 .front {
-	z-index: 2;
-    transform: rotateY(0deg);
-	backface-visibility: hidden;
-
-
-
+	  backface-visibility: hidden;
     background: var(--asparagus);
-
-
+    transform: rotateY(0deg);
+	  z-index: 2;
 }
 
 /* back, initially hidden pane */
 .back {
-	transform: rotateY(180deg);
-
-
-	backface-visibility: hidden;
+	  backface-visibility: hidden;
     background: var(--dark-blue-gray);
-
-
-    /*-webkit-backface-visibility: hidden;*/
+	  transform: rotateY(180deg);
 }
 
 .next {
-    position:relative; 
-    opacity:0.3;
-    left:600px;top:20px;
-    font-size: 16pt;
     color: var(--rich-black-fogra-39);
+    cursor:pointer;
+    font-size: 16pt;
+    left:600px;
+    opacity:0.3;
+    position:relative; 
+    top:20px;
 }
 
 .next.flipped {
@@ -1124,25 +1110,33 @@ margin-left:20px;
 
 
 .card{
- padding: 10px;
-    color: #fafafa;
     border-radius: 10px;
-    padding:10px;
+    color: #fafafa;
     display:block;
+    padding:10px;
 
 }
 .cardtext{
-    width:90%;
-    position:absolute;
-    margin-left:3%;
-    text-align:center;
-    font-size: 20pt;
     color: var(--snow);
-  top: 50%;
-  transform: translate(0, -50%);
+    font-size: 20pt;
+    margin-left:3%;
+    position:absolute;
+    text-align:center;
+    top: 50%;
+    transform: translate(0, -50%);
+    width:90%;
   }
 
 </style><script type="text/Javascript">
+/*!
+ * swiped-events.js - v1.1.4
+ * Pure JavaScript swipe events
+ * https://github.com/john-doherty/swiped-events
+ * @inspiration https://stackoverflow.com/questions/16348031/disable-scrolling-when-touch-moving-certain-element
+ * @author John Doherty <www.johndoherty.info>
+ * @license MIT
+ */
+!function(t,e){"use strict";"function"!=typeof t.CustomEvent&&(t.CustomEvent=function(t,n){n=n||{bubbles:!1,cancelable:!1,detail:void 0};var a=e.createEvent("CustomEvent");return a.initCustomEvent(t,n.bubbles,n.cancelable,n.detail),a},t.CustomEvent.prototype=t.Event.prototype),e.addEventListener("touchstart",function(t){if("true"===t.target.getAttribute("data-swipe-ignore"))return;s=t.target,r=Date.now(),n=t.touches[0].clientX,a=t.touches[0].clientY,u=0,i=0},!1),e.addEventListener("touchmove",function(t){if(!n||!a)return;var e=t.touches[0].clientX,r=t.touches[0].clientY;u=n-e,i=a-r},!1),e.addEventListener("touchend",function(t){if(s!==t.target)return;var e=parseInt(l(s,"data-swipe-threshold","20"),10),o=parseInt(l(s,"data-swipe-timeout","500"),10),c=Date.now()-r,d="",p=t.changedTouches||t.touches||[];Math.abs(u)>Math.abs(i)?Math.abs(u)>e&&c<o&&(d=u>0?"swiped-left":"swiped-right"):Math.abs(i)>e&&c<o&&(d=i>0?"swiped-up":"swiped-down");if(""!==d){var b={dir:d.replace(/swiped-/,""),xStart:parseInt(n,10),xEnd:parseInt((p[0]||{}).clientX||-1,10),yStart:parseInt(a,10),yEnd:parseInt((p[0]||{}).clientY||-1,10)};s.dispatchEvent(new CustomEvent("swiped",{bubbles:!0,cancelable:!0,detail:b})),s.dispatchEvent(new CustomEvent(d,{bubbles:!0,cancelable:!0,detail:b}))}n=null,a=null,r=null},!1);var n=null,a=null,u=null,i=null,r=null,s=null;function l(t,n,a){for(;t&&t!==e.documentElement;){var u=t.getAttribute(n);if(u)return u;t=t.parentNode}return a}}(window,document);
 
 function jaxify(string) {
     var mystring = string;
@@ -1247,11 +1241,24 @@ function cleanup(container, frontcard, backcard, next) {
     var cards=eval('cards'+container.id);
     var flipper=createOneCard(container, false, cards, cardnum);
     container.append(flipper);
+    cardnum= (cardnum+1) % parseInt(container.dataset.numCards);
+    container.dataset.cardnum=cardnum;
+    if (cardnum != 1){
+        next.innerHTML="Next >";
+    } else {
+        next.innerHTML="Reload \\(\\circlearrowleft\\) ";
+    }
     MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-    container.dataset.cardnum=(cardnum+1) % container.dataset.numCards;
     next.style.pointerEvents='auto';
     container.style.pointerEvents='auto';
     next.classList.remove('hide');
+    container.addEventListener('swiped-left', function(e) {
+        /*
+          console.log(e.detail);
+          console.log(id);
+        */
+        checkFlip(container.id);
+    }, {once: true });
 
 
 }
@@ -1291,7 +1298,7 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
 
     var backSpan= document.createElement('span');
     backSpan.className='cardtext';
-    backSpan.textContent=jaxify(cards[cardnum]['back']);
+    backSpan.innerHTML=jaxify(cards[cardnum]['back']);
     back.append(backSpan);
 
     flipper.append(back);
@@ -1312,6 +1319,13 @@ function createCards(id) {
     var cards=eval('cards'+id);
     mydiv.dataset.cardnum=0;
     mydiv.dataset.numCards=cards.length;
+    mydiv.addEventListener('swiped-left', function(e) {
+        /*
+          console.log(e.detail);
+          console.log(id);
+        */
+        checkFlip(id);
+    }, {once: true});
 
     var cardnum=0;
 
@@ -1325,16 +1339,18 @@ function createCards(id) {
             flipper=createOneCard(mydiv, false, cards, cardnum);
         }
 
-        mydiv.append(flipper);
+                mydiv.append(flipper);
         cardnum = (cardnum + 1) % mydiv.dataset.numCards;
     }
     mydiv.dataset.cardnum = cardnum;
 
+    var next=document.getElementById(id+'-next');
     if (cards.length==1) {
         // Don't show next if no other cards!
-        var next=document.getElementById(id+'-next');
         next.style.pointerEvents='none';
         next.classList.add('hide');
+    } else {
+        next.innerHTML="Next >";
     }
 
     return flipper;
@@ -1346,7 +1362,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardshAVAUWWAtDOx=[
+    cardseqVzUXIFogaQ=[
     {
         "front": "<i>mode</i> of a data set",
         "back": "A value in the data set that appears most often. As there may be more than one most common value, the mode of a data set is not unique."
@@ -1362,9 +1378,23 @@ function createCards(id) {
 ]
 ;
 
-        createCards("hAVAUWWAtDOx");
+
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
+
+        setTimeout(() => jmscontroller.abort(), 5000);
+
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/flashcards/summary-stats.json", {signal})
+        .then(response => response.json())
+        .then(json => createCards("eqVzUXIFogaQ"))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        createCards("eqVzUXIFogaQ");
+        });
+        }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="hAVAUWWAtDOx" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="hAVAUWWAtDOx-next" onclick="checkFlip('hAVAUWWAtDOx')" > Next > </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="eqVzUXIFogaQ" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="eqVzUXIFogaQ-next" onclick="checkFlip('eqVzUXIFogaQ')" >  </div><div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>
