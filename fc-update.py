@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
 
+'''
+Look in subdirectories for Jupyter notebooks like "subdir/notebook.ipynb" that have a 
+"subdir/flashcards/notebook.json" and rerun all those "subdir/notebook.ipynb" files to
+make sure that those files are using the latest JupyterCards
+'''
+
+
+
+
 import os
 import re
 import json
