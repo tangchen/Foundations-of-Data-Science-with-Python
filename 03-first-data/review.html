@@ -455,7 +455,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupytercards</span> <span class="kn">import</span> <span class="n">display_flashcards</span>
 
 <span class="n">github</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/flashcards/&#39;</span>
-<span class="n">display_flashcards</span><span class="p">(</span><span class="n">github</span><span class="o">+</span><span class="s1">&#39;ch3.json&#39;</span><span class="p">)</span>
+<span class="n">display_flashcards</span><span class="p">(</span><span class="n">github</span><span class="o">+</span><span class="s1">&#39;review.json&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -851,7 +851,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsvEEZMXnLhsEa=[
+    cardsLYDKSDMKAqhc=[
     {
         "front": "disjoint",
         "back": "collections of data are disjoint if no data point belongs to more than one of the collections"
@@ -905,24 +905,23 @@ function createCards(id) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/flashcards/ch3.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/flashcards/review.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("vEEZMXnLhsEa"))
+        .then(json => createCards("LYDKSDMKAqhc"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("vEEZMXnLhsEa");
+        createCards("LYDKSDMKAqhc");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="vEEZMXnLhsEa" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="vEEZMXnLhsEa-next" onclick="checkFlip('vEEZMXnLhsEa')" >  </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="LYDKSDMKAqhc" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="LYDKSDMKAqhc-next" onclick="checkFlip('LYDKSDMKAqhc')" >  </div><div style="height:40px"></div></div></div>
 </div>
 </div>
 <div class="section" id="self-assessment-questions">
 <h2><span class="section-number">3.8.2. </span>Self-Assessment Questions<a class="headerlink" href="#self-assessment-questions" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="HugssslBcUsk" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>
-:root {
+<div class="output text_html"><div id="TOdOtInMlvua" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -932,17 +931,16 @@ function createCards(id) {
     --correct-green: #009113;
 }
 
-
 .Quiz {
-     max-width: 600px;
-     margin-top: 15px;
-     margin-left: auto;
-     margin-right: auto;
-     margin-bottom: 15px;
-     padding-bottom: 4px;
-     padding-top: 4px;
-     line-height: 1.1;
-     font-size: 16pt;
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
 }
 
 .QuizCode {
@@ -952,24 +950,28 @@ function createCards(id) {
     margin-right: 20px;
 }
 
-.QuizCode > pre {
+.QuizCode>pre {
     padding: 4px;
 }
-.Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
 }
-.Feedback{
-     font-size: 16pt;
-     text-align:center;
- }
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
 
 .Input {
-    align:left;
+    align: left;
     font-size: 20pt;
 }
+
 .Input-text {
     display: block;
     margin: 10px;
@@ -979,7 +981,6 @@ function createCards(id) {
     color: #fff;
     padding: 5px;
     padding-left: 10px;
-
     font-family: inherit;
     font-size: 20px;
     font-weight: inherit;
@@ -989,70 +990,97 @@ function createCards(id) {
     transition: box-shadow 0.1s);
 }
 
- .Input-text:focus {
-     outline: none;
-     background-color: #c0c0c0;
-     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
- }
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
 
- .MCButton{
-     background: #fafafa;
-     border: 1px solid #eee;
-     border-radius: 10px;
-     padding: 10px;
-     font-size: 16px;
-     cursor: pointer;
-     text-align: center;
- }
- .MultipleChoiceQn {
-     padding: 10px;
-     background: var(--medium-slate-blue);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .ManyChoiceQn {
-     padding: 10px;
-     background: var(--orange-pantone);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .NumericQn {
-     padding: 10px;
-     background: var(--russian-violet);
-     color: #fafafa;
-     border-radius: 10px;
- }
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
 .NumericQn p {
-     color: inherit;
+    color: inherit;
 }
+
 .InpLabel {
-     line-height: 34px;
-     float:left;
-     margin-right: 10px;
-     color: #101010;
-     font-size: 15pt;
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
 }
+
 .incorrect {
     color: var(--incorrect-red);
 }
+
 .correct {
     color: var(--correct-green);
 }
+
 .correctButton {
+    /*
     background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
     color: #fafafa;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
+
 .incorrectButton {
-    background: var(--incorrect-red);
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
     color: #fafafa;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
 
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
 
-</style><script type="text/Javascript">questionsHugssslBcUsk=[
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style><script type="text/Javascript">questionsTOdOtInMlvua=[
     {
         "question": "Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:",
         "type": "many_choice",
@@ -1171,11 +1199,11 @@ function createCards(id) {
 ];
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
-    var result           = [];
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
     }
     return result.join('');
 }
@@ -1192,7 +1220,7 @@ function getRandomSubarray(arr, size) {
     return shuffled.slice(0, size);
 }
 function check_mc() {
-    var id=this.id.split('-')[0];
+    var id = this.id.split('-')[0];
 
     //console.log("In check_mc(), id="+id);
     //console.log(event.srcElement.id)           
@@ -1201,145 +1229,148 @@ function check_mc() {
 
     var label = event.srcElement;
     //console.log(label, label.nodeName);
-    var depth=0;
-    while ((label.nodeName!="LABEL") && (depth<3)) {
-        label=label.parentElement;
-        //console.log(depth,label);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
         depth++;
     }
 
 
 
-    var answers=label.parentElement.children;
+    var answers = label.parentElement.children;
 
     //console.log(answers);
 
 
     // Split behavior based on multiple choice vs many choice:
-    var fb = document.getElementById("fb"+id);
+    var fb = document.getElementById("fb" + id);
     //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
-    if (fb.dataset.numcorrect==1) {
+    if (fb.dataset.numcorrect == 1) {
         for (var i = 0; i < answers.length; i++) {
-            var child=answers[i];
+            var child = answers[i];
             //console.log(child);
-            child.className="MCButton";
+            child.className = "MCButton";
         }
 
 
 
-        if (label.dataset.correct=="true")   {
+        if (label.dataset.correct == "true") {
             // console.log("Correct action");
             if ("feedback" in label.dataset) {
-                fb.textContent=label.dataset.feedback;
-            } else{
-                fb.textContent="Correct!";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
             }
             label.classList.add("correctButton");
 
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
 
         } else {
             if ("feedback" in label.dataset) {
-                fb.textContent=label.dataset.feedback;
-            } else{
-                fb.textContent="Incorrect -- try again.";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
             }
             //console.log("Error action");
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
     }
     else {
         var reset = false;
         var feedback;
-        if (label.dataset.correct=="true" )   {
+        if (label.dataset.correct == "true") {
             if ("feedback" in label.dataset) {
-                feedback=label.dataset.feedback;
-            } else{
-                feedback="Correct!";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
             }
-            if (label.dataset.answered<=0) {
-                if (fb.dataset.answeredcorrect<0) {
-                    fb.dataset.answeredcorrect=1;
-                    reset=true;
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
                 } else {
                     fb.dataset.answeredcorrect++;
                 }
                 if (reset) {
                     for (var i = 0; i < answers.length; i++) {
-                        var child=answers[i];
-                        child.className="MCButton";
-                        child.dataset.answered=0;
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
                     }
                 }
                 label.classList.add("correctButton");
-                label.dataset.answered=1;
-                fb.className="Feedback";
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
                 fb.classList.add("correct");
 
             }
         } else {
             if ("feedback" in label.dataset) {
-                feedback=label.dataset.feedback;
-            } else{
-                feedback="Incorrect -- try again.";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
             }
-            if (fb.dataset.answeredcorrect>0) {
-                fb.dataset.answeredcorrect=-1;
-                reset=true;
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
             } else {
                 fb.dataset.answeredcorrect--;
             }
 
             if (reset) {
                 for (var i = 0; i < answers.length; i++) {
-                    var child=answers[i];
-                    child.className="MCButton";
-                    child.dataset.answered=0;
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
                 }
             }
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
 
 
-        var numcorrect=fb.dataset.numcorrect;
-        var answeredcorrect=fb.dataset.answeredcorrect;
-        if (answeredcorrect>=0) {
-            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
         } else {
-            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
         }
 
 
     }
 
-    if (MathJax) {
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
         }
+    } else {
+        console.log('MathJax not detected');
     }
 
 }
 
 function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
-    if (shuffle_answers=="True") {
+    if (shuffle_answers == "True") {
         //console.log(shuffle_answers+" read as true");
-        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
     } else {
         //console.log(shuffle_answers+" read as false");
-        shuffled=qa.answers;
+        shuffled = qa.answers;
     }
 
 
-    var num_correct=0;
+    var num_correct = 0;
 
 
 
@@ -1348,35 +1379,36 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
         // Make input element
         var inp = document.createElement("input");
-        inp.type="radio";
-        inp.id="quizo"+id+index;
-        inp.style="display:none;";
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
         aDiv.append(inp);
 
         //Make label for input element
         var lab = document.createElement("label");
-        lab.className="MCButton";
-        lab.id=id+ '-' +index;
-        lab.onclick=check_mc;
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
         var aSpan = document.createElement('span');
-        aSpan.classsName="";
+        aSpan.classsName = "";
         //qDiv.id="quizQn"+id+index;
         if ("answer" in item) {
-            aSpan.innerHTML=item.answer;
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
         }
         lab.append(aSpan);
 
         // Create div for code inside question
         var codeSpan;
-        if ("code" in item){
+        if ("code" in item) {
             codeSpan = document.createElement('span');
-            codeSpan.id="code"+id+index;
-            codeSpan.className="QuizCode";
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeSpan.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=item.code;
+            codeCode.innerHTML = item.code;
             lab.append(codeSpan);
             //console.log(codeSpan);
         }
@@ -1388,7 +1420,7 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
         if (item.correct) {
             num_correct++;
         }
-        if ("feedback" in item){
+        if ("feedback" in item) {
             lab.setAttribute('data-feedback', item.feedback);
         }
         lab.setAttribute('data-answered', 0);
@@ -1397,10 +1429,10 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
     });
 
-    if (num_correct>1) {
-        outerqDiv.className="ManyChoiceQn";
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
     } else {
-        outerqDiv.className="MultipleChoiceQn";
+        outerqDiv.className = "MultipleChoiceQn";
     }
 
     return num_correct;
@@ -1411,20 +1443,20 @@ function check_numeric(ths, event) {
     if (event.keyCode === 13) {
         ths.blur();
 
-        var id=ths.id.split('-')[0];
+        var id = ths.id.split('-')[0];
 
-        var submission=ths.value;
-				if (submission.indexOf('/') != -1) {
-            sub_parts=submission.split('/');
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            sub_parts = submission.split('/');
             //console.log(sub_parts);
-            submission=sub_parts[0]/sub_parts[1];
+            submission = sub_parts[0] / sub_parts[1];
         }
-        console.log("Reader entered", submission);
+        //console.log("Reader entered", submission);
 
         if ("precision" in ths.dataset) {
-            precision=ths.dataset.precision;
+            precision = ths.dataset.precision;
             // console.log("1:", submission)
-            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
             // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
@@ -1433,39 +1465,39 @@ function check_numeric(ths, event) {
         //console.log(event.srcElement.id)           
         //console.log(event.srcElement.dataset.feedback)
 
-        var fb = document.getElementById("fb"+id);
-        fb.style.display="none";
-        fb.textContent="Incorrect -- try again.";
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
 
-        answers=JSON.parse(ths.dataset.answers);
-        console.log(answers);
+        answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
 
-        var defaultFB="";
+        var defaultFB = "";
         var correct;
-        var done=false;
+        var done = false;
         answers.every(answer => {
-            console.log(answer.type);
+            //console.log(answer.type);
 
-            correct=false;
+            correct = false;
             // if (answer.type=="value"){
-            if ('value' in answer){
+            if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
-                    console.log(answer.correct);
-                    done=true;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
                 }
-            // } else if (answer.type=="range") {
+                // } else if (answer.type=="range") {
             } else if ('range' in answer) {
-                console.log(answer.range);
+                //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
-                    console.log(answer.correct);
-                    done=true;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
                 }
-            } else if (answer.type=="default") {
-                defaultFB=answer.feedback;
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
             }
             if (done) {
                 return false; // Break out of loop if this has been marked correct
@@ -1475,79 +1507,103 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent=defaultFB;
-            console.log("Default feedback", defaultFB);
+            fb.textContent = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
         }
 
-        fb.style.display="block";
+        fb.style.display = "block";
         if (correct) {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("correctButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
         } else {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
-
-        if (MathJax) {
-            var version=MathJax.version;
-            if (version[0]=="2") {
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
             }
+        } else {
+            console.log('MathJax not detected');
         }
         return false;
     }
 
 }
 
-function isValid(el,  charC) {
-		if (charC == 46) {
-				if (el.value.indexOf('.') === -1) {
-					  return true;
-				} else if (el.value.indexOf('/') != -1) {
-            parts=el.value.split('/');
-				    if (parts[1].indexOf('.') === -1) {
-					      return true;
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
             }
         }
-        else{
-					  return false;
-				}
-		} else if (charC == 47) {
-				if (el.value.indexOf('/') === -1) {
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
             if ((el.value != "") && (el.value != ".")) {
-					      return true;
+                return true;
             } else {
-					  return false;
-				    }
+                return false;
+            }
         } else {
             return false;
         }
-		} else if (charC == 45) {
-        if (el.value == "" ) {
+    } else if (charC == 45) {
+        edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
             return true;
         } else {
             return false;
         }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     } else {
-				if (charC > 31 && (charC < 48 || charC > 57))
-					  return false;
-		}
-		return true;
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
 }
 
-function numeric_keypress( evnt) {
-		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
 
-    if (charC==13) {
+    if (charC == 13) {
         check_numeric(this, evnt);
-    } else{
-		    return isValid(this, charC);
+    } else {
+        return isValid(this, charC);
     }
 }
 
@@ -1559,28 +1615,28 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
-        //console.log(answer);
+    //console.log(answer);
 
 
-    outerqDiv.className="NumericQn";
-    aDiv.style.display='block';
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
 
     var lab = document.createElement("label");
-    lab.className="InpLabel";
-    lab.textContent="Type numeric answer here:";
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
     aDiv.append(lab);
 
     var inp = document.createElement("input");
-    inp.type="text";
+    inp.type = "text";
     //inp.id="input-"+id;
-    inp.id=id+"-0";
-    inp.className="Input-text";
-    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
     if ("precision" in qa) {
         inp.setAttribute('data-precision', qa.precision);
     }
     aDiv.append(inp);
-    console.log(inp);
+    //console.log(inp);
 
     //inp.addEventListener("keypress", check_numeric);
     //inp.addEventListener("keypress", numeric_keypress);
@@ -1591,33 +1647,72 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
                         );
                         */
     //inp.onkeypress="return numeric_keypress(this, event)";
-    inp.onkeypress=numeric_keypress;
-    inp.onpaste= event => false;
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
 
-    inp.addEventListener("focus", function(event) {
-        this.value="";
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
         return false;
     }
-                        );
+    );
 
 
 }
-function show_questions (json, mydiv) {
-    //var mydiv=document.getElementById(myid);
-    var shuffle_questions=mydiv.dataset.shufflequestions;
-    var num_questions=mydiv.dataset.numquestions;
-    var shuffle_answers=mydiv.dataset.shuffleanswers;
+function jaxify(string) {
+    var mystring = string;
 
-    if (num_questions>json.length) {
-        num_questions=json.length;
+    count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
     }
 
     var questions;
-    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
         //console.log(num_questions+","+json.length);
-        questions=getRandomSubarray(json, num_questions);
+        questions = getRandomSubarray(json, num_questions);
     } else {
-        questions=json;
+        questions = json;
     }
 
     //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
@@ -1632,75 +1727,79 @@ function show_questions (json, mydiv) {
 
         // Create Div to contain question and answers
         var iDiv = document.createElement('div');
-        iDiv.id = 'quizWrap'+id+index;
-        iDiv.className='Quiz';
+        iDiv.id = 'quizWrap' + id + index;
+        iDiv.className = 'Quiz';
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
         var outerqDiv = document.createElement('div');
-        outerqDiv.id="OuterquizQn"+id+index;
+        outerqDiv.id = "OuterquizQn" + id + index;
         //qDiv.textContent=qa.question;
         iDiv.append(outerqDiv);
 
         // Create div to contain question part
         var qDiv = document.createElement('div');
-        qDiv.id="quizQn"+id+index;
+        qDiv.id = "quizQn" + id + index;
         //qDiv.textContent=qa.question;
-        qDiv.innerHTML=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
         outerqDiv.append(qDiv);
 
         // Create div for code inside question
         var codeDiv;
-        if ("code" in qa){
+        if ("code" in qa) {
             codeDiv = document.createElement('div');
-            codeDiv.id="code"+id+index;
-            codeDiv.className="QuizCode";
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeDiv.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=qa.code;
+            codeCode.innerHTML = qa.code;
             outerqDiv.append(codeDiv);
-            console.log(codeDiv);
+            //console.log(codeDiv);
         }
 
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
-        aDiv.id="quizAns"+id+index;
-        aDiv.className='Answer';
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
         iDiv.append(aDiv);
 
-        console.log(qa.type);
+        //console.log(qa.type);
 
         var num_correct;
-        if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if  (qa.type=="numeric") {
-            console.log("numeric");
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
             make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 
         //Make div for feedback
         var fb = document.createElement("div");
-        fb.id="fb"+id;
+        fb.id = "fb" + id;
         //fb.style="font-size: 20px;text-align:center;";
-        fb.className="Feedback";
+        fb.className = "Feedback";
         fb.setAttribute("data-answeredcorrect", 0);
         fb.setAttribute("data-numcorrect", num_correct);
         iDiv.append(fb);
 
 
     });
+    //console.log("At end of show_questions");
     if (typeof MathJax != 'undefined') {
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
+        } else {
+            console.log("MathJax not found");
         }
     }
     return false;
@@ -1715,10 +1814,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch3.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, HugssslBcUsk))
+        .then(json => show_questions(json, TOdOtInMlvua))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsHugssslBcUsk, HugssslBcUsk);
+        show_questions(questionsTOdOtInMlvua, TOdOtInMlvua);
         });
         }
         </script>
@@ -1730,8 +1829,7 @@ function show_questions (json, mydiv) {
 <p>Answer these questions to check your retention on knowledge from Chapters 1 and 2:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="BwTgSmAMtdXI" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>
-:root {
+<div class="output text_html"><div id="nFoDslHSZDoM" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1741,17 +1839,16 @@ function show_questions (json, mydiv) {
     --correct-green: #009113;
 }
 
-
 .Quiz {
-     max-width: 600px;
-     margin-top: 15px;
-     margin-left: auto;
-     margin-right: auto;
-     margin-bottom: 15px;
-     padding-bottom: 4px;
-     padding-top: 4px;
-     line-height: 1.1;
-     font-size: 16pt;
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
 }
 
 .QuizCode {
@@ -1761,24 +1858,28 @@ function show_questions (json, mydiv) {
     margin-right: 20px;
 }
 
-.QuizCode > pre {
+.QuizCode>pre {
     padding: 4px;
 }
-.Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
 }
-.Feedback{
-     font-size: 16pt;
-     text-align:center;
- }
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
 
 .Input {
-    align:left;
+    align: left;
     font-size: 20pt;
 }
+
 .Input-text {
     display: block;
     margin: 10px;
@@ -1788,7 +1889,6 @@ function show_questions (json, mydiv) {
     color: #fff;
     padding: 5px;
     padding-left: 10px;
-
     font-family: inherit;
     font-size: 20px;
     font-weight: inherit;
@@ -1798,70 +1898,97 @@ function show_questions (json, mydiv) {
     transition: box-shadow 0.1s);
 }
 
- .Input-text:focus {
-     outline: none;
-     background-color: #c0c0c0;
-     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
- }
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
 
- .MCButton{
-     background: #fafafa;
-     border: 1px solid #eee;
-     border-radius: 10px;
-     padding: 10px;
-     font-size: 16px;
-     cursor: pointer;
-     text-align: center;
- }
- .MultipleChoiceQn {
-     padding: 10px;
-     background: var(--medium-slate-blue);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .ManyChoiceQn {
-     padding: 10px;
-     background: var(--orange-pantone);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .NumericQn {
-     padding: 10px;
-     background: var(--russian-violet);
-     color: #fafafa;
-     border-radius: 10px;
- }
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
 .NumericQn p {
-     color: inherit;
+    color: inherit;
 }
+
 .InpLabel {
-     line-height: 34px;
-     float:left;
-     margin-right: 10px;
-     color: #101010;
-     font-size: 15pt;
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
 }
+
 .incorrect {
     color: var(--incorrect-red);
 }
+
 .correct {
     color: var(--correct-green);
 }
+
 .correctButton {
+    /*
     background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
     color: #fafafa;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
+
 .incorrectButton {
-    background: var(--incorrect-red);
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
     color: #fafafa;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
 
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
 
-</style><script type="text/Javascript">questionsBwTgSmAMtdXI=[
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style><script type="text/Javascript">questionsnFoDslHSZDoM=[
     {
         "question": "Choose all of the following that can be included in Jupyter notebooks?",
         "type": "many_choice",
@@ -2108,11 +2235,11 @@ function show_questions (json, mydiv) {
 ;
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
-    var result           = [];
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
     }
     return result.join('');
 }
@@ -2129,7 +2256,7 @@ function getRandomSubarray(arr, size) {
     return shuffled.slice(0, size);
 }
 function check_mc() {
-    var id=this.id.split('-')[0];
+    var id = this.id.split('-')[0];
 
     //console.log("In check_mc(), id="+id);
     //console.log(event.srcElement.id)           
@@ -2138,145 +2265,148 @@ function check_mc() {
 
     var label = event.srcElement;
     //console.log(label, label.nodeName);
-    var depth=0;
-    while ((label.nodeName!="LABEL") && (depth<3)) {
-        label=label.parentElement;
-        //console.log(depth,label);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
         depth++;
     }
 
 
 
-    var answers=label.parentElement.children;
+    var answers = label.parentElement.children;
 
     //console.log(answers);
 
 
     // Split behavior based on multiple choice vs many choice:
-    var fb = document.getElementById("fb"+id);
+    var fb = document.getElementById("fb" + id);
     //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
-    if (fb.dataset.numcorrect==1) {
+    if (fb.dataset.numcorrect == 1) {
         for (var i = 0; i < answers.length; i++) {
-            var child=answers[i];
+            var child = answers[i];
             //console.log(child);
-            child.className="MCButton";
+            child.className = "MCButton";
         }
 
 
 
-        if (label.dataset.correct=="true")   {
+        if (label.dataset.correct == "true") {
             // console.log("Correct action");
             if ("feedback" in label.dataset) {
-                fb.textContent=label.dataset.feedback;
-            } else{
-                fb.textContent="Correct!";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
             }
             label.classList.add("correctButton");
 
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
 
         } else {
             if ("feedback" in label.dataset) {
-                fb.textContent=label.dataset.feedback;
-            } else{
-                fb.textContent="Incorrect -- try again.";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
             }
             //console.log("Error action");
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
     }
     else {
         var reset = false;
         var feedback;
-        if (label.dataset.correct=="true" )   {
+        if (label.dataset.correct == "true") {
             if ("feedback" in label.dataset) {
-                feedback=label.dataset.feedback;
-            } else{
-                feedback="Correct!";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
             }
-            if (label.dataset.answered<=0) {
-                if (fb.dataset.answeredcorrect<0) {
-                    fb.dataset.answeredcorrect=1;
-                    reset=true;
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
                 } else {
                     fb.dataset.answeredcorrect++;
                 }
                 if (reset) {
                     for (var i = 0; i < answers.length; i++) {
-                        var child=answers[i];
-                        child.className="MCButton";
-                        child.dataset.answered=0;
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
                     }
                 }
                 label.classList.add("correctButton");
-                label.dataset.answered=1;
-                fb.className="Feedback";
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
                 fb.classList.add("correct");
 
             }
         } else {
             if ("feedback" in label.dataset) {
-                feedback=label.dataset.feedback;
-            } else{
-                feedback="Incorrect -- try again.";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
             }
-            if (fb.dataset.answeredcorrect>0) {
-                fb.dataset.answeredcorrect=-1;
-                reset=true;
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
             } else {
                 fb.dataset.answeredcorrect--;
             }
 
             if (reset) {
                 for (var i = 0; i < answers.length; i++) {
-                    var child=answers[i];
-                    child.className="MCButton";
-                    child.dataset.answered=0;
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
                 }
             }
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
 
 
-        var numcorrect=fb.dataset.numcorrect;
-        var answeredcorrect=fb.dataset.answeredcorrect;
-        if (answeredcorrect>=0) {
-            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
         } else {
-            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
         }
 
 
     }
 
-    if (MathJax) {
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
         }
+    } else {
+        console.log('MathJax not detected');
     }
 
 }
 
 function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
-    if (shuffle_answers=="True") {
+    if (shuffle_answers == "True") {
         //console.log(shuffle_answers+" read as true");
-        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
     } else {
         //console.log(shuffle_answers+" read as false");
-        shuffled=qa.answers;
+        shuffled = qa.answers;
     }
 
 
-    var num_correct=0;
+    var num_correct = 0;
 
 
 
@@ -2285,35 +2415,36 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
         // Make input element
         var inp = document.createElement("input");
-        inp.type="radio";
-        inp.id="quizo"+id+index;
-        inp.style="display:none;";
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
         aDiv.append(inp);
 
         //Make label for input element
         var lab = document.createElement("label");
-        lab.className="MCButton";
-        lab.id=id+ '-' +index;
-        lab.onclick=check_mc;
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
         var aSpan = document.createElement('span');
-        aSpan.classsName="";
+        aSpan.classsName = "";
         //qDiv.id="quizQn"+id+index;
         if ("answer" in item) {
-            aSpan.innerHTML=item.answer;
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
         }
         lab.append(aSpan);
 
         // Create div for code inside question
         var codeSpan;
-        if ("code" in item){
+        if ("code" in item) {
             codeSpan = document.createElement('span');
-            codeSpan.id="code"+id+index;
-            codeSpan.className="QuizCode";
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeSpan.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=item.code;
+            codeCode.innerHTML = item.code;
             lab.append(codeSpan);
             //console.log(codeSpan);
         }
@@ -2325,7 +2456,7 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
         if (item.correct) {
             num_correct++;
         }
-        if ("feedback" in item){
+        if ("feedback" in item) {
             lab.setAttribute('data-feedback', item.feedback);
         }
         lab.setAttribute('data-answered', 0);
@@ -2334,10 +2465,10 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
     });
 
-    if (num_correct>1) {
-        outerqDiv.className="ManyChoiceQn";
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
     } else {
-        outerqDiv.className="MultipleChoiceQn";
+        outerqDiv.className = "MultipleChoiceQn";
     }
 
     return num_correct;
@@ -2348,20 +2479,20 @@ function check_numeric(ths, event) {
     if (event.keyCode === 13) {
         ths.blur();
 
-        var id=ths.id.split('-')[0];
+        var id = ths.id.split('-')[0];
 
-        var submission=ths.value;
-				if (submission.indexOf('/') != -1) {
-            sub_parts=submission.split('/');
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            sub_parts = submission.split('/');
             //console.log(sub_parts);
-            submission=sub_parts[0]/sub_parts[1];
+            submission = sub_parts[0] / sub_parts[1];
         }
-        console.log("Reader entered", submission);
+        //console.log("Reader entered", submission);
 
         if ("precision" in ths.dataset) {
-            precision=ths.dataset.precision;
+            precision = ths.dataset.precision;
             // console.log("1:", submission)
-            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
             // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
@@ -2370,39 +2501,39 @@ function check_numeric(ths, event) {
         //console.log(event.srcElement.id)           
         //console.log(event.srcElement.dataset.feedback)
 
-        var fb = document.getElementById("fb"+id);
-        fb.style.display="none";
-        fb.textContent="Incorrect -- try again.";
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
 
-        answers=JSON.parse(ths.dataset.answers);
-        console.log(answers);
+        answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
 
-        var defaultFB="";
+        var defaultFB = "";
         var correct;
-        var done=false;
+        var done = false;
         answers.every(answer => {
-            console.log(answer.type);
+            //console.log(answer.type);
 
-            correct=false;
+            correct = false;
             // if (answer.type=="value"){
-            if ('value' in answer){
+            if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
-                    console.log(answer.correct);
-                    done=true;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
                 }
-            // } else if (answer.type=="range") {
+                // } else if (answer.type=="range") {
             } else if ('range' in answer) {
-                console.log(answer.range);
+                //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
-                    console.log(answer.correct);
-                    done=true;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
                 }
-            } else if (answer.type=="default") {
-                defaultFB=answer.feedback;
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
             }
             if (done) {
                 return false; // Break out of loop if this has been marked correct
@@ -2412,79 +2543,103 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent=defaultFB;
-            console.log("Default feedback", defaultFB);
+            fb.textContent = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
         }
 
-        fb.style.display="block";
+        fb.style.display = "block";
         if (correct) {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("correctButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
         } else {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
-
-        if (MathJax) {
-            var version=MathJax.version;
-            if (version[0]=="2") {
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
             }
+        } else {
+            console.log('MathJax not detected');
         }
         return false;
     }
 
 }
 
-function isValid(el,  charC) {
-		if (charC == 46) {
-				if (el.value.indexOf('.') === -1) {
-					  return true;
-				} else if (el.value.indexOf('/') != -1) {
-            parts=el.value.split('/');
-				    if (parts[1].indexOf('.') === -1) {
-					      return true;
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
             }
         }
-        else{
-					  return false;
-				}
-		} else if (charC == 47) {
-				if (el.value.indexOf('/') === -1) {
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
             if ((el.value != "") && (el.value != ".")) {
-					      return true;
+                return true;
             } else {
-					  return false;
-				    }
+                return false;
+            }
         } else {
             return false;
         }
-		} else if (charC == 45) {
-        if (el.value == "" ) {
+    } else if (charC == 45) {
+        edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
             return true;
         } else {
             return false;
         }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     } else {
-				if (charC > 31 && (charC < 48 || charC > 57))
-					  return false;
-		}
-		return true;
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
 }
 
-function numeric_keypress( evnt) {
-		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
 
-    if (charC==13) {
+    if (charC == 13) {
         check_numeric(this, evnt);
-    } else{
-		    return isValid(this, charC);
+    } else {
+        return isValid(this, charC);
     }
 }
 
@@ -2496,28 +2651,28 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
-        //console.log(answer);
+    //console.log(answer);
 
 
-    outerqDiv.className="NumericQn";
-    aDiv.style.display='block';
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
 
     var lab = document.createElement("label");
-    lab.className="InpLabel";
-    lab.textContent="Type numeric answer here:";
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
     aDiv.append(lab);
 
     var inp = document.createElement("input");
-    inp.type="text";
+    inp.type = "text";
     //inp.id="input-"+id;
-    inp.id=id+"-0";
-    inp.className="Input-text";
-    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
     if ("precision" in qa) {
         inp.setAttribute('data-precision', qa.precision);
     }
     aDiv.append(inp);
-    console.log(inp);
+    //console.log(inp);
 
     //inp.addEventListener("keypress", check_numeric);
     //inp.addEventListener("keypress", numeric_keypress);
@@ -2528,33 +2683,72 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
                         );
                         */
     //inp.onkeypress="return numeric_keypress(this, event)";
-    inp.onkeypress=numeric_keypress;
-    inp.onpaste= event => false;
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
 
-    inp.addEventListener("focus", function(event) {
-        this.value="";
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
         return false;
     }
-                        );
+    );
 
 
 }
-function show_questions (json, mydiv) {
-    //var mydiv=document.getElementById(myid);
-    var shuffle_questions=mydiv.dataset.shufflequestions;
-    var num_questions=mydiv.dataset.numquestions;
-    var shuffle_answers=mydiv.dataset.shuffleanswers;
+function jaxify(string) {
+    var mystring = string;
 
-    if (num_questions>json.length) {
-        num_questions=json.length;
+    count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
     }
 
     var questions;
-    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
         //console.log(num_questions+","+json.length);
-        questions=getRandomSubarray(json, num_questions);
+        questions = getRandomSubarray(json, num_questions);
     } else {
-        questions=json;
+        questions = json;
     }
 
     //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
@@ -2569,75 +2763,79 @@ function show_questions (json, mydiv) {
 
         // Create Div to contain question and answers
         var iDiv = document.createElement('div');
-        iDiv.id = 'quizWrap'+id+index;
-        iDiv.className='Quiz';
+        iDiv.id = 'quizWrap' + id + index;
+        iDiv.className = 'Quiz';
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
         var outerqDiv = document.createElement('div');
-        outerqDiv.id="OuterquizQn"+id+index;
+        outerqDiv.id = "OuterquizQn" + id + index;
         //qDiv.textContent=qa.question;
         iDiv.append(outerqDiv);
 
         // Create div to contain question part
         var qDiv = document.createElement('div');
-        qDiv.id="quizQn"+id+index;
+        qDiv.id = "quizQn" + id + index;
         //qDiv.textContent=qa.question;
-        qDiv.innerHTML=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
         outerqDiv.append(qDiv);
 
         // Create div for code inside question
         var codeDiv;
-        if ("code" in qa){
+        if ("code" in qa) {
             codeDiv = document.createElement('div');
-            codeDiv.id="code"+id+index;
-            codeDiv.className="QuizCode";
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeDiv.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=qa.code;
+            codeCode.innerHTML = qa.code;
             outerqDiv.append(codeDiv);
-            console.log(codeDiv);
+            //console.log(codeDiv);
         }
 
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
-        aDiv.id="quizAns"+id+index;
-        aDiv.className='Answer';
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
         iDiv.append(aDiv);
 
-        console.log(qa.type);
+        //console.log(qa.type);
 
         var num_correct;
-        if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if  (qa.type=="numeric") {
-            console.log("numeric");
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
             make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 
         //Make div for feedback
         var fb = document.createElement("div");
-        fb.id="fb"+id;
+        fb.id = "fb" + id;
         //fb.style="font-size: 20px;text-align:center;";
-        fb.className="Feedback";
+        fb.className = "Feedback";
         fb.setAttribute("data-answeredcorrect", 0);
         fb.setAttribute("data-numcorrect", num_correct);
         iDiv.append(fb);
 
 
     });
+    //console.log("At end of show_questions");
     if (typeof MathJax != 'undefined') {
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
+        } else {
+            console.log("MathJax not found");
         }
     }
     return false;
@@ -2652,10 +2850,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch1.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, BwTgSmAMtdXI))
+        .then(json => show_questions(json, nFoDslHSZDoM))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsBwTgSmAMtdXI, BwTgSmAMtdXI);
+        show_questions(questionsnFoDslHSZDoM, nFoDslHSZDoM);
         });
         }
         </script>
@@ -2663,8 +2861,7 @@ function show_questions (json, mydiv) {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="EZNsHPSEkBNR" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>
-:root {
+<div class="output text_html"><div id="DkDCLEQJsyEG" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -2674,17 +2871,16 @@ function show_questions (json, mydiv) {
     --correct-green: #009113;
 }
 
-
 .Quiz {
-     max-width: 600px;
-     margin-top: 15px;
-     margin-left: auto;
-     margin-right: auto;
-     margin-bottom: 15px;
-     padding-bottom: 4px;
-     padding-top: 4px;
-     line-height: 1.1;
-     font-size: 16pt;
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
 }
 
 .QuizCode {
@@ -2694,24 +2890,28 @@ function show_questions (json, mydiv) {
     margin-right: 20px;
 }
 
-.QuizCode > pre {
+.QuizCode>pre {
     padding: 4px;
 }
-.Answer{
-     margin: 10px 0;
-     display: grid;
-     grid-template-columns: auto auto;
-     grid-gap: 10px;
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
 }
-.Feedback{
-     font-size: 16pt;
-     text-align:center;
- }
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
 
 .Input {
-    align:left;
+    align: left;
     font-size: 20pt;
 }
+
 .Input-text {
     display: block;
     margin: 10px;
@@ -2721,7 +2921,6 @@ function show_questions (json, mydiv) {
     color: #fff;
     padding: 5px;
     padding-left: 10px;
-
     font-family: inherit;
     font-size: 20px;
     font-weight: inherit;
@@ -2731,70 +2930,97 @@ function show_questions (json, mydiv) {
     transition: box-shadow 0.1s);
 }
 
- .Input-text:focus {
-     outline: none;
-     background-color: #c0c0c0;
-     box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
- }
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
 
- .MCButton{
-     background: #fafafa;
-     border: 1px solid #eee;
-     border-radius: 10px;
-     padding: 10px;
-     font-size: 16px;
-     cursor: pointer;
-     text-align: center;
- }
- .MultipleChoiceQn {
-     padding: 10px;
-     background: var(--medium-slate-blue);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .ManyChoiceQn {
-     padding: 10px;
-     background: var(--orange-pantone);
-     color: #fafafa;
-     border-radius: 10px;
- }
- .NumericQn {
-     padding: 10px;
-     background: var(--russian-violet);
-     color: #fafafa;
-     border-radius: 10px;
- }
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
 .NumericQn p {
-     color: inherit;
+    color: inherit;
 }
+
 .InpLabel {
-     line-height: 34px;
-     float:left;
-     margin-right: 10px;
-     color: #101010;
-     font-size: 15pt;
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
 }
+
 .incorrect {
     color: var(--incorrect-red);
 }
+
 .correct {
     color: var(--correct-green);
 }
+
 .correctButton {
+    /*
     background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
     color: #fafafa;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
+
 .incorrectButton {
-    background: var(--incorrect-red);
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
     color: #fafafa;
     box-shadow: inset 0px 0px 5px #555555;
     outline: none;
 }
 
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
 
-</style><script type="text/Javascript">questionsEZNsHPSEkBNR=[
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style><script type="text/Javascript">questionsDkDCLEQJsyEG=[
     {
         "question": "Which of these cannot be a probability?",
         "type": "multiple_choice",
@@ -2876,11 +3102,11 @@ function show_questions (json, mydiv) {
 ;
     //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
 function makeid(length) {
-    var result           = [];
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result.push(characters.charAt(Math.floor(Math.random() *  charactersLength)));
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
     }
     return result.join('');
 }
@@ -2897,7 +3123,7 @@ function getRandomSubarray(arr, size) {
     return shuffled.slice(0, size);
 }
 function check_mc() {
-    var id=this.id.split('-')[0];
+    var id = this.id.split('-')[0];
 
     //console.log("In check_mc(), id="+id);
     //console.log(event.srcElement.id)           
@@ -2906,145 +3132,148 @@ function check_mc() {
 
     var label = event.srcElement;
     //console.log(label, label.nodeName);
-    var depth=0;
-    while ((label.nodeName!="LABEL") && (depth<3)) {
-        label=label.parentElement;
-        //console.log(depth,label);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
         depth++;
     }
 
 
 
-    var answers=label.parentElement.children;
+    var answers = label.parentElement.children;
 
     //console.log(answers);
 
 
     // Split behavior based on multiple choice vs many choice:
-    var fb = document.getElementById("fb"+id);
+    var fb = document.getElementById("fb" + id);
     //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
-    if (fb.dataset.numcorrect==1) {
+    if (fb.dataset.numcorrect == 1) {
         for (var i = 0; i < answers.length; i++) {
-            var child=answers[i];
+            var child = answers[i];
             //console.log(child);
-            child.className="MCButton";
+            child.className = "MCButton";
         }
 
 
 
-        if (label.dataset.correct=="true")   {
+        if (label.dataset.correct == "true") {
             // console.log("Correct action");
             if ("feedback" in label.dataset) {
-                fb.textContent=label.dataset.feedback;
-            } else{
-                fb.textContent="Correct!";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
             }
             label.classList.add("correctButton");
 
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
 
         } else {
             if ("feedback" in label.dataset) {
-                fb.textContent=label.dataset.feedback;
-            } else{
-                fb.textContent="Incorrect -- try again.";
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
             }
             //console.log("Error action");
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
     }
     else {
         var reset = false;
         var feedback;
-        if (label.dataset.correct=="true" )   {
+        if (label.dataset.correct == "true") {
             if ("feedback" in label.dataset) {
-                feedback=label.dataset.feedback;
-            } else{
-                feedback="Correct!";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
             }
-            if (label.dataset.answered<=0) {
-                if (fb.dataset.answeredcorrect<0) {
-                    fb.dataset.answeredcorrect=1;
-                    reset=true;
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
                 } else {
                     fb.dataset.answeredcorrect++;
                 }
                 if (reset) {
                     for (var i = 0; i < answers.length; i++) {
-                        var child=answers[i];
-                        child.className="MCButton";
-                        child.dataset.answered=0;
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
                     }
                 }
                 label.classList.add("correctButton");
-                label.dataset.answered=1;
-                fb.className="Feedback";
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
                 fb.classList.add("correct");
 
             }
         } else {
             if ("feedback" in label.dataset) {
-                feedback=label.dataset.feedback;
-            } else{
-                feedback="Incorrect -- try again.";
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
             }
-            if (fb.dataset.answeredcorrect>0) {
-                fb.dataset.answeredcorrect=-1;
-                reset=true;
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
             } else {
                 fb.dataset.answeredcorrect--;
             }
 
             if (reset) {
                 for (var i = 0; i < answers.length; i++) {
-                    var child=answers[i];
-                    child.className="MCButton";
-                    child.dataset.answered=0;
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
                 }
             }
             label.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
 
 
-        var numcorrect=fb.dataset.numcorrect;
-        var answeredcorrect=fb.dataset.answeredcorrect;
-        if (answeredcorrect>=0) {
-            fb.textContent=feedback + " ["  + answeredcorrect + "/" + numcorrect + "]";
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
         } else {
-            fb.textContent=feedback + " ["  + 0 + "/" + numcorrect + "]";
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
         }
 
 
     }
 
-    if (MathJax) {
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
         }
+    } else {
+        console.log('MathJax not detected');
     }
 
 }
 
 function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
     var shuffled;
-    if (shuffle_answers=="True") {
+    if (shuffle_answers == "True") {
         //console.log(shuffle_answers+" read as true");
-        shuffled=getRandomSubarray(qa.answers, qa.answers.length);
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
     } else {
         //console.log(shuffle_answers+" read as false");
-        shuffled=qa.answers;
+        shuffled = qa.answers;
     }
 
 
-    var num_correct=0;
+    var num_correct = 0;
 
 
 
@@ -3053,35 +3282,36 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
         // Make input element
         var inp = document.createElement("input");
-        inp.type="radio";
-        inp.id="quizo"+id+index;
-        inp.style="display:none;";
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
         aDiv.append(inp);
 
         //Make label for input element
         var lab = document.createElement("label");
-        lab.className="MCButton";
-        lab.id=id+ '-' +index;
-        lab.onclick=check_mc;
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
         var aSpan = document.createElement('span');
-        aSpan.classsName="";
+        aSpan.classsName = "";
         //qDiv.id="quizQn"+id+index;
         if ("answer" in item) {
-            aSpan.innerHTML=item.answer;
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
         }
         lab.append(aSpan);
 
         // Create div for code inside question
         var codeSpan;
-        if ("code" in item){
+        if ("code" in item) {
             codeSpan = document.createElement('span');
-            codeSpan.id="code"+id+index;
-            codeSpan.className="QuizCode";
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeSpan.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=item.code;
+            codeCode.innerHTML = item.code;
             lab.append(codeSpan);
             //console.log(codeSpan);
         }
@@ -3093,7 +3323,7 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
         if (item.correct) {
             num_correct++;
         }
-        if ("feedback" in item){
+        if ("feedback" in item) {
             lab.setAttribute('data-feedback', item.feedback);
         }
         lab.setAttribute('data-answered', 0);
@@ -3102,10 +3332,10 @@ function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
 
     });
 
-    if (num_correct>1) {
-        outerqDiv.className="ManyChoiceQn";
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
     } else {
-        outerqDiv.className="MultipleChoiceQn";
+        outerqDiv.className = "MultipleChoiceQn";
     }
 
     return num_correct;
@@ -3116,20 +3346,20 @@ function check_numeric(ths, event) {
     if (event.keyCode === 13) {
         ths.blur();
 
-        var id=ths.id.split('-')[0];
+        var id = ths.id.split('-')[0];
 
-        var submission=ths.value;
-				if (submission.indexOf('/') != -1) {
-            sub_parts=submission.split('/');
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            sub_parts = submission.split('/');
             //console.log(sub_parts);
-            submission=sub_parts[0]/sub_parts[1];
+            submission = sub_parts[0] / sub_parts[1];
         }
-        console.log("Reader entered", submission);
+        //console.log("Reader entered", submission);
 
         if ("precision" in ths.dataset) {
-            precision=ths.dataset.precision;
+            precision = ths.dataset.precision;
             // console.log("1:", submission)
-            submission=Math.round((1*submission + Number.EPSILON)*10**precision)/ 10**precision; 
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
             // console.log("Rounded to ", submission, " precision=", precision  );
         }
 
@@ -3138,39 +3368,39 @@ function check_numeric(ths, event) {
         //console.log(event.srcElement.id)           
         //console.log(event.srcElement.dataset.feedback)
 
-        var fb = document.getElementById("fb"+id);
-        fb.style.display="none";
-        fb.textContent="Incorrect -- try again.";
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
 
-        answers=JSON.parse(ths.dataset.answers);
-        console.log(answers);
+        answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
 
-        var defaultFB="";
+        var defaultFB = "";
         var correct;
-        var done=false;
+        var done = false;
         answers.every(answer => {
-            console.log(answer.type);
+            //console.log(answer.type);
 
-            correct=false;
+            correct = false;
             // if (answer.type=="value"){
-            if ('value' in answer){
+            if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
-                    console.log(answer.correct);
-                    done=true;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
                 }
-            // } else if (answer.type=="range") {
+                // } else if (answer.type=="range") {
             } else if ('range' in answer) {
-                console.log(answer.range);
+                //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent=answer.feedback;
-                    correct=answer.correct;
-                    console.log(answer.correct);
-                    done=true;
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
                 }
-            } else if (answer.type=="default") {
-                defaultFB=answer.feedback;
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
             }
             if (done) {
                 return false; // Break out of loop if this has been marked correct
@@ -3180,79 +3410,103 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent=defaultFB;
-            console.log("Default feedback", defaultFB);
+            fb.textContent = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
         }
 
-        fb.style.display="block";
+        fb.style.display = "block";
         if (correct) {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("correctButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("correct");
         } else {
-            ths.className="Input-text";
+            ths.className = "Input-text";
             ths.classList.add("incorrectButton");
-            fb.className="Feedback";
+            fb.className = "Feedback";
             fb.classList.add("incorrect");
         }
-
-        if (MathJax) {
-            var version=MathJax.version;
-            if (version[0]=="2") {
-                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
             }
+        } else {
+            console.log('MathJax not detected');
         }
         return false;
     }
 
 }
 
-function isValid(el,  charC) {
-		if (charC == 46) {
-				if (el.value.indexOf('.') === -1) {
-					  return true;
-				} else if (el.value.indexOf('/') != -1) {
-            parts=el.value.split('/');
-				    if (parts[1].indexOf('.') === -1) {
-					      return true;
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
             }
         }
-        else{
-					  return false;
-				}
-		} else if (charC == 47) {
-				if (el.value.indexOf('/') === -1) {
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
             if ((el.value != "") && (el.value != ".")) {
-					      return true;
+                return true;
             } else {
-					  return false;
-				    }
+                return false;
+            }
         } else {
             return false;
         }
-		} else if (charC == 45) {
-        if (el.value == "" ) {
+    } else if (charC == 45) {
+        edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
             return true;
         } else {
             return false;
         }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     } else {
-				if (charC > 31 && (charC < 48 || charC > 57))
-					  return false;
-		}
-		return true;
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
 }
 
-function numeric_keypress( evnt) {
-		var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
 
-    if (charC==13) {
+    if (charC == 13) {
         check_numeric(this, evnt);
-    } else{
-		    return isValid(this, charC);
+    } else {
+        return isValid(this, charC);
     }
 }
 
@@ -3264,28 +3518,28 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
 
 
 
-        //console.log(answer);
+    //console.log(answer);
 
 
-    outerqDiv.className="NumericQn";
-    aDiv.style.display='block';
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
 
     var lab = document.createElement("label");
-    lab.className="InpLabel";
-    lab.textContent="Type numeric answer here:";
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
     aDiv.append(lab);
 
     var inp = document.createElement("input");
-    inp.type="text";
+    inp.type = "text";
     //inp.id="input-"+id;
-    inp.id=id+"-0";
-    inp.className="Input-text";
-    inp.setAttribute('data-answers', JSON.stringify(qa.answers) );
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
     if ("precision" in qa) {
         inp.setAttribute('data-precision', qa.precision);
     }
     aDiv.append(inp);
-    console.log(inp);
+    //console.log(inp);
 
     //inp.addEventListener("keypress", check_numeric);
     //inp.addEventListener("keypress", numeric_keypress);
@@ -3296,33 +3550,72 @@ function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
                         );
                         */
     //inp.onkeypress="return numeric_keypress(this, event)";
-    inp.onkeypress=numeric_keypress;
-    inp.onpaste= event => false;
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
 
-    inp.addEventListener("focus", function(event) {
-        this.value="";
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
         return false;
     }
-                        );
+    );
 
 
 }
-function show_questions (json, mydiv) {
-    //var mydiv=document.getElementById(myid);
-    var shuffle_questions=mydiv.dataset.shufflequestions;
-    var num_questions=mydiv.dataset.numquestions;
-    var shuffle_answers=mydiv.dataset.shuffleanswers;
+function jaxify(string) {
+    var mystring = string;
 
-    if (num_questions>json.length) {
-        num_questions=json.length;
+    count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
     }
 
     var questions;
-    if ( (num_questions<json.length) || (shuffle_questions=="True") ) {
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
         //console.log(num_questions+","+json.length);
-        questions=getRandomSubarray(json, num_questions);
+        questions = getRandomSubarray(json, num_questions);
     } else {
-        questions=json;
+        questions = json;
     }
 
     //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
@@ -3337,75 +3630,79 @@ function show_questions (json, mydiv) {
 
         // Create Div to contain question and answers
         var iDiv = document.createElement('div');
-        iDiv.id = 'quizWrap'+id+index;
-        iDiv.className='Quiz';
+        iDiv.id = 'quizWrap' + id + index;
+        iDiv.className = 'Quiz';
         mydiv.appendChild(iDiv);
         // iDiv.innerHTML=qa.question;
 
         var outerqDiv = document.createElement('div');
-        outerqDiv.id="OuterquizQn"+id+index;
+        outerqDiv.id = "OuterquizQn" + id + index;
         //qDiv.textContent=qa.question;
         iDiv.append(outerqDiv);
 
         // Create div to contain question part
         var qDiv = document.createElement('div');
-        qDiv.id="quizQn"+id+index;
+        qDiv.id = "quizQn" + id + index;
         //qDiv.textContent=qa.question;
-        qDiv.innerHTML=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
         outerqDiv.append(qDiv);
 
         // Create div for code inside question
         var codeDiv;
-        if ("code" in qa){
+        if ("code" in qa) {
             codeDiv = document.createElement('div');
-            codeDiv.id="code"+id+index;
-            codeDiv.className="QuizCode";
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
             var codePre = document.createElement('pre');
             codeDiv.append(codePre);
             var codeCode = document.createElement('code');
             codePre.append(codeCode);
-            codeCode.innerHTML=qa.code;
+            codeCode.innerHTML = qa.code;
             outerqDiv.append(codeDiv);
-            console.log(codeDiv);
+            //console.log(codeDiv);
         }
 
 
         // Create div to contain answer part
         var aDiv = document.createElement('div');
-        aDiv.id="quizAns"+id+index;
-        aDiv.className='Answer';
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
         iDiv.append(aDiv);
 
-        console.log(qa.type);
+        //console.log(qa.type);
 
         var num_correct;
-        if (qa.type=="multiple_choice")  {
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if   (qa.type=="many_choice"){
-            num_correct=make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if  (qa.type=="numeric") {
-            console.log("numeric");
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
             make_numeric(qa, outerqDiv, qDiv, aDiv, id);
         }
 
 
         //Make div for feedback
         var fb = document.createElement("div");
-        fb.id="fb"+id;
+        fb.id = "fb" + id;
         //fb.style="font-size: 20px;text-align:center;";
-        fb.className="Feedback";
+        fb.className = "Feedback";
         fb.setAttribute("data-answeredcorrect", 0);
         fb.setAttribute("data-numcorrect", num_correct);
         iDiv.append(fb);
 
 
     });
+    //console.log("At end of show_questions");
     if (typeof MathJax != 'undefined') {
-        var version=MathJax.version;
-        if (version[0]=="2") {
-            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
             MathJax.typeset();
+        } else {
+            console.log("MathJax not found");
         }
     }
     return false;
@@ -3420,10 +3717,10 @@ function show_questions (json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/ch2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, EZNsHPSEkBNR))
+        .then(json => show_questions(json, DkDCLEQJsyEG))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsEZNsHPSEkBNR, EZNsHPSEkBNR);
+        show_questions(questionsDkDCLEQJsyEG, DkDCLEQJsyEG);
         });
         }
         </script>
