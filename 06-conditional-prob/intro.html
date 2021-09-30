@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Dependence and Independence &#8212; Introduction to Data Science for Engineers</title>
+    <title>6. Dependence and Independence &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.1. Simulating and Counting Conditional Probabilities" href="simulating-cond-probs.html" />
-    <link rel="prev" title="4.8. Summary" href="../04-probability1/summary.html" />
+    <link rel="next" title="6.1. Simulating and Counting Conditional Probabilities" href="simulating-cond-probs.html" />
+    <link rel="prev" title="5. Binary Hypothesis Tests with Resampling (Outline Only)" href="../05-binary-hypothesis-testing/outline.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -284,9 +284,14 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-binary-hypothesis-testing/outline.html">
+   5. Binary Hypothesis Tests with Resampling (Outline Only)
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   5. Dependence and Independence
+   6. Dependence and Independence
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -296,32 +301,32 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="simulating-cond-probs.html">
-     5.1. Simulating and Counting Conditional Probabilities
+     6.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="notation-and-intuition.html">
-     5.2. Conditional Probability: Notation and Intuition
+     6.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="definition.html">
-     5.3. Formally Defining Conditional Probability
+     6.3. Formally Defining Conditional Probability
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="relating-cond-uncond.html">
-     5.4. Relating Conditional and Unconditional Probabilities
+     6.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="more-on-simulating.html">
-     5.5. More on Simulating Conditional Probabilities
+     6.5. More on Simulating Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="independence.html">
-     5.6. Statistical Independence
+     6.6. Statistical Independence
     </a>
    </li>
   </ul>
@@ -367,7 +372,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/intro.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06-conditional-prob/intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -392,7 +397,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/intro.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06-conditional-prob/intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -418,7 +423,7 @@
               <div>
                 
   <div class="section" id="dependence-and-independence">
-<h1><span class="section-number">5. </span>Dependence and Independence<a class="headerlink" href="#dependence-and-independence" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Dependence and Independence<a class="headerlink" href="#dependence-and-independence" title="Permalink to this headline">¶</a></h1>
 <p>Different random phenomena often depend on each other in obvious or subtle ways. <em>Conditional probability</em> is the study of such dependence. This is one of the most important concepts in probability. In fact, it is often said that “all probabilities are conditional”, which means that we should always understand probability through the concepts taught in this chapter. Some examples of how we can use conditional probabilities are:</p>
 <ul class="simple">
 <li><p>In null hypothesis testing, we are asking whether an observed difference in a summary statistic <strong>depends</strong> on the underlying grouping of the data. This dependence can be best expressed in terms of conditional probabilities and conditional expectations.</p></li>
@@ -2149,7 +2154,7 @@ function show_questions(json, mydiv) {
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./05-conditional-prob"
+            path: "./06-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -2166,11 +2171,11 @@ function show_questions(json, mydiv) {
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../04-probability1/summary.html" title="previous page">
+        <a class="left-prev" href="../05-binary-hypothesis-testing/outline.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">4.8. </span>Summary</p>
+                <p class="prevnext-title"><span class="section-number">5. </span>Binary Hypothesis Tests with Resampling (Outline Only)</p>
             </div>
         </a>
     </div>
@@ -2178,7 +2183,7 @@ function show_questions(json, mydiv) {
         <a class="right-next" href="simulating-cond-probs.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5.1. </span>Simulating and Counting Conditional Probabilities</p>
+                <p class="prevnext-title"><span class="section-number">6.1. </span>Simulating and Counting Conditional Probabilities</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

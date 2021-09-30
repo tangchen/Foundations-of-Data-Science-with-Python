@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.3. Formally Defining Conditional Probability &#8212; Introduction to Data Science for Engineers</title>
+    <title>6.4. Relating Conditional and Unconditional Probabilities &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.4. Relating Conditional and Unconditional Probabilities" href="relating-cond-uncond.html" />
-    <link rel="prev" title="5.2. Conditional Probability: Notation and Intuition" href="notation-and-intuition.html" />
+    <link rel="next" title="6.5. More on Simulating Conditional Probabilities" href="more-on-simulating.html" />
+    <link rel="prev" title="6.3. Formally Defining Conditional Probability" href="definition.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -284,9 +284,14 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-binary-hypothesis-testing/outline.html">
+   5. Binary Hypothesis Tests with Resampling (Outline Only)
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro.html">
-   5. Dependence and Independence
+   6. Dependence and Independence
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -296,32 +301,32 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="simulating-cond-probs.html">
-     5.1. Simulating and Counting Conditional Probabilities
+     6.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="notation-and-intuition.html">
-     5.2. Conditional Probability: Notation and Intuition
+     6.2. Conditional Probability: Notation and Intuition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="definition.html">
+     6.3. Formally Defining Conditional Probability
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.3. Formally Defining Conditional Probability
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="relating-cond-uncond.html">
-     5.4. Relating Conditional and Unconditional Probabilities
+     6.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="more-on-simulating.html">
-     5.5. More on Simulating Conditional Probabilities
+     6.5. More on Simulating Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="independence.html">
-     5.6. Statistical Independence
+     6.6. Statistical Independence
     </a>
    </li>
   </ul>
@@ -367,7 +372,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/definition.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06-conditional-prob/relating-cond-uncond.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -392,7 +397,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/definition.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06-conditional-prob/relating-cond-uncond.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -417,112 +422,15 @@
         
               <div>
                 
-  <div class="section" id="formally-defining-conditional-probability">
-<h1><span class="section-number">5.3. </span>Formally Defining Conditional Probability<a class="headerlink" href="#formally-defining-conditional-probability" title="Permalink to this headline">¶</a></h1>
-<p>In <a class="reference internal" href="notation-and-intuition.html"><span class="doc">Conditional Probability: Notation and Intuition</span></a>, we introduced the idea of a <em>conditional sample space</em>. Suppose that we are interested in the conditional probability of <span class="math notranslate nohighlight">\(A\)</span> given that event <span class="math notranslate nohighlight">\(B\)</span> occurred. A Venn diagram for a general set of events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is shown in <a class="reference internal" href="#cond-prob-two-events"><span class="std std-numref">Fig. 5.1</span></a></p>
-<div class="figure align-default" id="cond-prob-two-events">
-<a class="reference internal image-reference" href="../_images/venn-diagram-two-events.svg"><img alt="Venn diagram for two generic events, $A$ and $B$." src="../_images/venn-diagram-two-events.svg" width="400px" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Venn diagram of two generic events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, where the event <span class="math notranslate nohighlight">\(B\)</span> is shaded to indicate that it is known to have occurred.</span><a class="headerlink" href="#cond-prob-two-events" title="Permalink to this image">¶</a></p>
-</div>
-<p>If the original sample space is <span class="math notranslate nohighlight">\(S\)</span>, then the set of outcomes that can have occurred given that <span class="math notranslate nohighlight">\(B\)</span> occurred can be thought of as a “conditional sample space”,</p>
-<div class="math notranslate nohighlight">
-\[
-S_{|B} = S \cap B = B.
-\]</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The reason that I have put “conditional sample space” in quotation marks is that although this concept is useful to understand where the formula for calculating conditional probabilities comes from, it is also misleading in that we are not restricted to only calculating conditional probabilities for events that lie within <span class="math notranslate nohighlight">\(S_{|B}\)</span>. In fact, our assumption in drawing the Venn diagrams is that <span class="math notranslate nohighlight">\(A\)</span> is an event that is not wholly contained in <span class="math notranslate nohighlight">\(B\)</span>. Further below, we show that conditioning on an event <span class="math notranslate nohighlight">\(B\)</span> induces a new <em>conditional probability measure</em> on the <strong>original sample space and event class</strong>.</p>
-</div>
-<p>Now, given that <span class="math notranslate nohighlight">\(B\)</span> occurred, the only possible outcomes in <span class="math notranslate nohighlight">\(A\)</span> that could have occurred are those in <span class="math notranslate nohighlight">\(A_{|B} = A \cap B\)</span>.  Then the “conditional sample space” <span class="math notranslate nohighlight">\(S_{|B}\)</span> and a corresponding  conditional event
-<span class="math notranslate nohighlight">\(A_{|B}\)</span> are shown in <a class="reference internal" href="#cond-sample-space"><span class="std std-numref">Fig. 5.2</span></a>.</p>
-<div class="figure align-default" id="cond-sample-space">
-<a class="reference internal image-reference" href="../_images/conditional-sample-space.svg"><img alt="Induced conditional sample space $S_{|B}$ and conditional event $A_{|B}$ from conditioning on event $B$." src="../_images/conditional-sample-space.svg" width="400px" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">Venn diagram of two generic events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, where the event <span class="math notranslate nohighlight">\(B\)</span> is shaded to indicate that it is known to have occurred.</span><a class="headerlink" href="#cond-sample-space" title="Permalink to this image">¶</a></p>
-</div>
-<p>Based on <a class="reference internal" href="#cond-sample-space"><span class="std std-numref">Fig. 5.2</span></a>, we make the following observations under the condition that <span class="math notranslate nohighlight">\(B\)</span> is known to have occurred:</p>
-<ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive, then there are no outcomes of <span class="math notranslate nohighlight">\(A\)</span> contained in the event <span class="math notranslate nohighlight">\(B\)</span>.  Thus, if <span class="math notranslate nohighlight">\(B\)</span> occurs, <span class="math notranslate nohighlight">\(A\)</span> cannot have occurred, and thus <span class="math notranslate nohighlight">\(P(A|B)=0\)</span> in this case.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(B \subset A\)</span>, then the intersection region <span class="math notranslate nohighlight">\(A \cap B = B\)</span>.  In other words, every outcome in <span class="math notranslate nohighlight">\(B\)</span> is an outcome in <span class="math notranslate nohighlight">\(A\)</span>. If <span class="math notranslate nohighlight">\(B\)</span> occurred, then <span class="math notranslate nohighlight">\(A\)</span> must have occurred, so <span class="math notranslate nohighlight">\(P(A|B)=1\)</span> in this case.</p></li>
-<li><p>Under the condition that <span class="math notranslate nohighlight">\(B\)</span> occurred, only the outcomes in <span class="math notranslate nohighlight">\(A\)</span> that are also in <span class="math notranslate nohighlight">\(B\)</span> are possible. Thus, <span class="math notranslate nohighlight">\(P(A|B)\)</span> should be proportional to <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> (i.e., the smaller region in <a class="reference internal" href="#cond-sample-space"><span class="std std-numref">Fig. 5.2</span></a>.</p></li>
-</ul>
-<p>These observations lead to the following definition of conditional probability:</p>
-<div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">DEFINITION</p>
-</div>
-<div class="card-body docutils">
-<dl class="simple myst">
-<dt>conditional probability</dt><dd><p class="card-text">The conditional probability of an event <span class="math notranslate nohighlight">\(A\)</span> given that an event <span class="math notranslate nohighlight">\(B\)</span> occurred, where <span class="math notranslate nohighlight">\(P(B) \ne 0\)</span>, is</p>
-</dd>
-</dl>
-<div class="math notranslate nohighlight">
-\[
-P(A|B) = \frac{P \left( A \cap B \right)}{P\left(B\right)}
-\]</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Now suppose we have a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\left( \right)\)</span> and an event <span class="math notranslate nohighlight">\(B\)</span> with <span class="math notranslate nohighlight">\(P(B) \ne 0\)</span>.  Then we define a new probability space <span class="math notranslate nohighlight">\(S, \mathcal{F},  
-P\left( ~ \left \vert B \right. \right)\)</span>, where <span class="math notranslate nohighlight">\(P\left( ~ \left \vert B \right. \right)\)</span> is the conditional probability measure given that <span class="math notranslate nohighlight">\(B\)</span> occurred. To be more precise, we define <span class="math notranslate nohighlight">\(P\left( ~ \left \vert B \right. \right)\)</span> on the event class <span class="math notranslate nohighlight">\(A\)</span> using the original probability measure <span class="math notranslate nohighlight">\(P()\)</span> as follows:</p>
-<ul class="simple">
-<li><p>for each <span class="math notranslate nohighlight">\(A \in \mathcal{F}\)</span>,
-$<span class="math notranslate nohighlight">\(
-P(A|B) = \frac{P \left( A \cap B \right)}{P\left(B\right)}.
-\)</span>$</p></li>
-</ul>
-<p>To claim that the triple <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\left( ~ \left \vert B \right. \right)\)</span> defined as above is a probability space, we need to verify that the conditional probability measure <span class="math notranslate nohighlight">\(P\left( ~ \left \vert B \right. \right)\)</span>  <strong>satisfies the axioms</strong> in this probability space:</p>
-<p><strong>1.</strong> Axiom 1 is that the probabilities are non-negative. Let’s check:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-      P(A|B)=\frac{P(A \cap B)}{P(B)}.
-\end{eqnarray*}\]</div>
-<p>Note that we are already given that <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>, and <span class="math notranslate nohighlight">\(P() \ge 0\)</span> for all events in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>. Since <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is a <span class="math notranslate nohighlight">\(\sigma\)</span>-algebra, <span class="math notranslate nohighlight">\(A \cap B \in \mathcal{F}\)</span> and so <span class="math notranslate nohighlight">\(P(A \cap B) \ge 0\)</span>.  Thus, <span class="math notranslate nohighlight">\(P(A|B)\)</span> is a non-negative quantity divided by a positive quantity, and so <span class="math notranslate nohighlight">\(P(A|B) \ge 0\)</span>.</p>
-<p><strong>2.</strong> Axiom 2 is that the probability of <span class="math notranslate nohighlight">\(S\)</span> (the sample space) is 1. Let’s check:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-      P(S|B)= \frac{P(S \cap B)}{P(B)}  = \frac{P(B)}{P(B)}
-       =1
-\end{eqnarray*}\]</div>
-<p><strong>3.</strong> Axiom 3 says that if <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(C\)</span> are mutually exclusive events in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, then the probability of <span class="math notranslate nohighlight">\(A \cup C\)</span> is the sum of the probability of <span class="math notranslate nohighlight">\(A\)</span>  and the probability of <span class="math notranslate nohighlight">\(C\)</span>. Let’s check if this still  holds for our conditional probability measure:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-    P(A \cup C |B) &amp;=&amp;  \frac{ P\left[ \left(A \cup C \right) \cap B \right]}{P[B]}  \\
-     &amp;=&amp; \frac{ P\left[ \left(A \cap B \right) \cup \left(C \cap B \right) \right]}{P[B]}. 
-  \end{eqnarray*}\]</div>
-<p>Note that <span class="math notranslate nohighlight">\(A \cap C = \emptyset \Rightarrow (A\cap B) \cap (C \cap B) = (A\cap C) \cap  B =\emptyset\)</span>, so</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{eqnarray*}
-    P(A \cup C |B) &amp;=&amp; \frac{ P\left[ A \cap B \right]}{P\left[B\right]} 
-    + \frac{P\left[ C \cap B  \right]}{P[B]}  \\
-    &amp;=&amp; P(A|B) + P(C|B)
-  \end{eqnarray*}\]</div>
-<p>The important thing to notice here is that the new conditional probability measure <span class="math notranslate nohighlight">\(P(~|B)\)</span> satisifies the axioms with the original sample space and event class – we are not restricted to applying <span class="math notranslate nohighlight">\(P(~|B)\)</span> to those events that lie within the smaller “conditional sample space”, <span class="math notranslate nohighlight">\(S_{|B}\)</span></p>
-<p><strong>Exercise</strong></p>
-<p>Consider again the problem with five computers in a lab, with sample space denoted by</p>
-<div class="math notranslate nohighlight">
-\[
-S= \left\{AD, AN, BD_1, BD_2, BN\right\}
-\]</div>
-<p>and events</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(E_A\)</span> is the event that the user’s computer is from manufacturer <span class="math notranslate nohighlight">\(A\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(E_B\)</span> is the event that the user’s computer is from manufacturer <span class="math notranslate nohighlight">\(B\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(E_D\)</span> is the event that the user’s computer is defective.</p></li>
-</ul>
-<p>Use the formula for conditional probability,</p>
-<div class="math notranslate nohighlight">
-\[
-P(A|B) = \frac{ P(A \cap B)}{B}
-\]</div>
-<p>to calculate the probabilities in the problems below. (<em>It is easier to solve these using intuition/counting, but I encourage you to practice using the formula in the definition, which we will need to use in more complicated scenarios soon.</em>) Submit your answers as a fraction or a decimal with at least two digits of precision.</p>
-<div class="cell tag_remove-input docutils container">
+  <div class="section" id="relating-conditional-and-unconditional-probabilities">
+<h1><span class="section-number">6.4. </span>Relating Conditional and Unconditional Probabilities<a class="headerlink" href="#relating-conditional-and-unconditional-probabilities" title="Permalink to this headline">¶</a></h1>
+<p>As you may have seen from the Magician’s Coin example, conditional probability is an area of probability where our intuition about probabilities may start to fail. One of my goals in writing this book is to leverage my experience in teaching related materials to help you identify where you may already have some intuition about probability that may not hold.  To this end, consider this very <em>simple</em> question:</p>
+<center>
+    <b>How does having some conditional information affect probabilities about an event?</b>
+</center>
+Before reading the discussion below, answer the following question:<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="acjJptEHQBrT" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="PIXxztUTztjN" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -681,86 +589,30 @@ P(A|B) = \frac{ P(A \cap B)}{B}
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsacjJptEHQBrT=[
+}</style><script type="text/Javascript">questionsPIXxztUTztjN=[
     {
-        "question": "For the Defective Computers in a Lab problem, find the conditional probability that the chosen computer is defective given that it is from manfacturer $A$, $P(E_D|E_A)$.",
-        "type": "numeric",
+        "question": "Consider events $A$ and $B$ with both $P(A)>0$ and $P(B)>0$. Which of the following statements are true?",
+        "type": "multiple_choice",
         "answers": [
             {
-                "type": "value",
-                "value": 0.5,
+                "answer": "$$P(A|B) \\ge P(A)$$ (I.e., given some information, the probability increases or remains the same.)",
+                "correct": false,
+                "feedback": "Incorrect. Try again."
+            },
+            {
+                "answer": "$$P(A|B) \\le P(A)$$ (I.e., given some information, the probability decreases or remains the same.)",
+                "correct": false,
+                "feedback": "Incorrect. Try again."
+            },
+            {
+                "answer": "$$P(A|B) = P(A)$$ (Conditional information does not change the probability of an event.)",
+                "correct": false,
+                "feedback": "Incorrect. You should have already seen multiple examples to disprove this in Chapter 5. If you believed this answer was correct when you chose it, you should review Chapter 5 from the beginning."
+            },
+            {
+                "answer": "$P(A|B)$ may be less than, equal to, or greater than $P(A)$, depending on the information given.",
                 "correct": true,
-                "feedback": "Correct! You should have calculated this using the ratio of $P(E_D \\cap E_A)= 1/5$ and $P(E_A) = 2/5.$"
-            },
-            {
-                "type": "range",
-                "range": [0.33, 0.34],
-                "correct": true,
-                "feedback": "Note that $P(E_D|E_A) \\ne P(E_A|E_D)$. Use the definition of conditional probability to calculate  $P(E_D|E_A) = P(E_D \\cap E_A)/ P(E_A)$."
-            },
-            {
-                "type": "default",
-                "correct": false,
-                "feedback": "Incorrect. Use the definition of conditional probability to calculate $P(E_D|E_A) = P(E_D \\cap E_A)/ P(E_A)$."
-            },
-            {
-                "type": "range",
-                "range": [
-                    1.0000001,
-                    100000000
-                ],
-                "correct": false,
-                "feedback": "Incorrect. Probabilities cannot be more than 1."
-            },
-            {
-                "type": "range",
-                "range": [
-                    -100000000,
-                    0
-                ],
-                "correct": false,
-                "feedback": "Incorrect. Probabilities cannot be less than 0."
-            }
-        ]
-    },
-    {
-        "question": "For the Defective Computers in a Lab problem, find the conditional probability that the chosen computer is defective given that it is from manfacturer $B$, $P(E_D|E_B)$.",
-        "type": "numeric",
-        "answers": [
-            {
-                "type": "range",
-                "range": [0.66, 0.67],
-                "correct": true,
-                "feedback": "Correct! You should have calculated this using the ratio of $P(E_D \\cap E_B)= 2/5$ and $P(E_B) = 3/5.$"
-            },
-            {
-                "type": "value",
-                "value": 0.5,
-                "correct": false,
-                "feedback": "Incorrect. Note that $P(E_D|E_B) \\ne P\\left(E_D\\left| \\overline{E_B} \\right. \\right)$. Use the definition of conditional probability to calculate $P(E_D|E_B) = P(E_D \\cap E_B)/ P(E_B)$."
-            },
-        {
-                "type": "default",
-                "correct": false,
-                "feedback": "Incorrect. Use the definition of conditional probability to calculate $P(E_D|E_B) = P(E_D \\cap E_B)/ P(E_B)$."
-            },
-            {
-                "type": "range",
-                "range": [
-                    1.0000001,
-                    100000000
-                ],
-                "correct": false,
-                "feedback": "Incorrect. Probabilities cannot be more than 1."
-            },
-            {
-                "type": "range",
-                "range": [
-                    -100000000,
-                    0
-                ],
-                "correct": false,
-                "feedback": "Incorrect. Probabilities cannot be less than 0."
+                "feedback": "Correct. See the discussion below."
             }
         ]
     }
@@ -1381,16 +1233,51 @@ function show_questions(json, mydiv) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/computerlab3.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/cond-vs-uncond-prob.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, acjJptEHQBrT))
+        .then(json => show_questions(json, PIXxztUTztjN))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsacjJptEHQBrT, acjJptEHQBrT);
+        show_questions(questionsPIXxztUTztjN, PIXxztUTztjN);
         });
         }
         </script>
 </div></div>
+</div>
+<p>Click the “plus” button at the right below to reveal the detailed solution:</p>
+<div class="toggle docutils container">
+<p>To see how conditional information can change probabilities, let’s consider a few examples:</p>
+<p><strong>1.</strong> Suppose a <strong>fair</strong> coin is flipped twice, and let <span class="math notranslate nohighlight">\(H_i\)</span> denote the event that the coin came up heads on flip <span class="math notranslate nohighlight">\(i.\)</span> Then clearly, <span class="math notranslate nohighlight">\(P(H_i) =1/2\)</span> and <span class="math notranslate nohighlight">\(P(H_1 \cap H_2) = 1/4\)</span>. From the definition of conditional probability,</p>
+<div class="math notranslate nohighlight">
+\[
+P(H_2|H_1) = \frac{P(H_1 \cap H_2)}{P(H_1)} = \frac{1/4}{1/2} = 1/2
+\]</div>
+<p>So in this case, <span class="math notranslate nohighlight">\(P(H_2|H_1)= P(H_2)\)</span> and <strong>conditional information did not change the probability</strong>. This is expected because the outcome of the second flip should be independent of what happened on the first flip.</p>
+<p><strong>2.</strong> Suppose I have a box containing two balls, one of which is white and one of which is black. Balls are drawn consecutively from the box <strong>without replacement</strong>. Let <span class="math notranslate nohighlight">\(W_i\)</span> be the event that the <span class="math notranslate nohighlight">\(i\)</span>th draw is a white ball.  If we are told that the first draw was a white ball, then clearly the remaining ball is black, so <span class="math notranslate nohighlight">\(P(W_2|W_1)=0\)</span>. Let’s check using the definition of conditional probability. From our previous examples, we know that <span class="math notranslate nohighlight">\(P(W_i)=1/2\)</span>, and <span class="math notranslate nohighlight">\(P(W_1 \cap W_2) = 0\)</span> because there is no way to draw white balls out on both draws.  Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+P(W_2 |W_1) = \frac{P(W_1 \cap W_2)}{P(W_1)} = \frac{0}{1/2} = 0.
+\]</div>
+<p>So, in this case <span class="math notranslate nohighlight">\(P(W_2|W_1)&lt; P(W_2)\)</span>, and <strong>conditional information reduced the probability</strong>.</p>
+<p>In fact, this will happen whenever the two events being evaluated are mutually exclusive. Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be mutually exclusive events with <span class="math notranslate nohighlight">\(P(A)&gt;0\)</span> and <span class="math notranslate nohighlight">\(P(B) &gt;0\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[
+P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(\emptyset)}{P(B)} = 0.
+\]</div>
+<p>If two events are mutually exclusive, then if we know one of them occurs, then the other <strong>cannot have occurred</strong> because it shares no outcomes in common with the event that occurred.</p>
+<p><strong>3.</strong> Consider again the scenario where a fair coin is flipped two times and the ordered result is noted. Let <span class="math notranslate nohighlight">\(E_i\)</span> be the result that the number of heads observed is <span class="math notranslate nohighlight">\(i\)</span>, and let <span class="math notranslate nohighlight">\(F\)</span> be the result that at least one heads occurred.</p>
+<p>From counting, we see <span class="math notranslate nohighlight">\(P(E_1) = 1/2\)</span> and <span class="math notranslate nohighlight">\(P(F) = 3/4\)</span>. Let’s find <span class="math notranslate nohighlight">\(P(F|E_1)\)</span> using the definition of conditional probability. We need to calculate <span class="math notranslate nohighlight">\(P(F \cap E_1)\)</span>. We can write out the relevant events in terms of their outcomes as <span class="math notranslate nohighlight">\(E_1=\{ (H,T), ~(T,H) \}\)</span> and <span class="math notranslate nohighlight">\(F= \{ (H,T),~,(T,H),~,(H,H) \}\)</span>. Then <span class="math notranslate nohighlight">\(F \cap E_1 = E_1\)</span>.  So,</p>
+<div class="math notranslate nohighlight">
+\[
+P(F|E_1) = \frac{ P(F \cap E_1)}{P(E_1)} = \frac{ P(E_1)}{P(E_1)} = 1.
+\]</div>
+<p>So, in this case, <span class="math notranslate nohighlight">\(P(F|E_1) &gt; P(F)\)</span>, and <strong>conditional information increased the probability</strong>.</p>
+<p>In general, if we have events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> where <span class="math notranslate nohighlight">\(B\)</span> is a subset of <span class="math notranslate nohighlight">\(A\)</span>, then <span class="math notranslate nohighlight">\(A \cap B = B\)</span>. Then if
+<span class="math notranslate nohighlight">\(P(A)&lt;1\)</span> and <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>,
+$<span class="math notranslate nohighlight">\(
+P(A|B) =\frac{P(A \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1 &gt; P(A).
+\)</span>$</p>
+<p><strong>In conclusion, there is no general answer to how conditional information will change the probability of an event. The conditional probability may be greater than, less than, or equal to the unconditional probability, depending on the relation between the two events.</strong></p>
 </div>
 </div>
 
@@ -1407,7 +1294,7 @@ function show_questions(json, mydiv) {
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./05-conditional-prob"
+            path: "./06-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -1424,19 +1311,19 @@ function show_questions(json, mydiv) {
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="notation-and-intuition.html" title="previous page">
+        <a class="left-prev" href="definition.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">5.2. </span>Conditional Probability: Notation and Intuition</p>
+                <p class="prevnext-title"><span class="section-number">6.3. </span>Formally Defining Conditional Probability</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="relating-cond-uncond.html" title="next page">
+        <a class="right-next" href="more-on-simulating.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5.4. </span>Relating Conditional and Unconditional Probabilities</p>
+                <p class="prevnext-title"><span class="section-number">6.5. </span>More on Simulating Conditional Probabilities</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

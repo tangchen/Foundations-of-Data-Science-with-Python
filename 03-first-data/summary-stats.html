@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -284,9 +284,14 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-binary-hypothesis-testing/outline.html">
+   5. Binary Hypothesis Tests with Resampling (Outline Only)
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05-conditional-prob/intro.html">
-   5. Dependence and Independence
+  <a class="reference internal" href="../06-conditional-prob/intro.html">
+   6. Dependence and Independence
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -295,33 +300,33 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/simulating-cond-probs.html">
-     5.1. Simulating and Counting Conditional Probabilities
+    <a class="reference internal" href="../06-conditional-prob/simulating-cond-probs.html">
+     6.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/notation-and-intuition.html">
-     5.2. Conditional Probability: Notation and Intuition
+    <a class="reference internal" href="../06-conditional-prob/notation-and-intuition.html">
+     6.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/definition.html">
-     5.3. Formally Defining Conditional Probability
+    <a class="reference internal" href="../06-conditional-prob/definition.html">
+     6.3. Formally Defining Conditional Probability
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/relating-cond-uncond.html">
-     5.4. Relating Conditional and Unconditional Probabilities
+    <a class="reference internal" href="../06-conditional-prob/relating-cond-uncond.html">
+     6.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/more-on-simulating.html">
-     5.5. More on Simulating Conditional Probabilities
+    <a class="reference internal" href="../06-conditional-prob/more-on-simulating.html">
+     6.5. More on Simulating Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05-conditional-prob/independence.html">
-     5.6. Statistical Independence
+    <a class="reference internal" href="../06-conditional-prob/independence.html">
+     6.6. Statistical Independence
     </a>
    </li>
   </ul>
@@ -778,8 +783,8 @@ above to calculate and plot the number of nonzero errors for this data set as a 
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
 $<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span>$
 so its derivative is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eba73246-552a-4ab9-8a58-53c078a6ef5b">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-eba73246-552a-4ab9-8a58-53c078a6ef5b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bd94c2f6-563f-408b-853f-10c91fb9be0b">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-bd94c2f6-563f-408b-853f-10c91fb9be0b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
 &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
 \end{align}\]</div>
@@ -858,8 +863,8 @@ above to calculate and plot the sum of absolute errors for this data set as a fu
 <div class="section" id="minimizing-the-sum-of-squared-errors">
 <h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivative of <span class="math notranslate nohighlight">\(E_2(v)\)</span> with respect to <span class="math notranslate nohighlight">\(\nu\)</span> and setting it equal to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-847d75d1-4af9-49c2-870f-61c8b5f33a41">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-847d75d1-4af9-49c2-870f-61c8b5f33a41" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-806809cd-001d-4e2b-87d3-6beec8833031">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-806809cd-001d-4e2b-87d3-6beec8833031" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \\
@@ -867,14 +872,14 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu 
 \end{align}\]</div>
 <p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-387d9717-e43c-4a4b-a329-6d4cda467672">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-387d9717-e43c-4a4b-a329-6d4cda467672" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2bc7e9c6-c940-47e6-a3c0-7509a7caa162">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-2bc7e9c6-c940-47e6-a3c0-7509a7caa162" title="Permalink to this equation">¶</a></span>\[\begin{align}
 2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \\
  \sum_{i=0}^{N-1} d_i &amp;= N \nu .
 \end{align}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ac654bd1-173f-473d-a6c6-fbe613ce13ca">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-ac654bd1-173f-473d-a6c6-fbe613ce13ca" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7ee1813d-a6e7-43f2-8725-a6daf78404b6">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-7ee1813d-a6e7-43f2-8725-a6daf78404b6" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
 \end{align}\]</div>
 <p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
@@ -890,8 +895,8 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 <dt>average</dt><dd><p class="card-text">The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-76a92774-6df7-4a0a-a200-a7779293a183">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-76a92774-6df7-4a0a-a200-a7779293a183" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fb56b7d0-7f8f-42f5-814a-5ffcd71ad3e3">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-fb56b7d0-7f8f-42f5-814a-5ffcd71ad3e3" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
 \end{align}\]</div>
 </div>

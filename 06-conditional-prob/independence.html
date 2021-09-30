@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.1. Simulating and Counting Conditional Probabilities &#8212; Introduction to Data Science for Engineers</title>
+    <title>6.6. Statistical Independence &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -53,8 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.2. Conditional Probability: Notation and Intuition" href="notation-and-intuition.html" />
-    <link rel="prev" title="5. Dependence and Independence" href="intro.html" />
+    <link rel="prev" title="6.5. More on Simulating Conditional Probabilities" href="more-on-simulating.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -284,9 +283,14 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-binary-hypothesis-testing/outline.html">
+   5. Binary Hypothesis Tests with Resampling (Outline Only)
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro.html">
-   5. Dependence and Independence
+   6. Dependence and Independence
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -294,34 +298,34 @@
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     5.1. Simulating and Counting Conditional Probabilities
+   <li class="toctree-l2">
+    <a class="reference internal" href="simulating-cond-probs.html">
+     6.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="notation-and-intuition.html">
-     5.2. Conditional Probability: Notation and Intuition
+     6.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="definition.html">
-     5.3. Formally Defining Conditional Probability
+     6.3. Formally Defining Conditional Probability
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="relating-cond-uncond.html">
-     5.4. Relating Conditional and Unconditional Probabilities
+     6.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="more-on-simulating.html">
-     5.5. More on Simulating Conditional Probabilities
+     6.5. More on Simulating Conditional Probabilities
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="independence.html">
-     5.6. Statistical Independence
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.6. Statistical Independence
     </a>
    </li>
   </ul>
@@ -367,7 +371,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/simulating-cond-probs.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06-conditional-prob/independence.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -392,7 +396,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/simulating-cond-probs.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06-conditional-prob/independence.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -415,28 +419,18 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-magicians-coin-part-1">
-   5.1.1. The Magician’s Coin Part 1
+  <a class="reference internal nav-link" href="#conditional-probabilities-and-independence">
+   6.6.1. Conditional probabilities and independence
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-magicians-coin-part-2">
-   5.1.2. The Magician’s Coin Part 2
+  <a class="reference internal nav-link" href="#formal-definition-of-statistically-independent-events">
+   6.6.2. Formal definition of statistically independent events
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-magicians-coin-part-3">
-   5.1.3. The Magician’s Coin Part 3
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   5.1.4. Exercise
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discussion">
-   5.1.5. Discussion
+  <a class="reference internal nav-link" href="#when-can-we-assume-independence">
+   6.6.3. When can we assume independence?
   </a>
  </li>
 </ul>
@@ -450,208 +444,16 @@
         
               <div>
                 
-  <div class="section" id="simulating-and-counting-conditional-probabilities">
-<h1><span class="section-number">5.1. </span>Simulating and Counting Conditional Probabilities<a class="headerlink" href="#simulating-and-counting-conditional-probabilities" title="Permalink to this headline">¶</a></h1>
-<p>We will begin to explore conditional probabilities through two methods that we have been using in previous chapters: simulation and counting. As with the questions in the introduction, the following example has a simple setup but quickly creates many interesting questions to explore:</p>
-<div class="section" id="the-magicians-coin-part-1">
-<h2><span class="section-number">5.1.1. </span>The Magician’s Coin Part 1<a class="headerlink" href="#the-magicians-coin-part-1" title="Permalink to this headline">¶</a></h2>
-<p>Suppose you attend a magic show. The magician shows you two coins: a two-headed coin and a fair coin. She asks you to pick one of the coins and flip it at random, observing only the top face. If the outcome of that first flip is Heads, does that affect the probability that Heads would come up if you flip that coin again?</p>
-<p>To be able to answer this question, we will first answer a simpler question: <strong>What is the probability of getting heads when one of the coins is chosen at random and flipped?</strong></p>
-<p>I will show you how to easily analyze this probability in the next section, but let’s first build a simple simulation to simulate this probability.</p>
-<p>To facilitate learning, I build the simulation in three steps below. All of them leverage the <code class="docutils literal notranslate"><span class="pre">random</span></code> library, so let’s start by importing that:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Step 1.</strong> Let’s use <code class="docutils literal notranslate"><span class="pre">random.choice()</span></code> to choose a random coin from the list <code class="docutils literal notranslate"><span class="pre">['fair',</span> <span class="pre">'2head']</span></code> and print it out for a very small simulation. (Note that there are <strong>much</strong> more computationally efficient ways to implement this simulation, but the goal here is to make the simulation as <strong>clear as possible</strong> to the reader.)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">choose_coin</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">coin</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choose_coin</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fair
-fair
-2head
-2head
-2head
-2head
-2head
-2head
-fair
-2head
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Step 2.</strong> Now, we can check the outcome of the coin choice and randomly choose one of the faces of the chosen coin. If you are following along in a separate Jupyter notebook, I suggest you copy the function from above, rename it, and then add the rest of the code (the part below the comment in the function below):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">choose_and_flip</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
-        <span class="c1"># Delete the print statement and add the following:</span>
-        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="s1">&#39;fair&#39;</span><span class="p">:</span>
-            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
-        <span class="n">value</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">coin</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">choose_and_flip</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fair T
-fair H
-2head H
-fair T
-2head H
-fair T
-2head H
-fair T
-fair H
-fair T
-</pre></div>
-</div>
-</div>
-</div>
-<p>By inspection, you should see that the relative frequency of heads is more than 1/2. Hopefully, you already expected this by intuition. You may even already have an idea of what the probability of heads is on one flip of  this coin.</p>
-<p><strong>Step 3.</strong> Finally, let’s estimate the probability of heads by determining the relative frequency of ‘H’. We initialize a counter called <code class="docutils literal notranslate"><span class="pre">num_heads</span></code> to zero outside the simulation loop and then increment it every time the outcome is <code class="docutils literal notranslate"><span class="pre">H</span></code>.</p>
-<p><strong>Important: Note that we need to drastically increase the number of simulated coin flips, so we will turn off printing inside the for loop.</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">one_flip</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100_000</span><span class="p">):</span>
-    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
-    
-    <span class="n">num_heads</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="s1">&#39;fair&#39;</span><span class="p">:</span>
-            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
-        <span class="n">value</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">value</span><span class="o">==</span><span class="s1">&#39;H&#39;</span><span class="p">:</span>
-            <span class="n">num_heads</span><span class="o">+=</span><span class="mi">1</span>
-            
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of H is approximately&quot;</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_flip</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H is approximately 0.75133
-</pre></div>
-</div>
-</div>
-</div>
-<p>How can we calculate this probability using equally likely outcomes? Let’s create a table that enumerates all the outcomes:</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-align:left head"><p>Coin</p></th>
-<th class="text-align:center head"><p>Face 1</p></th>
-<th class="text-align:center head"><p>Face 2</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-align:left"><p>Fair</p></td>
-<td class="text-align:center"><p><strong>Heads</strong></p></td>
-<td class="text-align:center"><p>Tails</p></td>
-</tr>
-<tr class="row-odd"><td class="text-align:left"><p>Two-Headed</p></td>
-<td class="text-align:center"><p><strong>Heads 1</strong></p></td>
-<td class="text-align:center"><p><strong>Heads 2</strong></p></td>
-</tr>
-</tbody>
-</table>
-<p>Here, I separately list the two different Heads outcomes for the two-headed coin because I want the outcomes to be equally likely. Since the coins are equally likely to be chosen, and the two faces of each coin are equally likely, the resulting outcomes of the combined experiment are also equally likely.</p>
-<p>Let <span class="math notranslate nohighlight">\(H_1\)</span> denote the event that the top face of the coin on the first flip is Heads. From the table, <span class="math notranslate nohighlight">\(|H_1|=3\)</span> and <span class="math notranslate nohighlight">\(|S|=4\)</span>. Since the outcomes are assumed to be equally likely, <span class="math notranslate nohighlight">\(P(H_1) = |H_1|/|S| = 3/4\)</span>, which matches our simulation.</p>
-</div>
-<div class="section" id="the-magicians-coin-part-2">
-<h2><span class="section-number">5.1.2. </span>The Magician’s Coin Part 2<a class="headerlink" href="#the-magicians-coin-part-2" title="Permalink to this headline">¶</a></h2>
-<p>The reader may wonder what happens if we instead ask about the second flip. Let <span class="math notranslate nohighlight">\(H_i\)</span> be the event that the <span class="math notranslate nohighlight">\(i\)</span>th flip of the coin is Heads. If you do not already know what <span class="math notranslate nohighlight">\(P(H_2)\)</span> will be, take a moment to think about what the simulation will look like – with careful thought, you should be able to know <span class="math notranslate nohighlight">\(P(H_2)\)</span>.</p>
-<p>Let’s build the simulation:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_flips</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">100_000</span><span class="p">):</span>
-    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
-    
-    <span class="n">num_heads</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="c1"># Note that the coin is chosen once -- the same coin is used for both flips!!!</span>
-        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="s1">&#39;fair&#39;</span><span class="p">:</span>
-            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
-        <span class="n">value1</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
-        <span class="n">value2</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">value2</span><span class="o">==</span><span class="s1">&#39;H&#39;</span><span class="p">:</span>
-            <span class="n">num_heads</span><span class="o">+=</span><span class="mi">1</span>
-            
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of H2 is approximately&quot;</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">/</span><span class="n">num_sims</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_flips</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H2 is approximately 0.7493
-</pre></div>
-</div>
-</div>
-</div>
-<p>Did you guess this answer? It should not be a surprise – we now flip twice as many coins and then throw half of them away (i.e., we never do anything with <code class="docutils literal notranslate"><span class="pre">value1</span></code>)! So, the simulation is just a less efficient version of <code class="docutils literal notranslate"><span class="pre">one_flip()</span></code>.  If we don’t have any other information about the coin (say, from observing the results of some of the flips), then the probability of heads on any flip, <span class="math notranslate nohighlight">\(P(H_i)\)</span>, is equal to <span class="math notranslate nohighlight">\(P(H_1)\)</span>: there are three possible heads outcomes out of four total outcomes.</p>
-<p><strong>Comments on Things Not Observed</strong></p>
-<p>Some students of probability have problems grasping the meaning of some of the probabilities asked about up to this point. For instance, students often ask questions like:</p>
-<ul class="simple">
-<li><p>How can we evaluate the probability of getting heads if we don’t know which coin was chosen?</p></li>
-<li><p>How can we ask about the probability of getting heads on the <span class="math notranslate nohighlight">\(i\)</span>th flip, if we don’t even know what the outcomes of flips <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(i-1\)</span> were?</p></li>
-</ul>
-<p>It is normal to ask these questions, and we will be exploring this idea more as we learn about conditional probability. The short answer is that we can ask any question we like, but we may not always know how to answer it. A longer answer is that if we want to ask about the probability of some event <span class="math notranslate nohighlight">\(A\)</span> that depends on some possible events <span class="math notranslate nohighlight">\(B_i\)</span>, we can find the probabilities of <span class="math notranslate nohighlight">\(A\)</span> for each of the possible <span class="math notranslate nohighlight">\(B_i\)</span> that could have occurred and then combine them appropriately to find the probability of <span class="math notranslate nohighlight">\(A\)</span>. We will define all this precisely and introduce the appropriate mathematics later in this section.</p>
-</div>
-<div class="section" id="the-magicians-coin-part-3">
-<h2><span class="section-number">5.1.3. </span>The Magician’s Coin Part 3<a class="headerlink" href="#the-magicians-coin-part-3" title="Permalink to this headline">¶</a></h2>
-<p>Now, let’s return to our motivating question: if the coin is flipped once and comes up heads, what is the probability that it will be heads on a second flip (of the same coin)? If you want to take a guess, you can do so using the following quiz:</p>
-<div class="cell tag_remove-input docutils container">
-</div>
+  <div class="section" id="statistical-independence">
+<h1><span class="section-number">6.6. </span>Statistical Independence<a class="headerlink" href="#statistical-independence" title="Permalink to this headline">¶</a></h1>
+<p>The word “independence” generaly means free from external control or influence, but it also has a lot of connotations in US culture, as it probably does throughout the world. We will apply the concept of independence to many random phenomena, and the implication of independence is generally the same as the definition above: phenomena that are independent cannot influence each other.</p>
+<p>In fact, we have already been applying the concept of independence throughout this book when we assume that the outcome of a coin flip, die roll, or simulation does not depend on the values seen in other trials of the same type of experiment. However, now we have the mathematical tools to define the concept of independence precisely.</p>
+<div class="section" id="conditional-probabilities-and-independence">
+<h2><span class="section-number">6.6.1. </span>Conditional probabilities and independence<a class="headerlink" href="#conditional-probabilities-and-independence" title="Permalink to this headline">¶</a></h2>
+<p>Based on the discussion above, try to answer the following question about what independence should mean for conditional probabilities. (Don’t worry if you don’t intuitively know the answer – you can keep trying if you don’t get it right at first!)</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="IrSVGDSXTjEJ" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="xXQGwEHONGnc" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -810,940 +612,953 @@ fair T
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsIrSVGDSXTjEJ=[
+}</style><script type="text/Javascript">questionsxXQGwEHONGnc=[
     {
-        "question": "For the magician's coin problem, what do you believe is the value of $P(H_2|H_1)$? (You can enter a fraction or at least two decimal places).",
+        "question": "Consider two events $A$ and $B$ with $P(A)>0$. If these events are independent, then we expect that implies that knowledge of one event does not influence the probabilities of the other. What should $P(B|A)$ simplify to?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "answer": "$P(B)$",
+                "correct": true,
+                "feedback": "Correct. Knowing that $A$ occurred should not alter the probability of $B$ if $B$ is independent of $A$."
+            },
+            {
+                "answer": "$P(A \\cap B)$",
+                "correct": false,
+                "feedback": "Incorrect. From the definition of conditional probability, this would imply $P(A)=1$."
+            },
+            {
+                "answer": "$P(A)$",
+                "correct": false,
+                "feedback": "Incorrect. If this were true, then $A$ could definitely be changing the probabilities for $B$."
+            },
+            {
+                "answer": "1",
+                "correct": false,
+                "feedback": "Incorrect. If this were true, then knowing that $A$ occurred would usually imply that $B$ occurred. So $A$ gives a lot of information about $B$."
+            },
+            {
+                "answer": "0",
+                "correct": false,
+                "feedback": "Incorrect. If this were true, then knowing $A$ occurred would generally imply that $B$ did not occur. So $A$ gives a lot of information about $B$."
+            }
+        ]
+    }
+]
+;
+    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+function makeid(length) {
+    var result = [];
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+    }
+    return result.join('');
+}
+
+// Choose a random subset of an array. Can also be used to shuffle the array
+function getRandomSubarray(arr, size) {
+    var shuffled = arr.slice(0), i = arr.length, temp, index;
+    while (i--) {
+        index = Math.floor((i + 1) * Math.random());
+        temp = shuffled[index];
+        shuffled[index] = shuffled[i];
+        shuffled[i] = temp;
+    }
+    return shuffled.slice(0, size);
+}
+function check_mc() {
+    var id = this.id.split('-')[0];
+
+    //console.log("In check_mc(), id="+id);
+    //console.log(event.srcElement.id)           
+    //console.log(event.srcElement.dataset.correct)   
+    //console.log(event.srcElement.dataset.feedback)
+
+    var label = event.srcElement;
+    //console.log(label, label.nodeName);
+    var depth = 0;
+    while ((label.nodeName != "LABEL") && (depth < 20)) {
+        label = label.parentElement;
+        console.log(depth, label);
+        depth++;
+    }
+
+
+
+    var answers = label.parentElement.children;
+
+    //console.log(answers);
+
+
+    // Split behavior based on multiple choice vs many choice:
+    var fb = document.getElementById("fb" + id);
+    //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
+    if (fb.dataset.numcorrect == 1) {
+        for (var i = 0; i < answers.length; i++) {
+            var child = answers[i];
+            //console.log(child);
+            child.className = "MCButton";
+        }
+
+
+
+        if (label.dataset.correct == "true") {
+            // console.log("Correct action");
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Correct!";
+            }
+            label.classList.add("correctButton");
+
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+
+        } else {
+            if ("feedback" in label.dataset) {
+                fb.textContent = jaxify(label.dataset.feedback);
+            } else {
+                fb.textContent = "Incorrect -- try again.";
+            }
+            //console.log("Error action");
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+    }
+    else {
+        var reset = false;
+        var feedback;
+        if (label.dataset.correct == "true") {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Correct!";
+            }
+            if (label.dataset.answered <= 0) {
+                if (fb.dataset.answeredcorrect < 0) {
+                    fb.dataset.answeredcorrect = 1;
+                    reset = true;
+                } else {
+                    fb.dataset.answeredcorrect++;
+                }
+                if (reset) {
+                    for (var i = 0; i < answers.length; i++) {
+                        var child = answers[i];
+                        child.className = "MCButton";
+                        child.dataset.answered = 0;
+                    }
+                }
+                label.classList.add("correctButton");
+                label.dataset.answered = 1;
+                fb.className = "Feedback";
+                fb.classList.add("correct");
+
+            }
+        } else {
+            if ("feedback" in label.dataset) {
+                feedback = jaxify(label.dataset.feedback);
+            } else {
+                feedback = "Incorrect -- try again.";
+            }
+            if (fb.dataset.answeredcorrect > 0) {
+                fb.dataset.answeredcorrect = -1;
+                reset = true;
+            } else {
+                fb.dataset.answeredcorrect--;
+            }
+
+            if (reset) {
+                for (var i = 0; i < answers.length; i++) {
+                    var child = answers[i];
+                    child.className = "MCButton";
+                    child.dataset.answered = 0;
+                }
+            }
+            label.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+
+
+        var numcorrect = fb.dataset.numcorrect;
+        var answeredcorrect = fb.dataset.answeredcorrect;
+        if (answeredcorrect >= 0) {
+            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
+        } else {
+            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
+        }
+
+
+    }
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+}
+
+function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
+    var shuffled;
+    if (shuffle_answers == "True") {
+        //console.log(shuffle_answers+" read as true");
+        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
+    } else {
+        //console.log(shuffle_answers+" read as false");
+        shuffled = qa.answers;
+    }
+
+
+    var num_correct = 0;
+
+
+
+    shuffled.forEach((item, index, ans_array) => {
+        //console.log(answer);
+
+        // Make input element
+        var inp = document.createElement("input");
+        inp.type = "radio";
+        inp.id = "quizo" + id + index;
+        inp.style = "display:none;";
+        aDiv.append(inp);
+
+        //Make label for input element
+        var lab = document.createElement("label");
+        lab.className = "MCButton";
+        lab.id = id + '-' + index;
+        lab.onclick = check_mc;
+        var aSpan = document.createElement('span');
+        aSpan.classsName = "";
+        //qDiv.id="quizQn"+id+index;
+        if ("answer" in item) {
+            aSpan.innerHTML = jaxify(item.answer);
+            //aSpan.innerHTML=item.answer;
+        }
+        lab.append(aSpan);
+
+        // Create div for code inside question
+        var codeSpan;
+        if ("code" in item) {
+            codeSpan = document.createElement('span');
+            codeSpan.id = "code" + id + index;
+            codeSpan.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeSpan.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = item.code;
+            lab.append(codeSpan);
+            //console.log(codeSpan);
+        }
+
+        //lab.textContent=item.answer;
+
+        // Set the data attributes for the answer
+        lab.setAttribute('data-correct', item.correct);
+        if (item.correct) {
+            num_correct++;
+        }
+        if ("feedback" in item) {
+            lab.setAttribute('data-feedback', item.feedback);
+        }
+        lab.setAttribute('data-answered', 0);
+
+        aDiv.append(lab);
+
+    });
+
+    if (num_correct > 1) {
+        outerqDiv.className = "ManyChoiceQn";
+    } else {
+        outerqDiv.className = "MultipleChoiceQn";
+    }
+
+    return num_correct;
+
+}
+function check_numeric(ths, event) {
+
+    if (event.keyCode === 13) {
+        ths.blur();
+
+        var id = ths.id.split('-')[0];
+
+        var submission = ths.value;
+        if (submission.indexOf('/') != -1) {
+            sub_parts = submission.split('/');
+            //console.log(sub_parts);
+            submission = sub_parts[0] / sub_parts[1];
+        }
+        //console.log("Reader entered", submission);
+
+        if ("precision" in ths.dataset) {
+            precision = ths.dataset.precision;
+            // console.log("1:", submission)
+            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
+            // console.log("Rounded to ", submission, " precision=", precision  );
+        }
+
+
+        //console.log("In check_numeric(), id="+id);
+        //console.log(event.srcElement.id)           
+        //console.log(event.srcElement.dataset.feedback)
+
+        var fb = document.getElementById("fb" + id);
+        fb.style.display = "none";
+        fb.textContent = "Incorrect -- try again.";
+
+        answers = JSON.parse(ths.dataset.answers);
+        //console.log(answers);
+
+        var defaultFB = "";
+        var correct;
+        var done = false;
+        answers.every(answer => {
+            //console.log(answer.type);
+
+            correct = false;
+            // if (answer.type=="value"){
+            if ('value' in answer) {
+                if (submission == answer.value) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+                // } else if (answer.type=="range") {
+            } else if ('range' in answer) {
+                //console.log(answer.range);
+                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
+                    fb.textContent = jaxify(answer.feedback);
+                    correct = answer.correct;
+                    //console.log(answer.correct);
+                    done = true;
+                }
+            } else if (answer.type == "default") {
+                defaultFB = answer.feedback;
+            }
+            if (done) {
+                return false; // Break out of loop if this has been marked correct
+            } else {
+                return true; // Keep looking for case that includes this as a correct answer
+            }
+        });
+
+        if ((!done) && (defaultFB != "")) {
+            fb.textContent = jaxify(defaultFB);
+            //console.log("Default feedback", defaultFB);
+        }
+
+        fb.style.display = "block";
+        if (correct) {
+            ths.className = "Input-text";
+            ths.classList.add("correctButton");
+            fb.className = "Feedback";
+            fb.classList.add("correct");
+        } else {
+            ths.className = "Input-text";
+            ths.classList.add("incorrectButton");
+            fb.className = "Feedback";
+            fb.classList.add("incorrect");
+        }
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                console.log("Triggering typesetting, I hope.");
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset();
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+        return false;
+    }
+
+}
+
+function isValid(el, charC) {
+    //console.log("Input char: ", charC);
+    if (charC == 46) {
+        if (el.value.indexOf('.') === -1) {
+            return true;
+        } else if (el.value.indexOf('/') != -1) {
+            parts = el.value.split('/');
+            if (parts[1].indexOf('.') === -1) {
+                return true;
+            }
+        }
+        else {
+            return false;
+        }
+    } else if (charC == 47) {
+        if (el.value.indexOf('/') === -1) {
+            if ((el.value != "") && (el.value != ".")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else if (charC == 45) {
+        edex = el.value.indexOf('e');
+        if (edex == -1) {
+            edex = el.value.indexOf('E');
+        }
+
+        if (el.value == "") {
+            return true;
+        } else if (edex == (el.value.length - 1)) { // If just after e or E
+            return true;
+        } else {
+            return false;
+        }
+    } else if (charC == 101) { // "e"
+        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
+            // Prev symbol must be digit or decimal point:
+            if (el.value.slice(-1).search(/\d/) >= 0) {
+                return true;
+            } else if (el.value.slice(-1).search(/\./) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    } else {
+        if (charC > 31 && (charC < 48 || charC > 57))
+            return false;
+    }
+    return true;
+}
+
+function numeric_keypress(evnt) {
+    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
+
+    if (charC == 13) {
+        check_numeric(this, evnt);
+    } else {
+        return isValid(this, charC);
+    }
+}
+
+
+
+
+
+function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
+
+
+
+    //console.log(answer);
+
+
+    outerqDiv.className = "NumericQn";
+    aDiv.style.display = 'block';
+
+    var lab = document.createElement("label");
+    lab.className = "InpLabel";
+    lab.textContent = "Type numeric answer here:";
+    aDiv.append(lab);
+
+    var inp = document.createElement("input");
+    inp.type = "text";
+    //inp.id="input-"+id;
+    inp.id = id + "-0";
+    inp.className = "Input-text";
+    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
+    if ("precision" in qa) {
+        inp.setAttribute('data-precision', qa.precision);
+    }
+    aDiv.append(inp);
+    //console.log(inp);
+
+    //inp.addEventListener("keypress", check_numeric);
+    //inp.addEventListener("keypress", numeric_keypress);
+    /*
+    inp.addEventListener("keypress", function(event) {
+        return numeric_keypress(this, event);
+    }
+                        );
+                        */
+    //inp.onkeypress="return numeric_keypress(this, event)";
+    inp.onkeypress = numeric_keypress;
+    inp.onpaste = event => false;
+
+    inp.addEventListener("focus", function (event) {
+        this.value = "";
+        return false;
+    }
+    );
+
+
+}
+function jaxify(string) {
+    var mystring = string;
+
+    count = 0;
+    var loc = mystring.search(/([^\\]|^)(\$)/);
+
+    count2 = 0;
+    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+
+    //console.log(loc);
+
+    while ((loc >= 0) || (loc2 >= 0)) {
+
+        /* Have to replace all the double $$ first with current implementation */
+        if (loc2 >= 0) {
+            if (count2 % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
+            }
+            count2++;
+        } else {
+            if (count % 2 == 0) {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
+            } else {
+                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
+            }
+            count++;
+        }
+        loc = mystring.search(/([^\\]|^)(\$)/);
+        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
+        //console.log(mystring,", loc:",loc,", loc2:",loc2);
+    }
+
+    //console.log(mystring);
+    return mystring;
+}
+
+
+function show_questions(json, mydiv) {
+    //var mydiv=document.getElementById(myid);
+    var shuffle_questions = mydiv.dataset.shufflequestions;
+    var num_questions = mydiv.dataset.numquestions;
+    var shuffle_answers = mydiv.dataset.shuffleanswers;
+
+    if (num_questions > json.length) {
+        num_questions = json.length;
+    }
+
+    var questions;
+    if ((num_questions < json.length) || (shuffle_questions == "True")) {
+        //console.log(num_questions+","+json.length);
+        questions = getRandomSubarray(json, num_questions);
+    } else {
+        questions = json;
+    }
+
+    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
+
+    // Iterate over questions
+    questions.forEach((qa, index, array) => {
+        //console.log(qa.question); 
+
+        var id = makeid(8);
+        //console.log(id);
+
+
+        // Create Div to contain question and answers
+        var iDiv = document.createElement('div');
+        iDiv.id = 'quizWrap' + id + index;
+        iDiv.className = 'Quiz';
+        mydiv.appendChild(iDiv);
+        // iDiv.innerHTML=qa.question;
+
+        var outerqDiv = document.createElement('div');
+        outerqDiv.id = "OuterquizQn" + id + index;
+        //qDiv.textContent=qa.question;
+        iDiv.append(outerqDiv);
+
+        // Create div to contain question part
+        var qDiv = document.createElement('div');
+        qDiv.id = "quizQn" + id + index;
+        //qDiv.textContent=qa.question;
+        qDiv.innerHTML = jaxify(qa.question);
+        outerqDiv.append(qDiv);
+
+        // Create div for code inside question
+        var codeDiv;
+        if ("code" in qa) {
+            codeDiv = document.createElement('div');
+            codeDiv.id = "code" + id + index;
+            codeDiv.className = "QuizCode";
+            var codePre = document.createElement('pre');
+            codeDiv.append(codePre);
+            var codeCode = document.createElement('code');
+            codePre.append(codeCode);
+            codeCode.innerHTML = qa.code;
+            outerqDiv.append(codeDiv);
+            //console.log(codeDiv);
+        }
+
+
+        // Create div to contain answer part
+        var aDiv = document.createElement('div');
+        aDiv.id = "quizAns" + id + index;
+        aDiv.className = 'Answer';
+        iDiv.append(aDiv);
+
+        //console.log(qa.type);
+
+        var num_correct;
+        if (qa.type == "multiple_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "many_choice") {
+            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
+        } else if (qa.type == "numeric") {
+            //console.log("numeric");
+            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
+        }
+
+
+        //Make div for feedback
+        var fb = document.createElement("div");
+        fb.id = "fb" + id;
+        //fb.style="font-size: 20px;text-align:center;";
+        fb.className = "Feedback";
+        fb.setAttribute("data-answeredcorrect", 0);
+        fb.setAttribute("data-numcorrect", num_correct);
+        iDiv.append(fb);
+
+
+    });
+    //console.log("At end of show_questions");
+    if (typeof MathJax != 'undefined') {
+        console.log("MathJax version", MathJax.version);
+        var version = MathJax.version;
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        } else {
+            console.log("MathJax not found");
+        }
+    }
+    return false;
+}
+
+        //console.log(element);
+        {
+        const jmscontroller = new AbortController();
+        const signal = jmscontroller.signal;
+
+        setTimeout(() => jmscontroller.abort(), 5000);
+
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/si-conditional.json", {signal})
+        .then(response => response.json())
+        .then(json => show_questions(json, xXQGwEHONGnc))
+        .catch(err => {
+        console.log("Fetch error or timeout");
+        show_questions(questionsxXQGwEHONGnc, xXQGwEHONGnc);
+        });
+        }
+        </script>
+</div></div>
+</div>
+<p>Click the “+” sign to reveal the answer and discussion –&gt;</p>
+<div class="toggle docutils container">
+<p>If <span class="math notranslate nohighlight">\(B\)</span> is independent of <span class="math notranslate nohighlight">\(A\)</span>, then knowledge of <span class="math notranslate nohighlight">\(A\)</span> occurring should not change the probability of <span class="math notranslate nohighlight">\(B\)</span> occurring. I.e., if we are <em>given</em> that <span class="math notranslate nohighlight">\(A\)</span> occurred, then the conditional probability of <span class="math notranslate nohighlight">\(B\)</span> occurring should equal the unconditional probability:</p>
+<div class="math notranslate nohighlight">
+\[
+P(B|A) = P(B)
+\]</div>
+<p>Let’s see the implications of this by substituting the formula for <span class="math notranslate nohighlight">\(P(B|A)\)</span> from the definition:</p>
+<p>$<span class="math notranslate nohighlight">\(
+\frac{P(A \cap B)}{P(A)} = P(B) \\
+\Rightarrow P(A \cap B) = P(A)P(B)
+\)</span>$ (eq:p-b-given-a}</p>
+<p>Now we might ask: if <span class="math notranslate nohighlight">\(B\)</span> is independent of <span class="math notranslate nohighlight">\(A\)</span>, does that imply that <span class="math notranslate nohighlight">\(A\)</span> is independent of <span class="math notranslate nohighlight">\(B\)</span>?  Let’s assume that <code class="xref eq docutils literal notranslate"><span class="pre">eq:p-b-given-a</span></code> holds and apply the result to the definition for <span class="math notranslate nohighlight">\(P(A|B\)</span>), assuming that <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(A|B) &amp; =\frac{ P(A \cap B) } {P(B) } \\
+&amp; = \frac{ P(A) P( B) } {P(B) } \\
+&amp; = P(A) 
+\end{align*}\]</div>
+<p>So if <span class="math notranslate nohighlight">\(P(B|A) = P(B)\)</span>, then <span class="math notranslate nohighlight">\(P(A|B)=P(A)\)</span>.</p>
+</div>
+</div>
+<div class="section" id="formal-definition-of-statistically-independent-events">
+<h2><span class="section-number">6.6.2. </span>Formal definition of statistically independent events<a class="headerlink" href="#formal-definition-of-statistically-independent-events" title="Permalink to this headline">¶</a></h2>
+<p>A simple definition for conditional probability of events that satisfies all the forms of independence discussed above and that can deal with events with probability zero is as follows:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span> and two events <span class="math notranslate nohighlight">\(A\in \mathcal{F}\)</span> and <span class="math notranslate nohighlight">\(B \in \mathcal{F}\)</span>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are {\it statistically independent} if and only if (iff)</p>
+</dd>
+</dl>
+<div class="math notranslate nohighlight">
+\[
+P(A \cap B) = P(A)P(B).
+\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>If the context is clear, we will often just write “independent” instead of “statistically independent” or write <em>s.i.</em>, which is a commonly used abbreviation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please take time to study the definition of <em>statistically independent</em> carefully. In particular, note the following:</p>
+<ul class="simple">
+<li><p><strong>Events</strong> can be statistically independent or not</p></li>
+<li><p>Probabilities <strong>are not</strong> something that are statistically independent or not</p></li>
+<li><p>The “if and only if” statement means that the definition applies in both directions:</p>
+<ul>
+<li><p>If events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are statistically independent, then the probability of the intersection of the events factors as the product of the individual events, <span class="math notranslate nohighlight">\(P(A \cap B) = P(A)P(B)\)</span>.</p></li>
+<li><p>If we have events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> for which <span class="math notranslate nohighlight">\(P(A \cap B) = P(A)P(B)\)</span>, then <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are statistically independent.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="when-can-we-assume-independence">
+<h2><span class="section-number">6.6.3. </span>When can we assume independence?<a class="headerlink" href="#when-can-we-assume-independence" title="Permalink to this headline">¶</a></h2>
+<p>Statistical independence is often assumed for many types of events. However, it is important to be careful when applying such a strong assumption because events can be coupled in ways that are subtle. For example, consider the Magician’s Coin example. Many people assume that the event of getting Heads on the second flip of the chosen coin will be independent of the outcome of the first flip of the coin. However, we have seen that this assumption is wrong! So, when can we assume that events will be independent?</p>
+<p><strong>Events can be assumed to be statistically independent if they arise from completely separate random phenomena.</strong></p>
+<p>In the case of the Magician’s Coin, this assumption is violated in a subtle way. If we knew that the two-headed coin was in use, then we would know the results completely. What is subtle is the fact that observing the outcome of the first flip may give some information about which coin is in use (although we won’t be able to show this for observing heads on the first flip until Chapter 6).</p>
+<p>Examples that are assumed to result from separate random phenomena are extensive:</p>
+<ul class="simple">
+<li><p><strong>Devices to generate randomness in games:</strong> Independence can usually be assume dfor different flips of a fair coin, rolls of a fair die, or card hards drawn from shuffled decks.</p></li>
+<li><p><strong>Failures of different devices in systems:</strong> mechanical and electrical devices fail ar random, and the failures at different devices are often assumed to be independent; examples include light bulbs in a building or computers in a lab.</p></li>
+<li><p><strong>Characteristics of people unrelated to any grouping of those people:</strong> for example, for a group of people at a meeting, having a March birthday would generally be independent events across any two people.</p></li>
+</ul>
+<p>Let’s apply this concept to find a simpler way to solve a problem that was introduced in <a class="reference internal" href="../04-probability1/axiomatic-prob.html"><span class="doc">Axiomatic  Probability</span></a>:</p>
+<p><strong>Example</strong></p>
+<p><strong>(Take 3)</strong> A fair six-sided die is rolled twice.  What is the probability that either of the rolls is a value less than 3?</p>
+<p>As before, let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3, for <span class="math notranslate nohighlight">\(i=1,2\)</span>.</p>
+<p>We assume that different different rolls of the die are independent, so <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are independent.</p>
+<p>As in <span class="xref std std-doc">../04/probability1/corollaries</span>, we can use Corollary 5 of the Axioms of Probability to write</p>
+<div class="math notranslate nohighlight">
+\[
+P(E_1 \cup E_2) = P(E_1) + P(E_2) - P(E_1 \cap E_2)
+\]</div>
+<p>Before, we had to enumerate <span class="math notranslate nohighlight">\(E_1 \cap E_2\)</span> over the sample space for the combine roll of the dice to determine <span class="math notranslate nohighlight">\(P(E_1 \cap E_2)\)</span>.  Now, we can just apply statistical independence to write <span class="math notranslate nohighlight">\(P(E_1 \cap E_2) = P(E_1)P(E_2)\)</span>, yielding</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(E_1 \cup E_2) &amp;= P(E_1) + P(E_2) - P(E_1)P(E_2) \\
+&amp;= \frac{1}{3}  + \frac{1}{3} - \left(\frac{1}{3}\right)\left(\frac{1}{3} \right) \\
+&amp;= \frac 5 9 .
+\end{align*}\]</div>
+<p><strong>Exercises</strong></p>
+<p>Answer these questions to practice this form of statistical independence:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="eBrANwrAPvry" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+    --medium-slate-blue: #6f78ffff;
+    --orange-pantone: #f75c03ff;
+    --russian-violet: #392061ff;
+    --maximum-yellow-red: #ffc857ff;
+    --viridian-green: #119da4ff;
+    --incorrect-red: #c80202;
+    --correct-green: #009113;
+}
+
+.Quiz {
+    max-width: 600px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    line-height: 1.1;
+    font-size: 16pt;
+}
+
+.QuizCode {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.QuizCode>pre {
+    padding: 4px;
+}
+
+.Answer {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.Feedback {
+    font-size: 16pt;
+    text-align: center;
+    min-height: 2em;
+}
+
+.Input {
+    align: left;
+    font-size: 20pt;
+}
+
+.Input-text {
+    display: block;
+    margin: 10px;
+    color: inherit;
+    width: 140px;
+    background-color: #c0c0c0;
+    color: #fff;
+    padding: 5px;
+    padding-left: 10px;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: inherit;
+    line-height: 20pt;
+    border: none;
+    border-radius: 0.2rem;
+    transition: box-shadow 0.1s);
+}
+
+.Input-text:focus {
+    outline: none;
+    background-color: #c0c0c0;
+    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
+}
+
+.MCButton {
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.MCButton p {
+    color: inherit;
+}
+
+.MultipleChoiceQn {
+    padding: 10px;
+    background: var(--medium-slate-blue);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.ManyChoiceQn {
+    padding: 10px;
+    background: var(--orange-pantone);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn {
+    padding: 10px;
+    background: var(--russian-violet);
+    color: #fafafa;
+    border-radius: 10px;
+}
+
+.NumericQn p {
+    color: inherit;
+}
+
+.InpLabel {
+    line-height: 34px;
+    float: left;
+    margin-right: 10px;
+    color: #101010;
+    font-size: 15pt;
+}
+
+.incorrect {
+    color: var(--incorrect-red);
+}
+
+.correct {
+    color: var(--correct-green);
+}
+
+.correctButton {
+    /*
+    background: var(--correct-green);
+   */
+    animation: correct-anim 0.6s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+.incorrectButton {
+    animation: incorrect-anim 0.8s ease;
+    animation-fill-mode: forwards;
+    color: #fafafa;
+    box-shadow: inset 0px 0px 5px #555555;
+    outline: none;
+}
+
+@keyframes incorrect-anim {
+    100% {
+        background-color: var(--incorrect-red);
+    }
+}
+
+@keyframes correct-anim {
+    100% {
+        background-color: var(--correct-green);
+    }
+}</style><script type="text/Javascript">questionseBrANwrAPvry=[
+    {
+        "question": "If you roll a fair six-sided die twice, what is the probability of getting a 3 on both dice?",
         "type": "numeric",
-        "precision": 2,
+	"precision": 3,
         "answers": [
             {
                 "type": "value",
-                "value": 0.83,
+                "value": 0.028,
                 "correct": true,
                 "feedback": "Correct."
             },
             {
-                "type": "value",
-                "value": 0.75,
+                "type": "range",
+                "range": [0.166, .171],
                 "correct": false,
-                "feedback": "It is tempting to think that these flips are independent of each other. But they are not!"
+                "feedback": "Getting a 3 on the first roll would have a probability of 1/6, so getting a 3 on both rolls must be have a smaller probability."
             },
             {
                 "type": "range",
                 "range": [ -1000000, 0], 
                 "correct": false,
-                "feedback": "Remember that probabilities must be non-negative. You can try again."
+                "feedback": "No. Probabilities cannot be negative."
             },
             {
                 "type": "range",
-                "range": [ 1, 1000000], 
+                "range": [ 1.0000000001, 1000000000], 
                 "correct": false,
-                "feedback": "Remember that probabilities cannot be larger than 1. You can try again."
-            }
-        ]
-    }
-]
-;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
-function makeid(length) {
-    var result = [];
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-        result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
-    }
-    return result.join('');
-}
-
-// Choose a random subset of an array. Can also be used to shuffle the array
-function getRandomSubarray(arr, size) {
-    var shuffled = arr.slice(0), i = arr.length, temp, index;
-    while (i--) {
-        index = Math.floor((i + 1) * Math.random());
-        temp = shuffled[index];
-        shuffled[index] = shuffled[i];
-        shuffled[i] = temp;
-    }
-    return shuffled.slice(0, size);
-}
-function check_mc() {
-    var id = this.id.split('-')[0];
-
-    //console.log("In check_mc(), id="+id);
-    //console.log(event.srcElement.id)           
-    //console.log(event.srcElement.dataset.correct)   
-    //console.log(event.srcElement.dataset.feedback)
-
-    var label = event.srcElement;
-    //console.log(label, label.nodeName);
-    var depth = 0;
-    while ((label.nodeName != "LABEL") && (depth < 20)) {
-        label = label.parentElement;
-        console.log(depth, label);
-        depth++;
-    }
-
-
-
-    var answers = label.parentElement.children;
-
-    //console.log(answers);
-
-
-    // Split behavior based on multiple choice vs many choice:
-    var fb = document.getElementById("fb" + id);
-    //console.log(id, ", got numcorrect=",fb.dataset.numcorrect);
-    if (fb.dataset.numcorrect == 1) {
-        for (var i = 0; i < answers.length; i++) {
-            var child = answers[i];
-            //console.log(child);
-            child.className = "MCButton";
-        }
-
-
-
-        if (label.dataset.correct == "true") {
-            // console.log("Correct action");
-            if ("feedback" in label.dataset) {
-                fb.textContent = jaxify(label.dataset.feedback);
-            } else {
-                fb.textContent = "Correct!";
-            }
-            label.classList.add("correctButton");
-
-            fb.className = "Feedback";
-            fb.classList.add("correct");
-
-        } else {
-            if ("feedback" in label.dataset) {
-                fb.textContent = jaxify(label.dataset.feedback);
-            } else {
-                fb.textContent = "Incorrect -- try again.";
-            }
-            //console.log("Error action");
-            label.classList.add("incorrectButton");
-            fb.className = "Feedback";
-            fb.classList.add("incorrect");
-        }
-    }
-    else {
-        var reset = false;
-        var feedback;
-        if (label.dataset.correct == "true") {
-            if ("feedback" in label.dataset) {
-                feedback = jaxify(label.dataset.feedback);
-            } else {
-                feedback = "Correct!";
-            }
-            if (label.dataset.answered <= 0) {
-                if (fb.dataset.answeredcorrect < 0) {
-                    fb.dataset.answeredcorrect = 1;
-                    reset = true;
-                } else {
-                    fb.dataset.answeredcorrect++;
-                }
-                if (reset) {
-                    for (var i = 0; i < answers.length; i++) {
-                        var child = answers[i];
-                        child.className = "MCButton";
-                        child.dataset.answered = 0;
-                    }
-                }
-                label.classList.add("correctButton");
-                label.dataset.answered = 1;
-                fb.className = "Feedback";
-                fb.classList.add("correct");
-
-            }
-        } else {
-            if ("feedback" in label.dataset) {
-                feedback = jaxify(label.dataset.feedback);
-            } else {
-                feedback = "Incorrect -- try again.";
-            }
-            if (fb.dataset.answeredcorrect > 0) {
-                fb.dataset.answeredcorrect = -1;
-                reset = true;
-            } else {
-                fb.dataset.answeredcorrect--;
-            }
-
-            if (reset) {
-                for (var i = 0; i < answers.length; i++) {
-                    var child = answers[i];
-                    child.className = "MCButton";
-                    child.dataset.answered = 0;
-                }
-            }
-            label.classList.add("incorrectButton");
-            fb.className = "Feedback";
-            fb.classList.add("incorrect");
-        }
-
-
-        var numcorrect = fb.dataset.numcorrect;
-        var answeredcorrect = fb.dataset.answeredcorrect;
-        if (answeredcorrect >= 0) {
-            fb.textContent = feedback + " [" + answeredcorrect + "/" + numcorrect + "]";
-        } else {
-            fb.textContent = feedback + " [" + 0 + "/" + numcorrect + "]";
-        }
-
-
-    }
-
-    if (typeof MathJax != 'undefined') {
-        var version = MathJax.version;
-        console.log('MathJax version', version);
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        }
-    } else {
-        console.log('MathJax not detected');
-    }
-
-}
-
-function make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id) {
-    var shuffled;
-    if (shuffle_answers == "True") {
-        //console.log(shuffle_answers+" read as true");
-        shuffled = getRandomSubarray(qa.answers, qa.answers.length);
-    } else {
-        //console.log(shuffle_answers+" read as false");
-        shuffled = qa.answers;
-    }
-
-
-    var num_correct = 0;
-
-
-
-    shuffled.forEach((item, index, ans_array) => {
-        //console.log(answer);
-
-        // Make input element
-        var inp = document.createElement("input");
-        inp.type = "radio";
-        inp.id = "quizo" + id + index;
-        inp.style = "display:none;";
-        aDiv.append(inp);
-
-        //Make label for input element
-        var lab = document.createElement("label");
-        lab.className = "MCButton";
-        lab.id = id + '-' + index;
-        lab.onclick = check_mc;
-        var aSpan = document.createElement('span');
-        aSpan.classsName = "";
-        //qDiv.id="quizQn"+id+index;
-        if ("answer" in item) {
-            aSpan.innerHTML = jaxify(item.answer);
-            //aSpan.innerHTML=item.answer;
-        }
-        lab.append(aSpan);
-
-        // Create div for code inside question
-        var codeSpan;
-        if ("code" in item) {
-            codeSpan = document.createElement('span');
-            codeSpan.id = "code" + id + index;
-            codeSpan.className = "QuizCode";
-            var codePre = document.createElement('pre');
-            codeSpan.append(codePre);
-            var codeCode = document.createElement('code');
-            codePre.append(codeCode);
-            codeCode.innerHTML = item.code;
-            lab.append(codeSpan);
-            //console.log(codeSpan);
-        }
-
-        //lab.textContent=item.answer;
-
-        // Set the data attributes for the answer
-        lab.setAttribute('data-correct', item.correct);
-        if (item.correct) {
-            num_correct++;
-        }
-        if ("feedback" in item) {
-            lab.setAttribute('data-feedback', item.feedback);
-        }
-        lab.setAttribute('data-answered', 0);
-
-        aDiv.append(lab);
-
-    });
-
-    if (num_correct > 1) {
-        outerqDiv.className = "ManyChoiceQn";
-    } else {
-        outerqDiv.className = "MultipleChoiceQn";
-    }
-
-    return num_correct;
-
-}
-function check_numeric(ths, event) {
-
-    if (event.keyCode === 13) {
-        ths.blur();
-
-        var id = ths.id.split('-')[0];
-
-        var submission = ths.value;
-        if (submission.indexOf('/') != -1) {
-            sub_parts = submission.split('/');
-            //console.log(sub_parts);
-            submission = sub_parts[0] / sub_parts[1];
-        }
-        //console.log("Reader entered", submission);
-
-        if ("precision" in ths.dataset) {
-            precision = ths.dataset.precision;
-            // console.log("1:", submission)
-            submission = Math.round((1 * submission + Number.EPSILON) * 10 ** precision) / 10 ** precision;
-            // console.log("Rounded to ", submission, " precision=", precision  );
-        }
-
-
-        //console.log("In check_numeric(), id="+id);
-        //console.log(event.srcElement.id)           
-        //console.log(event.srcElement.dataset.feedback)
-
-        var fb = document.getElementById("fb" + id);
-        fb.style.display = "none";
-        fb.textContent = "Incorrect -- try again.";
-
-        answers = JSON.parse(ths.dataset.answers);
-        //console.log(answers);
-
-        var defaultFB = "";
-        var correct;
-        var done = false;
-        answers.every(answer => {
-            //console.log(answer.type);
-
-            correct = false;
-            // if (answer.type=="value"){
-            if ('value' in answer) {
-                if (submission == answer.value) {
-                    fb.textContent = jaxify(answer.feedback);
-                    correct = answer.correct;
-                    //console.log(answer.correct);
-                    done = true;
-                }
-                // } else if (answer.type=="range") {
-            } else if ('range' in answer) {
-                //console.log(answer.range);
-                if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent = jaxify(answer.feedback);
-                    correct = answer.correct;
-                    //console.log(answer.correct);
-                    done = true;
-                }
-            } else if (answer.type == "default") {
-                defaultFB = answer.feedback;
-            }
-            if (done) {
-                return false; // Break out of loop if this has been marked correct
-            } else {
-                return true; // Keep looking for case that includes this as a correct answer
-            }
-        });
-
-        if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
-            //console.log("Default feedback", defaultFB);
-        }
-
-        fb.style.display = "block";
-        if (correct) {
-            ths.className = "Input-text";
-            ths.classList.add("correctButton");
-            fb.className = "Feedback";
-            fb.classList.add("correct");
-        } else {
-            ths.className = "Input-text";
-            ths.classList.add("incorrectButton");
-            fb.className = "Feedback";
-            fb.classList.add("incorrect");
-        }
-        if (typeof MathJax != 'undefined') {
-            var version = MathJax.version;
-            console.log('MathJax version', version);
-            if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-            } else if (version[0] == "3") {
-                MathJax.typeset();
-            }
-        } else {
-            console.log('MathJax not detected');
-        }
-        return false;
-    }
-
-}
-
-function isValid(el, charC) {
-    //console.log("Input char: ", charC);
-    if (charC == 46) {
-        if (el.value.indexOf('.') === -1) {
-            return true;
-        } else if (el.value.indexOf('/') != -1) {
-            parts = el.value.split('/');
-            if (parts[1].indexOf('.') === -1) {
-                return true;
-            }
-        }
-        else {
-            return false;
-        }
-    } else if (charC == 47) {
-        if (el.value.indexOf('/') === -1) {
-            if ((el.value != "") && (el.value != ".")) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    } else if (charC == 45) {
-        edex = el.value.indexOf('e');
-        if (edex == -1) {
-            edex = el.value.indexOf('E');
-        }
-
-        if (el.value == "") {
-            return true;
-        } else if (edex == (el.value.length - 1)) { // If just after e or E
-            return true;
-        } else {
-            return false;
-        }
-    } else if (charC == 101) { // "e"
-        if ((el.value.indexOf('e') === -1) && (el.value.indexOf('E') === -1) && (el.value.indexOf('/') == -1)) {
-            // Prev symbol must be digit or decimal point:
-            if (el.value.slice(-1).search(/\d/) >= 0) {
-                return true;
-            } else if (el.value.slice(-1).search(/\./) >= 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    } else {
-        if (charC > 31 && (charC < 48 || charC > 57))
-            return false;
-    }
-    return true;
-}
-
-function numeric_keypress(evnt) {
-    var charC = (evnt.which) ? evnt.which : evnt.keyCode;
-
-    if (charC == 13) {
-        check_numeric(this, evnt);
-    } else {
-        return isValid(this, charC);
-    }
-}
-
-
-
-
-
-function make_numeric(qa, outerqDiv, qDiv, aDiv, id) {
-
-
-
-    //console.log(answer);
-
-
-    outerqDiv.className = "NumericQn";
-    aDiv.style.display = 'block';
-
-    var lab = document.createElement("label");
-    lab.className = "InpLabel";
-    lab.textContent = "Type numeric answer here:";
-    aDiv.append(lab);
-
-    var inp = document.createElement("input");
-    inp.type = "text";
-    //inp.id="input-"+id;
-    inp.id = id + "-0";
-    inp.className = "Input-text";
-    inp.setAttribute('data-answers', JSON.stringify(qa.answers));
-    if ("precision" in qa) {
-        inp.setAttribute('data-precision', qa.precision);
-    }
-    aDiv.append(inp);
-    //console.log(inp);
-
-    //inp.addEventListener("keypress", check_numeric);
-    //inp.addEventListener("keypress", numeric_keypress);
-    /*
-    inp.addEventListener("keypress", function(event) {
-        return numeric_keypress(this, event);
-    }
-                        );
-                        */
-    //inp.onkeypress="return numeric_keypress(this, event)";
-    inp.onkeypress = numeric_keypress;
-    inp.onpaste = event => false;
-
-    inp.addEventListener("focus", function (event) {
-        this.value = "";
-        return false;
-    }
-    );
-
-
-}
-function jaxify(string) {
-    var mystring = string;
-
-    count = 0;
-    var loc = mystring.search(/([^\\]|^)(\$)/);
-
-    count2 = 0;
-    var loc2 = mystring.search(/([^\\]|^)(\$\$)/);
-
-    //console.log(loc);
-
-    while ((loc >= 0) || (loc2 >= 0)) {
-
-        /* Have to replace all the double $$ first with current implementation */
-        if (loc2 >= 0) {
-            if (count2 % 2 == 0) {
-                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\[");
-            } else {
-                mystring = mystring.replace(/([^\\]|^)(\$\$)/, "$1\\]");
-            }
-            count2++;
-        } else {
-            if (count % 2 == 0) {
-                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\(");
-            } else {
-                mystring = mystring.replace(/([^\\]|^)(\$)/, "$1\\)");
-            }
-            count++;
-        }
-        loc = mystring.search(/([^\\]|^)(\$)/);
-        loc2 = mystring.search(/([^\\]|^)(\$\$)/);
-        //console.log(mystring,", loc:",loc,", loc2:",loc2);
-    }
-
-    //console.log(mystring);
-    return mystring;
-}
-
-
-function show_questions(json, mydiv) {
-    //var mydiv=document.getElementById(myid);
-    var shuffle_questions = mydiv.dataset.shufflequestions;
-    var num_questions = mydiv.dataset.numquestions;
-    var shuffle_answers = mydiv.dataset.shuffleanswers;
-
-    if (num_questions > json.length) {
-        num_questions = json.length;
-    }
-
-    var questions;
-    if ((num_questions < json.length) || (shuffle_questions == "True")) {
-        //console.log(num_questions+","+json.length);
-        questions = getRandomSubarray(json, num_questions);
-    } else {
-        questions = json;
-    }
-
-    //console.log("SQ: "+shuffle_questions+", NQ: " + num_questions + ", SA: ", shuffle_answers);
-
-    // Iterate over questions
-    questions.forEach((qa, index, array) => {
-        //console.log(qa.question); 
-
-        var id = makeid(8);
-        //console.log(id);
-
-
-        // Create Div to contain question and answers
-        var iDiv = document.createElement('div');
-        iDiv.id = 'quizWrap' + id + index;
-        iDiv.className = 'Quiz';
-        mydiv.appendChild(iDiv);
-        // iDiv.innerHTML=qa.question;
-
-        var outerqDiv = document.createElement('div');
-        outerqDiv.id = "OuterquizQn" + id + index;
-        //qDiv.textContent=qa.question;
-        iDiv.append(outerqDiv);
-
-        // Create div to contain question part
-        var qDiv = document.createElement('div');
-        qDiv.id = "quizQn" + id + index;
-        //qDiv.textContent=qa.question;
-        qDiv.innerHTML = jaxify(qa.question);
-        outerqDiv.append(qDiv);
-
-        // Create div for code inside question
-        var codeDiv;
-        if ("code" in qa) {
-            codeDiv = document.createElement('div');
-            codeDiv.id = "code" + id + index;
-            codeDiv.className = "QuizCode";
-            var codePre = document.createElement('pre');
-            codeDiv.append(codePre);
-            var codeCode = document.createElement('code');
-            codePre.append(codeCode);
-            codeCode.innerHTML = qa.code;
-            outerqDiv.append(codeDiv);
-            //console.log(codeDiv);
-        }
-
-
-        // Create div to contain answer part
-        var aDiv = document.createElement('div');
-        aDiv.id = "quizAns" + id + index;
-        aDiv.className = 'Answer';
-        iDiv.append(aDiv);
-
-        //console.log(qa.type);
-
-        var num_correct;
-        if (qa.type == "multiple_choice") {
-            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if (qa.type == "many_choice") {
-            num_correct = make_mc(qa, shuffle_answers, outerqDiv, qDiv, aDiv, id);
-        } else if (qa.type == "numeric") {
-            //console.log("numeric");
-            make_numeric(qa, outerqDiv, qDiv, aDiv, id);
-        }
-
-
-        //Make div for feedback
-        var fb = document.createElement("div");
-        fb.id = "fb" + id;
-        //fb.style="font-size: 20px;text-align:center;";
-        fb.className = "Feedback";
-        fb.setAttribute("data-answeredcorrect", 0);
-        fb.setAttribute("data-numcorrect", num_correct);
-        iDiv.append(fb);
-
-
-    });
-    //console.log("At end of show_questions");
-    if (typeof MathJax != 'undefined') {
-        console.log("MathJax version", MathJax.version);
-        var version = MathJax.version;
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        } else {
-            console.log("MathJax not found");
-        }
-    }
-    return false;
-}
-
-        //console.log(element);
-        {
-        const jmscontroller = new AbortController();
-        const signal = jmscontroller.signal;
-
-        setTimeout(() => jmscontroller.abort(), 5000);
-
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/magician2.json", {signal})
-        .then(response => response.json())
-        .then(json => show_questions(json, IrSVGDSXTjEJ))
-        .catch(err => {
-        console.log("Fetch error or timeout");
-        show_questions(questionsIrSVGDSXTjEJ, IrSVGDSXTjEJ);
-        });
-        }
-        </script>
-</div></div>
-</div>
-<p>Again, let’s simulate the answer before trying to find it analytically. This simulation will be a bit different than the ones we have done before. In the previous simulations, every simulation iteration affects the probability being estimated. In this simulation, that will not be the case because we are going to simulate two coin flips, but <strong>we are only interested in those simulation iterations in which the coin came up Heads on the first flip</strong>. We will need two counters to estimate the probability of getting heads on the second flip given that the first flip was heads:</p>
-<ul class="simple">
-<li><p>First, we need to count how many times the first flip was heads.</p></li>
-<li><p>Second, for those iterations where the first flip was heads, we need to count how many times the second flip was also heads.
-Then the probability we are looking for is the ratio of the second counter to the first counter.</p></li>
-</ul>
-<p>To implement these in Python, we note that both these counters are only updated under certain conditions. Moreover, the second counter is only updated if the condition for the first counter holds <strong>and</strong> another condition holds (the second flip was also heads).  These conditions will be checked with <code class="docutils literal notranslate"><span class="pre">if</span></code> statements, and the condition-within-a-condition will be in the form of a <em>nested if statement</em>. Much like the nested for loops introduced in Chapter 1, a <em>nested if statement</em> occurs when an if statement is entirely enclosed in the body of another if statement.</p>
-<p>How can we simulate this?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_flips</span><span class="p">(</span><span class="n">num_sims</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
-    <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fair&#39;</span><span class="p">,</span><span class="s1">&#39;2head&#39;</span><span class="p">]</span>
-    <span class="n">heads_count1</span><span class="o">=</span><span class="mi">0</span>
-    <span class="n">heads_count2</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_sims</span><span class="p">):</span>
-        <span class="n">coin</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">coins</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">coin</span><span class="o">==</span><span class="s1">&#39;fair&#39;</span><span class="p">:</span>
-            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">faces</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
-        <span class="n">coin1_face</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">coin1_face</span> <span class="o">==</span><span class="s1">&#39;H&#39;</span><span class="p">:</span>
-            <span class="n">heads_count1</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="n">coin2_face</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">faces</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">coin2_face</span> <span class="o">==</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span>
-                <span class="n">heads_count2</span><span class="o">+=</span><span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prob. of heads on second flip given heads on first flip is&quot;</span><span class="p">,</span>
-          <span class="n">heads_count2</span><span class="o">/</span><span class="n">heads_count1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">two_flips</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of heads on second flip given heads on first flip is 0.830221392371299
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="exercise">
-<h2><span class="section-number">5.1.4. </span>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
-<p>Modify the simulation for the Magician’s coin to answer the following question.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output text_html"><div id="plquxBvuImOI" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1"><style>:root {
-    --medium-slate-blue: #6f78ffff;
-    --orange-pantone: #f75c03ff;
-    --russian-violet: #392061ff;
-    --maximum-yellow-red: #ffc857ff;
-    --viridian-green: #119da4ff;
-    --incorrect-red: #c80202;
-    --correct-green: #009113;
-}
-
-.Quiz {
-    max-width: 600px;
-    margin-top: 15px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-    padding-bottom: 4px;
-    padding-top: 4px;
-    line-height: 1.1;
-    font-size: 16pt;
-}
-
-.QuizCode {
-    font-size: 14pt;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.QuizCode>pre {
-    padding: 4px;
-}
-
-.Answer {
-    margin: 10px 0;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 10px;
-}
-
-.Feedback {
-    font-size: 16pt;
-    text-align: center;
-    min-height: 2em;
-}
-
-.Input {
-    align: left;
-    font-size: 20pt;
-}
-
-.Input-text {
-    display: block;
-    margin: 10px;
-    color: inherit;
-    width: 140px;
-    background-color: #c0c0c0;
-    color: #fff;
-    padding: 5px;
-    padding-left: 10px;
-    font-family: inherit;
-    font-size: 20px;
-    font-weight: inherit;
-    line-height: 20pt;
-    border: none;
-    border-radius: 0.2rem;
-    transition: box-shadow 0.1s);
-}
-
-.Input-text:focus {
-    outline: none;
-    background-color: #c0c0c0;
-    box-shadow: 0.6rem 0.8rem 1.4rem -0.5rem #999999;
-}
-
-.MCButton {
-    background: #fafafa;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.MCButton p {
-    color: inherit;
-}
-
-.MultipleChoiceQn {
-    padding: 10px;
-    background: var(--medium-slate-blue);
-    color: #fafafa;
-    border-radius: 10px;
-}
-
-.ManyChoiceQn {
-    padding: 10px;
-    background: var(--orange-pantone);
-    color: #fafafa;
-    border-radius: 10px;
-}
-
-.NumericQn {
-    padding: 10px;
-    background: var(--russian-violet);
-    color: #fafafa;
-    border-radius: 10px;
-}
-
-.NumericQn p {
-    color: inherit;
-}
-
-.InpLabel {
-    line-height: 34px;
-    float: left;
-    margin-right: 10px;
-    color: #101010;
-    font-size: 15pt;
-}
-
-.incorrect {
-    color: var(--incorrect-red);
-}
-
-.correct {
-    color: var(--correct-green);
-}
-
-.correctButton {
-    /*
-    background: var(--correct-green);
-   */
-    animation: correct-anim 0.6s ease;
-    animation-fill-mode: forwards;
-    color: #fafafa;
-    box-shadow: inset 0px 0px 5px #555555;
-    outline: none;
-}
-
-.incorrectButton {
-    animation: incorrect-anim 0.8s ease;
-    animation-fill-mode: forwards;
-    color: #fafafa;
-    box-shadow: inset 0px 0px 5px #555555;
-    outline: none;
-}
-
-@keyframes incorrect-anim {
-    100% {
-        background-color: var(--incorrect-red);
-    }
-}
-
-@keyframes correct-anim {
-    100% {
-        background-color: var(--correct-green);
-    }
-}</style><script type="text/Javascript">questionsplquxBvuImOI=[
-    {
-        "question": "Suppose a magician has three coins: one is a fair coin, and two are two-headed coins. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",
-        "type": "numeric",
-        "precision": 2,
-        "answers": [
-            {
-                "type": "value",
-                "value": 0.83,
-                "correct": false,
-                "feedback": "Incorrect. Having 2 two-headed coins is going to increase the probability of getting heads on the second flip in comparison to when there is only one fair coin. If you are simulating this probability, you only need to add one new coin to the original coins list in the simulation."
-            },
-            {
-                "type": "value",
-                "value": 0.9,
-                "correct": true,
-                "feedback": "Correct. "
+                "feedback": "No. Probabilities cannot be greater than 1."
             },
             {
                 "type": "default",
                 "correct": false,
-                "feedback": "Incorrect."
-            },
-            {
-                "type": "range",
-                "range": [ -1000000, 0], 
-                "correct": false,
-                "feedback": "Remember that probabilities must be non-negative. You can try again."
-            },
-            {
-                "type": "range",
-                "range": [ 1, 1000000], 
-                "correct": false,
-                "feedback": "Remember that probabilities cannot be larger than 1. You can try again."
-            }
-        ]
-    },
-    {
-        "question": "Suppose a magician has three coins: two are fair, and one is a two-headed coin. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",
-        "type": "numeric",
-        "precision": 2,
-        "answers": [
-            {
-                "type": "value",
-                "value": 0.83,
-                "correct": true,
-                "feedback": "Incorrect. Having two fair coins is going to reduce the probability of getting heads on the second flip in comparison to when there is only one fair coin. If you are simulating this probability, you only need to add one new coin to the original coins list in the simulation."
-            },
-            {
-                "type": "value",
-                "value": 0.75,
-                "correct": true,
-                "feedback": "Correct. "
-            },
-            {
-                "type": "range",
-                "range": [ -1000000, 0], 
-                "correct": false,
-                "feedback": "Remember that probabilities must be non-negative. You can try again."
-            },
-            {
-                "type": "range",
-                "range": [ 1, 1000000], 
-                "correct": false,
-                "feedback": "Remember that probabilities cannot be larger than 1. You can try again."
+                "feedback": "Incorrect. Use the definition of statistical independence to make this problem easier to solve."
             }
         ]
     }
@@ -2364,22 +2179,17 @@ function show_questions(json, mydiv) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/magician-post.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/si1.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, plquxBvuImOI))
+        .then(json => show_questions(json, eBrANwrAPvry))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsplquxBvuImOI, plquxBvuImOI);
+        show_questions(questionseBrANwrAPvry, eBrANwrAPvry);
         });
         }
         </script>
 </div></div>
 </div>
-</div>
-<div class="section" id="discussion">
-<h2><span class="section-number">5.1.5. </span>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
-<p>Many people are surprised that the outcome of the first coin flip affects the probabilities for the second coin flip. The reason is that their intuition tells them that the coin flips should be independent. If you are one of those people, here is a way to help fix your intuition in cases like these:</p>
-<p><strong>Replace the problem with a more extreme version of the same problem!</strong> Suppose we considered the probability of the coin coming up heads on the next flip given that <em>the coin was heads on the first 1,000,000 flips</em>. If you heard that the coin came up heads on 1,000,000 flips, what would you have to assume? You would have to assume that the selected coin was the two-headed coin.  So, the probability of heads on the next flip will be 1 (or extremely close to that). If you agree that the probability increases toward 1 as we observe 1,000,000 consecutive heads, then what about 100,000 heads? 1000 heads? 100 heads? It must be that if you see a lot of heads, the probability of the magician having selected the two-headed coin increases. So, shouldn’t it increase if even 1 head is observed? By how much? We will answer that later in this chapter.</p>
 </div>
 </div>
 
@@ -2396,7 +2206,7 @@ function show_questions(json, mydiv) {
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./05-conditional-prob"
+            path: "./06-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -2413,23 +2223,14 @@ function show_questions(json, mydiv) {
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="intro.html" title="previous page">
+        <a class="left-prev" href="more-on-simulating.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">5. </span>Dependence and Independence</p>
+                <p class="prevnext-title"><span class="section-number">6.5. </span>More on Simulating Conditional Probabilities</p>
             </div>
         </a>
     </div>
-     <div id="next">
-        <a class="right-next" href="notation-and-intuition.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5.2. </span>Conditional Probability: Notation and Intuition</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         

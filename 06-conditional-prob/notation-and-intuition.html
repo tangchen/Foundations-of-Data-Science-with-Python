@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.2. Conditional Probability: Notation and Intuition &#8212; Introduction to Data Science for Engineers</title>
+    <title>6.2. Conditional Probability: Notation and Intuition &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.3. Formally Defining Conditional Probability" href="definition.html" />
-    <link rel="prev" title="5.1. Simulating and Counting Conditional Probabilities" href="simulating-cond-probs.html" />
+    <link rel="next" title="6.3. Formally Defining Conditional Probability" href="definition.html" />
+    <link rel="prev" title="6.1. Simulating and Counting Conditional Probabilities" href="simulating-cond-probs.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -284,9 +284,14 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-binary-hypothesis-testing/outline.html">
+   5. Binary Hypothesis Tests with Resampling (Outline Only)
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro.html">
-   5. Dependence and Independence
+   6. Dependence and Independence
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -296,32 +301,32 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="simulating-cond-probs.html">
-     5.1. Simulating and Counting Conditional Probabilities
+     6.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.2. Conditional Probability: Notation and Intuition
+     6.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="definition.html">
-     5.3. Formally Defining Conditional Probability
+     6.3. Formally Defining Conditional Probability
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="relating-cond-uncond.html">
-     5.4. Relating Conditional and Unconditional Probabilities
+     6.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="more-on-simulating.html">
-     5.5. More on Simulating Conditional Probabilities
+     6.5. More on Simulating Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="independence.html">
-     5.6. Statistical Independence
+     6.6. Statistical Independence
     </a>
    </li>
   </ul>
@@ -367,7 +372,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/notation-and-intuition.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06-conditional-prob/notation-and-intuition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -392,7 +397,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/notation-and-intuition.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06-conditional-prob/notation-and-intuition.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -418,7 +423,7 @@
               <div>
                 
   <div class="section" id="conditional-probability-notation-and-intuition">
-<h1><span class="section-number">5.2. </span>Conditional Probability: Notation and Intuition<a class="headerlink" href="#conditional-probability-notation-and-intuition" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.2. </span>Conditional Probability: Notation and Intuition<a class="headerlink" href="#conditional-probability-notation-and-intuition" title="Permalink to this headline">¶</a></h1>
 <p>In the last section, we introduced the <em>concept</em> of conditional probability:we want to know the probability of an event <strong>given that another event has occurred</strong>. To make our work on conditional probability easier and to effectively communicate with others, we will need to introduce the standard mathematical notation for this type of conditional probability.</p>
 <p>A conditional probability is indicated if there is a vertical bar “|” inside the arguments of the probability measure. (Users of Unix/BSD-type operating systems and programmers often refer to the | symbol as “pipe” – in the context of conditional probability, we will read it as “given”.) If there is a | symbol, then the parts of the argument on each side of the | should both be events. The part that follows the | symbol is the conditioning event (i.e., the event that is given to have happened).</p>
 <p>Let’s make this more concrete by formalizing the notation for the Magician’s coin problem. As before, we let <span class="math notranslate nohighlight">\(H_i\)</span> be the event that the coin came up heads on flip <span class="math notranslate nohighlight">\(i\)</span>. Then if we want to know the conditional probability that the coin came up heads on the second flip given that it came up heads on the first flip, we can write that probability in mathematical notation as</p>
@@ -2253,7 +2258,7 @@ function show_questions(json, mydiv) {
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./05-conditional-prob"
+            path: "./06-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -2274,7 +2279,7 @@ function show_questions(json, mydiv) {
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">5.1. </span>Simulating and Counting Conditional Probabilities</p>
+                <p class="prevnext-title"><span class="section-number">6.1. </span>Simulating and Counting Conditional Probabilities</p>
             </div>
         </a>
     </div>
@@ -2282,7 +2287,7 @@ function show_questions(json, mydiv) {
         <a class="right-next" href="definition.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5.3. </span>Formally Defining Conditional Probability</p>
+                <p class="prevnext-title"><span class="section-number">6.3. </span>Formally Defining Conditional Probability</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

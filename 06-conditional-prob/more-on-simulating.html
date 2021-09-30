@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.5. More on Simulating Conditional Probabilities &#8212; Introduction to Data Science for Engineers</title>
+    <title>6.5. More on Simulating Conditional Probabilities &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="5.6. Statistical Independence" href="independence.html" />
-    <link rel="prev" title="5.4. Relating Conditional and Unconditional Probabilities" href="relating-cond-uncond.html" />
+    <link rel="next" title="6.6. Statistical Independence" href="independence.html" />
+    <link rel="prev" title="6.4. Relating Conditional and Unconditional Probabilities" href="relating-cond-uncond.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -284,9 +284,14 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-binary-hypothesis-testing/outline.html">
+   5. Binary Hypothesis Tests with Resampling (Outline Only)
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro.html">
-   5. Dependence and Independence
+   6. Dependence and Independence
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -296,32 +301,32 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="simulating-cond-probs.html">
-     5.1. Simulating and Counting Conditional Probabilities
+     6.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="notation-and-intuition.html">
-     5.2. Conditional Probability: Notation and Intuition
+     6.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="definition.html">
-     5.3. Formally Defining Conditional Probability
+     6.3. Formally Defining Conditional Probability
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="relating-cond-uncond.html">
-     5.4. Relating Conditional and Unconditional Probabilities
+     6.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.5. More on Simulating Conditional Probabilities
+     6.5. More on Simulating Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="independence.html">
-     5.6. Statistical Independence
+     6.6. Statistical Independence
     </a>
    </li>
   </ul>
@@ -367,7 +372,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05-conditional-prob/more-on-simulating.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06-conditional-prob/more-on-simulating.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -392,7 +397,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-conditional-prob/more-on-simulating.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06-conditional-prob/more-on-simulating.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -418,7 +423,7 @@
               <div>
                 
   <div class="section" id="more-on-simulating-conditional-probabilities">
-<h1><span class="section-number">5.5. </span>More on Simulating Conditional Probabilities<a class="headerlink" href="#more-on-simulating-conditional-probabilities" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6.5. </span>More on Simulating Conditional Probabilities<a class="headerlink" href="#more-on-simulating-conditional-probabilities" title="Permalink to this headline">¶</a></h1>
 <p>Simulation is a key technique used in this book to explore random phenomena. Thus, it is important to understand the simulation techniques we use for different scenarios. Consider again the Magician’s Coin problem, and let <span class="math notranslate nohighlight">\(H_i\)</span> denote the event that the coin comes up heads on the <span class="math notranslate nohighlight">\(i\)</span>th flip. In <a class="reference internal" href="simulating-cond-probs.html"><span class="doc">Simulating and Counting Conditional Probabilities</span></a>, we investigated <span class="math notranslate nohighlight">\(P(H_2|H_1)\)</span>, the probability of getting Heads on a second flip of the chosen coin given that heads was observed on the first flip.  If we apply the definition of conditional probability from <a class="reference internal" href="definition.html"><span class="doc">Formally Defining Conditional Probability</span></a>, then we can calculate this probability as</p>
 <!--
 \begin{equation}
@@ -427,11 +432,11 @@ P(H_2|H_1) = \frac{P(H_1 \cap H_2)}{P(H_1)}.
 \end{equation}
 -->
 <div class="math notranslate nohighlight" id="equation-eq-p-h2-given-h1">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-p-h2-given-h1" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq-p-h2-given-h1" title="Permalink to this equation">¶</a></span>\[
 P(H_2|H_1) = \frac{P(H_1 \cap H_2)}{P(H_1)}.
 \]</div>
 <p>However, in <a class="reference internal" href="simulating-cond-probs.html"><span class="doc">Simulating and Counting Conditional Probabilities</span></a>, we did not estimate either <span class="math notranslate nohighlight">\(P(H_1 \cap H_2)\)</span> or <span class="math notranslate nohighlight">\(P(H_1)\)</span>.  Instead, we counted the proportion of times that we observed the outcome <span class="math notranslate nohighlight">\(H_2\)</span> when <span class="math notranslate nohighlight">\(H_1\)</span> was the outcome of the first flip.  Let’s see why these produce the same result.</p>
-<p>Let’s see how we would estimate the probabilities on the right-hand side of <a class="reference internal" href="#equation-eq-p-h2-given-h1">(5.1)</a>. We will use the following notation for the counters we have in the simulation:</p>
+<p>Let’s see how we would estimate the probabilities on the right-hand side of <a class="reference internal" href="#equation-eq-p-h2-given-h1">(6.1)</a>. We will use the following notation for the counters we have in the simulation:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(N\)</span> is the total number of simulation trials,</p></li>
 <li><p><span class="math notranslate nohighlight">\(N_1\)</span> is the number of simulation trials in which the outcome of flip 1 was Heads (i.e., the number of times <span class="math notranslate nohighlight">\(H_1\)</span> occurred), and</p></li>
@@ -447,7 +452,7 @@ P(H_1) = \frac{N_1}{N}.
 \[ 
 P(H_1 \cap H_2) =\frac{N_{12}}{N}.
 \]</div>
-<p>If we substitute these into <a class="reference internal" href="#equation-eq-p-h2-given-h1">(5.1)</a>, we get</p>
+<p>If we substitute these into <a class="reference internal" href="#equation-eq-p-h2-given-h1">(6.1)</a>, we get</p>
 <div class="math notranslate nohighlight">
 \[
 P(H_2|H_1) = \frac{ \frac{N_{12}}{N} }{ \frac{N_1}{N} }= \frac{ N_{12} }{ N_1 }.
@@ -497,7 +502,7 @@ P(B|A) \approx \frac{N_{AB}}{N_A}.
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./05-conditional-prob"
+            path: "./06-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -518,7 +523,7 @@ P(B|A) \approx \frac{N_{AB}}{N_A}.
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">5.4. </span>Relating Conditional and Unconditional Probabilities</p>
+                <p class="prevnext-title"><span class="section-number">6.4. </span>Relating Conditional and Unconditional Probabilities</p>
             </div>
         </a>
     </div>
@@ -526,7 +531,7 @@ P(B|A) \approx \frac{N_{AB}}{N_A}.
         <a class="right-next" href="independence.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">5.6. </span>Statistical Independence</p>
+                <p class="prevnext-title"><span class="section-number">6.6. </span>Statistical Independence</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
