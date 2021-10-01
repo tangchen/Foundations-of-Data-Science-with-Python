@@ -1,0 +1,661 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Random Variables (Outline) &#8212; Introduction to Data Science for Engineers</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)" href="../09-moments/outline.html" />
+    <link rel="prev" title="7. Introduction to Bayesian Methods (Outline)" href="../07-bayesian-methods/outline.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Data Science for Engineers</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro/intro.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-intro/intro.html">
+   1. Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/who-for.html">
+     1.1. Who is this book for?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/why-this-book.html">
+     1.2. Why learn data science from this book?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/what-is-data-science.html">
+     1.3. What is data science?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/what-book-covers.html">
+     1.4. What data science topics does this book cover?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
+     1.5. Extremely Brief Intro to Jupyter and Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/jupyter-start.html">
+     1.6. Getting Started in Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/python-start.html">
+     1.7. Getting Started in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/review.html">
+     1.8. Review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-first-stats/intro.html">
+   2. First Simulations, Visualizations, and Statistical Tests
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-first-stats/motivating-problem.html">
+     2.1. Motivating Problem: Is This Coin Fair?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-first-stats/first-sims.html">
+     2.2. First Computer Simulations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-first-stats/first-vis.html">
+     2.3. First Visualizations: Scatter Plots and Histograms
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-first-stats/first-stats.html">
+     2.4. First Statistical Tests
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-first-stats/review.html">
+     2.5. Review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-first-data/intro.html">
+   3. First Visualizations and Statistical Tests with Real Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-first-data/pandas-start.html">
+     3.1. Intro to Pandas
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-first-data/visualization.html">
+     3.2. Visualizing Multiple Data Sets - Part 1: Scatter Plots
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-first-data/partitions.html">
+     3.3. Partitions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-first-data/summary-stats.html">
+     3.4. Summary Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-first-data/histogram.html">
+     3.5. Visualizing Multiple Data Sets - Part 2: Histograms for Partitioned Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-first-data/hypothesis-testing.html">
+     3.6. Binary Hypothesis Testing with Real Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-first-data/2d-scatter.html">
+     3.7. A Quick Preview of Two-Dimensional Statistical Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-first-data/review.html">
+     3.8. Review
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04-probability1/intro.html">
+   4. Introduction to Probability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-probability1/outcomes-samplespaces-events.html">
+     4.1. Outcomes, Sample Spaces, and Events
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-probability1/relative-frequency.html">
+     4.2. Relative Frequencies and Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-probability1/fair-experiments.html">
+     4.3. Fair Experiments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-probability1/axiomatic-prob.html">
+     4.4. Axiomatic  Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-probability1/corollaries.html">
+     4.5. Corollaries to the Axioms of Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-probability1/combinatorics.html">
+     4.6. Combinatorics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-probability1/review.html">
+     4.7. Review
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-probability1/summary.html">
+     4.8. Summary
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05-binary-hypothesis-testing/outline.html">
+   5. Binary Hypothesis Tests with Resampling (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-conditional-prob/intro.html">
+   6. Dependence and Independence
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-conditional-prob/simulating-cond-probs.html">
+     6.1. Simulating and Counting Conditional Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-conditional-prob/notation-and-intuition.html">
+     6.2. Conditional Probability: Notation and Intuition
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-conditional-prob/definition.html">
+     6.3. Formally Defining Conditional Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-conditional-prob/relating-cond-uncond.html">
+     6.4. Relating Conditional and Unconditional Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-conditional-prob/more-on-simulating.html">
+     6.5. More on Simulating Conditional Probabilities
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-conditional-prob/independence.html">
+     6.6. Statistical Independence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07-bayesian-methods/outline.html">
+   7. Introduction to Bayesian Methods (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Random Variables (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09-moments/outline.html">
+   9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10-conditional-stats/outline.html">
+   10. Applications of Conditional Distributions to Statistical Tests (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11-matrix-vector-regression/outline.html">
+   11. Multidimensional Data and Regression (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12-categorical-data/outline.html">
+   12. Tests of Independence for Categorical Data (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../13-clustering-transforming/outline.html">
+   13. Clustering and Transforming Multi-dimensional Data (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../14-matrix-applications/outline.html">
+   14. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../15-multidim-dependence/outline.html">
+   15. Working with Dependent Data in Multiple Dimensions (Outline)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../16-next-steps/outline.html">
+   16. Next Steps (Outline)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/08-random-variables/outline.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/08-random-variables/outline.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discrete-random-variables-and-probability-mass-functions">
+   8.1. Discrete Random Variables and Probability Mass Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cumulative-distribution-functions-and-their-properties">
+   8.2. Cumulative Distribution Functions and Their Properties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-discrete-random-variables-and-their-applications">
+   8.3. Common Discrete Random Variables and Their Applications
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-simulating-and-characterizing-discrete-random-variables">
+   8.4. Generating, Simulating, and Characterizing Discrete Random Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-random-variables-and-probability-density-functions">
+   8.5. Continuous Random Variables and Probability Density Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-probability-density-functions">
+   8.6. Properties of Probability Density Functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-continuous-random-variables-and-their-applications">
+   8.7. Common Continuous Random Variables and Their Applications
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-central-limit-theorem-and-gaussian-random-variables">
+   8.8. The Central Limit Theorem and Gaussian Random Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation">
+   8.9. Generating, Simulating, and Characterizing Continuous Random Variables (including Kernel Density Estimation)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-conditioning-with-random-variables">
+   8.10. Introduction to Conditioning with Random Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generative-classification">
+   8.11. Generative Classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#review">
+   8.12. Review
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   8.13. Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="random-variables-outline">
+<h1><span class="section-number">8. </span>Random Variables (Outline)<a class="headerlink" href="#random-variables-outline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="discrete-random-variables-and-probability-mass-functions">
+<h2><span class="section-number">8.1. </span>Discrete Random Variables and Probability Mass Functions<a class="headerlink" href="#discrete-random-variables-and-probability-mass-functions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cumulative-distribution-functions-and-their-properties">
+<h2><span class="section-number">8.2. </span>Cumulative Distribution Functions and Their Properties<a class="headerlink" href="#cumulative-distribution-functions-and-their-properties" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="common-discrete-random-variables-and-their-applications">
+<h2><span class="section-number">8.3. </span>Common Discrete Random Variables and Their Applications<a class="headerlink" href="#common-discrete-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="generating-simulating-and-characterizing-discrete-random-variables">
+<h2><span class="section-number">8.4. </span>Generating, Simulating, and Characterizing Discrete Random Variables<a class="headerlink" href="#generating-simulating-and-characterizing-discrete-random-variables" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="continuous-random-variables-and-probability-density-functions">
+<h2><span class="section-number">8.5. </span>Continuous Random Variables and Probability Density Functions<a class="headerlink" href="#continuous-random-variables-and-probability-density-functions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="properties-of-probability-density-functions">
+<h2><span class="section-number">8.6. </span>Properties of Probability Density Functions<a class="headerlink" href="#properties-of-probability-density-functions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="common-continuous-random-variables-and-their-applications">
+<h2><span class="section-number">8.7. </span>Common Continuous Random Variables and Their Applications<a class="headerlink" href="#common-continuous-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="the-central-limit-theorem-and-gaussian-random-variables">
+<h2><span class="section-number">8.8. </span>The Central Limit Theorem and Gaussian Random Variables<a class="headerlink" href="#the-central-limit-theorem-and-gaussian-random-variables" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation">
+<h2><span class="section-number">8.9. </span>Generating, Simulating, and Characterizing Continuous Random Variables (including Kernel Density Estimation)<a class="headerlink" href="#generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="introduction-to-conditioning-with-random-variables">
+<h2><span class="section-number">8.10. </span>Introduction to Conditioning with Random Variables<a class="headerlink" href="#introduction-to-conditioning-with-random-variables" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="generative-classification">
+<h2><span class="section-number">8.11. </span>Generative Classification<a class="headerlink" href="#generative-classification" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="review">
+<h2><span class="section-number">8.12. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="summary">
+<h2><span class="section-number">8.13. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./08-random-variables"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../07-bayesian-methods/outline.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">7. </span>Introduction to Bayesian Methods (Outline)</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../09-moments/outline.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">9. </span>Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By John M. Shea<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
