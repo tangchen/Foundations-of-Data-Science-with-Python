@@ -51,3 +51,11 @@ sections:
   - file: 06-conditional-prob/independence
 - file: 07-bayesian-methods/outline
 - file: 08-random-variables/outline
+- file: 09-moments/outline
+- file: 10-conditional-stats/outline
+- file: 11-matrix-vector-regression/outline
+- file: 12-categorical-data/outline
+- file: 13-clustering-transforming/outline
+- file: 14-matrix-applications/outline
+- file: 15-multidim-dependence/outline
+- file: 16-next-steps/outline
