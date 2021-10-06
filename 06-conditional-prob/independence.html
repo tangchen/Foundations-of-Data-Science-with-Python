@@ -53,7 +53,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Introduction to Bayesian Methods (Outline)" href="../07-bayesian-methods/outline.html" />
+    <link rel="next" title="6.7. Conditional Probabilities and Independence in Fair Experiments" href="fair-exps.html" />
     <link rel="prev" title="6.5. More on Simulating Conditional Probabilities" href="more-on-simulating.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -327,6 +327,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      6.6. Statistical Independence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="fair-exps.html">
+     6.7. Conditional Probabilities and Independence in Fair Experiments
     </a>
    </li>
   </ul>
@@ -2252,8 +2257,8 @@ function show_questions(json, mydiv) {
 <p>I.e., if the probability of an event <span class="math notranslate nohighlight">\(A\)</span> occurring does not depend on whether some event <span class="math notranslate nohighlight">\(B\)</span> occurs, then it cannot depend on whether the event <span class="math notranslate nohighlight">\(B\)</span> does not occur.  This probably matches your intuition. However, we should verify it. Let’s check the first example. We need to evaluate <span class="math notranslate nohighlight">\(P(A \cap \overline{B})\)</span> to see if it factors as <span class="math notranslate nohighlight">\(P(A)P(\overline{B})\)</span>. Referring to the Venn diagram below, we can see that <span class="math notranslate nohighlight">\(A\)</span> consists of the union of the mutually exclusive parts,  <span class="math notranslate nohighlight">\(A \cap B\)</span> and <span class="math notranslate nohighlight">\(A \cap \overline{B}\)</span>. So we can write <span class="math notranslate nohighlight">\(P\left(A \cap \overline{B} \right)= P(A) - P(A \cap B)\)</span>.</p>
 <a class="reference internal image-reference" href="06-conditional-prob/figs/si-intersection.png"><img alt="Venn Diagram Showing Relation of $A$, $A \cap \overline{B}$, and $A \cap B$" src="06-conditional-prob/figs/si-intersection.png" style="width: 400px;" /></a>
 <p>Then by utilizing the fact that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are s.i., we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-49d334b3-7643-4bba-a542-18ab797fb573">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-49d334b3-7643-4bba-a542-18ab797fb573" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8dea978f-03dc-493b-ae11-46519c2eae57">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-8dea978f-03dc-493b-ae11-46519c2eae57" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
  &amp;= P(A) - P(A) P(B) \\
  &amp;= P(A) \left[ 1- P\left(B\right) \right] \\
@@ -2263,8 +2268,8 @@ P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
 <p><strong>Example</strong></p>
 <p><strong>(Take 4)</strong> A fair six-sided die is rolled twice.  What is the probability that either of the rolls is a value less than 3?</p>
 <p>As before, let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3, for <span class="math notranslate nohighlight">\(i=1,2\)</span>, and <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are s.i. then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5880c398-a5de-4d75-b2f2-73c2cd10ecbe">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-5880c398-a5de-4d75-b2f2-73c2cd10ecbe" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bd1e00f3-c7f5-4244-b02c-90ec6deed984">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-bd1e00f3-c7f5-4244-b02c-90ec6deed984" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 &amp;= 1 - P\left( \overline{E_1} \cap \overline{E_2} \right) \\
 &amp;= 1 - P\left( \overline{E_1} \right) P\left( \overline{E_2} \right) \\
@@ -2287,8 +2292,8 @@ P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 <dt>statistically independent (for any number of events)</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-9296887a-a2de-4924-8052-374cc7db5945">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-9296887a-a2de-4924-8052-374cc7db5945" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-79ace7cc-9f3b-457d-9638-f0d2d6e1121d">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-79ace7cc-9f3b-457d-9638-f0d2d6e1121d" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j \\
 P(E_i \cap E_j \cap E_k) &amp;= P(E_i) P(E_j) P(E_k), ~~ \forall i \ne j \ne k \\
 \ldots
@@ -2312,8 +2317,8 @@ P(E_0 \cap E_1 \cap \ldots \cap E_{n-1}) &amp;= P(E_0) P(E_1) \cdots P(E_{n-1}),
 <dt>pairwise statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it pairwise statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-4eab0e76-e22f-48e0-9aed-8a0e359b444a">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-4eab0e76-e22f-48e0-9aed-8a0e359b444a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-08c3a323-cb16-441e-bb6d-3039e6a7750e">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-08c3a323-cb16-441e-bb6d-3039e6a7750e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j 
 \end{align}\]</div>
 </div>
@@ -2322,8 +2327,8 @@ P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j
 </div>
 </div>
 <p>We want to use complements to convert the unions to intersections and the resulting general form looks like</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50dfc8e0-608d-4287-9845-5784d195d1f4">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-50dfc8e0-608d-4287-9845-5784d195d1f4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0372f226-641e-4c6b-b26b-9fa167c18117">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-0372f226-641e-4c6b-b26b-9fa167c18117" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left( \bigcup_i E_i \right) &amp;=
 1- \prod_i \left[ 1- P\left( E_i \right) \right].
 \end{align}\]</div>
@@ -3250,10 +3255,10 @@ function show_questions(json, mydiv) {
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../07-bayesian-methods/outline.html" title="next page">
+        <a class="right-next" href="fair-exps.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">7. </span>Introduction to Bayesian Methods (Outline)</p>
+                <p class="prevnext-title"><span class="section-number">6.7. </span>Conditional Probabilities and Independence in Fair Experiments</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

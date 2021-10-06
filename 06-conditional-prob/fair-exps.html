@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.5. Extremely Brief Intro to Jupyter and Python &#8212; Introduction to Data Science for Engineers</title>
+    <title>6.7. Conditional Probabilities and Independence in Fair Experiments &#8212; Introduction to Data Science for Engineers</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1.6. Getting Started in Jupyter" href="jupyter-start.html" />
-    <link rel="prev" title="1.4. What data science topics does this book cover?" href="what-book-covers.html" />
+    <link rel="next" title="7. Introduction to Bayesian Methods (Outline)" href="../07-bayesian-methods/outline.html" />
+    <link rel="prev" title="6.6. Statistical Independence" href="independence.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -91,53 +91,53 @@
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-intro/intro.html">
    1. Introduction
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="who-for.html">
+    <a class="reference internal" href="../01-intro/who-for.html">
      1.1. Who is this book for?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="why-this-book.html">
+    <a class="reference internal" href="../01-intro/why-this-book.html">
      1.2. Why learn data science from this book?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="what-is-data-science.html">
+    <a class="reference internal" href="../01-intro/what-is-data-science.html">
      1.3. What is data science?
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="what-book-covers.html">
+    <a class="reference internal" href="../01-intro/what-book-covers.html">
      1.4. What data science topics does this book cover?
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-intro/intro-jupyter-and-python.html">
      1.5. Extremely Brief Intro to Jupyter and Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="jupyter-start.html">
+    <a class="reference internal" href="../01-intro/jupyter-start.html">
      1.6. Getting Started in Jupyter
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="python-start.html">
+    <a class="reference internal" href="../01-intro/python-start.html">
      1.7. Getting Started in Python
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="review.html">
+    <a class="reference internal" href="../01-intro/review.html">
      1.8. Review
     </a>
    </li>
@@ -289,48 +289,48 @@
    5. Binary Hypothesis Tests with Resampling (Outline)
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06-conditional-prob/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    6. Dependence and Independence
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/simulating-cond-probs.html">
+    <a class="reference internal" href="simulating-cond-probs.html">
      6.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/notation-and-intuition.html">
+    <a class="reference internal" href="notation-and-intuition.html">
      6.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/definition.html">
+    <a class="reference internal" href="definition.html">
      6.3. Formally Defining Conditional Probability
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/relating-cond-uncond.html">
+    <a class="reference internal" href="relating-cond-uncond.html">
      6.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/more-on-simulating.html">
+    <a class="reference internal" href="more-on-simulating.html">
      6.5. More on Simulating Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/independence.html">
+    <a class="reference internal" href="independence.html">
      6.6. Statistical Independence
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/fair-exps.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      6.7. Conditional Probabilities and Independence in Fair Experiments
     </a>
    </li>
@@ -427,7 +427,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/01-intro/intro-jupyter-and-python.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06-conditional-prob/fair-exps.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -452,7 +452,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01-intro/intro-jupyter-and-python.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06-conditional-prob/fair-exps.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -469,34 +469,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-jupyter-notebooks">
-   1.5.1. Why Jupyter notebooks?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-python">
-   1.5.2. Why Python?
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-get-started-with-juypter-and-python">
-   1.5.3. How to get started with Juypter and Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#getting-organized">
-   1.5.4. Getting organized
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -505,69 +477,62 @@
         
               <div>
                 
-  <div class="section" id="extremely-brief-intro-to-jupyter-and-python">
-<h1><span class="section-number">1.5. </span>Extremely Brief Intro to Jupyter and Python<a class="headerlink" href="#extremely-brief-intro-to-jupyter-and-python" title="Permalink to this headline">¶</a></h1>
-<p>The purpose of this and the following two sections is to briefly introduce users to Jupyter and Python. The content here should be treated as an introduction to explore further and is not meant to be comprehensive. There are a broad variety of tutorials on the web for both of these topics, and links are provided for users that need additional instruction.</p>
-<p>If you are already familiar with Jupyter and/or Python 3, feel free to skip ahead.</p>
-<div class="section" id="why-jupyter-notebooks">
-<h2><span class="section-number">1.5.1. </span>Why Jupyter notebooks?<a class="headerlink" href="#why-jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
-<img alt="Project Jupyter logo" src="../_images/jupyter-logo.svg" /><p>According to the <a class="reference external" href="https://jupyter.org">Project Jupyter web page (https://jupyter.org)</a>, “The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.”</p>
-<p>The reason that Jupyter notebook was chosen for this book:</p>
+  <div class="section" id="conditional-probabilities-and-independence-in-fair-experiments">
+<h1><span class="section-number">6.7. </span>Conditional Probabilities and Independence in Fair Experiments<a class="headerlink" href="#conditional-probabilities-and-independence-in-fair-experiments" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>It may be helpful to consider conditional probabilities and independence in the context of a fair experiment. Recall that for a fair experiment, the (unconditioned) probability of an event <span class="math notranslate nohighlight">\(E\)</span> can be computed as</p>
+<div class="math notranslate nohighlight">
+\[
+P(E) = \frac{|E|}{|S|}.
+\]</div>
+<p>Let’s see what this means in terms of conditional probabilities and independence by using an example. Consider again the example where a dice is rolled two times and the ordered values from the top face are recorded. As before, we let <span class="math notranslate nohighlight">\(E_i\)</span> be the even that the value on face <span class="math notranslate nohighlight">\(i\)</span> is less than 3. We previously showed that <span class="math notranslate nohighlight">\(P(E_1) = P(E_2) = 1/3\)</span>. Let <span class="math notranslate nohighlight">\(T_i\)</span> be the event that the total (sum) value shown on the two faces is <span class="math notranslate nohighlight">\(i\)</span>. For instance, can write <span class="math notranslate nohighlight">\(T_7\)</span> in terms of the composite experiment as</p>
+<div class="math notranslate nohighlight">
+\[
+T_7 =\left\{ (1,6),~ (2,5),~ (3,4),~ (4,3),~ (5,2),~ (6,1) \right\} 
+\]</div>
+<p>Then <span class="math notranslate nohighlight">\(P(T_7) = |T_7|/|S|=6/36= 1/6\)</span>.</p>
+<p>In the figure below, we illustrate four events that we will discuss: <span class="math notranslate nohighlight">\(E_1, E_2, T_7,\)</span> and <span class="math notranslate nohighlight">\(T_8\)</span>.</p>
+<a class="reference internal image-reference" href="../_images/fair-cond-si-example.png"><img alt="Diagram showing outcomes included in events $E_1$, $E_2$, and $F$." src="../_images/fair-cond-si-example.png" style="width: 800px;" /></a>
+<p>Now we will consider some conditional probabilities and see how the computation simplifies for fair experiments. In addition, we will see the implications of  statistical independence for fair experiments.</p>
+<p>First consider some generic events (i.e. representing any possible event) <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> for this experiment. Then the conditional probability of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span> can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-51d1a5b9-b7be-4dea-8f2a-ef494c684983">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-51d1a5b9-b7be-4dea-8f2a-ef494c684983" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(A|B) &amp;= \frac{ P(A \cap B) }{ P(B)}\\
+&amp;= \frac{ \frac{ |A \cap B|}{|S|} \frac{|B|}{|S|} }\\
+&amp;= \frac{|A \cap B|}{|B|}
+\end{align}\]</div>
+<p>It is useful to interpret this as follows: given that <span class="math notranslate nohighlight">\(B\)</span> occurs, <span class="math notranslate nohighlight">\(|A cap B|\)</span> is the number of outcomes in <span class="math notranslate nohighlight">\(A\)</span> that are within <span class="math notranslate nohighlight">\(B\)</span>. Then the conditional probability of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span> is just the proportion of outcomes of <span class="math notranslate nohighlight">\(A\)</span> that are within <span class="math notranslate nohighlight">\(B\)</span>. This verifies the approach we took when we introduced conditional probability: the conditional probability of <span class="math notranslate nohighlight">\(A\)</span> can be computed as the probability of <span class="math notranslate nohighlight">\(A\)</span> within the reduced sample space, <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<p>To make this more concrete, let’s apply it to several of the events we have introduced. If we want to compute the conditional probability of <span class="math notranslate nohighlight">\(E_1\)</span> given <span class="math notranslate nohighlight">\(E_2\)</span>, we can refer to the figure shown below:</p>
+<a class="reference internal image-reference" href="../_images/Given_E2.png"><img alt="Diagram showing the event $E_2$ and the outcomes of $E_1$ that are within $E_2$." src="../_images/Given_E2.png" style="width: 200px;" /></a>
+<p>There are 4 outcomes of <span class="math notranslate nohighlight">\(E_1\)</span> within <span class="math notranslate nohighlight">\(E_2\)</span>, and there are 12 total outcomes in <span class="math notranslate nohighlight">\(E_2\)</span>, so the proportion of outcomes of <span class="math notranslate nohighlight">\(E_1\)</span> within <span class="math notranslate nohighlight">\(E_2\)</span> is 4/12 =1/3.</p>
+<p>Let’s now consider the conditional probability of the event <span class="math notranslate nohighlight">\(F\)</span> given that <span class="math notranslate nohighlight">\(E_1\)</span> occurred by referring to the following figure:</p>
+<a class="reference internal image-reference" href="../_images/T7_given_E1.png"><img alt="Diagram showing the event $E_1$ and the outcomes of $T7$ that are within $E_1$." src="../_images/T7_given_E1.png" style="width: 500px;" /></a>
+<p>There are 2 outcomes of <span class="math notranslate nohighlight">\(T_7\)</span> out of the 12 total outcomes that make up <span class="math notranslate nohighlight">\(E_1\)</span>, so the conditional probability of <span class="math notranslate nohighlight">\(T_7\)</span> given <span class="math notranslate nohighlight">\(E_1\)</span> is <span class="math notranslate nohighlight">\(P(T_7 |E_1) = 2/12 = 1/6\)</span>.</p>
+<p>Note that there are 2 outcomes of <span class="math notranslate nohighlight">\(E_1\)</span> within the 6 total outcomes of <span class="math notranslate nohighlight">\(T_7\)</span>, so <span class="math notranslate nohighlight">\(P(E_1|T_7)=2/6=1/3\)</span>.</p>
+<p>Now consider the conditional probabilities <span class="math notranslate nohighlight">\(P(T_8|E_2)\)</span> and <span class="math notranslate nohighlight">\(P(E_2|T_8)\)</span>. We will use the following figure for reference:</p>
+<a class="reference internal image-reference" href="../_images/E2_and_T8.png"><img alt="Diagram showing the events $E_2$ and $T8$." src="../_images/E2_and_T8.png" style="width: 600px;" /></a>
+<p>By inspection, we see that the proportion of outcomes of <span class="math notranslate nohighlight">\(T_8\)</span> in <span class="math notranslate nohighlight">\(E_2\)</span> is 1/12, so <span class="math notranslate nohighlight">\(P(T_8|E_2) =1/12\)</span>. Similarly, the proportion of outcomes of <span class="math notranslate nohighlight">\(E_2\)</span> in <span class="math notranslate nohighlight">\(T_8\)</span> is 1/6, so <span class="math notranslate nohighlight">\(P(E_2|T_8) = 1/6\)</span>.</p>
+<p>Now, let’s consider which pairs events that we have discussed are independent and what that means in terms of the outcomes.</p>
 <ul class="simple">
-<li><p>Jupyter notebooks can integrate text, mathematics, code, and visualization in a single document, which is very helpful when conveying information about data. In fact, this book was written in a series of Juypter notebooks.</p></li>
-<li><p>Jupyter notebooks allow for an <em>evolutionary approach</em> to code development. Programs can start as small blocks of code that then can be modified and evolved to create more complex functions.</p></li>
-<li><p>Jupyter notebooks are commonly used in the data science field for exploratory data analysis.</p></li>
+<li><p>We calculated that <span class="math notranslate nohighlight">\(P(E_1|E_2) =1/3 = P(E_1)\)</span>, so <span class="math notranslate nohighlight">\(E_1\)</span> is independent of <span class="math notranslate nohighlight">\(E_2\)</span>.</p></li>
+<li><p>We calculated that <span class="math notranslate nohighlight">\(P(T_7|E_1) =1/6 = P(T_7)\)</span>, so <span class="math notranslate nohighlight">\(T_7\)</span> is independent of <span class="math notranslate nohighlight">\(E_1\)</span>.</p></li>
+<li><p>We calculated that <span class="math notranslate nohighlight">\(P(E_1|T_7) = 1/3= P(E_1)\)</span>, so <span class="math notranslate nohighlight">\(E_1\)</span> is independent of <span class="math notranslate nohighlight">\(T_7\)</span> (which we also could infer from the previous step).</p></li>
+<li><p>We calculated that <span class="math notranslate nohighlight">\(P(T_8 | E_2) = 1/12\)</span>, but <span class="math notranslate nohighlight">\(P(T_8) =5/36\)</span>, so <span class="math notranslate nohighlight">\(T_8\)</span> is <em>not</em> independent of <span class="math notranslate nohighlight">\(E_2\)</span>.</p></li>
+<li><p>We calculated that <span class="math notranslate nohighlight">\(P(E_2 | T_8) = 1/6\)</span>, but <span class="math notranslate nohighlight">\(P(E_2)=1/3\)</span>, so <span class="math notranslate nohighlight">\(E_2\)</span> is <em>not</em> independent of <span class="math notranslate nohighlight">\(T_8\)</span> (again, we could have inferred this from the previous step).</p></li>
 </ul>
-</div>
-<div class="section" id="why-python">
-<h2><span class="section-number">1.5.2. </span>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this headline">¶</a></h2>
-<p>Python is a general purpose programming language that was originally created by Guido van Rossum. Python was chosen for this book for many reasons:</p>
-<ul class="simple">
-<li><p><strong>Python is very easy to learn.</strong> Python has simple syntax that is very similar to C, which many engineers will be familiar with. It is also easy to transition to Python from MATLAB scripting, which most electrical engineers will know.</p></li>
-<li><p><strong>Python is an interpreted language,</strong> which means that programmers can run the code directly without having to go through extra steps of compiling their programs.</p></li>
-<li><p><strong>Python interpreters are freely available and easy to install.</strong> In addition, Python and Jupyter are available on all major operating systems, including Windows, MacOS, and Linux.</p></li>
-<li><p><strong>Python is popular for data science and machine learning.</strong> Python is widely used for data science and machine learning in both industry and universities.</p></li>
-<li><p><strong>Python has rich libraries for data science.</strong> Python has many powerful libraries for data science and machine learning. In addition, Python has powerful libraries for a broad array of tasks that making learning Python have additional benefits for other uses.</p></li>
-</ul>
-</div>
-<div class="section" id="how-to-get-started-with-juypter-and-python">
-<h2><span class="section-number">1.5.3. </span>How to get started with Juypter and Python<a class="headerlink" href="#how-to-get-started-with-juypter-and-python" title="Permalink to this headline">¶</a></h2>
-<p>Python and Jupyter are often packaged together in a <em>software distribution</em>, and the creators of several distributions include additional Python software libraries, such as for scientific computing. This book assumes the use of the Anaconda distribution, which its creators bill as “The World’s Most Popular Data Science Platform” <strong>Add footnote with reference to web page here</strong>. Anaconda’s <em>Individual Edition</em> is freely available for download from the Anaconda web site:</p>
-<p><a class="reference external" href="https://www.anaconda.com/products/individual"><img alt="Anaconda Logo" src="../_images/anaconda.png" /></a></p>
-<p><a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda Individual Edition (https://www.anaconda.com/products/individual)</a></p>
-<p>Choose the proper download based on your computer’s operating system. You may also have to select a version of Python. This book is based on <strong>Python 3</strong>, which means that any version of Python that starts with the number 3 should work with the code included in this book. For instance, as of January 2021, the Anaconda distribution included Python version 3.8.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Python version 2 or Python versions after 3 may have syntax changes that cause the programs in this book to not run without modification.</p>
-</div>
-<p>After downloading, install Python in the usual way (for instance, by double-clicking on the downloaded file). Anaconda will install Python and many useful modules for data science, as well as Jupyter notebook and JupyterLab.</p>
-<p><strong>Add Insert explaining Jupyter notebook vs JupyterLab</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The term “Jupyter notebook” can refer both to a file format (with <em>.ipynb</em> extension) and to an application with a web interface to work with those files. To help avoid confusion, I will write <em>Jupyter notebook file</em> whenever referring to such a file, and we will use JuypterLab as the web application for opening and working with such files. As of January 2001, JupyterLab is the “is the next-generation web-based user interface for Project Jupyter.” (ref <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">https://jupyterlab.readthedocs.io/en/stable/</a>). Jupyter notebook has a very similar interface, and most users will be able to use either one interchangeably.</p>
-</div>
-</div>
-<div class="section" id="getting-organized">
-<h2><span class="section-number">1.5.4. </span>Getting organized<a class="headerlink" href="#getting-organized" title="Permalink to this headline">¶</a></h2>
-<p>We are almost ready to start using Jupyter and Python. Before you begin to do that, I recommend to take a minute to think about how you will organize your files. To learn data science requires actually working with data and performing analyses. This will result in you generating a lot of Jupyter notebook files, as well as a lot of data files. I suggest that you create a folder for this data-science book (or for the course, if you are using this as a course textbook). This folder should be easily accessible from your home directory because that is the location where JupyterLab will open by default. You may wish to add additional structure underneath that folder. If you create a separate folder for data, I would suggest to make it a subfolder of the one containing your notebooks to make it easiest to access that data.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Your user directory will be referred to by a tilde (~).</p>
-</div>
-<p>One possible organization of your files is shown below:
-<strong>Turn this into a prettier image</strong></p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-&amp;\mbox{~} \\
-&amp; |\\
-&amp;\longrightarrow &amp;&amp; \mbox{data-science} \\
-&amp;&amp;&amp; | \\
-&amp;&amp;&amp; \longrightarrow  &amp;&amp;\mbox{notebooks} \\
-&amp;&amp;&amp;&amp;&amp; | \\
-&amp;&amp;&amp;&amp;&amp; \longrightarrow  &amp;&amp;\mbox{data} \\
-\end{align*}\]</div>
-<p>Within the <em>notebooks</em> directory, you may wish to add subfolders, for instance by chapter, topic, or lecture.</p>
-</div>
+<p>So, what is required for independence for fair experiments? For an event <span class="math notranslate nohighlight">\(A\)</span> to be independent of an event <span class="math notranslate nohighlight">\(B\)</span>, the proportion of outcomes of <span class="math notranslate nohighlight">\(A\)</span> within <span class="math notranslate nohighlight">\(B\)</span> must equal the proportion of outcomes of <span class="math notranslate nohighlight">\(A\)</span> within <span class="math notranslate nohighlight">\(S\)</span> (the original sample space).  Or we could also test if the proportion of outcomes of <span class="math notranslate nohighlight">\(B\)</span> within <span class="math notranslate nohighlight">\(A\)</span> is equal to the proportion of outcomes of <span class="math notranslate nohighlight">\(B\)</span> within <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p><strong>Please note that all these computations involving proportions do not necessarily hold (and usually do not hold) if the experiment is not fair!</strong></p>
+<p>Now, note that <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are independent. And we showed <span class="math notranslate nohighlight">\(T_7\)</span> and <span class="math notranslate nohighlight">\(E_1\)</span> are independent. It is not hard to see that <span class="math notranslate nohighlight">\(T_7\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are also independent. Combined, we can see that <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, and <span class="math notranslate nohighlight">\(T_7\)</span> are <em>pairwise statistically independent</em>. So, are these events independent? We only need to check if one more condition holds: does <span class="math notranslate nohighlight">\(P(E_1 \cap E_2 \cap T_7)\)</span> equal <span class="math notranslate nohighlight">\(P(E_1) P(E_2) P(T_7)\)</span>.  We have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9a2be608-a8e3-485a-bd67-391f23754895">
+<span class="eqno">(6.8)<a class="headerlink" href="#equation-9a2be608-a8e3-485a-bd67-391f23754895" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(E_1) P(E_2) P(T_7) &amp;= \left( \frac 1 3\right) \left(\frac 1 3\right) \left(\frac 1 6\right)  \\
+&amp;= \frac 1 {54}
+\end{align}\]</div>
+<p>Now consider <span class="math notranslate nohighlight">\(E_1 \cap E_2 \cap T_7\)</span>. We can find the outcomes in this event as <span class="math notranslate nohighlight">\(\left( E_1 \cap E_2) \cap T_7\)</span>, as shown in the following figure:</p>
+<a class="reference internal image-reference" href="../_images/e1_e2_t7.png"><img alt="Diagram showing the events $E_1 \cap E_2$ and $T_7$." src="../_images/e1_e2_t7.png" style="width: 600px;" /></a>
+<p>The event <span class="math notranslate nohighlight">\(E_1 \cap E_2\)</span> and <span class="math notranslate nohighlight">\(T_7\)</span> are mututally exlusive, so there are no outcomes in <span class="math notranslate nohighlight">\(E_1 \cap E_2 \cap T_7\)</span>, and <span class="math notranslate nohighlight">\(P(E_1 \cap E_2 \cap T_7) = 0 \ne P(E_1) P(E_2) P(T_7)\)</span></p>
+<p>Thus, <span class="math notranslate nohighlight">\(E_1\)</span>, <span class="math notranslate nohighlight">\(E_2\)</span>, and <span class="math notranslate nohighlight">\(T_7\)</span> are an example of events that are pairwise s.i., but not s.i.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -583,7 +548,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./01-intro"
+            path: "./06-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -600,19 +565,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="what-book-covers.html" title="previous page">
+        <a class="left-prev" href="independence.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">1.4. </span>What data science topics does this book cover?</p>
+                <p class="prevnext-title"><span class="section-number">6.6. </span>Statistical Independence</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="jupyter-start.html" title="next page">
+        <a class="right-next" href="../07-bayesian-methods/outline.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">1.6. </span>Getting Started in Jupyter</p>
+                <p class="prevnext-title"><span class="section-number">7. </span>Introduction to Bayesian Methods (Outline)</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
