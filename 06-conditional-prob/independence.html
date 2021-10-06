@@ -504,7 +504,9 @@
 <p>Based on the discussion above, try to answer the following question about what independence should mean for conditional probabilities. (Don’t worry if you don’t intuitively know the answer – you can keep trying if you don’t get it right at first!)</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="xXQGwEHONGnc" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="pvTBEoNEClTd" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -663,7 +665,7 @@
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsxXQGwEHONGnc=[
+}</style><script type="text/Javascript">var questionspvTBEoNEClTd=[
     {
         "question": "Consider two events $A$ and $B$ with $P(A)>0$. If these events are independent, then we expect that implies that knowledge of one event does not influence the probabilities of the other. What should $P(B|A)$ simplify to?",
         "type": "multiple_choice",
@@ -697,7 +699,7 @@
     }
 ]
 ;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -1027,7 +1029,6 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -1314,10 +1315,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/si-conditional.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, xXQGwEHONGnc))
+        .then(json => show_questions(json, pvTBEoNEClTd))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsxXQGwEHONGnc, xXQGwEHONGnc);
+        show_questions(questionspvTBEoNEClTd, pvTBEoNEClTd);
         });
         }
         </script>
@@ -1357,7 +1358,7 @@ P(A|B) &amp; =\frac{ P(A \cap B) } {P(B) } \\
 </div>
 <div class="card-body docutils">
 <dl class="simple myst">
-<dt>statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span> and two events <span class="math notranslate nohighlight">\(A\in \mathcal{F}\)</span> and <span class="math notranslate nohighlight">\(B \in \mathcal{F}\)</span>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are {\it statistically independent} if and only if (iff)</p>
+<dt>statistically independent (two events)</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span> and two events <span class="math notranslate nohighlight">\(A\in \mathcal{F}\)</span> and <span class="math notranslate nohighlight">\(B \in \mathcal{F}\)</span>, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are {\it statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
 <div class="math notranslate nohighlight">
@@ -1417,7 +1418,9 @@ P(E_1 \cup E_2) &amp;= P(E_1) + P(E_2) - P(E_1)P(E_2) \\
 <p>Answer these questions to practice this form of statistical independence:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="eBrANwrAPvry" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="dyCGHRtEbQpo" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1576,7 +1579,7 @@ P(E_1 \cup E_2) &amp;= P(E_1) + P(E_2) - P(E_1)P(E_2) \\
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionseBrANwrAPvry=[
+}</style><script type="text/Javascript">var questionsdyCGHRtEbQpo=[
     {
         "question": "If you roll a fair six-sided die twice, what is the probability of getting a 3 on both dice?",
         "type": "numeric",
@@ -1590,7 +1593,7 @@ P(E_1 \cup E_2) &amp;= P(E_1) + P(E_2) - P(E_1)P(E_2) \\
             },
             {
                 "type": "range",
-                "range": [0.166, .171],
+                "range": [0.166, 0.171],
                 "correct": false,
                 "feedback": "Getting a 3 on the first roll would have a probability of 1/6, so getting a 3 on both rolls must be have a smaller probability."
             },
@@ -1615,7 +1618,7 @@ P(E_1 \cup E_2) &amp;= P(E_1) + P(E_2) - P(E_1)P(E_2) \\
     }
 ]
 ;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -1945,7 +1948,6 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -2232,10 +2234,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/si1.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, eBrANwrAPvry))
+        .then(json => show_questions(json, dyCGHRtEbQpo))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionseBrANwrAPvry, eBrANwrAPvry);
+        show_questions(questionsdyCGHRtEbQpo, dyCGHRtEbQpo);
         });
         }
         </script>
@@ -2250,8 +2252,8 @@ function show_questions(json, mydiv) {
 <p>I.e., if the probability of an event <span class="math notranslate nohighlight">\(A\)</span> occurring does not depend on whether some event <span class="math notranslate nohighlight">\(B\)</span> occurs, then it cannot depend on whether the event <span class="math notranslate nohighlight">\(B\)</span> does not occur.  This probably matches your intuition. However, we should verify it. Let’s check the first example. We need to evaluate <span class="math notranslate nohighlight">\(P(A \cap \overline{B})\)</span> to see if it factors as <span class="math notranslate nohighlight">\(P(A)P(\overline{B})\)</span>. Referring to the Venn diagram below, we can see that <span class="math notranslate nohighlight">\(A\)</span> consists of the union of the mutually exclusive parts,  <span class="math notranslate nohighlight">\(A \cap B\)</span> and <span class="math notranslate nohighlight">\(A \cap \overline{B}\)</span>. So we can write <span class="math notranslate nohighlight">\(P\left(A \cap \overline{B} \right)= P(A) - P(A \cap B)\)</span>.</p>
 <a class="reference internal image-reference" href="06-conditional-prob/si-intersection.png"><img alt="Venn Diagram Showing Relation of $A$, $A \cap \overline{B}$, and $A \cap B$" src="06-conditional-prob/si-intersection.png" style="width: 400px;" /></a>
 <p>Then by utilizing the fact that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are s.i., we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd4f2d51-b35c-4216-a348-4de75994108c">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-cd4f2d51-b35c-4216-a348-4de75994108c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-50c9ca71-4f69-4136-9ebf-847f57f15eb9">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-50c9ca71-4f69-4136-9ebf-847f57f15eb9" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
  &amp;= P(A) - P(A) P(B) \\
  &amp;= P(A) \left[ 1- P\left(B\right) \right] \\
@@ -2261,8 +2263,8 @@ P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
 <p><strong>Example</strong></p>
 <p><strong>(Take 4)</strong> A fair six-sided die is rolled twice.  What is the probability that either of the rolls is a value less than 3?</p>
 <p>As before, let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3, for <span class="math notranslate nohighlight">\(i=1,2\)</span>, and <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are s.i. then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a133d3f5-6d88-4d17-abf0-976ca0e5a341">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-a133d3f5-6d88-4d17-abf0-976ca0e5a341" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fdeaf640-524b-4f13-8949-75fa3963eb13">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-fdeaf640-524b-4f13-8949-75fa3963eb13" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 &amp;= 1 - P\left( \overline{E_1} \cap \overline{E_2} \right) \\
 &amp;= 1 - P\left( \overline{E_1} \right) P\left( \overline{E_2} \right) \\
@@ -2271,9 +2273,57 @@ P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 &amp;= 1- \left[ 1 - \left( \frac 2 6 \right) \right] \left[ 1 - \left( \frac 2 6 \right) \right] \\
 &amp;= \frac 5 9
 \end{align}\]</div>
-<p>Of course for this simple example, it is easiest to directly compute <span class="math notranslate nohighlight">\(P\left(\overline{E_1} \right)\)</span>, but the full approach shown here is a template that is encountered often when dealing with unions of s.i. events. We want to use complements to convert the unions to intersections and the resulting general form looks like</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2fdea3a9-c765-429e-9c90-49082175bdec">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-2fdea3a9-c765-429e-9c90-49082175bdec" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<p>Of course for this simple example, it is easiest to directly compute <span class="math notranslate nohighlight">\(P\left(\overline{E_1} \right)\)</span>, but the full approach shown here is a template that is encountered often when dealing with unions of s.i. events.</p>
+<p>To see the power of this method, we first need to define s.i. for more than two events:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>statistically independent (for any number of events)</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it statistically independent} if and only if (iff)</p>
+</dd>
+</dl>
+<div class="amsmath math notranslate nohighlight" id="equation-93b1497b-0acb-4068-b596-f7bee9c29929">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-93b1497b-0acb-4068-b596-f7bee9c29929" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j \\
+P(E_i \cap E_j \cap E_k) &amp;= P(E_i) P(E_j) P(E_k), ~~ \forall i \ne j \ne k \\
+\ldots
+P(E_0 \cap E_1 \cap \ldots \cap E_{n-1}) &amp;= P(E_0) P(E_1) \cdots P(E_{n-1}), \\
+\end{align}\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>It is not sufficient to just check that the probability of every pair of events factors as the product of the probabilities of the individual events. That defines a weaker form of independence:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<dl class="simple myst">
+<dt>pairwise statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it pairwise statistically independent} if and only if (iff)</p>
+</dd>
+</dl>
+<div class="amsmath math notranslate nohighlight" id="equation-2cc3ab26-9f27-4fa2-901f-a51ee3cb7ea9">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-2cc3ab26-9f27-4fa2-901f-a51ee3cb7ea9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j 
+\end{align}\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>We want to use complements to convert the unions to intersections and the resulting general form looks like</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e9cc7b87-ebae-4fff-be92-39212caee4d1">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-e9cc7b87-ebae-4fff-be92-39212caee4d1" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left( \bigcup_i E_i \right) &amp;=
 1- \prod_i \left[ 1- P\left( E_i \right) \right].
 \end{align}\]</div>
@@ -2290,7 +2340,7 @@ P\left( \bigcup_{k=1}^{n} A_k \right) &amp;=&amp;
 <p>Now apply this approach to solve the following practice problems:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="mGmLBYQOSXDC" data-shufflequestions="False"
+<div class="output text_html"><div id="IHvCmszjjmgG" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -2451,7 +2501,7 @@ P\left( \bigcup_{k=1}^{n} A_k \right) &amp;=&amp;
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsmGmLBYQOSXDC=[
+}</style><script type="text/Javascript">var questionsIHvCmszjjmgG=[
     {
         "question": "Highly reliable systems can be made from unreliable components. A high reliability computer is built using\n    four old hard drives that were found in the lab. The computer data is replicated to each hard drive. The\n    probability that a hard drive is working in any week is 0.75, 0.8, 0.85, and 0.9, respectively, for the four\n    different drives. If drives fail independently, what is the probability that the computer data is available on\n    at least one of the drives in a given week? Give your answer to 3 decimal places.",
         "type": "numeric",
@@ -3149,10 +3199,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/06-conditional-prob/quiz/si-unions.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, mGmLBYQOSXDC))
+        .then(json => show_questions(json, IHvCmszjjmgG))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsmGmLBYQOSXDC, mGmLBYQOSXDC);
+        show_questions(questionsIHvCmszjjmgG, IHvCmszjjmgG);
         });
         }
         </script>
