@@ -11,7 +11,7 @@ FDSE is targeted at learners who have basic programming experience (preferably w
 
 The book can be read here: hhttps://jmshea.github.io/Foundations-of-Data-Science-with-Python
 
-IDSE provides an interactive experience with:
+FDSP provides an interactive experience with:
 * Interactive self-assessment quizzes via [JupyterQuiz](https://github.com/jmshea/jupyterquiz)
 ![Animated GIF showing example interactive quiz via JupyterQuiz](intro/quiz-example.gif)
 * Interactive flashcards to aid in learning terminology via [JupyterCards](https://github.com/jmshea/jupytercards)
