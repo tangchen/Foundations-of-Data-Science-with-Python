@@ -1,11 +1,13 @@
 # Foundations of Data Science with Python (FDSP)
 
-This is an introductory book on data science that is targeted to engineers and readers who already have experience with a programming language.  IDSE teaches the fundamentals of:
+This book covers practical and mathematical foundations of data science, including:
 * data visualization
 * probability
 * statistics
 * linear algebra
 * application of these fundamentals to generate meaning from data.
+
+FDSE is targeted at learners who have basic programming experience (preferably with Python) and knowledge of one-dimensional differential and integral calculus. It is designed to replace traditional courses on Engineering Statistics and Computation Linear Algebra.
 
 The book can be read here: hhttps://jmshea.github.io/Foundations-of-Data-Science-with-Python
 
