@@ -9,7 +9,7 @@ This book covers practical and mathematical foundations of data science, includi
 
 FDSE is targeted at learners who have basic programming experience (preferably with Python) and knowledge of one-dimensional differential and integral calculus. It is designed to replace traditional courses on Engineering Statistics and Computation Linear Algebra.
 
-The book can be read here: hhttps://jmshea.github.io/Foundations-of-Data-Science-with-Python
+The book can be read here: https://jmshea.github.io/Foundations-of-Data-Science-with-Python
 
 FDSP provides an interactive experience with:
 * Interactive self-assessment quizzes via [JupyterQuiz](https://github.com/jmshea/jupyterquiz)
