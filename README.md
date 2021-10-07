@@ -7,7 +7,7 @@ This is an introductory book on data science that is targeted to engineers and r
 * linear algebra
 * application of these fundamentals to generate meaning from data.
 
-The book can be read here: https://jmshea.github.io/intro-data-science-for-engineers/
+The book can be read here: hhttps://jmshea.github.io/Foundations-of-Data-Science-with-Python
 
 IDSE provides an interactive experience with:
 * Interactive self-assessment quizzes via [JupyterQuiz](https://github.com/jmshea/jupyterquiz)
