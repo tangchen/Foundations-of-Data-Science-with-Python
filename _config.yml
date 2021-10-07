@@ -1,5 +1,5 @@
 # in _config.yml
-title: "Introduction to Data Science for Engineers"
+title: "Foundations of Data Science with Python"
 author: John M. Shea
 copyright: "2021"
 only_build_toc_files: true
