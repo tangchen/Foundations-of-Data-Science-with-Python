@@ -838,8 +838,8 @@ above to calculate and plot the number of nonzero errors for this data set as a 
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
 $<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span>$
 so its derivative is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5bbc289e-81c4-438c-ab52-ac18e7848b8c">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-5bbc289e-81c4-438c-ab52-ac18e7848b8c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-28510933-2009-4e66-9f5a-d7aad1331f93">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-28510933-2009-4e66-9f5a-d7aad1331f93" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
 &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
 \end{align}\]</div>
@@ -918,8 +918,8 @@ above to calculate and plot the sum of absolute errors for this data set as a fu
 <div class="section" id="minimizing-the-sum-of-squared-errors">
 <h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivative of <span class="math notranslate nohighlight">\(E_2(v)\)</span> with respect to <span class="math notranslate nohighlight">\(\nu\)</span> and setting it equal to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aa71df03-9334-401b-bd6c-4af9a5f49f0d">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-aa71df03-9334-401b-bd6c-4af9a5f49f0d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9913a73b-a3dc-4860-bbd5-a9bdf9669549">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-9913a73b-a3dc-4860-bbd5-a9bdf9669549" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \\
@@ -927,14 +927,14 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu 
 \end{align}\]</div>
 <p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-976ffc8d-f8f9-46c4-b99c-afea748da2ec">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-976ffc8d-f8f9-46c4-b99c-afea748da2ec" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ca819ba3-ea13-4379-85dc-b52c9f05c09b">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-ca819ba3-ea13-4379-85dc-b52c9f05c09b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \\
  \sum_{i=0}^{N-1} d_i &amp;= N \nu .
 \end{align}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-edca6a99-59ba-4ec8-bfe8-5f20c1f375e1">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-edca6a99-59ba-4ec8-bfe8-5f20c1f375e1" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fff607d9-2b85-41ac-8853-c018203dccfc">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-fff607d9-2b85-41ac-8853-c018203dccfc" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
 \end{align}\]</div>
 <p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
@@ -950,8 +950,8 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 <dt>average</dt><dd><p class="card-text">The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-1f514e79-13b8-4c77-93f7-4b03c2334ced">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-1f514e79-13b8-4c77-93f7-4b03c2334ced" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9f28e4a6-2195-406a-8ab8-9eadb5f23c0c">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-9f28e4a6-2195-406a-8ab8-9eadb5f23c0c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
 \end{align}\]</div>
 </div>
@@ -1445,7 +1445,7 @@ function createCards(id) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/flashcards/summary-stats.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/03-first-data/flashcards/summary-stats.json", {signal})
         .then(response => response.json())
         .then(json => createCards("kjBpjkRLhHXB"))
         .catch(err => {

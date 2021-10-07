@@ -519,13 +519,13 @@
 <li><p>Data on <strong>percentage of population living in urban areas</strong> is from the United States Census Bureau, List of Population, Land Area, and Percent Urban and Rural in 2010 and Changes from 2000 to 2010, “Percent Urban and Rural in 2010 by State”. We will refer to the percentage of a state’s population living in urban areas as the <em>urban index</em>. Link: <a class="reference external" href="https://www2.census.gov/geo/docs/reference/ua/PctUrbanRural_State.xls">https://www2.census.gov/geo/docs/reference/ua/PctUrbanRural_State.xls</a>. Retrieved April 27, 2021.</p></li>
 </ul>
 <p>To make it easier to start working with these data sets, I have merged the data into a single CSV file that is available at</p>
-<p><a class="reference external" href="https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv">https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/03-first-data/covid-merged.csv</a>.</p>
+<p><a class="reference external" href="https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/03-first-data/covid-merged.csv">https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/03-first-data/covid-merged.csv</a>.</p>
 <p>Pandas provides a method to read CSV files, and it can read them directly from a URL:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
     <span class="s2">&quot;https://raw.githubusercontent.com/jmshea/&quot;</span>
-    <span class="o">+</span> <span class="s2">&quot;intro-data-science-for-engineers/main/&quot;</span>
+    <span class="o">+</span> <span class="s2">&quot;Foundations-of-Data-Science-with-Python/main/&quot;</span>
     <span class="o">+</span> <span class="s2">&quot;03-first-data/covid-merged.csv&quot;</span>
 <span class="p">)</span>
 </pre></div>
@@ -533,7 +533,7 @@
 </div>
 </div>
 <p>Note that this CSV file can be reconstructed from the raw data by running the commands in the notebook “Download Covid Data.ipynb”, which is in the Chapter 3 folder on the book’s github site at</p>
-<p><a class="reference external" href="https://github.com/jmshea/intro-data-science-for-engineers/blob/main/03-first-data/Download%20Covid%20Data.ipynb">https://github.com/jmshea/intro-data-science-for-engineers/blob/main/03-first-data/Download%20Covid%20Data.ipynb</a></p>
+<p><a class="reference external" href="https://github.com/jmshea/Foundations-of-Data-Science-with-Python/blob/main/03-first-data/Download%20Covid%20Data.ipynb">https://github.com/jmshea/Foundations-of-Data-Science-with-Python/blob/main/03-first-data/Download%20Covid%20Data.ipynb</a></p>
 <div class="section" id="working-with-dataframes">
 <h2><span class="section-number">3.1.1. </span>Working with Dataframes<a class="headerlink" href="#working-with-dataframes" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start by looking at the dataframe. When run inside of Jupyter, Pandas will pretty-print a dataframe if the dataframe variable is evaluated as the last line of a code cell. Note that the column labels are imported from the first line of the CSV, and the unlabeled column on the left-hand side is the index, which acts like labels for the rows and which defaults to consecutive integers, starting at row 0.</p>

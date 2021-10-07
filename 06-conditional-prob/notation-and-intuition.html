@@ -1406,7 +1406,7 @@ function show_questions(json, mydiv) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/computerlab.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/computerlab.json", {signal})
         .then(response => response.json())
         .then(json => show_questions(json, VqLqBpFcEVUl))
         .catch(err => {
@@ -2280,7 +2280,7 @@ function show_questions(json, mydiv) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/questions/computerlab2.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/computerlab2.json", {signal})
         .then(response => response.json())
         .then(json => show_questions(json, BPExccFphKzW))
         .catch(err => {

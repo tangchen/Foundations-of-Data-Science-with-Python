@@ -1147,7 +1147,7 @@ function createCards(id) {
 
         setTimeout(() => jmscontroller.abort(), 5000);
 
-        fetch("https://raw.githubusercontent.com/jmshea/intro-data-science-for-engineers/main/04-probability1/flashcards/relative-frequency.json", {signal})
+        fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/04-probability1/flashcards/relative-frequency.json", {signal})
         .then(response => response.json())
         .then(json => createCards("SAHYAYeFsnJp"))
         .catch(err => {
