@@ -1,4 +1,4 @@
-# Introduction to Data Science for Engineers (IDSE)
+# Foundations of Data Science with Python (FDSP)
 
 This is an introductory book on data science that is targeted to engineers and readers who already have experience with a programming language.  IDSE teaches the fundamentals of:
 * data visualization
