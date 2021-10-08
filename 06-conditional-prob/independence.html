@@ -1342,11 +1342,17 @@ function show_questions(json, mydiv) {
 P(B|A) = P(B)
 \]</div>
 <p>Let’s see the implications of this by substituting the formula for <span class="math notranslate nohighlight">\(P(B|A)\)</span> from the definition:</p>
-<p>$<span class="math notranslate nohighlight">\(
-\frac{P(A \cap B)}{P(A)} = P(B) \\
-\Rightarrow P(A \cap B) = P(A)P(B)
-\)</span>$ (eq:p-b-given-a}</p>
-<p>Now we might ask: if <span class="math notranslate nohighlight">\(B\)</span> is independent of <span class="math notranslate nohighlight">\(A\)</span>, does that imply that <span class="math notranslate nohighlight">\(A\)</span> is independent of <span class="math notranslate nohighlight">\(B\)</span>?  Let’s assume that <code class="xref eq docutils literal notranslate"><span class="pre">eq:p-b-given-a</span></code> holds and apply the result to the definition for <span class="math notranslate nohighlight">\(P(A|B\)</span>), assuming that <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>:</p>
+<!--
+\begin{align}\frac{P(A \cap B)}{P(A)} &= P(B) \\
+\Rightarrow P(A \cap B) &= P(A)P(B)
+\end{align}
+-->
+<div class="math notranslate nohighlight" id="equation-p-b-given-a">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-p-b-given-a" title="Permalink to this equation">¶</a></span>\[\begin{split}
+\frac{P(A \cap B)}{P(A)} &amp;= P(B) \\
+\Rightarrow P(A \cap B) &amp;= P(A)P(B)
+\end{split}\]</div>
+<p>Now we might ask: if <span class="math notranslate nohighlight">\(B\)</span> is independent of <span class="math notranslate nohighlight">\(A\)</span>, does that imply that <span class="math notranslate nohighlight">\(A\)</span> is independent of <span class="math notranslate nohighlight">\(B\)</span>?  Let’s assume that <a class="reference internal" href="#equation-p-b-given-a">(6.2)</a> holds and apply the result to the definition for <span class="math notranslate nohighlight">\(P(A|B\)</span>), assuming that <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 P(A|B) &amp; =\frac{ P(A \cap B) } {P(B) } \\
@@ -1361,7 +1367,7 @@ P(A|B) &amp; =\frac{ P(A \cap B) } {P(B) } \\
 <p>A simple definition for conditional probability of events that satisfies all the forms of independence discussed above and that can deal with events with probability zero is as follows:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="d-flex col-9 docutils">
 <div class="card w-100 shadow docutils">
 <div class="card-header docutils">
 <p class="card-text">DEFINITION</p>
@@ -2262,8 +2268,8 @@ function show_questions(json, mydiv) {
 <p>I.e., if the probability of an event <span class="math notranslate nohighlight">\(A\)</span> occurring does not depend on whether some event <span class="math notranslate nohighlight">\(B\)</span> occurs, then it cannot depend on whether the event <span class="math notranslate nohighlight">\(B\)</span> does not occur.  This probably matches your intuition. However, we should verify it. Let’s check the first example. We need to evaluate <span class="math notranslate nohighlight">\(P(A \cap \overline{B})\)</span> to see if it factors as <span class="math notranslate nohighlight">\(P(A)P(\overline{B})\)</span>. Referring to the Venn diagram below, we can see that <span class="math notranslate nohighlight">\(A\)</span> consists of the union of the mutually exclusive parts,  <span class="math notranslate nohighlight">\(A \cap B\)</span> and <span class="math notranslate nohighlight">\(A \cap \overline{B}\)</span>. So we can write <span class="math notranslate nohighlight">\(P\left(A \cap \overline{B} \right)= P(A) - P(A \cap B)\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/si-intersection.png"><img alt="Venn Diagram Showing Relation of $A$, $A \cap \overline{B}$, and $A \cap B$" src="../_images/si-intersection.png" style="width: 400px;" /></a>
 <p>Then by utilizing the fact that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are s.i., we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5f0b465-0af8-4df8-83f7-56b63c2c846e">
-<span class="eqno">(6.2)<a class="headerlink" href="#equation-d5f0b465-0af8-4df8-83f7-56b63c2c846e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c635a0bf-0543-4858-8b79-3ee3c85a336e">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-c635a0bf-0543-4858-8b79-3ee3c85a336e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
  &amp;= P(A) - P(A) P(B) \\
  &amp;= P(A) \left[ 1- P\left(B\right) \right] \\
@@ -2273,8 +2279,8 @@ P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
 <p><strong>Example</strong></p>
 <p><strong>(Take 4)</strong> A fair six-sided die is rolled twice.  What is the probability that either of the rolls is a value less than 3?</p>
 <p>As before, let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3, for <span class="math notranslate nohighlight">\(i=1,2\)</span>, and <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are s.i. then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ae61ea5e-2837-47ad-800d-6cb4afdee197">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-ae61ea5e-2837-47ad-800d-6cb4afdee197" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4e41227f-ecd5-4f95-a394-a7d8936e75e5">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-4e41227f-ecd5-4f95-a394-a7d8936e75e5" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 &amp;= 1 - P\left( \overline{E_1} \cap \overline{E_2} \right) \\
 &amp;= 1 - P\left( \overline{E_1} \right) P\left( \overline{E_2} \right) \\
@@ -2287,7 +2293,7 @@ P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 <p>To see the power of this method, we first need to define s.i. for more than two events:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="d-flex col-9 docutils">
 <div class="card w-100 shadow docutils">
 <div class="card-header docutils">
 <p class="card-text">DEFINITION</p>
@@ -2297,8 +2303,8 @@ P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 <dt>statistically independent (for any number of events)</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-14d3c82e-c1ec-4072-96bd-d0244752f027">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-14d3c82e-c1ec-4072-96bd-d0244752f027" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-54ae9d93-4138-4028-8753-66693abb223f">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-54ae9d93-4138-4028-8753-66693abb223f" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j \\
 P(E_i \cap E_j \cap E_k) &amp;= P(E_i) P(E_j) P(E_k), ~~ \forall i \ne j \ne k \\
 \ldots
@@ -2312,7 +2318,7 @@ P(E_0 \cap E_1 \cap \ldots \cap E_{n-1}) &amp;= P(E_0) P(E_1) \cdots P(E_{n-1}),
 <p>It is not sufficient to just check that the probability of every pair of events factors as the product of the probabilities of the individual events. That defines a weaker form of independence:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="d-flex col-9 docutils">
 <div class="card w-100 shadow docutils">
 <div class="card-header docutils">
 <p class="card-text">DEFINITION</p>
@@ -2322,8 +2328,8 @@ P(E_0 \cap E_1 \cap \ldots \cap E_{n-1}) &amp;= P(E_0) P(E_1) \cdots P(E_{n-1}),
 <dt>pairwise statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it pairwise statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-ecd025bd-dd94-42a6-bdeb-2ee2aaa9bb5a">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-ecd025bd-dd94-42a6-bdeb-2ee2aaa9bb5a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-51675066-0750-4528-a0b9-f8d9ea8e431b">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-51675066-0750-4528-a0b9-f8d9ea8e431b" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j 
 \end{align}\]</div>
 </div>
@@ -2332,8 +2338,8 @@ P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j
 </div>
 </div>
 <p>We want to use complements to convert the unions to intersections and the resulting general form looks like</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8b0d53f8-ca7c-4f1b-a90b-fc3bf90d7b12">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-8b0d53f8-ca7c-4f1b-a90b-fc3bf90d7b12" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e75e8940-731b-475e-99b6-ea38d8416a35">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-e75e8940-731b-475e-99b6-ea38d8416a35" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left( \bigcup_i E_i \right) &amp;=
 1- \prod_i \left[ 1- P\left( E_i \right) \right].
 \end{align}\]</div>
@@ -3221,15 +3227,7 @@ function show_questions(json, mydiv) {
 </div>
 <div class="section" id="relating-statistical-independent-and-mutually-exclusive-events">
 <h2><span class="section-number">6.6.4. </span>Relating Statistical Independent and Mutually Exclusive Events<a class="headerlink" href="#relating-statistical-independent-and-mutually-exclusive-events" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">git_path1</span><span class="o">=</span><span class="s2">&quot;https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/06-conditional-prob/quiz/&quot;</span>
-
-<span class="c1">#display_quiz(&quot;quiz/si-me.json&quot;)</span>
-<span class="n">display_quiz</span><span class="p">(</span><span class="n">git_path1</span> <span class="o">+</span> <span class="s2">&quot;si-me.json&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div id="FmMWMgdvhGaG" data-shufflequestions="False"
                data-shuffleanswers="True"
