@@ -1,14 +1,14 @@
 [
     {
-        "front": "statistically independent (two events)",
-        "back": "Given a probability space $S, \\\\mathcal{F}, P$ and two events $A\\\\in \\\\mathcal{F}$ and $B \\\\in \\\\mathcal{F}$, $A$ and $B$ are {\\\\it statistically independent} if and only if (iff) "
+        "front": "statistically independent <br>(two events)",
+        "back": "Given a probability space $S, \\mathcal{F}, P$ and two events $A\\in \\mathcal{F}$ and $B \\in \\mathcal{F}$, $A$ and $B$ are  <i>statistically independent</i> if and only if (iff) <br><br> $$ P(A \\cap B) = P(A)P(B).$$ "
     },
     {
-        "front": "statistically independent (for any number of events)",
-        "back": "Given a probability space $S, \\\\mathcal{F}, P$, a collection of events $E_0, E_1, \\\\ldots E_{n-1}$ in $\\\\mathcal{F}$ are {\\\\it statistically independent} if and only if (iff) "
+        "front": "statistically independent<br>(any number of events)",
+        "back": "Given a probability space $S, \\mathcal{F}, P$, events $E_0, E_1, \\ldots E_{n-1}$ in $\\mathcal{F}$ are <i>statistically independent</i> iff \n \\begin{align} &P(E_i \\cap E_j)  = P(E_i) P(E_j), ~~ \\scriptstyle \\forall i \\ne j \\\\ \n &  P(E_i \\cap E_j \\cap E_k) = P(E_i) P(E_j) P(E_k), ~~ \\scriptstyle \\forall i \\ne j \\ne k \\\\ \n &  \\scriptstyle \\ldots \\\\ \n & \\scriptstyle P(E_0 \\cap E_1 \\cap \\ldots \\cap E_{n-1}) \, = \, P(E_0) P(E_1) \\cdots P(E_{n-1}), \\\\ \n \\end{align}"
     },
     {
         "front": "pairwise statistically independent ",
-        "back": "Given a probability space $S, \\\\mathcal{F}, P$, a collection of events $E_0, E_1, \\\\ldots E_{n-1}$ in $\\\\mathcal{F}$ are {\\\\it pairwise statistically independent} if and only if (iff) "
+        "back": "Given a probability space $S, \\mathcal{F}, P$, a collection of events $E_0, E_1, \\ldots E_{n-1}$ in $\\mathcal{F}$ are {\\it pairwise statistically independent} if and only if (iff) "
     }
 ]
