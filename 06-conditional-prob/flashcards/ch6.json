@@ -1,0 +1,18 @@
+[
+    {
+        "front": "statistically independent (two events)",
+        "back": "Given a probability space $S, \\\\mathcal{F}, P$ and two events $A\\\\in \\\\mathcal{F}$ and $B \\\\in \\\\mathcal{F}$, $A$ and $B$ are {\\\\it statistically independent} if and only if (iff) "
+    },
+    {
+        "front": "statistically independent (for any number of events)",
+        "back": "Given a probability space $S, \\\\mathcal{F}, P$, a collection of events $E_0, E_1, \\\\ldots E_{n-1}$ in $\\\\mathcal{F}$ are {\\\\it statistically independent} if and only if (iff) "
+    },
+    {
+        "front": "pairwise statistically independent ",
+        "back": "Given a probability space $S, \\\\mathcal{F}, P$, a collection of events $E_0, E_1, \\\\ldots E_{n-1}$ in $\\\\mathcal{F}$ are {\\\\it pairwise statistically independent} if and only if (iff) "
+    },
+    {
+        "front": "conditional probability",
+        "back": "The conditional probability of an event $A$ given that an event $B$ occurred, where $P(B) \\e 0$, is "
+    }
+]
