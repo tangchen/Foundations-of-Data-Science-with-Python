@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. Random Variables (Outline) &#8212; Foundations of Data Science with Python</title>
+    <title>6.9. Chain Rules and Total Probability &#8212; Foundations of Data Science with Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -42,6 +42,8 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -51,8 +53,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)" href="../09-moments/outline.html" />
-    <link rel="prev" title="7. Introduction to Bayesian Methods (Outline)" href="../07-bayesian-methods/outline.html" />
+    <link rel="next" title="6.10. Review" href="review.html" />
+    <link rel="prev" title="6.8. Conditioning and (In)dependence" href="conditional-independence.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -287,68 +289,68 @@
    5. Binary Hypothesis Tests with Resampling (Outline)
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06-conditional-prob/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
    6. Dependence and Independence
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/simulating-cond-probs.html">
+    <a class="reference internal" href="simulating-cond-probs.html">
      6.1. Simulating and Counting Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/notation-and-intuition.html">
+    <a class="reference internal" href="notation-and-intuition.html">
      6.2. Conditional Probability: Notation and Intuition
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/definition.html">
+    <a class="reference internal" href="definition.html">
      6.3. Formally Defining Conditional Probability
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/relating-cond-uncond.html">
+    <a class="reference internal" href="relating-cond-uncond.html">
      6.4. Relating Conditional and Unconditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/more-on-simulating.html">
+    <a class="reference internal" href="more-on-simulating.html">
      6.5. More on Simulating Conditional Probabilities
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/independence.html">
+    <a class="reference internal" href="independence.html">
      6.6. Statistical Independence
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/fair-exps.html">
+    <a class="reference internal" href="fair-exps.html">
      6.7. Conditional Probabilities and Independence in Fair Experiments
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/conditional-independence.html">
+    <a class="reference internal" href="conditional-independence.html">
      6.8. Conditioning and (In)dependence
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/chain-rules-total-prob.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      6.9. Chain Rules and Total Probability
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/review.html">
+    <a class="reference internal" href="review.html">
      6.10. Review
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06-conditional-prob/summary.html">
+    <a class="reference internal" href="summary.html">
      6.11. Summary
     </a>
    </li>
@@ -359,8 +361,8 @@
    7. Introduction to Bayesian Methods (Outline)
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08-random-variables/outline.html">
    8. Random Variables (Outline)
   </a>
  </li>
@@ -445,7 +447,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/08-random-variables/outline.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06-conditional-prob/chain-rules-total-prob.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -470,7 +472,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/08-random-variables/outline.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06-conditional-prob/chain-rules-total-prob.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -493,68 +495,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#discrete-random-variables-and-probability-mass-functions">
-   8.1. Discrete Random Variables and Probability Mass Functions
+  <a class="reference internal nav-link" href="#using-conditional-probability-to-decompose-events-part-1-chain-rules">
+   6.9.1. Using Conditional Probability to Decompose Events: Part 1 – Chain Rules
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cumulative-distribution-functions-and-their-properties">
-   8.2. Cumulative Distribution Functions and Their Properties
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#common-discrete-random-variables-and-their-applications">
-   8.3. Common Discrete Random Variables and Their Applications
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generating-simulating-and-characterizing-discrete-random-variables">
-   8.4. Generating, Simulating, and Characterizing Discrete Random Variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#continuous-random-variables-and-probability-density-functions">
-   8.5. Continuous Random Variables and Probability Density Functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#properties-of-probability-density-functions">
-   8.6. Properties of Probability Density Functions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#common-continuous-random-variables-and-their-applications">
-   8.7. Common Continuous Random Variables and Their Applications
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-central-limit-theorem-and-gaussian-random-variables">
-   8.8. The Central Limit Theorem and Gaussian Random Variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation">
-   8.9. Generating, Simulating, and Characterizing Continuous Random Variables (including Kernel Density Estimation)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction-to-conditioning-with-random-variables">
-   8.10. Introduction to Conditioning with Random Variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#generative-classification">
-   8.11. Generative Classification
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#review">
-   8.12. Review
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   8.13. Summary
+  <a class="reference internal nav-link" href="#using-conditional-probability-to-decompose-events-part-2-partitions-and-total-probability">
+   6.9.2. Using Conditional Probability to Decompose Events: Part 2 –  Partitions, and Total Probability
   </a>
  </li>
 </ul>
@@ -568,46 +515,97 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="random-variables-outline">
-<h1><span class="section-number">8. </span>Random Variables (Outline)<a class="headerlink" href="#random-variables-outline" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="discrete-random-variables-and-probability-mass-functions">
-<h2><span class="section-number">8.1. </span>Discrete Random Variables and Probability Mass Functions<a class="headerlink" href="#discrete-random-variables-and-probability-mass-functions" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="chain-rules-and-total-probability">
+<h1><span class="section-number">6.9. </span>Chain Rules and Total Probability<a class="headerlink" href="#chain-rules-and-total-probability" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we introduce techniques that use conditional probability to decompose events. The goal is to express unknown probabilities of events in terms of probabilities that we already know.</p>
+<div class="section" id="using-conditional-probability-to-decompose-events-part-1-chain-rules">
+<h2><span class="section-number">6.9.1. </span>Using Conditional Probability to Decompose Events: Part 1 – Chain Rules<a class="headerlink" href="#using-conditional-probability-to-decompose-events-part-1-chain-rules" title="Permalink to this headline">¶</a></h2>
+<p>From the definition of conditional probability, we can write <span class="math notranslate nohighlight">\(P(A|B)\)</span> as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-578011f2-d00e-4cee-ac32-38b2020fb4bb">
+<span class="eqno">(6.10)<a class="headerlink" href="#equation-578011f2-d00e-4cee-ac32-38b2020fb4bb" title="Permalink to this equation">¶</a></span>\[\begin{align}
+  P(A|B)&amp;= \frac{P(A \cap B)}{P(B)}  \\
+  \Rightarrow P(A \cap B)&amp;= P(A|B)P(B), 
+\end{align}\]</div>
+<p>and we can write <span class="math notranslate nohighlight">\(P(B|A)\)</span> as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0d4d5dd1-e3bd-46df-a5f8-68b0926168f0">
+<span class="eqno">(6.11)<a class="headerlink" href="#equation-0d4d5dd1-e3bd-46df-a5f8-68b0926168f0" title="Permalink to this equation">¶</a></span>\[\begin{align}
+  P(B|A)&amp;=\frac{P(A \cap B)}{P(A)}  \\
+  \Rightarrow P(A \cap B)&amp;= P(B|A)P(A).
+\end{align}\]</div>
+<p>After manipulating the expressions as shown, we get two <em>different</em> formula for expressing <span class="math notranslate nohighlight">\(P(A \cap B)\)</span>. These are <strong>chain rules</strong> for the probability of the intersection of two events. Such rules are often used when:</p>
+<ul class="simple">
+<li><p>Two events are dependent on each other, but the relation is simple if the outcome of one of the experiments is known.</p></li>
+<li><p>The events are at two different point in a system, such as the input and output of a system.</p></li>
+</ul>
+<p><strong>Example</strong></p>
+<p>A simple example of the former is in card games. Two cards are drawn (without replacement) from a deck of 52 cards (without jokers). What is the probability that they are both Aces? Let <span class="math notranslate nohighlight">\(A_i\)</span> be the event that the card on draw <span class="math notranslate nohighlight">\(i\)</span> is an Ace. Then the most natural way to apply the chain rule is to write</p>
+<div class="math notranslate nohighlight">
+\[
+P(A_1 \cap A_2) = P(A_2 | A_1) P(A_1).
+\]</div>
+<p>The probability of getting an Ace in draw 1 is 4/52=1/13 because there are 4 Aces in the deck of 52 cards.  The probability of getting an Ace on the second draw <em>given that the first draw was an Ace</em> is 3/51 = 1/17 because after the first draw, there are 3 Aces left in the remaining deck of 51 cards.  Thus,</p>
+<div class="math notranslate nohighlight">
+\[
+P(A_1 \cap A_2) = P(A_2 | A_1) P(A_1) = \left( \frac{1}{17} \right) \left( \frac{1}{13} \right) = \frac{1}{221}
+\]</div>
+<p>As a check, we can compare with a solution using combinatorics. There are</p>
+<div class="math notranslate nohighlight">
+\[
+\binom{4}{2} = 6
+\]</div>
+<p>ways to choose the two Aces from the four total Aces. There are</p>
+<div class="math notranslate nohighlight">
+\[
+\binom{52}{2} = \frac{ 52!}{50! 2!} = 1326
+\]</div>
+<p>ways to choose two cards from 52. So,</p>
+<div class="math notranslate nohighlight">
+\[
+P( A_1 \cap A_2) = \frac{6}{1326} = \frac{1}{221},
+\]</div>
+<p>which matches our answer using conditional probability.</p>
+<p>The solution using conditional probability is usually much more intuitive for learners who are new to probability, but being able to use both techniques is a powerful method for checking your work</p>
+<p><strong>To be added: Question on probability of getting two face cards (JQK) on consecutive draws from a deck of cards. Question on getting defective computers when sitting down at random computers in a lab.</strong></p>
+<p><strong>Example</strong></p>
+<p>For the Magician’s Coin problem, what is the probability of getting the Fair coin and it coming up heads on the first flip? This is an example of a system where there is an input that affects the future outputs. In this case, the input is the choice of coin. When we have such problems, we usually will need to decompose them in terms of the probabilities of the input and the conditional probabilities of the output given the input. Let <span class="math notranslate nohighlight">\(H_i\)</span> denote the event that the coin comes up heads on flip <span class="math notranslate nohighlight">\(i\)</span>. Let <span class="math notranslate nohighlight">\(F\)</span> be the event that the fair coin was chosen.  We are looking for <span class="math notranslate nohighlight">\(P(F \cap H_1)\)</span>, which we can write as</p>
+<div class="math notranslate nohighlight">
+\[
+P(F \cap H_1) = P(H_1 | F) P(F).
+\]</div>
+<p>If there is one Fair coin and one two-headed coin, <span class="math notranslate nohighlight">\(P(F) =1/2\)</span>.  Given  that the coin is Fair, <span class="math notranslate nohighlight">\(P(H_1|F) = 1/2\)</span>. So,</p>
+<div class="math notranslate nohighlight">
+\[
+P(F \cap H_1) = \left( \frac 1 2  \right) \left( \frac 1 2  \right) = \frac 1 4.
+\]</div>
+<p>Note that it is generally <strong>not helpful to write the probability using the other form of the chain rule:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+P(F \cap H_1) = P(F| H_1) P(H_1).
+\]</div>
+<p>We do not know <span class="math notranslate nohighlight">\(P(H_1)\)</span> nor <span class="math notranslate nohighlight">\(P(F|H_1)\)</span>. Thus, although the expression is valid mathematically, it is not helpful in solving this problem because it depends on probabilities that cannot be easily inferred from the problem setup.</p>
+<p><strong>To be added:Question on probability  of getting the Fair coin and heads on first two flips.</strong></p>
+<p>The chain rule can be easily generalized to more than two events. The easiest way is to write probabilities in terms of conditional probabilities that are expressed as fractions (as in the definition of probability), such that the denumenator of one fraction cancels with the numerator of the next fraction to make sure the expression is not changes when it is rewritten. This will make more sense with an example for rewriting the probability of the intersection of 3 events (<span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4d229d44-1147-487c-86e9-a0aff033743d">
+<span class="eqno">(6.12)<a class="headerlink" href="#equation-4d229d44-1147-487c-86e9-a0aff033743d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+  P(A \cap B \cap C) &amp;= \frac{P(A \cap B \cap C)} {}  \cdot
+  \frac{\hspace{4em} }{} \cdot \frac{ \hspace{3em}\mbox{    }}{} \\
+  &amp;\\
+  &amp;= \frac{P(A \cap B \cap C)} {P(B \cap C)}  \cdot
+  \frac{P(B \cap C)}{\mbox{   }} \cdot \frac{ \hspace{3em}\mbox{    }}{} \\
+    &amp;= \frac{P(A \cap B \cap C)} {P(B \cap C)}  \cdot
+  \frac{P(B \cap C)}{P(C)} \cdot \frac{ P(C) }{1} \\
+  &amp;= P(A|B \cap C)  P(B | C) P(C)
+\end{align}\]</div>
+<p>This decomposition assumes we know the probability of  <span class="math notranslate nohighlight">\(A\)</span> given that <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> have occurred and we know the probability of <span class="math notranslate nohighlight">\(B\)</span> given <span class="math notranslate nohighlight">\(C\)</span>. Such dependence occurs naturally in many systems, but the particular decomposition will depend on what we know about these probabilities. We could just have easily written</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6d4645e8-399c-453e-b8cd-a846fce7e275">
+<span class="eqno">(6.13)<a class="headerlink" href="#equation-6d4645e8-399c-453e-b8cd-a846fce7e275" title="Permalink to this equation">¶</a></span>\[\begin{align}
+  P(A \cap B \cap C) 
+  &amp;= P(C|A \cap B)  P(B | A) P(A)
+\end{align}\]</div>
 </div>
-<div class="section" id="cumulative-distribution-functions-and-their-properties">
-<h2><span class="section-number">8.2. </span>Cumulative Distribution Functions and Their Properties<a class="headerlink" href="#cumulative-distribution-functions-and-their-properties" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="common-discrete-random-variables-and-their-applications">
-<h2><span class="section-number">8.3. </span>Common Discrete Random Variables and Their Applications<a class="headerlink" href="#common-discrete-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="generating-simulating-and-characterizing-discrete-random-variables">
-<h2><span class="section-number">8.4. </span>Generating, Simulating, and Characterizing Discrete Random Variables<a class="headerlink" href="#generating-simulating-and-characterizing-discrete-random-variables" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="continuous-random-variables-and-probability-density-functions">
-<h2><span class="section-number">8.5. </span>Continuous Random Variables and Probability Density Functions<a class="headerlink" href="#continuous-random-variables-and-probability-density-functions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="properties-of-probability-density-functions">
-<h2><span class="section-number">8.6. </span>Properties of Probability Density Functions<a class="headerlink" href="#properties-of-probability-density-functions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="common-continuous-random-variables-and-their-applications">
-<h2><span class="section-number">8.7. </span>Common Continuous Random Variables and Their Applications<a class="headerlink" href="#common-continuous-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="the-central-limit-theorem-and-gaussian-random-variables">
-<h2><span class="section-number">8.8. </span>The Central Limit Theorem and Gaussian Random Variables<a class="headerlink" href="#the-central-limit-theorem-and-gaussian-random-variables" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation">
-<h2><span class="section-number">8.9. </span>Generating, Simulating, and Characterizing Continuous Random Variables (including Kernel Density Estimation)<a class="headerlink" href="#generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="introduction-to-conditioning-with-random-variables">
-<h2><span class="section-number">8.10. </span>Introduction to Conditioning with Random Variables<a class="headerlink" href="#introduction-to-conditioning-with-random-variables" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="generative-classification">
-<h2><span class="section-number">8.11. </span>Generative Classification<a class="headerlink" href="#generative-classification" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="review">
-<h2><span class="section-number">8.12. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="summary">
-<h2><span class="section-number">8.13. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-conditional-probability-to-decompose-events-part-2-partitions-and-total-probability">
+<h2><span class="section-number">6.9.2. </span>Using Conditional Probability to Decompose Events: Part 2 –  Partitions, and Total Probability<a class="headerlink" href="#using-conditional-probability-to-decompose-events-part-2-partitions-and-total-probability" title="Permalink to this headline">¶</a></h2>
+<p>(To be written)</p>
 </div>
 </div>
 
@@ -624,7 +622,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./08-random-variables"
+            path: "./06-conditional-prob"
         },
         predefinedOutput: true
     }
@@ -641,19 +639,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../07-bayesian-methods/outline.html" title="previous page">
+        <a class="left-prev" href="conditional-independence.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">7. </span>Introduction to Bayesian Methods (Outline)</p>
+                <p class="prevnext-title"><span class="section-number">6.8. </span>Conditioning and (In)dependence</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../09-moments/outline.html" title="next page">
+        <a class="right-next" href="review.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">9. </span>Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)</p>
+                <p class="prevnext-title"><span class="section-number">6.10. </span>Review</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
