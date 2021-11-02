@@ -51,6 +51,8 @@ sections:
   - file: 06-conditional-prob/independence
   - file: 06-conditional-prob/fair-exps
   - file: 06-conditional-prob/conditional-independence
+  - file: 06-conditional-prob/review
+  - file: 06-conditional-prob/summary
 - file: 07-bayesian-methods/outline
 - file: 08-random-variables/outline
 - file: 09-moments/outline
