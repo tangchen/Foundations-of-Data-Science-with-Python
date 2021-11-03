@@ -521,14 +521,14 @@
 <div class="section" id="using-conditional-probability-to-decompose-events-part-1-chain-rules">
 <h2><span class="section-number">6.9.1. </span>Using Conditional Probability to Decompose Events: Part 1 – Chain Rules<a class="headerlink" href="#using-conditional-probability-to-decompose-events-part-1-chain-rules" title="Permalink to this headline">¶</a></h2>
 <p>From the definition of conditional probability, we can write <span class="math notranslate nohighlight">\(P(A|B)\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-578011f2-d00e-4cee-ac32-38b2020fb4bb">
-<span class="eqno">(6.10)<a class="headerlink" href="#equation-578011f2-d00e-4cee-ac32-38b2020fb4bb" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c68d8e98-038e-47ce-a3c8-3d4b1aa2a193">
+<span class="eqno">(6.10)<a class="headerlink" href="#equation-c68d8e98-038e-47ce-a3c8-3d4b1aa2a193" title="Permalink to this equation">¶</a></span>\[\begin{align}
   P(A|B)&amp;= \frac{P(A \cap B)}{P(B)}  \\
   \Rightarrow P(A \cap B)&amp;= P(A|B)P(B), 
 \end{align}\]</div>
 <p>and we can write <span class="math notranslate nohighlight">\(P(B|A)\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d4d5dd1-e3bd-46df-a5f8-68b0926168f0">
-<span class="eqno">(6.11)<a class="headerlink" href="#equation-0d4d5dd1-e3bd-46df-a5f8-68b0926168f0" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ef06f84a-6a5e-458d-a806-dcef4ecd1a82">
+<span class="eqno">(6.11)<a class="headerlink" href="#equation-ef06f84a-6a5e-458d-a806-dcef4ecd1a82" title="Permalink to this equation">¶</a></span>\[\begin{align}
   P(B|A)&amp;=\frac{P(A \cap B)}{P(A)}  \\
   \Rightarrow P(A \cap B)&amp;= P(B|A)P(A).
 \end{align}\]</div>
@@ -585,8 +585,8 @@ P(F \cap H_1) = P(F| H_1) P(H_1).
 <p>We do not know <span class="math notranslate nohighlight">\(P(H_1)\)</span> nor <span class="math notranslate nohighlight">\(P(F|H_1)\)</span>. Thus, although the expression is valid mathematically, it is not helpful in solving this problem because it depends on probabilities that cannot be easily inferred from the problem setup.</p>
 <p><strong>To be added:Question on probability  of getting the Fair coin and heads on first two flips.</strong></p>
 <p>The chain rule can be easily generalized to more than two events. The easiest way is to write probabilities in terms of conditional probabilities that are expressed as fractions (as in the definition of probability), such that the denumenator of one fraction cancels with the numerator of the next fraction to make sure the expression is not changes when it is rewritten. This will make more sense with an example for rewriting the probability of the intersection of 3 events (<span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4d229d44-1147-487c-86e9-a0aff033743d">
-<span class="eqno">(6.12)<a class="headerlink" href="#equation-4d229d44-1147-487c-86e9-a0aff033743d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5fadfc0b-6fb2-4219-95a6-3dcb076406be">
+<span class="eqno">(6.12)<a class="headerlink" href="#equation-5fadfc0b-6fb2-4219-95a6-3dcb076406be" title="Permalink to this equation">¶</a></span>\[\begin{align}
   P(A \cap B \cap C) &amp;= \frac{P(A \cap B \cap C)} {}  \cdot
   \frac{\hspace{4em} }{} \cdot \frac{ \hspace{3em}\mbox{    }}{} \\
   &amp;\\
@@ -597,15 +597,199 @@ P(F \cap H_1) = P(F| H_1) P(H_1).
   &amp;= P(A|B \cap C)  P(B | C) P(C)
 \end{align}\]</div>
 <p>This decomposition assumes we know the probability of  <span class="math notranslate nohighlight">\(A\)</span> given that <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> have occurred and we know the probability of <span class="math notranslate nohighlight">\(B\)</span> given <span class="math notranslate nohighlight">\(C\)</span>. Such dependence occurs naturally in many systems, but the particular decomposition will depend on what we know about these probabilities. We could just have easily written</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6d4645e8-399c-453e-b8cd-a846fce7e275">
-<span class="eqno">(6.13)<a class="headerlink" href="#equation-6d4645e8-399c-453e-b8cd-a846fce7e275" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-66398a59-f3d2-4a81-adb6-b6a899cf51f8">
+<span class="eqno">(6.13)<a class="headerlink" href="#equation-66398a59-f3d2-4a81-adb6-b6a899cf51f8" title="Permalink to this equation">¶</a></span>\[\begin{align}
   P(A \cap B \cap C) 
   &amp;= P(C|A \cap B)  P(B | A) P(A)
 \end{align}\]</div>
 </div>
 <div class="section" id="using-conditional-probability-to-decompose-events-part-2-partitions-and-total-probability">
 <h2><span class="section-number">6.9.2. </span>Using Conditional Probability to Decompose Events: Part 2 –  Partitions, and Total Probability<a class="headerlink" href="#using-conditional-probability-to-decompose-events-part-2-partitions-and-total-probability" title="Permalink to this headline">¶</a></h2>
-<p>(To be written)</p>
+<p>We previously introduced the concept of partitions in <a class="reference internal" href="../03-first-data/partitions.html"><span class="doc">Partitions</span></a> as a way to take a collection of data and break it into separate, disjoint groups. Now, we are ready to apply this concept to events, which are sets of outcomes. In particular, we will most often partition the sample space, <span class="math notranslate nohighlight">\(S\)</span>:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">DEFINITION</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">partition (of the sample space):
+A collection of sets <span class="math notranslate nohighlight">\(A_1, A_2, \ldots\)</span> <em>partitions</em>
+the sample space <span class="math notranslate nohighlight">\(S\)</span> iff</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+  S &amp;= \bigcup_i A_i,     \mbox{ and } 
+  A_i \cap A_j &amp;= \emptyset, i \ne j. 
+  \end{align*}\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\left\{A_i \right\}\)</span> is also said to be a <em>partition</em> of <span class="math notranslate nohighlight">\(S\)</span>. For example, the collection of disjoint sets <span class="math notranslate nohighlight">\(A_0 A_1, \ldots, A_7\)</span> shown in <a class="reference internal" href="#sample-space-partition"><span class="std std-numref">Fig. 6.3</span></a> is a partition for <span class="math notranslate nohighlight">\(S\)</span>:</p>
+<div class="figure align-default" id="sample-space-partition">
+<a class="reference internal image-reference" href="../_images/sample-space-partition.png"><img alt="$A_0, A_1, \ldots, A_7$ are disjoint sets whose union is $S$." src="../_images/sample-space-partition.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Example partition of the sample space.</span><a class="headerlink" href="#sample-space-partition" title="Permalink to this image">¶</a></p>
+</div>
+<p>Now consider how we can use a partition <span class="math notranslate nohighlight">\(A_0, A_1, \ldots, A_{n-1}\)</span> of <span class="math notranslate nohighlight">\(S\)</span> to decompose any event <span class="math notranslate nohighlight">\(B \subseteq S\)</span>. In <a class="reference internal" href="#event-partition1"><span class="std std-numref">Fig. 6.4</span></a>, an example event <span class="math notranslate nohighlight">\(B\)</span> is shown on top of our example partition. Note that we do not require the <span class="math notranslate nohighlight">\(B\)</span> have a nonempty intersection with every partition event (i.e., in this example <span class="math notranslate nohighlight">\(B \cap A_0 = \emptyset\)</span>).</p>
+<div class="figure align-default" id="event-partition1">
+<a class="reference internal image-reference" href="../_images/event-partition1.png"><img alt="Figure showing an event $B$ on top of a partition of the sample space, $A_0, A_1, \ldots, A_7$." src="../_images/event-partition1.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Example event <span class="math notranslate nohighlight">\(B\)</span> superimposed on partition <span class="math notranslate nohighlight">\(A_0, A_1, \ldots, A_7\)</span> of the sample space.</span><a class="headerlink" href="#event-partition1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Then we can use our partition to decompose <span class="math notranslate nohighlight">\(B\)</span> into smaller subsets as</p>
+<div class="math notranslate nohighlight">
+\[
+B_i = B \cap A_i, ~~ i = 0, 1, \ldots, n-1,
+\]</div>
+<p>as shown in <a class="reference internal" href="#event-partition2"><span class="std std-numref">Fig. 6.5</span></a>.</p>
+<div class="figure align-default" id="event-partition2">
+<a class="reference internal image-reference" href="../_images/event-partition2.png"><img alt="Figure showing an event $B$ partitioned into subsets $B_0, B_1, \ldots B_7$ through intersection with $A_0, A_1, \ldots, A_7$." src="../_images/event-partition2.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Example event <span class="math notranslate nohighlight">\(B\)</span> superimposed on partition <span class="math notranslate nohighlight">\(A_0, A_1, \ldots, A_7\)</span> of the sample space.</span><a class="headerlink" href="#event-partition2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Note that <span class="math notranslate nohighlight">\(A_i \cap A_j = \emptyset\)</span> also implies that</p>
+<div class="math notranslate nohighlight">
+\[
+B_i \cap B_j = (B \cap A_i) \cap (B \cap A_j) = B \cap (A_i \cap A_j) = B \cap \emptyset =\emptyset,
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\bigcup_i B_i = \bigcup_i \left(A_i \cap B\right )  = B \cap \left( \bigcup_i A_i \right) = B \cap S = B.
+\]</div>
+<p>These two properties imply that <span class="math notranslate nohighlight">\(B_0, B_1, \ldots, B_{n-1}\)</span> are a partition for <span class="math notranslate nohighlight">\(B\)</span>. If we want to express the probability of <span class="math notranslate nohighlight">\(B\)</span>, we can write</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3cf2cfb1-8475-44d4-af7d-32ad0eeb69b5">
+<span class="eqno">(6.14)<a class="headerlink" href="#equation-3cf2cfb1-8475-44d4-af7d-32ad0eeb69b5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(B) &amp; = P \left( \bigcup_i B_i \right) \\
+&amp; = \sum_i P \left(B_i \right) \\
+&amp;= \sum_i P\left( B \cap A_i\right)
+\end{align}\]</div>
+<p>Now suppose that we choose the partitioning events <span class="math notranslate nohighlight">\(\{A_i\}\)</span> such that:</p>
+<ul class="simple">
+<li><p>We know the probabilities <span class="math notranslate nohighlight">\(P(A_i)\)</span></p></li>
+<li><p>We know the conditional probabilities of the event <span class="math notranslate nohighlight">\(B\)</span> given that <span class="math notranslate nohighlight">\(A_i\)</span> occurred, <span class="math notranslate nohighlight">\(P(B|A_i)\)</span>.</p></li>
+</ul>
+<p>Applying chain rule, we can write <span class="math notranslate nohighlight">\(P(B \cap A_i) = P(B|A_i)P(A_i)\)</span> for each <span class="math notranslate nohighlight">\(i\)</span>. Putting this all together, we get the <em>Law of Total Probability</em>:</p>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Law of Total Probability</p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">Given an event <span class="math notranslate nohighlight">\(B \subseteq S\)</span> and a partition of <span class="math notranslate nohighlight">\(S\)</span> denoted by
+<span class="math notranslate nohighlight">\(A_1, A_2, \ldots\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+P(B) = \sum_i P(B|A_i)P(A_i).
+\]</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The law of total probability is often used in systems where there is either:</p>
+<ul class="simple">
+<li><p>random inputs and outputs, where the output is dependent on the input</p></li>
+<li><p>a <em>hidden state</em>, which is some random property of the system that is not directly observable.</p></li>
+</ul>
+<p>Note that these are not mutually exclusive. For the Magician’s coin, we can treat the choice of coin as the input to the system or as a hidden state. When the coin is flipped repeatedly, then it generally makes more sense to interpret the choice of coin as a hidden state because it is a property of the system that cannot be directly observed but that influences the outpus of the system.</p>
+<p>When applying chain rule in such problems, the Law of Total Probability will generally use conditioning on
+the different possibilities of the input or the hidden state.</p>
+<p><strong>Example: The Magician’s Coin</strong></p>
+<p>As before, a magician has a fair coin and a two-headed coin in her pocket. Let <span class="math notranslate nohighlight">\(H_i\)</span> denote the event that the outcome of flip <span class="math notranslate nohighlight">\(i\)</span> is heads. We can use total probability to answer more complicated questions regarding the probabilities of the outputs:</p>
+<p><strong>(a)</strong> <span class="math notranslate nohighlight">\(P(H_1)\)</span></p>
+<p>As mentioned above, we can condition on the hidden state, which is whether the coin is fair (<span class="math notranslate nohighlight">\(F\)</span>) or not (<span class="math notranslate nohighlight">\(\overline{F}\)</span>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One thing that is often confusing to learners of probability is determining what is actually a partition of <span class="math notranslate nohighlight">\(S\)</span>.  If you have a set of events that are both <em>mutually exclusive</em> and <em>one of those events must occur</em> (i.e., the events cover the sample space), then they are a partition.</p>
+<p>In this case, <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\overline{F}\)</span> are complements, so they are mutually exclusive. Moreover, either the coin is fair (<span class="math notranslate nohighlight">\(F\)</span>) or it is not (<span class="math notranslate nohighlight">\(\overline{F}\)</span>), so one of these events must occur. Therefore the events <span class="math notranslate nohighlight">\(F, \overline{F}\)</span> partition <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</div>
+<p>Applying the Law of Total Probability,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c77e5d5e-94f7-4b0e-bf4f-142168c88a90">
+<span class="eqno">(6.15)<a class="headerlink" href="#equation-c77e5d5e-94f7-4b0e-bf4f-142168c88a90" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(H_1) &amp;= P(H_1|F)P(F) + P(H_1| \overline{F}) P( \overline{F}) \\
+&amp;= \left( \frac 1 2 \right) \left( \frac 1 2 \right) + \biggl( 1\biggr) \left( \frac 1 2 \right) \\
+&amp;= \frac 3 4
+\end{align}\]</div>
+<p><strong>(b)</strong> <span class="math notranslate nohighlight">\(P(H_1 \cap H_2)\)</span></p>
+<p>We can use the same partition as above to write:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-12b21b26-e92d-411a-a6f8-b8bee7b31c86">
+<span class="eqno">(6.16)<a class="headerlink" href="#equation-12b21b26-e92d-411a-a6f8-b8bee7b31c86" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(H_1 \cap H_2) &amp;= P(H_1 \cap H_2 |F)P(F) + P(H_1\cap H_2| \overline{F}) P( \overline{F}).
+\end{align}\]</div>
+<p>However, now we need to know the probabilities <span class="math notranslate nohighlight">\(P(H_1 \cap H_2 |F)\)</span> and <span class="math notranslate nohighlight">\(P(H_1\cap H_2| \overline{F})\)</span>. When the coin is fair the events <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> are conditionally independent, so <span class="math notranslate nohighlight">\(P(H_1 \cap H_2 |F) =
+P(H_1|F)P(H_2|F)\)</span>. When the coin is two-headed, it always comes up heads, so <span class="math notranslate nohighlight">\(P(H_1\cap H_2| \overline{F})=1\)</span>. Then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fa35de1f-125e-4cc8-aeb1-d97ea7909058">
+<span class="eqno">(6.17)<a class="headerlink" href="#equation-fa35de1f-125e-4cc8-aeb1-d97ea7909058" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(H_1 \cap H_2) &amp;= P(H_1|F)P( H_2 |F)P(F) + (1) P( \overline{F}) \\
+&amp;= \left( \frac 1 2 \right) \left( \frac 1 2 \right) \left( \frac 1 2 \right)
++\biggl( 1\biggr) \left( \frac 1 2 \right) \\
+&amp;= \frac 5 8.
+\end{align}\]</div>
+<p><strong>(c)</strong> <span class="math notranslate nohighlight">\(P(H_2 \vert H_1)\)</span></p>
+<p>By calculating this probability, we can assess whether getting heads on flip 2 is independent of getting heads on flip 1, and if now, how information about the value of the first flip changes the probabilities for the second flip.  We can directly apply the definition of conditional probability to calculate this from the answers to parts (a) and (b):</p>
+<div class="math notranslate nohighlight">
+\[
+P(H_2 \vert H_1) = \frac{ P(H_1 \cap H_2) } {P(H_1)} = \frac{5/8}{3/4} = \frac{5}{6}
+\]</div>
+<p>If we did not know <span class="math notranslate nohighlight">\(H_1\)</span>, then <span class="math notranslate nohighlight">\(P(H_2)= P(H_1)=3/4\)</span> (you should verify this using the Law of Total Probability with <span class="math notranslate nohighlight">\(H_1\)</span> as the hidden state). So knowing that heads occurred on the first flip increases the probability that heads will occur on the second flip.</p>
+<p>If this surprises you (again), then just recall that we can anticipate this if we take it to extremes. What if I told you that heads occurred on the first 1000 flips? Then you would surely think that the magician had chosen the two-headed coin and expect the probability of getting heads on the 1001th flip to be close to 1. Then if heads is  observed on one flip, we should expect the probability of getting heads on second flip to increase.</p>
+<p>In fact, after observing one heads, the probability of having chosen the two-headed coin should increase to more than 1/2. It does – but we will need some new tools that we will develop in Chapter 7 before we can calculate the new probability.</p>
+<p><strong>TO DO: Create numerical answer questions for</strong> <span class="math notranslate nohighlight">\(P(H_1 \cap H_2 \cap H_3)\)</span>,  <span class="math notranslate nohighlight">\(P(H_3 \vert H_1 \cap H_2)\)</span></p>
+<p><strong>Example: Two Random Selections</strong></p>
+<p>At the beginning of this Chapter, the following question was asked: A box contains 2 white balls and 1 black ball. I reach in the box and remove one ball. Without inspecting it, I place it in my pocket. I withdraw a second ball. What is the probability that the second ball is white?</p>
+<p>This is a question that stumps many learners of probability, but the answer turns out to be simple. Let <span class="math notranslate nohighlight">\(W_i\)</span> be the event that a white ball is chosen on draw <span class="math notranslate nohighlight">\(i\)</span>. We are asking about <span class="math notranslate nohighlight">\(W_2\)</span>. Then <span class="math notranslate nohighlight">\(P(W_2) = P(W_1) = 2/3\)</span>.  However, this is not intuitive because our brain tells us that the probabilities for the second draw must depend on what happened on the first draw – which is unknown in this case.</p>
+<p>We can formally show this using the Law of Total Probability. The conditioning event will be the unobserved result of the first draw. The partition is <span class="math notranslate nohighlight">\(W_1\)</span>, <span class="math notranslate nohighlight">\(\overline{W_1}\)</span>. Then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ca93f43d-a3b4-4b44-9e30-d79ce43ea0cf">
+<span class="eqno">(6.18)<a class="headerlink" href="#equation-ca93f43d-a3b4-4b44-9e30-d79ce43ea0cf" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(W_2) &amp;= P(W_2|W_1) P(W_1) + P(W_2 | \overline{W_1}) P(\overline{W_1})\\
+\end{align}\]</div>
+<p>If a white ball is drawn first (<span class="math notranslate nohighlight">\(W_1\)</span>), then there is one white ball and one black ball left, so <span class="math notranslate nohighlight">\(P(W_2|W_1) = 1/2\)</span>. If a black ball is drawn first (<span class="math notranslate nohighlight">\(\overline{W_1}\)</span>), then there are two white balls left, so <span class="math notranslate nohighlight">\(P(W_1| 
+\overline{W_1}) = 1\)</span>.  Then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-05d64d9c-e6fb-4a3b-8300-978e08727635">
+<span class="eqno">(6.19)<a class="headerlink" href="#equation-05d64d9c-e6fb-4a3b-8300-978e08727635" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(W_2) &amp;= \left( \frac 1 2 \right) \left( \frac 2 3 \right) + \biggl( 1 \biggr) 
+\left( \frac 1 3 \right) \\
+&amp;= \frac 2 3,
+\end{align}\]</div>
+<p>which is equal to <span class="math notranslate nohighlight">\(P(W_1)\)</span>.  We can use similar math to show that <span class="math notranslate nohighlight">\(P(W_3)=2/3\)</span>, also. In the absence of information about what happened on previous draws, the probability of getting a white ball is equal to the original proportion of white balls in the box.</p>
+<p><strong>Example: The Monty Hall Problem</strong></p>
+<p>You are on a game show, and you’re given the choice of three doors:</p>
+<ul class="simple">
+<li><p>Behind one door is a car</p></li>
+<li><p>Behind the other doors are goats</p></li>
+</ul>
+<p>You pick a door, and the host, who knows what’s behind the doors, opens another door, which he knows has a goat.</p>
+<p>The host then offers you the option to switch doors. Does it matter if you switch? If switching changes your probability of getting the prize, what is the new probability?</p>
+<p>Here is a simple solution. Let <span class="math notranslate nohighlight">\(W_i\)</span> be the event that you are winning on choice <span class="math notranslate nohighlight">\(i\)</span>. Let <span class="math notranslate nohighlight">\(S\)</span> be the event that you switch. We are interested in comparing <span class="math notranslate nohighlight">\(P(W_2|S)\)</span> with <span class="math notranslate nohighlight">\(P(W_2 | \overline{S})\)</span>.</p>
+<p>Consider <span class="math notranslate nohighlight">\(\overline{S}\)</span> first. Because there are two goats and the host always shows you a goat, the fact that he reveals a goat to you does not change the probability that you have selected the car. Thus <span class="math notranslate nohighlight">\(P(W_2|\overline{S}) = P(W_1) = 1/3\)</span>.</p>
+<p>Now consider <span class="math notranslate nohighlight">\(S\)</span>.  It may be tempting to think that either:</p>
+<ol class="simple">
+<li><p>Switching doesn’t matter because the host was always going to show you a goat, so your new choice is just as likely to be a car as it was before, or</p></li>
+<li><p>After the host reveals a goat, there is one goat and one car, so the probability of choosing the car when you switch is 1/2.</p></li>
+</ol>
+<p>Unfortunately, neither of these are correct! Let’s condition on what happens on choice 1:</p>
+<div class="math notranslate nohighlight">
+\[
+P(W_2|S) = P(W_2|S \cap W_1) P(W_1|S) + P(W_2|S \cap \overline{W_1} ) P(\overline{W_1}|S).
+\]</div>
+<p>The probability of winning on choice 1 does not depend on whether you switch after that choice, so <span class="math notranslate nohighlight">\(P(W_1|S) = P(W_1) = 1/3\)</span>, and $P(\overline{W_1}|S) = P(\overline{W_1})= 2/3.</p>
+<p>Now, consider what happens on the second choice. There are two possibilities:</p>
+<ul class="simple">
+<li><p>If you are winning on the first choice (<span class="math notranslate nohighlight">\(W_1\)</span>), then the two doors you have not chosen both contain goats. The host reveals one of the goats, and you will switch to the other goat. Thus, <span class="math notranslate nohighlight">\(P(W_2|W_1) =0\)</span>.</p></li>
+<li><p>If you are not winning on the first choice (<span class="math notranslate nohighlight">\(\overline{W_1}\)</span>), then one of the doors you have not chosen has a goat and the other has the car. The host shows the goat that is not behind your door. Then if you switch, you will switch to the door with the car. Thus, <span class="math notranslate nohighlight">\(P(W_1 | \overline{W_1}) = 1\)</span>.</p></li>
+</ul>
+<p>Putting this all together,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7dd69b3b-18e5-4d61-a246-140ae356a956">
+<span class="eqno">(6.20)<a class="headerlink" href="#equation-7dd69b3b-18e5-4d61-a246-140ae356a956" title="Permalink to this equation">¶</a></span>\[\begin{align}
+P(W_2|S) &amp;= P(W_2|S \cap W_1) P(W_1|S) + P(W_2|S \cap \overline{W_1} ) P(\overline{W_1}|S) \\
+&amp;= \biggl( 0 \biggr) \left( \frac 1 3 \right) 
++ \biggl( 1 \biggr) \left( \frac 2 3 \right) \\
+&amp;= \frac 2 3.
+\end{align}\]</div>
+<p>Why is the probability not 1/2 using the reasoning above about one car and one goat left? Because you do not randomly choose among the two doors. The host is revealing information when he reveals the goat because he cannot choose your door, and he cannot choose the door with the car. If you were to randomly choose between the two doors after the goat is revealed, the probability would be 1/2.</p>
 </div>
 </div>
 
