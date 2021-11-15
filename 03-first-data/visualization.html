@@ -556,7 +556,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb3a38a0b90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8122a90cd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_5_1.png" src="../_images/visualization_5_1.png" />
@@ -574,7 +574,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb3a428cc10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8122bb4790&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_9_1.png" src="../_images/visualization_9_1.png" />
@@ -600,7 +600,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb3a444e350&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8122c5e290&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_11_1.png" src="../_images/visualization_11_1.png" />
@@ -621,7 +621,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb3a4596ed0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f8122d3b790&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_13_1.png" src="../_images/visualization_13_1.png" />
@@ -671,7 +671,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb3a4701f90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8122b04710&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_19_1.png" src="../_images/visualization_19_1.png" />
@@ -690,7 +690,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb3a4852f90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f812305d890&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_21_1.png" src="../_images/visualization_21_1.png" />
@@ -813,7 +813,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb3a4f9a410&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8123921d90&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_33_1.png" src="../_images/visualization_33_1.png" />
@@ -1338,7 +1338,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb3a510ad50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f8123b2c6d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/visualization_39_1.png" src="../_images/visualization_39_1.png" />
@@ -2082,6 +2082,7 @@
 
 function jaxify(string) {
     var mystring = string;
+    console.log(mystring);
 
     count = 0;
     var loc = mystring.search(/([^\\]|^)(\$)/);
@@ -2125,6 +2126,19 @@ function flip(ths) {
     var next=document.getElementById(ths.id+'-next');
     next.style.pointerEvents='none';
     next.classList.add('flipped');
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([ths]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+
     setTimeout(reenableNext, 700, next);
 }
 
@@ -2189,8 +2203,34 @@ function cleanup(container, frontcard, backcard, next) {
         next.innerHTML="Next >";
     } else {
         next.innerHTML="Reload \\(\\circlearrowleft\\) ";
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([next]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
     }
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+
     next.style.pointerEvents='auto';
     container.style.pointerEvents='auto';
     next.classList.remove('hide');
@@ -2232,7 +2272,6 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
 
 
     front.append(frontSpan);
-
     flipper.append(front);
 
     var back = document.createElement('div');
@@ -2281,7 +2320,32 @@ function createCards(id) {
             flipper=createOneCard(mydiv, false, cards, cardnum);
         }
 
-                mydiv.append(flipper);
+        mydiv.append(flipper);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            if (typeof version == 'undefined') {
+                setTimeout(function(){
+                    var version = MathJax.version;
+                    console.log('After sleep, MathJax version', version);
+                    if (version[0] == "2") {
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    } else if (version[0] == "3") {
+                        MathJax.typeset([flipper]);
+                    }
+                }, 500);
+            } else{
+                console.log('MathJax version', version);
+                if (version[0] == "2") {
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                } else if (version[0] == "3") {
+                    MathJax.typeset([flipper]);
+                }
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
         cardnum = (cardnum + 1) % mydiv.dataset.numCards;
     }
     mydiv.dataset.cardnum = cardnum;
@@ -2304,7 +2368,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsGnYJtgbNtghY=[
+    cardsKVeTRgRFyBrM=[
     {
         "front": "outlier",
         "back": "A value in a dataset that takes on a value that is not reasonable, based on the other values in the dataset or other domain knowledge. Outliers are often due to data entry, measurement, or unit conversion errors."
@@ -2321,14 +2385,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/03-first-data/flashcards/visualization.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("GnYJtgbNtghY"))
+        .then(json => createCards("KVeTRgRFyBrM"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("GnYJtgbNtghY");
+        createCards("KVeTRgRFyBrM");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="GnYJtgbNtghY" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="GnYJtgbNtghY-next" onclick="checkFlip('GnYJtgbNtghY')" >  </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="KVeTRgRFyBrM" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="KVeTRgRFyBrM-next" onclick="checkFlip('KVeTRgRFyBrM')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>

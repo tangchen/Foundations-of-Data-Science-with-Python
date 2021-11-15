@@ -533,15 +533,7 @@
 <p>In this Chapter, we started working with real data, introduced Pands, partitions, summary statistics, binary hypothesis testing via bootstrap resampling, and two-dimensional statistics.</p>
 <div class="section" id="terminology-review">
 <h2><span class="section-number">3.8.1. </span>Terminology Review<a class="headerlink" href="#terminology-review" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">jupytercards</span> <span class="kn">import</span> <span class="n">display_flashcards</span>
-
-<span class="n">github</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/03-first-data/flashcards/&#39;</span>
-<span class="n">display_flashcards</span><span class="p">(</span><span class="n">github</span><span class="o">+</span><span class="s1">&#39;review.json&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><style>
 :root{
@@ -712,6 +704,7 @@
 
 function jaxify(string) {
     var mystring = string;
+    console.log(mystring);
 
     count = 0;
     var loc = mystring.search(/([^\\]|^)(\$)/);
@@ -755,6 +748,19 @@ function flip(ths) {
     var next=document.getElementById(ths.id+'-next');
     next.style.pointerEvents='none';
     next.classList.add('flipped');
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([ths]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+
     setTimeout(reenableNext, 700, next);
 }
 
@@ -819,8 +825,34 @@ function cleanup(container, frontcard, backcard, next) {
         next.innerHTML="Next >";
     } else {
         next.innerHTML="Reload \\(\\circlearrowleft\\) ";
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([next]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
     }
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+
     next.style.pointerEvents='auto';
     container.style.pointerEvents='auto';
     next.classList.remove('hide');
@@ -862,7 +894,6 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
 
 
     front.append(frontSpan);
-
     flipper.append(front);
 
     var back = document.createElement('div');
@@ -911,7 +942,32 @@ function createCards(id) {
             flipper=createOneCard(mydiv, false, cards, cardnum);
         }
 
-                mydiv.append(flipper);
+        mydiv.append(flipper);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            if (typeof version == 'undefined') {
+                setTimeout(function(){
+                    var version = MathJax.version;
+                    console.log('After sleep, MathJax version', version);
+                    if (version[0] == "2") {
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    } else if (version[0] == "3") {
+                        MathJax.typeset([flipper]);
+                    }
+                }, 500);
+            } else{
+                console.log('MathJax version', version);
+                if (version[0] == "2") {
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                } else if (version[0] == "3") {
+                    MathJax.typeset([flipper]);
+                }
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
         cardnum = (cardnum + 1) % mydiv.dataset.numCards;
     }
     mydiv.dataset.cardnum = cardnum;
@@ -934,7 +990,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsLYDKSDMKAqhc=[
+    cardsRZZGaWUGvxpf=[
     {
         "front": "disjoint",
         "back": "collections of data are disjoint if no data point belongs to more than one of the collections"
@@ -990,21 +1046,23 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/03-first-data/flashcards/review.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("LYDKSDMKAqhc"))
+        .then(json => createCards("RZZGaWUGvxpf"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("LYDKSDMKAqhc");
+        createCards("RZZGaWUGvxpf");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="LYDKSDMKAqhc" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="LYDKSDMKAqhc-next" onclick="checkFlip('LYDKSDMKAqhc')" >  </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="RZZGaWUGvxpf" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="RZZGaWUGvxpf-next" onclick="checkFlip('RZZGaWUGvxpf')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 <div class="section" id="self-assessment-questions">
 <h2><span class="section-number">3.8.2. </span>Self-Assessment Questions<a class="headerlink" href="#self-assessment-questions" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="TOdOtInMlvua" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="libHVEVEALcy" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1163,7 +1221,7 @@ function createCards(id) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsTOdOtInMlvua=[
+}</style><script type="text/Javascript">var questionslibHVEVEALcy=[
     {
         "question": "Choose all of the following that are useful error metrics that can be minimized to create a summary statistic:",
         "type": "many_choice",
@@ -1280,7 +1338,7 @@ function createCards(id) {
         ]
     }
 ];
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -1610,7 +1668,6 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -1897,10 +1954,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/ch3.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, TOdOtInMlvua))
+        .then(json => show_questions(json, libHVEVEALcy))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsTOdOtInMlvua, TOdOtInMlvua);
+        show_questions(questionslibHVEVEALcy, libHVEVEALcy);
         });
         }
         </script>
@@ -1912,7 +1969,9 @@ function show_questions(json, mydiv) {
 <p>Answer these questions to check your retention on knowledge from Chapters 1 and 2:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="nFoDslHSZDoM" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="3"><style>:root {
+<div class="output text_html"><div id="jIeebDrkCBiY" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="3"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -2071,7 +2130,7 @@ function show_questions(json, mydiv) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsnFoDslHSZDoM=[
+}</style><script type="text/Javascript">var questionsjIeebDrkCBiY=[
     {
         "question": "Choose all of the following that can be included in Jupyter notebooks?",
         "type": "many_choice",
@@ -2316,7 +2375,7 @@ function show_questions(json, mydiv) {
     }
 ]
 ;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -2646,7 +2705,6 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -2933,10 +2991,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/ch1.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, nFoDslHSZDoM))
+        .then(json => show_questions(json, jIeebDrkCBiY))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsnFoDslHSZDoM, nFoDslHSZDoM);
+        show_questions(questionsjIeebDrkCBiY, jIeebDrkCBiY);
         });
         }
         </script>
@@ -2944,7 +3002,9 @@ function show_questions(json, mydiv) {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="DkDCLEQJsyEG" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="2"><style>:root {
+<div class="output text_html"><div id="PyThjEcquZFr" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="2"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -3103,7 +3163,7 @@ function show_questions(json, mydiv) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsDkDCLEQJsyEG=[
+}</style><script type="text/Javascript">var questionsPyThjEcquZFr=[
     {
         "question": "Which of these cannot be a probability?",
         "type": "multiple_choice",
@@ -3183,7 +3243,7 @@ function show_questions(json, mydiv) {
     }
 ]
 ;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -3513,7 +3573,6 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
                 MathJax.typeset();
@@ -3800,10 +3859,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/ch2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, DkDCLEQJsyEG))
+        .then(json => show_questions(json, PyThjEcquZFr))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsDkDCLEQJsyEG, DkDCLEQJsyEG);
+        show_questions(questionsPyThjEcquZFr, PyThjEcquZFr);
         });
         }
         </script>
