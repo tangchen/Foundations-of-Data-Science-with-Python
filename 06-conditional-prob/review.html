@@ -42,7 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -738,6 +738,19 @@ function flip(ths) {
     var next=document.getElementById(ths.id+'-next');
     next.style.pointerEvents='none';
     next.classList.add('flipped');
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([ths]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+
     setTimeout(reenableNext, 700, next);
 }
 
@@ -802,8 +815,34 @@ function cleanup(container, frontcard, backcard, next) {
         next.innerHTML="Next >";
     } else {
         next.innerHTML="Reload \\(\\circlearrowleft\\) ";
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([next]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
     }
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+
     next.style.pointerEvents='auto';
     container.style.pointerEvents='auto';
     next.classList.remove('hide');
@@ -845,7 +884,6 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
 
 
     front.append(frontSpan);
-
     flipper.append(front);
 
     var back = document.createElement('div');
@@ -894,7 +932,32 @@ function createCards(id) {
             flipper=createOneCard(mydiv, false, cards, cardnum);
         }
 
-                mydiv.append(flipper);
+        mydiv.append(flipper);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            if (typeof version == 'undefined') {
+                setTimeout(function(){
+                    var version = MathJax.version;
+                    console.log('After sleep, MathJax version', version);
+                    if (version[0] == "2") {
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    } else if (version[0] == "3") {
+                        MathJax.typeset([flipper]);
+                    }
+                }, 500);
+            } else{
+                console.log('MathJax version', version);
+                if (version[0] == "2") {
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                } else if (version[0] == "3") {
+                    MathJax.typeset([flipper]);
+                }
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
         cardnum = (cardnum + 1) % mydiv.dataset.numCards;
     }
     mydiv.dataset.cardnum = cardnum;
@@ -917,7 +980,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardshzoGuggnPzNr=[
+    cardsVIpqlxwMtuPq=[
     {
         "front": "conditional probability",
         "back": "The conditional probability of an event $A$ given that an event $B$ occurred, where $P(B) \\ne 0$, is \n $$ P(A|B) = \\frac{P \\left( A \\cap B \\right)}{P\\left(B\\right)}\n$$"
@@ -954,14 +1017,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/06-conditional-prob/flashcards/review.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("hzoGuggnPzNr"))
+        .then(json => createCards("VIpqlxwMtuPq"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("hzoGuggnPzNr");
+        createCards("VIpqlxwMtuPq");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="hzoGuggnPzNr" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="hzoGuggnPzNr-next" onclick="checkFlip('hzoGuggnPzNr')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="VIpqlxwMtuPq" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="VIpqlxwMtuPq-next" onclick="checkFlip('VIpqlxwMtuPq')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 <div class="section" id="self-assessment-exercises">
@@ -970,7 +1033,7 @@ function createCards(id) {
 <p><span class="math notranslate nohighlight">\(\mbox{ }\)</span></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="TtLlPCEdGgjE" data-shufflequestions="False"
+<div class="output text_html"><div id="MIdLpMyvtUGB" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -1131,7 +1194,7 @@ function createCards(id) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsTtLlPCEdGgjE=[
+}</style><script type="text/Javascript">var questionsMIdLpMyvtUGB=[
     {
         "question": "How are \"mutually exclusive\" and \"statistically independent\" related?",
         "type": "multiple_choice",
@@ -1861,10 +1924,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/06-conditional-prob/quiz/review.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, TtLlPCEdGgjE))
+        .then(json => show_questions(json, MIdLpMyvtUGB))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsTtLlPCEdGgjE, TtLlPCEdGgjE);
+        show_questions(questionsMIdLpMyvtUGB, MIdLpMyvtUGB);
         });
         }
         </script>

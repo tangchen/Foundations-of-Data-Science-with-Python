@@ -42,7 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -732,7 +732,7 @@ P(G_1 \cup G_2) &amp;= P(G_1) + P(G_2) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(E1 or E2) =~ 0.55448
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(E1 or E2) =~ 0.55755
 </pre></div>
 </div>
 </div>
@@ -1077,6 +1077,7 @@ P\left( E_1 \cup E_2 \right) &amp;= \frac{ \left \vert E_1 \cup E_2 \right \vert
 
 function jaxify(string) {
     var mystring = string;
+    console.log(mystring);
 
     count = 0;
     var loc = mystring.search(/([^\\]|^)(\$)/);
@@ -1120,6 +1121,19 @@ function flip(ths) {
     var next=document.getElementById(ths.id+'-next');
     next.style.pointerEvents='none';
     next.classList.add('flipped');
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset([ths]);
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+
     setTimeout(reenableNext, 700, next);
 }
 
@@ -1184,8 +1198,34 @@ function cleanup(container, frontcard, backcard, next) {
         next.innerHTML="Next >";
     } else {
         next.innerHTML="Reload \\(\\circlearrowleft\\) ";
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            console.log('MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([next]);
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
     }
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+    if (typeof MathJax != 'undefined') {
+        var version = MathJax.version;
+        console.log('MathJax version', version);
+        if (version[0] == "2") {
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else if (version[0] == "3") {
+            MathJax.typeset();
+        }
+    } else {
+        console.log('MathJax not detected');
+    }
+
+
     next.style.pointerEvents='auto';
     container.style.pointerEvents='auto';
     next.classList.remove('hide');
@@ -1227,7 +1267,6 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
 
 
     front.append(frontSpan);
-
     flipper.append(front);
 
     var back = document.createElement('div');
@@ -1276,7 +1315,32 @@ function createCards(id) {
             flipper=createOneCard(mydiv, false, cards, cardnum);
         }
 
-                mydiv.append(flipper);
+        mydiv.append(flipper);
+        if (typeof MathJax != 'undefined') {
+            var version = MathJax.version;
+            if (typeof version == 'undefined') {
+                setTimeout(function(){
+                    var version = MathJax.version;
+                    console.log('After sleep, MathJax version', version);
+                    if (version[0] == "2") {
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    } else if (version[0] == "3") {
+                        MathJax.typeset([flipper]);
+                    }
+                }, 500);
+            } else{
+                console.log('MathJax version', version);
+                if (version[0] == "2") {
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                } else if (version[0] == "3") {
+                    MathJax.typeset([flipper]);
+                }
+            }
+        } else {
+            console.log('MathJax not detected');
+        }
+
+
         cardnum = (cardnum + 1) % mydiv.dataset.numCards;
     }
     mydiv.dataset.cardnum = cardnum;
@@ -1299,7 +1363,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsoXRDlIaeLkUw=[
+    cardsKqKdEbIcdvdS=[
     {
         "front": "event class",
         "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\mathcal{F}$ is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\mathcal{F}$ are called events."
@@ -1324,14 +1388,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/04-probability1/flashcards/axiomatic-prob.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("oXRDlIaeLkUw"))
+        .then(json => createCards("KqKdEbIcdvdS"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("oXRDlIaeLkUw");
+        createCards("KqKdEbIcdvdS");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="oXRDlIaeLkUw" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="oXRDlIaeLkUw-next" onclick="checkFlip('oXRDlIaeLkUw')" >  </div><div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="KqKdEbIcdvdS" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="KqKdEbIcdvdS-next" onclick="checkFlip('KqKdEbIcdvdS')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>
