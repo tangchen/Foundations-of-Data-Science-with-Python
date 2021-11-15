@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>6.6. Statistical Independence &#8212; Foundations of Data Science with Python</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -42,7 +42,7 @@
     <script src="../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -56,7 +56,10 @@
     <link rel="next" title="6.7. Conditional Probabilities and Independence in Fair Experiments" href="fair-exps.html" />
     <link rel="prev" title="6.5. More on Simulating Conditional Probabilities" href="more-on-simulating.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -2293,8 +2296,8 @@ function show_questions(json, mydiv) {
 <p>I.e., if the probability of an event <span class="math notranslate nohighlight">\(A\)</span> occurring does not depend on whether some event <span class="math notranslate nohighlight">\(B\)</span> occurs, then it cannot depend on whether the event <span class="math notranslate nohighlight">\(B\)</span> does not occur.  This probably matches your intuition. However, we should verify it. Let’s check the first example. We need to evaluate <span class="math notranslate nohighlight">\(P(A \cap \overline{B})\)</span> to see if it factors as <span class="math notranslate nohighlight">\(P(A)P(\overline{B})\)</span>. Referring to the Venn diagram below, we can see that <span class="math notranslate nohighlight">\(A\)</span> consists of the union of the mutually exclusive parts,  <span class="math notranslate nohighlight">\(A \cap B\)</span> and <span class="math notranslate nohighlight">\(A \cap \overline{B}\)</span>. So we can write <span class="math notranslate nohighlight">\(P\left(A \cap \overline{B} \right)= P(A) - P(A \cap B)\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/si-intersection.png"><img alt="Venn Diagram Showing Relation of $A$, $A \cap \overline{B}$, and $A \cap B$" src="../_images/si-intersection.png" style="width: 400px;" /></a>
 <p>Then by utilizing the fact that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are s.i., we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8a40b39b-b7f8-4319-829c-765576328b7c">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-8a40b39b-b7f8-4319-829c-765576328b7c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4d61d8f4-1a42-4d5d-8d18-d126bade1569">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-4d61d8f4-1a42-4d5d-8d18-d126bade1569" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
  &amp;= P(A) - P(A) P(B) \\
  &amp;= P(A) \left[ 1- P\left(B\right) \right] \\
@@ -2304,8 +2307,8 @@ P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
 <p><strong>Example</strong></p>
 <p><strong>(Take 4)</strong> A fair six-sided die is rolled twice.  What is the probability that either of the rolls is a value less than 3?</p>
 <p>As before, let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3, for <span class="math notranslate nohighlight">\(i=1,2\)</span>, and <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are s.i. then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1e741404-47b1-4f50-a29d-3506c78be335">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-1e741404-47b1-4f50-a29d-3506c78be335" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6a5dfc37-6e92-455f-ac69-5f5862be0aa8">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-6a5dfc37-6e92-455f-ac69-5f5862be0aa8" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 &amp;= 1 - P\left( \overline{E_1} \cap \overline{E_2} \right) \\
 &amp;= 1 - P\left( \overline{E_1} \right) P\left( \overline{E_2} \right) \\
@@ -2328,8 +2331,8 @@ P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 <dt>statistically independent (for any number of events)</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-e290c67d-8ed0-4157-aab5-794d144f99a0">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-e290c67d-8ed0-4157-aab5-794d144f99a0" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5cc85fa6-cf4e-423e-9af8-c97046f6175c">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-5cc85fa6-cf4e-423e-9af8-c97046f6175c" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j \\
 P(E_i \cap E_j \cap E_k) &amp;= P(E_i) P(E_j) P(E_k), ~~ \forall i \ne j \ne k \\
 \ldots
@@ -2353,8 +2356,8 @@ P(E_0 \cap E_1 \cap \ldots \cap E_{n-1}) &amp;= P(E_0) P(E_1) \cdots P(E_{n-1}),
 <dt>pairwise statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it pairwise statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-df1700d2-5bf4-49da-8897-9979c7f713ae">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-df1700d2-5bf4-49da-8897-9979c7f713ae" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-558d345c-ba64-4502-9289-2cb2ec803dde">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-558d345c-ba64-4502-9289-2cb2ec803dde" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j 
 \end{align}\]</div>
 </div>
@@ -2363,8 +2366,8 @@ P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j
 </div>
 </div>
 <p>We want to use complements to convert the unions to intersections and the resulting general form looks like</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6de96c55-5979-48fd-a11d-1710a5582b3a">
-<span class="eqno">(6.7)<a class="headerlink" href="#equation-6de96c55-5979-48fd-a11d-1710a5582b3a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7912255a-b647-498a-891a-5c11a30673aa">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-7912255a-b647-498a-891a-5c11a30673aa" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left( \bigcup_i E_i \right) &amp;=
 1- \prod_i \left[ 1- P\left( E_i \right) \right].
 \end{align}\]</div>
@@ -4545,31 +4548,22 @@ function createCards(id) {
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="more-on-simulating.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">6.5. </span>More on Simulating Conditional Probabilities</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="more-on-simulating.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">6.5. </span>More on Simulating Conditional Probabilities</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="fair-exps.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.7. </span>Conditional Probabilities and Independence in Fair Experiments</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="fair-exps.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">6.7. </span>Conditional Probabilities and Independence in Fair Experiments</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -4590,8 +4584,7 @@ function createCards(id) {
       </div>
     </div>
   
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
