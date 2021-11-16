@@ -547,7 +547,9 @@ is</p>
 <p>Use basic counting to answer the following (non-conditional) probability questions:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="VqLqBpFcEVUl" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="mOYTNynrEcbA" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -706,7 +708,7 @@ is</p>
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsVqLqBpFcEVUl=[
+}</style><script type="text/Javascript">var questionsmOYTNynrEcbA=[
     {
         "question": "For the Defective Computers in a Lab problem, the sample space can be written as $$S=\\left\\{AD, AN, BD_1, BD_2, BN\\right\\}.$$ A user sits down at a computer at random. Find $P(E_A)$, the probability that the computer is from manufacturer $A$. ",
         "type": "numeric",
@@ -814,7 +816,7 @@ is</p>
     }
 ]
 ;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -968,7 +970,7 @@ function check_mc() {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([fb]);
         }
     } else {
         console.log('MathJax not detected');
@@ -1124,7 +1126,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1144,10 +1146,9 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -1411,12 +1412,25 @@ function show_questions(json, mydiv) {
     if (typeof MathJax != 'undefined') {
         console.log("MathJax version", MathJax.version);
         var version = MathJax.version;
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        } else {
-            console.log("MathJax not found");
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
         }
     }
     return false;
@@ -1431,10 +1445,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/computerlab.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, VqLqBpFcEVUl))
+        .then(json => show_questions(json, mOYTNynrEcbA))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsVqLqBpFcEVUl, VqLqBpFcEVUl);
+        show_questions(questionsmOYTNynrEcbA, mOYTNynrEcbA);
         });
         }
         </script>
@@ -1456,7 +1470,9 @@ P(E_D) = P(\left\{AD\right\}) = \frac{ \left \vert \left\{AD\right\} \right \ver
 <p>Use this approach to answer the following questions:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="BPExccFphKzW" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="NtACvCnoNjwr" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1615,7 +1631,7 @@ P(E_D) = P(\left\{AD\right\}) = \frac{ \left \vert \left\{AD\right\} \right \ver
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsBPExccFphKzW=[
+}</style><script type="text/Javascript">var questionsNtACvCnoNjwr=[
     {
         "question": "For the Defective Computers in a Lab problem, find the conditional probability that the chosen computer is from manfacturer $A$ given that it is defective, $P(E_A|E_D)$.",
         "type": "numeric",
@@ -1688,7 +1704,7 @@ P(E_D) = P(\left\{AD\right\}) = \frac{ \left \vert \left\{AD\right\} \right \ver
     }
 ]
 ;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -1842,7 +1858,7 @@ function check_mc() {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([fb]);
         }
     } else {
         console.log('MathJax not detected');
@@ -1998,7 +2014,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -2018,10 +2034,9 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -2285,12 +2300,25 @@ function show_questions(json, mydiv) {
     if (typeof MathJax != 'undefined') {
         console.log("MathJax version", MathJax.version);
         var version = MathJax.version;
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        } else {
-            console.log("MathJax not found");
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
         }
     }
     return false;
@@ -2305,10 +2333,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/computerlab2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, BPExccFphKzW))
+        .then(json => show_questions(json, NtACvCnoNjwr))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsBPExccFphKzW, BPExccFphKzW);
+        show_questions(questionsNtACvCnoNjwr, NtACvCnoNjwr);
         });
         }
         </script>

@@ -569,15 +569,15 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fair
-fair
-2head
-2head
-2head
-2head
 2head
 2head
 fair
+fair
+fair
 2head
+fair
+2head
+fair
 </pre></div>
 </div>
 </div>
@@ -607,15 +607,15 @@ fair
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fair T
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2head H
 fair H
-2head H
 fair T
 2head H
-fair T
 2head H
-fair T
 fair H
+fair T
+2head H
+2head H
 fair T
 </pre></div>
 </div>
@@ -652,7 +652,7 @@ fair T
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H is approximately 0.75133
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H is approximately 0.74805
 </pre></div>
 </div>
 </div>
@@ -713,7 +713,7 @@ fair T
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H2 is approximately 0.7493
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of H2 is approximately 0.74509
 </pre></div>
 </div>
 </div>
@@ -734,7 +734,9 @@ fair T
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="IrSVGDSXTjEJ" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="rGrmagvnpOdl" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -893,7 +895,7 @@ fair T
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsIrSVGDSXTjEJ=[
+}</style><script type="text/Javascript">var questionsrGrmagvnpOdl=[
     {
         "question": "For the magician's coin problem, what do you believe is the value of $P(H_2|H_1)$? (You can enter a fraction or at least two decimal places).",
         "type": "numeric",
@@ -927,7 +929,7 @@ fair T
     }
 ]
 ;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -1081,7 +1083,7 @@ function check_mc() {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([fb]);
         }
     } else {
         console.log('MathJax not detected');
@@ -1237,7 +1239,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1257,10 +1259,9 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -1524,12 +1525,25 @@ function show_questions(json, mydiv) {
     if (typeof MathJax != 'undefined') {
         console.log("MathJax version", MathJax.version);
         var version = MathJax.version;
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        } else {
-            console.log("MathJax not found");
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
         }
     }
     return false;
@@ -1544,10 +1558,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/magician2.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, IrSVGDSXTjEJ))
+        .then(json => show_questions(json, rGrmagvnpOdl))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsIrSVGDSXTjEJ, IrSVGDSXTjEJ);
+        show_questions(questionsrGrmagvnpOdl, rGrmagvnpOdl);
         });
         }
         </script>
@@ -1592,7 +1606,7 @@ Then the probability we are looking for is the ratio of the second counter to th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of heads on second flip given heads on first flip is 0.830221392371299
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prob. of heads on second flip given heads on first flip is 0.834508447518957
 </pre></div>
 </div>
 </div>
@@ -1603,7 +1617,9 @@ Then the probability we are looking for is the ratio of the second counter to th
 <p>Modify the simulation for the Magician’s coin to answer the following question.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="plquxBvuImOI" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1"><style>:root {
+<div class="output text_html"><div id="uMVVaHkEyjyO" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1762,7 +1778,7 @@ Then the probability we are looking for is the ratio of the second counter to th
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsplquxBvuImOI=[
+}</style><script type="text/Javascript">var questionsuMVVaHkEyjyO=[
     {
         "question": "Suppose a magician has three coins: one is a fair coin, and two are two-headed coins. The magician chooses a coin at random and flips it. If the coin comes up heads, what is the probability it will come up heads on a second flip of the same coin?",
         "type": "numeric",
@@ -1832,7 +1848,7 @@ Then the probability we are looking for is the ratio of the second counter to th
     }
 ]
 ;
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -1986,7 +2002,7 @@ function check_mc() {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([fb]);
         }
     } else {
         console.log('MathJax not detected');
@@ -2142,7 +2158,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -2162,10 +2178,9 @@ function check_numeric(ths, event) {
             var version = MathJax.version;
             console.log('MathJax version', version);
             if (version[0] == "2") {
-                console.log("Triggering typesetting, I hope.");
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -2429,12 +2444,25 @@ function show_questions(json, mydiv) {
     if (typeof MathJax != 'undefined') {
         console.log("MathJax version", MathJax.version);
         var version = MathJax.version;
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        } else {
-            console.log("MathJax not found");
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
         }
     }
     return false;
@@ -2449,10 +2477,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/magician-post.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, plquxBvuImOI))
+        .then(json => show_questions(json, uMVVaHkEyjyO))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsplquxBvuImOI, plquxBvuImOI);
+        show_questions(questionsuMVVaHkEyjyO, uMVVaHkEyjyO);
         });
         }
         </script>

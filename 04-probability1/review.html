@@ -663,14 +663,14 @@
 }
 
 
-.card{
+.flashcard{
     border-radius: 10px;
     color: #fafafa;
     display:block;
     padding:10px;
 
 }
-.cardtext{
+.flashcardtext{
     color: var(--snow);
     font-size: 20pt;
     margin-left:3%;
@@ -874,10 +874,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     }
 
     var front = document.createElement('div');
-    front.className='front card';
+    front.className='front flashcard';
 
     var frontSpan= document.createElement('span');
-    frontSpan.className='cardtext';
+    frontSpan.className='flashcardtext';
     frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
     //frontSpan.textContent=jaxify(cards[cardnum]['front']);
     front.style.background='var(' + colors[cardnum % colors.length] + ')';
@@ -887,10 +887,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     flipper.append(front);
 
     var back = document.createElement('div');
-    back.className='back card';
+    back.className='back flashcard';
 
     var backSpan= document.createElement('span');
-    backSpan.className='cardtext';
+    backSpan.className='flashcardtext';
     backSpan.innerHTML=jaxify(cards[cardnum]['back']);
     back.append(backSpan);
 
@@ -980,7 +980,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardszfdoXTdBQbvF=[
+    cardsmhtlStyQPryn=[
     {
         "front": "event class",
         "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\mathcal{F}$ is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\mathcal{F}$ are called events."
@@ -1049,14 +1049,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/04-probability1/flashcards/review.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("zfdoXTdBQbvF"))
+        .then(json => createCards("mhtlStyQPryn"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("zfdoXTdBQbvF");
+        createCards("mhtlStyQPryn");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="zfdoXTdBQbvF" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="zfdoXTdBQbvF-next" onclick="checkFlip('zfdoXTdBQbvF')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="mhtlStyQPryn" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="mhtlStyQPryn-next" onclick="checkFlip('mhtlStyQPryn')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 <div class="section" id="self-assessment-exercises">
@@ -1065,7 +1065,7 @@ function createCards(id) {
 <p><span class="math notranslate nohighlight">\(\mbox{ }\)</span></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="eZPMFiaVOumv" data-shufflequestions="False"
+<div class="output text_html"><div id="CgFnJSPAhAaW" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -1226,7 +1226,7 @@ function createCards(id) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionseZPMFiaVOumv=[
+}</style><script type="text/Javascript">var questionsCgFnJSPAhAaW=[
     {
         "question": "If I roll a fair 6-sided die two times, what is the probability that at least one of those dice show a 1 on the top face? Answer as a fraction or a decimal with at least 2 significant digits.",
         "type": "numeric",
@@ -1794,7 +1794,7 @@ function check_mc() {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([fb]);
         }
     } else {
         console.log('MathJax not detected');
@@ -1950,7 +1950,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1972,7 +1972,7 @@ function check_numeric(ths, event) {
             if (version[0] == "2") {
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -2236,12 +2236,25 @@ function show_questions(json, mydiv) {
     if (typeof MathJax != 'undefined') {
         console.log("MathJax version", MathJax.version);
         var version = MathJax.version;
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        } else {
-            console.log("MathJax not found");
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
         }
     }
     return false;
@@ -2256,10 +2269,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/ch4.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, eZPMFiaVOumv))
+        .then(json => show_questions(json, CgFnJSPAhAaW))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionseZPMFiaVOumv, eZPMFiaVOumv);
+        show_questions(questionsCgFnJSPAhAaW, CgFnJSPAhAaW);
         });
         }
         </script>

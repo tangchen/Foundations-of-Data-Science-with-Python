@@ -1004,7 +1004,7 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
 <p>Extend the approach described above to give a formula for the <span class="math notranslate nohighlight">\(|H_3|\)</span>. (For this purpose, I recommend you use three summation terms, although a more general and sophisticated solution for skilled programmers can be created using recursion.) Use Python to evaluate the sum. Check your answer using the self-assessment quiz below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="UVGlwbUNUYli" data-shufflequestions="False"
+<div class="output text_html"><div id="XsbFeslHWJhH" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -1165,7 +1165,7 @@ E_3 = \left\{ (4,6),~(5,5),~(6,4) \right\}.
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsUVGlwbUNUYli=[
+}</style><script type="text/Javascript">var questionsXsbFeslHWJhH=[
     {
         "question": "How many outcomes are in the event $H_3$ (there are 3 heads on 20 flips of a fair coin)?",
         "type": "numeric",
@@ -1526,7 +1526,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1548,7 +1548,7 @@ function check_numeric(ths, event) {
             if (version[0] == "2") {
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -1815,7 +1815,7 @@ function show_questions(json, mydiv) {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([mydiv]);
         } else {
             console.log("MathJax not found");
         }
@@ -1832,10 +1832,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/three_heads.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, UVGlwbUNUYli))
+        .then(json => show_questions(json, XsbFeslHWJhH))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsUVGlwbUNUYli, UVGlwbUNUYli);
+        show_questions(questionsXsbFeslHWJhH, XsbFeslHWJhH);
         });
         }
         </script>
@@ -1956,7 +1956,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
 <p>Use the binom function to calculate the cardinalities and probabilities shown below. (Recall that <span class="math notranslate nohighlight">\(P(H_i) = |H_i|/|S|\)</span>, and we found <span class="math notranslate nohighlight">\(|S|\)</span> further above.)</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="BvuriAuKCocC" data-shufflequestions="False"
+<div class="output text_html"><div id="zFSpyXBVeLcG" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="2"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -2117,7 +2117,7 @@ n! = n(n-1)(n-2)\cdots(2)(1).
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsBvuriAuKCocC=[
+}</style><script type="text/Javascript">var questionszFSpyXBVeLcG=[
     {
         "question": "How many outcomes are in the event $H_4$ (there are 4 heads on 20 flips of a fair coin)?",
         "type": "numeric",
@@ -2580,7 +2580,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -2602,7 +2602,7 @@ function check_numeric(ths, event) {
             if (version[0] == "2") {
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -2869,7 +2869,7 @@ function show_questions(json, mydiv) {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([mydiv]);
         } else {
             console.log("MathJax not found");
         }
@@ -2886,10 +2886,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/binom.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, BvuriAuKCocC))
+        .then(json => show_questions(json, zFSpyXBVeLcG))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsBvuriAuKCocC, BvuriAuKCocC);
+        show_questions(questionszFSpyXBVeLcG, zFSpyXBVeLcG);
         });
         }
         </script>
@@ -2897,7 +2897,7 @@ function show_questions(json, mydiv) {
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="rvvSXaAFghNM" data-shufflequestions="False"
+<div class="output text_html"><div id="YvWZRubdMNqo" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="2"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -3058,7 +3058,7 @@ function show_questions(json, mydiv) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsrvvSXaAFghNM=[
+}</style><script type="text/Javascript">var questionsYvWZRubdMNqo=[
     {
         "question": "Find the probability of 4 heads on 20 flips of a fair coin, $P(H_4)$ to 2 significant digits.",
         "type": "numeric",
@@ -3522,7 +3522,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = jaxify(defaultFB);
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -3544,7 +3544,7 @@ function check_numeric(ths, event) {
             if (version[0] == "2") {
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -3811,7 +3811,7 @@ function show_questions(json, mydiv) {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([mydiv]);
         } else {
             console.log("MathJax not found");
         }
@@ -3828,10 +3828,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/coin-flip-probs.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, rvvSXaAFghNM))
+        .then(json => show_questions(json, YvWZRubdMNqo))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsrvvSXaAFghNM, rvvSXaAFghNM);
+        show_questions(questionsYvWZRubdMNqo, YvWZRubdMNqo);
         });
         }
         </script>
@@ -4299,7 +4299,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsYUgVYjFWoZYX=[
+    cardsLOpgeNQtOfvU=[
     {
         "front": "combinatorics",
         "back": "the mathematics of counting"
@@ -4324,14 +4324,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/04-probability1/flashcards/combinatorics.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("YUgVYjFWoZYX"))
+        .then(json => createCards("LOpgeNQtOfvU"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("YUgVYjFWoZYX");
+        createCards("LOpgeNQtOfvU");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="YUgVYjFWoZYX" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="YUgVYjFWoZYX-next" onclick="checkFlip('YUgVYjFWoZYX')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="LOpgeNQtOfvU" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="LOpgeNQtOfvU-next" onclick="checkFlip('LOpgeNQtOfvU')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>

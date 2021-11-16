@@ -513,7 +513,9 @@
 <p>A class set of probability problems involves pulling colored balls from an urn. I have found that many students are not familiar with the  word <em>urn</em> (which is like a large vase), I will use a box instead. To make the problem interesting, the box must contain more than two balls, and the balls must be of at least two different colors. Below I ask some questions about a box containing three balls, of which two are white and one is black.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="DENSVoXvxjcB" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="hkRPFJKqeHtO" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -672,7 +674,7 @@
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionsDENSVoXvxjcB=[
+}</style><script type="text/Javascript">var questionshkRPFJKqeHtO=[
     {
         "question": "A box contains 2 white balls and 1 black ball. I reach in the box and remove one ball. Without inspecting it, I place it in my pocket. I withdraw a second ball. What is the probability that the second ball is white?",
         "type": "multiple_choice",
@@ -764,7 +766,7 @@
         ]
     }
 ];
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -918,7 +920,7 @@ function check_mc() {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([fb]);
         }
     } else {
         console.log('MathJax not detected');
@@ -1049,7 +1051,7 @@ function check_numeric(ths, event) {
             // if (answer.type=="value"){
             if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1058,7 +1060,7 @@ function check_numeric(ths, event) {
             } else if ('range' in answer) {
                 //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1074,7 +1076,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = defaultFB;
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1096,7 +1098,7 @@ function check_numeric(ths, event) {
             if (version[0] == "2") {
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -1360,12 +1362,25 @@ function show_questions(json, mydiv) {
     if (typeof MathJax != 'undefined') {
         console.log("MathJax version", MathJax.version);
         var version = MathJax.version;
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        } else {
-            console.log("MathJax not found");
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
         }
     }
     return false;
@@ -1380,10 +1395,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/ch5-intro.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, DENSVoXvxjcB))
+        .then(json => show_questions(json, hkRPFJKqeHtO))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsDENSVoXvxjcB, DENSVoXvxjcB);
+        show_questions(questionshkRPFJKqeHtO, hkRPFJKqeHtO);
         });
         }
         </script>
@@ -1402,7 +1417,9 @@ function show_questions(json, mydiv) {
 <p>The host then offers you the option to switch doors. Does it matter if you switch? If switching changes your probability of getting the prize, what is the new probability?</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="kVqzafVvUYBN" data-shufflequestions="False" data-shuffleanswers="True" data-numquestions="1000000"><style>:root {
+<div class="output text_html"><div id="aolZJiLJlKop" data-shufflequestions="False"
+               data-shuffleanswers="True"
+               data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
     --orange-pantone: #f75c03ff;
     --russian-violet: #392061ff;
@@ -1561,7 +1578,7 @@ function show_questions(json, mydiv) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">questionskVqzafVvUYBN=[
+}</style><script type="text/Javascript">var questionsaolZJiLJlKop=[
     {
         "question": "For the Monty Hall problem, does it matter if you switch doors?",
         "type": "multiple_choice",
@@ -1589,7 +1606,7 @@ function show_questions(json, mydiv) {
         ]
     }
 ];
-    //var mydiv=document.getElementById("testDIV");//console.log(mydiv);// Make a random ID
+    // Make a random ID
 function makeid(length) {
     var result = [];
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -1743,7 +1760,7 @@ function check_mc() {
         if (version[0] == "2") {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         } else if (version[0] == "3") {
-            MathJax.typeset();
+            MathJax.typeset([fb]);
         }
     } else {
         console.log('MathJax not detected');
@@ -1874,7 +1891,7 @@ function check_numeric(ths, event) {
             // if (answer.type=="value"){
             if ('value' in answer) {
                 if (submission == answer.value) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1883,7 +1900,7 @@ function check_numeric(ths, event) {
             } else if ('range' in answer) {
                 //console.log(answer.range);
                 if ((submission >= answer.range[0]) && (submission < answer.range[1])) {
-                    fb.textContent = answer.feedback;
+                    fb.textContent = jaxify(answer.feedback);
                     correct = answer.correct;
                     //console.log(answer.correct);
                     done = true;
@@ -1899,7 +1916,7 @@ function check_numeric(ths, event) {
         });
 
         if ((!done) && (defaultFB != "")) {
-            fb.textContent = defaultFB;
+            fb.innerHTML = jaxify(defaultFB);
             //console.log("Default feedback", defaultFB);
         }
 
@@ -1921,7 +1938,7 @@ function check_numeric(ths, event) {
             if (version[0] == "2") {
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
             } else if (version[0] == "3") {
-                MathJax.typeset();
+                MathJax.typeset([fb]);
             }
         } else {
             console.log('MathJax not detected');
@@ -2185,12 +2202,25 @@ function show_questions(json, mydiv) {
     if (typeof MathJax != 'undefined') {
         console.log("MathJax version", MathJax.version);
         var version = MathJax.version;
-        if (version[0] == "2") {
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        } else if (version[0] == "3") {
-            MathJax.typeset();
-        } else {
-            console.log("MathJax not found");
+        setTimeout(function(){
+            var version = MathJax.version;
+            console.log('After sleep, MathJax version', version);
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            }
+        }, 500);
+if (typeof version == 'undefined') {
+        } else
+        {
+            if (version[0] == "2") {
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else if (version[0] == "3") {
+                MathJax.typeset([mydiv]);
+            } else {
+                console.log("MathJax not found");
+            }
         }
     }
     return false;
@@ -2205,10 +2235,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/ch5-monty-hall.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, kVqzafVvUYBN))
+        .then(json => show_questions(json, aolZJiLJlKop))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionskVqzafVvUYBN, kVqzafVvUYBN);
+        show_questions(questionsaolZJiLJlKop, aolZJiLJlKop);
         });
         }
         </script>
