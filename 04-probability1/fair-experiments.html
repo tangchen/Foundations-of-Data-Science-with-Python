@@ -754,14 +754,14 @@ p_H &amp;=\frac{1}{2}
 }
 
 
-.card{
+.flashcard{
     border-radius: 10px;
     color: #fafafa;
     display:block;
     padding:10px;
 
 }
-.cardtext{
+.flashcardtext{
     color: var(--snow);
     font-size: 20pt;
     margin-left:3%;
@@ -965,10 +965,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     }
 
     var front = document.createElement('div');
-    front.className='front card';
+    front.className='front flashcard';
 
     var frontSpan= document.createElement('span');
-    frontSpan.className='cardtext';
+    frontSpan.className='flashcardtext';
     frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
     //frontSpan.textContent=jaxify(cards[cardnum]['front']);
     front.style.background='var(' + colors[cardnum % colors.length] + ')';
@@ -978,10 +978,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     flipper.append(front);
 
     var back = document.createElement('div');
-    back.className='back card';
+    back.className='back flashcard';
 
     var backSpan= document.createElement('span');
-    backSpan.className='cardtext';
+    backSpan.className='flashcardtext';
     backSpan.innerHTML=jaxify(cards[cardnum]['back']);
     back.append(backSpan);
 
@@ -1071,7 +1071,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsNdXAdyjuDLgG=[
+    cardsreHyfBlcYids=[
     {
         "front": "fair (random experiment)",
         "back": "An experiment is said to be fair if every outcome is equally likely."
@@ -1087,14 +1087,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/04-probability1/flashcards/fair-experiments.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("NdXAdyjuDLgG"))
+        .then(json => createCards("reHyfBlcYids"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("NdXAdyjuDLgG");
+        createCards("reHyfBlcYids");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="NdXAdyjuDLgG" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="NdXAdyjuDLgG-next" onclick="checkFlip('NdXAdyjuDLgG')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="reHyfBlcYids" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="reHyfBlcYids-next" onclick="checkFlip('reHyfBlcYids')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>

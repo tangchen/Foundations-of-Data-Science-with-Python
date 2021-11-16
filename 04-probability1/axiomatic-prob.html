@@ -732,7 +732,7 @@ P(G_1 \cup G_2) &amp;= P(G_1) + P(G_2) \\
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(E1 or E2) =~ 0.55755
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P(E1 or E2) =~ 0.55764
 </pre></div>
 </div>
 </div>
@@ -1046,14 +1046,14 @@ P\left( E_1 \cup E_2 \right) &amp;= \frac{ \left \vert E_1 \cup E_2 \right \vert
 }
 
 
-.card{
+.flashcard{
     border-radius: 10px;
     color: #fafafa;
     display:block;
     padding:10px;
 
 }
-.cardtext{
+.flashcardtext{
     color: var(--snow);
     font-size: 20pt;
     margin-left:3%;
@@ -1257,10 +1257,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     }
 
     var front = document.createElement('div');
-    front.className='front card';
+    front.className='front flashcard';
 
     var frontSpan= document.createElement('span');
-    frontSpan.className='cardtext';
+    frontSpan.className='flashcardtext';
     frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
     //frontSpan.textContent=jaxify(cards[cardnum]['front']);
     front.style.background='var(' + colors[cardnum % colors.length] + ')';
@@ -1270,10 +1270,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     flipper.append(front);
 
     var back = document.createElement('div');
-    back.className='back card';
+    back.className='back flashcard';
 
     var backSpan= document.createElement('span');
-    backSpan.className='cardtext';
+    backSpan.className='flashcardtext';
     backSpan.innerHTML=jaxify(cards[cardnum]['back']);
     back.append(backSpan);
 
@@ -1363,7 +1363,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsKqKdEbIcdvdS=[
+    cardsTaRKWEvJxhiJ=[
     {
         "front": "event class",
         "back": "For a sample space $S$ and a probability measure $P$, the event class, denoted by $\\mathcal{F}$ is a collection of all subsets of $S$ to which we will assign probability (i.e., for which $P$ will be defined). The sets in $\\mathcal{F}$ are called events."
@@ -1388,14 +1388,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/04-probability1/flashcards/axiomatic-prob.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("KqKdEbIcdvdS"))
+        .then(json => createCards("TaRKWEvJxhiJ"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("KqKdEbIcdvdS");
+        createCards("TaRKWEvJxhiJ");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="KqKdEbIcdvdS" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="KqKdEbIcdvdS-next" onclick="checkFlip('KqKdEbIcdvdS')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="TaRKWEvJxhiJ" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="TaRKWEvJxhiJ-next" onclick="checkFlip('TaRKWEvJxhiJ')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>
