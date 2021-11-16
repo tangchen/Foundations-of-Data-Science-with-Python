@@ -759,14 +759,14 @@ P(A|B) = \frac{ P(A \cap B)}{B}
 }
 
 
-.card{
+.flashcard{
     border-radius: 10px;
     color: #fafafa;
     display:block;
     padding:10px;
 
 }
-.cardtext{
+.flashcardtext{
     color: var(--snow);
     font-size: 20pt;
     margin-left:3%;
@@ -970,10 +970,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     }
 
     var front = document.createElement('div');
-    front.className='front card';
+    front.className='front flashcard';
 
     var frontSpan= document.createElement('span');
-    frontSpan.className='cardtext';
+    frontSpan.className='flashcardtext';
     frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
     //frontSpan.textContent=jaxify(cards[cardnum]['front']);
     front.style.background='var(' + colors[cardnum % colors.length] + ')';
@@ -983,10 +983,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     flipper.append(front);
 
     var back = document.createElement('div');
-    back.className='back card';
+    back.className='back flashcard';
 
     var backSpan= document.createElement('span');
-    backSpan.className='cardtext';
+    backSpan.className='flashcardtext';
     backSpan.innerHTML=jaxify(cards[cardnum]['back']);
     back.append(backSpan);
 
@@ -1076,7 +1076,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsljBqbGPtnJwH=[
+    cardsasemOlXRqyfz=[
     {
         "front": "conditional probability",
         "back": "The conditional probability of an event $A$ given that an event $B$ occurred, where $P(B) \\ne 0$, is \n $$ P(A|B) = \\frac{P \\left( A \\cap B \\right)}{P\\left(B\\right)}\n$$"
@@ -1093,14 +1093,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/06-conditional-prob/flashcards/definition.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("ljBqbGPtnJwH"))
+        .then(json => createCards("asemOlXRqyfz"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("ljBqbGPtnJwH");
+        createCards("asemOlXRqyfz");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="ljBqbGPtnJwH" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="ljBqbGPtnJwH-next" onclick="checkFlip('ljBqbGPtnJwH')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="asemOlXRqyfz" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="asemOlXRqyfz-next" onclick="checkFlip('asemOlXRqyfz')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>

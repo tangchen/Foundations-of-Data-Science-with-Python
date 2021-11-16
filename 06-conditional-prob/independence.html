@@ -542,7 +542,7 @@
 <p>Based on the discussion above, try to answer the following question about what independence should mean for conditional probabilities. (Don’t worry if you don’t intuitively know the answer – you can keep trying if you don’t get it right at first!)</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="nCdowmViSHsS" data-shufflequestions="False"
+<div class="output text_html"><div id="ChtGtGiYpADb" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -703,7 +703,7 @@
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsnCdowmViSHsS=[
+}</style><script type="text/Javascript">var questionsChtGtGiYpADb=[
     {
         "question": "Consider two events $A$ and $B$ with $P(A)>0$. If these events are independent, then we expect that implies that knowledge of one event does not influence the probabilities of the other. What should $P(B|A)$ simplify to?",
         "type": "multiple_choice",
@@ -1353,10 +1353,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/si-conditional.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, nCdowmViSHsS))
+        .then(json => show_questions(json, ChtGtGiYpADb))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsnCdowmViSHsS, nCdowmViSHsS);
+        show_questions(questionsChtGtGiYpADb, ChtGtGiYpADb);
         });
         }
         </script>
@@ -1462,7 +1462,7 @@ P(E_1 \cup E_2) &amp;= P(E_1) + P(E_2) - P(E_1)P(E_2) \\
 <p>Answer these questions to practice this form of statistical independence:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="evIqUhJVOCOE" data-shufflequestions="False"
+<div class="output text_html"><div id="UvLPrteeKQpk" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -1623,7 +1623,7 @@ P(E_1 \cup E_2) &amp;= P(E_1) + P(E_2) - P(E_1)P(E_2) \\
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsevIqUhJVOCOE=[
+}</style><script type="text/Javascript">var questionsUvLPrteeKQpk=[
     {
         "question": "If you roll a fair six-sided die twice, what is the probability of getting a 3 on both dice?",
         "type": "numeric",
@@ -2278,10 +2278,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/questions/si1.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, evIqUhJVOCOE))
+        .then(json => show_questions(json, UvLPrteeKQpk))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsevIqUhJVOCOE, evIqUhJVOCOE);
+        show_questions(questionsUvLPrteeKQpk, UvLPrteeKQpk);
         });
         }
         </script>
@@ -2296,8 +2296,8 @@ function show_questions(json, mydiv) {
 <p>I.e., if the probability of an event <span class="math notranslate nohighlight">\(A\)</span> occurring does not depend on whether some event <span class="math notranslate nohighlight">\(B\)</span> occurs, then it cannot depend on whether the event <span class="math notranslate nohighlight">\(B\)</span> does not occur.  This probably matches your intuition. However, we should verify it. Let’s check the first example. We need to evaluate <span class="math notranslate nohighlight">\(P(A \cap \overline{B})\)</span> to see if it factors as <span class="math notranslate nohighlight">\(P(A)P(\overline{B})\)</span>. Referring to the Venn diagram below, we can see that <span class="math notranslate nohighlight">\(A\)</span> consists of the union of the mutually exclusive parts,  <span class="math notranslate nohighlight">\(A \cap B\)</span> and <span class="math notranslate nohighlight">\(A \cap \overline{B}\)</span>. So we can write <span class="math notranslate nohighlight">\(P\left(A \cap \overline{B} \right)= P(A) - P(A \cap B)\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/si-intersection.png"><img alt="Venn Diagram Showing Relation of $A$, $A \cap \overline{B}$, and $A \cap B$" src="../_images/si-intersection.png" style="width: 400px;" /></a>
 <p>Then by utilizing the fact that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are s.i., we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5ace608-1742-44ae-92a7-e354a50d713e">
-<span class="eqno">(6.3)<a class="headerlink" href="#equation-b5ace608-1742-44ae-92a7-e354a50d713e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d79a590b-1082-458a-882a-752fe2cf34d5">
+<span class="eqno">(6.3)<a class="headerlink" href="#equation-d79a590b-1082-458a-882a-752fe2cf34d5" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
  &amp;= P(A) - P(A) P(B) \\
  &amp;= P(A) \left[ 1- P\left(B\right) \right] \\
@@ -2307,8 +2307,8 @@ P\left(A \cap \overline{B} \right) &amp;= P(A) - P(A \cap B) \\
 <p><strong>Example</strong></p>
 <p><strong>(Take 4)</strong> A fair six-sided die is rolled twice.  What is the probability that either of the rolls is a value less than 3?</p>
 <p>As before, let <span class="math notranslate nohighlight">\(E_i\)</span> be the event that the top face on roll <span class="math notranslate nohighlight">\(i\)</span> is less than 3, for <span class="math notranslate nohighlight">\(i=1,2\)</span>, and <span class="math notranslate nohighlight">\(E_1\)</span> and <span class="math notranslate nohighlight">\(E_2\)</span> are s.i. then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd35bc8c-cf03-45df-ba6b-ff1d716cc5a8">
-<span class="eqno">(6.4)<a class="headerlink" href="#equation-cd35bc8c-cf03-45df-ba6b-ff1d716cc5a8" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cb4c2806-02e8-4c02-bbb0-c6283c2eaeda">
+<span class="eqno">(6.4)<a class="headerlink" href="#equation-cb4c2806-02e8-4c02-bbb0-c6283c2eaeda" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 &amp;= 1 - P\left( \overline{E_1} \cap \overline{E_2} \right) \\
 &amp;= 1 - P\left( \overline{E_1} \right) P\left( \overline{E_2} \right) \\
@@ -2331,8 +2331,8 @@ P(E_1 \cup E_2) &amp;= 1 - P\left(\overline{E_1 \cup E_2}\right) \\
 <dt>statistically independent (for any number of events)</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-b970696e-77a4-47a9-8eb2-d9089e9e6650">
-<span class="eqno">(6.5)<a class="headerlink" href="#equation-b970696e-77a4-47a9-8eb2-d9089e9e6650" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c8a379c2-3851-4509-b19e-972c9d3733c7">
+<span class="eqno">(6.5)<a class="headerlink" href="#equation-c8a379c2-3851-4509-b19e-972c9d3733c7" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j \\
 P(E_i \cap E_j \cap E_k) &amp;= P(E_i) P(E_j) P(E_k), ~~ \forall i \ne j \ne k \\
 \ldots
@@ -2356,8 +2356,8 @@ P(E_0 \cap E_1 \cap \ldots \cap E_{n-1}) &amp;= P(E_0) P(E_1) \cdots P(E_{n-1}),
 <dt>pairwise statistically independent</dt><dd><p class="card-text">Given a probability space <span class="math notranslate nohighlight">\(S, \mathcal{F}, P\)</span>, a collection of events <span class="math notranslate nohighlight">\(E_0, E_1, \ldots E_{n-1}\)</span> in <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> are {\it pairwise statistically independent} if and only if (iff)</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-355604ac-1962-44bf-bed7-175a490fc213">
-<span class="eqno">(6.6)<a class="headerlink" href="#equation-355604ac-1962-44bf-bed7-175a490fc213" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5b4e4413-b9df-4056-84e1-89e1639d6437">
+<span class="eqno">(6.6)<a class="headerlink" href="#equation-5b4e4413-b9df-4056-84e1-89e1639d6437" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j 
 \end{align}\]</div>
 </div>
@@ -2366,8 +2366,8 @@ P(E_i \cap E_j) &amp;= P(E_i) P(E_j), ~~ \forall i \ne j
 </div>
 </div>
 <p>We want to use complements to convert the unions to intersections and the resulting general form looks like</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71796030-14e3-4b29-80b1-4121eadf09a9">
-<span class="eqno">(6.7)<a class="headerlink" href="#equation-71796030-14e3-4b29-80b1-4121eadf09a9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-039fc570-8fd2-4cf7-a542-2e23c3238c0a">
+<span class="eqno">(6.7)<a class="headerlink" href="#equation-039fc570-8fd2-4cf7-a542-2e23c3238c0a" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P\left( \bigcup_i E_i \right) &amp;=
 1- \prod_i \left[ 1- P\left( E_i \right) \right].
 \end{align}\]</div>
@@ -2384,7 +2384,7 @@ P\left( \bigcup_{k=1}^{n} A_k \right) &amp;=&amp;
 <p>Now apply this approach to solve the following practice problems:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="KTDwxUZQTSum" data-shufflequestions="False"
+<div class="output text_html"><div id="DIuBDCIOyqso" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -2545,7 +2545,7 @@ P\left( \bigcup_{k=1}^{n} A_k \right) &amp;=&amp;
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsKTDwxUZQTSum=[
+}</style><script type="text/Javascript">var questionsDIuBDCIOyqso=[
     {
         "question": "Highly reliable systems can be made from unreliable components. A high reliability computer is built using\n    four old hard drives that were found in the lab. The computer data is replicated to each hard drive. The\n    probability that a hard drive is working in any week is 0.75, 0.8, 0.85, and 0.9, respectively, for the four\n    different drives. If drives fail independently, what is the probability that the computer data is available on\n    at least one of the drives in a given week? Give your answer to 3 decimal places.",
         "type": "numeric",
@@ -3243,10 +3243,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/06-conditional-prob/quiz/si-unions.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, KTDwxUZQTSum))
+        .then(json => show_questions(json, DIuBDCIOyqso))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsKTDwxUZQTSum, KTDwxUZQTSum);
+        show_questions(questionsDIuBDCIOyqso, DIuBDCIOyqso);
         });
         }
         </script>
@@ -3257,7 +3257,7 @@ function show_questions(json, mydiv) {
 <h2><span class="section-number">6.6.4. </span>Relating Statistical Independent and Mutually Exclusive Events<a class="headerlink" href="#relating-statistical-independent-and-mutually-exclusive-events" title="Permalink to this headline">¶</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="XBvwLmhkhKdv" data-shufflequestions="False"
+<div class="output text_html"><div id="haYsRtztLaai" data-shufflequestions="False"
                data-shuffleanswers="True"
                data-numquestions="1000000"> <style>:root {
     --medium-slate-blue: #6f78ffff;
@@ -3418,7 +3418,7 @@ function show_questions(json, mydiv) {
     100% {
         background-color: var(--correct-green);
     }
-}</style><script type="text/Javascript">var questionsXBvwLmhkhKdv=[
+}</style><script type="text/Javascript">var questionshaYsRtztLaai=[
     {
         "question": "How are \"mutually exclusive\" and \"statistically independent\" related?",
         "type": "multiple_choice",
@@ -4068,10 +4068,10 @@ function show_questions(json, mydiv) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/06-conditional-prob/quiz/si-me.json", {signal})
         .then(response => response.json())
-        .then(json => show_questions(json, XBvwLmhkhKdv))
+        .then(json => show_questions(json, haYsRtztLaai))
         .catch(err => {
         console.log("Fetch error or timeout");
-        show_questions(questionsXBvwLmhkhKdv, XBvwLmhkhKdv);
+        show_questions(questionshaYsRtztLaai, haYsRtztLaai);
         });
         }
         </script>
@@ -4230,14 +4230,14 @@ function show_questions(json, mydiv) {
 }
 
 
-.card{
+.flashcard{
     border-radius: 10px;
     color: #fafafa;
     display:block;
     padding:10px;
 
 }
-.cardtext{
+.flashcardtext{
     color: var(--snow);
     font-size: 20pt;
     margin-left:3%;
@@ -4441,10 +4441,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     }
 
     var front = document.createElement('div');
-    front.className='front card';
+    front.className='front flashcard';
 
     var frontSpan= document.createElement('span');
-    frontSpan.className='cardtext';
+    frontSpan.className='flashcardtext';
     frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
     //frontSpan.textContent=jaxify(cards[cardnum]['front']);
     front.style.background='var(' + colors[cardnum % colors.length] + ')';
@@ -4454,10 +4454,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     flipper.append(front);
 
     var back = document.createElement('div');
-    back.className='back card';
+    back.className='back flashcard';
 
     var backSpan= document.createElement('span');
-    backSpan.className='cardtext';
+    backSpan.className='flashcardtext';
     backSpan.innerHTML=jaxify(cards[cardnum]['back']);
     back.append(backSpan);
 
@@ -4547,7 +4547,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsMuAzrVQqEVfI=[
+    cardsWjHzrzvzFeIU=[
     {
         "front": "statistically independent <br>(two events)",
         "back": "Given a probability space $S, \\mathcal{F}, P$ and two events $A\\in \\mathcal{F}$ and $B \\in \\mathcal{F}$, $A$ and $B$ are  <i>statistically independent</i> if and only if (iff) <br><br> $$ P(A \\cap B) = P(A)P(B).$$ "
@@ -4576,14 +4576,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/06-conditional-prob/flashcards/independence.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("MuAzrVQqEVfI"))
+        .then(json => createCards("WjHzrzvzFeIU"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("MuAzrVQqEVfI");
+        createCards("WjHzrzvzFeIU");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="MuAzrVQqEVfI" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="MuAzrVQqEVfI-next" onclick="checkFlip('MuAzrVQqEVfI')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="WjHzrzvzFeIU" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="WjHzrzvzFeIU-next" onclick="checkFlip('WjHzrzvzFeIU')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 </div>

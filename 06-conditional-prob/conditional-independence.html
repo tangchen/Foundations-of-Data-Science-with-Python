@@ -756,14 +756,14 @@ P(H_1 \cap H_2 |F) = \frac{1}{4} = P(H_1|F) P(H_2|F) = \left(\frac{1}{2}\right)\
 }
 
 
-.card{
+.flashcard{
     border-radius: 10px;
     color: #fafafa;
     display:block;
     padding:10px;
 
 }
-.cardtext{
+.flashcardtext{
     color: var(--snow);
     font-size: 20pt;
     margin-left:3%;
@@ -967,10 +967,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     }
 
     var front = document.createElement('div');
-    front.className='front card';
+    front.className='front flashcard';
 
     var frontSpan= document.createElement('span');
-    frontSpan.className='cardtext';
+    frontSpan.className='flashcardtext';
     frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
     //frontSpan.textContent=jaxify(cards[cardnum]['front']);
     front.style.background='var(' + colors[cardnum % colors.length] + ')';
@@ -980,10 +980,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     flipper.append(front);
 
     var back = document.createElement('div');
-    back.className='back card';
+    back.className='back flashcard';
 
     var backSpan= document.createElement('span');
-    backSpan.className='cardtext';
+    backSpan.className='flashcardtext';
     backSpan.innerHTML=jaxify(cards[cardnum]['back']);
     back.append(backSpan);
 
@@ -1073,7 +1073,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsaSzWeLBjugqc=[
+    cardsoSWzHrqkHSiX=[
     {
         "front": "conditional independence (events)",
         "back": "Events $A$ and $B$ are <i>conditionally independent</i> given an event $C$ iff $A$ and $B$ are independent under the conditional probability measure $P(\\cdot | C).$  I.e., $A$ and $B$ are conditionally independent iff<br>$$P(A \\cap B |C) = P(A|C) P(B|C).$$"
@@ -1090,14 +1090,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/06-conditional-prob/flashcards/conditional-independence.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("aSzWeLBjugqc"))
+        .then(json => createCards("oSWzHrqkHSiX"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("aSzWeLBjugqc");
+        createCards("oSWzHrqkHSiX");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="aSzWeLBjugqc" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="aSzWeLBjugqc-next" onclick="checkFlip('aSzWeLBjugqc')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="oSWzHrqkHSiX" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="oSWzHrqkHSiX-next" onclick="checkFlip('oSWzHrqkHSiX')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 
