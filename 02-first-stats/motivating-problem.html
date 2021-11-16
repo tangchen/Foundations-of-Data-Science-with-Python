@@ -672,14 +672,14 @@
 }
 
 
-.card{
+.flashcard{
     border-radius: 10px;
     color: #fafafa;
     display:block;
     padding:10px;
 
 }
-.cardtext{
+.flashcardtext{
     color: var(--snow);
     font-size: 20pt;
     margin-left:3%;
@@ -883,10 +883,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     }
 
     var front = document.createElement('div');
-    front.className='front card';
+    front.className='front flashcard';
 
     var frontSpan= document.createElement('span');
-    frontSpan.className='cardtext';
+    frontSpan.className='flashcardtext';
     frontSpan.innerHTML=jaxify(cards[cardnum]['front']);
     //frontSpan.textContent=jaxify(cards[cardnum]['front']);
     front.style.background='var(' + colors[cardnum % colors.length] + ')';
@@ -896,10 +896,10 @@ function createOneCard  (mydiv, frontCard, cards, cardnum) {
     flipper.append(front);
 
     var back = document.createElement('div');
-    back.className='back card';
+    back.className='back flashcard';
 
     var backSpan= document.createElement('span');
-    backSpan.className='cardtext';
+    backSpan.className='flashcardtext';
     backSpan.innerHTML=jaxify(cards[cardnum]['back']);
     back.append(backSpan);
 
@@ -989,7 +989,7 @@ function createCards(id) {
 
 </script><script type="text/Javascript">
 
-    cardsZebKVXLIivlu=[
+    cardspYEuVlexJjqN=[
     {
         "front": "probability",
         "back": "a number between 0 and 1 that we assign to an event that is proportional to how likely that event is to occur"
@@ -1005,14 +1005,14 @@ function createCards(id) {
 
         fetch("https://raw.githubusercontent.com/jmshea/Foundations-of-Data-Science-with-Python/main/02-first-stats/flashcards/motivating-problem.json", {signal})
         .then(response => response.json())
-        .then(json => createCards("ZebKVXLIivlu"))
+        .then(json => createCards("pYEuVlexJjqN"))
         .catch(err => {
         console.log("Fetch error or timeout");
-        createCards("ZebKVXLIivlu");
+        createCards("pYEuVlexJjqN");
         });
         }
         </script>
-        <div style="height:40px"></div><div class="flip-container" id="ZebKVXLIivlu" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="ZebKVXLIivlu-next" onclick="checkFlip('ZebKVXLIivlu')"> </div> <div style="height:40px"></div></div></div>
+        <div style="height:40px"></div><div class="flip-container" id="pYEuVlexJjqN" onclick="flip(this)"></div><div style="height:40px"></div><div class="next" id="pYEuVlexJjqN-next" onclick="checkFlip('pYEuVlexJjqN')"> </div> <div style="height:40px"></div></div></div>
 </div>
 </div>
 
