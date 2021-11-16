@@ -9,7 +9,7 @@
     },
     {
         "front": "partition",
-        "back": "a partition of a data set is a group of **disjoint** collections of data, such that every data point in the original data set belongs to exactly one of the collections. "
+        "back": "a partition of a data set is a group of <b>disjoint</b> collections of data, such that every data point in the original data set belongs to exactly one of the collections. "
     },
     {
         "front": "statistical hypothesis",
