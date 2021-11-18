@@ -1,6 +1,6 @@
 [
     {
-        "question": "For a 40 year-old woman whose mammogram does <b>not</b> detect cancer, what is the probability that she actually has cancer? Use the data from the Bayes' Rule section.",
+        "question": "Suppose a magician has a fair coin and a two-headed coin in their pocket. They choose one at random and flip it 3 times. If it came up heads every time, what is the probability that it is the two-headed coin? Give your answer as a fraction or a decimal accurate to at least 2 decimal places.",
         "type": "numeric",
         "precision": 2,
         "answers": [
@@ -31,7 +31,7 @@
             {
                 "type": "default",
                 "correct": false,
-                "feedback": "Apply Bayes' rule to write $P(\\overline{F}| H_1 \\cap H_2 \\cap H_3)$ in terms of likelihoods and <i>a priori</i> probabilities. Give your answer as a fraction or a decimal accurate to at least 2 decimal places."
+                "feedback": "Apply Bayes' rule to write $P(\\overline{F}| H_1 \\cap H_2 \\cap H_3)$ in terms of likelihoods and <i>a priori</i> probabilities. "
             }
         ]
     }
