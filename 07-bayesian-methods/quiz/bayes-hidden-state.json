@@ -1,0 +1,38 @@
+[
+    {
+        "question": "For a 40 year-old woman whose mammogram does <b>not</b> detect cancer, what is the probability that she actually has cancer? Use the data from the Bayes' Rule section.",
+        "type": "numeric",
+        "precision": 2,
+        "answers": [
+            {
+                "type": "value",
+                "value": 0.89,
+                "correct": true,
+                "feedback": "Correct."
+            },
+            {
+                "type": "range",
+                "range": [
+                    -1000000,
+                    -0.01
+                ],
+                "correct": false,
+                "feedback": "No. Probabilities cannot be negative. Your work may contain a math error."
+            },
+            {
+                "type": "range",
+                "range": [
+                    1.01,
+                    1000000000
+                ],
+                "correct": false,
+                "feedback": "No. Probabilities cannot be greater than 1. Your work may contain a math error."
+            },
+            {
+                "type": "default",
+                "correct": false,
+                "feedback": "Apply Bayes' rule to write $P(\\overline{F}| H_1 \\cap H_2 \\cap H_3)$ in terms of likelihoods and <i>a priori</i> probabilities. Give your answer as a fraction or a decimal accurate to at least 2 decimal places."
+            }
+        ]
+    }
+]
