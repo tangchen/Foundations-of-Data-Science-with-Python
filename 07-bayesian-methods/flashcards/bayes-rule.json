@@ -16,7 +16,7 @@
     },
     {
         "front": "Bayes' Rule<br>(discrete stochastic system)",
-        "back": "For a stochastic system with discrete input events $\\{ A_0, A_i, \\ldots \\}$ and discrete output events $\\{B_0, B_1, \\ldots\\}$,  the APPs $P(A_i|B_j)$ can be written in terms of the likelihoods $P(B_j|A_i)$ and the <I>a prioris</I> $P(A_i)$ as \n $$ P(A_i|B_j) = \\frac{P\\left(B_j \\left \\vert A_i \\right. \\right) P\\left( A_i \\right)} { \\sum_i P\\left(B_j \\left \\vert A_i \\right. \\right) P\\left( A_i \\right)} $$"
+        "back": "Given likelihoods $P(B_j|A_i)$ and <I>a prioris</I> $P(A_i)$, the <I>a posteriori</I> probabilities (APPs) can be written as \n $$ P(A_i|B_j) = \\frac{P\\left(B_j \\left \\vert A_i \\right. \\right) P\\left( A_i \\right)} { \\sum_i P\\left(B_j \\left \\vert A_i \\right. \\right) P\\left( A_i \\right)} $$"
     },
     {
         "front": "base rate fallacy",
