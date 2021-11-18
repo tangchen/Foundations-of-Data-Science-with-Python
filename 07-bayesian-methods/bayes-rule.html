@@ -714,11 +714,11 @@ P(A_i|B_j) = \frac{P\left(B_j \left \vert A_i \right. \right) P\left( A_i \right
 <p>Now that we have applied Bayes’ Rule to our problem, we have a formula for <span class="math notranslate nohighlight">\(P(C|D)\)</span> in terms of the likelihoods (which we know) and the <em>a priori</em> probabilities (which we do not yet know). The <em>a priori</em> probabilities for this problem are <span class="math notranslate nohighlight">\(P(C)\)</span> and <span class="math notranslate nohighlight">\(P\left( \overline{C} \right)\)</span>. Consider <span class="math notranslate nohighlight">\(P(C)\)</span> – this is the probability that our 40-year old woman has breast cancer without knowing the outcome of the mammogram.</p>
 <p>As with the other probabilities, we can estimate <span class="math notranslate nohighlight">\(P(C)\)</span> from data on the Susan G. Komen foundation website at <a class="reference external" href="https://www.komen.org/breast-cancer/risk-factor/age/#fig2-1">https://www.komen.org/breast-cancer/risk-factor/age/#fig2-1</a></p>
 <p>Shown below is a figure from that page that shows the number of breast cancer cases per 100,000 people in the United States.</p>
-<img alt="07-bayesian-methods/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" src="07-bayesian-methods/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" />
+<img alt="../_images/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" src="../_images/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" />
 <p>Based on this figure, <span class="math notranslate nohighlight">\(P(C) \approx 140/100,000 = 1.4 \times10^{-3}\)</span>, and <span class="math notranslate nohighlight">\(P\left( \overline{C} \right) = 1- P\left( C \right)\)</span>.</p>
 <p>Now we have enough data to calculate the conditional probability that a 40 year-old woman has cancer given that she has a mammogram that detects breast cancer:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd2bd1ea-020f-4603-8860-8ccbcd5dfdb2">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-bd2bd1ea-020f-4603-8860-8ccbcd5dfdb2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-989526b3-f73d-4edd-88a2-469df0bc7a06">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-989526b3-f73d-4edd-88a2-469df0bc7a06" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(C|D) &amp;= \frac{P (D|C)P(C)}{P(D|C) P(C) + P\left(D| \overline{C}\right) P\left(\overline{C}\right)} \\
 &amp;=\frac{(0.87)(1.4 \times 10^{-3})}{ (0.87)(1.4 \times 10^{-3}) +  \left[ \left( 0.1 \right) \left(1- 1.4 \times 10^{-3} \right)  \right]} \\
 \end{align}\]</div>
@@ -771,7 +771,7 @@ is approximately 0.012
 <p>By clicking on “All”, I got to a page that provides the information we want for 2019:</p>
 <p><a class="reference external" href="https://www.census.gov/data/tables/2019/demo/age-and-sex/2019-age-sex-composition.html">Age and Sex Composition in the United States: 2019</a></p>
 <p>If you download the Excel spreadsheet linked to “Table 1. Population by Age and Sex: 2019”, you should see something like the following:</p>
-<a class="reference internal image-reference" href="07-bayesian-methods/2019gender_table.png"><img alt="07-bayesian-methods/2019gender_table.png" src="07-bayesian-methods/2019gender_table.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../_images/2019gender_table.png"><img alt="../_images/2019gender_table.png" src="../_images/2019gender_table.png" style="width: 600px;" /></a>
 <p>According to the US Census Bureau, there were approximately 9,956,000 women from age 40 to 44 (5 years) in 2019. For convenience, let’s estimate that there are now approximately 2 million women of age 40 – the exact number is not important in this analysis.</p>
 <p>Then the number of 40 year-old women with cancer is approximately</p>
 <div class="math notranslate nohighlight">
