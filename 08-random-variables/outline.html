@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Random Variables (Outline) &#8212; Foundations of Data Science with Python</title>
+    <title>8. Random Variables (Outline) &#8212; Foundations of Data Science with Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)" href="../09-moments/outline.html" />
-    <link rel="prev" title="6.11. Summary" href="../06-conditional-prob/summary.html" />
+    <link rel="next" title="9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)" href="../09-moments/outline.html" />
+    <link rel="prev" title="7.2. Outline of Remaining Sections" href="../07-bayesian-methods/outline.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -357,49 +357,71 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07-bayesian-methods/intro.html">
+   7. Introduction to Bayesian Methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-bayesian-methods/bayes-rule.html">
+     7.1. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-bayesian-methods/outline.html">
+     7.2. Outline of Remaining Sections
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Random Variables (Outline)
+   8. Random Variables (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../09-moments/outline.html">
-   8. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)
+   9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../10-conditional-stats/outline.html">
-   9. Applications of Conditional Distributions to Statistical Tests (Outline)
+   10. Applications of Conditional Distributions to Statistical Tests (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11-matrix-vector-regression/outline.html">
-   10. Multidimensional Data and Regression (Outline)
+   11. Multidimensional Data and Regression (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../12-categorical-data/outline.html">
-   11. Tests of Independence for Categorical Data (Outline)
+   12. Tests of Independence for Categorical Data (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../13-clustering-transforming/outline.html">
-   12. Clustering and Transforming Multi-dimensional Data (Outline)
+   13. Clustering and Transforming Multi-dimensional Data (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../14-matrix-applications/outline.html">
-   13. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)
+   14. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../15-multidim-dependence/outline.html">
-   14. Working with Dependent Data in Multiple Dimensions (Outline)
+   15. Working with Dependent Data in Multiple Dimensions (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../16-next-steps/outline.html">
-   15. Next Steps (Outline)
+   16. Next Steps (Outline)
   </a>
  </li>
 </ul>
@@ -492,67 +514,67 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#discrete-random-variables-and-probability-mass-functions">
-   7.1. Discrete Random Variables and Probability Mass Functions
+   8.1. Discrete Random Variables and Probability Mass Functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cumulative-distribution-functions-and-their-properties">
-   7.2. Cumulative Distribution Functions and Their Properties
+   8.2. Cumulative Distribution Functions and Their Properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#common-discrete-random-variables-and-their-applications">
-   7.3. Common Discrete Random Variables and Their Applications
+   8.3. Common Discrete Random Variables and Their Applications
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generating-simulating-and-characterizing-discrete-random-variables">
-   7.4. Generating, Simulating, and Characterizing Discrete Random Variables
+   8.4. Generating, Simulating, and Characterizing Discrete Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#continuous-random-variables-and-probability-density-functions">
-   7.5. Continuous Random Variables and Probability Density Functions
+   8.5. Continuous Random Variables and Probability Density Functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#properties-of-probability-density-functions">
-   7.6. Properties of Probability Density Functions
+   8.6. Properties of Probability Density Functions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#common-continuous-random-variables-and-their-applications">
-   7.7. Common Continuous Random Variables and Their Applications
+   8.7. Common Continuous Random Variables and Their Applications
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-central-limit-theorem-and-gaussian-random-variables">
-   7.8. The Central Limit Theorem and Gaussian Random Variables
+   8.8. The Central Limit Theorem and Gaussian Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation">
-   7.9. Generating, Simulating, and Characterizing Continuous Random Variables (including Kernel Density Estimation)
+   8.9. Generating, Simulating, and Characterizing Continuous Random Variables (including Kernel Density Estimation)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-conditioning-with-random-variables">
-   7.10. Introduction to Conditioning with Random Variables
+   8.10. Introduction to Conditioning with Random Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#generative-classification">
-   7.11. Generative Classification
+   8.11. Generative Classification
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#review">
-   7.12. Review
+   8.12. Review
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   7.13. Summary
+   8.13. Summary
   </a>
  </li>
 </ul>
@@ -567,45 +589,45 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="random-variables-outline">
-<h1><span class="section-number">7. </span>Random Variables (Outline)<a class="headerlink" href="#random-variables-outline" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">8. </span>Random Variables (Outline)<a class="headerlink" href="#random-variables-outline" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="discrete-random-variables-and-probability-mass-functions">
-<h2><span class="section-number">7.1. </span>Discrete Random Variables and Probability Mass Functions<a class="headerlink" href="#discrete-random-variables-and-probability-mass-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Discrete Random Variables and Probability Mass Functions<a class="headerlink" href="#discrete-random-variables-and-probability-mass-functions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="cumulative-distribution-functions-and-their-properties">
-<h2><span class="section-number">7.2. </span>Cumulative Distribution Functions and Their Properties<a class="headerlink" href="#cumulative-distribution-functions-and-their-properties" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Cumulative Distribution Functions and Their Properties<a class="headerlink" href="#cumulative-distribution-functions-and-their-properties" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="common-discrete-random-variables-and-their-applications">
-<h2><span class="section-number">7.3. </span>Common Discrete Random Variables and Their Applications<a class="headerlink" href="#common-discrete-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Common Discrete Random Variables and Their Applications<a class="headerlink" href="#common-discrete-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="generating-simulating-and-characterizing-discrete-random-variables">
-<h2><span class="section-number">7.4. </span>Generating, Simulating, and Characterizing Discrete Random Variables<a class="headerlink" href="#generating-simulating-and-characterizing-discrete-random-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.4. </span>Generating, Simulating, and Characterizing Discrete Random Variables<a class="headerlink" href="#generating-simulating-and-characterizing-discrete-random-variables" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="continuous-random-variables-and-probability-density-functions">
-<h2><span class="section-number">7.5. </span>Continuous Random Variables and Probability Density Functions<a class="headerlink" href="#continuous-random-variables-and-probability-density-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.5. </span>Continuous Random Variables and Probability Density Functions<a class="headerlink" href="#continuous-random-variables-and-probability-density-functions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="properties-of-probability-density-functions">
-<h2><span class="section-number">7.6. </span>Properties of Probability Density Functions<a class="headerlink" href="#properties-of-probability-density-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.6. </span>Properties of Probability Density Functions<a class="headerlink" href="#properties-of-probability-density-functions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="common-continuous-random-variables-and-their-applications">
-<h2><span class="section-number">7.7. </span>Common Continuous Random Variables and Their Applications<a class="headerlink" href="#common-continuous-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.7. </span>Common Continuous Random Variables and Their Applications<a class="headerlink" href="#common-continuous-random-variables-and-their-applications" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="the-central-limit-theorem-and-gaussian-random-variables">
-<h2><span class="section-number">7.8. </span>The Central Limit Theorem and Gaussian Random Variables<a class="headerlink" href="#the-central-limit-theorem-and-gaussian-random-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.8. </span>The Central Limit Theorem and Gaussian Random Variables<a class="headerlink" href="#the-central-limit-theorem-and-gaussian-random-variables" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation">
-<h2><span class="section-number">7.9. </span>Generating, Simulating, and Characterizing Continuous Random Variables (including Kernel Density Estimation)<a class="headerlink" href="#generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.9. </span>Generating, Simulating, and Characterizing Continuous Random Variables (including Kernel Density Estimation)<a class="headerlink" href="#generating-simulating-and-characterizing-continuous-random-variables-including-kernel-density-estimation" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="introduction-to-conditioning-with-random-variables">
-<h2><span class="section-number">7.10. </span>Introduction to Conditioning with Random Variables<a class="headerlink" href="#introduction-to-conditioning-with-random-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.10. </span>Introduction to Conditioning with Random Variables<a class="headerlink" href="#introduction-to-conditioning-with-random-variables" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="generative-classification">
-<h2><span class="section-number">7.11. </span>Generative Classification<a class="headerlink" href="#generative-classification" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.11. </span>Generative Classification<a class="headerlink" href="#generative-classification" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="review">
-<h2><span class="section-number">7.12. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.12. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="summary">
-<h2><span class="section-number">7.13. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">8.13. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -634,17 +656,17 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../06-conditional-prob/summary.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../07-bayesian-methods/outline.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">6.11. </span>Summary</p>
+            <p class="prev-next-title"><span class="section-number">7.2. </span>Outline of Remaining Sections</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../09-moments/outline.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

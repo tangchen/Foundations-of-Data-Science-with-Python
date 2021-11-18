@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Multidimensional Data and Regression (Outline) &#8212; Foundations of Data Science with Python</title>
+    <title>11. Multidimensional Data and Regression (Outline) &#8212; Foundations of Data Science with Python</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="11. Tests of Independence for Categorical Data (Outline)" href="../12-categorical-data/outline.html" />
-    <link rel="prev" title="9. Applications of Conditional Distributions to Statistical Tests (Outline)" href="../10-conditional-stats/outline.html" />
+    <link rel="next" title="12. Tests of Independence for Categorical Data (Outline)" href="../12-categorical-data/outline.html" />
+    <link rel="prev" title="10. Applications of Conditional Distributions to Statistical Tests (Outline)" href="../10-conditional-stats/outline.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -357,49 +357,71 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07-bayesian-methods/intro.html">
+   7. Introduction to Bayesian Methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-bayesian-methods/bayes-rule.html">
+     7.1. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-bayesian-methods/outline.html">
+     7.2. Outline of Remaining Sections
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../08-random-variables/outline.html">
-   7. Random Variables (Outline)
+   8. Random Variables (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../09-moments/outline.html">
-   8. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)
+   9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../10-conditional-stats/outline.html">
-   9. Applications of Conditional Distributions to Statistical Tests (Outline)
+   10. Applications of Conditional Distributions to Statistical Tests (Outline)
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   10. Multidimensional Data and Regression (Outline)
+   11. Multidimensional Data and Regression (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../12-categorical-data/outline.html">
-   11. Tests of Independence for Categorical Data (Outline)
+   12. Tests of Independence for Categorical Data (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../13-clustering-transforming/outline.html">
-   12. Clustering and Transforming Multi-dimensional Data (Outline)
+   13. Clustering and Transforming Multi-dimensional Data (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../14-matrix-applications/outline.html">
-   13. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)
+   14. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../15-multidim-dependence/outline.html">
-   14. Working with Dependent Data in Multiple Dimensions (Outline)
+   15. Working with Dependent Data in Multiple Dimensions (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../16-next-steps/outline.html">
-   15. Next Steps (Outline)
+   16. Next Steps (Outline)
   </a>
  </li>
 </ul>
@@ -492,47 +514,47 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#vectors-visualization-and-vector-operations">
-   10.1. Vectors, Visualization, and Vector Operations
+   11.1. Vectors, Visualization, and Vector Operations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#special-vectors-and-vectors-with-variables">
-   10.2. Special Vectors and Vectors with Variables
+   11.2. Special Vectors and Vectors with Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction-to-matrices-via-stacked-vectors">
-   10.3. Introduction to Matrices via Stacked Vectors
+   11.3. Introduction to Matrices via Stacked Vectors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#revisiting-averages-means-medians-and-variances">
-   10.4. Revisiting Averages, Means, Medians, and Variances
+   11.4. Revisiting Averages, Means, Medians, and Variances
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#covariance-and-correlation">
-   10.5. Covariance and Correlation
+   11.5. Covariance and Correlation
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#linear-regression-in-two-dimensions">
-   10.6. Linear Regression in Two Dimensions
+   11.6. Linear Regression in Two Dimensions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#nonlinear-regression-in-two-dimensions">
-   10.7. Nonlinear Regression in Two Dimensions
+   11.7. Nonlinear Regression in Two Dimensions
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#review">
-   10.8. Review
+   11.8. Review
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   10.9. Summary
+   11.9. Summary
   </a>
  </li>
 </ul>
@@ -547,33 +569,33 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="multidimensional-data-and-regression-outline">
-<h1><span class="section-number">10. </span>Multidimensional Data and Regression (Outline)<a class="headerlink" href="#multidimensional-data-and-regression-outline" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">11. </span>Multidimensional Data and Regression (Outline)<a class="headerlink" href="#multidimensional-data-and-regression-outline" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="vectors-visualization-and-vector-operations">
-<h2><span class="section-number">10.1. </span>Vectors, Visualization, and Vector Operations<a class="headerlink" href="#vectors-visualization-and-vector-operations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.1. </span>Vectors, Visualization, and Vector Operations<a class="headerlink" href="#vectors-visualization-and-vector-operations" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="special-vectors-and-vectors-with-variables">
-<h2><span class="section-number">10.2. </span>Special Vectors and Vectors with Variables<a class="headerlink" href="#special-vectors-and-vectors-with-variables" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2. </span>Special Vectors and Vectors with Variables<a class="headerlink" href="#special-vectors-and-vectors-with-variables" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="introduction-to-matrices-via-stacked-vectors">
-<h2><span class="section-number">10.3. </span>Introduction to Matrices via Stacked Vectors<a class="headerlink" href="#introduction-to-matrices-via-stacked-vectors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.3. </span>Introduction to Matrices via Stacked Vectors<a class="headerlink" href="#introduction-to-matrices-via-stacked-vectors" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="revisiting-averages-means-medians-and-variances">
-<h2><span class="section-number">10.4. </span>Revisiting Averages, Means, Medians, and Variances<a class="headerlink" href="#revisiting-averages-means-medians-and-variances" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.4. </span>Revisiting Averages, Means, Medians, and Variances<a class="headerlink" href="#revisiting-averages-means-medians-and-variances" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="covariance-and-correlation">
-<h2><span class="section-number">10.5. </span>Covariance and Correlation<a class="headerlink" href="#covariance-and-correlation" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.5. </span>Covariance and Correlation<a class="headerlink" href="#covariance-and-correlation" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="linear-regression-in-two-dimensions">
-<h2><span class="section-number">10.6. </span>Linear Regression in Two Dimensions<a class="headerlink" href="#linear-regression-in-two-dimensions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.6. </span>Linear Regression in Two Dimensions<a class="headerlink" href="#linear-regression-in-two-dimensions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="nonlinear-regression-in-two-dimensions">
-<h2><span class="section-number">10.7. </span>Nonlinear Regression in Two Dimensions<a class="headerlink" href="#nonlinear-regression-in-two-dimensions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.7. </span>Nonlinear Regression in Two Dimensions<a class="headerlink" href="#nonlinear-regression-in-two-dimensions" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="review">
-<h2><span class="section-number">10.8. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.8. </span>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="summary">
-<h2><span class="section-number">10.9. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.9. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -606,13 +628,13 @@
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">9. </span>Applications of Conditional Distributions to Statistical Tests (Outline)</p>
+            <p class="prev-next-title"><span class="section-number">10. </span>Applications of Conditional Distributions to Statistical Tests (Outline)</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../12-categorical-data/outline.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Tests of Independence for Categorical Data (Outline)</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Tests of Independence for Categorical Data (Outline)</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

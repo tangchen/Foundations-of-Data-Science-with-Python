@@ -359,49 +359,71 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07-bayesian-methods/intro.html">
+   7. Introduction to Bayesian Methods
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-bayesian-methods/bayes-rule.html">
+     7.1. Bayes’ Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07-bayesian-methods/outline.html">
+     7.2. Outline of Remaining Sections
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../08-random-variables/outline.html">
-   7. Random Variables (Outline)
+   8. Random Variables (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../09-moments/outline.html">
-   8. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)
+   9. Moments, Parameter Estimation, and Binary Hypothesis Tests on Sample Means (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../10-conditional-stats/outline.html">
-   9. Applications of Conditional Distributions to Statistical Tests (Outline)
+   10. Applications of Conditional Distributions to Statistical Tests (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../11-matrix-vector-regression/outline.html">
-   10. Multidimensional Data and Regression (Outline)
+   11. Multidimensional Data and Regression (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../12-categorical-data/outline.html">
-   11. Tests of Independence for Categorical Data (Outline)
+   12. Tests of Independence for Categorical Data (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../13-clustering-transforming/outline.html">
-   12. Clustering and Transforming Multi-dimensional Data (Outline)
+   13. Clustering and Transforming Multi-dimensional Data (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../14-matrix-applications/outline.html">
-   13. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)
+   14. Applications of Matrices to Solving Equations, Curve Fitting, and Regression (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../15-multidim-dependence/outline.html">
-   14. Working with Dependent Data in Multiple Dimensions (Outline)
+   15. Working with Dependent Data in Multiple Dimensions (Outline)
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../16-next-steps/outline.html">
-   15. Next Steps (Outline)
+   16. Next Steps (Outline)
   </a>
  </li>
 </ul>
@@ -856,8 +878,8 @@ above to calculate and plot the number of nonzero errors for this data set as a 
 <p>Now we turn to metric <span class="math notranslate nohighlight">\(E_1\)</span>, which is the sum of the absolute errors. Because <span class="math notranslate nohighlight">\(E_1\)</span> is a continuous function of <span class="math notranslate nohighlight">\(\nu\)</span>, we can take its derivative to find its extreme values. Recall that
 $<span class="math notranslate nohighlight">\( E_1(\nu) = \sum_{i=0}^{N-1} \left\vert e_i \right \vert,\)</span>$
 so its derivative is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-76ecacb3-0d88-4d31-a365-eef0076588f2">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-76ecacb3-0d88-4d31-a365-eef0076588f2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5f947764-7e50-4716-93ae-973a4836fc83">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-5f947764-7e50-4716-93ae-973a4836fc83" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_1'(\nu) &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} (e_i ) \\
 &amp;= \sum_{i=0}^{N-1} \operatorname{sgn} ( d_i-\nu ),
 \end{align}\]</div>
@@ -936,8 +958,8 @@ above to calculate and plot the sum of absolute errors for this data set as a fu
 <div class="section" id="minimizing-the-sum-of-squared-errors">
 <h2><span class="section-number">3.4.3. </span>Minimizing the Sum of Squared Errors<a class="headerlink" href="#minimizing-the-sum-of-squared-errors" title="Permalink to this headline">¶</a></h2>
 <p>Now consider the sum of square errors, <span class="math notranslate nohighlight">\(E_2\)</span>. As noted, this function defines a parabola in <span class="math notranslate nohighlight">\(\nu\)</span>, and we can find the extrema by taking the derivative of <span class="math notranslate nohighlight">\(E_2(v)\)</span> with respect to <span class="math notranslate nohighlight">\(\nu\)</span> and setting it equal to zero:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f9f8841b-a41c-47ba-a9d6-1f499d65897e">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-f9f8841b-a41c-47ba-a9d6-1f499d65897e" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e5d390d6-f937-4d86-bc13-bf2d14421213">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-e5d390d6-f937-4d86-bc13-bf2d14421213" title="Permalink to this equation">¶</a></span>\[\begin{align}
 E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  \frac{d}{d\nu} \left( e_i \right )^2 \\
 &amp;= \sum_{i=0}^{N-1}  2 \left( e_i \right ) \\
@@ -945,14 +967,14 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 &amp;= 2 \sum_{i=0}^{N-1} d_i - 2 N \nu 
 \end{align}\]</div>
 <p>Setting <span class="math notranslate nohighlight">\(E_2'(\nu)\)</span> equal to zero yields:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6e861b69-a6b1-4fe1-819b-4bb397b45e69">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-6e861b69-a6b1-4fe1-819b-4bb397b45e69" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0cb81512-200a-4034-b2c0-33c45a4b26a9">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-0cb81512-200a-4034-b2c0-33c45a4b26a9" title="Permalink to this equation">¶</a></span>\[\begin{align}
 2 \sum_{i=0}^{N-1} d_i - 2 N \nu &amp;=0 \\
  \sum_{i=0}^{N-1} d_i &amp;= N \nu .
 \end{align}\]</div>
 <p>Solving for <span class="math notranslate nohighlight">\(\nu\)</span> gives the minimizing value:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8827b203-f94e-4895-a0bc-13ac7634785c">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-8827b203-f94e-4895-a0bc-13ac7634785c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-51887586-e9b5-41e8-bbf9-5a4b5bf10167">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-51887586-e9b5-41e8-bbf9-5a4b5bf10167" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \nu = \frac{1}{N} \sum_{i=0}^{N-1} d_i
 \end{align}\]</div>
 <p>Most people are familiar with this value: it is the <strong>average</strong> of the data:</p>
@@ -968,8 +990,8 @@ E_2'(\nu) &amp; = \frac{d}{d\nu} \sum_{i=0}^{N-1} \left( e_i \right )^2 \\
 <dt>average</dt><dd><p class="card-text">The <em>average</em>, or <em>sample mean</em> of a data set <span class="math notranslate nohighlight">\(D= d_0, d_1, \ldots, d_{N-1}\)</span> is a value <span class="math notranslate nohighlight">\(\mu\)</span> defined by</p>
 </dd>
 </dl>
-<div class="amsmath math notranslate nohighlight" id="equation-bca785c9-339f-4f97-8434-54c5bebc218b">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-bca785c9-339f-4f97-8434-54c5bebc218b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-911717a7-18be-45b2-b988-10822db3ec08">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-911717a7-18be-45b2-b988-10822db3ec08" title="Permalink to this equation">¶</a></span>\[\begin{align}
 \mu = \frac{1}{N} \sum_{i=0}^{N-1} d_i.
 \end{align}\]</div>
 </div>
