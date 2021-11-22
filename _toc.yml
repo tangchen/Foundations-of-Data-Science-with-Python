@@ -58,6 +58,7 @@ sections:
   sections:
   - file: 07-bayesian-methods/bayes-rule
   - file: 07-bayesian-methods/bayes-hidden-state
+  - file: 07-bayesian-methods/optimal-decisions
   - file: 07-bayesian-methods/outline
 - file: 08-random-variables/outline
 - file: 09-moments/outline
