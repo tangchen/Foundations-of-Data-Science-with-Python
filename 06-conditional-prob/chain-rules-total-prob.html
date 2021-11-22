@@ -380,8 +380,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../07-bayesian-methods/optimal-decisions.html">
+     7.3. Optimal Decisions for Discrete Stochastic Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../07-bayesian-methods/outline.html">
-     7.3. Outline of Remaining Sections
+     7.4. Outline of Remaining Sections
     </a>
    </li>
   </ul>
@@ -546,14 +551,14 @@
 <div class="section" id="using-conditional-probability-to-decompose-events-part-1-chain-rules">
 <h2><span class="section-number">6.9.1. </span>Using Conditional Probability to Decompose Events: Part 1 – Chain Rules<a class="headerlink" href="#using-conditional-probability-to-decompose-events-part-1-chain-rules" title="Permalink to this headline">¶</a></h2>
 <p>From the definition of conditional probability, we can write <span class="math notranslate nohighlight">\(P(A|B)\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1fd11716-c778-49ee-89bb-181d729b8311">
-<span class="eqno">(6.10)<a class="headerlink" href="#equation-1fd11716-c778-49ee-89bb-181d729b8311" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-89512545-1ced-4e16-b447-4d29c7455421">
+<span class="eqno">(6.10)<a class="headerlink" href="#equation-89512545-1ced-4e16-b447-4d29c7455421" title="Permalink to this equation">¶</a></span>\[\begin{align}
   P(A|B)&amp;= \frac{P(A \cap B)}{P(B)}  \\
   \Rightarrow P(A \cap B)&amp;= P(A|B)P(B), 
 \end{align}\]</div>
 <p>and we can write <span class="math notranslate nohighlight">\(P(B|A)\)</span> as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd41a904-7cb2-46d2-800d-284448562e2c">
-<span class="eqno">(6.11)<a class="headerlink" href="#equation-fd41a904-7cb2-46d2-800d-284448562e2c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7c9c224d-5382-4335-a2e4-f833e37d594d">
+<span class="eqno">(6.11)<a class="headerlink" href="#equation-7c9c224d-5382-4335-a2e4-f833e37d594d" title="Permalink to this equation">¶</a></span>\[\begin{align}
   P(B|A)&amp;=\frac{P(A \cap B)}{P(A)}  \\
   \Rightarrow P(A \cap B)&amp;= P(B|A)P(A).
 \end{align}\]</div>
@@ -610,8 +615,8 @@ P(F \cap H_1) = P(F| H_1) P(H_1).
 <p>We do not know <span class="math notranslate nohighlight">\(P(H_1)\)</span> nor <span class="math notranslate nohighlight">\(P(F|H_1)\)</span>. Thus, although the expression is valid mathematically, it is not helpful in solving this problem because it depends on probabilities that cannot be easily inferred from the problem setup.</p>
 <p><strong>To be added:Question on probability  of getting the Fair coin and heads on first two flips.</strong></p>
 <p>The chain rule can be easily generalized to more than two events. The easiest way is to write probabilities in terms of conditional probabilities that are expressed as fractions (as in the definition of probability), such that the denumenator of one fraction cancels with the numerator of the next fraction to make sure the expression is not changes when it is rewritten. This will make more sense with an example for rewriting the probability of the intersection of 3 events (<span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span>):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5b89f2c-7a34-49fb-a148-a834f9da030d">
-<span class="eqno">(6.12)<a class="headerlink" href="#equation-b5b89f2c-7a34-49fb-a148-a834f9da030d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ff4cb431-c6ae-4adb-b4f5-921ca89804fe">
+<span class="eqno">(6.12)<a class="headerlink" href="#equation-ff4cb431-c6ae-4adb-b4f5-921ca89804fe" title="Permalink to this equation">¶</a></span>\[\begin{align}
   P(A \cap B \cap C) &amp;= \frac{P(A \cap B \cap C)} {}  \cdot
   \frac{\hspace{4em} }{} \cdot \frac{ \hspace{3em}\mbox{    }}{} \\
   &amp;\\
@@ -622,8 +627,8 @@ P(F \cap H_1) = P(F| H_1) P(H_1).
   &amp;= P(A|B \cap C)  P(B | C) P(C)
 \end{align}\]</div>
 <p>This decomposition assumes we know the probability of  <span class="math notranslate nohighlight">\(A\)</span> given that <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> have occurred and we know the probability of <span class="math notranslate nohighlight">\(B\)</span> given <span class="math notranslate nohighlight">\(C\)</span>. Such dependence occurs naturally in many systems, but the particular decomposition will depend on what we know about these probabilities. We could just have easily written</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bd47242f-c27c-4e60-81cb-fb33427fbdaf">
-<span class="eqno">(6.13)<a class="headerlink" href="#equation-bd47242f-c27c-4e60-81cb-fb33427fbdaf" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-924d5374-34d7-49ca-a6d6-60fc0f3217b7">
+<span class="eqno">(6.13)<a class="headerlink" href="#equation-924d5374-34d7-49ca-a6d6-60fc0f3217b7" title="Permalink to this equation">¶</a></span>\[\begin{align}
   P(A \cap B \cap C) 
   &amp;= P(C|A \cap B)  P(B | A) P(A)
 \end{align}\]</div>
@@ -685,8 +690,8 @@ B_i \cap B_j = (B \cap A_i) \cap (B \cap A_j) = B \cap (A_i \cap A_j) = B \cap \
 \bigcup_i B_i = \bigcup_i \left(A_i \cap B\right )  = B \cap \left( \bigcup_i A_i \right) = B \cap S = B.
 \]</div>
 <p>These two properties imply that <span class="math notranslate nohighlight">\(B_0, B_1, \ldots, B_{n-1}\)</span> are a partition for <span class="math notranslate nohighlight">\(B\)</span>. If we want to express the probability of <span class="math notranslate nohighlight">\(B\)</span>, we can write</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1b2637ae-07bc-48f5-b4b5-7804b1527a65">
-<span class="eqno">(6.14)<a class="headerlink" href="#equation-1b2637ae-07bc-48f5-b4b5-7804b1527a65" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a300de7f-4a3e-44af-a15e-14a7e9211f3e">
+<span class="eqno">(6.14)<a class="headerlink" href="#equation-a300de7f-4a3e-44af-a15e-14a7e9211f3e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(B) &amp; = P \left( \bigcup_i B_i \right) \\
 &amp; = \sum_i P \left(B_i \right) \\
 &amp;= \sum_i P\left( B \cap A_i\right)
@@ -734,22 +739,22 @@ the different possibilities of the input or the hidden state.</p>
 <p>In this case, <span class="math notranslate nohighlight">\(F\)</span> and <span class="math notranslate nohighlight">\(\overline{F}\)</span> are complements, so they are mutually exclusive. Moreover, either the coin is fair (<span class="math notranslate nohighlight">\(F\)</span>) or it is not (<span class="math notranslate nohighlight">\(\overline{F}\)</span>), so one of these events must occur. Therefore the events <span class="math notranslate nohighlight">\(F, \overline{F}\)</span> partition <span class="math notranslate nohighlight">\(S\)</span>.</p>
 </div>
 <p>Applying the Law of Total Probability,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b51a17a-56d6-4bea-84e8-c6b96f334cf9">
-<span class="eqno">(6.15)<a class="headerlink" href="#equation-4b51a17a-56d6-4bea-84e8-c6b96f334cf9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2add8146-b8f1-4af1-b513-824d44729137">
+<span class="eqno">(6.15)<a class="headerlink" href="#equation-2add8146-b8f1-4af1-b513-824d44729137" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(H_1) &amp;= P(H_1|F)P(F) + P(H_1| \overline{F}) P( \overline{F}) \\
 &amp;= \left( \frac 1 2 \right) \left( \frac 1 2 \right) + \biggl( 1\biggr) \left( \frac 1 2 \right) \\
 &amp;= \frac 3 4
 \end{align}\]</div>
 <p><strong>(b)</strong> <span class="math notranslate nohighlight">\(P(H_1 \cap H_2)\)</span></p>
 <p>We can use the same partition as above to write:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-672e75d6-cc82-44d6-b882-ab77a48b4abe">
-<span class="eqno">(6.16)<a class="headerlink" href="#equation-672e75d6-cc82-44d6-b882-ab77a48b4abe" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-179d15f5-407c-4221-b41e-f298d86d1eac">
+<span class="eqno">(6.16)<a class="headerlink" href="#equation-179d15f5-407c-4221-b41e-f298d86d1eac" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(H_1 \cap H_2) &amp;= P(H_1 \cap H_2 |F)P(F) + P(H_1\cap H_2| \overline{F}) P( \overline{F}).
 \end{align}\]</div>
 <p>However, now we need to know the probabilities <span class="math notranslate nohighlight">\(P(H_1 \cap H_2 |F)\)</span> and <span class="math notranslate nohighlight">\(P(H_1\cap H_2| \overline{F})\)</span>. When the coin is fair the events <span class="math notranslate nohighlight">\(H_1\)</span> and <span class="math notranslate nohighlight">\(H_2\)</span> are conditionally independent, so <span class="math notranslate nohighlight">\(P(H_1 \cap H_2 |F) =
 P(H_1|F)P(H_2|F)\)</span>. When the coin is two-headed, it always comes up heads, so <span class="math notranslate nohighlight">\(P(H_1\cap H_2| \overline{F})=1\)</span>. Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a264490-2c8e-40b9-baf3-454d1523cfa7">
-<span class="eqno">(6.17)<a class="headerlink" href="#equation-0a264490-2c8e-40b9-baf3-454d1523cfa7" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f0c62984-c3b0-4580-8f14-0daa644c5c43">
+<span class="eqno">(6.17)<a class="headerlink" href="#equation-f0c62984-c3b0-4580-8f14-0daa644c5c43" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(H_1 \cap H_2) &amp;= P(H_1|F)P( H_2 |F)P(F) + (1) P( \overline{F}) \\
 &amp;= \left( \frac 1 2 \right) \left( \frac 1 2 \right) \left( \frac 1 2 \right)
 +\biggl( 1\biggr) \left( \frac 1 2 \right) \\
@@ -769,14 +774,14 @@ P(H_2 \vert H_1) = \frac{ P(H_1 \cap H_2) } {P(H_1)} = \frac{5/8}{3/4} = \frac{5
 <p>At the beginning of this Chapter, the following question was asked: A box contains 2 white balls and 1 black ball. I reach in the box and remove one ball. Without inspecting it, I place it in my pocket. I withdraw a second ball. What is the probability that the second ball is white?</p>
 <p>This is a question that stumps many learners of probability, but the answer turns out to be simple. Let <span class="math notranslate nohighlight">\(W_i\)</span> be the event that a white ball is chosen on draw <span class="math notranslate nohighlight">\(i\)</span>. We are asking about <span class="math notranslate nohighlight">\(W_2\)</span>. Then <span class="math notranslate nohighlight">\(P(W_2) = P(W_1) = 2/3\)</span>.  However, this is not intuitive because our brain tells us that the probabilities for the second draw must depend on what happened on the first draw – which is unknown in this case.</p>
 <p>We can formally show this using the Law of Total Probability. The conditioning event will be the unobserved result of the first draw. The partition is <span class="math notranslate nohighlight">\(W_1\)</span>, <span class="math notranslate nohighlight">\(\overline{W_1}\)</span>. Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cec2c242-bb73-4671-91f1-9ce19f0016b7">
-<span class="eqno">(6.18)<a class="headerlink" href="#equation-cec2c242-bb73-4671-91f1-9ce19f0016b7" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d5373f20-44d9-40e1-8cb7-ba0589cfaace">
+<span class="eqno">(6.18)<a class="headerlink" href="#equation-d5373f20-44d9-40e1-8cb7-ba0589cfaace" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(W_2) &amp;= P(W_2|W_1) P(W_1) + P(W_2 | \overline{W_1}) P(\overline{W_1})\\
 \end{align}\]</div>
 <p>If a white ball is drawn first (<span class="math notranslate nohighlight">\(W_1\)</span>), then there is one white ball and one black ball left, so <span class="math notranslate nohighlight">\(P(W_2|W_1) = 1/2\)</span>. If a black ball is drawn first (<span class="math notranslate nohighlight">\(\overline{W_1}\)</span>), then there are two white balls left, so <span class="math notranslate nohighlight">\(P(W_1| 
 \overline{W_1}) = 1\)</span>.  Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1ce16d0-c024-474b-b6ba-aa78058e726c">
-<span class="eqno">(6.19)<a class="headerlink" href="#equation-c1ce16d0-c024-474b-b6ba-aa78058e726c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c846e23a-d2a9-4532-bb3f-399174a4eac0">
+<span class="eqno">(6.19)<a class="headerlink" href="#equation-c846e23a-d2a9-4532-bb3f-399174a4eac0" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(W_2) &amp;= \left( \frac 1 2 \right) \left( \frac 2 3 \right) + \biggl( 1 \biggr) 
 \left( \frac 1 3 \right) \\
 &amp;= \frac 2 3,
@@ -809,8 +814,8 @@ P(W_2|S) = P(W_2|S \cap W_1) P(W_1|S) + P(W_2|S \cap \overline{W_1} ) P(\overlin
 <li><p>If you are not winning on the first choice (<span class="math notranslate nohighlight">\(\overline{W_1}\)</span>), then one of the doors you have not chosen has a goat and the other has the car. The host shows the goat that is not behind your door. Then if you switch, you will switch to the door with the car. Thus, <span class="math notranslate nohighlight">\(P(W_1 | \overline{W_1}) = 1\)</span>.</p></li>
 </ul>
 <p>Putting this all together,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57f4339a-5498-441d-a825-49a21c9f5e9d">
-<span class="eqno">(6.20)<a class="headerlink" href="#equation-57f4339a-5498-441d-a825-49a21c9f5e9d" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-40dc980f-d859-4b47-afce-817fe16ba37e">
+<span class="eqno">(6.20)<a class="headerlink" href="#equation-40dc980f-d859-4b47-afce-817fe16ba37e" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(W_2|S) &amp;= P(W_2|S \cap W_1) P(W_1|S) + P(W_2|S \cap \overline{W_1} ) P(\overline{W_1}|S) \\
 &amp;= \biggl( 0 \biggr) \left( \frac 1 3 \right) 
 + \biggl( 1 \biggr) \left( \frac 2 3 \right) \\

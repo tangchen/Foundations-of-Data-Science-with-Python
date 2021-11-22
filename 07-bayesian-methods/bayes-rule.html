@@ -380,8 +380,13 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="optimal-decisions.html">
+     7.3. Optimal Decisions for Discrete Stochastic Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="outline.html">
-     7.3. Outline of Remaining Sections
+     7.4. Outline of Remaining Sections
     </a>
    </li>
   </ul>
@@ -662,11 +667,12 @@ P(A_i | B_j).
 \[
 P(C|D) = \frac{P (C \cap D)}{P(D)}
 \]</div>
-<p>We can apply a chain rule to express <span class="math notranslate nohighlight">\(P(C \cap D)\)</span> in terms of a likelihood:
-$<span class="math notranslate nohighlight">\(
+<p>We can apply a chain rule to express <span class="math notranslate nohighlight">\(P(C \cap D)\)</span> in terms of a likelihood:</p>
+<div class="math notranslate nohighlight">
+\[
 P(C|D) = \frac{P (D|C)P(C)}{P(D)}.
-\)</span><span class="math notranslate nohighlight">\(
-Note however, that in addition to the likelihood, we also need \)</span>P(C)<span class="math notranslate nohighlight">\(. \)</span>P(C)$ is the probability of cancer without taking into account the mammogram, and is called an <em>a priori</em> probability:</p>
+\]</div>
+<p>Note however, that in addition to the likelihood, we also need <span class="math notranslate nohighlight">\(P(C)\)</span>. <span class="math notranslate nohighlight">\(P(C)\)</span> is the probability of cancer without taking into account the mammogram, and is called an <em>a priori</em> probability:</p>
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
@@ -732,8 +738,8 @@ P(A_i|B_j) = \frac{P\left(B_j \left \vert A_i \right. \right) P\left( A_i \right
 <img alt="../_images/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" src="../_images/Age_Specific_Rates_of_Breast_Cancer_2021.jpg" />
 <p>Based on this figure, <span class="math notranslate nohighlight">\(P(C) \approx 140/100,000 = 1.4 \times10^{-3}\)</span>, and <span class="math notranslate nohighlight">\(P\left( \overline{C} \right) = 1- P\left( C \right)\)</span>.</p>
 <p>Now we have enough data to calculate the conditional probability that a 40 year-old woman has cancer given that she has a mammogram that detects breast cancer:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bc3dafd0-cb7d-49fb-ae6c-299497ff861c">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-bc3dafd0-cb7d-49fb-ae6c-299497ff861c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-343a1c6a-4447-4af7-9eb7-460454c40b97">
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-343a1c6a-4447-4af7-9eb7-460454c40b97" title="Permalink to this equation">¶</a></span>\[\begin{align}
 P(C|D) &amp;= \frac{P (D|C)P(C)}{P(D|C) P(C) + P\left(D| \overline{C}\right) P\left(\overline{C}\right)} \\
 &amp;=\frac{(0.87)(1.4 \times 10^{-3})}{ (0.87)(1.4 \times 10^{-3}) +  \left[ \left( 0.1 \right) \left(1- 1.4 \times 10^{-3} \right)  \right]} \\
 \end{align}\]</div>
